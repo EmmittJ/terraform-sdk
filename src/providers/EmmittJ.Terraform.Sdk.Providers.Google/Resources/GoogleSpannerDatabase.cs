@@ -87,9 +87,9 @@ public partial class GoogleSpannerDatabase(string name) : TerraformResource("goo
     /// The dialect of the Cloud Spanner Database.
     /// If it is not provided, &amp;quot;GOOGLE_STANDARD_SQL&amp;quot; will be used. Possible values: [&amp;quot;GOOGLE_STANDARD_SQL&amp;quot;, &amp;quot;POSTGRESQL&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? DatabaseDialect
+    public TerraformValue<string> DatabaseDialect
     {
-        get => GetArgument<TerraformValue<string>>("database_dialect");
+        get => GetArgument<TerraformValue<string>>("database_dialect") ?? AsReference("database_dialect");
         set => SetArgument("database_dialect", value);
     }
 
@@ -153,9 +153,9 @@ public partial class GoogleSpannerDatabase(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleSpannerDatabase(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -176,16 +176,16 @@ public partial class GoogleSpannerDatabase(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -196,9 +196,9 @@ public partial class GoogleSpannerDatabase(string name) : TerraformResource("goo
     /// If this property is used, you must avoid adding new DDL statements to &#39;ddl&#39; that
     /// update the database&#39;s version_retention_period.
     /// </summary>
-    public TerraformValue<string>? VersionRetentionPeriod
+    public TerraformValue<string> VersionRetentionPeriod
     {
-        get => GetArgument<TerraformValue<string>>("version_retention_period");
+        get => GetArgument<TerraformValue<string>>("version_retention_period") ?? AsReference("version_retention_period");
         set => SetArgument("version_retention_period", value);
     }
 

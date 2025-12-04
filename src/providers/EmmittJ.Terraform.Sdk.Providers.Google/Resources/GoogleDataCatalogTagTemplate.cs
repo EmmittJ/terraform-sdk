@@ -16,18 +16,18 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// <summary>
     /// A description for this field.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The display name for this field.
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -37,16 +37,16 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldId is required")]
     public required TerraformValue<string> FieldId
     {
-        get => GetArgument<TerraformValue<string>>("field_id");
+        get => GetRequiredArgument<TerraformValue<string>>("field_id");
         set => SetArgument("field_id", value);
     }
 
     /// <summary>
     /// Whether this is a required field. Defaults to false.
     /// </summary>
-    public TerraformValue<bool>? IsRequired
+    public TerraformValue<bool> IsRequired
     {
-        get => GetArgument<TerraformValue<bool>>("is_required");
+        get => GetArgument<TerraformValue<bool>>("is_required") ?? AsReference("is_required");
         set => SetArgument("is_required", value);
     }
 
@@ -61,9 +61,9 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// A higher value indicates a more important field. The value can be negative.
     /// Multiple fields can have the same order, and field orders within a tag do not have to be sequential.
     /// </summary>
-    public TerraformValue<double>? Order
+    public TerraformValue<double> Order
     {
-        get => GetArgument<TerraformValue<double>>("order");
+        get => GetArgument<TerraformValue<double>>("order") ?? AsReference("order");
         set => SetArgument("order", value);
     }
 
@@ -97,9 +97,9 @@ public class GoogleDataCatalogTagTemplateFieldsBlockTypeBlock : TerraformBlock
     /// Represents primitive types - string, bool etc.
     ///  Exactly one of &#39;primitive_type&#39; or &#39;enum_type&#39; must be set Possible values: [&amp;quot;DOUBLE&amp;quot;, &amp;quot;STRING&amp;quot;, &amp;quot;BOOL&amp;quot;, &amp;quot;TIMESTAMP&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? PrimitiveType
+    public TerraformValue<string> PrimitiveType
     {
-        get => GetArgument<TerraformValue<string>>("primitive_type");
+        get => GetArgument<TerraformValue<string>>("primitive_type") ?? AsReference("primitive_type");
         set => SetArgument("primitive_type", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlockTypeBlockEnumTypeBlockAllowe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -233,27 +233,27 @@ public partial class GoogleDataCatalogTagTemplate(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Template location region.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -263,7 +263,7 @@ public partial class GoogleDataCatalogTagTemplate(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagTemplateId is required")]
     public required TerraformValue<string> TagTemplateId
     {
-        get => GetArgument<TerraformValue<string>>("tag_template_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tag_template_id");
         set => SetArgument("tag_template_id", value);
     }
 

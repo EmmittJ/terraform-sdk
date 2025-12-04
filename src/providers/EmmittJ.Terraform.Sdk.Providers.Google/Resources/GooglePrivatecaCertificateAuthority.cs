@@ -104,7 +104,7 @@ public class GooglePrivatecaCertificateAuthorityConfigBlockSubjectConfigBlockSub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonName is required")]
     public required TerraformValue<string> CommonName
     {
-        get => GetArgument<TerraformValue<string>>("common_name");
+        get => GetRequiredArgument<TerraformValue<string>>("common_name");
         set => SetArgument("common_name", value);
     }
 
@@ -339,7 +339,7 @@ public class GooglePrivatecaCertificateAuthorityConfigBlockX509ConfigBlockAdditi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Critical is required")]
     public required TerraformValue<bool> Critical
     {
-        get => GetArgument<TerraformValue<bool>>("critical");
+        get => GetRequiredArgument<TerraformValue<bool>>("critical");
         set => SetArgument("critical", value);
     }
 
@@ -349,7 +349,7 @@ public class GooglePrivatecaCertificateAuthorityConfigBlockX509ConfigBlockAdditi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -408,7 +408,7 @@ public class GooglePrivatecaCertificateAuthorityConfigBlockX509ConfigBlockCaOpti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsCa is required")]
     public required TerraformValue<bool> IsCa
     {
-        get => GetArgument<TerraformValue<bool>>("is_ca");
+        get => GetRequiredArgument<TerraformValue<bool>>("is_ca");
         set => SetArgument("is_ca", value);
     }
 
@@ -695,7 +695,7 @@ public class GooglePrivatecaCertificateAuthorityConfigBlockX509ConfigBlockNameCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Critical is required")]
     public required TerraformValue<bool> Critical
     {
-        get => GetArgument<TerraformValue<bool>>("critical");
+        get => GetRequiredArgument<TerraformValue<bool>>("critical");
         set => SetArgument("critical", value);
     }
 
@@ -998,7 +998,7 @@ public partial class GooglePrivatecaCertificateAuthority(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityId is required")]
     public required TerraformValue<string> CertificateAuthorityId
     {
-        get => GetArgument<TerraformValue<string>>("certificate_authority_id");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_authority_id");
         set => SetArgument("certificate_authority_id", value);
     }
 
@@ -1040,9 +1040,9 @@ public partial class GooglePrivatecaCertificateAuthority(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1090,7 +1090,7 @@ public partial class GooglePrivatecaCertificateAuthority(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1109,16 +1109,16 @@ public partial class GooglePrivatecaCertificateAuthority(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pool is required")]
     public required TerraformValue<string> Pool
     {
-        get => GetArgument<TerraformValue<string>>("pool");
+        get => GetRequiredArgument<TerraformValue<string>>("pool");
         set => SetArgument("pool", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

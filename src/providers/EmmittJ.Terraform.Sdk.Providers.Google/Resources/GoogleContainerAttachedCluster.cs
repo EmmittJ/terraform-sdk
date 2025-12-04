@@ -92,7 +92,7 @@ public class GoogleContainerAttachedClusterFleetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleContainerAttachedClusterOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUrl is required")]
     public required TerraformValue<string> IssuerUrl
     {
-        get => GetArgument<TerraformValue<string>>("issuer_url");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer_url");
         set => SetArgument("issuer_url", value);
     }
 
@@ -264,7 +264,7 @@ public class GoogleContainerAttachedClusterProxyConfigBlockKubernetesSecretBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -274,7 +274,7 @@ public class GoogleContainerAttachedClusterProxyConfigBlockKubernetesSecretBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -299,7 +299,7 @@ public class GoogleContainerAttachedClusterSecurityPostureConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VulnerabilityMode is required")]
     public required TerraformValue<string> VulnerabilityMode
     {
-        get => GetArgument<TerraformValue<string>>("vulnerability_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("vulnerability_mode");
         set => SetArgument("vulnerability_mode", value);
     }
 
@@ -398,16 +398,16 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Distribution is required")]
     public required TerraformValue<string> Distribution
     {
-        get => GetArgument<TerraformValue<string>>("distribution");
+        get => GetRequiredArgument<TerraformValue<string>>("distribution");
         set => SetArgument("distribution", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -417,7 +417,7 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -427,7 +427,7 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -437,16 +437,16 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformVersion is required")]
     public required TerraformValue<string> PlatformVersion
     {
-        get => GetArgument<TerraformValue<string>>("platform_version");
+        get => GetRequiredArgument<TerraformValue<string>>("platform_version");
         set => SetArgument("platform_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

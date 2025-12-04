@@ -14,16 +14,16 @@ public partial class GoogleContainerAttachedInstallManifestDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleContainerAttachedInstallManifestDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleContainerAttachedInstallManifestDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformVersion is required")]
     public required TerraformValue<string> PlatformVersion
     {
-        get => GetArgument<TerraformValue<string>>("platform_version");
+        get => GetRequiredArgument<TerraformValue<string>>("platform_version");
         set => SetArgument("platform_version", value);
     }
 
@@ -53,7 +53,7 @@ public partial class GoogleContainerAttachedInstallManifestDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 

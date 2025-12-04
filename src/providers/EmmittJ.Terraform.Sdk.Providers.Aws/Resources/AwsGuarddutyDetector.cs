@@ -89,7 +89,7 @@ public class AwsGuarddutyDetectorDatasourcesBlockKubernetesBlockAuditLogsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformValue<bool> Enable
     {
-        get => GetArgument<TerraformValue<bool>>("enable");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsGuarddutyDetectorDatasourcesBlockMalwareProtectionBlockScanEc2In
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformValue<bool> Enable
     {
-        get => GetArgument<TerraformValue<bool>>("enable");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsGuarddutyDetectorDatasourcesBlockS3LogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformValue<bool> Enable
     {
-        get => GetArgument<TerraformValue<bool>>("enable");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -212,27 +212,27 @@ public partial class AwsGuarddutyDetector(string name) : TerraformResource("aws_
     /// <summary>
     /// The finding_publishing_frequency attribute.
     /// </summary>
-    public TerraformValue<string>? FindingPublishingFrequency
+    public TerraformValue<string> FindingPublishingFrequency
     {
-        get => GetArgument<TerraformValue<string>>("finding_publishing_frequency");
+        get => GetArgument<TerraformValue<string>>("finding_publishing_frequency") ?? AsReference("finding_publishing_frequency");
         set => SetArgument("finding_publishing_frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -248,9 +248,9 @@ public partial class AwsGuarddutyDetector(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

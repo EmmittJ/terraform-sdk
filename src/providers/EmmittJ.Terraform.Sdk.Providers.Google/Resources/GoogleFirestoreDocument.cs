@@ -55,7 +55,7 @@ public partial class GoogleFirestoreDocument(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformValue<string> Collection
     {
-        get => GetArgument<TerraformValue<string>>("collection");
+        get => GetRequiredArgument<TerraformValue<string>>("collection");
         set => SetArgument("collection", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleFirestoreDocument(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentId is required")]
     public required TerraformValue<string> DocumentId
     {
-        get => GetArgument<TerraformValue<string>>("document_id");
+        get => GetRequiredArgument<TerraformValue<string>>("document_id");
         set => SetArgument("document_id", value);
     }
 
@@ -84,25 +84,25 @@ public partial class GoogleFirestoreDocument(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     public required TerraformValue<string> Fields
     {
-        get => GetArgument<TerraformValue<string>>("fields");
+        get => GetRequiredArgument<TerraformValue<string>>("fields");
         set => SetArgument("fields", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -64,7 +64,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
     public required TerraformValue<string> Access
     {
-        get => GetArgument<TerraformValue<string>>("access");
+        get => GetRequiredArgument<TerraformValue<string>>("access");
         set => SetArgument("access", value);
     }
 
@@ -128,16 +128,16 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => GetArgument<TerraformValue<string>>("direction");
+        get => GetRequiredArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupName is required")]
     public required TerraformValue<string> NetworkSecurityGroupName
     {
-        get => GetArgument<TerraformValue<string>>("network_security_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("network_security_group_name");
         set => SetArgument("network_security_group_name", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

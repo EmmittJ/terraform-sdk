@@ -52,9 +52,9 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     /// <summary>
     /// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource
     /// </summary>
-    public TerraformValue<string>? AvailabilityZone
+    public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
     public required TerraformValue<string> AvailabilityZoneId
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone_id");
+        get => GetRequiredArgument<TerraformValue<string>>("availability_zone_id");
         set => SetArgument("availability_zone_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupSubnetCidr is required")]
     public required TerraformValue<string> BackupSubnetCidr
     {
-        get => GetArgument<TerraformValue<string>>("backup_subnet_cidr");
+        get => GetRequiredArgument<TerraformValue<string>>("backup_subnet_cidr");
         set => SetArgument("backup_subnet_cidr", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSubnetCidr is required")]
     public required TerraformValue<string> ClientSubnetCidr
     {
-        get => GetArgument<TerraformValue<string>>("client_subnet_cidr");
+        get => GetRequiredArgument<TerraformValue<string>>("client_subnet_cidr");
         set => SetArgument("client_subnet_cidr", value);
     }
 
@@ -127,9 +127,9 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     /// <summary>
     /// If set to true deletes associated OCI resources. Default false.
     /// </summary>
-    public TerraformValue<bool>? DeleteAssociatedResources
+    public TerraformValue<bool> DeleteAssociatedResources
     {
-        get => GetArgument<TerraformValue<bool>>("delete_associated_resources");
+        get => GetArgument<TerraformValue<bool>>("delete_associated_resources") ?? AsReference("delete_associated_resources");
         set => SetArgument("delete_associated_resources", value);
     }
 
@@ -139,16 +139,16 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Access is required")]
     public required TerraformValue<string> S3Access
     {
-        get => GetArgument<TerraformValue<string>>("s3_access");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_access");
         set => SetArgument("s3_access", value);
     }
 
@@ -186,7 +186,7 @@ public partial class AwsOdbNetwork(string name) : TerraformResource("aws_odb_net
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZeroEtlAccess is required")]
     public required TerraformValue<string> ZeroEtlAccess
     {
-        get => GetArgument<TerraformValue<string>>("zero_etl_access");
+        get => GetRequiredArgument<TerraformValue<string>>("zero_etl_access");
         set => SetArgument("zero_etl_access", value);
     }
 

@@ -21,7 +21,7 @@ public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformValue<string> WebhookSecretSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("webhook_secret_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("webhook_secret_secret_version");
         set => SetArgument("webhook_secret_secret_version", value);
     }
 
@@ -31,7 +31,7 @@ public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Workspace is required")]
     public required TerraformValue<string> Workspace
     {
-        get => GetArgument<TerraformValue<string>>("workspace");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace");
         set => SetArgument("workspace", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlockAuthorizer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlockReadAuthor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformValue<string> HostUri
     {
-        get => GetArgument<TerraformValue<string>>("host_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("host_uri");
         set => SetArgument("host_uri", value);
     }
 
@@ -171,7 +171,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformValue<string> WebhookSecretSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("webhook_secret_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("webhook_secret_secret_version");
         set => SetArgument("webhook_secret_secret_version", value);
     }
 
@@ -232,7 +232,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlockAutho
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -263,7 +263,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlockReadA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -294,7 +294,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlockServi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleDeveloperConnectConnectionCryptoKeyConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyReference is required")]
     public required TerraformValue<string> KeyReference
     {
-        get => GetArgument<TerraformValue<string>>("key_reference");
+        get => GetRequiredArgument<TerraformValue<string>>("key_reference");
         set => SetArgument("key_reference", value);
     }
 
@@ -341,9 +341,9 @@ public class GoogleDeveloperConnectConnectionGithubConfigBlock : TerraformBlock
     /// <summary>
     /// Optional. GitHub App installation id.
     /// </summary>
-    public TerraformValue<string>? AppInstallationId
+    public TerraformValue<string> AppInstallationId
     {
-        get => GetArgument<TerraformValue<string>>("app_installation_id");
+        get => GetArgument<TerraformValue<string>>("app_installation_id") ?? AsReference("app_installation_id");
         set => SetArgument("app_installation_id", value);
     }
 
@@ -358,7 +358,7 @@ public class GoogleDeveloperConnectConnectionGithubConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GithubApp is required")]
     public required TerraformValue<string> GithubApp
     {
-        get => GetArgument<TerraformValue<string>>("github_app");
+        get => GetRequiredArgument<TerraformValue<string>>("github_app");
         set => SetArgument("github_app", value);
     }
 
@@ -399,7 +399,7 @@ public class GoogleDeveloperConnectConnectionGithubConfigBlockAuthorizerCredenti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthTokenSecretVersion is required")]
     public required TerraformValue<string> OauthTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("oauth_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("oauth_token_secret_version");
         set => SetArgument("oauth_token_secret_version", value);
     }
 
@@ -453,7 +453,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformValue<string> HostUri
     {
-        get => GetArgument<TerraformValue<string>>("host_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("host_uri");
         set => SetArgument("host_uri", value);
     }
 
@@ -530,7 +530,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlockServiceD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -556,7 +556,7 @@ public class GoogleDeveloperConnectConnectionGitlabConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformValue<string> WebhookSecretSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("webhook_secret_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("webhook_secret_secret_version");
         set => SetArgument("webhook_secret_secret_version", value);
     }
 
@@ -607,7 +607,7 @@ public class GoogleDeveloperConnectConnectionGitlabConfigBlockAuthorizerCredenti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -638,7 +638,7 @@ public class GoogleDeveloperConnectConnectionGitlabConfigBlockReadAuthorizerCred
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -668,7 +668,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformValue<string> HostUri
     {
-        get => GetArgument<TerraformValue<string>>("host_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("host_uri");
         set => SetArgument("host_uri", value);
     }
 
@@ -696,7 +696,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformValue<string> WebhookSecretSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("webhook_secret_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("webhook_secret_secret_version");
         set => SetArgument("webhook_secret_secret_version", value);
     }
 
@@ -757,7 +757,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlockAuthoriz
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -788,7 +788,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlockReadAuth
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -819,7 +819,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlockServiceD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -893,7 +893,7 @@ public partial class GoogleDeveloperConnectConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformValue<string> ConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("connection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
@@ -922,9 +922,9 @@ public partial class GoogleDeveloperConnectConnection(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -946,16 +946,16 @@ public partial class GoogleDeveloperConnectConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

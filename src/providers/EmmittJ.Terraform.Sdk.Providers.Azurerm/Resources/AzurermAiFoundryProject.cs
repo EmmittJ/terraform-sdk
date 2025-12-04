@@ -40,7 +40,7 @@ public class AzurermAiFoundryProjectIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermAiFoundryProject(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AiServicesHubId is required")]
     public required TerraformValue<string> AiServicesHubId
     {
-        get => GetArgument<TerraformValue<string>>("ai_services_hub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("ai_services_hub_id");
         set => SetArgument("ai_services_hub_id", value);
     }
 
@@ -134,18 +134,18 @@ public partial class AzurermAiFoundryProject(string name) : TerraformResource("a
     /// <summary>
     /// The high_business_impact_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? HighBusinessImpactEnabled
+    public TerraformValue<bool> HighBusinessImpactEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("high_business_impact_enabled");
+        get => GetArgument<TerraformValue<bool>>("high_business_impact_enabled") ?? AsReference("high_business_impact_enabled");
         set => SetArgument("high_business_impact_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermAiFoundryProject(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermAiFoundryProject(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

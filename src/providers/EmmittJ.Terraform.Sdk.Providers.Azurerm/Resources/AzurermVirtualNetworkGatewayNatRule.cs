@@ -19,7 +19,7 @@ public class AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformValue<string> AddressSpace
     {
-        get => GetArgument<TerraformValue<string>>("address_space");
+        get => GetRequiredArgument<TerraformValue<string>>("address_space");
         set => SetArgument("address_space", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformValue<string> AddressSpace
     {
-        get => GetArgument<TerraformValue<string>>("address_space");
+        get => GetRequiredArgument<TerraformValue<string>>("address_space");
         set => SetArgument("address_space", value);
     }
 
@@ -127,9 +127,9 @@ public partial class AzurermVirtualNetworkGatewayNatRule(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermVirtualNetworkGatewayNatRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermVirtualNetworkGatewayNatRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -186,7 +186,7 @@ public partial class AzurermVirtualNetworkGatewayNatRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkGatewayId is required")]
     public required TerraformValue<string> VirtualNetworkGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_network_gateway_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_network_gateway_id");
         set => SetArgument("virtual_network_gateway_id", value);
     }
 

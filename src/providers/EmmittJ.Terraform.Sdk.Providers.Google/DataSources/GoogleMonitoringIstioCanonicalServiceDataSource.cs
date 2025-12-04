@@ -15,7 +15,7 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanonicalService is required")]
     public required TerraformValue<string> CanonicalService
     {
-        get => GetArgument<TerraformValue<string>>("canonical_service");
+        get => GetRequiredArgument<TerraformValue<string>>("canonical_service");
         set => SetArgument("canonical_service", value);
     }
 
@@ -26,16 +26,16 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanonicalServiceNamespace is required")]
     public required TerraformValue<string> CanonicalServiceNamespace
     {
-        get => GetArgument<TerraformValue<string>>("canonical_service_namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("canonical_service_namespace");
         set => SetArgument("canonical_service_namespace", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshUid is required")]
     public required TerraformValue<string> MeshUid
     {
-        get => GetArgument<TerraformValue<string>>("mesh_uid");
+        get => GetRequiredArgument<TerraformValue<string>>("mesh_uid");
         set => SetArgument("mesh_uid", value);
     }
 

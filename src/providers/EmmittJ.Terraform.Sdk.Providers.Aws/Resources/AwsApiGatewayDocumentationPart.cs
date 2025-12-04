@@ -55,7 +55,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -71,9 +71,9 @@ public partial class AwsApiGatewayDocumentationPart(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AwsApiGatewayDocumentationPart(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Properties is required")]
     public required TerraformValue<string> Properties
     {
-        get => GetArgument<TerraformValue<string>>("properties");
+        get => GetRequiredArgument<TerraformValue<string>>("properties");
         set => SetArgument("properties", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsApiGatewayDocumentationPart(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => GetArgument<TerraformValue<string>>("rest_api_id");
+        get => GetRequiredArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 

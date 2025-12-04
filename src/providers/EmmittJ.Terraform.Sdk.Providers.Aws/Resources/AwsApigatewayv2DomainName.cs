@@ -19,7 +19,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
     public required TerraformValue<string> CertificateArn
     {
-        get => GetArgument<TerraformValue<string>>("certificate_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_arn");
         set => SetArgument("certificate_arn", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformValue<string> EndpointType
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_type");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_type");
         set => SetArgument("endpoint_type", value);
     }
 
@@ -42,18 +42,18 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string>? IpAddressType
+    public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
     /// <summary>
     /// The ownership_verification_certificate_arn attribute.
     /// </summary>
-    public TerraformValue<string>? OwnershipVerificationCertificateArn
+    public TerraformValue<string> OwnershipVerificationCertificateArn
     {
-        get => GetArgument<TerraformValue<string>>("ownership_verification_certificate_arn");
+        get => GetArgument<TerraformValue<string>>("ownership_verification_certificate_arn") ?? AsReference("ownership_verification_certificate_arn");
         set => SetArgument("ownership_verification_certificate_arn", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
     public required TerraformValue<string> SecurityPolicy
     {
-        get => GetArgument<TerraformValue<string>>("security_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("security_policy");
         set => SetArgument("security_policy", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TruststoreUri is required")]
     public required TerraformValue<string> TruststoreUri
     {
-        get => GetArgument<TerraformValue<string>>("truststore_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("truststore_uri");
         set => SetArgument("truststore_uri", value);
     }
 
@@ -153,25 +153,25 @@ public partial class AwsApigatewayv2DomainName(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -187,9 +187,9 @@ public partial class AwsApigatewayv2DomainName(string name) : TerraformResource(
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

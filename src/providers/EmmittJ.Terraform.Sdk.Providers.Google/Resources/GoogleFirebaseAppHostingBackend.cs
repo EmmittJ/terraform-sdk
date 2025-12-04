@@ -23,7 +23,7 @@ public class GoogleFirebaseAppHostingBackendCodebaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => GetArgument<TerraformValue<string>>("repository");
+        get => GetRequiredArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleFirebaseAppHostingBackend(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => GetArgument<TerraformValue<string>>("app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleFirebaseAppHostingBackend(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendId is required")]
     public required TerraformValue<string> BackendId
     {
-        get => GetArgument<TerraformValue<string>>("backend_id");
+        get => GetRequiredArgument<TerraformValue<string>>("backend_id");
         set => SetArgument("backend_id", value);
     }
 
@@ -146,9 +146,9 @@ public partial class GoogleFirebaseAppHostingBackend(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -171,16 +171,16 @@ public partial class GoogleFirebaseAppHostingBackend(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -192,7 +192,7 @@ public partial class GoogleFirebaseAppHostingBackend(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetRequiredArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -204,7 +204,7 @@ public partial class GoogleFirebaseAppHostingBackend(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServingLocality is required")]
     public required TerraformValue<string> ServingLocality
     {
-        get => GetArgument<TerraformValue<string>>("serving_locality");
+        get => GetRequiredArgument<TerraformValue<string>>("serving_locality");
         set => SetArgument("serving_locality", value);
     }
 

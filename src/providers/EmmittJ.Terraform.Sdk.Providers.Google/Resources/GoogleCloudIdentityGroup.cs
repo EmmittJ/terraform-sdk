@@ -27,7 +27,7 @@ public class GoogleCloudIdentityGroupGroupKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -119,9 +119,9 @@ public partial class GoogleCloudIdentityGroup(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -152,7 +152,7 @@ public partial class GoogleCloudIdentityGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Labels is required")]
     public required TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels");
+        get => GetRequiredArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -166,7 +166,7 @@ public partial class GoogleCloudIdentityGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 

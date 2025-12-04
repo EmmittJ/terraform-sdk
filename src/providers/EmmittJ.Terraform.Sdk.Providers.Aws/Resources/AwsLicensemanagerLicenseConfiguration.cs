@@ -20,9 +20,9 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseCountingType is required")]
     public required TerraformValue<string> LicenseCountingType
     {
-        get => GetArgument<TerraformValue<string>>("license_counting_type");
+        get => GetRequiredArgument<TerraformValue<string>>("license_counting_type");
         set => SetArgument("license_counting_type", value);
     }
 
@@ -69,16 +69,16 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -94,9 +94,9 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

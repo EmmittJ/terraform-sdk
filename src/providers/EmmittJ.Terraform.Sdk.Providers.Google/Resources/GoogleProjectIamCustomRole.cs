@@ -20,9 +20,9 @@ public partial class GoogleProjectIamCustomRole(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,16 +32,16 @@ public partial class GoogleProjectIamCustomRole(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformSet<string> Permissions
     {
-        get => GetArgument<TerraformSet<string>>("permissions");
+        get => GetRequiredArgument<TerraformSet<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
     /// <summary>
     /// The project that the service account will be created in. Defaults to the provider project configuration.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleProjectIamCustomRole(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformValue<string> RoleId
     {
-        get => GetArgument<TerraformValue<string>>("role_id");
+        get => GetRequiredArgument<TerraformValue<string>>("role_id");
         set => SetArgument("role_id", value);
     }
 
@@ -70,7 +70,7 @@ public partial class GoogleProjectIamCustomRole(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => GetArgument<TerraformValue<string>>("title");
+        get => GetRequiredArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 

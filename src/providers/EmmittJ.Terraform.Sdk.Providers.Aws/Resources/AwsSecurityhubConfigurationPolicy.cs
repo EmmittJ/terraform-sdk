@@ -28,7 +28,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceEnabled is required")]
     public required TerraformValue<bool> ServiceEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("service_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("service_enabled");
         set => SetArgument("service_enabled", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityControlId is required")]
     public required TerraformValue<string> SecurityControlId
     {
-        get => GetArgument<TerraformValue<string>>("security_control_id");
+        get => GetRequiredArgument<TerraformValue<string>>("security_control_id");
         set => SetArgument("security_control_id", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformValue<string> ValueType
     {
-        get => GetArgument<TerraformValue<string>>("value_type");
+        get => GetRequiredArgument<TerraformValue<string>>("value_type");
         set => SetArgument("value_type", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<bool> Value
     {
-        get => GetArgument<TerraformValue<bool>>("value");
+        get => GetRequiredArgument<TerraformValue<bool>>("value");
         set => SetArgument("value", value);
     }
 
@@ -272,7 +272,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -295,7 +295,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -341,7 +341,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -387,7 +387,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -435,9 +435,9 @@ public partial class AwsSecurityhubConfigurationPolicy(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -447,16 +447,16 @@ public partial class AwsSecurityhubConfigurationPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

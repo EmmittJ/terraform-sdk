@@ -19,7 +19,7 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkTargetId is required")]
     public required TerraformValue<string> PrivateLinkTargetId
     {
-        get => GetArgument<TerraformValue<string>>("private_link_target_id");
+        get => GetRequiredArgument<TerraformValue<string>>("private_link_target_id");
         set => SetArgument("private_link_target_id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AzurermCdnFrontdoorOrigin(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorOriginGroupId is required")]
     public required TerraformValue<string> CdnFrontdoorOriginGroupId
     {
-        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_origin_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cdn_frontdoor_origin_group_id");
         set => SetArgument("cdn_frontdoor_origin_group_id", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AzurermCdnFrontdoorOrigin(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateNameCheckEnabled is required")]
     public required TerraformValue<bool> CertificateNameCheckEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("certificate_name_check_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("certificate_name_check_enabled");
         set => SetArgument("certificate_name_check_enabled", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermCdnFrontdoorOrigin(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -170,9 +170,9 @@ public partial class AzurermCdnFrontdoorOrigin(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermCdnFrontdoorOrigin(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

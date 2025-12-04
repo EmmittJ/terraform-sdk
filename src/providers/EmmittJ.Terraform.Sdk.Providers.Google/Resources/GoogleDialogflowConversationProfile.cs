@@ -20,7 +20,7 @@ public class GoogleDialogflowConversationProfileAutomatedAgentConfigBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Agent is required")]
     public required TerraformValue<string> Agent
     {
-        get => GetArgument<TerraformValue<string>>("agent");
+        get => GetRequiredArgument<TerraformValue<string>>("agent");
         set => SetArgument("agent", value);
     }
 
@@ -445,7 +445,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Agent is required")]
     public required TerraformValue<string> Agent
     {
-        get => GetArgument<TerraformValue<string>>("agent");
+        get => GetRequiredArgument<TerraformValue<string>>("agent");
         set => SetArgument("agent", value);
     }
 
@@ -941,7 +941,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Agent is required")]
     public required TerraformValue<string> Agent
     {
-        get => GetArgument<TerraformValue<string>>("agent");
+        get => GetRequiredArgument<TerraformValue<string>>("agent");
         set => SetArgument("agent", value);
     }
 
@@ -1158,7 +1158,7 @@ public class GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlockLive
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountNumber is required")]
     public required TerraformValue<string> AccountNumber
     {
-        get => GetArgument<TerraformValue<string>>("account_number");
+        get => GetRequiredArgument<TerraformValue<string>>("account_number");
         set => SetArgument("account_number", value);
     }
 
@@ -1319,9 +1319,9 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// <summary>
     /// The language of the supplied audio.
     /// </summary>
-    public TerraformValue<string>? LanguageCode
+    public TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetArgument<TerraformValue<string>>("language_code") ?? AsReference("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -1509,25 +1509,25 @@ public partial class GoogleDialogflowConversationProfile(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Language code for the conversation profile. This should be a BCP-47 language tag.
     /// </summary>
-    public TerraformValue<string>? LanguageCode
+    public TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetArgument<TerraformValue<string>>("language_code") ?? AsReference("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -1537,16 +1537,16 @@ public partial class GoogleDialogflowConversationProfile(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

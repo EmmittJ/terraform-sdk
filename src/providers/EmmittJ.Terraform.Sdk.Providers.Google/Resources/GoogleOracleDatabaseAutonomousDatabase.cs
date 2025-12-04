@@ -65,9 +65,9 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// in days, can range from 1 day to 60 days, and has a default value of
     /// 60 days.
     /// </summary>
-    public TerraformValue<double>? BackupRetentionPeriodDays
+    public TerraformValue<double> BackupRetentionPeriodDays
     {
-        get => GetArgument<TerraformValue<double>>("backup_retention_period_days");
+        get => GetArgument<TerraformValue<double>>("backup_retention_period_days") ?? AsReference("backup_retention_period_days");
         set => SetArgument("backup_retention_period_days", value);
     }
 
@@ -83,9 +83,9 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// <summary>
     /// The number of compute servers for the Autonomous Database.
     /// </summary>
-    public TerraformValue<double>? ComputeCount
+    public TerraformValue<double> ComputeCount
     {
-        get => GetArgument<TerraformValue<double>>("compute_count");
+        get => GetArgument<TerraformValue<double>>("compute_count") ?? AsReference("compute_count");
         set => SetArgument("compute_count", value);
     }
 
@@ -121,18 +121,18 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// <summary>
     /// The size of the data stored in the database, in gigabytes.
     /// </summary>
-    public TerraformValue<double>? DataStorageSizeGb
+    public TerraformValue<double> DataStorageSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_gb") ?? AsReference("data_storage_size_gb");
         set => SetArgument("data_storage_size_gb", value);
     }
 
     /// <summary>
     /// The size of the data stored in the database, in terabytes.
     /// </summary>
-    public TerraformValue<double>? DataStorageSizeTb
+    public TerraformValue<double> DataStorageSizeTb
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_size_tb");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_tb") ?? AsReference("data_storage_size_tb");
         set => SetArgument("data_storage_size_tb", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbWorkload is required")]
     public required TerraformValue<string> DbWorkload
     {
-        get => GetArgument<TerraformValue<string>>("db_workload");
+        get => GetRequiredArgument<TerraformValue<string>>("db_workload");
         set => SetArgument("db_workload", value);
     }
 
@@ -215,9 +215,9 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// This field indicates if auto scaling is enabled for the Autonomous Database
     /// storage.
     /// </summary>
-    public TerraformValue<bool>? IsStorageAutoScalingEnabled
+    public TerraformValue<bool> IsStorageAutoScalingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("is_storage_auto_scaling_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_storage_auto_scaling_enabled") ?? AsReference("is_storage_auto_scaling_enabled");
         set => SetArgument("is_storage_auto_scaling_enabled", value);
     }
 
@@ -231,7 +231,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformValue<string> LicenseType
     {
-        get => GetArgument<TerraformValue<string>>("license_type");
+        get => GetRequiredArgument<TerraformValue<string>>("license_type");
         set => SetArgument("license_type", value);
     }
 
@@ -285,9 +285,9 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// EARLY
     /// REGULAR
     /// </summary>
-    public TerraformValue<string>? MaintenanceScheduleType
+    public TerraformValue<string> MaintenanceScheduleType
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_schedule_type");
+        get => GetArgument<TerraformValue<string>>("maintenance_schedule_type") ?? AsReference("maintenance_schedule_type");
         set => SetArgument("maintenance_schedule_type", value);
     }
 
@@ -361,9 +361,9 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// FAILED_ENABLING
     /// FAILED_DISABLING
     /// </summary>
-    public TerraformValue<string>? OperationsInsightsState
+    public TerraformValue<string> OperationsInsightsState
     {
-        get => GetArgument<TerraformValue<string>>("operations_insights_state");
+        get => GetArgument<TerraformValue<string>>("operations_insights_state") ?? AsReference("operations_insights_state");
         set => SetArgument("operations_insights_state", value);
     }
 
@@ -393,18 +393,18 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// <summary>
     /// The private endpoint IP address for the Autonomous Database.
     /// </summary>
-    public TerraformValue<string>? PrivateEndpointIp
+    public TerraformValue<string> PrivateEndpointIp
     {
-        get => GetArgument<TerraformValue<string>>("private_endpoint_ip");
+        get => GetArgument<TerraformValue<string>>("private_endpoint_ip") ?? AsReference("private_endpoint_ip");
         set => SetArgument("private_endpoint_ip", value);
     }
 
     /// <summary>
     /// The private endpoint label for the Autonomous Database.
     /// </summary>
-    public TerraformValue<string>? PrivateEndpointLabel
+    public TerraformValue<string> PrivateEndpointLabel
     {
-        get => GetArgument<TerraformValue<string>>("private_endpoint_label");
+        get => GetArgument<TerraformValue<string>>("private_endpoint_label") ?? AsReference("private_endpoint_label");
         set => SetArgument("private_endpoint_label", value);
     }
 
@@ -531,7 +531,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlockCustomerContac
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -603,7 +603,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformValue<string> AutonomousDatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("autonomous_database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("autonomous_database_id");
         set => SetArgument("autonomous_database_id", value);
     }
 
@@ -624,7 +624,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -641,18 +641,18 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// The display name for the Autonomous Database. The name does not have to
     /// be unique within your project.
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -674,7 +674,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -695,9 +695,9 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
-    public TerraformValue<string>? OdbNetwork
+    public TerraformValue<string> OdbNetwork
     {
-        get => GetArgument<TerraformValue<string>>("odb_network");
+        get => GetArgument<TerraformValue<string>>("odb_network") ?? AsReference("odb_network");
         set => SetArgument("odb_network", value);
     }
 
@@ -706,18 +706,18 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// IP allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformValue<string>? OdbSubnet
+    public TerraformValue<string> OdbSubnet
     {
-        get => GetArgument<TerraformValue<string>>("odb_subnet");
+        get => GetArgument<TerraformValue<string>>("odb_subnet") ?? AsReference("odb_subnet");
         set => SetArgument("odb_subnet", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

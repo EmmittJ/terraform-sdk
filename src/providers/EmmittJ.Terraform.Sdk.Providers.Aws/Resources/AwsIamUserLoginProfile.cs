@@ -11,9 +11,9 @@ public partial class AwsIamUserLoginProfile(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -29,9 +29,9 @@ public partial class AwsIamUserLoginProfile(string name) : TerraformResource("aw
     /// <summary>
     /// The password_reset_required attribute.
     /// </summary>
-    public TerraformValue<bool>? PasswordResetRequired
+    public TerraformValue<bool> PasswordResetRequired
     {
-        get => GetArgument<TerraformValue<bool>>("password_reset_required");
+        get => GetArgument<TerraformValue<bool>>("password_reset_required") ?? AsReference("password_reset_required");
         set => SetArgument("password_reset_required", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsIamUserLoginProfile(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => GetArgument<TerraformValue<string>>("user");
+        get => GetRequiredArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 

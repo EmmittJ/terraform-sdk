@@ -206,7 +206,7 @@ public partial class AzurermPaloAltoLocalRulestackRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -259,9 +259,9 @@ public partial class AzurermPaloAltoLocalRulestackRule(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -289,7 +289,7 @@ public partial class AzurermPaloAltoLocalRulestackRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -317,7 +317,7 @@ public partial class AzurermPaloAltoLocalRulestackRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -345,7 +345,7 @@ public partial class AzurermPaloAltoLocalRulestackRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
     public required TerraformValue<string> RulestackId
     {
-        get => GetArgument<TerraformValue<string>>("rulestack_id");
+        get => GetRequiredArgument<TerraformValue<string>>("rulestack_id");
         set => SetArgument("rulestack_id", value);
     }
 

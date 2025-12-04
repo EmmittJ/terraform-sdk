@@ -70,9 +70,9 @@ public partial class AzurermMssqlManagedInstanceTransparentDataEncryption(string
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermMssqlManagedInstanceTransparentDataEncryption(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformValue<string> ManagedInstanceId
     {
-        get => GetArgument<TerraformValue<string>>("managed_instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_instance_id");
         set => SetArgument("managed_instance_id", value);
     }
 

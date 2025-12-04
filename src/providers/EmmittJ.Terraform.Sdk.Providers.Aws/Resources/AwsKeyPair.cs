@@ -11,27 +11,27 @@ public partial class AwsKeyPair(string name) : TerraformResource("aws_key_pair",
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformValue<string>? KeyName
+    public TerraformValue<string> KeyName
     {
-        get => GetArgument<TerraformValue<string>>("key_name");
+        get => GetArgument<TerraformValue<string>>("key_name") ?? AsReference("key_name");
         set => SetArgument("key_name", value);
     }
 
     /// <summary>
     /// The key_name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? KeyNamePrefix
+    public TerraformValue<string> KeyNamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("key_name_prefix");
+        get => GetArgument<TerraformValue<string>>("key_name_prefix") ?? AsReference("key_name_prefix");
         set => SetArgument("key_name_prefix", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsKeyPair(string name) : TerraformResource("aws_key_pair",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformValue<string> PublicKey
     {
-        get => GetArgument<TerraformValue<string>>("public_key");
+        get => GetRequiredArgument<TerraformValue<string>>("public_key");
         set => SetArgument("public_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -66,9 +66,9 @@ public partial class AwsKeyPair(string name) : TerraformResource("aws_key_pair",
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

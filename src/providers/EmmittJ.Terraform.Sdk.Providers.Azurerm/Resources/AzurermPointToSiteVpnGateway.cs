@@ -28,7 +28,7 @@ public class AzurermPointToSiteVpnGatewayConnectionConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public class AzurermPointToSiteVpnGatewayConnectionConfigurationBlockRouteBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociatedRouteTableId is required")]
     public required TerraformValue<string> AssociatedRouteTableId
     {
-        get => GetArgument<TerraformValue<string>>("associated_route_table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("associated_route_table_id");
         set => SetArgument("associated_route_table_id", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermPointToSiteVpnGatewayConnectionConfigurationBlockVpnClientAd
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixes is required")]
     public required TerraformSet<string> AddressPrefixes
     {
-        get => GetArgument<TerraformSet<string>>("address_prefixes");
+        get => GetRequiredArgument<TerraformSet<string>>("address_prefixes");
         set => SetArgument("address_prefixes", value);
     }
 
@@ -232,9 +232,9 @@ public partial class AzurermPointToSiteVpnGateway(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AzurermPointToSiteVpnGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -254,7 +254,7 @@ public partial class AzurermPointToSiteVpnGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -264,7 +264,7 @@ public partial class AzurermPointToSiteVpnGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -283,7 +283,7 @@ public partial class AzurermPointToSiteVpnGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleUnit is required")]
     public required TerraformValue<double> ScaleUnit
     {
-        get => GetArgument<TerraformValue<double>>("scale_unit");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_unit");
         set => SetArgument("scale_unit", value);
     }
 
@@ -302,7 +302,7 @@ public partial class AzurermPointToSiteVpnGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformValue<string> VirtualHubId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_hub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_hub_id");
         set => SetArgument("virtual_hub_id", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AzurermPointToSiteVpnGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnServerConfigurationId is required")]
     public required TerraformValue<string> VpnServerConfigurationId
     {
-        get => GetArgument<TerraformValue<string>>("vpn_server_configuration_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpn_server_configuration_id");
         set => SetArgument("vpn_server_configuration_id", value);
     }
 

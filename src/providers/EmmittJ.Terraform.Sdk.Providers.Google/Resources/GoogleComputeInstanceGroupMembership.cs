@@ -43,9 +43,9 @@ public partial class GoogleComputeInstanceGroupMembership(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleComputeInstanceGroupMembership(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -65,16 +65,16 @@ public partial class GoogleComputeInstanceGroupMembership(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroup is required")]
     public required TerraformValue<string> InstanceGroup
     {
-        get => GetArgument<TerraformValue<string>>("instance_group");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_group");
         set => SetArgument("instance_group", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

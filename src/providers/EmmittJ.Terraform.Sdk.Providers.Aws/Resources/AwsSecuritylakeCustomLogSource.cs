@@ -50,7 +50,7 @@ public class AwsSecuritylakeCustomLogSourceConfigurationBlockCrawlerConfiguratio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsSecuritylakeCustomLogSourceConfigurationBlockProviderIdentityBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     public required TerraformValue<string> ExternalId
     {
-        get => GetArgument<TerraformValue<string>>("external_id");
+        get => GetRequiredArgument<TerraformValue<string>>("external_id");
         set => SetArgument("external_id", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsSecuritylakeCustomLogSourceConfigurationBlockProviderIdentityBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetRequiredArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -108,9 +108,9 @@ public partial class AwsSecuritylakeCustomLogSource(string name) : TerraformReso
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -120,16 +120,16 @@ public partial class AwsSecuritylakeCustomLogSource(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformValue<string> SourceName
     {
-        get => GetArgument<TerraformValue<string>>("source_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_name");
         set => SetArgument("source_name", value);
     }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
-    public TerraformValue<string>? SourceVersion
+    public TerraformValue<string> SourceVersion
     {
-        get => GetArgument<TerraformValue<string>>("source_version");
+        get => GetArgument<TerraformValue<string>>("source_version") ?? AsReference("source_version");
         set => SetArgument("source_version", value);
     }
 

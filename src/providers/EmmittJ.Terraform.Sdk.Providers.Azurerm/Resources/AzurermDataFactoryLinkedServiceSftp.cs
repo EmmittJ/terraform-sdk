@@ -19,7 +19,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => GetArgument<TerraformValue<string>>("linked_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64B
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => GetArgument<TerraformValue<string>>("linked_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64B
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => GetArgument<TerraformValue<string>>("linked_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermDataFactoryLinkedServiceSftp(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformValue<string> AuthenticationType
     {
-        get => GetArgument<TerraformValue<string>>("authentication_type");
+        get => GetRequiredArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermDataFactoryLinkedServiceSftp(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AzurermDataFactoryLinkedServiceSftp(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -229,9 +229,9 @@ public partial class AzurermDataFactoryLinkedServiceSftp(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AzurermDataFactoryLinkedServiceSftp(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -278,7 +278,7 @@ public partial class AzurermDataFactoryLinkedServiceSftp(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -324,7 +324,7 @@ public partial class AzurermDataFactoryLinkedServiceSftp(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

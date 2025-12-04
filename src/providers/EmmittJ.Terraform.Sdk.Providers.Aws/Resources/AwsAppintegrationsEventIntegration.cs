@@ -19,7 +19,7 @@ public class AwsAppintegrationsEventIntegrationEventFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsAppintegrationsEventIntegration(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventbridgeBus is required")]
     public required TerraformValue<string> EventbridgeBus
     {
-        get => GetArgument<TerraformValue<string>>("eventbridge_bus");
+        get => GetRequiredArgument<TerraformValue<string>>("eventbridge_bus");
         set => SetArgument("eventbridge_bus", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AwsAppintegrationsEventIntegration(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -91,9 +91,9 @@ public partial class AwsAppintegrationsEventIntegration(string name) : Terraform
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

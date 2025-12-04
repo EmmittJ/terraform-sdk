@@ -19,7 +19,7 @@ public class AzurermCdnEndpointDeliveryRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermCdnEndpointDeliveryRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => GetArgument<TerraformValue<double>>("order");
+        get => GetRequiredArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockCacheExpirationActionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformValue<string> Behavior
     {
-        get => GetArgument<TerraformValue<string>>("behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("behavior");
         set => SetArgument("behavior", value);
     }
 
@@ -271,7 +271,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockCacheKeyQueryStringActionBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformValue<string> Behavior
     {
-        get => GetArgument<TerraformValue<string>>("behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("behavior");
         set => SetArgument("behavior", value);
     }
 
@@ -321,7 +321,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockCookiesConditionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -331,7 +331,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockCookiesConditionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selector is required")]
     public required TerraformValue<string> Selector
     {
-        get => GetArgument<TerraformValue<string>>("selector");
+        get => GetRequiredArgument<TerraformValue<string>>("selector");
         set => SetArgument("selector", value);
     }
 
@@ -363,7 +363,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockDeviceConditionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchValues is required")]
     public required TerraformSet<string> MatchValues
     {
-        get => GetArgument<TerraformSet<string>>("match_values");
+        get => GetRequiredArgument<TerraformSet<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -404,7 +404,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockHttpVersionConditionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchValues is required")]
     public required TerraformSet<string> MatchValues
     {
-        get => GetArgument<TerraformSet<string>>("match_values");
+        get => GetRequiredArgument<TerraformSet<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -445,7 +445,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockModifyRequestHeaderActionBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -455,7 +455,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockModifyRequestHeaderActionBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -487,7 +487,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockModifyResponseHeaderActionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -497,7 +497,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockModifyResponseHeaderActionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -547,7 +547,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockPostArgConditionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -557,7 +557,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockPostArgConditionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selector is required")]
     public required TerraformValue<string> Selector
     {
-        get => GetArgument<TerraformValue<string>>("selector");
+        get => GetRequiredArgument<TerraformValue<string>>("selector");
         set => SetArgument("selector", value);
     }
 
@@ -607,7 +607,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockQueryStringConditionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -657,7 +657,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockRemoteAddressConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -698,7 +698,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockRequestBodyConditionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -748,7 +748,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockRequestHeaderConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -758,7 +758,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockRequestHeaderConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selector is required")]
     public required TerraformValue<string> Selector
     {
-        get => GetArgument<TerraformValue<string>>("selector");
+        get => GetRequiredArgument<TerraformValue<string>>("selector");
         set => SetArgument("selector", value);
     }
 
@@ -790,7 +790,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockRequestMethodConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchValues is required")]
     public required TerraformSet<string> MatchValues
     {
-        get => GetArgument<TerraformSet<string>>("match_values");
+        get => GetRequiredArgument<TerraformSet<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -831,7 +831,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockRequestSchemeConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchValues is required")]
     public required TerraformSet<string> MatchValues
     {
-        get => GetArgument<TerraformSet<string>>("match_values");
+        get => GetRequiredArgument<TerraformSet<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -890,7 +890,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockRequestUriConditionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -940,7 +940,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockUrlFileExtensionConditionBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -990,7 +990,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockUrlFileNameConditionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1040,7 +1040,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockUrlPathConditionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1117,7 +1117,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockUrlRedirectActionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectType is required")]
     public required TerraformValue<string> RedirectType
     {
-        get => GetArgument<TerraformValue<string>>("redirect_type");
+        get => GetRequiredArgument<TerraformValue<string>>("redirect_type");
         set => SetArgument("redirect_type", value);
     }
 
@@ -1140,7 +1140,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockUrlRewriteActionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => GetArgument<TerraformValue<string>>("destination");
+        get => GetRequiredArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -1159,7 +1159,7 @@ public class AzurermCdnEndpointDeliveryRuleBlockUrlRewriteActionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePattern is required")]
     public required TerraformValue<string> SourcePattern
     {
-        get => GetArgument<TerraformValue<string>>("source_pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("source_pattern");
         set => SetArgument("source_pattern", value);
     }
 
@@ -1183,7 +1183,7 @@ public class AzurermCdnEndpointGeoFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -1203,7 +1203,7 @@ public class AzurermCdnEndpointGeoFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativePath is required")]
     public required TerraformValue<string> RelativePath
     {
-        get => GetArgument<TerraformValue<string>>("relative_path");
+        get => GetRequiredArgument<TerraformValue<string>>("relative_path");
         set => SetArgument("relative_path", value);
     }
 
@@ -1298,7 +1298,7 @@ public class AzurermCdnEndpointGlobalDeliveryRuleBlockCacheExpirationActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformValue<string> Behavior
     {
-        get => GetArgument<TerraformValue<string>>("behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("behavior");
         set => SetArgument("behavior", value);
     }
 
@@ -1330,7 +1330,7 @@ public class AzurermCdnEndpointGlobalDeliveryRuleBlockCacheKeyQueryStringActionB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformValue<string> Behavior
     {
-        get => GetArgument<TerraformValue<string>>("behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("behavior");
         set => SetArgument("behavior", value);
     }
 
@@ -1362,7 +1362,7 @@ public class AzurermCdnEndpointGlobalDeliveryRuleBlockModifyRequestHeaderActionB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -1372,7 +1372,7 @@ public class AzurermCdnEndpointGlobalDeliveryRuleBlockModifyRequestHeaderActionB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1404,7 +1404,7 @@ public class AzurermCdnEndpointGlobalDeliveryRuleBlockModifyResponseHeaderAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -1414,7 +1414,7 @@ public class AzurermCdnEndpointGlobalDeliveryRuleBlockModifyResponseHeaderAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1491,7 +1491,7 @@ public class AzurermCdnEndpointGlobalDeliveryRuleBlockUrlRedirectActionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectType is required")]
     public required TerraformValue<string> RedirectType
     {
-        get => GetArgument<TerraformValue<string>>("redirect_type");
+        get => GetRequiredArgument<TerraformValue<string>>("redirect_type");
         set => SetArgument("redirect_type", value);
     }
 
@@ -1514,7 +1514,7 @@ public class AzurermCdnEndpointGlobalDeliveryRuleBlockUrlRewriteActionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => GetArgument<TerraformValue<string>>("destination");
+        get => GetRequiredArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -1533,7 +1533,7 @@ public class AzurermCdnEndpointGlobalDeliveryRuleBlockUrlRewriteActionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePattern is required")]
     public required TerraformValue<string> SourcePattern
     {
-        get => GetArgument<TerraformValue<string>>("source_pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("source_pattern");
         set => SetArgument("source_pattern", value);
     }
 
@@ -1557,7 +1557,7 @@ public class AzurermCdnEndpointOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -1585,7 +1585,7 @@ public class AzurermCdnEndpointOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1660,9 +1660,9 @@ public partial class AzurermCdnEndpoint(string name) : TerraformResource("azurer
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1699,7 +1699,7 @@ public partial class AzurermCdnEndpoint(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1709,7 +1709,7 @@ public partial class AzurermCdnEndpoint(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1755,7 +1755,7 @@ public partial class AzurermCdnEndpoint(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     public required TerraformValue<string> ProfileName
     {
-        get => GetArgument<TerraformValue<string>>("profile_name");
+        get => GetRequiredArgument<TerraformValue<string>>("profile_name");
         set => SetArgument("profile_name", value);
     }
 
@@ -1774,7 +1774,7 @@ public partial class AzurermCdnEndpoint(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

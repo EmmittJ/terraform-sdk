@@ -55,7 +55,7 @@ public partial class AzurermApiManagementGatewayApi(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => GetArgument<TerraformValue<string>>("api_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermApiManagementGatewayApi(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayId is required")]
     public required TerraformValue<string> GatewayId
     {
-        get => GetArgument<TerraformValue<string>>("gateway_id");
+        get => GetRequiredArgument<TerraformValue<string>>("gateway_id");
         set => SetArgument("gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

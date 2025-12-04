@@ -89,25 +89,25 @@ public partial class AwsDatasyncLocationFsxOpenzfsFileSystem(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FsxFilesystemArn is required")]
     public required TerraformValue<string> FsxFilesystemArn
     {
-        get => GetArgument<TerraformValue<string>>("fsx_filesystem_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("fsx_filesystem_arn");
         set => SetArgument("fsx_filesystem_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AwsDatasyncLocationFsxOpenzfsFileSystem(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupArns is required")]
     public required TerraformSet<string> SecurityGroupArns
     {
-        get => GetArgument<TerraformSet<string>>("security_group_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_arns");
         set => SetArgument("security_group_arns", value);
     }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformValue<string>? Subdirectory
+    public TerraformValue<string> Subdirectory
     {
-        get => GetArgument<TerraformValue<string>>("subdirectory");
+        get => GetArgument<TerraformValue<string>>("subdirectory") ?? AsReference("subdirectory");
         set => SetArgument("subdirectory", value);
     }
 
@@ -142,9 +142,9 @@ public partial class AwsDatasyncLocationFsxOpenzfsFileSystem(string name) : Terr
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

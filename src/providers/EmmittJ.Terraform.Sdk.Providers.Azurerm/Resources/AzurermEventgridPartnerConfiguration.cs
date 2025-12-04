@@ -28,7 +28,7 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerName is required")]
     public required TerraformValue<string> PartnerName
     {
-        get => GetArgument<TerraformValue<string>>("partner_name");
+        get => GetRequiredArgument<TerraformValue<string>>("partner_name");
         set => SetArgument("partner_name", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerRegistrationId is required")]
     public required TerraformValue<string> PartnerRegistrationId
     {
-        get => GetArgument<TerraformValue<string>>("partner_registration_id");
+        get => GetRequiredArgument<TerraformValue<string>>("partner_registration_id");
         set => SetArgument("partner_registration_id", value);
     }
 
@@ -113,9 +113,9 @@ public partial class AzurermEventgridPartnerConfiguration(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermEventgridPartnerConfiguration(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

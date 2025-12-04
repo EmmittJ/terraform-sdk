@@ -19,7 +19,7 @@ public class AwsWafregionalByteMatchSetByteMatchTuplesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PositionalConstraint is required")]
     public required TerraformValue<string> PositionalConstraint
     {
-        get => GetArgument<TerraformValue<string>>("positional_constraint");
+        get => GetRequiredArgument<TerraformValue<string>>("positional_constraint");
         set => SetArgument("positional_constraint", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsWafregionalByteMatchSetByteMatchTuplesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformValue<string> TextTransformation
     {
-        get => GetArgument<TerraformValue<string>>("text_transformation");
+        get => GetRequiredArgument<TerraformValue<string>>("text_transformation");
         set => SetArgument("text_transformation", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsWafregionalByteMatchSetByteMatchTuplesBlockFieldToMatchBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -99,9 +99,9 @@ public partial class AwsWafregionalByteMatchSet(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,16 +111,16 @@ public partial class AwsWafregionalByteMatchSet(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -14,16 +14,16 @@ public partial class GoogleBigqueryTableDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleBigqueryTableDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => GetArgument<TerraformValue<string>>("table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 

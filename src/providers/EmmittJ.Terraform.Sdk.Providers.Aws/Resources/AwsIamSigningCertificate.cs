@@ -14,16 +14,16 @@ public partial class AwsIamSigningCertificate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
     public required TerraformValue<string> CertificateBody
     {
-        get => GetArgument<TerraformValue<string>>("certificate_body");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_body");
         set => SetArgument("certificate_body", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsIamSigningCertificate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => GetArgument<TerraformValue<string>>("user_name");
+        get => GetRequiredArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 

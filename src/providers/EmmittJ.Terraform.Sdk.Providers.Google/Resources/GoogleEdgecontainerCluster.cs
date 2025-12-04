@@ -45,7 +45,7 @@ public class GoogleEdgecontainerClusterAuthorizationBlockAdminUsersBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -111,9 +111,9 @@ public class GoogleEdgecontainerClusterControlPlaneBlockLocalBlock : TerraformBl
     /// The number of nodes to serve as replicas of the Control Plane.
     /// Only 1 and 3 are supported.
     /// </summary>
-    public TerraformValue<double>? NodeCount
+    public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -121,18 +121,18 @@ public class GoogleEdgecontainerClusterControlPlaneBlockLocalBlock : TerraformBl
     /// Name of the Google Distributed Cloud Edge zones where this node pool
     /// will be created. For example: &#39;us-central1-edge-customer-a&#39;.
     /// </summary>
-    public TerraformValue<string>? NodeLocation
+    public TerraformValue<string> NodeLocation
     {
-        get => GetArgument<TerraformValue<string>>("node_location");
+        get => GetArgument<TerraformValue<string>>("node_location") ?? AsReference("node_location");
         set => SetArgument("node_location", value);
     }
 
     /// <summary>
     /// Policy configuration about how user applications are deployed. Possible values: [&amp;quot;SHARED_DEPLOYMENT_POLICY_UNSPECIFIED&amp;quot;, &amp;quot;ALLOWED&amp;quot;, &amp;quot;DISALLOWED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? SharedDeploymentPolicy
+    public TerraformValue<string> SharedDeploymentPolicy
     {
-        get => GetArgument<TerraformValue<string>>("shared_deployment_policy");
+        get => GetArgument<TerraformValue<string>>("shared_deployment_policy") ?? AsReference("shared_deployment_policy");
         set => SetArgument("shared_deployment_policy", value);
     }
 
@@ -153,9 +153,9 @@ public class GoogleEdgecontainerClusterControlPlaneBlockRemoteBlock : TerraformB
     /// Name of the Google Distributed Cloud Edge zones where this node pool
     /// will be created. For example: &#39;us-central1-edge-customer-a&#39;.
     /// </summary>
-    public TerraformValue<string>? NodeLocation
+    public TerraformValue<string> NodeLocation
     {
-        get => GetArgument<TerraformValue<string>>("node_location");
+        get => GetArgument<TerraformValue<string>>("node_location") ?? AsReference("node_location");
         set => SetArgument("node_location", value);
     }
 
@@ -179,9 +179,9 @@ public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : TerraformBl
     /// to use for protecting control plane disks. If not specified, a
     /// Google-managed key will be used instead.
     /// </summary>
-    public TerraformValue<string>? KmsKey
+    public TerraformValue<string> KmsKey
     {
-        get => GetArgument<TerraformValue<string>>("kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key") ?? AsReference("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -239,7 +239,7 @@ public class GoogleEdgecontainerClusterFleetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -295,9 +295,9 @@ public class GoogleEdgecontainerClusterMaintenancePolicyBlockMaintenanceExclusio
     /// <summary>
     /// A unique (per cluster) id for the window.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -328,18 +328,18 @@ public class GoogleEdgecontainerClusterMaintenancePolicyBlockMaintenanceExclusio
     /// The time that the window ends. The end time must take place after the
     /// start time.
     /// </summary>
-    public TerraformValue<string>? EndTime
+    public TerraformValue<string> EndTime
     {
-        get => GetArgument<TerraformValue<string>>("end_time");
+        get => GetArgument<TerraformValue<string>>("end_time") ?? AsReference("end_time");
         set => SetArgument("end_time", value);
     }
 
     /// <summary>
     /// The time that the window first starts.
     /// </summary>
-    public TerraformValue<string>? StartTime
+    public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -387,9 +387,9 @@ public class GoogleEdgecontainerClusterMaintenancePolicyBlockWindowBlockRecurrin
     /// this window recurs. They go on for the span of time between the start and
     /// end time.
     /// </summary>
-    public TerraformValue<string>? Recurrence
+    public TerraformValue<string> Recurrence
     {
-        get => GetArgument<TerraformValue<string>>("recurrence");
+        get => GetArgument<TerraformValue<string>>("recurrence") ?? AsReference("recurrence");
         set => SetArgument("recurrence", value);
     }
 
@@ -420,18 +420,18 @@ public class GoogleEdgecontainerClusterMaintenancePolicyBlockWindowBlockRecurrin
     /// The time that the window ends. The end time must take place after the
     /// start time.
     /// </summary>
-    public TerraformValue<string>? EndTime
+    public TerraformValue<string> EndTime
     {
-        get => GetArgument<TerraformValue<string>>("end_time");
+        get => GetArgument<TerraformValue<string>>("end_time") ?? AsReference("end_time");
         set => SetArgument("end_time", value);
     }
 
     /// <summary>
     /// The time that the window first starts.
     /// </summary>
-    public TerraformValue<string>? StartTime
+    public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -543,18 +543,18 @@ public class GoogleEdgecontainerClusterSystemAddonsConfigBlockIngressBlock : Ter
     /// <summary>
     /// Whether Ingress is disabled.
     /// </summary>
-    public TerraformValue<bool>? Disabled
+    public TerraformValue<bool> Disabled
     {
-        get => GetArgument<TerraformValue<bool>>("disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled") ?? AsReference("disabled");
         set => SetArgument("disabled", value);
     }
 
     /// <summary>
     /// Ingress VIP.
     /// </summary>
-    public TerraformValue<string>? Ipv4Vip
+    public TerraformValue<string> Ipv4Vip
     {
-        get => GetArgument<TerraformValue<string>>("ipv4_vip");
+        get => GetArgument<TerraformValue<string>>("ipv4_vip") ?? AsReference("ipv4_vip");
         set => SetArgument("ipv4_vip", value);
     }
 
@@ -613,27 +613,27 @@ public partial class GoogleEdgecontainerCluster(string name) : TerraformResource
     /// specified explicitly for a node pool in this cluster. If unspecified, the
     /// Kubernetes default value will be used.
     /// </summary>
-    public TerraformValue<double>? DefaultMaxPodsPerNode
+    public TerraformValue<double> DefaultMaxPodsPerNode
     {
-        get => GetArgument<TerraformValue<double>>("default_max_pods_per_node");
+        get => GetArgument<TerraformValue<double>>("default_max_pods_per_node") ?? AsReference("default_max_pods_per_node");
         set => SetArgument("default_max_pods_per_node", value);
     }
 
     /// <summary>
     /// Address pools for cluster data plane external load balancing.
     /// </summary>
-    public TerraformList<string>? ExternalLoadBalancerIpv4AddressPools
+    public TerraformList<string> ExternalLoadBalancerIpv4AddressPools
     {
-        get => GetArgument<TerraformList<string>>("external_load_balancer_ipv4_address_pools");
+        get => GetArgument<TerraformList<string>>("external_load_balancer_ipv4_address_pools") ?? AsReference("external_load_balancer_ipv4_address_pools");
         set => SetArgument("external_load_balancer_ipv4_address_pools", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -655,7 +655,7 @@ public partial class GoogleEdgecontainerCluster(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -665,34 +665,34 @@ public partial class GoogleEdgecontainerCluster(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The release channel a cluster is subscribed to. Possible values: [&amp;quot;RELEASE_CHANNEL_UNSPECIFIED&amp;quot;, &amp;quot;NONE&amp;quot;, &amp;quot;REGULAR&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? ReleaseChannel
+    public TerraformValue<string> ReleaseChannel
     {
-        get => GetArgument<TerraformValue<string>>("release_channel");
+        get => GetArgument<TerraformValue<string>>("release_channel") ?? AsReference("release_channel");
         set => SetArgument("release_channel", value);
     }
 
     /// <summary>
     /// The target cluster version. For example: &amp;quot;1.5.0&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? TargetVersion
+    public TerraformValue<string> TargetVersion
     {
-        get => GetArgument<TerraformValue<string>>("target_version");
+        get => GetArgument<TerraformValue<string>>("target_version") ?? AsReference("target_version");
         set => SetArgument("target_version", value);
     }
 

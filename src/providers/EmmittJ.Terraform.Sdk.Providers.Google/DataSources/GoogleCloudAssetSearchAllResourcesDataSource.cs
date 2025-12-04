@@ -20,9 +20,9 @@ public partial class GoogleCloudAssetSearchAllResourcesDataSource(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleCloudAssetSearchAllResourcesDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 

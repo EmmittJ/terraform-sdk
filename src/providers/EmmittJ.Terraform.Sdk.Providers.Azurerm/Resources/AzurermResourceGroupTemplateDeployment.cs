@@ -73,16 +73,16 @@ public partial class AzurermResourceGroupTemplateDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentMode is required")]
     public required TerraformValue<string> DeploymentMode
     {
-        get => GetArgument<TerraformValue<string>>("deployment_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("deployment_mode");
         set => SetArgument("deployment_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AzurermResourceGroupTemplateDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The parameters_content attribute.
     /// </summary>
-    public TerraformValue<string>? ParametersContent
+    public TerraformValue<string> ParametersContent
     {
-        get => GetArgument<TerraformValue<string>>("parameters_content");
+        get => GetArgument<TerraformValue<string>>("parameters_content") ?? AsReference("parameters_content");
         set => SetArgument("parameters_content", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermResourceGroupTemplateDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -127,9 +127,9 @@ public partial class AzurermResourceGroupTemplateDeployment(string name) : Terra
     /// <summary>
     /// The template_content attribute.
     /// </summary>
-    public TerraformValue<string>? TemplateContent
+    public TerraformValue<string> TemplateContent
     {
-        get => GetArgument<TerraformValue<string>>("template_content");
+        get => GetArgument<TerraformValue<string>>("template_content") ?? AsReference("template_content");
         set => SetArgument("template_content", value);
     }
 

@@ -67,7 +67,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlockCodeCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeStack is required")]
     public required TerraformValue<string> RuntimeStack
     {
-        get => GetArgument<TerraformValue<string>>("runtime_stack");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime_stack");
         set => SetArgument("runtime_stack", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlockCodeCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformValue<string> RuntimeVersion
     {
-        get => GetArgument<TerraformValue<string>>("runtime_version");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -100,7 +100,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlockContain
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => GetArgument<TerraformValue<string>>("image_name");
+        get => GetRequiredArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlockContain
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryUrl is required")]
     public required TerraformValue<string> RegistryUrl
     {
-        get => GetArgument<TerraformValue<string>>("registry_url");
+        get => GetRequiredArgument<TerraformValue<string>>("registry_url");
         set => SetArgument("registry_url", value);
     }
 
@@ -188,34 +188,34 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => GetArgument<TerraformValue<string>>("app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
     /// <summary>
     /// The branch name to use for deployments.
     /// </summary>
-    public TerraformValue<string>? Branch
+    public TerraformValue<string> Branch
     {
-        get => GetArgument<TerraformValue<string>>("branch");
+        get => GetArgument<TerraformValue<string>>("branch") ?? AsReference("branch");
         set => SetArgument("branch", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The URL for the repository.
     /// </summary>
-    public TerraformValue<string>? RepoUrl
+    public TerraformValue<string> RepoUrl
     {
-        get => GetArgument<TerraformValue<string>>("repo_url");
+        get => GetArgument<TerraformValue<string>>("repo_url") ?? AsReference("repo_url");
         set => SetArgument("repo_url", value);
     }
 

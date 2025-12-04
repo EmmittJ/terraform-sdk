@@ -14,7 +14,7 @@ public partial class AwsElasticBeanstalkApplicationVersion(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Application is required")]
     public required TerraformValue<string> Application
     {
-        get => GetArgument<TerraformValue<string>>("application");
+        get => GetRequiredArgument<TerraformValue<string>>("application");
         set => SetArgument("application", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsElasticBeanstalkApplicationVersion(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -49,9 +49,9 @@ public partial class AwsElasticBeanstalkApplicationVersion(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsElasticBeanstalkApplicationVersion(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -71,7 +71,7 @@ public partial class AwsElasticBeanstalkApplicationVersion(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -87,9 +87,9 @@ public partial class AwsElasticBeanstalkApplicationVersion(string name) : Terraf
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -105,9 +105,9 @@ public partial class AwsElasticBeanstalkApplicationVersion(string name) : Terraf
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

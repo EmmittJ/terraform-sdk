@@ -19,7 +19,7 @@ public class AzurermMonitorActivityLogAlertActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupId is required")]
     public required TerraformValue<string> ActionGroupId
     {
-        get => GetArgument<TerraformValue<string>>("action_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("action_group_id");
         set => SetArgument("action_group_id", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => GetArgument<TerraformValue<string>>("category");
+        get => GetRequiredArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -407,9 +407,9 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -419,7 +419,7 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -429,7 +429,7 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -439,7 +439,7 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -449,7 +449,7 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     public required TerraformSet<string> Scopes
     {
-        get => GetArgument<TerraformSet<string>>("scopes");
+        get => GetRequiredArgument<TerraformSet<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 

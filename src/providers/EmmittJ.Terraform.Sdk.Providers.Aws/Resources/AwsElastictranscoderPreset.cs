@@ -25,9 +25,9 @@ public class AwsElastictranscoderPresetAudioBlock : TerraformBlock
     /// <summary>
     /// The bit_rate attribute.
     /// </summary>
-    public TerraformValue<string>? BitRate
+    public TerraformValue<string> BitRate
     {
-        get => GetArgument<TerraformValue<string>>("bit_rate");
+        get => GetArgument<TerraformValue<string>>("bit_rate") ?? AsReference("bit_rate");
         set => SetArgument("bit_rate", value);
     }
 
@@ -75,36 +75,36 @@ public class AwsElastictranscoderPresetAudioCodecOptionsBlock : TerraformBlock
     /// <summary>
     /// The bit_depth attribute.
     /// </summary>
-    public TerraformValue<string>? BitDepth
+    public TerraformValue<string> BitDepth
     {
-        get => GetArgument<TerraformValue<string>>("bit_depth");
+        get => GetArgument<TerraformValue<string>>("bit_depth") ?? AsReference("bit_depth");
         set => SetArgument("bit_depth", value);
     }
 
     /// <summary>
     /// The bit_order attribute.
     /// </summary>
-    public TerraformValue<string>? BitOrder
+    public TerraformValue<string> BitOrder
     {
-        get => GetArgument<TerraformValue<string>>("bit_order");
+        get => GetArgument<TerraformValue<string>>("bit_order") ?? AsReference("bit_order");
         set => SetArgument("bit_order", value);
     }
 
     /// <summary>
     /// The profile attribute.
     /// </summary>
-    public TerraformValue<string>? Profile
+    public TerraformValue<string> Profile
     {
-        get => GetArgument<TerraformValue<string>>("profile");
+        get => GetArgument<TerraformValue<string>>("profile") ?? AsReference("profile");
         set => SetArgument("profile", value);
     }
 
     /// <summary>
     /// The signed attribute.
     /// </summary>
-    public TerraformValue<string>? Signed
+    public TerraformValue<string> Signed
     {
-        get => GetArgument<TerraformValue<string>>("signed");
+        get => GetArgument<TerraformValue<string>>("signed") ?? AsReference("signed");
         set => SetArgument("signed", value);
     }
 
@@ -220,9 +220,9 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// <summary>
     /// The bit_rate attribute.
     /// </summary>
-    public TerraformValue<string>? BitRate
+    public TerraformValue<string> BitRate
     {
-        get => GetArgument<TerraformValue<string>>("bit_rate");
+        get => GetArgument<TerraformValue<string>>("bit_rate") ?? AsReference("bit_rate");
         set => SetArgument("bit_rate", value);
     }
 
@@ -274,9 +274,9 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// <summary>
     /// The max_frame_rate attribute.
     /// </summary>
-    public TerraformValue<string>? MaxFrameRate
+    public TerraformValue<string> MaxFrameRate
     {
-        get => GetArgument<TerraformValue<string>>("max_frame_rate");
+        get => GetArgument<TerraformValue<string>>("max_frame_rate") ?? AsReference("max_frame_rate");
         set => SetArgument("max_frame_rate", value);
     }
 
@@ -445,7 +445,7 @@ public partial class AwsElastictranscoderPreset(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     public required TerraformValue<string> Container
     {
-        get => GetArgument<TerraformValue<string>>("container");
+        get => GetRequiredArgument<TerraformValue<string>>("container");
         set => SetArgument("container", value);
     }
 
@@ -461,36 +461,36 @@ public partial class AwsElastictranscoderPreset(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 

@@ -14,7 +14,7 @@ public partial class AwsCloudwatchLogDeliveryDestinationPolicy(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryDestinationName is required")]
     public required TerraformValue<string> DeliveryDestinationName
     {
-        get => GetArgument<TerraformValue<string>>("delivery_destination_name");
+        get => GetRequiredArgument<TerraformValue<string>>("delivery_destination_name");
         set => SetArgument("delivery_destination_name", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsCloudwatchLogDeliveryDestinationPolicy(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryDestinationPolicy is required")]
     public required TerraformValue<string> DeliveryDestinationPolicy
     {
-        get => GetArgument<TerraformValue<string>>("delivery_destination_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("delivery_destination_policy");
         set => SetArgument("delivery_destination_policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

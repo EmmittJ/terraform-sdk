@@ -46,7 +46,7 @@ public partial class AwsNetworkmanagerLinkAssociation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
     public required TerraformValue<string> DeviceId
     {
-        get => GetArgument<TerraformValue<string>>("device_id");
+        get => GetRequiredArgument<TerraformValue<string>>("device_id");
         set => SetArgument("device_id", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AwsNetworkmanagerLinkAssociation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformValue<string> GlobalNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("global_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("global_network_id");
         set => SetArgument("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsNetworkmanagerLinkAssociation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkId is required")]
     public required TerraformValue<string> LinkId
     {
-        get => GetArgument<TerraformValue<string>>("link_id");
+        get => GetRequiredArgument<TerraformValue<string>>("link_id");
         set => SetArgument("link_id", value);
     }
 

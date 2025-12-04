@@ -69,7 +69,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetRequiredArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Max is required")]
     public required TerraformValue<double> Max
     {
-        get => GetArgument<TerraformValue<double>>("max");
+        get => GetRequiredArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => GetArgument<TerraformValue<double>>("min");
+        get => GetRequiredArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -165,9 +165,9 @@ public partial class AzurermIotSecurityDeviceGroup(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermIotSecurityDeviceGroup(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformValue<string> IothubId
     {
-        get => GetArgument<TerraformValue<string>>("iothub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("iothub_id");
         set => SetArgument("iothub_id", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzurermIotSecurityDeviceGroup(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

@@ -14,34 +14,34 @@ public partial class AwsSecurityhubStandardsControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlStatus is required")]
     public required TerraformValue<string> ControlStatus
     {
-        get => GetArgument<TerraformValue<string>>("control_status");
+        get => GetRequiredArgument<TerraformValue<string>>("control_status");
         set => SetArgument("control_status", value);
     }
 
     /// <summary>
     /// The disabled_reason attribute.
     /// </summary>
-    public TerraformValue<string>? DisabledReason
+    public TerraformValue<string> DisabledReason
     {
-        get => GetArgument<TerraformValue<string>>("disabled_reason");
+        get => GetArgument<TerraformValue<string>>("disabled_reason") ?? AsReference("disabled_reason");
         set => SetArgument("disabled_reason", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsSecurityhubStandardsControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StandardsControlArn is required")]
     public required TerraformValue<string> StandardsControlArn
     {
-        get => GetArgument<TerraformValue<string>>("standards_control_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("standards_control_arn");
         set => SetArgument("standards_control_arn", value);
     }
 

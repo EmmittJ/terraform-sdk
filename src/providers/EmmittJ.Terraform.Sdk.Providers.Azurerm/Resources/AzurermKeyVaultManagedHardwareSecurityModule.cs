@@ -19,7 +19,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bypass is required")]
     public required TerraformValue<string> Bypass
     {
-        get => GetArgument<TerraformValue<string>>("bypass");
+        get => GetRequiredArgument<TerraformValue<string>>("bypass");
         set => SetArgument("bypass", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformValue<string> DefaultAction
     {
-        get => GetArgument<TerraformValue<string>>("default_action");
+        get => GetRequiredArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
@@ -98,16 +98,16 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminObjectIds is required")]
     public required TerraformSet<string> AdminObjectIds
     {
-        get => GetArgument<TerraformSet<string>>("admin_object_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("admin_object_ids");
         set => SetArgument("admin_object_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -211,7 +211,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

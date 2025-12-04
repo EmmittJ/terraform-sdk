@@ -50,7 +50,7 @@ public class AwsAppsyncChannelNamespaceHandlerConfigsBlockOnPublishBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformValue<string> Behavior
     {
-        get => GetArgument<TerraformValue<string>>("behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("behavior");
         set => SetArgument("behavior", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsAppsyncChannelNamespaceHandlerConfigsBlockOnPublishBlockIntegrat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceName is required")]
     public required TerraformValue<string> DataSourceName
     {
-        get => GetArgument<TerraformValue<string>>("data_source_name");
+        get => GetRequiredArgument<TerraformValue<string>>("data_source_name");
         set => SetArgument("data_source_name", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsAppsyncChannelNamespaceHandlerConfigsBlockOnSubscribeBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformValue<string> Behavior
     {
-        get => GetArgument<TerraformValue<string>>("behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("behavior");
         set => SetArgument("behavior", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsAppsyncChannelNamespaceHandlerConfigsBlockOnSubscribeBlockIntegr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceName is required")]
     public required TerraformValue<string> DataSourceName
     {
-        get => GetArgument<TerraformValue<string>>("data_source_name");
+        get => GetRequiredArgument<TerraformValue<string>>("data_source_name");
         set => SetArgument("data_source_name", value);
     }
 
@@ -223,7 +223,7 @@ public class AwsAppsyncChannelNamespacePublishAuthModeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => GetArgument<TerraformValue<string>>("auth_type");
+        get => GetRequiredArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -247,7 +247,7 @@ public class AwsAppsyncChannelNamespaceSubscribeAuthModeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => GetArgument<TerraformValue<string>>("auth_type");
+        get => GetRequiredArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -266,7 +266,7 @@ public partial class AwsAppsyncChannelNamespace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => GetArgument<TerraformValue<string>>("api_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -285,16 +285,16 @@ public partial class AwsAppsyncChannelNamespace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

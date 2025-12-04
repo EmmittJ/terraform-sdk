@@ -101,7 +101,7 @@ public class AwsPipesPipeLogConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Level is required")]
     public required TerraformValue<string> Level
     {
-        get => GetArgument<TerraformValue<string>>("level");
+        get => GetRequiredArgument<TerraformValue<string>>("level");
         set => SetArgument("level", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsPipesPipeLogConfigurationBlockCloudwatchLogsLogDestinationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupArn is required")]
     public required TerraformValue<string> LogGroupArn
     {
-        get => GetArgument<TerraformValue<string>>("log_group_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("log_group_arn");
         set => SetArgument("log_group_arn", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsPipesPipeLogConfigurationBlockFirehoseLogDestinationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryStreamArn is required")]
     public required TerraformValue<string> DeliveryStreamArn
     {
-        get => GetArgument<TerraformValue<string>>("delivery_stream_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("delivery_stream_arn");
         set => SetArgument("delivery_stream_arn", value);
     }
 
@@ -200,7 +200,7 @@ public class AwsPipesPipeLogConfigurationBlockS3LogDestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsPipesPipeLogConfigurationBlockS3LogDestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketOwner is required")]
     public required TerraformValue<string> BucketOwner
     {
-        get => GetArgument<TerraformValue<string>>("bucket_owner");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_owner");
         set => SetArgument("bucket_owner", value);
     }
 
@@ -342,18 +342,18 @@ public class AwsPipesPipeSourceParametersBlockActivemqBrokerParametersBlock : Te
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
-    public TerraformValue<double>? BatchSize
+    public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
     /// <summary>
     /// The maximum_batching_window_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumBatchingWindowInSeconds
+    public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -363,7 +363,7 @@ public class AwsPipesPipeSourceParametersBlockActivemqBrokerParametersBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueName is required")]
     public required TerraformValue<string> QueueName
     {
-        get => GetArgument<TerraformValue<string>>("queue_name");
+        get => GetRequiredArgument<TerraformValue<string>>("queue_name");
         set => SetArgument("queue_name", value);
     }
 
@@ -399,7 +399,7 @@ public class AwsPipesPipeSourceParametersBlockActivemqBrokerParametersBlockCrede
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BasicAuth is required")]
     public required TerraformValue<string> BasicAuth
     {
-        get => GetArgument<TerraformValue<string>>("basic_auth");
+        get => GetRequiredArgument<TerraformValue<string>>("basic_auth");
         set => SetArgument("basic_auth", value);
     }
 
@@ -419,27 +419,27 @@ public class AwsPipesPipeSourceParametersBlockDynamodbStreamParametersBlock : Te
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
-    public TerraformValue<double>? BatchSize
+    public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
     /// <summary>
     /// The maximum_batching_window_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumBatchingWindowInSeconds
+    public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
     /// <summary>
     /// The maximum_record_age_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumRecordAgeInSeconds
+    public TerraformValue<double> MaximumRecordAgeInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds") ?? AsReference("maximum_record_age_in_seconds");
         set => SetArgument("maximum_record_age_in_seconds", value);
     }
 
@@ -464,9 +464,9 @@ public class AwsPipesPipeSourceParametersBlockDynamodbStreamParametersBlock : Te
     /// <summary>
     /// The parallelization_factor attribute.
     /// </summary>
-    public TerraformValue<double>? ParallelizationFactor
+    public TerraformValue<double> ParallelizationFactor
     {
-        get => GetArgument<TerraformValue<double>>("parallelization_factor");
+        get => GetArgument<TerraformValue<double>>("parallelization_factor") ?? AsReference("parallelization_factor");
         set => SetArgument("parallelization_factor", value);
     }
 
@@ -476,7 +476,7 @@ public class AwsPipesPipeSourceParametersBlockDynamodbStreamParametersBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartingPosition is required")]
     public required TerraformValue<string> StartingPosition
     {
-        get => GetArgument<TerraformValue<string>>("starting_position");
+        get => GetRequiredArgument<TerraformValue<string>>("starting_position");
         set => SetArgument("starting_position", value);
     }
 
@@ -554,7 +554,7 @@ public class AwsPipesPipeSourceParametersBlockFilterCriteriaBlockFilterBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -574,27 +574,27 @@ public class AwsPipesPipeSourceParametersBlockKinesisStreamParametersBlock : Ter
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
-    public TerraformValue<double>? BatchSize
+    public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
     /// <summary>
     /// The maximum_batching_window_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumBatchingWindowInSeconds
+    public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
     /// <summary>
     /// The maximum_record_age_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumRecordAgeInSeconds
+    public TerraformValue<double> MaximumRecordAgeInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds") ?? AsReference("maximum_record_age_in_seconds");
         set => SetArgument("maximum_record_age_in_seconds", value);
     }
 
@@ -619,9 +619,9 @@ public class AwsPipesPipeSourceParametersBlockKinesisStreamParametersBlock : Ter
     /// <summary>
     /// The parallelization_factor attribute.
     /// </summary>
-    public TerraformValue<double>? ParallelizationFactor
+    public TerraformValue<double> ParallelizationFactor
     {
-        get => GetArgument<TerraformValue<double>>("parallelization_factor");
+        get => GetArgument<TerraformValue<double>>("parallelization_factor") ?? AsReference("parallelization_factor");
         set => SetArgument("parallelization_factor", value);
     }
 
@@ -631,7 +631,7 @@ public class AwsPipesPipeSourceParametersBlockKinesisStreamParametersBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartingPosition is required")]
     public required TerraformValue<string> StartingPosition
     {
-        get => GetArgument<TerraformValue<string>>("starting_position");
+        get => GetRequiredArgument<TerraformValue<string>>("starting_position");
         set => SetArgument("starting_position", value);
     }
 
@@ -692,9 +692,9 @@ public class AwsPipesPipeSourceParametersBlockManagedStreamingKafkaParametersBlo
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
-    public TerraformValue<double>? BatchSize
+    public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -710,9 +710,9 @@ public class AwsPipesPipeSourceParametersBlockManagedStreamingKafkaParametersBlo
     /// <summary>
     /// The maximum_batching_window_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumBatchingWindowInSeconds
+    public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -731,7 +731,7 @@ public class AwsPipesPipeSourceParametersBlockManagedStreamingKafkaParametersBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformValue<string> TopicName
     {
-        get => GetArgument<TerraformValue<string>>("topic_name");
+        get => GetRequiredArgument<TerraformValue<string>>("topic_name");
         set => SetArgument("topic_name", value);
     }
 
@@ -792,18 +792,18 @@ public class AwsPipesPipeSourceParametersBlockRabbitmqBrokerParametersBlock : Te
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
-    public TerraformValue<double>? BatchSize
+    public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
     /// <summary>
     /// The maximum_batching_window_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumBatchingWindowInSeconds
+    public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -813,7 +813,7 @@ public class AwsPipesPipeSourceParametersBlockRabbitmqBrokerParametersBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueName is required")]
     public required TerraformValue<string> QueueName
     {
-        get => GetArgument<TerraformValue<string>>("queue_name");
+        get => GetRequiredArgument<TerraformValue<string>>("queue_name");
         set => SetArgument("queue_name", value);
     }
 
@@ -858,7 +858,7 @@ public class AwsPipesPipeSourceParametersBlockRabbitmqBrokerParametersBlockCrede
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BasicAuth is required")]
     public required TerraformValue<string> BasicAuth
     {
-        get => GetArgument<TerraformValue<string>>("basic_auth");
+        get => GetRequiredArgument<TerraformValue<string>>("basic_auth");
         set => SetArgument("basic_auth", value);
     }
 
@@ -887,9 +887,9 @@ public class AwsPipesPipeSourceParametersBlockSelfManagedKafkaParametersBlock : 
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
-    public TerraformValue<double>? BatchSize
+    public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -905,9 +905,9 @@ public class AwsPipesPipeSourceParametersBlockSelfManagedKafkaParametersBlock : 
     /// <summary>
     /// The maximum_batching_window_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumBatchingWindowInSeconds
+    public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -935,7 +935,7 @@ public class AwsPipesPipeSourceParametersBlockSelfManagedKafkaParametersBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformValue<string> TopicName
     {
-        get => GetArgument<TerraformValue<string>>("topic_name");
+        get => GetRequiredArgument<TerraformValue<string>>("topic_name");
         set => SetArgument("topic_name", value);
     }
 
@@ -1055,18 +1055,18 @@ public class AwsPipesPipeSourceParametersBlockSqsQueueParametersBlock : Terrafor
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
-    public TerraformValue<double>? BatchSize
+    public TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size") ?? AsReference("batch_size");
         set => SetArgument("batch_size", value);
     }
 
     /// <summary>
     /// The maximum_batching_window_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumBatchingWindowInSeconds
+    public TerraformValue<double> MaximumBatchingWindowInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds") ?? AsReference("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
@@ -1222,7 +1222,7 @@ public class AwsPipesPipeTargetParametersBlockBatchJobParametersBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobDefinition is required")]
     public required TerraformValue<string> JobDefinition
     {
-        get => GetArgument<TerraformValue<string>>("job_definition");
+        get => GetRequiredArgument<TerraformValue<string>>("job_definition");
         set => SetArgument("job_definition", value);
     }
 
@@ -1232,7 +1232,7 @@ public class AwsPipesPipeTargetParametersBlockBatchJobParametersBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformValue<string> JobName
     {
-        get => GetArgument<TerraformValue<string>>("job_name");
+        get => GetRequiredArgument<TerraformValue<string>>("job_name");
         set => SetArgument("job_name", value);
     }
 
@@ -1406,7 +1406,7 @@ public class AwsPipesPipeTargetParametersBlockBatchJobParametersBlockContainerOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1416,7 +1416,7 @@ public class AwsPipesPipeTargetParametersBlockBatchJobParametersBlockContainerOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1604,7 +1604,7 @@ public class AwsPipesPipeTargetParametersBlockEcsTaskParametersBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinitionArn is required")]
     public required TerraformValue<string> TaskDefinitionArn
     {
-        get => GetArgument<TerraformValue<string>>("task_definition_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("task_definition_arn");
         set => SetArgument("task_definition_arn", value);
     }
 
@@ -1686,7 +1686,7 @@ public class AwsPipesPipeTargetParametersBlockEcsTaskParametersBlockCapacityProv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformValue<string> CapacityProvider
     {
-        get => GetArgument<TerraformValue<string>>("capacity_provider");
+        get => GetRequiredArgument<TerraformValue<string>>("capacity_provider");
         set => SetArgument("capacity_provider", value);
     }
 
@@ -1974,7 +1974,7 @@ public class AwsPipesPipeTargetParametersBlockEcsTaskParametersBlockOverridesBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1984,7 +1984,7 @@ public class AwsPipesPipeTargetParametersBlockEcsTaskParametersBlockOverridesBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2007,7 +2007,7 @@ public class AwsPipesPipeTargetParametersBlockEcsTaskParametersBlockOverridesBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -2017,7 +2017,7 @@ public class AwsPipesPipeTargetParametersBlockEcsTaskParametersBlockOverridesBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2040,7 +2040,7 @@ public class AwsPipesPipeTargetParametersBlockEcsTaskParametersBlockOverridesBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
     public required TerraformValue<double> SizeInGib
     {
-        get => GetArgument<TerraformValue<double>>("size_in_gib");
+        get => GetRequiredArgument<TerraformValue<double>>("size_in_gib");
         set => SetArgument("size_in_gib", value);
     }
 
@@ -2254,7 +2254,7 @@ public class AwsPipesPipeTargetParametersBlockKinesisStreamParametersBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     public required TerraformValue<string> PartitionKey
     {
-        get => GetArgument<TerraformValue<string>>("partition_key");
+        get => GetRequiredArgument<TerraformValue<string>>("partition_key");
         set => SetArgument("partition_key", value);
     }
 
@@ -2277,7 +2277,7 @@ public class AwsPipesPipeTargetParametersBlockLambdaFunctionParametersBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InvocationType is required")]
     public required TerraformValue<string> InvocationType
     {
-        get => GetArgument<TerraformValue<string>>("invocation_type");
+        get => GetRequiredArgument<TerraformValue<string>>("invocation_type");
         set => SetArgument("invocation_type", value);
     }
 
@@ -2300,7 +2300,7 @@ public class AwsPipesPipeTargetParametersBlockRedshiftDataParametersBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -2328,7 +2328,7 @@ public class AwsPipesPipeTargetParametersBlockRedshiftDataParametersBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sqls is required")]
     public required TerraformSet<string> Sqls
     {
-        get => GetArgument<TerraformSet<string>>("sqls");
+        get => GetRequiredArgument<TerraformSet<string>>("sqls");
         set => SetArgument("sqls", value);
     }
 
@@ -2392,7 +2392,7 @@ public class AwsPipesPipeTargetParametersBlockSagemakerPipelineParametersBlockPi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2402,7 +2402,7 @@ public class AwsPipesPipeTargetParametersBlockSagemakerPipelineParametersBlockPi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2456,7 +2456,7 @@ public class AwsPipesPipeTargetParametersBlockStepFunctionStateMachineParameters
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InvocationType is required")]
     public required TerraformValue<string> InvocationType
     {
-        get => GetArgument<TerraformValue<string>>("invocation_type");
+        get => GetRequiredArgument<TerraformValue<string>>("invocation_type");
         set => SetArgument("invocation_type", value);
     }
 
@@ -2540,9 +2540,9 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2558,27 +2558,27 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? NamePrefix
+    public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -2588,7 +2588,7 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2598,7 +2598,7 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -2614,9 +2614,9 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -2626,7 +2626,7 @@ public partial class AwsPipesPipe(string name) : TerraformResource("aws_pipes_pi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => GetArgument<TerraformValue<string>>("target");
+        get => GetRequiredArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 

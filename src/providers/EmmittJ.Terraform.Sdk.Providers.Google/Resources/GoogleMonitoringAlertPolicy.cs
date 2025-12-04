@@ -131,7 +131,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -229,7 +229,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionAbsentBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetRequiredArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -444,7 +444,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionMatchedLogBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -496,7 +496,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionMonitoringQueryL
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetRequiredArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -517,7 +517,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionMonitoringQueryL
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => GetArgument<TerraformValue<string>>("query");
+        get => GetRequiredArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -663,7 +663,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionPrometheusQueryL
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => GetArgument<TerraformValue<string>>("query");
+        get => GetRequiredArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -706,7 +706,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => GetArgument<TerraformValue<string>>("query");
+        get => GetRequiredArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -780,7 +780,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockBooleanT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Column is required")]
     public required TerraformValue<string> Column
     {
-        get => GetArgument<TerraformValue<string>>("column");
+        get => GetRequiredArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -804,7 +804,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockDailyBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Periodicity is required")]
     public required TerraformValue<double> Periodicity
     {
-        get => GetArgument<TerraformValue<double>>("periodicity");
+        get => GetRequiredArgument<TerraformValue<double>>("periodicity");
         set => SetArgument("periodicity", value);
     }
 
@@ -905,7 +905,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockHourlyBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Periodicity is required")]
     public required TerraformValue<double> Periodicity
     {
-        get => GetArgument<TerraformValue<double>>("periodicity");
+        get => GetRequiredArgument<TerraformValue<double>>("periodicity");
         set => SetArgument("periodicity", value);
     }
 
@@ -929,7 +929,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockMinutesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Periodicity is required")]
     public required TerraformValue<double> Periodicity
     {
-        get => GetArgument<TerraformValue<double>>("periodicity");
+        get => GetRequiredArgument<TerraformValue<double>>("periodicity");
         set => SetArgument("periodicity", value);
     }
 
@@ -959,7 +959,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockRowCount
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => GetArgument<TerraformValue<string>>("comparison");
+        get => GetRequiredArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -969,7 +969,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockRowCount
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => GetArgument<TerraformValue<double>>("threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -999,7 +999,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => GetArgument<TerraformValue<string>>("comparison");
+        get => GetRequiredArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1046,7 +1046,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetRequiredArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -1389,7 +1389,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockFo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForecastHorizon is required")]
     public required TerraformValue<string> ForecastHorizon
     {
-        get => GetArgument<TerraformValue<string>>("forecast_horizon");
+        get => GetRequiredArgument<TerraformValue<string>>("forecast_horizon");
         set => SetArgument("forecast_horizon", value);
     }
 
@@ -1573,7 +1573,7 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Combiner is required")]
     public required TerraformValue<string> Combiner
     {
-        get => GetArgument<TerraformValue<string>>("combiner");
+        get => GetRequiredArgument<TerraformValue<string>>("combiner");
         set => SetArgument("combiner", value);
     }
 
@@ -1586,7 +1586,7 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -1602,9 +1602,9 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1626,9 +1626,9 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

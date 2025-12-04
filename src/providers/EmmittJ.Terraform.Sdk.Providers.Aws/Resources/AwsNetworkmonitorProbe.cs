@@ -14,7 +14,7 @@ public partial class AwsNetworkmonitorProbe(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => GetArgument<TerraformValue<string>>("destination");
+        get => GetRequiredArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsNetworkmonitorProbe(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
     public required TerraformValue<string> MonitorName
     {
-        get => GetArgument<TerraformValue<string>>("monitor_name");
+        get => GetRequiredArgument<TerraformValue<string>>("monitor_name");
         set => SetArgument("monitor_name", value);
     }
 
     /// <summary>
     /// The packet_size attribute.
     /// </summary>
-    public TerraformValue<double>? PacketSize
+    public TerraformValue<double> PacketSize
     {
-        get => GetArgument<TerraformValue<double>>("packet_size");
+        get => GetArgument<TerraformValue<double>>("packet_size") ?? AsReference("packet_size");
         set => SetArgument("packet_size", value);
     }
 
@@ -52,16 +52,16 @@ public partial class AwsNetworkmonitorProbe(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -71,7 +71,7 @@ public partial class AwsNetworkmonitorProbe(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformValue<string> SourceArn
     {
-        get => GetArgument<TerraformValue<string>>("source_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("source_arn");
         set => SetArgument("source_arn", value);
     }
 

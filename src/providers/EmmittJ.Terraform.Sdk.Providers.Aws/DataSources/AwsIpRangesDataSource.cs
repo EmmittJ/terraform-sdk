@@ -11,9 +11,9 @@ public partial class AwsIpRangesDataSource(string name) : TerraformDataSource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsIpRangesDataSource(string name) : TerraformDataSource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Services is required")]
     public required TerraformSet<string> Services
     {
-        get => GetArgument<TerraformSet<string>>("services");
+        get => GetRequiredArgument<TerraformSet<string>>("services");
         set => SetArgument("services", value);
     }
 

@@ -55,16 +55,16 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultCertificateId
+    public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -72,9 +72,9 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? KeyVaultId
+    public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -155,9 +155,9 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// <summary>
     /// The default_ssl_binding attribute.
     /// </summary>
-    public TerraformValue<bool>? DefaultSslBinding
+    public TerraformValue<bool> DefaultSslBinding
     {
-        get => GetArgument<TerraformValue<bool>>("default_ssl_binding");
+        get => GetArgument<TerraformValue<bool>>("default_ssl_binding") ?? AsReference("default_ssl_binding");
         set => SetArgument("default_ssl_binding", value);
     }
 
@@ -173,16 +173,16 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultCertificateId
+    public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -190,9 +190,9 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? KeyVaultId
+    public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -282,16 +282,16 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultCertificateId
+    public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -299,9 +299,9 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? KeyVaultId
+    public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -391,16 +391,16 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultCertificateId
+    public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -408,9 +408,9 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? KeyVaultId
+    public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -500,16 +500,16 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultCertificateId
+    public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -517,9 +517,9 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? KeyVaultId
+    public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -618,16 +618,16 @@ public partial class AzurermApiManagementCustomDomain(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformValue<string> ApiManagementId
     {
-        get => GetArgument<TerraformValue<string>>("api_management_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_management_id");
         set => SetArgument("api_management_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

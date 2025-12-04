@@ -19,7 +19,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
     public required TerraformValue<string> Encoding
     {
-        get => GetArgument<TerraformValue<string>>("encoding");
+        get => GetRequiredArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermEventhubCaptureDescriptionBlockDestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArchiveNameFormat is required")]
     public required TerraformValue<string> ArchiveNameFormat
     {
-        get => GetArgument<TerraformValue<string>>("archive_name_format");
+        get => GetRequiredArgument<TerraformValue<string>>("archive_name_format");
         set => SetArgument("archive_name_format", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermEventhubCaptureDescriptionBlockDestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobContainerName is required")]
     public required TerraformValue<string> BlobContainerName
     {
-        get => GetArgument<TerraformValue<string>>("blob_container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("blob_container_name");
         set => SetArgument("blob_container_name", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermEventhubCaptureDescriptionBlockDestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermEventhubCaptureDescriptionBlockDestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -146,7 +146,7 @@ public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CleanupPolicy is required")]
     public required TerraformValue<string> CleanupPolicy
     {
-        get => GetArgument<TerraformValue<string>>("cleanup_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("cleanup_policy");
         set => SetArgument("cleanup_policy", value);
     }
 
@@ -230,18 +230,18 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The message_retention attribute.
     /// </summary>
-    public TerraformValue<double>? MessageRetention
+    public TerraformValue<double> MessageRetention
     {
-        get => GetArgument<TerraformValue<double>>("message_retention");
+        get => GetArgument<TerraformValue<double>>("message_retention") ?? AsReference("message_retention");
         set => SetArgument("message_retention", value);
     }
 
@@ -251,16 +251,16 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformValue<string>? NamespaceId
+    public TerraformValue<string> NamespaceId
     {
-        get => GetArgument<TerraformValue<string>>("namespace_id");
+        get => GetArgument<TerraformValue<string>>("namespace_id") ?? AsReference("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 
@@ -268,9 +268,9 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? NamespaceName
+    public TerraformValue<string> NamespaceName
     {
-        get => GetArgument<TerraformValue<string>>("namespace_name");
+        get => GetArgument<TerraformValue<string>>("namespace_name") ?? AsReference("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionCount is required")]
     public required TerraformValue<double> PartitionCount
     {
-        get => GetArgument<TerraformValue<double>>("partition_count");
+        get => GetRequiredArgument<TerraformValue<double>>("partition_count");
         set => SetArgument("partition_count", value);
     }
 
@@ -288,9 +288,9 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? ResourceGroupName
+    public TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? AsReference("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

@@ -72,7 +72,7 @@ public class AzurermMachineLearningComputeInstanceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermMachineLearningComputeInstanceSshBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformValue<string> PublicKey
     {
-        get => GetArgument<TerraformValue<string>>("public_key");
+        get => GetRequiredArgument<TerraformValue<string>>("public_key");
         set => SetArgument("public_key", value);
     }
 
@@ -183,9 +183,9 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
     public required TerraformValue<string> MachineLearningWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("machine_learning_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("machine_learning_workspace_id");
         set => SetArgument("machine_learning_workspace_id", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineSize is required")]
     public required TerraformValue<string> VirtualMachineSize
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_size");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_size");
         set => SetArgument("virtual_machine_size", value);
     }
 

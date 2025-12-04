@@ -43,9 +43,9 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     /// <summary>
     /// Specifies a unique device name of your choice that is reflected into the /dev/disk/by-id/google-* tree of a Linux operating system running within the instance. This name can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, the server chooses a default device name to apply to this disk, in the form persistent-disks-x, where x is a number assigned by Google Compute Engine.
     /// </summary>
-    public TerraformValue<string>? DeviceName
+    public TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetArgument<TerraformValue<string>>("device_name") ?? AsReference("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -55,16 +55,16 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformValue<string> Disk
     {
-        get => GetArgument<TerraformValue<string>>("disk");
+        get => GetRequiredArgument<TerraformValue<string>>("disk");
         set => SetArgument("disk", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -99,18 +99,18 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     /// <summary>
     /// The project that the referenced compute instance is a part of. If instance is referenced by its self_link the project defined in the link will take precedence.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The zone that the referenced compute instance is located within. If instance is referenced by its self_link the zone defined in the link will take precedence.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

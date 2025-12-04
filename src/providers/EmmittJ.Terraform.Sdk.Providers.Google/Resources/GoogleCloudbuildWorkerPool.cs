@@ -19,7 +19,7 @@ public class GoogleCloudbuildWorkerPoolNetworkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeredNetwork is required")]
     public required TerraformValue<string> PeeredNetwork
     {
-        get => GetArgument<TerraformValue<string>>("peered_network");
+        get => GetRequiredArgument<TerraformValue<string>>("peered_network");
         set => SetArgument("peered_network", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAttachment is required")]
     public required TerraformValue<string> NetworkAttachment
     {
-        get => GetArgument<TerraformValue<string>>("network_attachment");
+        get => GetRequiredArgument<TerraformValue<string>>("network_attachment");
         set => SetArgument("network_attachment", value);
     }
 
@@ -150,9 +150,9 @@ public class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBlock
     /// <summary>
     /// If true, workers are created without any public address, which prevents network egress to public IPs.
     /// </summary>
-    public TerraformValue<bool>? NoExternalIp
+    public TerraformValue<bool> NoExternalIp
     {
-        get => GetArgument<TerraformValue<bool>>("no_external_ip");
+        get => GetArgument<TerraformValue<bool>>("no_external_ip") ?? AsReference("no_external_ip");
         set => SetArgument("no_external_ip", value);
     }
 
@@ -189,9 +189,9 @@ public partial class GoogleCloudbuildWorkerPool(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -201,7 +201,7 @@ public partial class GoogleCloudbuildWorkerPool(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -211,16 +211,16 @@ public partial class GoogleCloudbuildWorkerPool(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

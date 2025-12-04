@@ -73,7 +73,7 @@ public class AzurermSpringCloudConnectionAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermSpringCloudConnectionSecretStoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -172,9 +172,9 @@ public partial class AzurermSpringCloudConnection(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermSpringCloudConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermSpringCloudConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudId is required")]
     public required TerraformValue<string> SpringCloudId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_id");
         set => SetArgument("spring_cloud_id", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AzurermSpringCloudConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformValue<string> TargetResourceId
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 

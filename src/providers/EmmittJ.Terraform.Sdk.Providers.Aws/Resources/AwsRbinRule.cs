@@ -19,7 +19,7 @@ public class AwsRbinRuleExcludeResourceTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTagKey is required")]
     public required TerraformValue<string> ResourceTagKey
     {
-        get => GetArgument<TerraformValue<string>>("resource_tag_key");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_tag_key");
         set => SetArgument("resource_tag_key", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsRbinRuleLockConfigurationBlockUnlockDelayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnlockDelayUnit is required")]
     public required TerraformValue<string> UnlockDelayUnit
     {
-        get => GetArgument<TerraformValue<string>>("unlock_delay_unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unlock_delay_unit");
         set => SetArgument("unlock_delay_unit", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsRbinRuleLockConfigurationBlockUnlockDelayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnlockDelayValue is required")]
     public required TerraformValue<double> UnlockDelayValue
     {
-        get => GetArgument<TerraformValue<double>>("unlock_delay_value");
+        get => GetRequiredArgument<TerraformValue<double>>("unlock_delay_value");
         set => SetArgument("unlock_delay_value", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsRbinRuleResourceTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTagKey is required")]
     public required TerraformValue<string> ResourceTagKey
     {
-        get => GetArgument<TerraformValue<string>>("resource_tag_key");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_tag_key");
         set => SetArgument("resource_tag_key", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsRbinRuleRetentionPeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodUnit is required")]
     public required TerraformValue<string> RetentionPeriodUnit
     {
-        get => GetArgument<TerraformValue<string>>("retention_period_unit");
+        get => GetRequiredArgument<TerraformValue<string>>("retention_period_unit");
         set => SetArgument("retention_period_unit", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsRbinRuleRetentionPeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodValue is required")]
     public required TerraformValue<double> RetentionPeriodValue
     {
-        get => GetArgument<TerraformValue<double>>("retention_period_value");
+        get => GetRequiredArgument<TerraformValue<double>>("retention_period_value");
         set => SetArgument("retention_period_value", value);
     }
 
@@ -212,18 +212,18 @@ public partial class AwsRbinRule(string name) : TerraformResource("aws_rbin_rule
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AwsRbinRule(string name) : TerraformResource("aws_rbin_rule
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => GetArgument<TerraformValue<string>>("resource_type");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -249,9 +249,9 @@ public partial class AwsRbinRule(string name) : TerraformResource("aws_rbin_rule
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -16,9 +16,9 @@ public class GoogleComputeForwardingRuleServiceDirectoryRegistrationsBlock : Ter
     /// <summary>
     /// Service Directory namespace to register the forwarding rule under.
     /// </summary>
-    public TerraformValue<string>? NamespaceAttribute
+    public TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace");
+        get => GetArgument<TerraformValue<string>>("namespace") ?? AsReference("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -155,9 +155,9 @@ public partial class GoogleComputeForwardingRule(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -201,9 +201,9 @@ public partial class GoogleComputeForwardingRule(string name) : TerraformResourc
     /// When reading an &#39;IPAddress&#39;, the API always returns the IP
     /// address number.
     /// </summary>
-    public TerraformValue<string>? IpAddress
+    public TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address") ?? AsReference("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -240,9 +240,9 @@ public partial class GoogleComputeForwardingRule(string name) : TerraformResourc
     /// backend service with UNSPECIFIED protocol.
     /// A forwarding rule with &amp;quot;L3_DEFAULT&amp;quot; IPProtocal cannot be attached to a backend service with TCP or UDP. Possible values: [&amp;quot;TCP&amp;quot;, &amp;quot;UDP&amp;quot;, &amp;quot;ESP&amp;quot;, &amp;quot;AH&amp;quot;, &amp;quot;SCTP&amp;quot;, &amp;quot;ICMP&amp;quot;, &amp;quot;L3_DEFAULT&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? IpProtocol
+    public TerraformValue<string> IpProtocol
     {
-        get => GetArgument<TerraformValue<string>>("ip_protocol");
+        get => GetArgument<TerraformValue<string>>("ip_protocol") ?? AsReference("ip_protocol");
         set => SetArgument("ip_protocol", value);
     }
 
@@ -252,9 +252,9 @@ public partial class GoogleComputeForwardingRule(string name) : TerraformResourc
     /// 
     /// If not set, the IPv4 address will be used by default. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? IpVersion
+    public TerraformValue<string> IpVersion
     {
-        get => GetArgument<TerraformValue<string>>("ip_version");
+        get => GetArgument<TerraformValue<string>>("ip_version") ?? AsReference("ip_version");
         set => SetArgument("ip_version", value);
     }
 
@@ -320,7 +320,7 @@ public partial class GoogleComputeForwardingRule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -336,9 +336,9 @@ public partial class GoogleComputeForwardingRule(string name) : TerraformResourc
     /// For Private Service Connect forwarding rules that forward traffic to Google
     /// APIs, a network must be provided.
     /// </summary>
-    public TerraformValue<string>? Network
+    public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
         set => SetArgument("network", value);
     }
 
@@ -355,9 +355,9 @@ public partial class GoogleComputeForwardingRule(string name) : TerraformResourc
     /// If &#39;IPAddress&#39; is specified, this value must be equal to the
     /// networkTier of the Address. Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? NetworkTier
+    public TerraformValue<string> NetworkTier
     {
-        get => GetArgument<TerraformValue<string>>("network_tier");
+        get => GetArgument<TerraformValue<string>>("network_tier") ?? AsReference("network_tier");
         set => SetArgument("network_tier", value);
     }
 
@@ -396,9 +396,9 @@ public partial class GoogleComputeForwardingRule(string name) : TerraformResourc
     /// 
     /// @pattern: \d+(?:-\d+)?
     /// </summary>
-    public TerraformValue<string>? PortRange
+    public TerraformValue<string> PortRange
     {
-        get => GetArgument<TerraformValue<string>>("port_range");
+        get => GetArgument<TerraformValue<string>>("port_range") ?? AsReference("port_range");
         set => SetArgument("port_range", value);
     }
 
@@ -435,9 +435,9 @@ public partial class GoogleComputeForwardingRule(string name) : TerraformResourc
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -455,9 +455,9 @@ public partial class GoogleComputeForwardingRule(string name) : TerraformResourc
     /// 
     /// This field is not applicable to global forwarding rules.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -499,9 +499,9 @@ public partial class GoogleComputeForwardingRule(string name) : TerraformResourc
     /// However, a subnetwork must be specified if the network is in custom subnet
     /// mode or when creating external forwarding rule with IPv6.
     /// </summary>
-    public TerraformValue<string>? Subnetwork
+    public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 

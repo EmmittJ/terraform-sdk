@@ -29,7 +29,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureGroupId is required")]
     public required TerraformValue<string> FeatureGroupId
     {
-        get => GetArgument<TerraformValue<string>>("feature_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("feature_group_id");
         set => SetArgument("feature_group_id", value);
     }
 
@@ -128,9 +128,9 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock : Terraf
     /// Cron schedule (https://en.wikipedia.org/wiki/Cron) to launch scheduled runs.
     /// To explicitly set a timezone to the cron tab, apply a prefix in the cron tab: &amp;quot;CRON_TZ=${IANA_TIME_ZONE}&amp;quot; or &amp;quot;TZ=${IANA_TIME_ZONE}&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? Cron
+    public TerraformValue<string> Cron
     {
-        get => GetArgument<TerraformValue<string>>("cron");
+        get => GetArgument<TerraformValue<string>>("cron") ?? AsReference("cron");
         set => SetArgument("cron", value);
     }
 
@@ -190,16 +190,16 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureOnlineStore is required")]
     public required TerraformValue<string> FeatureOnlineStore
     {
-        get => GetArgument<TerraformValue<string>>("feature_online_store");
+        get => GetRequiredArgument<TerraformValue<string>>("feature_online_store");
         set => SetArgument("feature_online_store", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -228,18 +228,18 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview(string name) : 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region for the resource. It should be the same as the featureonlinestore region.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

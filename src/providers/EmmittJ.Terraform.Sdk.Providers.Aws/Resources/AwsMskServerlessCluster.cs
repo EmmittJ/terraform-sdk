@@ -71,7 +71,7 @@ public class AwsMskServerlessClusterClientAuthenticationBlockSaslBlockIamBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -124,9 +124,9 @@ public class AwsMskServerlessClusterVpcConfigBlock : TerraformBlock
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroupIds
+    public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsMskServerlessClusterVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -155,25 +155,25 @@ public partial class AwsMskServerlessCluster(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -189,9 +189,9 @@ public partial class AwsMskServerlessCluster(string name) : TerraformResource("a
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -19,7 +19,7 @@ public class GoogleVertexAiFeaturestoreEncryptionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleVertexAiFeaturestoreOnlineServingConfigBlockScalingBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformValue<double> MaxNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("max_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleVertexAiFeaturestoreOnlineServingConfigBlockScalingBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformValue<double> MinNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("min_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -151,9 +151,9 @@ public partial class GoogleVertexAiFeaturestore(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -182,18 +182,18 @@ public partial class GoogleVertexAiFeaturestore(string name) : TerraformResource
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region of the dataset. eg us-central1
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -23,7 +23,7 @@ public partial class AwsAccountPrimaryContact(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressLine1 is required")]
     public required TerraformValue<string> AddressLine1
     {
-        get => GetArgument<TerraformValue<string>>("address_line_1");
+        get => GetRequiredArgument<TerraformValue<string>>("address_line_1");
         set => SetArgument("address_line_1", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsAccountPrimaryContact(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "City is required")]
     public required TerraformValue<string> City
     {
-        get => GetArgument<TerraformValue<string>>("city");
+        get => GetRequiredArgument<TerraformValue<string>>("city");
         set => SetArgument("city", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsAccountPrimaryContact(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
     public required TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code");
+        get => GetRequiredArgument<TerraformValue<string>>("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -89,16 +89,16 @@ public partial class AwsAccountPrimaryContact(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullName is required")]
     public required TerraformValue<string> FullName
     {
-        get => GetArgument<TerraformValue<string>>("full_name");
+        get => GetRequiredArgument<TerraformValue<string>>("full_name");
         set => SetArgument("full_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsAccountPrimaryContact(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsAccountPrimaryContact(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostalCode is required")]
     public required TerraformValue<string> PostalCode
     {
-        get => GetArgument<TerraformValue<string>>("postal_code");
+        get => GetRequiredArgument<TerraformValue<string>>("postal_code");
         set => SetArgument("postal_code", value);
     }
 

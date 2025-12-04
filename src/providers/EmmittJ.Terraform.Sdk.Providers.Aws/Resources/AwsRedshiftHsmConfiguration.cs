@@ -14,7 +14,7 @@ public partial class AwsRedshiftHsmConfiguration(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsRedshiftHsmConfiguration(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmConfigurationIdentifier is required")]
     public required TerraformValue<string> HsmConfigurationIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("hsm_configuration_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("hsm_configuration_identifier");
         set => SetArgument("hsm_configuration_identifier", value);
     }
 
@@ -34,7 +34,7 @@ public partial class AwsRedshiftHsmConfiguration(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmIpAddress is required")]
     public required TerraformValue<string> HsmIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("hsm_ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("hsm_ip_address");
         set => SetArgument("hsm_ip_address", value);
     }
 
@@ -44,7 +44,7 @@ public partial class AwsRedshiftHsmConfiguration(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmPartitionName is required")]
     public required TerraformValue<string> HsmPartitionName
     {
-        get => GetArgument<TerraformValue<string>>("hsm_partition_name");
+        get => GetRequiredArgument<TerraformValue<string>>("hsm_partition_name");
         set => SetArgument("hsm_partition_name", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsRedshiftHsmConfiguration(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmPartitionPassword is required")]
     public required TerraformValue<string> HsmPartitionPassword
     {
-        get => GetArgument<TerraformValue<string>>("hsm_partition_password");
+        get => GetRequiredArgument<TerraformValue<string>>("hsm_partition_password");
         set => SetArgument("hsm_partition_password", value);
     }
 
@@ -64,25 +64,25 @@ public partial class AwsRedshiftHsmConfiguration(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmServerPublicCertificate is required")]
     public required TerraformValue<string> HsmServerPublicCertificate
     {
-        get => GetArgument<TerraformValue<string>>("hsm_server_public_certificate");
+        get => GetRequiredArgument<TerraformValue<string>>("hsm_server_public_certificate");
         set => SetArgument("hsm_server_public_certificate", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -98,9 +98,9 @@ public partial class AwsRedshiftHsmConfiguration(string name) : TerraformResourc
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

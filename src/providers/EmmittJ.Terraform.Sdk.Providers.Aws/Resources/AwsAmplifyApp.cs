@@ -123,7 +123,7 @@ public class AwsAmplifyAppCacheConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsAmplifyAppCustomRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsAmplifyAppCustomRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => GetArgument<TerraformValue<string>>("target");
+        get => GetRequiredArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -196,9 +196,9 @@ public class AwsAmplifyAppJobConfigBlock : TerraformBlock
     /// <summary>
     /// The build_compute_type attribute.
     /// </summary>
-    public TerraformValue<string>? BuildComputeType
+    public TerraformValue<string> BuildComputeType
     {
-        get => GetArgument<TerraformValue<string>>("build_compute_type");
+        get => GetArgument<TerraformValue<string>>("build_compute_type") ?? AsReference("build_compute_type");
         set => SetArgument("build_compute_type", value);
     }
 
@@ -241,9 +241,9 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     /// <summary>
     /// The build_spec attribute.
     /// </summary>
-    public TerraformValue<string>? BuildSpec
+    public TerraformValue<string> BuildSpec
     {
-        get => GetArgument<TerraformValue<string>>("build_spec");
+        get => GetArgument<TerraformValue<string>>("build_spec") ?? AsReference("build_spec");
         set => SetArgument("build_spec", value);
     }
 
@@ -259,9 +259,9 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     /// <summary>
     /// The custom_headers attribute.
     /// </summary>
-    public TerraformValue<string>? CustomHeaders
+    public TerraformValue<string> CustomHeaders
     {
-        get => GetArgument<TerraformValue<string>>("custom_headers");
+        get => GetArgument<TerraformValue<string>>("custom_headers") ?? AsReference("custom_headers");
         set => SetArgument("custom_headers", value);
     }
 
@@ -331,9 +331,9 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -343,7 +343,7 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -368,9 +368,9 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -395,9 +395,9 @@ public partial class AwsAmplifyApp(string name) : TerraformResource("aws_amplify
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

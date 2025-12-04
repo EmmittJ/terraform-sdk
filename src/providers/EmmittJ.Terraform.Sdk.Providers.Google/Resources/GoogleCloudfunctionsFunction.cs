@@ -33,7 +33,7 @@ public class GoogleCloudfunctionsFunctionEventTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformValue<string> EventType
     {
-        get => GetArgument<TerraformValue<string>>("event_type");
+        get => GetRequiredArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleCloudfunctionsFunctionEventTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => GetArgument<TerraformValue<string>>("resource");
+        get => GetRequiredArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleCloudfunctionsFunctionEventTriggerBlockFailurePolicyBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retry is required")]
     public required TerraformValue<bool> Retry
     {
-        get => GetArgument<TerraformValue<bool>>("retry");
+        get => GetRequiredArgument<TerraformValue<bool>>("retry");
         set => SetArgument("retry", value);
     }
 
@@ -120,16 +120,16 @@ public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// Project identifier (due to a known limitation, only project number is supported by this field) of the project that contains the secret. If not set, it will be populated with the function&#39;s project, assuming that the secret exists in the same project as of the function.
     /// </summary>
-    public TerraformValue<string>? ProjectId
+    public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => GetArgument<TerraformValue<string>>("secret");
+        get => GetRequiredArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -173,16 +173,16 @@ public class GoogleCloudfunctionsFunctionSecretVolumesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => GetArgument<TerraformValue<string>>("mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
     /// <summary>
     /// Project identifier (due to a known limitation, only project number is supported by this field) of the project that contains the secret. If not set, it will be populated with the function&#39;s project, assuming that the secret exists in the same project as of the function.
     /// </summary>
-    public TerraformValue<string>? ProjectId
+    public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleCloudfunctionsFunctionSecretVolumesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => GetArgument<TerraformValue<string>>("secret");
+        get => GetRequiredArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -224,7 +224,7 @@ public class GoogleCloudfunctionsFunctionSecretVolumesBlockVersionsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -234,7 +234,7 @@ public class GoogleCloudfunctionsFunctionSecretVolumesBlockVersionsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -264,7 +264,7 @@ public class GoogleCloudfunctionsFunctionSourceRepositoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -348,9 +348,9 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// <summary>
     /// The fully-qualified name of the service account to be used for the build step of deploying this function
     /// </summary>
-    public TerraformValue<string>? BuildServiceAccount
+    public TerraformValue<string> BuildServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("build_service_account");
+        get => GetArgument<TerraformValue<string>>("build_service_account") ?? AsReference("build_service_account");
         set => SetArgument("build_service_account", value);
     }
 
@@ -375,9 +375,9 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// <summary>
     /// Docker Registry to use for storing the function&#39;s Docker images. Allowed values are ARTIFACT_REGISTRY (default) and CONTAINER_REGISTRY.
     /// </summary>
-    public TerraformValue<string>? DockerRegistry
+    public TerraformValue<string> DockerRegistry
     {
-        get => GetArgument<TerraformValue<string>>("docker_registry");
+        get => GetArgument<TerraformValue<string>>("docker_registry") ?? AsReference("docker_registry");
         set => SetArgument("docker_registry", value);
     }
 
@@ -411,27 +411,27 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// <summary>
     /// The security level for the function. Defaults to SECURE_OPTIONAL. Valid only if trigger_http is used.
     /// </summary>
-    public TerraformValue<string>? HttpsTriggerSecurityLevel
+    public TerraformValue<string> HttpsTriggerSecurityLevel
     {
-        get => GetArgument<TerraformValue<string>>("https_trigger_security_level");
+        get => GetArgument<TerraformValue<string>>("https_trigger_security_level") ?? AsReference("https_trigger_security_level");
         set => SetArgument("https_trigger_security_level", value);
     }
 
     /// <summary>
     /// URL which triggers function execution. Returned only if trigger_http is used.
     /// </summary>
-    public TerraformValue<string>? HttpsTriggerUrl
+    public TerraformValue<string> HttpsTriggerUrl
     {
-        get => GetArgument<TerraformValue<string>>("https_trigger_url");
+        get => GetArgument<TerraformValue<string>>("https_trigger_url") ?? AsReference("https_trigger_url");
         set => SetArgument("https_trigger_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -468,9 +468,9 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// <summary>
     /// The limit on the maximum number of function instances that may coexist at a given time.
     /// </summary>
-    public TerraformValue<double>? MaxInstances
+    public TerraformValue<double> MaxInstances
     {
-        get => GetArgument<TerraformValue<double>>("max_instances");
+        get => GetArgument<TerraformValue<double>>("max_instances") ?? AsReference("max_instances");
         set => SetArgument("max_instances", value);
     }
 
@@ -489,25 +489,25 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Project of the function. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region of function. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -517,16 +517,16 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformValue<string> Runtime
     {
-        get => GetArgument<TerraformValue<string>>("runtime");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime");
         set => SetArgument("runtime", value);
     }
 
     /// <summary>
     ///  If provided, the self-provided service account to run the function with.
     /// </summary>
-    public TerraformValue<string>? ServiceAccountEmail
+    public TerraformValue<string> ServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email") ?? AsReference("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -578,9 +578,9 @@ public partial class GoogleCloudfunctionsFunction(string name) : TerraformResour
     /// <summary>
     /// The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. Defaults to PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value.
     /// </summary>
-    public TerraformValue<string>? VpcConnectorEgressSettings
+    public TerraformValue<string> VpcConnectorEgressSettings
     {
-        get => GetArgument<TerraformValue<string>>("vpc_connector_egress_settings");
+        get => GetArgument<TerraformValue<string>>("vpc_connector_egress_settings") ?? AsReference("vpc_connector_egress_settings");
         set => SetArgument("vpc_connector_egress_settings", value);
     }
 

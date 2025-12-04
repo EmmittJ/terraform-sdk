@@ -70,9 +70,9 @@ public partial class AzurermNetworkManagerAdminRuleCollection(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermNetworkManagerAdminRuleCollection(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermNetworkManagerAdminRuleCollection(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityAdminConfigurationId is required")]
     public required TerraformValue<string> SecurityAdminConfigurationId
     {
-        get => GetArgument<TerraformValue<string>>("security_admin_configuration_id");
+        get => GetRequiredArgument<TerraformValue<string>>("security_admin_configuration_id");
         set => SetArgument("security_admin_configuration_id", value);
     }
 

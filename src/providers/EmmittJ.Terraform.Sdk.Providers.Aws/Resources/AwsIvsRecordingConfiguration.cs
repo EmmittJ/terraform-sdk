@@ -45,7 +45,7 @@ public class AwsIvsRecordingConfigurationDestinationConfigurationBlockS3Block : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -66,18 +66,18 @@ public class AwsIvsRecordingConfigurationThumbnailConfigurationBlock : Terraform
     /// <summary>
     /// The recording_mode attribute.
     /// </summary>
-    public TerraformValue<string>? RecordingMode
+    public TerraformValue<string> RecordingMode
     {
-        get => GetArgument<TerraformValue<string>>("recording_mode");
+        get => GetArgument<TerraformValue<string>>("recording_mode") ?? AsReference("recording_mode");
         set => SetArgument("recording_mode", value);
     }
 
     /// <summary>
     /// The target_interval_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? TargetIntervalSeconds
+    public TerraformValue<double> TargetIntervalSeconds
     {
-        get => GetArgument<TerraformValue<double>>("target_interval_seconds");
+        get => GetArgument<TerraformValue<double>>("target_interval_seconds") ?? AsReference("target_interval_seconds");
         set => SetArgument("target_interval_seconds", value);
     }
 
@@ -125,36 +125,36 @@ public partial class AwsIvsRecordingConfiguration(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The recording_reconnect_window_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? RecordingReconnectWindowSeconds
+    public TerraformValue<double> RecordingReconnectWindowSeconds
     {
-        get => GetArgument<TerraformValue<double>>("recording_reconnect_window_seconds");
+        get => GetArgument<TerraformValue<double>>("recording_reconnect_window_seconds") ?? AsReference("recording_reconnect_window_seconds");
         set => SetArgument("recording_reconnect_window_seconds", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -170,9 +170,9 @@ public partial class AwsIvsRecordingConfiguration(string name) : TerraformResour
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

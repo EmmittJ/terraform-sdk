@@ -64,16 +64,16 @@ public partial class AzurermRedisFirewallRule(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIp is required")]
     public required TerraformValue<string> EndIp
     {
-        get => GetArgument<TerraformValue<string>>("end_ip");
+        get => GetRequiredArgument<TerraformValue<string>>("end_ip");
         set => SetArgument("end_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermRedisFirewallRule(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermRedisFirewallRule(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheName is required")]
     public required TerraformValue<string> RedisCacheName
     {
-        get => GetArgument<TerraformValue<string>>("redis_cache_name");
+        get => GetRequiredArgument<TerraformValue<string>>("redis_cache_name");
         set => SetArgument("redis_cache_name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermRedisFirewallRule(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermRedisFirewallRule(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIp is required")]
     public required TerraformValue<string> StartIp
     {
-        get => GetArgument<TerraformValue<string>>("start_ip");
+        get => GetRequiredArgument<TerraformValue<string>>("start_ip");
         set => SetArgument("start_ip", value);
     }
 

@@ -87,16 +87,16 @@ public partial class AwsGlobalacceleratorCustomRoutingListener(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorArn is required")]
     public required TerraformValue<string> AcceleratorArn
     {
-        get => GetArgument<TerraformValue<string>>("accelerator_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("accelerator_arn");
         set => SetArgument("accelerator_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

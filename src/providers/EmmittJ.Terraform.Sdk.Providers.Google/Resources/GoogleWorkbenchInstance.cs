@@ -16,9 +16,9 @@ public class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlock
     /// <summary>
     /// Optional. If true, no external IP will be assigned to this VM instance.
     /// </summary>
-    public TerraformValue<bool>? DisablePublicIp
+    public TerraformValue<bool> DisablePublicIp
     {
-        get => GetArgument<TerraformValue<bool>>("disable_public_ip");
+        get => GetArgument<TerraformValue<bool>>("disable_public_ip") ?? AsReference("disable_public_ip");
         set => SetArgument("disable_public_ip", value);
     }
 
@@ -35,18 +35,18 @@ public class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlock
     /// <summary>
     /// Optional. The machine type of the VM instance. https://cloud.google.com/compute/docs/machine-resource
     /// </summary>
-    public TerraformValue<string>? MachineType
+    public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
     /// <summary>
     /// Optional. Custom metadata to apply to this instance.
     /// </summary>
-    public TerraformMap<string>? Metadata
+    public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -54,9 +54,9 @@ public class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlock
     /// Optional. The Compute Engine tags to add to instance (see [Tagging
     /// instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
     /// </summary>
-    public TerraformList<string>? Tags
+    public TerraformList<string> Tags
     {
-        get => GetArgument<TerraformList<string>>("tags");
+        get => GetArgument<TerraformList<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -205,9 +205,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockBootDiskBlock : TerraformBlock
     /// Optional. Input only. Disk encryption method used on the boot and
     /// data disks, defaults to GMEK. Possible values: [&amp;quot;GMEK&amp;quot;, &amp;quot;CMEK&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? DiskEncryption
+    public TerraformValue<string> DiskEncryption
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption");
+        get => GetArgument<TerraformValue<string>>("disk_encryption") ?? AsReference("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
@@ -216,18 +216,18 @@ public class GoogleWorkbenchInstanceGceSetupBlockBootDiskBlock : TerraformBlock
     /// up to a maximum of 64000 GB (64 TB). If not specified, this defaults to the
     /// recommended value of 150GB.
     /// </summary>
-    public TerraformValue<string>? DiskSizeGb
+    public TerraformValue<string> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<string>>("disk_size_gb");
+        get => GetArgument<TerraformValue<string>>("disk_size_gb") ?? AsReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
     /// <summary>
     /// Optional. Indicates the type of the disk. Possible values: [&amp;quot;PD_STANDARD&amp;quot;, &amp;quot;PD_SSD&amp;quot;, &amp;quot;PD_BALANCED&amp;quot;, &amp;quot;PD_EXTREME&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? DiskType
+    public TerraformValue<string> DiskType
     {
-        get => GetArgument<TerraformValue<string>>("disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type") ?? AsReference("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -284,7 +284,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockContainerImageBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => GetArgument<TerraformValue<string>>("repository");
+        get => GetRequiredArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -314,9 +314,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockDataDisksBlock : TerraformBlock
     /// Optional. Input only. Disk encryption method used on the boot
     /// and data disks, defaults to GMEK. Possible values: [&amp;quot;GMEK&amp;quot;, &amp;quot;CMEK&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? DiskEncryption
+    public TerraformValue<string> DiskEncryption
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption");
+        get => GetArgument<TerraformValue<string>>("disk_encryption") ?? AsReference("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
@@ -325,9 +325,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockDataDisksBlock : TerraformBlock
     /// up to a maximum of 64000 GB (64 TB). If not specified, this defaults to
     /// 100.
     /// </summary>
-    public TerraformValue<string>? DiskSizeGb
+    public TerraformValue<string> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<string>>("disk_size_gb");
+        get => GetArgument<TerraformValue<string>>("disk_size_gb") ?? AsReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -367,9 +367,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockNetworkInterfacesBlock : Terraf
     /// <summary>
     /// Optional. The name of the VPC that this VM instance is in.
     /// </summary>
-    public TerraformValue<string>? Network
+    public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
         set => SetArgument("network", value);
     }
 
@@ -386,9 +386,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockNetworkInterfacesBlock : Terraf
     /// <summary>
     /// Optional. The name of the subnet that this VM instance is in.
     /// </summary>
-    public TerraformValue<string>? Subnet
+    public TerraformValue<string> Subnet
     {
-        get => GetArgument<TerraformValue<string>>("subnet");
+        get => GetArgument<TerraformValue<string>>("subnet") ?? AsReference("subnet");
         set => SetArgument("subnet", value);
     }
 
@@ -424,7 +424,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockNetworkInterfacesBlockAccessCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalIp is required")]
     public required TerraformValue<string> ExternalIp
     {
-        get => GetArgument<TerraformValue<string>>("external_ip");
+        get => GetRequiredArgument<TerraformValue<string>>("external_ip");
         set => SetArgument("external_ip", value);
     }
 
@@ -445,9 +445,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockReservationAffinityBlock : Terr
     /// Specifies the type of reservation from which this instance can consume resources:
     /// RESERVATION_ANY (default), RESERVATION_SPECIFIC, or RESERVATION_NONE. Possible values: [&amp;quot;RESERVATION_NONE&amp;quot;, &amp;quot;RESERVATION_ANY&amp;quot;, &amp;quot;RESERVATION_SPECIFIC&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? ConsumeReservationType
+    public TerraformValue<string> ConsumeReservationType
     {
-        get => GetArgument<TerraformValue<string>>("consume_reservation_type");
+        get => GetArgument<TerraformValue<string>>("consume_reservation_type") ?? AsReference("consume_reservation_type");
         set => SetArgument("consume_reservation_type", value);
     }
 
@@ -490,9 +490,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockServiceAccountsBlock : Terrafor
     /// <summary>
     /// Optional. Email address of the service account.
     /// </summary>
-    public TerraformValue<string>? Email
+    public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
         set => SetArgument("email", value);
     }
 
@@ -683,9 +683,9 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -731,7 +731,7 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -741,16 +741,16 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

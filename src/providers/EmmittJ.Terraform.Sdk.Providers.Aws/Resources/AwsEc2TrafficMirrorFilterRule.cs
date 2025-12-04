@@ -87,16 +87,16 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
     public required TerraformValue<string> DestinationCidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("destination_cidr_block");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_cidr_block");
         set => SetArgument("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,9 +112,9 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleAction is required")]
     public required TerraformValue<string> RuleAction
     {
-        get => GetArgument<TerraformValue<string>>("rule_action");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_action");
         set => SetArgument("rule_action", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformValue<double> RuleNumber
     {
-        get => GetArgument<TerraformValue<double>>("rule_number");
+        get => GetRequiredArgument<TerraformValue<double>>("rule_number");
         set => SetArgument("rule_number", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceCidrBlock is required")]
     public required TerraformValue<string> SourceCidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("source_cidr_block");
+        get => GetRequiredArgument<TerraformValue<string>>("source_cidr_block");
         set => SetArgument("source_cidr_block", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficDirection is required")]
     public required TerraformValue<string> TrafficDirection
     {
-        get => GetArgument<TerraformValue<string>>("traffic_direction");
+        get => GetRequiredArgument<TerraformValue<string>>("traffic_direction");
         set => SetArgument("traffic_direction", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficMirrorFilterId is required")]
     public required TerraformValue<string> TrafficMirrorFilterId
     {
-        get => GetArgument<TerraformValue<string>>("traffic_mirror_filter_id");
+        get => GetRequiredArgument<TerraformValue<string>>("traffic_mirror_filter_id");
         set => SetArgument("traffic_mirror_filter_id", value);
     }
 

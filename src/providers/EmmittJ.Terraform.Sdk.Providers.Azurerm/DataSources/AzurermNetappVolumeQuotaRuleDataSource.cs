@@ -34,9 +34,9 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformValue<string> VolumeId
     {
-        get => GetArgument<TerraformValue<string>>("volume_id");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_id");
         set => SetArgument("volume_id", value);
     }
 

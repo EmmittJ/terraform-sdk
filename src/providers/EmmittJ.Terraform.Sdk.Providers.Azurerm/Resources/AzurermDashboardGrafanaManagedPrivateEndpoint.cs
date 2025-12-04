@@ -64,7 +64,7 @@ public partial class AzurermDashboardGrafanaManagedPrivateEndpoint(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaId is required")]
     public required TerraformValue<string> GrafanaId
     {
-        get => GetArgument<TerraformValue<string>>("grafana_id");
+        get => GetRequiredArgument<TerraformValue<string>>("grafana_id");
         set => SetArgument("grafana_id", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AzurermDashboardGrafanaManagedPrivateEndpoint(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermDashboardGrafanaManagedPrivateEndpoint(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermDashboardGrafanaManagedPrivateEndpoint(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermDashboardGrafanaManagedPrivateEndpoint(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkResourceId is required")]
     public required TerraformValue<string> PrivateLinkResourceId
     {
-        get => GetArgument<TerraformValue<string>>("private_link_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("private_link_resource_id");
         set => SetArgument("private_link_resource_id", value);
     }
 

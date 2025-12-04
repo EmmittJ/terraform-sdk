@@ -64,25 +64,25 @@ public partial class AzurermBotChannelMsTeams(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformValue<string> BotName
     {
-        get => GetArgument<TerraformValue<string>>("bot_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bot_name");
         set => SetArgument("bot_name", value);
     }
 
     /// <summary>
     /// The calling_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? CallingEnabled
+    public TerraformValue<bool> CallingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("calling_enabled");
+        get => GetArgument<TerraformValue<bool>>("calling_enabled") ?? AsReference("calling_enabled");
         set => SetArgument("calling_enabled", value);
     }
 
     /// <summary>
     /// The calling_web_hook attribute.
     /// </summary>
-    public TerraformValue<string>? CallingWebHook
+    public TerraformValue<string> CallingWebHook
     {
-        get => GetArgument<TerraformValue<string>>("calling_web_hook");
+        get => GetArgument<TerraformValue<string>>("calling_web_hook") ?? AsReference("calling_web_hook");
         set => SetArgument("calling_web_hook", value);
     }
 
@@ -99,18 +99,18 @@ public partial class AzurermBotChannelMsTeams(string name) : TerraformResource("
     /// The enable_calling attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EnableCalling
+    public TerraformValue<bool> EnableCalling
     {
-        get => GetArgument<TerraformValue<bool>>("enable_calling");
+        get => GetArgument<TerraformValue<bool>>("enable_calling") ?? AsReference("enable_calling");
         set => SetArgument("enable_calling", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermBotChannelMsTeams(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermBotChannelMsTeams(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

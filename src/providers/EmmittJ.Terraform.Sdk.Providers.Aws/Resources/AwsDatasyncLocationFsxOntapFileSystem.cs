@@ -109,7 +109,7 @@ public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlockSmbBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlockSmbBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => GetArgument<TerraformValue<string>>("user");
+        get => GetRequiredArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -170,18 +170,18 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupArns is required")]
     public required TerraformSet<string> SecurityGroupArns
     {
-        get => GetArgument<TerraformSet<string>>("security_group_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_arns");
         set => SetArgument("security_group_arns", value);
     }
 
@@ -201,16 +201,16 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageVirtualMachineArn is required")]
     public required TerraformValue<string> StorageVirtualMachineArn
     {
-        get => GetArgument<TerraformValue<string>>("storage_virtual_machine_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_virtual_machine_arn");
         set => SetArgument("storage_virtual_machine_arn", value);
     }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformValue<string>? Subdirectory
+    public TerraformValue<string> Subdirectory
     {
-        get => GetArgument<TerraformValue<string>>("subdirectory");
+        get => GetArgument<TerraformValue<string>>("subdirectory") ?? AsReference("subdirectory");
         set => SetArgument("subdirectory", value);
     }
 
@@ -226,9 +226,9 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

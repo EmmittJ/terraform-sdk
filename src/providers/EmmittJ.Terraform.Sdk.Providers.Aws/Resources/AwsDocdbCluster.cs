@@ -37,7 +37,7 @@ public class AwsDocdbClusterRestoreToPointInTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceClusterIdentifier is required")]
     public required TerraformValue<string> SourceClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("source_cluster_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("source_cluster_identifier");
         set => SetArgument("source_cluster_identifier", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsDocdbClusterServerlessV2ScalingConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformValue<double> MaxCapacity
     {
-        get => GetArgument<TerraformValue<double>>("max_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsDocdbClusterServerlessV2ScalingConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformValue<double> MinCapacity
     {
-        get => GetArgument<TerraformValue<double>>("min_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("min_capacity");
         set => SetArgument("min_capacity", value);
     }
 
@@ -155,9 +155,9 @@ public partial class AwsDocdbCluster(string name) : TerraformResource("aws_docdb
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformSet<string>? AvailabilityZones
+    public TerraformSet<string> AvailabilityZones
     {
-        get => GetArgument<TerraformSet<string>>("availability_zones");
+        get => GetArgument<TerraformSet<string>>("availability_zones") ?? AsReference("availability_zones");
         set => SetArgument("availability_zones", value);
     }
 
@@ -173,45 +173,45 @@ public partial class AwsDocdbCluster(string name) : TerraformResource("aws_docdb
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformValue<string>? ClusterIdentifier
+    public TerraformValue<string> ClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier") ?? AsReference("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
     /// <summary>
     /// The cluster_identifier_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? ClusterIdentifierPrefix
+    public TerraformValue<string> ClusterIdentifierPrefix
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier_prefix");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier_prefix") ?? AsReference("cluster_identifier_prefix");
         set => SetArgument("cluster_identifier_prefix", value);
     }
 
     /// <summary>
     /// The cluster_members attribute.
     /// </summary>
-    public TerraformSet<string>? ClusterMembers
+    public TerraformSet<string> ClusterMembers
     {
-        get => GetArgument<TerraformSet<string>>("cluster_members");
+        get => GetArgument<TerraformSet<string>>("cluster_members") ?? AsReference("cluster_members");
         set => SetArgument("cluster_members", value);
     }
 
     /// <summary>
     /// The db_cluster_parameter_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? DbClusterParameterGroupName
+    public TerraformValue<string> DbClusterParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("db_cluster_parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("db_cluster_parameter_group_name") ?? AsReference("db_cluster_parameter_group_name");
         set => SetArgument("db_cluster_parameter_group_name", value);
     }
 
     /// <summary>
     /// The db_subnet_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? DbSubnetGroupName
+    public TerraformValue<string> DbSubnetGroupName
     {
-        get => GetArgument<TerraformValue<string>>("db_subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("db_subnet_group_name") ?? AsReference("db_subnet_group_name");
         set => SetArgument("db_subnet_group_name", value);
     }
 
@@ -245,9 +245,9 @@ public partial class AwsDocdbCluster(string name) : TerraformResource("aws_docdb
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string>? EngineVersion
+    public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -272,18 +272,18 @@ public partial class AwsDocdbCluster(string name) : TerraformResource("aws_docdb
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -326,9 +326,9 @@ public partial class AwsDocdbCluster(string name) : TerraformResource("aws_docdb
     /// <summary>
     /// The master_username attribute.
     /// </summary>
-    public TerraformValue<string>? MasterUsername
+    public TerraformValue<string> MasterUsername
     {
-        get => GetArgument<TerraformValue<string>>("master_username");
+        get => GetArgument<TerraformValue<string>>("master_username") ?? AsReference("master_username");
         set => SetArgument("master_username", value);
     }
 
@@ -344,27 +344,27 @@ public partial class AwsDocdbCluster(string name) : TerraformResource("aws_docdb
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredBackupWindow
+    public TerraformValue<string> PreferredBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_backup_window");
+        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? AsReference("preferred_backup_window");
         set => SetArgument("preferred_backup_window", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredMaintenanceWindow
+    public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -416,18 +416,18 @@ public partial class AwsDocdbCluster(string name) : TerraformResource("aws_docdb
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? VpcSecurityGroupIds
+    public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 

@@ -37,7 +37,7 @@ public partial class AwsBackupLogicallyAirGappedVault(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetentionDays is required")]
     public required TerraformValue<double> MaxRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("max_retention_days");
+        get => GetRequiredArgument<TerraformValue<double>>("max_retention_days");
         set => SetArgument("max_retention_days", value);
     }
 
@@ -47,7 +47,7 @@ public partial class AwsBackupLogicallyAirGappedVault(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinRetentionDays is required")]
     public required TerraformValue<double> MinRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("min_retention_days");
+        get => GetRequiredArgument<TerraformValue<double>>("min_retention_days");
         set => SetArgument("min_retention_days", value);
     }
 
@@ -57,16 +57,16 @@ public partial class AwsBackupLogicallyAirGappedVault(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

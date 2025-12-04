@@ -55,16 +55,16 @@ public partial class AwsRoute53KeySigningKey(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
     public required TerraformValue<string> HostedZoneId
     {
-        get => GetArgument<TerraformValue<string>>("hosted_zone_id");
+        get => GetRequiredArgument<TerraformValue<string>>("hosted_zone_id");
         set => SetArgument("hosted_zone_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsRoute53KeySigningKey(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyManagementServiceArn is required")]
     public required TerraformValue<string> KeyManagementServiceArn
     {
-        get => GetArgument<TerraformValue<string>>("key_management_service_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("key_management_service_arn");
         set => SetArgument("key_management_service_arn", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsRoute53KeySigningKey(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

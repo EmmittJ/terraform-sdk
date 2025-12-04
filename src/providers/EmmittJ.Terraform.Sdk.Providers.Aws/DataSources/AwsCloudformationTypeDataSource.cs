@@ -11,45 +11,45 @@ public partial class AwsCloudformationTypeDataSource(string name) : TerraformDat
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string>? Arn
+    public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    public TerraformValue<string>? TypeName
+    public TerraformValue<string> TypeName
     {
-        get => GetArgument<TerraformValue<string>>("type_name");
+        get => GetArgument<TerraformValue<string>>("type_name") ?? AsReference("type_name");
         set => SetArgument("type_name", value);
     }
 

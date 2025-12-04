@@ -19,7 +19,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("execution_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformValue<string> ReleaseLabel
     {
-        get => GetArgument<TerraformValue<string>>("release_label");
+        get => GetRequiredArgument<TerraformValue<string>>("release_label");
         set => SetArgument("release_label", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockConfigurationOverrid
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformValue<string> Classification
     {
-        get => GetArgument<TerraformValue<string>>("classification");
+        get => GetRequiredArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -232,7 +232,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockConfigurationOverrid
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformValue<string> LogGroupName
     {
-        get => GetArgument<TerraformValue<string>>("log_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -264,7 +264,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockConfigurationOverrid
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogUri is required")]
     public required TerraformValue<string> LogUri
     {
-        get => GetArgument<TerraformValue<string>>("log_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("log_uri");
         set => SetArgument("log_uri", value);
     }
 
@@ -351,7 +351,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockJobDriverBlockSparkS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryPoint is required")]
     public required TerraformValue<string> EntryPoint
     {
-        get => GetArgument<TerraformValue<string>>("entry_point");
+        get => GetRequiredArgument<TerraformValue<string>>("entry_point");
         set => SetArgument("entry_point", value);
     }
 
@@ -408,9 +408,9 @@ public partial class AwsEmrcontainersJobTemplate(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -429,16 +429,16 @@ public partial class AwsEmrcontainersJobTemplate(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -454,9 +454,9 @@ public partial class AwsEmrcontainersJobTemplate(string name) : TerraformResourc
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

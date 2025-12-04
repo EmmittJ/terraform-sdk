@@ -44,7 +44,7 @@ public class GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaPool is required")]
     public required TerraformValue<string> CaPool
     {
-        get => GetArgument<TerraformValue<string>>("ca_pool");
+        get => GetRequiredArgument<TerraformValue<string>>("ca_pool");
         set => SetArgument("ca_pool", value);
     }
 
@@ -110,9 +110,9 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig(string na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -122,7 +122,7 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     public required TerraformValue<string> KeyAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("key_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("key_algorithm");
         set => SetArgument("key_algorithm", value);
     }
 
@@ -147,7 +147,7 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lifetime is required")]
     public required TerraformValue<string> Lifetime
     {
-        get => GetArgument<TerraformValue<string>>("lifetime");
+        get => GetRequiredArgument<TerraformValue<string>>("lifetime");
         set => SetArgument("lifetime", value);
     }
 
@@ -167,16 +167,16 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -189,7 +189,7 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RotationWindowPercentage is required")]
     public required TerraformValue<double> RotationWindowPercentage
     {
-        get => GetArgument<TerraformValue<double>>("rotation_window_percentage");
+        get => GetRequiredArgument<TerraformValue<double>>("rotation_window_percentage");
         set => SetArgument("rotation_window_percentage", value);
     }
 

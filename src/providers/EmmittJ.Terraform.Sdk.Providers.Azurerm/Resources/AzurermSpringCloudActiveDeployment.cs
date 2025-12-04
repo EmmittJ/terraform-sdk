@@ -64,16 +64,16 @@ public partial class AzurermSpringCloudActiveDeployment(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentName is required")]
     public required TerraformValue<string> DeploymentName
     {
-        get => GetArgument<TerraformValue<string>>("deployment_name");
+        get => GetRequiredArgument<TerraformValue<string>>("deployment_name");
         set => SetArgument("deployment_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSpringCloudActiveDeployment(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformValue<string> SpringCloudAppId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_app_id");
         set => SetArgument("spring_cloud_app_id", value);
     }
 

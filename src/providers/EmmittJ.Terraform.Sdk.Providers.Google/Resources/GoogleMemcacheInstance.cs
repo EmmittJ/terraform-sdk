@@ -79,7 +79,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlockWeeklyMaintenanceWindow
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => GetArgument<TerraformValue<string>>("day");
+        get => GetRequiredArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlockWeeklyMaintenanceWindow
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetRequiredArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCount is required")]
     public required TerraformValue<double> CpuCount
     {
-        get => GetArgument<TerraformValue<double>>("cpu_count");
+        get => GetRequiredArgument<TerraformValue<double>>("cpu_count");
         set => SetArgument("cpu_count", value);
     }
 
@@ -218,7 +218,7 @@ public class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeMb is required")]
     public required TerraformValue<double> MemorySizeMb
     {
-        get => GetArgument<TerraformValue<double>>("memory_size_mb");
+        get => GetRequiredArgument<TerraformValue<double>>("memory_size_mb");
         set => SetArgument("memory_size_mb", value);
     }
 
@@ -276,9 +276,9 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// The full name of the GCE network to connect the instance to.  If not provided,
     /// &#39;default&#39; will be used.
     /// </summary>
-    public TerraformValue<string>? AuthorizedNetwork
+    public TerraformValue<string> AuthorizedNetwork
     {
-        get => GetArgument<TerraformValue<string>>("authorized_network");
+        get => GetArgument<TerraformValue<string>>("authorized_network") ?? AsReference("authorized_network");
         set => SetArgument("authorized_network", value);
     }
 
@@ -299,18 +299,18 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// <summary>
     /// A user-visible name for the instance.
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -344,7 +344,7 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -354,25 +354,25 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region of the Memcache instance. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -391,9 +391,9 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// Zones where memcache nodes should be provisioned.  If not
     /// provided, all zones will be used.
     /// </summary>
-    public TerraformSet<string>? Zones
+    public TerraformSet<string> Zones
     {
-        get => GetArgument<TerraformSet<string>>("zones");
+        get => GetArgument<TerraformSet<string>>("zones") ?? AsReference("zones");
         set => SetArgument("zones", value);
     }
 

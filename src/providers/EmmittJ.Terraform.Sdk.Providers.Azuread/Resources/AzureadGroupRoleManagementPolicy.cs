@@ -16,54 +16,54 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// <summary>
     /// The time after which the an activation can be valid for
     /// </summary>
-    public TerraformValue<string>? MaximumDuration
+    public TerraformValue<string> MaximumDuration
     {
-        get => GetArgument<TerraformValue<string>>("maximum_duration");
+        get => GetArgument<TerraformValue<string>>("maximum_duration") ?? AsReference("maximum_duration");
         set => SetArgument("maximum_duration", value);
     }
 
     /// <summary>
     /// Whether an approval is required for activation
     /// </summary>
-    public TerraformValue<bool>? RequireApproval
+    public TerraformValue<bool> RequireApproval
     {
-        get => GetArgument<TerraformValue<bool>>("require_approval");
+        get => GetArgument<TerraformValue<bool>>("require_approval") ?? AsReference("require_approval");
         set => SetArgument("require_approval", value);
     }
 
     /// <summary>
     /// Whether a justification is required during activation
     /// </summary>
-    public TerraformValue<bool>? RequireJustification
+    public TerraformValue<bool> RequireJustification
     {
-        get => GetArgument<TerraformValue<bool>>("require_justification");
+        get => GetArgument<TerraformValue<bool>>("require_justification") ?? AsReference("require_justification");
         set => SetArgument("require_justification", value);
     }
 
     /// <summary>
     /// Whether multi-factor authentication is required during activation
     /// </summary>
-    public TerraformValue<bool>? RequireMultifactorAuthentication
+    public TerraformValue<bool> RequireMultifactorAuthentication
     {
-        get => GetArgument<TerraformValue<bool>>("require_multifactor_authentication");
+        get => GetArgument<TerraformValue<bool>>("require_multifactor_authentication") ?? AsReference("require_multifactor_authentication");
         set => SetArgument("require_multifactor_authentication", value);
     }
 
     /// <summary>
     /// Whether ticket information is required during activation
     /// </summary>
-    public TerraformValue<bool>? RequireTicketInfo
+    public TerraformValue<bool> RequireTicketInfo
     {
-        get => GetArgument<TerraformValue<bool>>("require_ticket_info");
+        get => GetArgument<TerraformValue<bool>>("require_ticket_info") ?? AsReference("require_ticket_info");
         set => SetArgument("require_ticket_info", value);
     }
 
     /// <summary>
     /// Whether a conditional access context is required during activation
     /// </summary>
-    public TerraformValue<string>? RequiredConditionalAccessAuthenticationContext
+    public TerraformValue<string> RequiredConditionalAccessAuthenticationContext
     {
-        get => GetArgument<TerraformValue<string>>("required_conditional_access_authentication_context");
+        get => GetArgument<TerraformValue<string>>("required_conditional_access_authentication_context") ?? AsReference("required_conditional_access_authentication_context");
         set => SetArgument("required_conditional_access_authentication_context", value);
     }
 
@@ -121,7 +121,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlockApprovalStageBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -151,45 +151,45 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : Terraf
     /// <summary>
     /// Must the assignment have an expiry date
     /// </summary>
-    public TerraformValue<bool>? ExpirationRequired
+    public TerraformValue<bool> ExpirationRequired
     {
-        get => GetArgument<TerraformValue<bool>>("expiration_required");
+        get => GetArgument<TerraformValue<bool>>("expiration_required") ?? AsReference("expiration_required");
         set => SetArgument("expiration_required", value);
     }
 
     /// <summary>
     /// The duration after which assignments expire
     /// </summary>
-    public TerraformValue<string>? ExpireAfter
+    public TerraformValue<string> ExpireAfter
     {
-        get => GetArgument<TerraformValue<string>>("expire_after");
+        get => GetArgument<TerraformValue<string>>("expire_after") ?? AsReference("expire_after");
         set => SetArgument("expire_after", value);
     }
 
     /// <summary>
     /// Whether a justification is required to make an assignment
     /// </summary>
-    public TerraformValue<bool>? RequireJustification
+    public TerraformValue<bool> RequireJustification
     {
-        get => GetArgument<TerraformValue<bool>>("require_justification");
+        get => GetArgument<TerraformValue<bool>>("require_justification") ?? AsReference("require_justification");
         set => SetArgument("require_justification", value);
     }
 
     /// <summary>
     /// Whether multi-factor authentication is required to make an assignment
     /// </summary>
-    public TerraformValue<bool>? RequireMultifactorAuthentication
+    public TerraformValue<bool> RequireMultifactorAuthentication
     {
-        get => GetArgument<TerraformValue<bool>>("require_multifactor_authentication");
+        get => GetArgument<TerraformValue<bool>>("require_multifactor_authentication") ?? AsReference("require_multifactor_authentication");
         set => SetArgument("require_multifactor_authentication", value);
     }
 
     /// <summary>
     /// Whether ticket information is required to make an assignment
     /// </summary>
-    public TerraformValue<bool>? RequireTicketInfo
+    public TerraformValue<bool> RequireTicketInfo
     {
-        get => GetArgument<TerraformValue<bool>>("require_ticket_info");
+        get => GetArgument<TerraformValue<bool>>("require_ticket_info") ?? AsReference("require_ticket_info");
         set => SetArgument("require_ticket_info", value);
     }
 
@@ -210,18 +210,18 @@ public class AzureadGroupRoleManagementPolicyEligibleAssignmentRulesBlock : Terr
     /// <summary>
     /// Must the assignment have an expiry date
     /// </summary>
-    public TerraformValue<bool>? ExpirationRequired
+    public TerraformValue<bool> ExpirationRequired
     {
-        get => GetArgument<TerraformValue<bool>>("expiration_required");
+        get => GetArgument<TerraformValue<bool>>("expiration_required") ?? AsReference("expiration_required");
         set => SetArgument("expiration_required", value);
     }
 
     /// <summary>
     /// The duration after which assignments expire
     /// </summary>
-    public TerraformValue<string>? ExpireAfter
+    public TerraformValue<string> ExpireAfter
     {
-        get => GetArgument<TerraformValue<string>>("expire_after");
+        get => GetArgument<TerraformValue<string>>("expire_after") ?? AsReference("expire_after");
         set => SetArgument("expire_after", value);
     }
 
@@ -328,9 +328,9 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     /// <summary>
     /// The additional recipients to notify
     /// </summary>
-    public TerraformSet<string>? AdditionalRecipients
+    public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -340,7 +340,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
     public required TerraformValue<bool> DefaultRecipients
     {
-        get => GetArgument<TerraformValue<bool>>("default_recipients");
+        get => GetRequiredArgument<TerraformValue<bool>>("default_recipients");
         set => SetArgument("default_recipients", value);
     }
 
@@ -350,7 +350,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
     public required TerraformValue<string> NotificationLevel
     {
-        get => GetArgument<TerraformValue<string>>("notification_level");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_level");
         set => SetArgument("notification_level", value);
     }
 
@@ -370,9 +370,9 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     /// <summary>
     /// The additional recipients to notify
     /// </summary>
-    public TerraformSet<string>? AdditionalRecipients
+    public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -382,7 +382,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
     public required TerraformValue<bool> DefaultRecipients
     {
-        get => GetArgument<TerraformValue<bool>>("default_recipients");
+        get => GetRequiredArgument<TerraformValue<bool>>("default_recipients");
         set => SetArgument("default_recipients", value);
     }
 
@@ -392,7 +392,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
     public required TerraformValue<string> NotificationLevel
     {
-        get => GetArgument<TerraformValue<string>>("notification_level");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_level");
         set => SetArgument("notification_level", value);
     }
 
@@ -412,9 +412,9 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     /// <summary>
     /// The additional recipients to notify
     /// </summary>
-    public TerraformSet<string>? AdditionalRecipients
+    public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -424,7 +424,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
     public required TerraformValue<bool> DefaultRecipients
     {
-        get => GetArgument<TerraformValue<bool>>("default_recipients");
+        get => GetRequiredArgument<TerraformValue<bool>>("default_recipients");
         set => SetArgument("default_recipients", value);
     }
 
@@ -434,7 +434,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockActiveAssignm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
     public required TerraformValue<string> NotificationLevel
     {
-        get => GetArgument<TerraformValue<string>>("notification_level");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_level");
         set => SetArgument("notification_level", value);
     }
 
@@ -497,9 +497,9 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     /// <summary>
     /// The additional recipients to notify
     /// </summary>
-    public TerraformSet<string>? AdditionalRecipients
+    public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -509,7 +509,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
     public required TerraformValue<bool> DefaultRecipients
     {
-        get => GetArgument<TerraformValue<bool>>("default_recipients");
+        get => GetRequiredArgument<TerraformValue<bool>>("default_recipients");
         set => SetArgument("default_recipients", value);
     }
 
@@ -519,7 +519,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
     public required TerraformValue<string> NotificationLevel
     {
-        get => GetArgument<TerraformValue<string>>("notification_level");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_level");
         set => SetArgument("notification_level", value);
     }
 
@@ -539,9 +539,9 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     /// <summary>
     /// The additional recipients to notify
     /// </summary>
-    public TerraformSet<string>? AdditionalRecipients
+    public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -551,7 +551,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
     public required TerraformValue<bool> DefaultRecipients
     {
-        get => GetArgument<TerraformValue<bool>>("default_recipients");
+        get => GetRequiredArgument<TerraformValue<bool>>("default_recipients");
         set => SetArgument("default_recipients", value);
     }
 
@@ -561,7 +561,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
     public required TerraformValue<string> NotificationLevel
     {
-        get => GetArgument<TerraformValue<string>>("notification_level");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_level");
         set => SetArgument("notification_level", value);
     }
 
@@ -581,9 +581,9 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     /// <summary>
     /// The additional recipients to notify
     /// </summary>
-    public TerraformSet<string>? AdditionalRecipients
+    public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -593,7 +593,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
     public required TerraformValue<bool> DefaultRecipients
     {
-        get => GetArgument<TerraformValue<bool>>("default_recipients");
+        get => GetRequiredArgument<TerraformValue<bool>>("default_recipients");
         set => SetArgument("default_recipients", value);
     }
 
@@ -603,7 +603,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleActiv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
     public required TerraformValue<string> NotificationLevel
     {
-        get => GetArgument<TerraformValue<string>>("notification_level");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_level");
         set => SetArgument("notification_level", value);
     }
 
@@ -666,9 +666,9 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     /// <summary>
     /// The additional recipients to notify
     /// </summary>
-    public TerraformSet<string>? AdditionalRecipients
+    public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -678,7 +678,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
     public required TerraformValue<bool> DefaultRecipients
     {
-        get => GetArgument<TerraformValue<bool>>("default_recipients");
+        get => GetRequiredArgument<TerraformValue<bool>>("default_recipients");
         set => SetArgument("default_recipients", value);
     }
 
@@ -688,7 +688,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
     public required TerraformValue<string> NotificationLevel
     {
-        get => GetArgument<TerraformValue<string>>("notification_level");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_level");
         set => SetArgument("notification_level", value);
     }
 
@@ -708,9 +708,9 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     /// <summary>
     /// The additional recipients to notify
     /// </summary>
-    public TerraformSet<string>? AdditionalRecipients
+    public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -720,7 +720,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
     public required TerraformValue<bool> DefaultRecipients
     {
-        get => GetArgument<TerraformValue<bool>>("default_recipients");
+        get => GetRequiredArgument<TerraformValue<bool>>("default_recipients");
         set => SetArgument("default_recipients", value);
     }
 
@@ -730,7 +730,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
     public required TerraformValue<string> NotificationLevel
     {
-        get => GetArgument<TerraformValue<string>>("notification_level");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_level");
         set => SetArgument("notification_level", value);
     }
 
@@ -750,9 +750,9 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     /// <summary>
     /// The additional recipients to notify
     /// </summary>
-    public TerraformSet<string>? AdditionalRecipients
+    public TerraformSet<string> AdditionalRecipients
     {
-        get => GetArgument<TerraformSet<string>>("additional_recipients");
+        get => GetArgument<TerraformSet<string>>("additional_recipients") ?? AsReference("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -762,7 +762,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
     public required TerraformValue<bool> DefaultRecipients
     {
-        get => GetArgument<TerraformValue<bool>>("default_recipients");
+        get => GetRequiredArgument<TerraformValue<bool>>("default_recipients");
         set => SetArgument("default_recipients", value);
     }
 
@@ -772,7 +772,7 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlockEligibleAssig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
     public required TerraformValue<string> NotificationLevel
     {
-        get => GetArgument<TerraformValue<string>>("notification_level");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_level");
         set => SetArgument("notification_level", value);
     }
 
@@ -841,16 +841,16 @@ public partial class AzureadGroupRoleManagementPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformValue<string> GroupId
     {
-        get => GetArgument<TerraformValue<string>>("group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -860,7 +860,7 @@ public partial class AzureadGroupRoleManagementPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformValue<string> RoleId
     {
-        get => GetArgument<TerraformValue<string>>("role_id");
+        get => GetRequiredArgument<TerraformValue<string>>("role_id");
         set => SetArgument("role_id", value);
     }
 

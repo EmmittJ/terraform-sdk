@@ -66,16 +66,16 @@ public partial class GoogleGkeBackupRestoreChannel(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationProject is required")]
     public required TerraformValue<string> DestinationProject
     {
-        get => GetArgument<TerraformValue<string>>("destination_project");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_project");
         set => SetArgument("destination_project", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleGkeBackupRestoreChannel(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -110,16 +110,16 @@ public partial class GoogleGkeBackupRestoreChannel(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

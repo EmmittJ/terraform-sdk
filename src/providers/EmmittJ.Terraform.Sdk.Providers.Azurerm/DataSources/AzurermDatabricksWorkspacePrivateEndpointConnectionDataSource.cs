@@ -34,9 +34,9 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateEndpointId is required")]
     public required TerraformValue<string> PrivateEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("private_endpoint_id");
+        get => GetRequiredArgument<TerraformValue<string>>("private_endpoint_id");
         set => SetArgument("private_endpoint_id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

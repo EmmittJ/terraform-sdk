@@ -34,9 +34,9 @@ public partial class GoogleComputeProjectDefaultNetworkTier(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,16 +46,16 @@ public partial class GoogleComputeProjectDefaultNetworkTier(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkTier is required")]
     public required TerraformValue<string> NetworkTier
     {
-        get => GetArgument<TerraformValue<string>>("network_tier");
+        get => GetRequiredArgument<TerraformValue<string>>("network_tier");
         set => SetArgument("network_tier", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

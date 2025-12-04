@@ -16,18 +16,18 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock : Terr
     /// <summary>
     /// The include_trust_context attribute.
     /// </summary>
-    public TerraformValue<bool>? IncludeTrustContext
+    public TerraformValue<bool> IncludeTrustContext
     {
-        get => GetArgument<TerraformValue<bool>>("include_trust_context");
+        get => GetArgument<TerraformValue<bool>>("include_trust_context") ?? AsReference("include_trust_context");
         set => SetArgument("include_trust_context", value);
     }
 
     /// <summary>
     /// The log_version attribute.
     /// </summary>
-    public TerraformValue<string>? LogVersion
+    public TerraformValue<string> LogVersion
     {
-        get => GetArgument<TerraformValue<string>>("log_version");
+        get => GetArgument<TerraformValue<string>>("log_version") ?? AsReference("log_version");
         set => SetArgument("log_version", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockCloudwa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockKinesis
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -150,9 +150,9 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockS3Block
     /// <summary>
     /// The bucket_owner attribute.
     /// </summary>
-    public TerraformValue<string>? BucketOwner
+    public TerraformValue<string> BucketOwner
     {
-        get => GetArgument<TerraformValue<string>>("bucket_owner");
+        get => GetArgument<TerraformValue<string>>("bucket_owner") ?? AsReference("bucket_owner");
         set => SetArgument("bucket_owner", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockS3Block
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -187,18 +187,18 @@ public partial class AwsVerifiedaccessInstanceLoggingConfiguration(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AwsVerifiedaccessInstanceLoggingConfiguration(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessInstanceId is required")]
     public required TerraformValue<string> VerifiedaccessInstanceId
     {
-        get => GetArgument<TerraformValue<string>>("verifiedaccess_instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("verifiedaccess_instance_id");
         set => SetArgument("verifiedaccess_instance_id", value);
     }
 

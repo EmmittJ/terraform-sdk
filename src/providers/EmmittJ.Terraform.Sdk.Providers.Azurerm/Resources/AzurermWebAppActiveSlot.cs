@@ -61,9 +61,9 @@ public partial class AzurermWebAppActiveSlot(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermWebAppActiveSlot(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotId is required")]
     public required TerraformValue<string> SlotId
     {
-        get => GetArgument<TerraformValue<string>>("slot_id");
+        get => GetRequiredArgument<TerraformValue<string>>("slot_id");
         set => SetArgument("slot_id", value);
     }
 

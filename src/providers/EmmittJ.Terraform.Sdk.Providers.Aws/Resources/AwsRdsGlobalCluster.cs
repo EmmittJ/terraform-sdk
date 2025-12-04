@@ -52,9 +52,9 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformValue<string>? DatabaseName
+    public TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetArgument<TerraformValue<string>>("database_name") ?? AsReference("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -70,27 +70,27 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformValue<string>? Engine
+    public TerraformValue<string> Engine
     {
-        get => GetArgument<TerraformValue<string>>("engine");
+        get => GetArgument<TerraformValue<string>>("engine") ?? AsReference("engine");
         set => SetArgument("engine", value);
     }
 
     /// <summary>
     /// The engine_lifecycle_support attribute.
     /// </summary>
-    public TerraformValue<string>? EngineLifecycleSupport
+    public TerraformValue<string> EngineLifecycleSupport
     {
-        get => GetArgument<TerraformValue<string>>("engine_lifecycle_support");
+        get => GetArgument<TerraformValue<string>>("engine_lifecycle_support") ?? AsReference("engine_lifecycle_support");
         set => SetArgument("engine_lifecycle_support", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string>? EngineVersion
+    public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -109,43 +109,43 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalClusterIdentifier is required")]
     public required TerraformValue<string> GlobalClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("global_cluster_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("global_cluster_identifier");
         set => SetArgument("global_cluster_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The source_db_cluster_identifier attribute.
     /// </summary>
-    public TerraformValue<string>? SourceDbClusterIdentifier
+    public TerraformValue<string> SourceDbClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("source_db_cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("source_db_cluster_identifier") ?? AsReference("source_db_cluster_identifier");
         set => SetArgument("source_db_cluster_identifier", value);
     }
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
-    public TerraformValue<bool>? StorageEncrypted
+    public TerraformValue<bool> StorageEncrypted
     {
-        get => GetArgument<TerraformValue<bool>>("storage_encrypted");
+        get => GetArgument<TerraformValue<bool>>("storage_encrypted") ?? AsReference("storage_encrypted");
         set => SetArgument("storage_encrypted", value);
     }
 
@@ -161,9 +161,9 @@ public partial class AwsRdsGlobalCluster(string name) : TerraformResource("aws_r
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

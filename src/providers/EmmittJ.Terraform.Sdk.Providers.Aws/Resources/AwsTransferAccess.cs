@@ -19,7 +19,7 @@ public class AwsTransferAccessHomeDirectoryMappingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entry is required")]
     public required TerraformValue<string> Entry
     {
-        get => GetArgument<TerraformValue<string>>("entry");
+        get => GetRequiredArgument<TerraformValue<string>>("entry");
         set => SetArgument("entry", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsTransferAccessHomeDirectoryMappingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => GetArgument<TerraformValue<string>>("target");
+        get => GetRequiredArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsTransferAccessPosixProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     public required TerraformValue<double> Gid
     {
-        get => GetArgument<TerraformValue<double>>("gid");
+        get => GetRequiredArgument<TerraformValue<double>>("gid");
         set => SetArgument("gid", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsTransferAccessPosixProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     public required TerraformValue<double> Uid
     {
-        get => GetArgument<TerraformValue<double>>("uid");
+        get => GetRequiredArgument<TerraformValue<double>>("uid");
         set => SetArgument("uid", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsTransferAccess(string name) : TerraformResource("aws_tra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     public required TerraformValue<string> ExternalId
     {
-        get => GetArgument<TerraformValue<string>>("external_id");
+        get => GetRequiredArgument<TerraformValue<string>>("external_id");
         set => SetArgument("external_id", value);
     }
 
@@ -116,9 +116,9 @@ public partial class AwsTransferAccess(string name) : TerraformResource("aws_tra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -134,9 +134,9 @@ public partial class AwsTransferAccess(string name) : TerraformResource("aws_tra
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AwsTransferAccess(string name) : TerraformResource("aws_tra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => GetArgument<TerraformValue<string>>("server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 

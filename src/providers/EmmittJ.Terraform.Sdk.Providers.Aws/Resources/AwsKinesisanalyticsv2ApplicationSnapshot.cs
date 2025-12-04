@@ -46,25 +46,25 @@ public partial class AwsKinesisanalyticsv2ApplicationSnapshot(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationName is required")]
     public required TerraformValue<string> ApplicationName
     {
-        get => GetArgument<TerraformValue<string>>("application_name");
+        get => GetRequiredArgument<TerraformValue<string>>("application_name");
         set => SetArgument("application_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsKinesisanalyticsv2ApplicationSnapshot(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotName is required")]
     public required TerraformValue<string> SnapshotName
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_name");
+        get => GetRequiredArgument<TerraformValue<string>>("snapshot_name");
         set => SetArgument("snapshot_name", value);
     }
 

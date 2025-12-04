@@ -78,9 +78,9 @@ public partial class GoogleComputeTargetHttpProxy(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -96,16 +96,16 @@ public partial class GoogleComputeTargetHttpProxy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -113,9 +113,9 @@ public partial class GoogleComputeTargetHttpProxy(string name) : TerraformResour
     /// This field only applies when the forwarding rule that references
     /// this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public TerraformValue<bool>? ProxyBind
+    public TerraformValue<bool> ProxyBind
     {
-        get => GetArgument<TerraformValue<bool>>("proxy_bind");
+        get => GetArgument<TerraformValue<bool>>("proxy_bind") ?? AsReference("proxy_bind");
         set => SetArgument("proxy_bind", value);
     }
 
@@ -126,7 +126,7 @@ public partial class GoogleComputeTargetHttpProxy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlMap is required")]
     public required TerraformValue<string> UrlMap
     {
-        get => GetArgument<TerraformValue<string>>("url_map");
+        get => GetRequiredArgument<TerraformValue<string>>("url_map");
         set => SetArgument("url_map", value);
     }
 

@@ -64,16 +64,16 @@ public partial class AzureadApplicationFromTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzureadApplicationFromTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
     public required TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id");
+        get => GetRequiredArgument<TerraformValue<string>>("template_id");
         set => SetArgument("template_id", value);
     }
 

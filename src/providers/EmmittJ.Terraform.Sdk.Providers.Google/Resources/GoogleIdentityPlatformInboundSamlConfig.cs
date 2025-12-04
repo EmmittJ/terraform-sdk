@@ -19,7 +19,7 @@ public class GoogleIdentityPlatformInboundSamlConfigIdpConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpEntityId is required")]
     public required TerraformValue<string> IdpEntityId
     {
-        get => GetArgument<TerraformValue<string>>("idp_entity_id");
+        get => GetRequiredArgument<TerraformValue<string>>("idp_entity_id");
         set => SetArgument("idp_entity_id", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleIdentityPlatformInboundSamlConfigIdpConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SsoUrl is required")]
     public required TerraformValue<string> SsoUrl
     {
-        get => GetArgument<TerraformValue<string>>("sso_url");
+        get => GetRequiredArgument<TerraformValue<string>>("sso_url");
         set => SetArgument("sso_url", value);
     }
 
@@ -170,7 +170,7 @@ public partial class GoogleIdentityPlatformInboundSamlConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -186,9 +186,9 @@ public partial class GoogleIdentityPlatformInboundSamlConfig(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -200,16 +200,16 @@ public partial class GoogleIdentityPlatformInboundSamlConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

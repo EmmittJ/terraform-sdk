@@ -52,18 +52,18 @@ public partial class AzureadServicePrincipalPassword(string name) : TerraformRes
     /// <summary>
     /// A display name for the password
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The end date until which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`)
     /// </summary>
-    public TerraformValue<string>? EndDate
+    public TerraformValue<string> EndDate
     {
-        get => GetArgument<TerraformValue<string>>("end_date");
+        get => GetArgument<TerraformValue<string>>("end_date") ?? AsReference("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AzureadServicePrincipalPassword(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,16 +101,16 @@ public partial class AzureadServicePrincipalPassword(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformValue<string> ServicePrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("service_principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("service_principal_id");
         set => SetArgument("service_principal_id", value);
     }
 
     /// <summary>
     /// The start date from which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn&#39;t specified, the current date is used
     /// </summary>
-    public TerraformValue<string>? StartDate
+    public TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date");
+        get => GetArgument<TerraformValue<string>>("start_date") ?? AsReference("start_date");
         set => SetArgument("start_date", value);
     }
 

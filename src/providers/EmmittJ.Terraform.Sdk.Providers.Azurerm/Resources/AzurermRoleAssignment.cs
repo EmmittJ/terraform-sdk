@@ -61,9 +61,9 @@ public partial class AzurermRoleAssignment(string name) : TerraformResource("azu
     /// <summary>
     /// The condition_version attribute.
     /// </summary>
-    public TerraformValue<string>? ConditionVersion
+    public TerraformValue<string> ConditionVersion
     {
-        get => GetArgument<TerraformValue<string>>("condition_version");
+        get => GetArgument<TerraformValue<string>>("condition_version") ?? AsReference("condition_version");
         set => SetArgument("condition_version", value);
     }
 
@@ -88,18 +88,18 @@ public partial class AzurermRoleAssignment(string name) : TerraformResource("azu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -109,34 +109,34 @@ public partial class AzurermRoleAssignment(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    public TerraformValue<string>? PrincipalType
+    public TerraformValue<string> PrincipalType
     {
-        get => GetArgument<TerraformValue<string>>("principal_type");
+        get => GetArgument<TerraformValue<string>>("principal_type") ?? AsReference("principal_type");
         set => SetArgument("principal_type", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public TerraformValue<string>? RoleDefinitionId
+    public TerraformValue<string> RoleDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id") ?? AsReference("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
     /// <summary>
     /// The role_definition_name attribute.
     /// </summary>
-    public TerraformValue<string>? RoleDefinitionName
+    public TerraformValue<string> RoleDefinitionName
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_name");
+        get => GetArgument<TerraformValue<string>>("role_definition_name") ?? AsReference("role_definition_name");
         set => SetArgument("role_definition_name", value);
     }
 
@@ -146,16 +146,16 @@ public partial class AzurermRoleAssignment(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
     /// <summary>
     /// The skip_service_principal_aad_check attribute.
     /// </summary>
-    public TerraformValue<bool>? SkipServicePrincipalAadCheck
+    public TerraformValue<bool> SkipServicePrincipalAadCheck
     {
-        get => GetArgument<TerraformValue<bool>>("skip_service_principal_aad_check");
+        get => GetArgument<TerraformValue<bool>>("skip_service_principal_aad_check") ?? AsReference("skip_service_principal_aad_check");
         set => SetArgument("skip_service_principal_aad_check", value);
     }
 

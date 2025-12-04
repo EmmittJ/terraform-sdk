@@ -19,7 +19,7 @@ public class AwsVpcEndpointServiceDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsVpcEndpointServiceDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => GetArgument<TerraformSet<string>>("values");
+        get => GetRequiredArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -68,9 +68,9 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -86,9 +86,9 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformValue<string>? ServiceName
+    public TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetArgument<TerraformValue<string>>("service_name") ?? AsReference("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -104,18 +104,18 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// <summary>
     /// The service_type attribute.
     /// </summary>
-    public TerraformValue<string>? ServiceType
+    public TerraformValue<string> ServiceType
     {
-        get => GetArgument<TerraformValue<string>>("service_type");
+        get => GetArgument<TerraformValue<string>>("service_type") ?? AsReference("service_type");
         set => SetArgument("service_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string>? Tags
+    public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 

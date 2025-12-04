@@ -79,9 +79,9 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -116,18 +116,18 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMap<string>? Parameters
+    public TerraformMap<string> Parameters
     {
-        get => GetArgument<TerraformMap<string>>("parameters");
+        get => GetArgument<TerraformMap<string>>("parameters") ?? AsReference("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// The policy_body attribute.
     /// </summary>
-    public TerraformValue<string>? PolicyBody
+    public TerraformValue<string> PolicyBody
     {
-        get => GetArgument<TerraformValue<string>>("policy_body");
+        get => GetArgument<TerraformValue<string>>("policy_body") ?? AsReference("policy_body");
         set => SetArgument("policy_body", value);
     }
 
@@ -143,9 +143,9 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -161,18 +161,18 @@ public partial class AwsCloudformationStack(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
-    public TerraformValue<string>? TemplateBody
+    public TerraformValue<string> TemplateBody
     {
-        get => GetArgument<TerraformValue<string>>("template_body");
+        get => GetArgument<TerraformValue<string>>("template_body") ?? AsReference("template_body");
         set => SetArgument("template_body", value);
     }
 

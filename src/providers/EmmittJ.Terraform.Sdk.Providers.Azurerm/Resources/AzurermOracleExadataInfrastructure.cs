@@ -16,63 +16,63 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// <summary>
     /// The days_of_week attribute.
     /// </summary>
-    public TerraformList<string>? DaysOfWeek
+    public TerraformList<string> DaysOfWeek
     {
-        get => GetArgument<TerraformList<string>>("days_of_week");
+        get => GetArgument<TerraformList<string>>("days_of_week") ?? AsReference("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
     /// <summary>
     /// The hours_of_day attribute.
     /// </summary>
-    public TerraformList<double>? HoursOfDay
+    public TerraformList<double> HoursOfDay
     {
-        get => GetArgument<TerraformList<double>>("hours_of_day");
+        get => GetArgument<TerraformList<double>>("hours_of_day") ?? AsReference("hours_of_day");
         set => SetArgument("hours_of_day", value);
     }
 
     /// <summary>
     /// The lead_time_in_weeks attribute.
     /// </summary>
-    public TerraformValue<double>? LeadTimeInWeeks
+    public TerraformValue<double> LeadTimeInWeeks
     {
-        get => GetArgument<TerraformValue<double>>("lead_time_in_weeks");
+        get => GetArgument<TerraformValue<double>>("lead_time_in_weeks") ?? AsReference("lead_time_in_weeks");
         set => SetArgument("lead_time_in_weeks", value);
     }
 
     /// <summary>
     /// The months attribute.
     /// </summary>
-    public TerraformList<string>? Months
+    public TerraformList<string> Months
     {
-        get => GetArgument<TerraformList<string>>("months");
+        get => GetArgument<TerraformList<string>>("months") ?? AsReference("months");
         set => SetArgument("months", value);
     }
 
     /// <summary>
     /// The patching_mode attribute.
     /// </summary>
-    public TerraformValue<string>? PatchingMode
+    public TerraformValue<string> PatchingMode
     {
-        get => GetArgument<TerraformValue<string>>("patching_mode");
+        get => GetArgument<TerraformValue<string>>("patching_mode") ?? AsReference("patching_mode");
         set => SetArgument("patching_mode", value);
     }
 
     /// <summary>
     /// The preference attribute.
     /// </summary>
-    public TerraformValue<string>? Preference
+    public TerraformValue<string> Preference
     {
-        get => GetArgument<TerraformValue<string>>("preference");
+        get => GetArgument<TerraformValue<string>>("preference") ?? AsReference("preference");
         set => SetArgument("preference", value);
     }
 
     /// <summary>
     /// The weeks_of_month attribute.
     /// </summary>
-    public TerraformList<double>? WeeksOfMonth
+    public TerraformList<double> WeeksOfMonth
     {
-        get => GetArgument<TerraformList<double>>("weeks_of_month");
+        get => GetArgument<TerraformList<double>>("weeks_of_month") ?? AsReference("weeks_of_month");
         set => SetArgument("weeks_of_month", value);
     }
 
@@ -141,25 +141,25 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
     public required TerraformValue<double> ComputeCount
     {
-        get => GetArgument<TerraformValue<double>>("compute_count");
+        get => GetRequiredArgument<TerraformValue<double>>("compute_count");
         set => SetArgument("compute_count", value);
     }
 
     /// <summary>
     /// The customer_contacts attribute.
     /// </summary>
-    public TerraformList<string>? CustomerContacts
+    public TerraformList<string> CustomerContacts
     {
-        get => GetArgument<TerraformList<string>>("customer_contacts");
+        get => GetArgument<TerraformList<string>>("customer_contacts") ?? AsReference("customer_contacts");
         set => SetArgument("customer_contacts", value);
     }
 
     /// <summary>
     /// The database_server_type attribute.
     /// </summary>
-    public TerraformValue<string>? DatabaseServerType
+    public TerraformValue<string> DatabaseServerType
     {
-        get => GetArgument<TerraformValue<string>>("database_server_type");
+        get => GetArgument<TerraformValue<string>>("database_server_type") ?? AsReference("database_server_type");
         set => SetArgument("database_server_type", value);
     }
 
@@ -169,16 +169,16 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -188,7 +188,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
     public required TerraformValue<string> Shape
     {
-        get => GetArgument<TerraformValue<string>>("shape");
+        get => GetRequiredArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -228,16 +228,16 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCount is required")]
     public required TerraformValue<double> StorageCount
     {
-        get => GetArgument<TerraformValue<double>>("storage_count");
+        get => GetRequiredArgument<TerraformValue<double>>("storage_count");
         set => SetArgument("storage_count", value);
     }
 
     /// <summary>
     /// The storage_server_type attribute.
     /// </summary>
-    public TerraformValue<string>? StorageServerType
+    public TerraformValue<string> StorageServerType
     {
-        get => GetArgument<TerraformValue<string>>("storage_server_type");
+        get => GetArgument<TerraformValue<string>>("storage_server_type") ?? AsReference("storage_server_type");
         set => SetArgument("storage_server_type", value);
     }
 
@@ -256,7 +256,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zones is required")]
     public required TerraformSet<string> Zones
     {
-        get => GetArgument<TerraformSet<string>>("zones");
+        get => GetRequiredArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 

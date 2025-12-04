@@ -69,7 +69,7 @@ public partial class AwsNetworkmanagerConnectAttachment(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformValue<string> CoreNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("core_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("core_network_id");
         set => SetArgument("core_network_id", value);
     }
 
@@ -79,16 +79,16 @@ public partial class AwsNetworkmanagerConnectAttachment(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EdgeLocation is required")]
     public required TerraformValue<string> EdgeLocation
     {
-        get => GetArgument<TerraformValue<string>>("edge_location");
+        get => GetRequiredArgument<TerraformValue<string>>("edge_location");
         set => SetArgument("edge_location", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -104,9 +104,9 @@ public partial class AwsNetworkmanagerConnectAttachment(string name) : Terraform
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsNetworkmanagerConnectAttachment(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransportAttachmentId is required")]
     public required TerraformValue<string> TransportAttachmentId
     {
-        get => GetArgument<TerraformValue<string>>("transport_attachment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("transport_attachment_id");
         set => SetArgument("transport_attachment_id", value);
     }
 

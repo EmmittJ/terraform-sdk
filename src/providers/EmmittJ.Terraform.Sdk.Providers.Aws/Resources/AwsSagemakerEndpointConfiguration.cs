@@ -95,7 +95,7 @@ public class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlockOutputCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3OutputPath is required")]
     public required TerraformValue<string> S3OutputPath
     {
-        get => GetArgument<TerraformValue<string>>("s3_output_path");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_output_path");
         set => SetArgument("s3_output_path", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationS3Uri is required")]
     public required TerraformValue<string> DestinationS3Uri
     {
-        get => GetArgument<TerraformValue<string>>("destination_s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_s3_uri");
         set => SetArgument("destination_s3_uri", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialSamplingPercentage is required")]
     public required TerraformValue<double> InitialSamplingPercentage
     {
-        get => GetArgument<TerraformValue<double>>("initial_sampling_percentage");
+        get => GetRequiredArgument<TerraformValue<double>>("initial_sampling_percentage");
         set => SetArgument("initial_sampling_percentage", value);
     }
 
@@ -274,7 +274,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlockCaptureOptio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaptureMode is required")]
     public required TerraformValue<string> CaptureMode
     {
-        get => GetArgument<TerraformValue<string>>("capture_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("capture_mode");
         set => SetArgument("capture_mode", value);
     }
 
@@ -370,25 +370,25 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
     public required TerraformValue<string> ModelName
     {
-        get => GetArgument<TerraformValue<string>>("model_name");
+        get => GetRequiredArgument<TerraformValue<string>>("model_name");
         set => SetArgument("model_name", value);
     }
 
     /// <summary>
     /// The variant_name attribute.
     /// </summary>
-    public TerraformValue<string>? VariantName
+    public TerraformValue<string> VariantName
     {
-        get => GetArgument<TerraformValue<string>>("variant_name");
+        get => GetArgument<TerraformValue<string>>("variant_name") ?? AsReference("variant_name");
         set => SetArgument("variant_name", value);
     }
 
     /// <summary>
     /// The volume_size_in_gb attribute.
     /// </summary>
-    public TerraformValue<double>? VolumeSizeInGb
+    public TerraformValue<double> VolumeSizeInGb
     {
-        get => GetArgument<TerraformValue<double>>("volume_size_in_gb");
+        get => GetArgument<TerraformValue<double>>("volume_size_in_gb") ?? AsReference("volume_size_in_gb");
         set => SetArgument("volume_size_in_gb", value);
     }
 
@@ -450,7 +450,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockCoreDumpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationS3Uri is required")]
     public required TerraformValue<string> DestinationS3Uri
     {
-        get => GetArgument<TerraformValue<string>>("destination_s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_s3_uri");
         set => SetArgument("destination_s3_uri", value);
     }
 
@@ -522,7 +522,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockRoutingConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingStrategy is required")]
     public required TerraformValue<string> RoutingStrategy
     {
-        get => GetArgument<TerraformValue<string>>("routing_strategy");
+        get => GetRequiredArgument<TerraformValue<string>>("routing_strategy");
         set => SetArgument("routing_strategy", value);
     }
 
@@ -545,7 +545,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockServerlessC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxConcurrency is required")]
     public required TerraformValue<double> MaxConcurrency
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrency");
+        get => GetRequiredArgument<TerraformValue<double>>("max_concurrency");
         set => SetArgument("max_concurrency", value);
     }
 
@@ -555,7 +555,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockServerlessC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeInMb is required")]
     public required TerraformValue<double> MemorySizeInMb
     {
-        get => GetArgument<TerraformValue<double>>("memory_size_in_mb");
+        get => GetRequiredArgument<TerraformValue<double>>("memory_size_in_mb");
         set => SetArgument("memory_size_in_mb", value);
     }
 
@@ -660,16 +660,16 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
     public required TerraformValue<string> ModelName
     {
-        get => GetArgument<TerraformValue<string>>("model_name");
+        get => GetRequiredArgument<TerraformValue<string>>("model_name");
         set => SetArgument("model_name", value);
     }
 
     /// <summary>
     /// The variant_name attribute.
     /// </summary>
-    public TerraformValue<string>? VariantName
+    public TerraformValue<string> VariantName
     {
-        get => GetArgument<TerraformValue<string>>("variant_name");
+        get => GetArgument<TerraformValue<string>>("variant_name") ?? AsReference("variant_name");
         set => SetArgument("variant_name", value);
     }
 
@@ -740,7 +740,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockCoreD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationS3Uri is required")]
     public required TerraformValue<string> DestinationS3Uri
     {
-        get => GetArgument<TerraformValue<string>>("destination_s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_s3_uri");
         set => SetArgument("destination_s3_uri", value);
     }
 
@@ -750,7 +750,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockCoreD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -813,7 +813,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockRouti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingStrategy is required")]
     public required TerraformValue<string> RoutingStrategy
     {
-        get => GetArgument<TerraformValue<string>>("routing_strategy");
+        get => GetRequiredArgument<TerraformValue<string>>("routing_strategy");
         set => SetArgument("routing_strategy", value);
     }
 
@@ -836,7 +836,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockServe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxConcurrency is required")]
     public required TerraformValue<double> MaxConcurrency
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrency");
+        get => GetRequiredArgument<TerraformValue<double>>("max_concurrency");
         set => SetArgument("max_concurrency", value);
     }
 
@@ -846,7 +846,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockServe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeInMb is required")]
     public required TerraformValue<double> MemorySizeInMb
     {
-        get => GetArgument<TerraformValue<double>>("memory_size_in_mb");
+        get => GetRequiredArgument<TerraformValue<double>>("memory_size_in_mb");
         set => SetArgument("memory_size_in_mb", value);
     }
 
@@ -871,9 +871,9 @@ public partial class AwsSagemakerEndpointConfiguration(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -889,27 +889,27 @@ public partial class AwsSagemakerEndpointConfiguration(string name) : TerraformR
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? NamePrefix
+    public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -925,9 +925,9 @@ public partial class AwsSagemakerEndpointConfiguration(string name) : TerraformR
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

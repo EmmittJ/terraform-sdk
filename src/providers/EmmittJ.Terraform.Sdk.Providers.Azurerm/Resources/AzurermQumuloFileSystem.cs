@@ -64,7 +64,7 @@ public partial class AzurermQumuloFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
     public required TerraformValue<string> AdminPassword
     {
-        get => GetArgument<TerraformValue<string>>("admin_password");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_password");
         set => SetArgument("admin_password", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermQumuloFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermQumuloFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermQumuloFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermQumuloFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermQumuloFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSku is required")]
     public required TerraformValue<string> StorageSku
     {
-        get => GetArgument<TerraformValue<string>>("storage_sku");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_sku");
         set => SetArgument("storage_sku", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermQumuloFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AzurermQumuloFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetRequiredArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 

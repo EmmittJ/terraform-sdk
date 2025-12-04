@@ -14,7 +14,7 @@ public partial class AwsCloudwatchLogDestinationPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicy is required")]
     public required TerraformValue<string> AccessPolicy
     {
-        get => GetArgument<TerraformValue<string>>("access_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("access_policy");
         set => SetArgument("access_policy", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsCloudwatchLogDestinationPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationName is required")]
     public required TerraformValue<string> DestinationName
     {
-        get => GetArgument<TerraformValue<string>>("destination_name");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_name");
         set => SetArgument("destination_name", value);
     }
 
@@ -40,18 +40,18 @@ public partial class AwsCloudwatchLogDestinationPolicy(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

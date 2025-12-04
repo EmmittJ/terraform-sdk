@@ -34,18 +34,18 @@ public partial class AwsLbTrustStoreRevocation(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsLbTrustStoreRevocation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevocationsS3Bucket is required")]
     public required TerraformValue<string> RevocationsS3Bucket
     {
-        get => GetArgument<TerraformValue<string>>("revocations_s3_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("revocations_s3_bucket");
         set => SetArgument("revocations_s3_bucket", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsLbTrustStoreRevocation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevocationsS3Key is required")]
     public required TerraformValue<string> RevocationsS3Key
     {
-        get => GetArgument<TerraformValue<string>>("revocations_s3_key");
+        get => GetRequiredArgument<TerraformValue<string>>("revocations_s3_key");
         set => SetArgument("revocations_s3_key", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsLbTrustStoreRevocation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustStoreArn is required")]
     public required TerraformValue<string> TrustStoreArn
     {
-        get => GetArgument<TerraformValue<string>>("trust_store_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("trust_store_arn");
         set => SetArgument("trust_store_arn", value);
     }
 

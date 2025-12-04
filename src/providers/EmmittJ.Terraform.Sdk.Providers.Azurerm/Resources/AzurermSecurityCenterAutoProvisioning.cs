@@ -65,16 +65,16 @@ public partial class AzurermSecurityCenterAutoProvisioning(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoProvision is required")]
     public required TerraformValue<string> AutoProvision
     {
-        get => GetArgument<TerraformValue<string>>("auto_provision");
+        get => GetRequiredArgument<TerraformValue<string>>("auto_provision");
         set => SetArgument("auto_provision", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

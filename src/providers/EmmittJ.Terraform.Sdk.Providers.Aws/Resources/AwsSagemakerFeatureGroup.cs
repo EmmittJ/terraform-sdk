@@ -166,27 +166,27 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlockDataCatalogConfigBlo
     /// <summary>
     /// The catalog attribute.
     /// </summary>
-    public TerraformValue<string>? Catalog
+    public TerraformValue<string> Catalog
     {
-        get => GetArgument<TerraformValue<string>>("catalog");
+        get => GetArgument<TerraformValue<string>>("catalog") ?? AsReference("catalog");
         set => SetArgument("catalog", value);
     }
 
     /// <summary>
     /// The database attribute.
     /// </summary>
-    public TerraformValue<string>? Database
+    public TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetArgument<TerraformValue<string>>("database") ?? AsReference("database");
         set => SetArgument("database", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformValue<string>? TableName
+    public TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetArgument<TerraformValue<string>>("table_name") ?? AsReference("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -215,9 +215,9 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlockS3StorageConfigBlock
     /// <summary>
     /// The resolved_output_s3_uri attribute.
     /// </summary>
-    public TerraformValue<string>? ResolvedOutputS3Uri
+    public TerraformValue<string> ResolvedOutputS3Uri
     {
-        get => GetArgument<TerraformValue<string>>("resolved_output_s3_uri");
+        get => GetArgument<TerraformValue<string>>("resolved_output_s3_uri") ?? AsReference("resolved_output_s3_uri");
         set => SetArgument("resolved_output_s3_uri", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlockS3StorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => GetArgument<TerraformValue<string>>("s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -371,9 +371,9 @@ public class AwsSagemakerFeatureGroupThroughputConfigBlock : TerraformBlock
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
-    public TerraformValue<string>? ThroughputMode
+    public TerraformValue<string> ThroughputMode
     {
-        get => GetArgument<TerraformValue<string>>("throughput_mode");
+        get => GetArgument<TerraformValue<string>>("throughput_mode") ?? AsReference("throughput_mode");
         set => SetArgument("throughput_mode", value);
     }
 
@@ -401,7 +401,7 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTimeFeatureName is required")]
     public required TerraformValue<string> EventTimeFeatureName
     {
-        get => GetArgument<TerraformValue<string>>("event_time_feature_name");
+        get => GetRequiredArgument<TerraformValue<string>>("event_time_feature_name");
         set => SetArgument("event_time_feature_name", value);
     }
 
@@ -411,16 +411,16 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureGroupName is required")]
     public required TerraformValue<string> FeatureGroupName
     {
-        get => GetArgument<TerraformValue<string>>("feature_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("feature_group_name");
         set => SetArgument("feature_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -430,16 +430,16 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordIdentifierFeatureName is required")]
     public required TerraformValue<string> RecordIdentifierFeatureName
     {
-        get => GetArgument<TerraformValue<string>>("record_identifier_feature_name");
+        get => GetRequiredArgument<TerraformValue<string>>("record_identifier_feature_name");
         set => SetArgument("record_identifier_feature_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -449,7 +449,7 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -465,9 +465,9 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

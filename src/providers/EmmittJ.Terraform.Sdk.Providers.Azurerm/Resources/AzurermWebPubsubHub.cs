@@ -28,7 +28,7 @@ public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
     public required TerraformValue<string> UrlTemplate
     {
-        get => GetArgument<TerraformValue<string>>("url_template");
+        get => GetRequiredArgument<TerraformValue<string>>("url_template");
         set => SetArgument("url_template", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermWebPubsubHubEventHandlerBlockAuthBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityId is required")]
     public required TerraformValue<string> ManagedIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("managed_identity_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_identity_id");
         set => SetArgument("managed_identity_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformValue<string> EventhubName
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_name");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_name");
         set => SetArgument("eventhub_name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceName is required")]
     public required TerraformValue<string> EventhubNamespaceName
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_namespace_name");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_namespace_name");
         set => SetArgument("eventhub_namespace_name", value);
     }
 
@@ -197,9 +197,9 @@ public partial class AzurermWebPubsubHub(string name) : TerraformResource("azure
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AzurermWebPubsubHub(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AzurermWebPubsubHub(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformValue<string> WebPubsubId
     {
-        get => GetArgument<TerraformValue<string>>("web_pubsub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("web_pubsub_id");
         set => SetArgument("web_pubsub_id", value);
     }
 

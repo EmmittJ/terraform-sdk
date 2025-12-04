@@ -86,18 +86,18 @@ public partial class GoogleMonitoringCustomService(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -105,9 +105,9 @@ public partial class GoogleMonitoringCustomService(string name) : TerraformResou
     /// An optional service ID to use. If not given, the server will generate a
     /// service ID.
     /// </summary>
-    public TerraformValue<string>? ServiceId
+    public TerraformValue<string> ServiceId
     {
-        get => GetArgument<TerraformValue<string>>("service_id");
+        get => GetArgument<TerraformValue<string>>("service_id") ?? AsReference("service_id");
         set => SetArgument("service_id", value);
     }
 

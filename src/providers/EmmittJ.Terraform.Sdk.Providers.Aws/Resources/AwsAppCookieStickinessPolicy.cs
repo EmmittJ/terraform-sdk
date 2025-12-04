@@ -14,16 +14,16 @@ public partial class AwsAppCookieStickinessPolicy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieName is required")]
     public required TerraformValue<string> CookieName
     {
-        get => GetArgument<TerraformValue<string>>("cookie_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cookie_name");
         set => SetArgument("cookie_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsAppCookieStickinessPolicy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbPort is required")]
     public required TerraformValue<double> LbPort
     {
-        get => GetArgument<TerraformValue<double>>("lb_port");
+        get => GetRequiredArgument<TerraformValue<double>>("lb_port");
         set => SetArgument("lb_port", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsAppCookieStickinessPolicy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancer is required")]
     public required TerraformValue<string> LoadBalancer
     {
-        get => GetArgument<TerraformValue<string>>("load_balancer");
+        get => GetRequiredArgument<TerraformValue<string>>("load_balancer");
         set => SetArgument("load_balancer", value);
     }
 
@@ -53,16 +53,16 @@ public partial class AwsAppCookieStickinessPolicy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

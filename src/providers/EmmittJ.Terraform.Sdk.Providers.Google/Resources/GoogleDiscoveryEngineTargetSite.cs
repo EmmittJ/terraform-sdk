@@ -46,7 +46,7 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformValue<string> DataStoreId
     {
-        get => GetArgument<TerraformValue<string>>("data_store_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_store_id");
         set => SetArgument("data_store_id", value);
     }
 
@@ -67,9 +67,9 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -80,16 +80,16 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvidedUriPattern is required")]
     public required TerraformValue<string> ProvidedUriPattern
     {
-        get => GetArgument<TerraformValue<string>>("provided_uri_pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("provided_uri_pattern");
         set => SetArgument("provided_uri_pattern", value);
     }
 

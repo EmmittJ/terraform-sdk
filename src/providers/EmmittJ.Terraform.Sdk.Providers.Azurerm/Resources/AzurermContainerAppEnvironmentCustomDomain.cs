@@ -64,7 +64,7 @@ public partial class AzurermContainerAppEnvironmentCustomDomain(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBlobBase64 is required")]
     public required TerraformValue<string> CertificateBlobBase64
     {
-        get => GetArgument<TerraformValue<string>>("certificate_blob_base64");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_blob_base64");
         set => SetArgument("certificate_blob_base64", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermContainerAppEnvironmentCustomDomain(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificatePassword is required")]
     public required TerraformValue<string> CertificatePassword
     {
-        get => GetArgument<TerraformValue<string>>("certificate_password");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_password");
         set => SetArgument("certificate_password", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermContainerAppEnvironmentCustomDomain(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformValue<string> ContainerAppEnvironmentId
     {
-        get => GetArgument<TerraformValue<string>>("container_app_environment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("container_app_environment_id");
         set => SetArgument("container_app_environment_id", value);
     }
 
@@ -94,16 +94,16 @@ public partial class AzurermContainerAppEnvironmentCustomDomain(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsSuffix is required")]
     public required TerraformValue<string> DnsSuffix
     {
-        get => GetArgument<TerraformValue<string>>("dns_suffix");
+        get => GetRequiredArgument<TerraformValue<string>>("dns_suffix");
         set => SetArgument("dns_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

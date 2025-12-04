@@ -61,18 +61,18 @@ public partial class GoogleNetworkConnectivityHub(string name) : TerraformResour
     /// <summary>
     /// Whether Private Service Connect transitivity is enabled for the hub. If true, Private Service Connect endpoints in VPC spokes attached to the hub are made accessible to other VPC spokes attached to the hub. The default value is false.
     /// </summary>
-    public TerraformValue<bool>? ExportPsc
+    public TerraformValue<bool> ExportPsc
     {
-        get => GetArgument<TerraformValue<bool>>("export_psc");
+        get => GetArgument<TerraformValue<bool>>("export_psc") ?? AsReference("export_psc");
         set => SetArgument("export_psc", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,36 +91,36 @@ public partial class GoogleNetworkConnectivityHub(string name) : TerraformResour
     /// <summary>
     /// Immutable. The name of the hub. Hub names must be unique. They use the following form: &#39;projects/{project_number}/locations/global/hubs/{hub_id}&#39;
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Optional. The policy mode of this hub. This field can be either PRESET or CUSTOM. If unspecified, the policyMode defaults to PRESET. Possible values: [&amp;quot;CUSTOM&amp;quot;, &amp;quot;PRESET&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? PolicyMode
+    public TerraformValue<string> PolicyMode
     {
-        get => GetArgument<TerraformValue<string>>("policy_mode");
+        get => GetArgument<TerraformValue<string>>("policy_mode") ?? AsReference("policy_mode");
         set => SetArgument("policy_mode", value);
     }
 
     /// <summary>
     /// Optional. The topology implemented in this hub. Currently, this field is only used when policyMode = PRESET. The available preset topologies are MESH and STAR. If presetTopology is unspecified and policyMode = PRESET, the presetTopology defaults to MESH. When policyMode = CUSTOM, the presetTopology is set to PRESET_TOPOLOGY_UNSPECIFIED. Possible values: [&amp;quot;MESH&amp;quot;, &amp;quot;STAR&amp;quot;, &amp;quot;HYBRID_INSPECTION&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? PresetTopology
+    public TerraformValue<string> PresetTopology
     {
-        get => GetArgument<TerraformValue<string>>("preset_topology");
+        get => GetArgument<TerraformValue<string>>("preset_topology") ?? AsReference("preset_topology");
         set => SetArgument("preset_topology", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

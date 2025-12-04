@@ -61,9 +61,9 @@ public partial class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKey(string
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKey(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformValue<string> KeyVaultKeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKey(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

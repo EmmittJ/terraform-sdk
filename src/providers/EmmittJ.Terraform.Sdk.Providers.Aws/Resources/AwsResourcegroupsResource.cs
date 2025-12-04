@@ -46,25 +46,25 @@ public partial class AwsResourcegroupsResource(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupArn is required")]
     public required TerraformValue<string> GroupArn
     {
-        get => GetArgument<TerraformValue<string>>("group_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("group_arn");
         set => SetArgument("group_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsResourcegroupsResource(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 

@@ -87,7 +87,7 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -97,16 +97,16 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     public required TerraformValue<string> FirstName
     {
-        get => GetArgument<TerraformValue<string>>("first_name");
+        get => GetRequiredArgument<TerraformValue<string>>("first_name");
         set => SetArgument("first_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     public required TerraformValue<string> LastName
     {
-        get => GetArgument<TerraformValue<string>>("last_name");
+        get => GetRequiredArgument<TerraformValue<string>>("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -127,7 +127,7 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -137,7 +137,7 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => GetArgument<TerraformValue<string>>("user_name");
+        get => GetRequiredArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 

@@ -11,18 +11,18 @@ public partial class AwsBudgetsBudgetDataSource(string name) : TerraformDataSour
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AccountId
+    public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
         set => SetArgument("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsBudgetsBudgetDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -48,9 +48,9 @@ public partial class AwsBudgetsBudgetDataSource(string name) : TerraformDataSour
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string>? Tags
+    public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 

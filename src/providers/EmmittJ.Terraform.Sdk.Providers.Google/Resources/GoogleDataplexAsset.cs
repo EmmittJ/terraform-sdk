@@ -19,7 +19,7 @@ public class GoogleDataplexAssetDiscoverySpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -176,9 +176,9 @@ public class GoogleDataplexAssetResourceSpecBlock : TerraformBlock
     /// <summary>
     /// Optional. Determines how read permissions are handled for each asset and their associated tables. Only available to storage buckets assets. Possible values: DIRECT, MANAGED
     /// </summary>
-    public TerraformValue<string>? ReadAccessMode
+    public TerraformValue<string> ReadAccessMode
     {
-        get => GetArgument<TerraformValue<string>>("read_access_mode");
+        get => GetArgument<TerraformValue<string>>("read_access_mode") ?? AsReference("read_access_mode");
         set => SetArgument("read_access_mode", value);
     }
 
@@ -188,7 +188,7 @@ public class GoogleDataplexAssetResourceSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -248,7 +248,7 @@ public partial class GoogleDataplexAsset(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataplexZone is required")]
     public required TerraformValue<string> DataplexZone
     {
-        get => GetArgument<TerraformValue<string>>("dataplex_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("dataplex_zone");
         set => SetArgument("dataplex_zone", value);
     }
 
@@ -273,9 +273,9 @@ public partial class GoogleDataplexAsset(string name) : TerraformResource("googl
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -297,7 +297,7 @@ public partial class GoogleDataplexAsset(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
     public required TerraformValue<string> Lake
     {
-        get => GetArgument<TerraformValue<string>>("lake");
+        get => GetRequiredArgument<TerraformValue<string>>("lake");
         set => SetArgument("lake", value);
     }
 
@@ -307,7 +307,7 @@ public partial class GoogleDataplexAsset(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -317,16 +317,16 @@ public partial class GoogleDataplexAsset(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

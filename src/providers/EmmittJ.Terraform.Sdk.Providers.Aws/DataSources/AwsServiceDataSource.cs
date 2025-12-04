@@ -11,54 +11,54 @@ public partial class AwsServiceDataSource(string name) : TerraformDataSource("aw
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformValue<string>? DnsName
+    public TerraformValue<string> DnsName
     {
-        get => GetArgument<TerraformValue<string>>("dns_name");
+        get => GetArgument<TerraformValue<string>>("dns_name") ?? AsReference("dns_name");
         set => SetArgument("dns_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The reverse_dns_name attribute.
     /// </summary>
-    public TerraformValue<string>? ReverseDnsName
+    public TerraformValue<string> ReverseDnsName
     {
-        get => GetArgument<TerraformValue<string>>("reverse_dns_name");
+        get => GetArgument<TerraformValue<string>>("reverse_dns_name") ?? AsReference("reverse_dns_name");
         set => SetArgument("reverse_dns_name", value);
     }
 
     /// <summary>
     /// The reverse_dns_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? ReverseDnsPrefix
+    public TerraformValue<string> ReverseDnsPrefix
     {
-        get => GetArgument<TerraformValue<string>>("reverse_dns_prefix");
+        get => GetArgument<TerraformValue<string>>("reverse_dns_prefix") ?? AsReference("reverse_dns_prefix");
         set => SetArgument("reverse_dns_prefix", value);
     }
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    public TerraformValue<string>? ServiceId
+    public TerraformValue<string> ServiceId
     {
-        get => GetArgument<TerraformValue<string>>("service_id");
+        get => GetArgument<TerraformValue<string>>("service_id") ?? AsReference("service_id");
         set => SetArgument("service_id", value);
     }
 

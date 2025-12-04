@@ -11,9 +11,9 @@ public partial class GoogleSccV2OrganizationSourceIamPolicy(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleSccV2OrganizationSourceIamPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => GetArgument<TerraformValue<string>>("organization");
+        get => GetRequiredArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleSccV2OrganizationSourceIamPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => GetArgument<TerraformValue<string>>("policy_data");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleSccV2OrganizationSourceIamPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 

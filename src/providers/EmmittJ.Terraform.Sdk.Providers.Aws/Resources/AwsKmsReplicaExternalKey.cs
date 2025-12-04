@@ -38,18 +38,18 @@ public partial class AwsKmsReplicaExternalKey(string name) : TerraformResource("
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,9 +65,9 @@ public partial class AwsKmsReplicaExternalKey(string name) : TerraformResource("
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformValue<string>? Policy
+    public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -77,16 +77,16 @@ public partial class AwsKmsReplicaExternalKey(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKeyArn is required")]
     public required TerraformValue<string> PrimaryKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("primary_key_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("primary_key_arn");
         set => SetArgument("primary_key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -102,9 +102,9 @@ public partial class AwsKmsReplicaExternalKey(string name) : TerraformResource("
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

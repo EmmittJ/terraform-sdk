@@ -43,9 +43,9 @@ public partial class GoogleComputeResourcePolicyAttachment(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleComputeResourcePolicyAttachment(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -66,25 +66,25 @@ public partial class GoogleComputeResourcePolicyAttachment(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// A reference to the zone where the instance resides.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

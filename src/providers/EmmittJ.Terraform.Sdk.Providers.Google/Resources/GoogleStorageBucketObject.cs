@@ -28,7 +28,7 @@ public class GoogleStorageBucketObjectCustomerEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
     public required TerraformValue<string> EncryptionKey
     {
-        get => GetArgument<TerraformValue<string>>("encryption_key");
+        get => GetRequiredArgument<TerraformValue<string>>("encryption_key");
         set => SetArgument("encryption_key", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleStorageBucketObjectRetentionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleStorageBucketObjectRetentionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetainUntilTime is required")]
     public required TerraformValue<string> RetainUntilTime
     {
-        get => GetArgument<TerraformValue<string>>("retain_until_time");
+        get => GetRequiredArgument<TerraformValue<string>>("retain_until_time");
         set => SetArgument("retain_until_time", value);
     }
 
@@ -122,7 +122,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -138,9 +138,9 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// <summary>
     /// Data as string to be uploaded. Must be defined if source is not. Note: The content field is marked as sensitive. To view the raw contents of the object, please define an output.
     /// </summary>
-    public TerraformValue<string>? Content
+    public TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetArgument<TerraformValue<string>>("content") ?? AsReference("content");
         set => SetArgument("content", value);
     }
 
@@ -174,9 +174,9 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// <summary>
     /// Content-Type of the object data. Defaults to &amp;quot;application/octet-stream&amp;quot; or &amp;quot;text/plain; charset=utf-8&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? ContentType
+    public TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetArgument<TerraformValue<string>>("content_type") ?? AsReference("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -219,18 +219,18 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Resource name of the Cloud KMS key that will be used to encrypt the object. Overrides the object metadata&#39;s kmsKeyName value, if any.
     /// </summary>
-    public TerraformValue<string>? KmsKeyName
+    public TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name") ?? AsReference("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -249,7 +249,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -274,9 +274,9 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// <summary>
     /// The StorageClass of the new bucket object. Supported values include: MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE. If not provided, this defaults to the bucket&#39;s default storage class or to a standard class.
     /// </summary>
-    public TerraformValue<string>? StorageClass
+    public TerraformValue<string> StorageClass
     {
-        get => GetArgument<TerraformValue<string>>("storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class") ?? AsReference("storage_class");
         set => SetArgument("storage_class", value);
     }
 

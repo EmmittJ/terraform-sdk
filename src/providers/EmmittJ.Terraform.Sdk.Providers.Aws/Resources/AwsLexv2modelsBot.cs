@@ -19,7 +19,7 @@ public class AwsLexv2modelsBotDataPrivacyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChildDirected is required")]
     public required TerraformValue<bool> ChildDirected
     {
-        get => GetArgument<TerraformValue<bool>>("child_directed");
+        get => GetRequiredArgument<TerraformValue<bool>>("child_directed");
         set => SetArgument("child_directed", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasId is required")]
     public required TerraformValue<string> AliasId
     {
-        get => GetArgument<TerraformValue<string>>("alias_id");
+        get => GetRequiredArgument<TerraformValue<string>>("alias_id");
         set => SetArgument("alias_id", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasName is required")]
     public required TerraformValue<string> AliasName
     {
-        get => GetArgument<TerraformValue<string>>("alias_name");
+        get => GetRequiredArgument<TerraformValue<string>>("alias_name");
         set => SetArgument("alias_name", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AwsLexv2modelsBot(string name) : TerraformResource("aws_lex
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdleSessionTtlInSeconds is required")]
     public required TerraformValue<double> IdleSessionTtlInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("idle_session_ttl_in_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("idle_session_ttl_in_seconds");
         set => SetArgument("idle_session_ttl_in_seconds", value);
     }
 
@@ -162,16 +162,16 @@ public partial class AwsLexv2modelsBot(string name) : TerraformResource("aws_lex
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AwsLexv2modelsBot(string name) : TerraformResource("aws_lex
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -206,9 +206,9 @@ public partial class AwsLexv2modelsBot(string name) : TerraformResource("aws_lex
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 

@@ -43,9 +43,9 @@ public partial class AwsApiGatewayIntegration(string name) : TerraformResource("
     /// <summary>
     /// The cache_namespace attribute.
     /// </summary>
-    public TerraformValue<string>? CacheNamespace
+    public TerraformValue<string> CacheNamespace
     {
-        get => GetArgument<TerraformValue<string>>("cache_namespace");
+        get => GetArgument<TerraformValue<string>>("cache_namespace") ?? AsReference("cache_namespace");
         set => SetArgument("cache_namespace", value);
     }
 
@@ -91,16 +91,16 @@ public partial class AwsApiGatewayIntegration(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformValue<string> HttpMethod
     {
-        get => GetArgument<TerraformValue<string>>("http_method");
+        get => GetRequiredArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -116,18 +116,18 @@ public partial class AwsApiGatewayIntegration(string name) : TerraformResource("
     /// <summary>
     /// The passthrough_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? PassthroughBehavior
+    public TerraformValue<string> PassthroughBehavior
     {
-        get => GetArgument<TerraformValue<string>>("passthrough_behavior");
+        get => GetArgument<TerraformValue<string>>("passthrough_behavior") ?? AsReference("passthrough_behavior");
         set => SetArgument("passthrough_behavior", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AwsApiGatewayIntegration(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => GetArgument<TerraformValue<string>>("resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AwsApiGatewayIntegration(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => GetArgument<TerraformValue<string>>("rest_api_id");
+        get => GetRequiredArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AwsApiGatewayIntegration(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

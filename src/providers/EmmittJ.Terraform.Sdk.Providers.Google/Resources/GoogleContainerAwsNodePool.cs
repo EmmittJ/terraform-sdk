@@ -19,7 +19,7 @@ public class GoogleContainerAwsNodePoolAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformValue<double> MaxNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("max_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleContainerAwsNodePoolAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformValue<double> MinNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("min_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -53,16 +53,16 @@ public class GoogleContainerAwsNodePoolConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamInstanceProfile is required")]
     public required TerraformValue<string> IamInstanceProfile
     {
-        get => GetArgument<TerraformValue<string>>("iam_instance_profile");
+        get => GetRequiredArgument<TerraformValue<string>>("iam_instance_profile");
         set => SetArgument("iam_instance_profile", value);
     }
 
     /// <summary>
     /// Optional. The AWS instance type. When unspecified, it defaults to `m5.large`.
     /// </summary>
-    public TerraformValue<string>? InstanceType
+    public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleContainerAwsNodePoolConfigBlockAutoscalingMetricsCollectionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Granularity is required")]
     public required TerraformValue<string> Granularity
     {
-        get => GetArgument<TerraformValue<string>>("granularity");
+        get => GetRequiredArgument<TerraformValue<string>>("granularity");
         set => SetArgument("granularity", value);
     }
 
@@ -206,7 +206,7 @@ public class GoogleContainerAwsNodePoolConfigBlockConfigEncryptionBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -229,7 +229,7 @@ public class GoogleContainerAwsNodePoolConfigBlockProxyConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretArn is required")]
     public required TerraformValue<string> SecretArn
     {
-        get => GetArgument<TerraformValue<string>>("secret_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 
@@ -239,7 +239,7 @@ public class GoogleContainerAwsNodePoolConfigBlockProxyConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -259,9 +259,9 @@ public class GoogleContainerAwsNodePoolConfigBlockRootVolumeBlock : TerraformBlo
     /// <summary>
     /// Optional. The number of I/O operations per second (IOPS) to provision for GP3 volume.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -277,27 +277,27 @@ public class GoogleContainerAwsNodePoolConfigBlockRootVolumeBlock : TerraformBlo
     /// <summary>
     /// Optional. The size of the volume, in GiBs. When unspecified, a default value is provided. See the specific reference in the parent resource.
     /// </summary>
-    public TerraformValue<double>? SizeGib
+    public TerraformValue<double> SizeGib
     {
-        get => GetArgument<TerraformValue<double>>("size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib") ?? AsReference("size_gib");
         set => SetArgument("size_gib", value);
     }
 
     /// <summary>
     /// Optional. The throughput to provision for the volume, in MiB/s. Only valid if the volume type is GP3. If volume type is gp3 and throughput is not specified, the throughput will defaults to 125.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// Optional. Type of the EBS volume. When unspecified, it defaults to GP2 volume. Possible values: VOLUME_TYPE_UNSPECIFIED, GP2, GP3
     /// </summary>
-    public TerraformValue<string>? VolumeType
+    public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleContainerAwsNodePoolConfigBlockSshConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2KeyPair is required")]
     public required TerraformValue<string> Ec2KeyPair
     {
-        get => GetArgument<TerraformValue<string>>("ec2_key_pair");
+        get => GetRequiredArgument<TerraformValue<string>>("ec2_key_pair");
         set => SetArgument("ec2_key_pair", value);
     }
 
@@ -343,7 +343,7 @@ public class GoogleContainerAwsNodePoolConfigBlockTaintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Effect is required")]
     public required TerraformValue<string> Effect
     {
-        get => GetArgument<TerraformValue<string>>("effect");
+        get => GetRequiredArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -353,7 +353,7 @@ public class GoogleContainerAwsNodePoolConfigBlockTaintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -363,7 +363,7 @@ public class GoogleContainerAwsNodePoolConfigBlockTaintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -384,9 +384,9 @@ public class GoogleContainerAwsNodePoolKubeletConfigBlock : TerraformBlock
     /// <summary>
     /// Whether or not to enable CPU CFS quota. Defaults to true.
     /// </summary>
-    public TerraformValue<bool>? CpuCfsQuota
+    public TerraformValue<bool> CpuCfsQuota
     {
-        get => GetArgument<TerraformValue<bool>>("cpu_cfs_quota");
+        get => GetArgument<TerraformValue<bool>>("cpu_cfs_quota") ?? AsReference("cpu_cfs_quota");
         set => SetArgument("cpu_cfs_quota", value);
     }
 
@@ -402,9 +402,9 @@ public class GoogleContainerAwsNodePoolKubeletConfigBlock : TerraformBlock
     /// <summary>
     /// The CpuManagerPolicy to use for the node. Defaults to &amp;quot;none&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? CpuManagerPolicy
+    public TerraformValue<string> CpuManagerPolicy
     {
-        get => GetArgument<TerraformValue<string>>("cpu_manager_policy");
+        get => GetArgument<TerraformValue<string>>("cpu_manager_policy") ?? AsReference("cpu_manager_policy");
         set => SetArgument("cpu_manager_policy", value);
     }
 
@@ -434,9 +434,9 @@ public class GoogleContainerAwsNodePoolManagementBlock : TerraformBlock
     /// <summary>
     /// Optional. Whether or not the nodes will be automatically repaired.
     /// </summary>
-    public TerraformValue<bool>? AutoRepair
+    public TerraformValue<bool> AutoRepair
     {
-        get => GetArgument<TerraformValue<bool>>("auto_repair");
+        get => GetArgument<TerraformValue<bool>>("auto_repair") ?? AsReference("auto_repair");
         set => SetArgument("auto_repair", value);
     }
 
@@ -460,7 +460,7 @@ public class GoogleContainerAwsNodePoolMaxPodsConstraintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPodsPerNode is required")]
     public required TerraformValue<double> MaxPodsPerNode
     {
-        get => GetArgument<TerraformValue<double>>("max_pods_per_node");
+        get => GetRequiredArgument<TerraformValue<double>>("max_pods_per_node");
         set => SetArgument("max_pods_per_node", value);
     }
 
@@ -545,18 +545,18 @@ public class GoogleContainerAwsNodePoolUpdateSettingsBlockSurgeSettingsBlock : T
     /// <summary>
     /// Optional. The maximum number of nodes that can be created beyond the current size of the node pool during the update process.
     /// </summary>
-    public TerraformValue<double>? MaxSurge
+    public TerraformValue<double> MaxSurge
     {
-        get => GetArgument<TerraformValue<double>>("max_surge");
+        get => GetArgument<TerraformValue<double>>("max_surge") ?? AsReference("max_surge");
         set => SetArgument("max_surge", value);
     }
 
     /// <summary>
     /// Optional. The maximum number of nodes that can be simultaneously unavailable during the update process. A node is considered unavailable if its status is not Ready.
     /// </summary>
-    public TerraformValue<double>? MaxUnavailable
+    public TerraformValue<double> MaxUnavailable
     {
-        get => GetArgument<TerraformValue<double>>("max_unavailable");
+        get => GetArgument<TerraformValue<double>>("max_unavailable") ?? AsReference("max_unavailable");
         set => SetArgument("max_unavailable", value);
     }
 
@@ -587,16 +587,16 @@ public partial class GoogleContainerAwsNodePool(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -606,7 +606,7 @@ public partial class GoogleContainerAwsNodePool(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -616,16 +616,16 @@ public partial class GoogleContainerAwsNodePool(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -635,7 +635,7 @@ public partial class GoogleContainerAwsNodePool(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -645,7 +645,7 @@ public partial class GoogleContainerAwsNodePool(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

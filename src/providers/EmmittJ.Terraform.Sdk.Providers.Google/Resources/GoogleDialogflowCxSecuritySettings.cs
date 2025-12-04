@@ -72,7 +72,7 @@ public class GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableInsightsExport is required")]
     public required TerraformValue<bool> EnableInsightsExport
     {
-        get => GetArgument<TerraformValue<bool>>("enable_insights_export");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable_insights_export");
         set => SetArgument("enable_insights_export", value);
     }
 
@@ -143,16 +143,16 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -174,16 +174,16 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -11,9 +11,9 @@ public partial class GoogleBeyondcorpSecurityGatewayDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -35,7 +35,7 @@ public partial class GoogleBeyondcorpSecurityGatewayDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformValue<string> SecurityGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("security_gateway_id");
+        get => GetRequiredArgument<TerraformValue<string>>("security_gateway_id");
         set => SetArgument("security_gateway_id", value);
     }
 

@@ -28,7 +28,7 @@ public class GoogleDataplexAssetIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleDataplexAssetIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => GetArgument<TerraformValue<string>>("title");
+        get => GetRequiredArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -57,7 +57,7 @@ public partial class GoogleDataplexAssetIamMember(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asset is required")]
     public required TerraformValue<string> Asset
     {
-        get => GetArgument<TerraformValue<string>>("asset");
+        get => GetRequiredArgument<TerraformValue<string>>("asset");
         set => SetArgument("asset", value);
     }
 
@@ -67,16 +67,16 @@ public partial class GoogleDataplexAssetIamMember(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataplexZone is required")]
     public required TerraformValue<string> DataplexZone
     {
-        get => GetArgument<TerraformValue<string>>("dataplex_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("dataplex_zone");
         set => SetArgument("dataplex_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -86,16 +86,16 @@ public partial class GoogleDataplexAssetIamMember(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
     public required TerraformValue<string> Lake
     {
-        get => GetArgument<TerraformValue<string>>("lake");
+        get => GetRequiredArgument<TerraformValue<string>>("lake");
         set => SetArgument("lake", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformValue<string>? Location
+    public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
         set => SetArgument("location", value);
     }
 
@@ -105,16 +105,16 @@ public partial class GoogleDataplexAssetIamMember(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     public required TerraformValue<string> Member
     {
-        get => GetArgument<TerraformValue<string>>("member");
+        get => GetRequiredArgument<TerraformValue<string>>("member");
         set => SetArgument("member", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -124,7 +124,7 @@ public partial class GoogleDataplexAssetIamMember(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => GetArgument<TerraformValue<string>>("role");
+        get => GetRequiredArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 

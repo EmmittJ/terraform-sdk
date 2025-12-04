@@ -14,7 +14,7 @@ public partial class AwsIotCertificate(string name) : TerraformResource("aws_iot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => GetArgument<TerraformValue<bool>>("active");
+        get => GetRequiredArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -30,9 +30,9 @@ public partial class AwsIotCertificate(string name) : TerraformResource("aws_iot
     /// <summary>
     /// The certificate_pem attribute.
     /// </summary>
-    public TerraformValue<string>? CertificatePem
+    public TerraformValue<string> CertificatePem
     {
-        get => GetArgument<TerraformValue<string>>("certificate_pem");
+        get => GetArgument<TerraformValue<string>>("certificate_pem") ?? AsReference("certificate_pem");
         set => SetArgument("certificate_pem", value);
     }
 
@@ -48,18 +48,18 @@ public partial class AwsIotCertificate(string name) : TerraformResource("aws_iot
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

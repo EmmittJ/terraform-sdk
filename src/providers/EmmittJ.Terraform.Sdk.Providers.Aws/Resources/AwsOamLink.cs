@@ -52,7 +52,7 @@ public class AwsOamLinkLinkConfigurationBlockLogGroupConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsOamLinkLinkConfigurationBlockMetricConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -132,9 +132,9 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -144,16 +144,16 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelTemplate is required")]
     public required TerraformValue<string> LabelTemplate
     {
-        get => GetArgument<TerraformValue<string>>("label_template");
+        get => GetRequiredArgument<TerraformValue<string>>("label_template");
         set => SetArgument("label_template", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
     public required TerraformSet<string> ResourceTypes
     {
-        get => GetArgument<TerraformSet<string>>("resource_types");
+        get => GetRequiredArgument<TerraformSet<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SinkIdentifier is required")]
     public required TerraformValue<string> SinkIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("sink_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("sink_identifier");
         set => SetArgument("sink_identifier", value);
     }
 
@@ -189,9 +189,9 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

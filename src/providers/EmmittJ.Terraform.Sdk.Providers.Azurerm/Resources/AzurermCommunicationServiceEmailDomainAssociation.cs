@@ -55,7 +55,7 @@ public partial class AzurermCommunicationServiceEmailDomainAssociation(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommunicationServiceId is required")]
     public required TerraformValue<string> CommunicationServiceId
     {
-        get => GetArgument<TerraformValue<string>>("communication_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("communication_service_id");
         set => SetArgument("communication_service_id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermCommunicationServiceEmailDomainAssociation(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceDomainId is required")]
     public required TerraformValue<string> EmailServiceDomainId
     {
-        get => GetArgument<TerraformValue<string>>("email_service_domain_id");
+        get => GetRequiredArgument<TerraformValue<string>>("email_service_domain_id");
         set => SetArgument("email_service_domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

@@ -52,9 +52,9 @@ public partial class GoogleAccessContextManagerAccessPolicy(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleAccessContextManagerAccessPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -85,7 +85,7 @@ public partial class GoogleAccessContextManagerAccessPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => GetArgument<TerraformValue<string>>("title");
+        get => GetRequiredArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 

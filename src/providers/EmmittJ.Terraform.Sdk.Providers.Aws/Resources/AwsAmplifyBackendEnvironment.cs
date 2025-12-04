@@ -14,16 +14,16 @@ public partial class AwsAmplifyBackendEnvironment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => GetArgument<TerraformValue<string>>("app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
     /// <summary>
     /// The deployment_artifacts attribute.
     /// </summary>
-    public TerraformValue<string>? DeploymentArtifacts
+    public TerraformValue<string> DeploymentArtifacts
     {
-        get => GetArgument<TerraformValue<string>>("deployment_artifacts");
+        get => GetArgument<TerraformValue<string>>("deployment_artifacts") ?? AsReference("deployment_artifacts");
         set => SetArgument("deployment_artifacts", value);
     }
 
@@ -33,34 +33,34 @@ public partial class AwsAmplifyBackendEnvironment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentName is required")]
     public required TerraformValue<string> EnvironmentName
     {
-        get => GetArgument<TerraformValue<string>>("environment_name");
+        get => GetRequiredArgument<TerraformValue<string>>("environment_name");
         set => SetArgument("environment_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The stack_name attribute.
     /// </summary>
-    public TerraformValue<string>? StackName
+    public TerraformValue<string> StackName
     {
-        get => GetArgument<TerraformValue<string>>("stack_name");
+        get => GetArgument<TerraformValue<string>>("stack_name") ?? AsReference("stack_name");
         set => SetArgument("stack_name", value);
     }
 

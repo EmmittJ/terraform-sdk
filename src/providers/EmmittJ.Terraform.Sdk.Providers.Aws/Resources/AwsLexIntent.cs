@@ -54,7 +54,7 @@ public class AwsLexIntentConclusionStatementBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsLexIntentConclusionStatementBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsLexIntentConfirmationPromptBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
     public required TerraformValue<double> MaxAttempts
     {
-        get => GetArgument<TerraformValue<double>>("max_attempts");
+        get => GetRequiredArgument<TerraformValue<double>>("max_attempts");
         set => SetArgument("max_attempts", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsLexIntentConfirmationPromptBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsLexIntentConfirmationPromptBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsLexIntentDialogCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageVersion is required")]
     public required TerraformValue<string> MessageVersion
     {
-        get => GetArgument<TerraformValue<string>>("message_version");
+        get => GetRequiredArgument<TerraformValue<string>>("message_version");
         set => SetArgument("message_version", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsLexIntentDialogCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsLexIntentFollowUpPromptBlockPromptBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
     public required TerraformValue<double> MaxAttempts
     {
-        get => GetArgument<TerraformValue<double>>("max_attempts");
+        get => GetRequiredArgument<TerraformValue<double>>("max_attempts");
         set => SetArgument("max_attempts", value);
     }
 
@@ -303,7 +303,7 @@ public class AwsLexIntentFollowUpPromptBlockPromptBlockMessageBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -313,7 +313,7 @@ public class AwsLexIntentFollowUpPromptBlockPromptBlockMessageBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -380,7 +380,7 @@ public class AwsLexIntentFollowUpPromptBlockRejectionStatementBlockMessageBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -390,7 +390,7 @@ public class AwsLexIntentFollowUpPromptBlockRejectionStatementBlockMessageBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -423,7 +423,7 @@ public class AwsLexIntentFulfillmentActivityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsLexIntentFulfillmentActivityBlockCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageVersion is required")]
     public required TerraformValue<string> MessageVersion
     {
-        get => GetArgument<TerraformValue<string>>("message_version");
+        get => GetRequiredArgument<TerraformValue<string>>("message_version");
         set => SetArgument("message_version", value);
     }
 
@@ -466,7 +466,7 @@ public class AwsLexIntentFulfillmentActivityBlockCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -525,7 +525,7 @@ public class AwsLexIntentRejectionStatementBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -535,7 +535,7 @@ public class AwsLexIntentRejectionStatementBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -577,7 +577,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -614,7 +614,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotConstraint is required")]
     public required TerraformValue<string> SlotConstraint
     {
-        get => GetArgument<TerraformValue<string>>("slot_constraint");
+        get => GetRequiredArgument<TerraformValue<string>>("slot_constraint");
         set => SetArgument("slot_constraint", value);
     }
 
@@ -624,7 +624,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotType is required")]
     public required TerraformValue<string> SlotType
     {
-        get => GetArgument<TerraformValue<string>>("slot_type");
+        get => GetRequiredArgument<TerraformValue<string>>("slot_type");
         set => SetArgument("slot_type", value);
     }
 
@@ -666,7 +666,7 @@ public class AwsLexIntentSlotBlockValueElicitationPromptBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
     public required TerraformValue<double> MaxAttempts
     {
-        get => GetArgument<TerraformValue<double>>("max_attempts");
+        get => GetRequiredArgument<TerraformValue<double>>("max_attempts");
         set => SetArgument("max_attempts", value);
     }
 
@@ -711,7 +711,7 @@ public class AwsLexIntentSlotBlockValueElicitationPromptBlockMessageBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -721,7 +721,7 @@ public class AwsLexIntentSlotBlockValueElicitationPromptBlockMessageBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -805,9 +805,9 @@ public partial class AwsLexIntent(string name) : TerraformResource("aws_lex_inte
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -817,7 +817,7 @@ public partial class AwsLexIntent(string name) : TerraformResource("aws_lex_inte
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -833,9 +833,9 @@ public partial class AwsLexIntent(string name) : TerraformResource("aws_lex_inte
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

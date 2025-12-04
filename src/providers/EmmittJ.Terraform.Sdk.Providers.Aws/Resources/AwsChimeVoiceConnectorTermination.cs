@@ -14,7 +14,7 @@ public partial class AwsChimeVoiceConnectorTermination(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallingRegions is required")]
     public required TerraformSet<string> CallingRegions
     {
-        get => GetArgument<TerraformSet<string>>("calling_regions");
+        get => GetRequiredArgument<TerraformSet<string>>("calling_regions");
         set => SetArgument("calling_regions", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsChimeVoiceConnectorTermination(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrAllowList is required")]
     public required TerraformSet<string> CidrAllowList
     {
-        get => GetArgument<TerraformSet<string>>("cidr_allow_list");
+        get => GetRequiredArgument<TerraformSet<string>>("cidr_allow_list");
         set => SetArgument("cidr_allow_list", value);
     }
 
@@ -58,18 +58,18 @@ public partial class AwsChimeVoiceConnectorTermination(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsChimeVoiceConnectorTermination(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformValue<string> VoiceConnectorId
     {
-        get => GetArgument<TerraformValue<string>>("voice_connector_id");
+        get => GetRequiredArgument<TerraformValue<string>>("voice_connector_id");
         set => SetArgument("voice_connector_id", value);
     }
 

@@ -19,7 +19,7 @@ public class GooglePubsubLiteTopicPartitionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetRequiredArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -52,7 +52,7 @@ public class GooglePubsubLiteTopicPartitionConfigBlockCapacityBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublishMibPerSec is required")]
     public required TerraformValue<double> PublishMibPerSec
     {
-        get => GetArgument<TerraformValue<double>>("publish_mib_per_sec");
+        get => GetRequiredArgument<TerraformValue<double>>("publish_mib_per_sec");
         set => SetArgument("publish_mib_per_sec", value);
     }
 
@@ -62,7 +62,7 @@ public class GooglePubsubLiteTopicPartitionConfigBlockCapacityBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscribeMibPerSec is required")]
     public required TerraformValue<double> SubscribeMibPerSec
     {
-        get => GetArgument<TerraformValue<double>>("subscribe_mib_per_sec");
+        get => GetRequiredArgument<TerraformValue<double>>("subscribe_mib_per_sec");
         set => SetArgument("subscribe_mib_per_sec", value);
     }
 
@@ -111,7 +111,7 @@ public class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerPartitionBytes is required")]
     public required TerraformValue<string> PerPartitionBytes
     {
-        get => GetArgument<TerraformValue<string>>("per_partition_bytes");
+        get => GetRequiredArgument<TerraformValue<string>>("per_partition_bytes");
         set => SetArgument("per_partition_bytes", value);
     }
 
@@ -180,9 +180,9 @@ public partial class GooglePubsubLiteTopic(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -192,16 +192,16 @@ public partial class GooglePubsubLiteTopic(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

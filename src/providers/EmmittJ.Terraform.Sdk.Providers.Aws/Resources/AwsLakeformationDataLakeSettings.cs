@@ -16,18 +16,18 @@ public class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlo
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public TerraformSet<string>? Permissions
+    public TerraformSet<string> Permissions
     {
-        get => GetArgument<TerraformSet<string>>("permissions");
+        get => GetArgument<TerraformSet<string>>("permissions") ?? AsReference("permissions");
         set => SetArgument("permissions", value);
     }
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public TerraformValue<string>? Principal
+    public TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetArgument<TerraformValue<string>>("principal") ?? AsReference("principal");
         set => SetArgument("principal", value);
     }
 
@@ -48,18 +48,18 @@ public class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public TerraformSet<string>? Permissions
+    public TerraformSet<string> Permissions
     {
-        get => GetArgument<TerraformSet<string>>("permissions");
+        get => GetArgument<TerraformSet<string>>("permissions") ?? AsReference("permissions");
         set => SetArgument("permissions", value);
     }
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public TerraformValue<string>? Principal
+    public TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetArgument<TerraformValue<string>>("principal") ?? AsReference("principal");
         set => SetArgument("principal", value);
     }
 
@@ -75,9 +75,9 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// <summary>
     /// The admins attribute.
     /// </summary>
-    public TerraformSet<string>? Admins
+    public TerraformSet<string> Admins
     {
-        get => GetArgument<TerraformSet<string>>("admins");
+        get => GetArgument<TerraformSet<string>>("admins") ?? AsReference("admins");
         set => SetArgument("admins", value);
     }
 
@@ -102,9 +102,9 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// <summary>
     /// The authorized_session_tag_value_list attribute.
     /// </summary>
-    public TerraformList<string>? AuthorizedSessionTagValueList
+    public TerraformList<string> AuthorizedSessionTagValueList
     {
-        get => GetArgument<TerraformList<string>>("authorized_session_tag_value_list");
+        get => GetArgument<TerraformList<string>>("authorized_session_tag_value_list") ?? AsReference("authorized_session_tag_value_list");
         set => SetArgument("authorized_session_tag_value_list", value);
     }
 
@@ -120,54 +120,54 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// <summary>
     /// The external_data_filtering_allow_list attribute.
     /// </summary>
-    public TerraformSet<string>? ExternalDataFilteringAllowList
+    public TerraformSet<string> ExternalDataFilteringAllowList
     {
-        get => GetArgument<TerraformSet<string>>("external_data_filtering_allow_list");
+        get => GetArgument<TerraformSet<string>>("external_data_filtering_allow_list") ?? AsReference("external_data_filtering_allow_list");
         set => SetArgument("external_data_filtering_allow_list", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMap<string>? Parameters
+    public TerraformMap<string> Parameters
     {
-        get => GetArgument<TerraformMap<string>>("parameters");
+        get => GetArgument<TerraformMap<string>>("parameters") ?? AsReference("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// The read_only_admins attribute.
     /// </summary>
-    public TerraformSet<string>? ReadOnlyAdmins
+    public TerraformSet<string> ReadOnlyAdmins
     {
-        get => GetArgument<TerraformSet<string>>("read_only_admins");
+        get => GetArgument<TerraformSet<string>>("read_only_admins") ?? AsReference("read_only_admins");
         set => SetArgument("read_only_admins", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The trusted_resource_owners attribute.
     /// </summary>
-    public TerraformList<string>? TrustedResourceOwners
+    public TerraformList<string> TrustedResourceOwners
     {
-        get => GetArgument<TerraformList<string>>("trusted_resource_owners");
+        get => GetArgument<TerraformList<string>>("trusted_resource_owners") ?? AsReference("trusted_resource_owners");
         set => SetArgument("trusted_resource_owners", value);
     }
 

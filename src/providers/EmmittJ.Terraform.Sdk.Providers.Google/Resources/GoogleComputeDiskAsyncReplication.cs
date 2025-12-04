@@ -19,7 +19,7 @@ public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformValue<string> Disk
     {
-        get => GetArgument<TerraformValue<string>>("disk");
+        get => GetRequiredArgument<TerraformValue<string>>("disk");
         set => SetArgument("disk", value);
     }
 
@@ -73,9 +73,9 @@ public partial class GoogleComputeDiskAsyncReplication(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class GoogleComputeDiskAsyncReplication(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryDisk is required")]
     public required TerraformValue<string> PrimaryDisk
     {
-        get => GetArgument<TerraformValue<string>>("primary_disk");
+        get => GetRequiredArgument<TerraformValue<string>>("primary_disk");
         set => SetArgument("primary_disk", value);
     }
 

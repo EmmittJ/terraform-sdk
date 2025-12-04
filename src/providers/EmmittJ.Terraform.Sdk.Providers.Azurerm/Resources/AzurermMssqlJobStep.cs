@@ -28,7 +28,7 @@ public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MssqlDatabaseId is required")]
     public required TerraformValue<string> MssqlDatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("mssql_database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("mssql_database_id");
         set => SetArgument("mssql_database_id", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -113,9 +113,9 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     public required TerraformValue<string> JobId
     {
-        get => GetArgument<TerraformValue<string>>("job_id");
+        get => GetRequiredArgument<TerraformValue<string>>("job_id");
         set => SetArgument("job_id", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobStepIndex is required")]
     public required TerraformValue<double> JobStepIndex
     {
-        get => GetArgument<TerraformValue<double>>("job_step_index");
+        get => GetRequiredArgument<TerraformValue<double>>("job_step_index");
         set => SetArgument("job_step_index", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobTargetGroupId is required")]
     public required TerraformValue<string> JobTargetGroupId
     {
-        get => GetArgument<TerraformValue<string>>("job_target_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("job_target_group_id");
         set => SetArgument("job_target_group_id", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlScript is required")]
     public required TerraformValue<string> SqlScript
     {
-        get => GetArgument<TerraformValue<string>>("sql_script");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_script");
         set => SetArgument("sql_script", value);
     }
 

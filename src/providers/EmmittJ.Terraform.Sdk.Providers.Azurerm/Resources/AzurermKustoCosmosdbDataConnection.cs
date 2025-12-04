@@ -55,16 +55,16 @@ public partial class AzurermKustoCosmosdbDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbContainerId is required")]
     public required TerraformValue<string> CosmosdbContainerId
     {
-        get => GetArgument<TerraformValue<string>>("cosmosdb_container_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cosmosdb_container_id");
         set => SetArgument("cosmosdb_container_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermKustoCosmosdbDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseId is required")]
     public required TerraformValue<string> KustoDatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("kusto_database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("kusto_database_id");
         set => SetArgument("kusto_database_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermKustoCosmosdbDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermKustoCosmosdbDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityId is required")]
     public required TerraformValue<string> ManagedIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("managed_identity_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_identity_id");
         set => SetArgument("managed_identity_id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermKustoCosmosdbDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermKustoCosmosdbDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 

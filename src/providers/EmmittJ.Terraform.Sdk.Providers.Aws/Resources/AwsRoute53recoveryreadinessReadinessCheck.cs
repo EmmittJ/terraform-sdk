@@ -34,9 +34,9 @@ public partial class AwsRoute53recoveryreadinessReadinessCheck(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsRoute53recoveryreadinessReadinessCheck(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadinessCheckName is required")]
     public required TerraformValue<string> ReadinessCheckName
     {
-        get => GetArgument<TerraformValue<string>>("readiness_check_name");
+        get => GetRequiredArgument<TerraformValue<string>>("readiness_check_name");
         set => SetArgument("readiness_check_name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsRoute53recoveryreadinessReadinessCheck(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceSetName is required")]
     public required TerraformValue<string> ResourceSetName
     {
-        get => GetArgument<TerraformValue<string>>("resource_set_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_set_name");
         set => SetArgument("resource_set_name", value);
     }
 
@@ -72,9 +72,9 @@ public partial class AwsRoute53recoveryreadinessReadinessCheck(string name) : Te
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -28,7 +28,7 @@ public class AwsEcsTaskSetCapacityProviderStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformValue<string> CapacityProvider
     {
-        get => GetArgument<TerraformValue<string>>("capacity_provider");
+        get => GetRequiredArgument<TerraformValue<string>>("capacity_provider");
         set => SetArgument("capacity_provider", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsEcsTaskSetCapacityProviderStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => GetArgument<TerraformValue<double>>("weight");
+        get => GetRequiredArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsEcsTaskSetLoadBalancerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsEcsTaskSetNetworkConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => GetArgument<TerraformSet<string>>("subnets");
+        get => GetRequiredArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsEcsTaskSetServiceRegistriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryArn is required")]
     public required TerraformValue<string> RegistryArn
     {
-        get => GetArgument<TerraformValue<string>>("registry_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("registry_arn");
         set => SetArgument("registry_arn", value);
     }
 
@@ -233,16 +233,16 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
-    public TerraformValue<string>? ExternalId
+    public TerraformValue<string> ExternalId
     {
-        get => GetArgument<TerraformValue<string>>("external_id");
+        get => GetArgument<TerraformValue<string>>("external_id") ?? AsReference("external_id");
         set => SetArgument("external_id", value);
     }
 
@@ -258,36 +258,36 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
-    public TerraformValue<string>? LaunchType
+    public TerraformValue<string> LaunchType
     {
-        get => GetArgument<TerraformValue<string>>("launch_type");
+        get => GetArgument<TerraformValue<string>>("launch_type") ?? AsReference("launch_type");
         set => SetArgument("launch_type", value);
     }
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
-    public TerraformValue<string>? PlatformVersion
+    public TerraformValue<string> PlatformVersion
     {
-        get => GetArgument<TerraformValue<string>>("platform_version");
+        get => GetArgument<TerraformValue<string>>("platform_version") ?? AsReference("platform_version");
         set => SetArgument("platform_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -297,7 +297,7 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -313,9 +313,9 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -325,7 +325,7 @@ public partial class AwsEcsTaskSet(string name) : TerraformResource("aws_ecs_tas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
     public required TerraformValue<string> TaskDefinition
     {
-        get => GetArgument<TerraformValue<string>>("task_definition");
+        get => GetRequiredArgument<TerraformValue<string>>("task_definition");
         set => SetArgument("task_definition", value);
     }
 

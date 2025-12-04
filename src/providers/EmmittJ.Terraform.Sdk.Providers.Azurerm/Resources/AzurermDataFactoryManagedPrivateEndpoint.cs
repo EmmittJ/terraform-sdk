@@ -55,25 +55,25 @@ public partial class AzurermDataFactoryManagedPrivateEndpoint(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    public TerraformList<string>? Fqdns
+    public TerraformList<string> Fqdns
     {
-        get => GetArgument<TerraformList<string>>("fqdns");
+        get => GetArgument<TerraformList<string>>("fqdns") ?? AsReference("fqdns");
         set => SetArgument("fqdns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermDataFactoryManagedPrivateEndpoint(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermDataFactoryManagedPrivateEndpoint(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformValue<string> TargetResourceId
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 

@@ -95,9 +95,9 @@ public partial class GoogleGkeHubScopeRbacRoleBinding(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -117,9 +117,9 @@ public partial class GoogleGkeHubScopeRbacRoleBinding(string name) : TerraformRe
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleGkeHubScopeRbacRoleBinding(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformValue<string> ScopeId
     {
-        get => GetArgument<TerraformValue<string>>("scope_id");
+        get => GetRequiredArgument<TerraformValue<string>>("scope_id");
         set => SetArgument("scope_id", value);
     }
 
@@ -139,7 +139,7 @@ public partial class GoogleGkeHubScopeRbacRoleBinding(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeRbacRoleBindingId is required")]
     public required TerraformValue<string> ScopeRbacRoleBindingId
     {
-        get => GetArgument<TerraformValue<string>>("scope_rbac_role_binding_id");
+        get => GetRequiredArgument<TerraformValue<string>>("scope_rbac_role_binding_id");
         set => SetArgument("scope_rbac_role_binding_id", value);
     }
 

@@ -25,9 +25,9 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// <summary>
     /// The nat_gateway_name attribute.
     /// </summary>
-    public TerraformValue<string>? NatGatewayName
+    public TerraformValue<string> NatGatewayName
     {
-        get => GetArgument<TerraformValue<string>>("nat_gateway_name");
+        get => GetArgument<TerraformValue<string>>("nat_gateway_name") ?? AsReference("nat_gateway_name");
         set => SetArgument("nat_gateway_name", value);
     }
 
@@ -61,9 +61,9 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// <summary>
     /// The public_ip_name attribute.
     /// </summary>
-    public TerraformValue<string>? PublicIpName
+    public TerraformValue<string> PublicIpName
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_name");
+        get => GetArgument<TerraformValue<string>>("public_ip_name") ?? AsReference("public_ip_name");
         set => SetArgument("public_ip_name", value);
     }
 
@@ -88,18 +88,18 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public TerraformValue<string>? StorageAccountName
+    public TerraformValue<string> StorageAccountName
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name") ?? AsReference("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
     /// <summary>
     /// The storage_account_sku_name attribute.
     /// </summary>
-    public TerraformValue<string>? StorageAccountSkuName
+    public TerraformValue<string> StorageAccountSkuName
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_sku_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_sku_name") ?? AsReference("storage_account_sku_name");
         set => SetArgument("storage_account_sku_name", value);
     }
 
@@ -115,9 +115,9 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// <summary>
     /// The vnet_address_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? VnetAddressPrefix
+    public TerraformValue<string> VnetAddressPrefix
     {
-        get => GetArgument<TerraformValue<string>>("vnet_address_prefix");
+        get => GetArgument<TerraformValue<string>>("vnet_address_prefix") ?? AsReference("vnet_address_prefix");
         set => SetArgument("vnet_address_prefix", value);
     }
 
@@ -260,9 +260,9 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -290,7 +290,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -324,9 +324,9 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? ManagedResourceGroupName
+    public TerraformValue<string> ManagedResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("managed_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group_name") ?? AsReference("managed_resource_group_name");
         set => SetArgument("managed_resource_group_name", value);
     }
 
@@ -354,7 +354,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -382,7 +382,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -392,7 +392,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => GetArgument<TerraformValue<string>>("sku");
+        get => GetRequiredArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 

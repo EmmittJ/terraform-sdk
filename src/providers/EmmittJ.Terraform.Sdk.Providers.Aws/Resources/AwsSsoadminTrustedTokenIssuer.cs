@@ -41,7 +41,7 @@ public class AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlockOi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClaimAttributePath is required")]
     public required TerraformValue<string> ClaimAttributePath
     {
-        get => GetArgument<TerraformValue<string>>("claim_attribute_path");
+        get => GetRequiredArgument<TerraformValue<string>>("claim_attribute_path");
         set => SetArgument("claim_attribute_path", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlockOi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreAttributePath is required")]
     public required TerraformValue<string> IdentityStoreAttributePath
     {
-        get => GetArgument<TerraformValue<string>>("identity_store_attribute_path");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_store_attribute_path");
         set => SetArgument("identity_store_attribute_path", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlockOi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUrl is required")]
     public required TerraformValue<string> IssuerUrl
     {
-        get => GetArgument<TerraformValue<string>>("issuer_url");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer_url");
         set => SetArgument("issuer_url", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlockOi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JwksRetrievalOption is required")]
     public required TerraformValue<string> JwksRetrievalOption
     {
-        get => GetArgument<TerraformValue<string>>("jwks_retrieval_option");
+        get => GetRequiredArgument<TerraformValue<string>>("jwks_retrieval_option");
         set => SetArgument("jwks_retrieval_option", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsSsoadminTrustedTokenIssuer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformValue<string> InstanceArn
     {
-        get => GetArgument<TerraformValue<string>>("instance_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_arn");
         set => SetArgument("instance_arn", value);
     }
 
@@ -109,16 +109,16 @@ public partial class AwsSsoadminTrustedTokenIssuer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AwsSsoadminTrustedTokenIssuer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedTokenIssuerType is required")]
     public required TerraformValue<string> TrustedTokenIssuerType
     {
-        get => GetArgument<TerraformValue<string>>("trusted_token_issuer_type");
+        get => GetRequiredArgument<TerraformValue<string>>("trusted_token_issuer_type");
         set => SetArgument("trusted_token_issuer_type", value);
     }
 

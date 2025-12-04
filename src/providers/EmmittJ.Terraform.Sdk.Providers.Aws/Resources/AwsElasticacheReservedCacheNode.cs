@@ -52,27 +52,27 @@ public partial class AwsElasticacheReservedCacheNode(string name) : TerraformRes
     /// <summary>
     /// The cache_node_count attribute.
     /// </summary>
-    public TerraformValue<double>? CacheNodeCount
+    public TerraformValue<double> CacheNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("cache_node_count");
+        get => GetArgument<TerraformValue<double>>("cache_node_count") ?? AsReference("cache_node_count");
         set => SetArgument("cache_node_count", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsElasticacheReservedCacheNode(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedCacheNodesOfferingId is required")]
     public required TerraformValue<string> ReservedCacheNodesOfferingId
     {
-        get => GetArgument<TerraformValue<string>>("reserved_cache_nodes_offering_id");
+        get => GetRequiredArgument<TerraformValue<string>>("reserved_cache_nodes_offering_id");
         set => SetArgument("reserved_cache_nodes_offering_id", value);
     }
 

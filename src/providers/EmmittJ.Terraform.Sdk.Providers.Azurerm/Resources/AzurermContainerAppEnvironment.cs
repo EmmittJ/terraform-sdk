@@ -40,7 +40,7 @@ public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadProfileType is required")]
     public required TerraformValue<string> WorkloadProfileType
     {
-        get => GetArgument<TerraformValue<string>>("workload_profile_type");
+        get => GetRequiredArgument<TerraformValue<string>>("workload_profile_type");
         set => SetArgument("workload_profile_type", value);
     }
 
@@ -167,9 +167,9 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -222,9 +222,9 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// <summary>
     /// The logs_destination attribute.
     /// </summary>
-    public TerraformValue<string>? LogsDestination
+    public TerraformValue<string> LogsDestination
     {
-        get => GetArgument<TerraformValue<string>>("logs_destination");
+        get => GetArgument<TerraformValue<string>>("logs_destination") ?? AsReference("logs_destination");
         set => SetArgument("logs_destination", value);
     }
 
@@ -243,16 +243,16 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The public network access setting for the Container App Environment.
     /// </summary>
-    public TerraformValue<string>? PublicNetworkAccess
+    public TerraformValue<string> PublicNetworkAccess
     {
-        get => GetArgument<TerraformValue<string>>("public_network_access");
+        get => GetArgument<TerraformValue<string>>("public_network_access") ?? AsReference("public_network_access");
         set => SetArgument("public_network_access", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

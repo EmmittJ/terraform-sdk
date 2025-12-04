@@ -88,7 +88,7 @@ public class GoogleApphubWorkloadAttributesBlockBusinessOwnersBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleApphubWorkloadAttributesBlockCriticalityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleApphubWorkloadAttributesBlockDeveloperOwnersBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleApphubWorkloadAttributesBlockEnvironmentBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleApphubWorkloadAttributesBlockOperatorOwnersBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -258,7 +258,7 @@ public partial class GoogleApphubWorkload(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -277,7 +277,7 @@ public partial class GoogleApphubWorkload(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiscoveredWorkload is required")]
     public required TerraformValue<string> DiscoveredWorkload
     {
-        get => GetArgument<TerraformValue<string>>("discovered_workload");
+        get => GetRequiredArgument<TerraformValue<string>>("discovered_workload");
         set => SetArgument("discovered_workload", value);
     }
 
@@ -293,9 +293,9 @@ public partial class GoogleApphubWorkload(string name) : TerraformResource("goog
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -305,16 +305,16 @@ public partial class GoogleApphubWorkload(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -324,7 +324,7 @@ public partial class GoogleApphubWorkload(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadId is required")]
     public required TerraformValue<string> WorkloadId
     {
-        get => GetArgument<TerraformValue<string>>("workload_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workload_id");
         set => SetArgument("workload_id", value);
     }
 

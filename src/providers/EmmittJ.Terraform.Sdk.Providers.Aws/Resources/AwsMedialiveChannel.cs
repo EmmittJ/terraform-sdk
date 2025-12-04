@@ -19,7 +19,7 @@ public class AwsMedialiveChannelCdiInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resolution is required")]
     public required TerraformValue<string> Resolution
     {
-        get => GetArgument<TerraformValue<string>>("resolution");
+        get => GetRequiredArgument<TerraformValue<string>>("resolution");
         set => SetArgument("resolution", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsMedialiveChannelDestinationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsMedialiveChannelDestinationsBlockMediaPackageSettingsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelId is required")]
     public required TerraformValue<string> ChannelId
     {
-        get => GetArgument<TerraformValue<string>>("channel_id");
+        get => GetRequiredArgument<TerraformValue<string>>("channel_id");
         set => SetArgument("channel_id", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsMedialiveChannelDestinationsBlockMultiplexSettingsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiplexId is required")]
     public required TerraformValue<string> MultiplexId
     {
-        get => GetArgument<TerraformValue<string>>("multiplex_id");
+        get => GetRequiredArgument<TerraformValue<string>>("multiplex_id");
         set => SetArgument("multiplex_id", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsMedialiveChannelDestinationsBlockMultiplexSettingsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramName is required")]
     public required TerraformValue<string> ProgramName
     {
-        get => GetArgument<TerraformValue<string>>("program_name");
+        get => GetRequiredArgument<TerraformValue<string>>("program_name");
         set => SetArgument("program_name", value);
     }
 
@@ -305,43 +305,43 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AudioSelectorName is required")]
     public required TerraformValue<string> AudioSelectorName
     {
-        get => GetArgument<TerraformValue<string>>("audio_selector_name");
+        get => GetRequiredArgument<TerraformValue<string>>("audio_selector_name");
         set => SetArgument("audio_selector_name", value);
     }
 
     /// <summary>
     /// The audio_type attribute.
     /// </summary>
-    public TerraformValue<string>? AudioType
+    public TerraformValue<string> AudioType
     {
-        get => GetArgument<TerraformValue<string>>("audio_type");
+        get => GetArgument<TerraformValue<string>>("audio_type") ?? AsReference("audio_type");
         set => SetArgument("audio_type", value);
     }
 
     /// <summary>
     /// The audio_type_control attribute.
     /// </summary>
-    public TerraformValue<string>? AudioTypeControl
+    public TerraformValue<string> AudioTypeControl
     {
-        get => GetArgument<TerraformValue<string>>("audio_type_control");
+        get => GetArgument<TerraformValue<string>>("audio_type_control") ?? AsReference("audio_type_control");
         set => SetArgument("audio_type_control", value);
     }
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public TerraformValue<string>? LanguageCode
+    public TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetArgument<TerraformValue<string>>("language_code") ?? AsReference("language_code");
         set => SetArgument("language_code", value);
     }
 
     /// <summary>
     /// The language_code_control attribute.
     /// </summary>
-    public TerraformValue<string>? LanguageCodeControl
+    public TerraformValue<string> LanguageCodeControl
     {
-        get => GetArgument<TerraformValue<string>>("language_code_control");
+        get => GetArgument<TerraformValue<string>>("language_code_control") ?? AsReference("language_code_control");
         set => SetArgument("language_code_control", value);
     }
 
@@ -351,16 +351,16 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The stream_name attribute.
     /// </summary>
-    public TerraformValue<string>? StreamName
+    public TerraformValue<string> StreamName
     {
-        get => GetArgument<TerraformValue<string>>("stream_name");
+        get => GetArgument<TerraformValue<string>>("stream_name") ?? AsReference("stream_name");
         set => SetArgument("stream_name", value);
     }
 
@@ -420,27 +420,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockAudioN
     /// <summary>
     /// The algorithm attribute.
     /// </summary>
-    public TerraformValue<string>? Algorithm
+    public TerraformValue<string> Algorithm
     {
-        get => GetArgument<TerraformValue<string>>("algorithm");
+        get => GetArgument<TerraformValue<string>>("algorithm") ?? AsReference("algorithm");
         set => SetArgument("algorithm", value);
     }
 
     /// <summary>
     /// The algorithm_control attribute.
     /// </summary>
-    public TerraformValue<string>? AlgorithmControl
+    public TerraformValue<string> AlgorithmControl
     {
-        get => GetArgument<TerraformValue<string>>("algorithm_control");
+        get => GetArgument<TerraformValue<string>>("algorithm_control") ?? AsReference("algorithm_control");
         set => SetArgument("algorithm_control", value);
     }
 
     /// <summary>
     /// The target_lkfs attribute.
     /// </summary>
-    public TerraformValue<double>? TargetLkfs
+    public TerraformValue<double> TargetLkfs
     {
-        get => GetArgument<TerraformValue<double>>("target_lkfs");
+        get => GetArgument<TerraformValue<double>>("target_lkfs") ?? AsReference("target_lkfs");
         set => SetArgument("target_lkfs", value);
     }
 
@@ -483,9 +483,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockAudioW
     /// <summary>
     /// The nielsen_distribution_type attribute.
     /// </summary>
-    public TerraformValue<string>? NielsenDistributionType
+    public TerraformValue<string> NielsenDistributionType
     {
-        get => GetArgument<TerraformValue<string>>("nielsen_distribution_type");
+        get => GetArgument<TerraformValue<string>>("nielsen_distribution_type") ?? AsReference("nielsen_distribution_type");
         set => SetArgument("nielsen_distribution_type", value);
     }
 
@@ -527,7 +527,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockAudioW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CbetCheckDigitString is required")]
     public required TerraformValue<string> CbetCheckDigitString
     {
-        get => GetArgument<TerraformValue<string>>("cbet_check_digit_string");
+        get => GetRequiredArgument<TerraformValue<string>>("cbet_check_digit_string");
         set => SetArgument("cbet_check_digit_string", value);
     }
 
@@ -537,7 +537,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockAudioW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CbetStepaside is required")]
     public required TerraformValue<string> CbetStepaside
     {
-        get => GetArgument<TerraformValue<string>>("cbet_stepaside");
+        get => GetRequiredArgument<TerraformValue<string>>("cbet_stepaside");
         set => SetArgument("cbet_stepaside", value);
     }
 
@@ -547,7 +547,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockAudioW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Csid is required")]
     public required TerraformValue<string> Csid
     {
-        get => GetArgument<TerraformValue<string>>("csid");
+        get => GetRequiredArgument<TerraformValue<string>>("csid");
         set => SetArgument("csid", value);
     }
 
@@ -570,7 +570,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockAudioW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CheckDigitString is required")]
     public required TerraformValue<string> CheckDigitString
     {
-        get => GetArgument<TerraformValue<string>>("check_digit_string");
+        get => GetRequiredArgument<TerraformValue<string>>("check_digit_string");
         set => SetArgument("check_digit_string", value);
     }
 
@@ -580,7 +580,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockAudioW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sid is required")]
     public required TerraformValue<double> Sid
     {
-        get => GetArgument<TerraformValue<double>>("sid");
+        get => GetRequiredArgument<TerraformValue<double>>("sid");
         set => SetArgument("sid", value);
     }
 
@@ -683,81 +683,81 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// <summary>
     /// The bitrate attribute.
     /// </summary>
-    public TerraformValue<double>? Bitrate
+    public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
     /// <summary>
     /// The coding_mode attribute.
     /// </summary>
-    public TerraformValue<string>? CodingMode
+    public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
     /// <summary>
     /// The input_type attribute.
     /// </summary>
-    public TerraformValue<string>? InputType
+    public TerraformValue<string> InputType
     {
-        get => GetArgument<TerraformValue<string>>("input_type");
+        get => GetArgument<TerraformValue<string>>("input_type") ?? AsReference("input_type");
         set => SetArgument("input_type", value);
     }
 
     /// <summary>
     /// The profile attribute.
     /// </summary>
-    public TerraformValue<string>? Profile
+    public TerraformValue<string> Profile
     {
-        get => GetArgument<TerraformValue<string>>("profile");
+        get => GetArgument<TerraformValue<string>>("profile") ?? AsReference("profile");
         set => SetArgument("profile", value);
     }
 
     /// <summary>
     /// The rate_control_mode attribute.
     /// </summary>
-    public TerraformValue<string>? RateControlMode
+    public TerraformValue<string> RateControlMode
     {
-        get => GetArgument<TerraformValue<string>>("rate_control_mode");
+        get => GetArgument<TerraformValue<string>>("rate_control_mode") ?? AsReference("rate_control_mode");
         set => SetArgument("rate_control_mode", value);
     }
 
     /// <summary>
     /// The raw_format attribute.
     /// </summary>
-    public TerraformValue<string>? RawFormat
+    public TerraformValue<string> RawFormat
     {
-        get => GetArgument<TerraformValue<string>>("raw_format");
+        get => GetArgument<TerraformValue<string>>("raw_format") ?? AsReference("raw_format");
         set => SetArgument("raw_format", value);
     }
 
     /// <summary>
     /// The sample_rate attribute.
     /// </summary>
-    public TerraformValue<double>? SampleRate
+    public TerraformValue<double> SampleRate
     {
-        get => GetArgument<TerraformValue<double>>("sample_rate");
+        get => GetArgument<TerraformValue<double>>("sample_rate") ?? AsReference("sample_rate");
         set => SetArgument("sample_rate", value);
     }
 
     /// <summary>
     /// The spec attribute.
     /// </summary>
-    public TerraformValue<string>? Spec
+    public TerraformValue<string> Spec
     {
-        get => GetArgument<TerraformValue<string>>("spec");
+        get => GetArgument<TerraformValue<string>>("spec") ?? AsReference("spec");
         set => SetArgument("spec", value);
     }
 
     /// <summary>
     /// The vbr_quality attribute.
     /// </summary>
-    public TerraformValue<string>? VbrQuality
+    public TerraformValue<string> VbrQuality
     {
-        get => GetArgument<TerraformValue<string>>("vbr_quality");
+        get => GetArgument<TerraformValue<string>>("vbr_quality") ?? AsReference("vbr_quality");
         set => SetArgument("vbr_quality", value);
     }
 
@@ -777,63 +777,63 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// <summary>
     /// The bitrate attribute.
     /// </summary>
-    public TerraformValue<double>? Bitrate
+    public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
     /// <summary>
     /// The bitstream_mode attribute.
     /// </summary>
-    public TerraformValue<string>? BitstreamMode
+    public TerraformValue<string> BitstreamMode
     {
-        get => GetArgument<TerraformValue<string>>("bitstream_mode");
+        get => GetArgument<TerraformValue<string>>("bitstream_mode") ?? AsReference("bitstream_mode");
         set => SetArgument("bitstream_mode", value);
     }
 
     /// <summary>
     /// The coding_mode attribute.
     /// </summary>
-    public TerraformValue<string>? CodingMode
+    public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
     /// <summary>
     /// The dialnorm attribute.
     /// </summary>
-    public TerraformValue<double>? Dialnorm
+    public TerraformValue<double> Dialnorm
     {
-        get => GetArgument<TerraformValue<double>>("dialnorm");
+        get => GetArgument<TerraformValue<double>>("dialnorm") ?? AsReference("dialnorm");
         set => SetArgument("dialnorm", value);
     }
 
     /// <summary>
     /// The drc_profile attribute.
     /// </summary>
-    public TerraformValue<string>? DrcProfile
+    public TerraformValue<string> DrcProfile
     {
-        get => GetArgument<TerraformValue<string>>("drc_profile");
+        get => GetArgument<TerraformValue<string>>("drc_profile") ?? AsReference("drc_profile");
         set => SetArgument("drc_profile", value);
     }
 
     /// <summary>
     /// The lfe_filter attribute.
     /// </summary>
-    public TerraformValue<string>? LfeFilter
+    public TerraformValue<string> LfeFilter
     {
-        get => GetArgument<TerraformValue<string>>("lfe_filter");
+        get => GetArgument<TerraformValue<string>>("lfe_filter") ?? AsReference("lfe_filter");
         set => SetArgument("lfe_filter", value);
     }
 
     /// <summary>
     /// The metadata_control attribute.
     /// </summary>
-    public TerraformValue<string>? MetadataControl
+    public TerraformValue<string> MetadataControl
     {
-        get => GetArgument<TerraformValue<string>>("metadata_control");
+        get => GetArgument<TerraformValue<string>>("metadata_control") ?? AsReference("metadata_control");
         set => SetArgument("metadata_control", value);
     }
 
@@ -853,63 +853,63 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// <summary>
     /// The bitrate attribute.
     /// </summary>
-    public TerraformValue<double>? Bitrate
+    public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
     /// <summary>
     /// The coding_mode attribute.
     /// </summary>
-    public TerraformValue<string>? CodingMode
+    public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
     /// <summary>
     /// The dialnorm attribute.
     /// </summary>
-    public TerraformValue<double>? Dialnorm
+    public TerraformValue<double> Dialnorm
     {
-        get => GetArgument<TerraformValue<double>>("dialnorm");
+        get => GetArgument<TerraformValue<double>>("dialnorm") ?? AsReference("dialnorm");
         set => SetArgument("dialnorm", value);
     }
 
     /// <summary>
     /// The drc_line attribute.
     /// </summary>
-    public TerraformValue<string>? DrcLine
+    public TerraformValue<string> DrcLine
     {
-        get => GetArgument<TerraformValue<string>>("drc_line");
+        get => GetArgument<TerraformValue<string>>("drc_line") ?? AsReference("drc_line");
         set => SetArgument("drc_line", value);
     }
 
     /// <summary>
     /// The drc_rf attribute.
     /// </summary>
-    public TerraformValue<string>? DrcRf
+    public TerraformValue<string> DrcRf
     {
-        get => GetArgument<TerraformValue<string>>("drc_rf");
+        get => GetArgument<TerraformValue<string>>("drc_rf") ?? AsReference("drc_rf");
         set => SetArgument("drc_rf", value);
     }
 
     /// <summary>
     /// The height_trim attribute.
     /// </summary>
-    public TerraformValue<double>? HeightTrim
+    public TerraformValue<double> HeightTrim
     {
-        get => GetArgument<TerraformValue<double>>("height_trim");
+        get => GetArgument<TerraformValue<double>>("height_trim") ?? AsReference("height_trim");
         set => SetArgument("height_trim", value);
     }
 
     /// <summary>
     /// The surround_trim attribute.
     /// </summary>
-    public TerraformValue<double>? SurroundTrim
+    public TerraformValue<double> SurroundTrim
     {
-        get => GetArgument<TerraformValue<double>>("surround_trim");
+        get => GetArgument<TerraformValue<double>>("surround_trim") ?? AsReference("surround_trim");
         set => SetArgument("surround_trim", value);
     }
 
@@ -929,180 +929,180 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// <summary>
     /// The attenuation_control attribute.
     /// </summary>
-    public TerraformValue<string>? AttenuationControl
+    public TerraformValue<string> AttenuationControl
     {
-        get => GetArgument<TerraformValue<string>>("attenuation_control");
+        get => GetArgument<TerraformValue<string>>("attenuation_control") ?? AsReference("attenuation_control");
         set => SetArgument("attenuation_control", value);
     }
 
     /// <summary>
     /// The bitrate attribute.
     /// </summary>
-    public TerraformValue<double>? Bitrate
+    public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
     /// <summary>
     /// The bitstream_mode attribute.
     /// </summary>
-    public TerraformValue<string>? BitstreamMode
+    public TerraformValue<string> BitstreamMode
     {
-        get => GetArgument<TerraformValue<string>>("bitstream_mode");
+        get => GetArgument<TerraformValue<string>>("bitstream_mode") ?? AsReference("bitstream_mode");
         set => SetArgument("bitstream_mode", value);
     }
 
     /// <summary>
     /// The coding_mode attribute.
     /// </summary>
-    public TerraformValue<string>? CodingMode
+    public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
     /// <summary>
     /// The dc_filter attribute.
     /// </summary>
-    public TerraformValue<string>? DcFilter
+    public TerraformValue<string> DcFilter
     {
-        get => GetArgument<TerraformValue<string>>("dc_filter");
+        get => GetArgument<TerraformValue<string>>("dc_filter") ?? AsReference("dc_filter");
         set => SetArgument("dc_filter", value);
     }
 
     /// <summary>
     /// The dialnorm attribute.
     /// </summary>
-    public TerraformValue<double>? Dialnorm
+    public TerraformValue<double> Dialnorm
     {
-        get => GetArgument<TerraformValue<double>>("dialnorm");
+        get => GetArgument<TerraformValue<double>>("dialnorm") ?? AsReference("dialnorm");
         set => SetArgument("dialnorm", value);
     }
 
     /// <summary>
     /// The drc_line attribute.
     /// </summary>
-    public TerraformValue<string>? DrcLine
+    public TerraformValue<string> DrcLine
     {
-        get => GetArgument<TerraformValue<string>>("drc_line");
+        get => GetArgument<TerraformValue<string>>("drc_line") ?? AsReference("drc_line");
         set => SetArgument("drc_line", value);
     }
 
     /// <summary>
     /// The drc_rf attribute.
     /// </summary>
-    public TerraformValue<string>? DrcRf
+    public TerraformValue<string> DrcRf
     {
-        get => GetArgument<TerraformValue<string>>("drc_rf");
+        get => GetArgument<TerraformValue<string>>("drc_rf") ?? AsReference("drc_rf");
         set => SetArgument("drc_rf", value);
     }
 
     /// <summary>
     /// The lfe_control attribute.
     /// </summary>
-    public TerraformValue<string>? LfeControl
+    public TerraformValue<string> LfeControl
     {
-        get => GetArgument<TerraformValue<string>>("lfe_control");
+        get => GetArgument<TerraformValue<string>>("lfe_control") ?? AsReference("lfe_control");
         set => SetArgument("lfe_control", value);
     }
 
     /// <summary>
     /// The lfe_filter attribute.
     /// </summary>
-    public TerraformValue<string>? LfeFilter
+    public TerraformValue<string> LfeFilter
     {
-        get => GetArgument<TerraformValue<string>>("lfe_filter");
+        get => GetArgument<TerraformValue<string>>("lfe_filter") ?? AsReference("lfe_filter");
         set => SetArgument("lfe_filter", value);
     }
 
     /// <summary>
     /// The lo_ro_center_mix_level attribute.
     /// </summary>
-    public TerraformValue<double>? LoRoCenterMixLevel
+    public TerraformValue<double> LoRoCenterMixLevel
     {
-        get => GetArgument<TerraformValue<double>>("lo_ro_center_mix_level");
+        get => GetArgument<TerraformValue<double>>("lo_ro_center_mix_level") ?? AsReference("lo_ro_center_mix_level");
         set => SetArgument("lo_ro_center_mix_level", value);
     }
 
     /// <summary>
     /// The lo_ro_surround_mix_level attribute.
     /// </summary>
-    public TerraformValue<double>? LoRoSurroundMixLevel
+    public TerraformValue<double> LoRoSurroundMixLevel
     {
-        get => GetArgument<TerraformValue<double>>("lo_ro_surround_mix_level");
+        get => GetArgument<TerraformValue<double>>("lo_ro_surround_mix_level") ?? AsReference("lo_ro_surround_mix_level");
         set => SetArgument("lo_ro_surround_mix_level", value);
     }
 
     /// <summary>
     /// The lt_rt_center_mix_level attribute.
     /// </summary>
-    public TerraformValue<double>? LtRtCenterMixLevel
+    public TerraformValue<double> LtRtCenterMixLevel
     {
-        get => GetArgument<TerraformValue<double>>("lt_rt_center_mix_level");
+        get => GetArgument<TerraformValue<double>>("lt_rt_center_mix_level") ?? AsReference("lt_rt_center_mix_level");
         set => SetArgument("lt_rt_center_mix_level", value);
     }
 
     /// <summary>
     /// The lt_rt_surround_mix_level attribute.
     /// </summary>
-    public TerraformValue<double>? LtRtSurroundMixLevel
+    public TerraformValue<double> LtRtSurroundMixLevel
     {
-        get => GetArgument<TerraformValue<double>>("lt_rt_surround_mix_level");
+        get => GetArgument<TerraformValue<double>>("lt_rt_surround_mix_level") ?? AsReference("lt_rt_surround_mix_level");
         set => SetArgument("lt_rt_surround_mix_level", value);
     }
 
     /// <summary>
     /// The metadata_control attribute.
     /// </summary>
-    public TerraformValue<string>? MetadataControl
+    public TerraformValue<string> MetadataControl
     {
-        get => GetArgument<TerraformValue<string>>("metadata_control");
+        get => GetArgument<TerraformValue<string>>("metadata_control") ?? AsReference("metadata_control");
         set => SetArgument("metadata_control", value);
     }
 
     /// <summary>
     /// The passthrough_control attribute.
     /// </summary>
-    public TerraformValue<string>? PassthroughControl
+    public TerraformValue<string> PassthroughControl
     {
-        get => GetArgument<TerraformValue<string>>("passthrough_control");
+        get => GetArgument<TerraformValue<string>>("passthrough_control") ?? AsReference("passthrough_control");
         set => SetArgument("passthrough_control", value);
     }
 
     /// <summary>
     /// The phase_control attribute.
     /// </summary>
-    public TerraformValue<string>? PhaseControl
+    public TerraformValue<string> PhaseControl
     {
-        get => GetArgument<TerraformValue<string>>("phase_control");
+        get => GetArgument<TerraformValue<string>>("phase_control") ?? AsReference("phase_control");
         set => SetArgument("phase_control", value);
     }
 
     /// <summary>
     /// The stereo_downmix attribute.
     /// </summary>
-    public TerraformValue<string>? StereoDownmix
+    public TerraformValue<string> StereoDownmix
     {
-        get => GetArgument<TerraformValue<string>>("stereo_downmix");
+        get => GetArgument<TerraformValue<string>>("stereo_downmix") ?? AsReference("stereo_downmix");
         set => SetArgument("stereo_downmix", value);
     }
 
     /// <summary>
     /// The surround_ex_mode attribute.
     /// </summary>
-    public TerraformValue<string>? SurroundExMode
+    public TerraformValue<string> SurroundExMode
     {
-        get => GetArgument<TerraformValue<string>>("surround_ex_mode");
+        get => GetArgument<TerraformValue<string>>("surround_ex_mode") ?? AsReference("surround_ex_mode");
         set => SetArgument("surround_ex_mode", value);
     }
 
     /// <summary>
     /// The surround_mode attribute.
     /// </summary>
-    public TerraformValue<string>? SurroundMode
+    public TerraformValue<string> SurroundMode
     {
-        get => GetArgument<TerraformValue<string>>("surround_mode");
+        get => GetArgument<TerraformValue<string>>("surround_mode") ?? AsReference("surround_mode");
         set => SetArgument("surround_mode", value);
     }
 
@@ -1122,27 +1122,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// <summary>
     /// The bitrate attribute.
     /// </summary>
-    public TerraformValue<double>? Bitrate
+    public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
     /// <summary>
     /// The coding_mode attribute.
     /// </summary>
-    public TerraformValue<string>? CodingMode
+    public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
     /// <summary>
     /// The sample_rate attribute.
     /// </summary>
-    public TerraformValue<double>? SampleRate
+    public TerraformValue<double> SampleRate
     {
-        get => GetArgument<TerraformValue<double>>("sample_rate");
+        get => GetArgument<TerraformValue<double>>("sample_rate") ?? AsReference("sample_rate");
         set => SetArgument("sample_rate", value);
     }
 
@@ -1175,27 +1175,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockCodecS
     /// <summary>
     /// The bit_depth attribute.
     /// </summary>
-    public TerraformValue<double>? BitDepth
+    public TerraformValue<double> BitDepth
     {
-        get => GetArgument<TerraformValue<double>>("bit_depth");
+        get => GetArgument<TerraformValue<double>>("bit_depth") ?? AsReference("bit_depth");
         set => SetArgument("bit_depth", value);
     }
 
     /// <summary>
     /// The coding_mode attribute.
     /// </summary>
-    public TerraformValue<string>? CodingMode
+    public TerraformValue<string> CodingMode
     {
-        get => GetArgument<TerraformValue<string>>("coding_mode");
+        get => GetArgument<TerraformValue<string>>("coding_mode") ?? AsReference("coding_mode");
         set => SetArgument("coding_mode", value);
     }
 
     /// <summary>
     /// The sample_rate attribute.
     /// </summary>
-    public TerraformValue<double>? SampleRate
+    public TerraformValue<double> SampleRate
     {
-        get => GetArgument<TerraformValue<double>>("sample_rate");
+        get => GetArgument<TerraformValue<double>>("sample_rate") ?? AsReference("sample_rate");
         set => SetArgument("sample_rate", value);
     }
 
@@ -1215,18 +1215,18 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockRemixS
     /// <summary>
     /// The channels_in attribute.
     /// </summary>
-    public TerraformValue<double>? ChannelsIn
+    public TerraformValue<double> ChannelsIn
     {
-        get => GetArgument<TerraformValue<double>>("channels_in");
+        get => GetArgument<TerraformValue<double>>("channels_in") ?? AsReference("channels_in");
         set => SetArgument("channels_in", value);
     }
 
     /// <summary>
     /// The channels_out attribute.
     /// </summary>
-    public TerraformValue<double>? ChannelsOut
+    public TerraformValue<double> ChannelsOut
     {
-        get => GetArgument<TerraformValue<double>>("channels_out");
+        get => GetArgument<TerraformValue<double>>("channels_out") ?? AsReference("channels_out");
         set => SetArgument("channels_out", value);
     }
 
@@ -1261,7 +1261,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockRemixS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputChannel is required")]
     public required TerraformValue<double> OutputChannel
     {
-        get => GetArgument<TerraformValue<double>>("output_channel");
+        get => GetRequiredArgument<TerraformValue<double>>("output_channel");
         set => SetArgument("output_channel", value);
     }
 
@@ -1296,7 +1296,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockRemixS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gain is required")]
     public required TerraformValue<double> Gain
     {
-        get => GetArgument<TerraformValue<double>>("gain");
+        get => GetRequiredArgument<TerraformValue<double>>("gain");
         set => SetArgument("gain", value);
     }
 
@@ -1306,7 +1306,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockAudioDescriptionsBlockRemixS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputChannel is required")]
     public required TerraformValue<double> InputChannel
     {
-        get => GetArgument<TerraformValue<double>>("input_channel");
+        get => GetRequiredArgument<TerraformValue<double>>("input_channel");
         set => SetArgument("input_channel", value);
     }
 
@@ -1326,9 +1326,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockAvailBlankingBlock : Terrafo
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string>? State
+    public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
         set => SetArgument("state", value);
     }
 
@@ -1358,9 +1358,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockAvailBlankingBlockAvailBlank
     /// <summary>
     /// The password_param attribute.
     /// </summary>
-    public TerraformValue<string>? PasswordParam
+    public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -1370,16 +1370,16 @@ public class AwsMedialiveChannelEncoderSettingsBlockAvailBlankingBlockAvailBlank
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformValue<string>? Username
+    public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
         set => SetArgument("username", value);
     }
 
@@ -1411,7 +1411,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaptionSelectorName is required")]
     public required TerraformValue<string> CaptionSelectorName
     {
-        get => GetArgument<TerraformValue<string>>("caption_selector_name");
+        get => GetRequiredArgument<TerraformValue<string>>("caption_selector_name");
         set => SetArgument("caption_selector_name", value);
     }
 
@@ -1439,7 +1439,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1691,7 +1691,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutlineColor is required")]
     public required TerraformValue<string> OutlineColor
     {
-        get => GetArgument<TerraformValue<string>>("outline_color");
+        get => GetRequiredArgument<TerraformValue<string>>("outline_color");
         set => SetArgument("outline_color", value);
     }
 
@@ -1746,7 +1746,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TeletextGridControl is required")]
     public required TerraformValue<string> TeletextGridControl
     {
-        get => GetArgument<TerraformValue<string>>("teletext_grid_control");
+        get => GetRequiredArgument<TerraformValue<string>>("teletext_grid_control");
         set => SetArgument("teletext_grid_control", value);
     }
 
@@ -1794,9 +1794,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     /// <summary>
     /// The password_param attribute.
     /// </summary>
-    public TerraformValue<string>? PasswordParam
+    public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -1806,16 +1806,16 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformValue<string>? Username
+    public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
         set => SetArgument("username", value);
     }
 
@@ -1889,9 +1889,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     /// <summary>
     /// The font_size attribute.
     /// </summary>
-    public TerraformValue<string>? FontSize
+    public TerraformValue<string> FontSize
     {
-        get => GetArgument<TerraformValue<string>>("font_size");
+        get => GetArgument<TerraformValue<string>>("font_size") ?? AsReference("font_size");
         set => SetArgument("font_size", value);
     }
 
@@ -2002,9 +2002,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     /// <summary>
     /// The password_param attribute.
     /// </summary>
-    public TerraformValue<string>? PasswordParam
+    public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -2014,16 +2014,16 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformValue<string>? Username
+    public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
         set => SetArgument("username", value);
     }
 
@@ -2070,9 +2070,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     /// <summary>
     /// The style_control attribute.
     /// </summary>
-    public TerraformValue<string>? StyleControl
+    public TerraformValue<string> StyleControl
     {
-        get => GetArgument<TerraformValue<string>>("style_control");
+        get => GetArgument<TerraformValue<string>>("style_control") ?? AsReference("style_control");
         set => SetArgument("style_control", value);
     }
 
@@ -2186,7 +2186,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StyleControl is required")]
     public required TerraformValue<string> StyleControl
     {
-        get => GetArgument<TerraformValue<string>>("style_control");
+        get => GetRequiredArgument<TerraformValue<string>>("style_control");
         set => SetArgument("style_control", value);
     }
 
@@ -2209,7 +2209,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockCaptionDescriptionsBlockDest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StyleControl is required")]
     public required TerraformValue<string> StyleControl
     {
-        get => GetArgument<TerraformValue<string>>("style_control");
+        get => GetRequiredArgument<TerraformValue<string>>("style_control");
         set => SetArgument("style_control", value);
     }
 
@@ -2356,9 +2356,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockGlobalConfigurationBlockInpu
     /// <summary>
     /// The password_param attribute.
     /// </summary>
-    public TerraformValue<string>? PasswordParam
+    public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -2368,16 +2368,16 @@ public class AwsMedialiveChannelEncoderSettingsBlockGlobalConfigurationBlockInpu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformValue<string>? Username
+    public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
         set => SetArgument("username", value);
     }
 
@@ -2731,7 +2731,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRefId is required")]
     public required TerraformValue<string> DestinationRefId
     {
-        get => GetArgument<TerraformValue<string>>("destination_ref_id");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_ref_id");
         set => SetArgument("destination_ref_id", value);
     }
 
@@ -2790,7 +2790,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRefId is required")]
     public required TerraformValue<string> DestinationRefId
     {
-        get => GetArgument<TerraformValue<string>>("destination_ref_id");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_ref_id");
         set => SetArgument("destination_ref_id", value);
     }
 
@@ -2855,342 +2855,342 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// <summary>
     /// The ad_markers attribute.
     /// </summary>
-    public TerraformList<string>? AdMarkers
+    public TerraformList<string> AdMarkers
     {
-        get => GetArgument<TerraformList<string>>("ad_markers");
+        get => GetArgument<TerraformList<string>>("ad_markers") ?? AsReference("ad_markers");
         set => SetArgument("ad_markers", value);
     }
 
     /// <summary>
     /// The base_url_content attribute.
     /// </summary>
-    public TerraformValue<string>? BaseUrlContent
+    public TerraformValue<string> BaseUrlContent
     {
-        get => GetArgument<TerraformValue<string>>("base_url_content");
+        get => GetArgument<TerraformValue<string>>("base_url_content") ?? AsReference("base_url_content");
         set => SetArgument("base_url_content", value);
     }
 
     /// <summary>
     /// The base_url_content1 attribute.
     /// </summary>
-    public TerraformValue<string>? BaseUrlContent1
+    public TerraformValue<string> BaseUrlContent1
     {
-        get => GetArgument<TerraformValue<string>>("base_url_content1");
+        get => GetArgument<TerraformValue<string>>("base_url_content1") ?? AsReference("base_url_content1");
         set => SetArgument("base_url_content1", value);
     }
 
     /// <summary>
     /// The base_url_manifest attribute.
     /// </summary>
-    public TerraformValue<string>? BaseUrlManifest
+    public TerraformValue<string> BaseUrlManifest
     {
-        get => GetArgument<TerraformValue<string>>("base_url_manifest");
+        get => GetArgument<TerraformValue<string>>("base_url_manifest") ?? AsReference("base_url_manifest");
         set => SetArgument("base_url_manifest", value);
     }
 
     /// <summary>
     /// The base_url_manifest1 attribute.
     /// </summary>
-    public TerraformValue<string>? BaseUrlManifest1
+    public TerraformValue<string> BaseUrlManifest1
     {
-        get => GetArgument<TerraformValue<string>>("base_url_manifest1");
+        get => GetArgument<TerraformValue<string>>("base_url_manifest1") ?? AsReference("base_url_manifest1");
         set => SetArgument("base_url_manifest1", value);
     }
 
     /// <summary>
     /// The caption_language_setting attribute.
     /// </summary>
-    public TerraformValue<string>? CaptionLanguageSetting
+    public TerraformValue<string> CaptionLanguageSetting
     {
-        get => GetArgument<TerraformValue<string>>("caption_language_setting");
+        get => GetArgument<TerraformValue<string>>("caption_language_setting") ?? AsReference("caption_language_setting");
         set => SetArgument("caption_language_setting", value);
     }
 
     /// <summary>
     /// The client_cache attribute.
     /// </summary>
-    public TerraformValue<string>? ClientCache
+    public TerraformValue<string> ClientCache
     {
-        get => GetArgument<TerraformValue<string>>("client_cache");
+        get => GetArgument<TerraformValue<string>>("client_cache") ?? AsReference("client_cache");
         set => SetArgument("client_cache", value);
     }
 
     /// <summary>
     /// The codec_specification attribute.
     /// </summary>
-    public TerraformValue<string>? CodecSpecification
+    public TerraformValue<string> CodecSpecification
     {
-        get => GetArgument<TerraformValue<string>>("codec_specification");
+        get => GetArgument<TerraformValue<string>>("codec_specification") ?? AsReference("codec_specification");
         set => SetArgument("codec_specification", value);
     }
 
     /// <summary>
     /// The constant_iv attribute.
     /// </summary>
-    public TerraformValue<string>? ConstantIv
+    public TerraformValue<string> ConstantIv
     {
-        get => GetArgument<TerraformValue<string>>("constant_iv");
+        get => GetArgument<TerraformValue<string>>("constant_iv") ?? AsReference("constant_iv");
         set => SetArgument("constant_iv", value);
     }
 
     /// <summary>
     /// The directory_structure attribute.
     /// </summary>
-    public TerraformValue<string>? DirectoryStructure
+    public TerraformValue<string> DirectoryStructure
     {
-        get => GetArgument<TerraformValue<string>>("directory_structure");
+        get => GetArgument<TerraformValue<string>>("directory_structure") ?? AsReference("directory_structure");
         set => SetArgument("directory_structure", value);
     }
 
     /// <summary>
     /// The discontinuity_tags attribute.
     /// </summary>
-    public TerraformValue<string>? DiscontinuityTags
+    public TerraformValue<string> DiscontinuityTags
     {
-        get => GetArgument<TerraformValue<string>>("discontinuity_tags");
+        get => GetArgument<TerraformValue<string>>("discontinuity_tags") ?? AsReference("discontinuity_tags");
         set => SetArgument("discontinuity_tags", value);
     }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    public TerraformValue<string>? EncryptionType
+    public TerraformValue<string> EncryptionType
     {
-        get => GetArgument<TerraformValue<string>>("encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type") ?? AsReference("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
     /// <summary>
     /// The hls_id3_segment_tagging attribute.
     /// </summary>
-    public TerraformValue<string>? HlsId3SegmentTagging
+    public TerraformValue<string> HlsId3SegmentTagging
     {
-        get => GetArgument<TerraformValue<string>>("hls_id3_segment_tagging");
+        get => GetArgument<TerraformValue<string>>("hls_id3_segment_tagging") ?? AsReference("hls_id3_segment_tagging");
         set => SetArgument("hls_id3_segment_tagging", value);
     }
 
     /// <summary>
     /// The iframe_only_playlists attribute.
     /// </summary>
-    public TerraformValue<string>? IframeOnlyPlaylists
+    public TerraformValue<string> IframeOnlyPlaylists
     {
-        get => GetArgument<TerraformValue<string>>("iframe_only_playlists");
+        get => GetArgument<TerraformValue<string>>("iframe_only_playlists") ?? AsReference("iframe_only_playlists");
         set => SetArgument("iframe_only_playlists", value);
     }
 
     /// <summary>
     /// The incomplete_segment_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? IncompleteSegmentBehavior
+    public TerraformValue<string> IncompleteSegmentBehavior
     {
-        get => GetArgument<TerraformValue<string>>("incomplete_segment_behavior");
+        get => GetArgument<TerraformValue<string>>("incomplete_segment_behavior") ?? AsReference("incomplete_segment_behavior");
         set => SetArgument("incomplete_segment_behavior", value);
     }
 
     /// <summary>
     /// The index_n_segments attribute.
     /// </summary>
-    public TerraformValue<double>? IndexNSegments
+    public TerraformValue<double> IndexNSegments
     {
-        get => GetArgument<TerraformValue<double>>("index_n_segments");
+        get => GetArgument<TerraformValue<double>>("index_n_segments") ?? AsReference("index_n_segments");
         set => SetArgument("index_n_segments", value);
     }
 
     /// <summary>
     /// The input_loss_action attribute.
     /// </summary>
-    public TerraformValue<string>? InputLossAction
+    public TerraformValue<string> InputLossAction
     {
-        get => GetArgument<TerraformValue<string>>("input_loss_action");
+        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? AsReference("input_loss_action");
         set => SetArgument("input_loss_action", value);
     }
 
     /// <summary>
     /// The iv_in_manifest attribute.
     /// </summary>
-    public TerraformValue<string>? IvInManifest
+    public TerraformValue<string> IvInManifest
     {
-        get => GetArgument<TerraformValue<string>>("iv_in_manifest");
+        get => GetArgument<TerraformValue<string>>("iv_in_manifest") ?? AsReference("iv_in_manifest");
         set => SetArgument("iv_in_manifest", value);
     }
 
     /// <summary>
     /// The iv_source attribute.
     /// </summary>
-    public TerraformValue<string>? IvSource
+    public TerraformValue<string> IvSource
     {
-        get => GetArgument<TerraformValue<string>>("iv_source");
+        get => GetArgument<TerraformValue<string>>("iv_source") ?? AsReference("iv_source");
         set => SetArgument("iv_source", value);
     }
 
     /// <summary>
     /// The keep_segments attribute.
     /// </summary>
-    public TerraformValue<double>? KeepSegments
+    public TerraformValue<double> KeepSegments
     {
-        get => GetArgument<TerraformValue<double>>("keep_segments");
+        get => GetArgument<TerraformValue<double>>("keep_segments") ?? AsReference("keep_segments");
         set => SetArgument("keep_segments", value);
     }
 
     /// <summary>
     /// The key_format attribute.
     /// </summary>
-    public TerraformValue<string>? KeyFormat
+    public TerraformValue<string> KeyFormat
     {
-        get => GetArgument<TerraformValue<string>>("key_format");
+        get => GetArgument<TerraformValue<string>>("key_format") ?? AsReference("key_format");
         set => SetArgument("key_format", value);
     }
 
     /// <summary>
     /// The key_format_versions attribute.
     /// </summary>
-    public TerraformValue<string>? KeyFormatVersions
+    public TerraformValue<string> KeyFormatVersions
     {
-        get => GetArgument<TerraformValue<string>>("key_format_versions");
+        get => GetArgument<TerraformValue<string>>("key_format_versions") ?? AsReference("key_format_versions");
         set => SetArgument("key_format_versions", value);
     }
 
     /// <summary>
     /// The manifest_compression attribute.
     /// </summary>
-    public TerraformValue<string>? ManifestCompression
+    public TerraformValue<string> ManifestCompression
     {
-        get => GetArgument<TerraformValue<string>>("manifest_compression");
+        get => GetArgument<TerraformValue<string>>("manifest_compression") ?? AsReference("manifest_compression");
         set => SetArgument("manifest_compression", value);
     }
 
     /// <summary>
     /// The manifest_duration_format attribute.
     /// </summary>
-    public TerraformValue<string>? ManifestDurationFormat
+    public TerraformValue<string> ManifestDurationFormat
     {
-        get => GetArgument<TerraformValue<string>>("manifest_duration_format");
+        get => GetArgument<TerraformValue<string>>("manifest_duration_format") ?? AsReference("manifest_duration_format");
         set => SetArgument("manifest_duration_format", value);
     }
 
     /// <summary>
     /// The min_segment_length attribute.
     /// </summary>
-    public TerraformValue<double>? MinSegmentLength
+    public TerraformValue<double> MinSegmentLength
     {
-        get => GetArgument<TerraformValue<double>>("min_segment_length");
+        get => GetArgument<TerraformValue<double>>("min_segment_length") ?? AsReference("min_segment_length");
         set => SetArgument("min_segment_length", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformValue<string>? Mode
+    public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
         set => SetArgument("mode", value);
     }
 
     /// <summary>
     /// The output_selection attribute.
     /// </summary>
-    public TerraformValue<string>? OutputSelection
+    public TerraformValue<string> OutputSelection
     {
-        get => GetArgument<TerraformValue<string>>("output_selection");
+        get => GetArgument<TerraformValue<string>>("output_selection") ?? AsReference("output_selection");
         set => SetArgument("output_selection", value);
     }
 
     /// <summary>
     /// The program_date_time attribute.
     /// </summary>
-    public TerraformValue<string>? ProgramDateTime
+    public TerraformValue<string> ProgramDateTime
     {
-        get => GetArgument<TerraformValue<string>>("program_date_time");
+        get => GetArgument<TerraformValue<string>>("program_date_time") ?? AsReference("program_date_time");
         set => SetArgument("program_date_time", value);
     }
 
     /// <summary>
     /// The program_date_time_clock attribute.
     /// </summary>
-    public TerraformValue<string>? ProgramDateTimeClock
+    public TerraformValue<string> ProgramDateTimeClock
     {
-        get => GetArgument<TerraformValue<string>>("program_date_time_clock");
+        get => GetArgument<TerraformValue<string>>("program_date_time_clock") ?? AsReference("program_date_time_clock");
         set => SetArgument("program_date_time_clock", value);
     }
 
     /// <summary>
     /// The program_date_time_period attribute.
     /// </summary>
-    public TerraformValue<double>? ProgramDateTimePeriod
+    public TerraformValue<double> ProgramDateTimePeriod
     {
-        get => GetArgument<TerraformValue<double>>("program_date_time_period");
+        get => GetArgument<TerraformValue<double>>("program_date_time_period") ?? AsReference("program_date_time_period");
         set => SetArgument("program_date_time_period", value);
     }
 
     /// <summary>
     /// The redundant_manifest attribute.
     /// </summary>
-    public TerraformValue<string>? RedundantManifest
+    public TerraformValue<string> RedundantManifest
     {
-        get => GetArgument<TerraformValue<string>>("redundant_manifest");
+        get => GetArgument<TerraformValue<string>>("redundant_manifest") ?? AsReference("redundant_manifest");
         set => SetArgument("redundant_manifest", value);
     }
 
     /// <summary>
     /// The segment_length attribute.
     /// </summary>
-    public TerraformValue<double>? SegmentLength
+    public TerraformValue<double> SegmentLength
     {
-        get => GetArgument<TerraformValue<double>>("segment_length");
+        get => GetArgument<TerraformValue<double>>("segment_length") ?? AsReference("segment_length");
         set => SetArgument("segment_length", value);
     }
 
     /// <summary>
     /// The segments_per_subdirectory attribute.
     /// </summary>
-    public TerraformValue<double>? SegmentsPerSubdirectory
+    public TerraformValue<double> SegmentsPerSubdirectory
     {
-        get => GetArgument<TerraformValue<double>>("segments_per_subdirectory");
+        get => GetArgument<TerraformValue<double>>("segments_per_subdirectory") ?? AsReference("segments_per_subdirectory");
         set => SetArgument("segments_per_subdirectory", value);
     }
 
     /// <summary>
     /// The stream_inf_resolution attribute.
     /// </summary>
-    public TerraformValue<string>? StreamInfResolution
+    public TerraformValue<string> StreamInfResolution
     {
-        get => GetArgument<TerraformValue<string>>("stream_inf_resolution");
+        get => GetArgument<TerraformValue<string>>("stream_inf_resolution") ?? AsReference("stream_inf_resolution");
         set => SetArgument("stream_inf_resolution", value);
     }
 
     /// <summary>
     /// The timed_metadata_id3_frame attribute.
     /// </summary>
-    public TerraformValue<string>? TimedMetadataId3Frame
+    public TerraformValue<string> TimedMetadataId3Frame
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_id3_frame");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_id3_frame") ?? AsReference("timed_metadata_id3_frame");
         set => SetArgument("timed_metadata_id3_frame", value);
     }
 
     /// <summary>
     /// The timed_metadata_id3_period attribute.
     /// </summary>
-    public TerraformValue<double>? TimedMetadataId3Period
+    public TerraformValue<double> TimedMetadataId3Period
     {
-        get => GetArgument<TerraformValue<double>>("timed_metadata_id3_period");
+        get => GetArgument<TerraformValue<double>>("timed_metadata_id3_period") ?? AsReference("timed_metadata_id3_period");
         set => SetArgument("timed_metadata_id3_period", value);
     }
 
     /// <summary>
     /// The timestamp_delta_milliseconds attribute.
     /// </summary>
-    public TerraformValue<double>? TimestampDeltaMilliseconds
+    public TerraformValue<double> TimestampDeltaMilliseconds
     {
-        get => GetArgument<TerraformValue<double>>("timestamp_delta_milliseconds");
+        get => GetArgument<TerraformValue<double>>("timestamp_delta_milliseconds") ?? AsReference("timestamp_delta_milliseconds");
         set => SetArgument("timestamp_delta_milliseconds", value);
     }
 
     /// <summary>
     /// The ts_file_mode attribute.
     /// </summary>
-    public TerraformValue<string>? TsFileMode
+    public TerraformValue<string> TsFileMode
     {
-        get => GetArgument<TerraformValue<string>>("ts_file_mode");
+        get => GetArgument<TerraformValue<string>>("ts_file_mode") ?? AsReference("ts_file_mode");
         set => SetArgument("ts_file_mode", value);
     }
 
@@ -3255,7 +3255,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaptionChannel is required")]
     public required TerraformValue<double> CaptionChannel
     {
-        get => GetArgument<TerraformValue<double>>("caption_channel");
+        get => GetRequiredArgument<TerraformValue<double>>("caption_channel");
         set => SetArgument("caption_channel", value);
     }
 
@@ -3265,7 +3265,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetRequiredArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -3275,7 +3275,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageDescription is required")]
     public required TerraformValue<string> LanguageDescription
     {
-        get => GetArgument<TerraformValue<string>>("language_description");
+        get => GetRequiredArgument<TerraformValue<string>>("language_description");
         set => SetArgument("language_description", value);
     }
 
@@ -3298,7 +3298,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRefId is required")]
     public required TerraformValue<string> DestinationRefId
     {
-        get => GetArgument<TerraformValue<string>>("destination_ref_id");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_ref_id");
         set => SetArgument("destination_ref_id", value);
     }
 
@@ -3399,9 +3399,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// <summary>
     /// The http_transfer_mode attribute.
     /// </summary>
-    public TerraformValue<string>? HttpTransferMode
+    public TerraformValue<string> HttpTransferMode
     {
-        get => GetArgument<TerraformValue<string>>("http_transfer_mode");
+        get => GetArgument<TerraformValue<string>>("http_transfer_mode") ?? AsReference("http_transfer_mode");
         set => SetArgument("http_transfer_mode", value);
     }
 
@@ -3426,18 +3426,18 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// <summary>
     /// The salt attribute.
     /// </summary>
-    public TerraformValue<string>? Salt
+    public TerraformValue<string> Salt
     {
-        get => GetArgument<TerraformValue<string>>("salt");
+        get => GetArgument<TerraformValue<string>>("salt") ?? AsReference("salt");
         set => SetArgument("salt", value);
     }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
-    public TerraformValue<string>? Token
+    public TerraformValue<string> Token
     {
-        get => GetArgument<TerraformValue<string>>("token");
+        get => GetArgument<TerraformValue<string>>("token") ?? AsReference("token");
         set => SetArgument("token", value);
     }
 
@@ -3524,9 +3524,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// <summary>
     /// The media_store_storage_class attribute.
     /// </summary>
-    public TerraformValue<string>? MediaStoreStorageClass
+    public TerraformValue<string> MediaStoreStorageClass
     {
-        get => GetArgument<TerraformValue<string>>("media_store_storage_class");
+        get => GetArgument<TerraformValue<string>>("media_store_storage_class") ?? AsReference("media_store_storage_class");
         set => SetArgument("media_store_storage_class", value);
     }
 
@@ -3604,9 +3604,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// <summary>
     /// The http_transfer_mode attribute.
     /// </summary>
-    public TerraformValue<string>? HttpTransferMode
+    public TerraformValue<string> HttpTransferMode
     {
-        get => GetArgument<TerraformValue<string>>("http_transfer_mode");
+        get => GetArgument<TerraformValue<string>>("http_transfer_mode") ?? AsReference("http_transfer_mode");
         set => SetArgument("http_transfer_mode", value);
     }
 
@@ -3669,7 +3669,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticKeyValue is required")]
     public required TerraformValue<string> StaticKeyValue
     {
-        get => GetArgument<TerraformValue<string>>("static_key_value");
+        get => GetRequiredArgument<TerraformValue<string>>("static_key_value");
         set => SetArgument("static_key_value", value);
     }
 
@@ -3699,9 +3699,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// <summary>
     /// The password_param attribute.
     /// </summary>
-    public TerraformValue<string>? PasswordParam
+    public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -3711,16 +3711,16 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformValue<string>? Username
+    public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
         set => SetArgument("username", value);
     }
 
@@ -3769,7 +3769,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRefId is required")]
     public required TerraformValue<string> DestinationRefId
     {
-        get => GetArgument<TerraformValue<string>>("destination_ref_id");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_ref_id");
         set => SetArgument("destination_ref_id", value);
     }
 
@@ -3789,63 +3789,63 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// <summary>
     /// The acquisition_point_id attribute.
     /// </summary>
-    public TerraformValue<string>? AcquisitionPointId
+    public TerraformValue<string> AcquisitionPointId
     {
-        get => GetArgument<TerraformValue<string>>("acquisition_point_id");
+        get => GetArgument<TerraformValue<string>>("acquisition_point_id") ?? AsReference("acquisition_point_id");
         set => SetArgument("acquisition_point_id", value);
     }
 
     /// <summary>
     /// The audio_only_timecode_control attribute.
     /// </summary>
-    public TerraformValue<string>? AudioOnlyTimecodeControl
+    public TerraformValue<string> AudioOnlyTimecodeControl
     {
-        get => GetArgument<TerraformValue<string>>("audio_only_timecode_control");
+        get => GetArgument<TerraformValue<string>>("audio_only_timecode_control") ?? AsReference("audio_only_timecode_control");
         set => SetArgument("audio_only_timecode_control", value);
     }
 
     /// <summary>
     /// The certificate_mode attribute.
     /// </summary>
-    public TerraformValue<string>? CertificateMode
+    public TerraformValue<string> CertificateMode
     {
-        get => GetArgument<TerraformValue<string>>("certificate_mode");
+        get => GetArgument<TerraformValue<string>>("certificate_mode") ?? AsReference("certificate_mode");
         set => SetArgument("certificate_mode", value);
     }
 
     /// <summary>
     /// The connection_retry_interval attribute.
     /// </summary>
-    public TerraformValue<double>? ConnectionRetryInterval
+    public TerraformValue<double> ConnectionRetryInterval
     {
-        get => GetArgument<TerraformValue<double>>("connection_retry_interval");
+        get => GetArgument<TerraformValue<double>>("connection_retry_interval") ?? AsReference("connection_retry_interval");
         set => SetArgument("connection_retry_interval", value);
     }
 
     /// <summary>
     /// The event_id attribute.
     /// </summary>
-    public TerraformValue<string>? EventId
+    public TerraformValue<string> EventId
     {
-        get => GetArgument<TerraformValue<string>>("event_id");
+        get => GetArgument<TerraformValue<string>>("event_id") ?? AsReference("event_id");
         set => SetArgument("event_id", value);
     }
 
     /// <summary>
     /// The event_id_mode attribute.
     /// </summary>
-    public TerraformValue<string>? EventIdMode
+    public TerraformValue<string> EventIdMode
     {
-        get => GetArgument<TerraformValue<string>>("event_id_mode");
+        get => GetArgument<TerraformValue<string>>("event_id_mode") ?? AsReference("event_id_mode");
         set => SetArgument("event_id_mode", value);
     }
 
     /// <summary>
     /// The event_stop_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? EventStopBehavior
+    public TerraformValue<string> EventStopBehavior
     {
-        get => GetArgument<TerraformValue<string>>("event_stop_behavior");
+        get => GetArgument<TerraformValue<string>>("event_stop_behavior") ?? AsReference("event_stop_behavior");
         set => SetArgument("event_stop_behavior", value);
     }
 
@@ -3861,18 +3861,18 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// <summary>
     /// The fragment_length attribute.
     /// </summary>
-    public TerraformValue<double>? FragmentLength
+    public TerraformValue<double> FragmentLength
     {
-        get => GetArgument<TerraformValue<double>>("fragment_length");
+        get => GetArgument<TerraformValue<double>>("fragment_length") ?? AsReference("fragment_length");
         set => SetArgument("fragment_length", value);
     }
 
     /// <summary>
     /// The input_loss_action attribute.
     /// </summary>
-    public TerraformValue<string>? InputLossAction
+    public TerraformValue<string> InputLossAction
     {
-        get => GetArgument<TerraformValue<string>>("input_loss_action");
+        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? AsReference("input_loss_action");
         set => SetArgument("input_loss_action", value);
     }
 
@@ -3897,54 +3897,54 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// <summary>
     /// The segmentation_mode attribute.
     /// </summary>
-    public TerraformValue<string>? SegmentationMode
+    public TerraformValue<string> SegmentationMode
     {
-        get => GetArgument<TerraformValue<string>>("segmentation_mode");
+        get => GetArgument<TerraformValue<string>>("segmentation_mode") ?? AsReference("segmentation_mode");
         set => SetArgument("segmentation_mode", value);
     }
 
     /// <summary>
     /// The send_delay_ms attribute.
     /// </summary>
-    public TerraformValue<double>? SendDelayMs
+    public TerraformValue<double> SendDelayMs
     {
-        get => GetArgument<TerraformValue<double>>("send_delay_ms");
+        get => GetArgument<TerraformValue<double>>("send_delay_ms") ?? AsReference("send_delay_ms");
         set => SetArgument("send_delay_ms", value);
     }
 
     /// <summary>
     /// The sparse_track_type attribute.
     /// </summary>
-    public TerraformValue<string>? SparseTrackType
+    public TerraformValue<string> SparseTrackType
     {
-        get => GetArgument<TerraformValue<string>>("sparse_track_type");
+        get => GetArgument<TerraformValue<string>>("sparse_track_type") ?? AsReference("sparse_track_type");
         set => SetArgument("sparse_track_type", value);
     }
 
     /// <summary>
     /// The stream_manifest_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? StreamManifestBehavior
+    public TerraformValue<string> StreamManifestBehavior
     {
-        get => GetArgument<TerraformValue<string>>("stream_manifest_behavior");
+        get => GetArgument<TerraformValue<string>>("stream_manifest_behavior") ?? AsReference("stream_manifest_behavior");
         set => SetArgument("stream_manifest_behavior", value);
     }
 
     /// <summary>
     /// The timestamp_offset attribute.
     /// </summary>
-    public TerraformValue<string>? TimestampOffset
+    public TerraformValue<string> TimestampOffset
     {
-        get => GetArgument<TerraformValue<string>>("timestamp_offset");
+        get => GetArgument<TerraformValue<string>>("timestamp_offset") ?? AsReference("timestamp_offset");
         set => SetArgument("timestamp_offset", value);
     }
 
     /// <summary>
     /// The timestamp_offset_mode attribute.
     /// </summary>
-    public TerraformValue<string>? TimestampOffsetMode
+    public TerraformValue<string> TimestampOffsetMode
     {
-        get => GetArgument<TerraformValue<string>>("timestamp_offset_mode");
+        get => GetArgument<TerraformValue<string>>("timestamp_offset_mode") ?? AsReference("timestamp_offset_mode");
         set => SetArgument("timestamp_offset_mode", value);
     }
 
@@ -3980,7 +3980,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRefId is required")]
     public required TerraformValue<string> DestinationRefId
     {
-        get => GetArgument<TerraformValue<string>>("destination_ref_id");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_ref_id");
         set => SetArgument("destination_ref_id", value);
     }
 
@@ -4022,45 +4022,45 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// <summary>
     /// The authentication_scheme attribute.
     /// </summary>
-    public TerraformValue<string>? AuthenticationScheme
+    public TerraformValue<string> AuthenticationScheme
     {
-        get => GetArgument<TerraformValue<string>>("authentication_scheme");
+        get => GetArgument<TerraformValue<string>>("authentication_scheme") ?? AsReference("authentication_scheme");
         set => SetArgument("authentication_scheme", value);
     }
 
     /// <summary>
     /// The cache_full_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? CacheFullBehavior
+    public TerraformValue<string> CacheFullBehavior
     {
-        get => GetArgument<TerraformValue<string>>("cache_full_behavior");
+        get => GetArgument<TerraformValue<string>>("cache_full_behavior") ?? AsReference("cache_full_behavior");
         set => SetArgument("cache_full_behavior", value);
     }
 
     /// <summary>
     /// The cache_length attribute.
     /// </summary>
-    public TerraformValue<double>? CacheLength
+    public TerraformValue<double> CacheLength
     {
-        get => GetArgument<TerraformValue<double>>("cache_length");
+        get => GetArgument<TerraformValue<double>>("cache_length") ?? AsReference("cache_length");
         set => SetArgument("cache_length", value);
     }
 
     /// <summary>
     /// The caption_data attribute.
     /// </summary>
-    public TerraformValue<string>? CaptionData
+    public TerraformValue<string> CaptionData
     {
-        get => GetArgument<TerraformValue<string>>("caption_data");
+        get => GetArgument<TerraformValue<string>>("caption_data") ?? AsReference("caption_data");
         set => SetArgument("caption_data", value);
     }
 
     /// <summary>
     /// The input_loss_action attribute.
     /// </summary>
-    public TerraformValue<string>? InputLossAction
+    public TerraformValue<string> InputLossAction
     {
-        get => GetArgument<TerraformValue<string>>("input_loss_action");
+        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? AsReference("input_loss_action");
         set => SetArgument("input_loss_action", value);
     }
 
@@ -4089,27 +4089,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputGroup
     /// <summary>
     /// The input_loss_action attribute.
     /// </summary>
-    public TerraformValue<string>? InputLossAction
+    public TerraformValue<string> InputLossAction
     {
-        get => GetArgument<TerraformValue<string>>("input_loss_action");
+        get => GetArgument<TerraformValue<string>>("input_loss_action") ?? AsReference("input_loss_action");
         set => SetArgument("input_loss_action", value);
     }
 
     /// <summary>
     /// The timed_metadata_id3_frame attribute.
     /// </summary>
-    public TerraformValue<string>? TimedMetadataId3Frame
+    public TerraformValue<string> TimedMetadataId3Frame
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_id3_frame");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_id3_frame") ?? AsReference("timed_metadata_id3_frame");
         set => SetArgument("timed_metadata_id3_frame", value);
     }
 
     /// <summary>
     /// The timed_metadata_id3_period attribute.
     /// </summary>
-    public TerraformValue<double>? TimedMetadataId3Period
+    public TerraformValue<double> TimedMetadataId3Period
     {
-        get => GetArgument<TerraformValue<double>>("timed_metadata_id3_period");
+        get => GetArgument<TerraformValue<double>>("timed_metadata_id3_period") ?? AsReference("timed_metadata_id3_period");
         set => SetArgument("timed_metadata_id3_period", value);
     }
 
@@ -4138,9 +4138,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The caption_description_names attribute.
     /// </summary>
-    public TerraformSet<string>? CaptionDescriptionNames
+    public TerraformSet<string> CaptionDescriptionNames
     {
-        get => GetArgument<TerraformSet<string>>("caption_description_names");
+        get => GetArgument<TerraformSet<string>>("caption_description_names") ?? AsReference("caption_description_names");
         set => SetArgument("caption_description_names", value);
     }
 
@@ -4358,9 +4358,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The absent_input_audio_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? AbsentInputAudioBehavior
+    public TerraformValue<string> AbsentInputAudioBehavior
     {
-        get => GetArgument<TerraformValue<string>>("absent_input_audio_behavior");
+        get => GetArgument<TerraformValue<string>>("absent_input_audio_behavior") ?? AsReference("absent_input_audio_behavior");
         set => SetArgument("absent_input_audio_behavior", value);
     }
 
@@ -4376,9 +4376,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The arib_captions_pid attribute.
     /// </summary>
-    public TerraformValue<string>? AribCaptionsPid
+    public TerraformValue<string> AribCaptionsPid
     {
-        get => GetArgument<TerraformValue<string>>("arib_captions_pid");
+        get => GetArgument<TerraformValue<string>>("arib_captions_pid") ?? AsReference("arib_captions_pid");
         set => SetArgument("arib_captions_pid", value);
     }
 
@@ -4412,9 +4412,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The audio_pids attribute.
     /// </summary>
-    public TerraformValue<string>? AudioPids
+    public TerraformValue<string> AudioPids
     {
-        get => GetArgument<TerraformValue<string>>("audio_pids");
+        get => GetArgument<TerraformValue<string>>("audio_pids") ?? AsReference("audio_pids");
         set => SetArgument("audio_pids", value);
     }
 
@@ -4457,18 +4457,18 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The dvb_sub_pids attribute.
     /// </summary>
-    public TerraformValue<string>? DvbSubPids
+    public TerraformValue<string> DvbSubPids
     {
-        get => GetArgument<TerraformValue<string>>("dvb_sub_pids");
+        get => GetArgument<TerraformValue<string>>("dvb_sub_pids") ?? AsReference("dvb_sub_pids");
         set => SetArgument("dvb_sub_pids", value);
     }
 
     /// <summary>
     /// The dvb_teletext_pid attribute.
     /// </summary>
-    public TerraformValue<string>? DvbTeletextPid
+    public TerraformValue<string> DvbTeletextPid
     {
-        get => GetArgument<TerraformValue<string>>("dvb_teletext_pid");
+        get => GetArgument<TerraformValue<string>>("dvb_teletext_pid") ?? AsReference("dvb_teletext_pid");
         set => SetArgument("dvb_teletext_pid", value);
     }
 
@@ -4529,18 +4529,18 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The etv_platform_pid attribute.
     /// </summary>
-    public TerraformValue<string>? EtvPlatformPid
+    public TerraformValue<string> EtvPlatformPid
     {
-        get => GetArgument<TerraformValue<string>>("etv_platform_pid");
+        get => GetArgument<TerraformValue<string>>("etv_platform_pid") ?? AsReference("etv_platform_pid");
         set => SetArgument("etv_platform_pid", value);
     }
 
     /// <summary>
     /// The etv_signal_pid attribute.
     /// </summary>
-    public TerraformValue<string>? EtvSignalPid
+    public TerraformValue<string> EtvSignalPid
     {
-        get => GetArgument<TerraformValue<string>>("etv_signal_pid");
+        get => GetArgument<TerraformValue<string>>("etv_signal_pid") ?? AsReference("etv_signal_pid");
         set => SetArgument("etv_signal_pid", value);
     }
 
@@ -4565,9 +4565,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The klv_data_pids attribute.
     /// </summary>
-    public TerraformValue<string>? KlvDataPids
+    public TerraformValue<string> KlvDataPids
     {
-        get => GetArgument<TerraformValue<string>>("klv_data_pids");
+        get => GetArgument<TerraformValue<string>>("klv_data_pids") ?? AsReference("klv_data_pids");
         set => SetArgument("klv_data_pids", value);
     }
 
@@ -4637,9 +4637,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The pmt_pid attribute.
     /// </summary>
-    public TerraformValue<string>? PmtPid
+    public TerraformValue<string> PmtPid
     {
-        get => GetArgument<TerraformValue<string>>("pmt_pid");
+        get => GetArgument<TerraformValue<string>>("pmt_pid") ?? AsReference("pmt_pid");
         set => SetArgument("pmt_pid", value);
     }
 
@@ -4664,9 +4664,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The scte27_pids attribute.
     /// </summary>
-    public TerraformValue<string>? Scte27Pids
+    public TerraformValue<string> Scte27Pids
     {
-        get => GetArgument<TerraformValue<string>>("scte27_pids");
+        get => GetArgument<TerraformValue<string>>("scte27_pids") ?? AsReference("scte27_pids");
         set => SetArgument("scte27_pids", value);
     }
 
@@ -4682,9 +4682,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The scte35_pid attribute.
     /// </summary>
-    public TerraformValue<string>? Scte35Pid
+    public TerraformValue<string> Scte35Pid
     {
-        get => GetArgument<TerraformValue<string>>("scte35_pid");
+        get => GetArgument<TerraformValue<string>>("scte35_pid") ?? AsReference("scte35_pid");
         set => SetArgument("scte35_pid", value);
     }
 
@@ -4727,9 +4727,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The timed_metadata_pid attribute.
     /// </summary>
-    public TerraformValue<string>? TimedMetadataPid
+    public TerraformValue<string> TimedMetadataPid
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_pid");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_pid") ?? AsReference("timed_metadata_pid");
         set => SetArgument("timed_metadata_pid", value);
     }
 
@@ -4745,9 +4745,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The video_pid attribute.
     /// </summary>
-    public TerraformValue<string>? VideoPid
+    public TerraformValue<string> VideoPid
     {
-        get => GetArgument<TerraformValue<string>>("video_pid");
+        get => GetArgument<TerraformValue<string>>("video_pid") ?? AsReference("video_pid");
         set => SetArgument("video_pid", value);
     }
 
@@ -4800,7 +4800,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkId is required")]
     public required TerraformValue<double> NetworkId
     {
-        get => GetArgument<TerraformValue<double>>("network_id");
+        get => GetRequiredArgument<TerraformValue<double>>("network_id");
         set => SetArgument("network_id", value);
     }
 
@@ -4810,7 +4810,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkName is required")]
     public required TerraformValue<string> NetworkName
     {
-        get => GetArgument<TerraformValue<string>>("network_name");
+        get => GetRequiredArgument<TerraformValue<string>>("network_name");
         set => SetArgument("network_name", value);
     }
 
@@ -4923,9 +4923,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The name_modifier attribute.
     /// </summary>
-    public TerraformValue<string>? NameModifier
+    public TerraformValue<string> NameModifier
     {
-        get => GetArgument<TerraformValue<string>>("name_modifier");
+        get => GetArgument<TerraformValue<string>>("name_modifier") ?? AsReference("name_modifier");
         set => SetArgument("name_modifier", value);
     }
 
@@ -4945,27 +4945,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The h265_packaging_type attribute.
     /// </summary>
-    public TerraformValue<string>? H265PackagingType
+    public TerraformValue<string> H265PackagingType
     {
-        get => GetArgument<TerraformValue<string>>("h265_packaging_type");
+        get => GetArgument<TerraformValue<string>>("h265_packaging_type") ?? AsReference("h265_packaging_type");
         set => SetArgument("h265_packaging_type", value);
     }
 
     /// <summary>
     /// The name_modifier attribute.
     /// </summary>
-    public TerraformValue<string>? NameModifier
+    public TerraformValue<string> NameModifier
     {
-        get => GetArgument<TerraformValue<string>>("name_modifier");
+        get => GetArgument<TerraformValue<string>>("name_modifier") ?? AsReference("name_modifier");
         set => SetArgument("name_modifier", value);
     }
 
     /// <summary>
     /// The segment_modifier attribute.
     /// </summary>
-    public TerraformValue<string>? SegmentModifier
+    public TerraformValue<string> SegmentModifier
     {
-        get => GetArgument<TerraformValue<string>>("segment_modifier");
+        get => GetArgument<TerraformValue<string>>("segment_modifier") ?? AsReference("segment_modifier");
         set => SetArgument("segment_modifier", value);
     }
 
@@ -5051,27 +5051,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The audio_group_id attribute.
     /// </summary>
-    public TerraformValue<string>? AudioGroupId
+    public TerraformValue<string> AudioGroupId
     {
-        get => GetArgument<TerraformValue<string>>("audio_group_id");
+        get => GetArgument<TerraformValue<string>>("audio_group_id") ?? AsReference("audio_group_id");
         set => SetArgument("audio_group_id", value);
     }
 
     /// <summary>
     /// The audio_track_type attribute.
     /// </summary>
-    public TerraformValue<string>? AudioTrackType
+    public TerraformValue<string> AudioTrackType
     {
-        get => GetArgument<TerraformValue<string>>("audio_track_type");
+        get => GetArgument<TerraformValue<string>>("audio_track_type") ?? AsReference("audio_track_type");
         set => SetArgument("audio_track_type", value);
     }
 
     /// <summary>
     /// The segment_type attribute.
     /// </summary>
-    public TerraformValue<string>? SegmentType
+    public TerraformValue<string> SegmentType
     {
-        get => GetArgument<TerraformValue<string>>("segment_type");
+        get => GetArgument<TerraformValue<string>>("segment_type") ?? AsReference("segment_type");
         set => SetArgument("segment_type", value);
     }
 
@@ -5101,9 +5101,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The password_param attribute.
     /// </summary>
-    public TerraformValue<string>? PasswordParam
+    public TerraformValue<string> PasswordParam
     {
-        get => GetArgument<TerraformValue<string>>("password_param");
+        get => GetArgument<TerraformValue<string>>("password_param") ?? AsReference("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -5113,16 +5113,16 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformValue<string>? Username
+    public TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetArgument<TerraformValue<string>>("username") ?? AsReference("username");
         set => SetArgument("username", value);
     }
 
@@ -5142,27 +5142,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The audio_rendition_sets attribute.
     /// </summary>
-    public TerraformValue<string>? AudioRenditionSets
+    public TerraformValue<string> AudioRenditionSets
     {
-        get => GetArgument<TerraformValue<string>>("audio_rendition_sets");
+        get => GetArgument<TerraformValue<string>>("audio_rendition_sets") ?? AsReference("audio_rendition_sets");
         set => SetArgument("audio_rendition_sets", value);
     }
 
     /// <summary>
     /// The nielsen_id3_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? NielsenId3Behavior
+    public TerraformValue<string> NielsenId3Behavior
     {
-        get => GetArgument<TerraformValue<string>>("nielsen_id3_behavior");
+        get => GetArgument<TerraformValue<string>>("nielsen_id3_behavior") ?? AsReference("nielsen_id3_behavior");
         set => SetArgument("nielsen_id3_behavior", value);
     }
 
     /// <summary>
     /// The timed_metadata_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? TimedMetadataBehavior
+    public TerraformValue<string> TimedMetadataBehavior
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_behavior");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_behavior") ?? AsReference("timed_metadata_behavior");
         set => SetArgument("timed_metadata_behavior", value);
     }
 
@@ -5195,9 +5195,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The audio_rendition_sets attribute.
     /// </summary>
-    public TerraformValue<string>? AudioRenditionSets
+    public TerraformValue<string> AudioRenditionSets
     {
-        get => GetArgument<TerraformValue<string>>("audio_rendition_sets");
+        get => GetArgument<TerraformValue<string>>("audio_rendition_sets") ?? AsReference("audio_rendition_sets");
         set => SetArgument("audio_rendition_sets", value);
     }
 
@@ -5230,153 +5230,153 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The audio_frames_per_pes attribute.
     /// </summary>
-    public TerraformValue<double>? AudioFramesPerPes
+    public TerraformValue<double> AudioFramesPerPes
     {
-        get => GetArgument<TerraformValue<double>>("audio_frames_per_pes");
+        get => GetArgument<TerraformValue<double>>("audio_frames_per_pes") ?? AsReference("audio_frames_per_pes");
         set => SetArgument("audio_frames_per_pes", value);
     }
 
     /// <summary>
     /// The audio_pids attribute.
     /// </summary>
-    public TerraformValue<string>? AudioPids
+    public TerraformValue<string> AudioPids
     {
-        get => GetArgument<TerraformValue<string>>("audio_pids");
+        get => GetArgument<TerraformValue<string>>("audio_pids") ?? AsReference("audio_pids");
         set => SetArgument("audio_pids", value);
     }
 
     /// <summary>
     /// The ecm_pid attribute.
     /// </summary>
-    public TerraformValue<string>? EcmPid
+    public TerraformValue<string> EcmPid
     {
-        get => GetArgument<TerraformValue<string>>("ecm_pid");
+        get => GetArgument<TerraformValue<string>>("ecm_pid") ?? AsReference("ecm_pid");
         set => SetArgument("ecm_pid", value);
     }
 
     /// <summary>
     /// The nielsen_id3_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? NielsenId3Behavior
+    public TerraformValue<string> NielsenId3Behavior
     {
-        get => GetArgument<TerraformValue<string>>("nielsen_id3_behavior");
+        get => GetArgument<TerraformValue<string>>("nielsen_id3_behavior") ?? AsReference("nielsen_id3_behavior");
         set => SetArgument("nielsen_id3_behavior", value);
     }
 
     /// <summary>
     /// The pat_interval attribute.
     /// </summary>
-    public TerraformValue<double>? PatInterval
+    public TerraformValue<double> PatInterval
     {
-        get => GetArgument<TerraformValue<double>>("pat_interval");
+        get => GetArgument<TerraformValue<double>>("pat_interval") ?? AsReference("pat_interval");
         set => SetArgument("pat_interval", value);
     }
 
     /// <summary>
     /// The pcr_control attribute.
     /// </summary>
-    public TerraformValue<string>? PcrControl
+    public TerraformValue<string> PcrControl
     {
-        get => GetArgument<TerraformValue<string>>("pcr_control");
+        get => GetArgument<TerraformValue<string>>("pcr_control") ?? AsReference("pcr_control");
         set => SetArgument("pcr_control", value);
     }
 
     /// <summary>
     /// The pcr_period attribute.
     /// </summary>
-    public TerraformValue<double>? PcrPeriod
+    public TerraformValue<double> PcrPeriod
     {
-        get => GetArgument<TerraformValue<double>>("pcr_period");
+        get => GetArgument<TerraformValue<double>>("pcr_period") ?? AsReference("pcr_period");
         set => SetArgument("pcr_period", value);
     }
 
     /// <summary>
     /// The pcr_pid attribute.
     /// </summary>
-    public TerraformValue<string>? PcrPid
+    public TerraformValue<string> PcrPid
     {
-        get => GetArgument<TerraformValue<string>>("pcr_pid");
+        get => GetArgument<TerraformValue<string>>("pcr_pid") ?? AsReference("pcr_pid");
         set => SetArgument("pcr_pid", value);
     }
 
     /// <summary>
     /// The pmt_interval attribute.
     /// </summary>
-    public TerraformValue<double>? PmtInterval
+    public TerraformValue<double> PmtInterval
     {
-        get => GetArgument<TerraformValue<double>>("pmt_interval");
+        get => GetArgument<TerraformValue<double>>("pmt_interval") ?? AsReference("pmt_interval");
         set => SetArgument("pmt_interval", value);
     }
 
     /// <summary>
     /// The pmt_pid attribute.
     /// </summary>
-    public TerraformValue<string>? PmtPid
+    public TerraformValue<string> PmtPid
     {
-        get => GetArgument<TerraformValue<string>>("pmt_pid");
+        get => GetArgument<TerraformValue<string>>("pmt_pid") ?? AsReference("pmt_pid");
         set => SetArgument("pmt_pid", value);
     }
 
     /// <summary>
     /// The program_num attribute.
     /// </summary>
-    public TerraformValue<double>? ProgramNum
+    public TerraformValue<double> ProgramNum
     {
-        get => GetArgument<TerraformValue<double>>("program_num");
+        get => GetArgument<TerraformValue<double>>("program_num") ?? AsReference("program_num");
         set => SetArgument("program_num", value);
     }
 
     /// <summary>
     /// The scte35_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? Scte35Behavior
+    public TerraformValue<string> Scte35Behavior
     {
-        get => GetArgument<TerraformValue<string>>("scte35_behavior");
+        get => GetArgument<TerraformValue<string>>("scte35_behavior") ?? AsReference("scte35_behavior");
         set => SetArgument("scte35_behavior", value);
     }
 
     /// <summary>
     /// The scte35_pid attribute.
     /// </summary>
-    public TerraformValue<string>? Scte35Pid
+    public TerraformValue<string> Scte35Pid
     {
-        get => GetArgument<TerraformValue<string>>("scte35_pid");
+        get => GetArgument<TerraformValue<string>>("scte35_pid") ?? AsReference("scte35_pid");
         set => SetArgument("scte35_pid", value);
     }
 
     /// <summary>
     /// The timed_metadata_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? TimedMetadataBehavior
+    public TerraformValue<string> TimedMetadataBehavior
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_behavior");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_behavior") ?? AsReference("timed_metadata_behavior");
         set => SetArgument("timed_metadata_behavior", value);
     }
 
     /// <summary>
     /// The timed_metadata_pid attribute.
     /// </summary>
-    public TerraformValue<string>? TimedMetadataPid
+    public TerraformValue<string> TimedMetadataPid
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_pid");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_pid") ?? AsReference("timed_metadata_pid");
         set => SetArgument("timed_metadata_pid", value);
     }
 
     /// <summary>
     /// The transport_stream_id attribute.
     /// </summary>
-    public TerraformValue<double>? TransportStreamId
+    public TerraformValue<double> TransportStreamId
     {
-        get => GetArgument<TerraformValue<double>>("transport_stream_id");
+        get => GetArgument<TerraformValue<double>>("transport_stream_id") ?? AsReference("transport_stream_id");
         set => SetArgument("transport_stream_id", value);
     }
 
     /// <summary>
     /// The video_pid attribute.
     /// </summary>
-    public TerraformValue<string>? VideoPid
+    public TerraformValue<string> VideoPid
     {
-        get => GetArgument<TerraformValue<string>>("video_pid");
+        get => GetArgument<TerraformValue<string>>("video_pid") ?? AsReference("video_pid");
         set => SetArgument("video_pid", value);
     }
 
@@ -5409,18 +5409,18 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The h265_packaging_type attribute.
     /// </summary>
-    public TerraformValue<string>? H265PackagingType
+    public TerraformValue<string> H265PackagingType
     {
-        get => GetArgument<TerraformValue<string>>("h265_packaging_type");
+        get => GetArgument<TerraformValue<string>>("h265_packaging_type") ?? AsReference("h265_packaging_type");
         set => SetArgument("h265_packaging_type", value);
     }
 
     /// <summary>
     /// The name_modifier attribute.
     /// </summary>
-    public TerraformValue<string>? NameModifier
+    public TerraformValue<string> NameModifier
     {
-        get => GetArgument<TerraformValue<string>>("name_modifier");
+        get => GetArgument<TerraformValue<string>>("name_modifier") ?? AsReference("name_modifier");
         set => SetArgument("name_modifier", value);
     }
 
@@ -5469,7 +5469,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRefId is required")]
     public required TerraformValue<string> DestinationRefId
     {
-        get => GetArgument<TerraformValue<string>>("destination_ref_id");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_ref_id");
         set => SetArgument("destination_ref_id", value);
     }
 
@@ -5489,27 +5489,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The certificate_mode attribute.
     /// </summary>
-    public TerraformValue<string>? CertificateMode
+    public TerraformValue<string> CertificateMode
     {
-        get => GetArgument<TerraformValue<string>>("certificate_mode");
+        get => GetArgument<TerraformValue<string>>("certificate_mode") ?? AsReference("certificate_mode");
         set => SetArgument("certificate_mode", value);
     }
 
     /// <summary>
     /// The connection_retry_interval attribute.
     /// </summary>
-    public TerraformValue<double>? ConnectionRetryInterval
+    public TerraformValue<double> ConnectionRetryInterval
     {
-        get => GetArgument<TerraformValue<double>>("connection_retry_interval");
+        get => GetArgument<TerraformValue<double>>("connection_retry_interval") ?? AsReference("connection_retry_interval");
         set => SetArgument("connection_retry_interval", value);
     }
 
     /// <summary>
     /// The num_retries attribute.
     /// </summary>
-    public TerraformValue<double>? NumRetries
+    public TerraformValue<double> NumRetries
     {
-        get => GetArgument<TerraformValue<double>>("num_retries");
+        get => GetArgument<TerraformValue<double>>("num_retries") ?? AsReference("num_retries");
         set => SetArgument("num_retries", value);
     }
 
@@ -5545,7 +5545,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRefId is required")]
     public required TerraformValue<string> DestinationRefId
     {
-        get => GetArgument<TerraformValue<string>>("destination_ref_id");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_ref_id");
         set => SetArgument("destination_ref_id", value);
     }
 
@@ -5565,9 +5565,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The buffer_msec attribute.
     /// </summary>
-    public TerraformValue<double>? BufferMsec
+    public TerraformValue<double> BufferMsec
     {
-        get => GetArgument<TerraformValue<double>>("buffer_msec");
+        get => GetArgument<TerraformValue<double>>("buffer_msec") ?? AsReference("buffer_msec");
         set => SetArgument("buffer_msec", value);
     }
 
@@ -5646,9 +5646,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The absent_input_audio_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? AbsentInputAudioBehavior
+    public TerraformValue<string> AbsentInputAudioBehavior
     {
-        get => GetArgument<TerraformValue<string>>("absent_input_audio_behavior");
+        get => GetArgument<TerraformValue<string>>("absent_input_audio_behavior") ?? AsReference("absent_input_audio_behavior");
         set => SetArgument("absent_input_audio_behavior", value);
     }
 
@@ -5664,9 +5664,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The arib_captions_pid attribute.
     /// </summary>
-    public TerraformValue<string>? AribCaptionsPid
+    public TerraformValue<string> AribCaptionsPid
     {
-        get => GetArgument<TerraformValue<string>>("arib_captions_pid");
+        get => GetArgument<TerraformValue<string>>("arib_captions_pid") ?? AsReference("arib_captions_pid");
         set => SetArgument("arib_captions_pid", value);
     }
 
@@ -5700,9 +5700,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The audio_pids attribute.
     /// </summary>
-    public TerraformValue<string>? AudioPids
+    public TerraformValue<string> AudioPids
     {
-        get => GetArgument<TerraformValue<string>>("audio_pids");
+        get => GetArgument<TerraformValue<string>>("audio_pids") ?? AsReference("audio_pids");
         set => SetArgument("audio_pids", value);
     }
 
@@ -5745,18 +5745,18 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The dvb_sub_pids attribute.
     /// </summary>
-    public TerraformValue<string>? DvbSubPids
+    public TerraformValue<string> DvbSubPids
     {
-        get => GetArgument<TerraformValue<string>>("dvb_sub_pids");
+        get => GetArgument<TerraformValue<string>>("dvb_sub_pids") ?? AsReference("dvb_sub_pids");
         set => SetArgument("dvb_sub_pids", value);
     }
 
     /// <summary>
     /// The dvb_teletext_pid attribute.
     /// </summary>
-    public TerraformValue<string>? DvbTeletextPid
+    public TerraformValue<string> DvbTeletextPid
     {
-        get => GetArgument<TerraformValue<string>>("dvb_teletext_pid");
+        get => GetArgument<TerraformValue<string>>("dvb_teletext_pid") ?? AsReference("dvb_teletext_pid");
         set => SetArgument("dvb_teletext_pid", value);
     }
 
@@ -5817,18 +5817,18 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The etv_platform_pid attribute.
     /// </summary>
-    public TerraformValue<string>? EtvPlatformPid
+    public TerraformValue<string> EtvPlatformPid
     {
-        get => GetArgument<TerraformValue<string>>("etv_platform_pid");
+        get => GetArgument<TerraformValue<string>>("etv_platform_pid") ?? AsReference("etv_platform_pid");
         set => SetArgument("etv_platform_pid", value);
     }
 
     /// <summary>
     /// The etv_signal_pid attribute.
     /// </summary>
-    public TerraformValue<string>? EtvSignalPid
+    public TerraformValue<string> EtvSignalPid
     {
-        get => GetArgument<TerraformValue<string>>("etv_signal_pid");
+        get => GetArgument<TerraformValue<string>>("etv_signal_pid") ?? AsReference("etv_signal_pid");
         set => SetArgument("etv_signal_pid", value);
     }
 
@@ -5853,9 +5853,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The klv_data_pids attribute.
     /// </summary>
-    public TerraformValue<string>? KlvDataPids
+    public TerraformValue<string> KlvDataPids
     {
-        get => GetArgument<TerraformValue<string>>("klv_data_pids");
+        get => GetArgument<TerraformValue<string>>("klv_data_pids") ?? AsReference("klv_data_pids");
         set => SetArgument("klv_data_pids", value);
     }
 
@@ -5925,9 +5925,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The pmt_pid attribute.
     /// </summary>
-    public TerraformValue<string>? PmtPid
+    public TerraformValue<string> PmtPid
     {
-        get => GetArgument<TerraformValue<string>>("pmt_pid");
+        get => GetArgument<TerraformValue<string>>("pmt_pid") ?? AsReference("pmt_pid");
         set => SetArgument("pmt_pid", value);
     }
 
@@ -5952,9 +5952,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The scte27_pids attribute.
     /// </summary>
-    public TerraformValue<string>? Scte27Pids
+    public TerraformValue<string> Scte27Pids
     {
-        get => GetArgument<TerraformValue<string>>("scte27_pids");
+        get => GetArgument<TerraformValue<string>>("scte27_pids") ?? AsReference("scte27_pids");
         set => SetArgument("scte27_pids", value);
     }
 
@@ -5970,9 +5970,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The scte35_pid attribute.
     /// </summary>
-    public TerraformValue<string>? Scte35Pid
+    public TerraformValue<string> Scte35Pid
     {
-        get => GetArgument<TerraformValue<string>>("scte35_pid");
+        get => GetArgument<TerraformValue<string>>("scte35_pid") ?? AsReference("scte35_pid");
         set => SetArgument("scte35_pid", value);
     }
 
@@ -6015,9 +6015,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The timed_metadata_pid attribute.
     /// </summary>
-    public TerraformValue<string>? TimedMetadataPid
+    public TerraformValue<string> TimedMetadataPid
     {
-        get => GetArgument<TerraformValue<string>>("timed_metadata_pid");
+        get => GetArgument<TerraformValue<string>>("timed_metadata_pid") ?? AsReference("timed_metadata_pid");
         set => SetArgument("timed_metadata_pid", value);
     }
 
@@ -6033,9 +6033,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The video_pid attribute.
     /// </summary>
-    public TerraformValue<string>? VideoPid
+    public TerraformValue<string> VideoPid
     {
-        get => GetArgument<TerraformValue<string>>("video_pid");
+        get => GetArgument<TerraformValue<string>>("video_pid") ?? AsReference("video_pid");
         set => SetArgument("video_pid", value);
     }
 
@@ -6088,7 +6088,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkId is required")]
     public required TerraformValue<double> NetworkId
     {
-        get => GetArgument<TerraformValue<double>>("network_id");
+        get => GetRequiredArgument<TerraformValue<double>>("network_id");
         set => SetArgument("network_id", value);
     }
 
@@ -6098,7 +6098,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkName is required")]
     public required TerraformValue<string> NetworkName
     {
-        get => GetArgument<TerraformValue<string>>("network_name");
+        get => GetRequiredArgument<TerraformValue<string>>("network_name");
         set => SetArgument("network_name", value);
     }
 
@@ -6201,7 +6201,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRefId is required")]
     public required TerraformValue<string> DestinationRefId
     {
-        get => GetArgument<TerraformValue<string>>("destination_ref_id");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_ref_id");
         set => SetArgument("destination_ref_id", value);
     }
 
@@ -6221,27 +6221,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockOutputGroupsBlockOutputsBloc
     /// <summary>
     /// The column_depth attribute.
     /// </summary>
-    public TerraformValue<double>? ColumnDepth
+    public TerraformValue<double> ColumnDepth
     {
-        get => GetArgument<TerraformValue<double>>("column_depth");
+        get => GetArgument<TerraformValue<double>>("column_depth") ?? AsReference("column_depth");
         set => SetArgument("column_depth", value);
     }
 
     /// <summary>
     /// The include_fec attribute.
     /// </summary>
-    public TerraformValue<string>? IncludeFec
+    public TerraformValue<string> IncludeFec
     {
-        get => GetArgument<TerraformValue<string>>("include_fec");
+        get => GetArgument<TerraformValue<string>>("include_fec") ?? AsReference("include_fec");
         set => SetArgument("include_fec", value);
     }
 
     /// <summary>
     /// The row_length attribute.
     /// </summary>
-    public TerraformValue<double>? RowLength
+    public TerraformValue<double> RowLength
     {
-        get => GetArgument<TerraformValue<double>>("row_length");
+        get => GetArgument<TerraformValue<double>>("row_length") ?? AsReference("row_length");
         set => SetArgument("row_length", value);
     }
 
@@ -6264,16 +6264,16 @@ public class AwsMedialiveChannelEncoderSettingsBlockTimecodeConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
     /// <summary>
     /// The sync_threshold attribute.
     /// </summary>
-    public TerraformValue<double>? SyncThreshold
+    public TerraformValue<double> SyncThreshold
     {
-        get => GetArgument<TerraformValue<double>>("sync_threshold");
+        get => GetArgument<TerraformValue<double>>("sync_threshold") ?? AsReference("sync_threshold");
         set => SetArgument("sync_threshold", value);
     }
 
@@ -6293,9 +6293,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlock : Ter
     /// <summary>
     /// The height attribute.
     /// </summary>
-    public TerraformValue<double>? Height
+    public TerraformValue<double> Height
     {
-        get => GetArgument<TerraformValue<double>>("height");
+        get => GetArgument<TerraformValue<double>>("height") ?? AsReference("height");
         set => SetArgument("height", value);
     }
 
@@ -6305,43 +6305,43 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The respond_to_afd attribute.
     /// </summary>
-    public TerraformValue<string>? RespondToAfd
+    public TerraformValue<string> RespondToAfd
     {
-        get => GetArgument<TerraformValue<string>>("respond_to_afd");
+        get => GetArgument<TerraformValue<string>>("respond_to_afd") ?? AsReference("respond_to_afd");
         set => SetArgument("respond_to_afd", value);
     }
 
     /// <summary>
     /// The scaling_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? ScalingBehavior
+    public TerraformValue<string> ScalingBehavior
     {
-        get => GetArgument<TerraformValue<string>>("scaling_behavior");
+        get => GetArgument<TerraformValue<string>>("scaling_behavior") ?? AsReference("scaling_behavior");
         set => SetArgument("scaling_behavior", value);
     }
 
     /// <summary>
     /// The sharpness attribute.
     /// </summary>
-    public TerraformValue<double>? Sharpness
+    public TerraformValue<double> Sharpness
     {
-        get => GetArgument<TerraformValue<double>>("sharpness");
+        get => GetArgument<TerraformValue<double>>("sharpness") ?? AsReference("sharpness");
         set => SetArgument("sharpness", value);
     }
 
     /// <summary>
     /// The width attribute.
     /// </summary>
-    public TerraformValue<double>? Width
+    public TerraformValue<double> Width
     {
-        get => GetArgument<TerraformValue<double>>("width");
+        get => GetArgument<TerraformValue<double>>("width") ?? AsReference("width");
         set => SetArgument("width", value);
     }
 
@@ -6414,18 +6414,18 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The capture_interval attribute.
     /// </summary>
-    public TerraformValue<double>? CaptureInterval
+    public TerraformValue<double> CaptureInterval
     {
-        get => GetArgument<TerraformValue<double>>("capture_interval");
+        get => GetArgument<TerraformValue<double>>("capture_interval") ?? AsReference("capture_interval");
         set => SetArgument("capture_interval", value);
     }
 
     /// <summary>
     /// The capture_interval_units attribute.
     /// </summary>
-    public TerraformValue<string>? CaptureIntervalUnits
+    public TerraformValue<string> CaptureIntervalUnits
     {
-        get => GetArgument<TerraformValue<string>>("capture_interval_units");
+        get => GetArgument<TerraformValue<string>>("capture_interval_units") ?? AsReference("capture_interval_units");
         set => SetArgument("capture_interval_units", value);
     }
 
@@ -6445,351 +6445,351 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The adaptive_quantization attribute.
     /// </summary>
-    public TerraformValue<string>? AdaptiveQuantization
+    public TerraformValue<string> AdaptiveQuantization
     {
-        get => GetArgument<TerraformValue<string>>("adaptive_quantization");
+        get => GetArgument<TerraformValue<string>>("adaptive_quantization") ?? AsReference("adaptive_quantization");
         set => SetArgument("adaptive_quantization", value);
     }
 
     /// <summary>
     /// The afd_signaling attribute.
     /// </summary>
-    public TerraformValue<string>? AfdSignaling
+    public TerraformValue<string> AfdSignaling
     {
-        get => GetArgument<TerraformValue<string>>("afd_signaling");
+        get => GetArgument<TerraformValue<string>>("afd_signaling") ?? AsReference("afd_signaling");
         set => SetArgument("afd_signaling", value);
     }
 
     /// <summary>
     /// The bitrate attribute.
     /// </summary>
-    public TerraformValue<double>? Bitrate
+    public TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate");
+        get => GetArgument<TerraformValue<double>>("bitrate") ?? AsReference("bitrate");
         set => SetArgument("bitrate", value);
     }
 
     /// <summary>
     /// The buf_fill_pct attribute.
     /// </summary>
-    public TerraformValue<double>? BufFillPct
+    public TerraformValue<double> BufFillPct
     {
-        get => GetArgument<TerraformValue<double>>("buf_fill_pct");
+        get => GetArgument<TerraformValue<double>>("buf_fill_pct") ?? AsReference("buf_fill_pct");
         set => SetArgument("buf_fill_pct", value);
     }
 
     /// <summary>
     /// The buf_size attribute.
     /// </summary>
-    public TerraformValue<double>? BufSize
+    public TerraformValue<double> BufSize
     {
-        get => GetArgument<TerraformValue<double>>("buf_size");
+        get => GetArgument<TerraformValue<double>>("buf_size") ?? AsReference("buf_size");
         set => SetArgument("buf_size", value);
     }
 
     /// <summary>
     /// The color_metadata attribute.
     /// </summary>
-    public TerraformValue<string>? ColorMetadata
+    public TerraformValue<string> ColorMetadata
     {
-        get => GetArgument<TerraformValue<string>>("color_metadata");
+        get => GetArgument<TerraformValue<string>>("color_metadata") ?? AsReference("color_metadata");
         set => SetArgument("color_metadata", value);
     }
 
     /// <summary>
     /// The entropy_encoding attribute.
     /// </summary>
-    public TerraformValue<string>? EntropyEncoding
+    public TerraformValue<string> EntropyEncoding
     {
-        get => GetArgument<TerraformValue<string>>("entropy_encoding");
+        get => GetArgument<TerraformValue<string>>("entropy_encoding") ?? AsReference("entropy_encoding");
         set => SetArgument("entropy_encoding", value);
     }
 
     /// <summary>
     /// The fixed_afd attribute.
     /// </summary>
-    public TerraformValue<string>? FixedAfd
+    public TerraformValue<string> FixedAfd
     {
-        get => GetArgument<TerraformValue<string>>("fixed_afd");
+        get => GetArgument<TerraformValue<string>>("fixed_afd") ?? AsReference("fixed_afd");
         set => SetArgument("fixed_afd", value);
     }
 
     /// <summary>
     /// The flicker_aq attribute.
     /// </summary>
-    public TerraformValue<string>? FlickerAq
+    public TerraformValue<string> FlickerAq
     {
-        get => GetArgument<TerraformValue<string>>("flicker_aq");
+        get => GetArgument<TerraformValue<string>>("flicker_aq") ?? AsReference("flicker_aq");
         set => SetArgument("flicker_aq", value);
     }
 
     /// <summary>
     /// The force_field_pictures attribute.
     /// </summary>
-    public TerraformValue<string>? ForceFieldPictures
+    public TerraformValue<string> ForceFieldPictures
     {
-        get => GetArgument<TerraformValue<string>>("force_field_pictures");
+        get => GetArgument<TerraformValue<string>>("force_field_pictures") ?? AsReference("force_field_pictures");
         set => SetArgument("force_field_pictures", value);
     }
 
     /// <summary>
     /// The framerate_control attribute.
     /// </summary>
-    public TerraformValue<string>? FramerateControl
+    public TerraformValue<string> FramerateControl
     {
-        get => GetArgument<TerraformValue<string>>("framerate_control");
+        get => GetArgument<TerraformValue<string>>("framerate_control") ?? AsReference("framerate_control");
         set => SetArgument("framerate_control", value);
     }
 
     /// <summary>
     /// The framerate_denominator attribute.
     /// </summary>
-    public TerraformValue<double>? FramerateDenominator
+    public TerraformValue<double> FramerateDenominator
     {
-        get => GetArgument<TerraformValue<double>>("framerate_denominator");
+        get => GetArgument<TerraformValue<double>>("framerate_denominator") ?? AsReference("framerate_denominator");
         set => SetArgument("framerate_denominator", value);
     }
 
     /// <summary>
     /// The framerate_numerator attribute.
     /// </summary>
-    public TerraformValue<double>? FramerateNumerator
+    public TerraformValue<double> FramerateNumerator
     {
-        get => GetArgument<TerraformValue<double>>("framerate_numerator");
+        get => GetArgument<TerraformValue<double>>("framerate_numerator") ?? AsReference("framerate_numerator");
         set => SetArgument("framerate_numerator", value);
     }
 
     /// <summary>
     /// The gop_b_reference attribute.
     /// </summary>
-    public TerraformValue<string>? GopBReference
+    public TerraformValue<string> GopBReference
     {
-        get => GetArgument<TerraformValue<string>>("gop_b_reference");
+        get => GetArgument<TerraformValue<string>>("gop_b_reference") ?? AsReference("gop_b_reference");
         set => SetArgument("gop_b_reference", value);
     }
 
     /// <summary>
     /// The gop_closed_cadence attribute.
     /// </summary>
-    public TerraformValue<double>? GopClosedCadence
+    public TerraformValue<double> GopClosedCadence
     {
-        get => GetArgument<TerraformValue<double>>("gop_closed_cadence");
+        get => GetArgument<TerraformValue<double>>("gop_closed_cadence") ?? AsReference("gop_closed_cadence");
         set => SetArgument("gop_closed_cadence", value);
     }
 
     /// <summary>
     /// The gop_num_b_frames attribute.
     /// </summary>
-    public TerraformValue<double>? GopNumBFrames
+    public TerraformValue<double> GopNumBFrames
     {
-        get => GetArgument<TerraformValue<double>>("gop_num_b_frames");
+        get => GetArgument<TerraformValue<double>>("gop_num_b_frames") ?? AsReference("gop_num_b_frames");
         set => SetArgument("gop_num_b_frames", value);
     }
 
     /// <summary>
     /// The gop_size attribute.
     /// </summary>
-    public TerraformValue<double>? GopSize
+    public TerraformValue<double> GopSize
     {
-        get => GetArgument<TerraformValue<double>>("gop_size");
+        get => GetArgument<TerraformValue<double>>("gop_size") ?? AsReference("gop_size");
         set => SetArgument("gop_size", value);
     }
 
     /// <summary>
     /// The gop_size_units attribute.
     /// </summary>
-    public TerraformValue<string>? GopSizeUnits
+    public TerraformValue<string> GopSizeUnits
     {
-        get => GetArgument<TerraformValue<string>>("gop_size_units");
+        get => GetArgument<TerraformValue<string>>("gop_size_units") ?? AsReference("gop_size_units");
         set => SetArgument("gop_size_units", value);
     }
 
     /// <summary>
     /// The level attribute.
     /// </summary>
-    public TerraformValue<string>? Level
+    public TerraformValue<string> Level
     {
-        get => GetArgument<TerraformValue<string>>("level");
+        get => GetArgument<TerraformValue<string>>("level") ?? AsReference("level");
         set => SetArgument("level", value);
     }
 
     /// <summary>
     /// The look_ahead_rate_control attribute.
     /// </summary>
-    public TerraformValue<string>? LookAheadRateControl
+    public TerraformValue<string> LookAheadRateControl
     {
-        get => GetArgument<TerraformValue<string>>("look_ahead_rate_control");
+        get => GetArgument<TerraformValue<string>>("look_ahead_rate_control") ?? AsReference("look_ahead_rate_control");
         set => SetArgument("look_ahead_rate_control", value);
     }
 
     /// <summary>
     /// The max_bitrate attribute.
     /// </summary>
-    public TerraformValue<double>? MaxBitrate
+    public TerraformValue<double> MaxBitrate
     {
-        get => GetArgument<TerraformValue<double>>("max_bitrate");
+        get => GetArgument<TerraformValue<double>>("max_bitrate") ?? AsReference("max_bitrate");
         set => SetArgument("max_bitrate", value);
     }
 
     /// <summary>
     /// The min_i_interval attribute.
     /// </summary>
-    public TerraformValue<double>? MinIInterval
+    public TerraformValue<double> MinIInterval
     {
-        get => GetArgument<TerraformValue<double>>("min_i_interval");
+        get => GetArgument<TerraformValue<double>>("min_i_interval") ?? AsReference("min_i_interval");
         set => SetArgument("min_i_interval", value);
     }
 
     /// <summary>
     /// The num_ref_frames attribute.
     /// </summary>
-    public TerraformValue<double>? NumRefFrames
+    public TerraformValue<double> NumRefFrames
     {
-        get => GetArgument<TerraformValue<double>>("num_ref_frames");
+        get => GetArgument<TerraformValue<double>>("num_ref_frames") ?? AsReference("num_ref_frames");
         set => SetArgument("num_ref_frames", value);
     }
 
     /// <summary>
     /// The par_control attribute.
     /// </summary>
-    public TerraformValue<string>? ParControl
+    public TerraformValue<string> ParControl
     {
-        get => GetArgument<TerraformValue<string>>("par_control");
+        get => GetArgument<TerraformValue<string>>("par_control") ?? AsReference("par_control");
         set => SetArgument("par_control", value);
     }
 
     /// <summary>
     /// The par_denominator attribute.
     /// </summary>
-    public TerraformValue<double>? ParDenominator
+    public TerraformValue<double> ParDenominator
     {
-        get => GetArgument<TerraformValue<double>>("par_denominator");
+        get => GetArgument<TerraformValue<double>>("par_denominator") ?? AsReference("par_denominator");
         set => SetArgument("par_denominator", value);
     }
 
     /// <summary>
     /// The par_numerator attribute.
     /// </summary>
-    public TerraformValue<double>? ParNumerator
+    public TerraformValue<double> ParNumerator
     {
-        get => GetArgument<TerraformValue<double>>("par_numerator");
+        get => GetArgument<TerraformValue<double>>("par_numerator") ?? AsReference("par_numerator");
         set => SetArgument("par_numerator", value);
     }
 
     /// <summary>
     /// The profile attribute.
     /// </summary>
-    public TerraformValue<string>? Profile
+    public TerraformValue<string> Profile
     {
-        get => GetArgument<TerraformValue<string>>("profile");
+        get => GetArgument<TerraformValue<string>>("profile") ?? AsReference("profile");
         set => SetArgument("profile", value);
     }
 
     /// <summary>
     /// The quality_level attribute.
     /// </summary>
-    public TerraformValue<string>? QualityLevel
+    public TerraformValue<string> QualityLevel
     {
-        get => GetArgument<TerraformValue<string>>("quality_level");
+        get => GetArgument<TerraformValue<string>>("quality_level") ?? AsReference("quality_level");
         set => SetArgument("quality_level", value);
     }
 
     /// <summary>
     /// The qvbr_quality_level attribute.
     /// </summary>
-    public TerraformValue<double>? QvbrQualityLevel
+    public TerraformValue<double> QvbrQualityLevel
     {
-        get => GetArgument<TerraformValue<double>>("qvbr_quality_level");
+        get => GetArgument<TerraformValue<double>>("qvbr_quality_level") ?? AsReference("qvbr_quality_level");
         set => SetArgument("qvbr_quality_level", value);
     }
 
     /// <summary>
     /// The rate_control_mode attribute.
     /// </summary>
-    public TerraformValue<string>? RateControlMode
+    public TerraformValue<string> RateControlMode
     {
-        get => GetArgument<TerraformValue<string>>("rate_control_mode");
+        get => GetArgument<TerraformValue<string>>("rate_control_mode") ?? AsReference("rate_control_mode");
         set => SetArgument("rate_control_mode", value);
     }
 
     /// <summary>
     /// The scan_type attribute.
     /// </summary>
-    public TerraformValue<string>? ScanType
+    public TerraformValue<string> ScanType
     {
-        get => GetArgument<TerraformValue<string>>("scan_type");
+        get => GetArgument<TerraformValue<string>>("scan_type") ?? AsReference("scan_type");
         set => SetArgument("scan_type", value);
     }
 
     /// <summary>
     /// The scene_change_detect attribute.
     /// </summary>
-    public TerraformValue<string>? SceneChangeDetect
+    public TerraformValue<string> SceneChangeDetect
     {
-        get => GetArgument<TerraformValue<string>>("scene_change_detect");
+        get => GetArgument<TerraformValue<string>>("scene_change_detect") ?? AsReference("scene_change_detect");
         set => SetArgument("scene_change_detect", value);
     }
 
     /// <summary>
     /// The slices attribute.
     /// </summary>
-    public TerraformValue<double>? Slices
+    public TerraformValue<double> Slices
     {
-        get => GetArgument<TerraformValue<double>>("slices");
+        get => GetArgument<TerraformValue<double>>("slices") ?? AsReference("slices");
         set => SetArgument("slices", value);
     }
 
     /// <summary>
     /// The softness attribute.
     /// </summary>
-    public TerraformValue<double>? Softness
+    public TerraformValue<double> Softness
     {
-        get => GetArgument<TerraformValue<double>>("softness");
+        get => GetArgument<TerraformValue<double>>("softness") ?? AsReference("softness");
         set => SetArgument("softness", value);
     }
 
     /// <summary>
     /// The spatial_aq attribute.
     /// </summary>
-    public TerraformValue<string>? SpatialAq
+    public TerraformValue<string> SpatialAq
     {
-        get => GetArgument<TerraformValue<string>>("spatial_aq");
+        get => GetArgument<TerraformValue<string>>("spatial_aq") ?? AsReference("spatial_aq");
         set => SetArgument("spatial_aq", value);
     }
 
     /// <summary>
     /// The subgop_length attribute.
     /// </summary>
-    public TerraformValue<string>? SubgopLength
+    public TerraformValue<string> SubgopLength
     {
-        get => GetArgument<TerraformValue<string>>("subgop_length");
+        get => GetArgument<TerraformValue<string>>("subgop_length") ?? AsReference("subgop_length");
         set => SetArgument("subgop_length", value);
     }
 
     /// <summary>
     /// The syntax attribute.
     /// </summary>
-    public TerraformValue<string>? Syntax
+    public TerraformValue<string> Syntax
     {
-        get => GetArgument<TerraformValue<string>>("syntax");
+        get => GetArgument<TerraformValue<string>>("syntax") ?? AsReference("syntax");
         set => SetArgument("syntax", value);
     }
 
     /// <summary>
     /// The temporal_aq attribute.
     /// </summary>
-    public TerraformValue<string>? TemporalAq
+    public TerraformValue<string> TemporalAq
     {
-        get => GetArgument<TerraformValue<string>>("temporal_aq");
+        get => GetArgument<TerraformValue<string>>("temporal_aq") ?? AsReference("temporal_aq");
         set => SetArgument("temporal_aq", value);
     }
 
     /// <summary>
     /// The timecode_insertion attribute.
     /// </summary>
-    public TerraformValue<string>? TimecodeInsertion
+    public TerraformValue<string> TimecodeInsertion
     {
-        get => GetArgument<TerraformValue<string>>("timecode_insertion");
+        get => GetArgument<TerraformValue<string>>("timecode_insertion") ?? AsReference("timecode_insertion");
         set => SetArgument("timecode_insertion", value);
     }
 
@@ -6873,27 +6873,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The adaptive_quantization attribute.
     /// </summary>
-    public TerraformValue<string>? AdaptiveQuantization
+    public TerraformValue<string> AdaptiveQuantization
     {
-        get => GetArgument<TerraformValue<string>>("adaptive_quantization");
+        get => GetArgument<TerraformValue<string>>("adaptive_quantization") ?? AsReference("adaptive_quantization");
         set => SetArgument("adaptive_quantization", value);
     }
 
     /// <summary>
     /// The afd_signaling attribute.
     /// </summary>
-    public TerraformValue<string>? AfdSignaling
+    public TerraformValue<string> AfdSignaling
     {
-        get => GetArgument<TerraformValue<string>>("afd_signaling");
+        get => GetArgument<TerraformValue<string>>("afd_signaling") ?? AsReference("afd_signaling");
         set => SetArgument("afd_signaling", value);
     }
 
     /// <summary>
     /// The alternative_transfer_function attribute.
     /// </summary>
-    public TerraformValue<string>? AlternativeTransferFunction
+    public TerraformValue<string> AlternativeTransferFunction
     {
-        get => GetArgument<TerraformValue<string>>("alternative_transfer_function");
+        get => GetArgument<TerraformValue<string>>("alternative_transfer_function") ?? AsReference("alternative_transfer_function");
         set => SetArgument("alternative_transfer_function", value);
     }
 
@@ -6903,7 +6903,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bitrate is required")]
     public required TerraformValue<double> Bitrate
     {
-        get => GetArgument<TerraformValue<double>>("bitrate");
+        get => GetRequiredArgument<TerraformValue<double>>("bitrate");
         set => SetArgument("bitrate", value);
     }
 
@@ -6919,27 +6919,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The color_metadata attribute.
     /// </summary>
-    public TerraformValue<string>? ColorMetadata
+    public TerraformValue<string> ColorMetadata
     {
-        get => GetArgument<TerraformValue<string>>("color_metadata");
+        get => GetArgument<TerraformValue<string>>("color_metadata") ?? AsReference("color_metadata");
         set => SetArgument("color_metadata", value);
     }
 
     /// <summary>
     /// The fixed_afd attribute.
     /// </summary>
-    public TerraformValue<string>? FixedAfd
+    public TerraformValue<string> FixedAfd
     {
-        get => GetArgument<TerraformValue<string>>("fixed_afd");
+        get => GetArgument<TerraformValue<string>>("fixed_afd") ?? AsReference("fixed_afd");
         set => SetArgument("fixed_afd", value);
     }
 
     /// <summary>
     /// The flicker_aq attribute.
     /// </summary>
-    public TerraformValue<string>? FlickerAq
+    public TerraformValue<string> FlickerAq
     {
-        get => GetArgument<TerraformValue<string>>("flicker_aq");
+        get => GetArgument<TerraformValue<string>>("flicker_aq") ?? AsReference("flicker_aq");
         set => SetArgument("flicker_aq", value);
     }
 
@@ -6949,7 +6949,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FramerateDenominator is required")]
     public required TerraformValue<double> FramerateDenominator
     {
-        get => GetArgument<TerraformValue<double>>("framerate_denominator");
+        get => GetRequiredArgument<TerraformValue<double>>("framerate_denominator");
         set => SetArgument("framerate_denominator", value);
     }
 
@@ -6959,7 +6959,7 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FramerateNumerator is required")]
     public required TerraformValue<double> FramerateNumerator
     {
-        get => GetArgument<TerraformValue<double>>("framerate_numerator");
+        get => GetRequiredArgument<TerraformValue<double>>("framerate_numerator");
         set => SetArgument("framerate_numerator", value);
     }
 
@@ -6984,27 +6984,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The gop_size_units attribute.
     /// </summary>
-    public TerraformValue<string>? GopSizeUnits
+    public TerraformValue<string> GopSizeUnits
     {
-        get => GetArgument<TerraformValue<string>>("gop_size_units");
+        get => GetArgument<TerraformValue<string>>("gop_size_units") ?? AsReference("gop_size_units");
         set => SetArgument("gop_size_units", value);
     }
 
     /// <summary>
     /// The level attribute.
     /// </summary>
-    public TerraformValue<string>? Level
+    public TerraformValue<string> Level
     {
-        get => GetArgument<TerraformValue<string>>("level");
+        get => GetArgument<TerraformValue<string>>("level") ?? AsReference("level");
         set => SetArgument("level", value);
     }
 
     /// <summary>
     /// The look_ahead_rate_control attribute.
     /// </summary>
-    public TerraformValue<string>? LookAheadRateControl
+    public TerraformValue<string> LookAheadRateControl
     {
-        get => GetArgument<TerraformValue<string>>("look_ahead_rate_control");
+        get => GetArgument<TerraformValue<string>>("look_ahead_rate_control") ?? AsReference("look_ahead_rate_control");
         set => SetArgument("look_ahead_rate_control", value);
     }
 
@@ -7038,18 +7038,18 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The mv_over_picture_boundaries attribute.
     /// </summary>
-    public TerraformValue<string>? MvOverPictureBoundaries
+    public TerraformValue<string> MvOverPictureBoundaries
     {
-        get => GetArgument<TerraformValue<string>>("mv_over_picture_boundaries");
+        get => GetArgument<TerraformValue<string>>("mv_over_picture_boundaries") ?? AsReference("mv_over_picture_boundaries");
         set => SetArgument("mv_over_picture_boundaries", value);
     }
 
     /// <summary>
     /// The mv_temporal_predictor attribute.
     /// </summary>
-    public TerraformValue<string>? MvTemporalPredictor
+    public TerraformValue<string> MvTemporalPredictor
     {
-        get => GetArgument<TerraformValue<string>>("mv_temporal_predictor");
+        get => GetArgument<TerraformValue<string>>("mv_temporal_predictor") ?? AsReference("mv_temporal_predictor");
         set => SetArgument("mv_temporal_predictor", value);
     }
 
@@ -7074,9 +7074,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The profile attribute.
     /// </summary>
-    public TerraformValue<string>? Profile
+    public TerraformValue<string> Profile
     {
-        get => GetArgument<TerraformValue<string>>("profile");
+        get => GetArgument<TerraformValue<string>>("profile") ?? AsReference("profile");
         set => SetArgument("profile", value);
     }
 
@@ -7092,27 +7092,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The rate_control_mode attribute.
     /// </summary>
-    public TerraformValue<string>? RateControlMode
+    public TerraformValue<string> RateControlMode
     {
-        get => GetArgument<TerraformValue<string>>("rate_control_mode");
+        get => GetArgument<TerraformValue<string>>("rate_control_mode") ?? AsReference("rate_control_mode");
         set => SetArgument("rate_control_mode", value);
     }
 
     /// <summary>
     /// The scan_type attribute.
     /// </summary>
-    public TerraformValue<string>? ScanType
+    public TerraformValue<string> ScanType
     {
-        get => GetArgument<TerraformValue<string>>("scan_type");
+        get => GetArgument<TerraformValue<string>>("scan_type") ?? AsReference("scan_type");
         set => SetArgument("scan_type", value);
     }
 
     /// <summary>
     /// The scene_change_detect attribute.
     /// </summary>
-    public TerraformValue<string>? SceneChangeDetect
+    public TerraformValue<string> SceneChangeDetect
     {
-        get => GetArgument<TerraformValue<string>>("scene_change_detect");
+        get => GetArgument<TerraformValue<string>>("scene_change_detect") ?? AsReference("scene_change_detect");
         set => SetArgument("scene_change_detect", value);
     }
 
@@ -7128,9 +7128,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformValue<string>? Tier
+    public TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier");
+        get => GetArgument<TerraformValue<string>>("tier") ?? AsReference("tier");
         set => SetArgument("tier", value);
     }
 
@@ -7146,9 +7146,9 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The tile_padding attribute.
     /// </summary>
-    public TerraformValue<string>? TilePadding
+    public TerraformValue<string> TilePadding
     {
-        get => GetArgument<TerraformValue<string>>("tile_padding");
+        get => GetArgument<TerraformValue<string>>("tile_padding") ?? AsReference("tile_padding");
         set => SetArgument("tile_padding", value);
     }
 
@@ -7164,18 +7164,18 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The timecode_insertion attribute.
     /// </summary>
-    public TerraformValue<string>? TimecodeInsertion
+    public TerraformValue<string> TimecodeInsertion
     {
-        get => GetArgument<TerraformValue<string>>("timecode_insertion");
+        get => GetArgument<TerraformValue<string>>("timecode_insertion") ?? AsReference("timecode_insertion");
         set => SetArgument("timecode_insertion", value);
     }
 
     /// <summary>
     /// The treeblock_size attribute.
     /// </summary>
-    public TerraformValue<string>? TreeblockSize
+    public TerraformValue<string> TreeblockSize
     {
-        get => GetArgument<TerraformValue<string>>("treeblock_size");
+        get => GetArgument<TerraformValue<string>>("treeblock_size") ?? AsReference("treeblock_size");
         set => SetArgument("treeblock_size", value);
     }
 
@@ -7425,27 +7425,27 @@ public class AwsMedialiveChannelEncoderSettingsBlockVideoDescriptionsBlockCodecS
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformValue<string>? Prefix
+    public TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix");
+        get => GetArgument<TerraformValue<string>>("prefix") ?? AsReference("prefix");
         set => SetArgument("prefix", value);
     }
 
     /// <summary>
     /// The timecode_burnin_font_size attribute.
     /// </summary>
-    public TerraformValue<string>? TimecodeBurninFontSize
+    public TerraformValue<string> TimecodeBurninFontSize
     {
-        get => GetArgument<TerraformValue<string>>("timecode_burnin_font_size");
+        get => GetArgument<TerraformValue<string>>("timecode_burnin_font_size") ?? AsReference("timecode_burnin_font_size");
         set => SetArgument("timecode_burnin_font_size", value);
     }
 
     /// <summary>
     /// The timecode_burnin_position attribute.
     /// </summary>
-    public TerraformValue<string>? TimecodeBurninPosition
+    public TerraformValue<string> TimecodeBurninPosition
     {
-        get => GetArgument<TerraformValue<string>>("timecode_burnin_position");
+        get => GetArgument<TerraformValue<string>>("timecode_burnin_position") ?? AsReference("timecode_burnin_position");
         set => SetArgument("timecode_burnin_position", value);
     }
 
@@ -7469,7 +7469,7 @@ public class AwsMedialiveChannelInputAttachmentsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputAttachmentName is required")]
     public required TerraformValue<string> InputAttachmentName
     {
-        get => GetArgument<TerraformValue<string>>("input_attachment_name");
+        get => GetRequiredArgument<TerraformValue<string>>("input_attachment_name");
         set => SetArgument("input_attachment_name", value);
     }
 
@@ -7479,7 +7479,7 @@ public class AwsMedialiveChannelInputAttachmentsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputId is required")]
     public required TerraformValue<string> InputId
     {
-        get => GetArgument<TerraformValue<string>>("input_id");
+        get => GetRequiredArgument<TerraformValue<string>>("input_id");
         set => SetArgument("input_id", value);
     }
 
@@ -7540,7 +7540,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockAutomaticInputFailoverSetti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondaryInputId is required")]
     public required TerraformValue<string> SecondaryInputId
     {
-        get => GetArgument<TerraformValue<string>>("secondary_input_id");
+        get => GetRequiredArgument<TerraformValue<string>>("secondary_input_id");
         set => SetArgument("secondary_input_id", value);
     }
 
@@ -7638,7 +7638,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockAutomaticInputFailoverSetti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AudioSelectorName is required")]
     public required TerraformValue<string> AudioSelectorName
     {
-        get => GetArgument<TerraformValue<string>>("audio_selector_name");
+        get => GetRequiredArgument<TerraformValue<string>>("audio_selector_name");
         set => SetArgument("audio_selector_name", value);
     }
 
@@ -7747,9 +7747,9 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlock : Terraf
     /// <summary>
     /// The input_filter attribute.
     /// </summary>
-    public TerraformValue<string>? InputFilter
+    public TerraformValue<string> InputFilter
     {
-        get => GetArgument<TerraformValue<string>>("input_filter");
+        get => GetArgument<TerraformValue<string>>("input_filter") ?? AsReference("input_filter");
         set => SetArgument("input_filter", value);
     }
 
@@ -7837,7 +7837,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockAudioSele
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -7923,7 +7923,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockAudioSele
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformValue<string> GroupId
     {
-        get => GetArgument<TerraformValue<string>>("group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
@@ -7933,7 +7933,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockAudioSele
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -7956,7 +7956,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockAudioSele
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetRequiredArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -7988,7 +7988,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockAudioSele
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pid is required")]
     public required TerraformValue<double> Pid
     {
-        get => GetArgument<TerraformValue<double>>("pid");
+        get => GetRequiredArgument<TerraformValue<double>>("pid");
         set => SetArgument("pid", value);
     }
 
@@ -8046,7 +8046,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockAudioSele
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramSelection is required")]
     public required TerraformValue<string> ProgramSelection
     {
-        get => GetArgument<TerraformValue<string>>("program_selection");
+        get => GetRequiredArgument<TerraformValue<string>>("program_selection");
         set => SetArgument("program_selection", value);
     }
 
@@ -8069,7 +8069,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockAudioSele
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Track is required")]
     public required TerraformValue<double> Track
     {
-        get => GetArgument<TerraformValue<double>>("track");
+        get => GetRequiredArgument<TerraformValue<double>>("track");
         set => SetArgument("track", value);
     }
 
@@ -8101,7 +8101,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockCaptionSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -8417,7 +8417,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockCaptionSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Height is required")]
     public required TerraformValue<double> Height
     {
-        get => GetArgument<TerraformValue<double>>("height");
+        get => GetRequiredArgument<TerraformValue<double>>("height");
         set => SetArgument("height", value);
     }
 
@@ -8427,7 +8427,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockCaptionSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LeftOffset is required")]
     public required TerraformValue<double> LeftOffset
     {
-        get => GetArgument<TerraformValue<double>>("left_offset");
+        get => GetRequiredArgument<TerraformValue<double>>("left_offset");
         set => SetArgument("left_offset", value);
     }
 
@@ -8437,7 +8437,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockCaptionSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopOffset is required")]
     public required TerraformValue<double> TopOffset
     {
-        get => GetArgument<TerraformValue<double>>("top_offset");
+        get => GetRequiredArgument<TerraformValue<double>>("top_offset");
         set => SetArgument("top_offset", value);
     }
 
@@ -8447,7 +8447,7 @@ public class AwsMedialiveChannelInputAttachmentsBlockInputSettingsBlockCaptionSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Width is required")]
     public required TerraformValue<double> Width
     {
-        get => GetArgument<TerraformValue<double>>("width");
+        get => GetRequiredArgument<TerraformValue<double>>("width");
         set => SetArgument("width", value);
     }
 
@@ -8592,7 +8592,7 @@ public class AwsMedialiveChannelInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Codec is required")]
     public required TerraformValue<string> Codec
     {
-        get => GetArgument<TerraformValue<string>>("codec");
+        get => GetRequiredArgument<TerraformValue<string>>("codec");
         set => SetArgument("codec", value);
     }
 
@@ -8602,7 +8602,7 @@ public class AwsMedialiveChannelInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputResolution is required")]
     public required TerraformValue<string> InputResolution
     {
-        get => GetArgument<TerraformValue<string>>("input_resolution");
+        get => GetRequiredArgument<TerraformValue<string>>("input_resolution");
         set => SetArgument("input_resolution", value);
     }
 
@@ -8612,7 +8612,7 @@ public class AwsMedialiveChannelInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumBitrate is required")]
     public required TerraformValue<string> MaximumBitrate
     {
-        get => GetArgument<TerraformValue<string>>("maximum_bitrate");
+        get => GetRequiredArgument<TerraformValue<string>>("maximum_bitrate");
         set => SetArgument("maximum_bitrate", value);
     }
 
@@ -8636,7 +8636,7 @@ public class AwsMedialiveChannelMaintenanceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceDay is required")]
     public required TerraformValue<string> MaintenanceDay
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_day");
+        get => GetRequiredArgument<TerraformValue<string>>("maintenance_day");
         set => SetArgument("maintenance_day", value);
     }
 
@@ -8646,7 +8646,7 @@ public class AwsMedialiveChannelMaintenanceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceStartTime is required")]
     public required TerraformValue<string> MaintenanceStartTime
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("maintenance_start_time");
         set => SetArgument("maintenance_start_time", value);
     }
 
@@ -8730,9 +8730,9 @@ public class AwsMedialiveChannelVpcBlock : TerraformBlock
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroupIds
+    public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -8742,7 +8742,7 @@ public class AwsMedialiveChannelVpcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -8761,25 +8761,25 @@ public partial class AwsMedialiveChannel(string name) : TerraformResource("aws_m
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelClass is required")]
     public required TerraformValue<string> ChannelClass
     {
-        get => GetArgument<TerraformValue<string>>("channel_class");
+        get => GetRequiredArgument<TerraformValue<string>>("channel_class");
         set => SetArgument("channel_class", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
-    public TerraformValue<string>? LogLevel
+    public TerraformValue<string> LogLevel
     {
-        get => GetArgument<TerraformValue<string>>("log_level");
+        get => GetArgument<TerraformValue<string>>("log_level") ?? AsReference("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -8789,16 +8789,16 @@ public partial class AwsMedialiveChannel(string name) : TerraformResource("aws_m
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -8832,9 +8832,9 @@ public partial class AwsMedialiveChannel(string name) : TerraformResource("aws_m
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

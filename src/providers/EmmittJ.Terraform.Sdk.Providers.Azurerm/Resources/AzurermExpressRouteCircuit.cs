@@ -19,7 +19,7 @@ public class AzurermExpressRouteCircuitSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformValue<string> Family
     {
-        get => GetArgument<TerraformValue<string>>("family");
+        get => GetRequiredArgument<TerraformValue<string>>("family");
         set => SetArgument("family", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermExpressRouteCircuitSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier");
+        get => GetRequiredArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -140,9 +140,9 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

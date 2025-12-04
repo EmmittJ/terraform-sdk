@@ -14,43 +14,43 @@ public partial class AwsLakeformationResource(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The hybrid_access_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? HybridAccessEnabled
+    public TerraformValue<bool> HybridAccessEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("hybrid_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("hybrid_access_enabled") ?? AsReference("hybrid_access_enabled");
         set => SetArgument("hybrid_access_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformValue<string>? RoleArn
+    public TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn") ?? AsReference("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -66,18 +66,18 @@ public partial class AwsLakeformationResource(string name) : TerraformResource("
     /// <summary>
     /// The with_federation attribute.
     /// </summary>
-    public TerraformValue<bool>? WithFederation
+    public TerraformValue<bool> WithFederation
     {
-        get => GetArgument<TerraformValue<bool>>("with_federation");
+        get => GetArgument<TerraformValue<bool>>("with_federation") ?? AsReference("with_federation");
         set => SetArgument("with_federation", value);
     }
 
     /// <summary>
     /// The with_privileged_access attribute.
     /// </summary>
-    public TerraformValue<bool>? WithPrivilegedAccess
+    public TerraformValue<bool> WithPrivilegedAccess
     {
-        get => GetArgument<TerraformValue<bool>>("with_privileged_access");
+        get => GetArgument<TerraformValue<bool>>("with_privileged_access") ?? AsReference("with_privileged_access");
         set => SetArgument("with_privileged_access", value);
     }
 

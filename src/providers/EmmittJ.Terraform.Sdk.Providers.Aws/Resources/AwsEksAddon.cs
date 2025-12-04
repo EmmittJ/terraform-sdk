@@ -19,7 +19,7 @@ public class AwsEksAddonPodIdentityAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEksAddonPodIdentityAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetRequiredArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -89,16 +89,16 @@ public partial class AwsEksAddon(string name) : TerraformResource("aws_eks_addon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddonName is required")]
     public required TerraformValue<string> AddonName
     {
-        get => GetArgument<TerraformValue<string>>("addon_name");
+        get => GetRequiredArgument<TerraformValue<string>>("addon_name");
         set => SetArgument("addon_name", value);
     }
 
     /// <summary>
     /// The addon_version attribute.
     /// </summary>
-    public TerraformValue<string>? AddonVersion
+    public TerraformValue<string> AddonVersion
     {
-        get => GetArgument<TerraformValue<string>>("addon_version");
+        get => GetArgument<TerraformValue<string>>("addon_version") ?? AsReference("addon_version");
         set => SetArgument("addon_version", value);
     }
 
@@ -108,25 +108,25 @@ public partial class AwsEksAddon(string name) : TerraformResource("aws_eks_addon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
     /// <summary>
     /// The configuration_values attribute.
     /// </summary>
-    public TerraformValue<string>? ConfigurationValues
+    public TerraformValue<string> ConfigurationValues
     {
-        get => GetArgument<TerraformValue<string>>("configuration_values");
+        get => GetArgument<TerraformValue<string>>("configuration_values") ?? AsReference("configuration_values");
         set => SetArgument("configuration_values", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -142,9 +142,9 @@ public partial class AwsEksAddon(string name) : TerraformResource("aws_eks_addon
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -187,9 +187,9 @@ public partial class AwsEksAddon(string name) : TerraformResource("aws_eks_addon
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

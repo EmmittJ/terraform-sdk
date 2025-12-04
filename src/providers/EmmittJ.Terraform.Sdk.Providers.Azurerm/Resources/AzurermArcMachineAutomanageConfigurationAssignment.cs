@@ -55,7 +55,7 @@ public partial class AzurermArcMachineAutomanageConfigurationAssignment(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcMachineId is required")]
     public required TerraformValue<string> ArcMachineId
     {
-        get => GetArgument<TerraformValue<string>>("arc_machine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("arc_machine_id");
         set => SetArgument("arc_machine_id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermArcMachineAutomanageConfigurationAssignment(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationId is required")]
     public required TerraformValue<string> ConfigurationId
     {
-        get => GetArgument<TerraformValue<string>>("configuration_id");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_id");
         set => SetArgument("configuration_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

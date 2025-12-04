@@ -55,16 +55,16 @@ public partial class AzurermSignalrServiceCustomCertificate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomCertificateId is required")]
     public required TerraformValue<string> CustomCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("custom_certificate_id");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_certificate_id");
         set => SetArgument("custom_certificate_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSignalrServiceCustomCertificate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermSignalrServiceCustomCertificate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     public required TerraformValue<string> SignalrServiceId
     {
-        get => GetArgument<TerraformValue<string>>("signalr_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("signalr_service_id");
         set => SetArgument("signalr_service_id", value);
     }
 

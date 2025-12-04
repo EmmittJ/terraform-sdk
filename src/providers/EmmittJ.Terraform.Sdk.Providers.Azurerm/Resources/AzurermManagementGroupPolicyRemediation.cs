@@ -70,9 +70,9 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformValue<string> ManagementGroupId
     {
-        get => GetArgument<TerraformValue<string>>("management_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("management_group_id");
         set => SetArgument("management_group_id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
     public required TerraformValue<string> PolicyAssignmentId
     {
-        get => GetArgument<TerraformValue<string>>("policy_assignment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_assignment_id");
         set => SetArgument("policy_assignment_id", value);
     }
 

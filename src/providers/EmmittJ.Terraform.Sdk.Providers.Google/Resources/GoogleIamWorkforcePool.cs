@@ -136,9 +136,9 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -148,7 +148,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -158,7 +158,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -183,7 +183,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformValue<string> WorkforcePoolId
     {
-        get => GetArgument<TerraformValue<string>>("workforce_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workforce_pool_id");
         set => SetArgument("workforce_pool_id", value);
     }
 

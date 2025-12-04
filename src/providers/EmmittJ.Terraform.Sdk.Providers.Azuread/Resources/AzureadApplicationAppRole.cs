@@ -64,7 +64,7 @@ public partial class AzureadApplicationAppRole(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMemberTypes is required")]
     public required TerraformSet<string> AllowedMemberTypes
     {
-        get => GetArgument<TerraformSet<string>>("allowed_member_types");
+        get => GetRequiredArgument<TerraformSet<string>>("allowed_member_types");
         set => SetArgument("allowed_member_types", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadApplicationAppRole(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzureadApplicationAppRole(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -94,16 +94,16 @@ public partial class AzureadApplicationAppRole(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzureadApplicationAppRole(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformValue<string> RoleId
     {
-        get => GetArgument<TerraformValue<string>>("role_id");
+        get => GetRequiredArgument<TerraformValue<string>>("role_id");
         set => SetArgument("role_id", value);
     }
 

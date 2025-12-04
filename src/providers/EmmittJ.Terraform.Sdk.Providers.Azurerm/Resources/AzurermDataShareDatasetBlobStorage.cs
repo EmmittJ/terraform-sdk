@@ -19,7 +19,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
     public required TerraformValue<string> DataShareId
     {
-        get => GetArgument<TerraformValue<string>>("data_share_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_share_id");
         set => SetArgument("data_share_id", value);
     }
 
@@ -134,9 +134,9 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

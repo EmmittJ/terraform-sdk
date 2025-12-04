@@ -19,7 +19,7 @@ public class AzureadCustomDirectoryRolePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedResourceActions is required")]
     public required TerraformSet<string> AllowedResourceActions
     {
-        get => GetArgument<TerraformSet<string>>("allowed_resource_actions");
+        get => GetRequiredArgument<TerraformSet<string>>("allowed_resource_actions");
         set => SetArgument("allowed_resource_actions", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AzureadCustomDirectoryRole(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -107,25 +107,25 @@ public partial class AzureadCustomDirectoryRole(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Custom template identifier that is typically used if one needs an identifier to be the same across different directories.
     /// </summary>
-    public TerraformValue<string>? TemplateId
+    public TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id");
+        get => GetArgument<TerraformValue<string>>("template_id") ?? AsReference("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzureadCustomDirectoryRole(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

@@ -11,9 +11,9 @@ public partial class GoogleOrganizationIamCustomRoleDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleOrganizationIamCustomRoleDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleOrganizationIamCustomRoleDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformValue<string> RoleId
     {
-        get => GetArgument<TerraformValue<string>>("role_id");
+        get => GetRequiredArgument<TerraformValue<string>>("role_id");
         set => SetArgument("role_id", value);
     }
 

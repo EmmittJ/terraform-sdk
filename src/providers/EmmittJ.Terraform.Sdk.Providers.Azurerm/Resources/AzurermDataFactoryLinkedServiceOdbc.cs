@@ -19,7 +19,7 @@ public class AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AzurermDataFactoryLinkedServiceOdbc(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformValue<string> ConnectionString
     {
-        get => GetArgument<TerraformValue<string>>("connection_string");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AzurermDataFactoryLinkedServiceOdbc(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -142,9 +142,9 @@ public partial class AzurermDataFactoryLinkedServiceOdbc(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermDataFactoryLinkedServiceOdbc(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

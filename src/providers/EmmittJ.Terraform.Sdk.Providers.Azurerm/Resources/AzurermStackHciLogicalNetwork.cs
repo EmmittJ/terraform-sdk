@@ -28,7 +28,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAllocationMethod is required")]
     public required TerraformValue<string> IpAllocationMethod
     {
-        get => GetArgument<TerraformValue<string>>("ip_allocation_method");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_allocation_method");
         set => SetArgument("ip_allocation_method", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlockIpPoolBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<string> End
     {
-        get => GetArgument<TerraformValue<string>>("end");
+        get => GetRequiredArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlockIpPoolBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<string> Start
     {
-        get => GetArgument<TerraformValue<string>>("start");
+        get => GetRequiredArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlockRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
     public required TerraformValue<string> AddressPrefix
     {
-        get => GetArgument<TerraformValue<string>>("address_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("address_prefix");
         set => SetArgument("address_prefix", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlockRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHopIpAddress is required")]
     public required TerraformValue<string> NextHopIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("next_hop_ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("next_hop_ip_address");
         set => SetArgument("next_hop_ip_address", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     public required TerraformValue<string> CustomLocationId
     {
-        get => GetArgument<TerraformValue<string>>("custom_location_id");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_location_id");
         set => SetArgument("custom_location_id", value);
     }
 
@@ -216,9 +216,9 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -228,7 +228,7 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -248,7 +248,7 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -267,7 +267,7 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualSwitchName is required")]
     public required TerraformValue<string> VirtualSwitchName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_switch_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_switch_name");
         set => SetArgument("virtual_switch_name", value);
     }
 

@@ -28,7 +28,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetRequiredArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -71,18 +71,18 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    public TerraformValue<double>? VolumeSize
+    public TerraformValue<double> VolumeSize
     {
-        get => GetArgument<TerraformValue<double>>("volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size") ?? AsReference("volume_size");
         set => SetArgument("volume_size", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsAmiEphemeralBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetRequiredArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsAmiEphemeralBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualName is required")]
     public required TerraformValue<string> VirtualName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_name");
         set => SetArgument("virtual_name", value);
     }
 
@@ -227,18 +227,18 @@ public partial class AwsAmi(string name) : TerraformResource("aws_ami", name)
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The image_location attribute.
     /// </summary>
-    public TerraformValue<string>? ImageLocation
+    public TerraformValue<string> ImageLocation
     {
-        get => GetArgument<TerraformValue<string>>("image_location");
+        get => GetArgument<TerraformValue<string>>("image_location") ?? AsReference("image_location");
         set => SetArgument("image_location", value);
     }
 
@@ -266,7 +266,7 @@ public partial class AwsAmi(string name) : TerraformResource("aws_ami", name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -282,9 +282,9 @@ public partial class AwsAmi(string name) : TerraformResource("aws_ami", name)
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -318,9 +318,9 @@ public partial class AwsAmi(string name) : TerraformResource("aws_ami", name)
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

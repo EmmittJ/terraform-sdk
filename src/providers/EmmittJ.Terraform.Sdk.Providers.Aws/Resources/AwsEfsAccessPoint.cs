@@ -19,7 +19,7 @@ public class AwsEfsAccessPointPosixUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     public required TerraformValue<double> Gid
     {
-        get => GetArgument<TerraformValue<double>>("gid");
+        get => GetRequiredArgument<TerraformValue<double>>("gid");
         set => SetArgument("gid", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsEfsAccessPointPosixUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     public required TerraformValue<double> Uid
     {
-        get => GetArgument<TerraformValue<double>>("uid");
+        get => GetRequiredArgument<TerraformValue<double>>("uid");
         set => SetArgument("uid", value);
     }
 
@@ -59,9 +59,9 @@ public class AwsEfsAccessPointRootDirectoryBlock : TerraformBlock
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformValue<string>? Path
+    public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
         set => SetArgument("path", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsEfsAccessPointRootDirectoryBlockCreationInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerGid is required")]
     public required TerraformValue<double> OwnerGid
     {
-        get => GetArgument<TerraformValue<double>>("owner_gid");
+        get => GetRequiredArgument<TerraformValue<double>>("owner_gid");
         set => SetArgument("owner_gid", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsEfsAccessPointRootDirectoryBlockCreationInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerUid is required")]
     public required TerraformValue<double> OwnerUid
     {
-        get => GetArgument<TerraformValue<double>>("owner_uid");
+        get => GetRequiredArgument<TerraformValue<double>>("owner_uid");
         set => SetArgument("owner_uid", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsEfsAccessPointRootDirectoryBlockCreationInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformValue<string> Permissions
     {
-        get => GetArgument<TerraformValue<string>>("permissions");
+        get => GetRequiredArgument<TerraformValue<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -133,25 +133,25 @@ public partial class AwsEfsAccessPoint(string name) : TerraformResource("aws_efs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -167,9 +167,9 @@ public partial class AwsEfsAccessPoint(string name) : TerraformResource("aws_efs
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

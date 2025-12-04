@@ -70,9 +70,9 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
     public required TerraformValue<string> PortfolioId
     {
-        get => GetArgument<TerraformValue<string>>("portfolio_id");
+        get => GetRequiredArgument<TerraformValue<string>>("portfolio_id");
         set => SetArgument("portfolio_id", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

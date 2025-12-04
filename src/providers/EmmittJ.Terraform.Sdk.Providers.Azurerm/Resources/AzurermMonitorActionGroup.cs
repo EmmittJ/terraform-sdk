@@ -19,7 +19,7 @@ public class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformValue<string> RoleId
     {
-        get => GetArgument<TerraformValue<string>>("role_id");
+        get => GetRequiredArgument<TerraformValue<string>>("role_id");
         set => SetArgument("role_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformValue<string> AutomationAccountId
     {
-        get => GetArgument<TerraformValue<string>>("automation_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("automation_account_id");
         set => SetArgument("automation_account_id", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsGlobalRunbook is required")]
     public required TerraformValue<bool> IsGlobalRunbook
     {
-        get => GetArgument<TerraformValue<bool>>("is_global_runbook");
+        get => GetRequiredArgument<TerraformValue<bool>>("is_global_runbook");
         set => SetArgument("is_global_runbook", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookName is required")]
     public required TerraformValue<string> RunbookName
     {
-        get => GetArgument<TerraformValue<string>>("runbook_name");
+        get => GetRequiredArgument<TerraformValue<string>>("runbook_name");
         set => SetArgument("runbook_name", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
     public required TerraformValue<string> ServiceUri
     {
-        get => GetArgument<TerraformValue<string>>("service_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("service_uri");
         set => SetArgument("service_uri", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookResourceId is required")]
     public required TerraformValue<string> WebhookResourceId
     {
-        get => GetArgument<TerraformValue<string>>("webhook_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("webhook_resource_id");
         set => SetArgument("webhook_resource_id", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermMonitorActionGroupAzureAppPushReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformValue<string> EmailAddress
     {
-        get => GetArgument<TerraformValue<string>>("email_address");
+        get => GetRequiredArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
@@ -155,7 +155,7 @@ public class AzurermMonitorActionGroupAzureAppPushReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppResourceId is required")]
     public required TerraformValue<string> FunctionAppResourceId
     {
-        get => GetArgument<TerraformValue<string>>("function_app_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("function_app_resource_id");
         set => SetArgument("function_app_resource_id", value);
     }
 
@@ -189,7 +189,7 @@ public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => GetArgument<TerraformValue<string>>("function_name");
+        get => GetRequiredArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpTriggerUrl is required")]
     public required TerraformValue<string> HttpTriggerUrl
     {
-        get => GetArgument<TerraformValue<string>>("http_trigger_url");
+        get => GetRequiredArgument<TerraformValue<string>>("http_trigger_url");
         set => SetArgument("http_trigger_url", value);
     }
 
@@ -209,7 +209,7 @@ public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformValue<string> EmailAddress
     {
-        get => GetArgument<TerraformValue<string>>("email_address");
+        get => GetRequiredArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -285,7 +285,7 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventHubName is required")]
     public required TerraformValue<string> EventHubName
     {
-        get => GetArgument<TerraformValue<string>>("event_hub_name");
+        get => GetRequiredArgument<TerraformValue<string>>("event_hub_name");
         set => SetArgument("event_hub_name", value);
     }
 
@@ -295,7 +295,7 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventHubNamespace is required")]
     public required TerraformValue<string> EventHubNamespace
     {
-        get => GetArgument<TerraformValue<string>>("event_hub_namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("event_hub_namespace");
         set => SetArgument("event_hub_namespace", value);
     }
 
@@ -305,25 +305,25 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformValue<string>? SubscriptionId
+    public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string>? TenantId
+    public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -356,7 +356,7 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformValue<string> ConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("connection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
@@ -366,7 +366,7 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -376,7 +376,7 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -386,7 +386,7 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TicketConfiguration is required")]
     public required TerraformValue<string> TicketConfiguration
     {
-        get => GetArgument<TerraformValue<string>>("ticket_configuration");
+        get => GetRequiredArgument<TerraformValue<string>>("ticket_configuration");
         set => SetArgument("ticket_configuration", value);
     }
 
@@ -396,7 +396,7 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -420,7 +420,7 @@ public class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUrl is required")]
     public required TerraformValue<string> CallbackUrl
     {
-        get => GetArgument<TerraformValue<string>>("callback_url");
+        get => GetRequiredArgument<TerraformValue<string>>("callback_url");
         set => SetArgument("callback_url", value);
     }
 
@@ -430,7 +430,7 @@ public class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -440,7 +440,7 @@ public class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => GetArgument<TerraformValue<string>>("resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -473,7 +473,7 @@ public class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
     public required TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code");
+        get => GetRequiredArgument<TerraformValue<string>>("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -483,7 +483,7 @@ public class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -493,7 +493,7 @@ public class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -567,7 +567,7 @@ public class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
     public required TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code");
+        get => GetRequiredArgument<TerraformValue<string>>("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -577,7 +577,7 @@ public class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -587,7 +587,7 @@ public class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -611,7 +611,7 @@ public class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -621,7 +621,7 @@ public class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
     public required TerraformValue<string> ServiceUri
     {
-        get => GetArgument<TerraformValue<string>>("service_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("service_uri");
         set => SetArgument("service_uri", value);
     }
 
@@ -660,9 +660,9 @@ public class AzurermMonitorActionGroupWebhookReceiverBlockAadAuthBlock : Terrafo
     /// <summary>
     /// The identifier_uri attribute.
     /// </summary>
-    public TerraformValue<string>? IdentifierUri
+    public TerraformValue<string> IdentifierUri
     {
-        get => GetArgument<TerraformValue<string>>("identifier_uri");
+        get => GetArgument<TerraformValue<string>>("identifier_uri") ?? AsReference("identifier_uri");
         set => SetArgument("identifier_uri", value);
     }
 
@@ -672,16 +672,16 @@ public class AzurermMonitorActionGroupWebhookReceiverBlockAadAuthBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string>? TenantId
+    public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -706,9 +706,9 @@ public partial class AzurermMonitorActionGroup(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -727,7 +727,7 @@ public partial class AzurermMonitorActionGroup(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -737,7 +737,7 @@ public partial class AzurermMonitorActionGroup(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -747,7 +747,7 @@ public partial class AzurermMonitorActionGroup(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
     public required TerraformValue<string> ShortName
     {
-        get => GetArgument<TerraformValue<string>>("short_name");
+        get => GetRequiredArgument<TerraformValue<string>>("short_name");
         set => SetArgument("short_name", value);
     }
 

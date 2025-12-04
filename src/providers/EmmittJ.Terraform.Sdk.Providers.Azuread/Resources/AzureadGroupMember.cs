@@ -55,16 +55,16 @@ public partial class AzureadGroupMember(string name) : TerraformResource("azurea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupObjectId is required")]
     public required TerraformValue<string> GroupObjectId
     {
-        get => GetArgument<TerraformValue<string>>("group_object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("group_object_id");
         set => SetArgument("group_object_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadGroupMember(string name) : TerraformResource("azurea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberObjectId is required")]
     public required TerraformValue<string> MemberObjectId
     {
-        get => GetArgument<TerraformValue<string>>("member_object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("member_object_id");
         set => SetArgument("member_object_id", value);
     }
 

@@ -52,9 +52,9 @@ public partial class AzurermManagementLock(string name) : TerraformResource("azu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermManagementLock(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LockLevel is required")]
     public required TerraformValue<string> LockLevel
     {
-        get => GetArgument<TerraformValue<string>>("lock_level");
+        get => GetRequiredArgument<TerraformValue<string>>("lock_level");
         set => SetArgument("lock_level", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermManagementLock(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermManagementLock(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 

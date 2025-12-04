@@ -19,7 +19,7 @@ public class AzurermDevTestScheduleDailyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformValue<string> Time
     {
-        get => GetArgument<TerraformValue<string>>("time");
+        get => GetRequiredArgument<TerraformValue<string>>("time");
         set => SetArgument("time", value);
     }
 
@@ -43,7 +43,7 @@ public class AzurermDevTestScheduleHourlyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
     public required TerraformValue<double> Minute
     {
-        get => GetArgument<TerraformValue<double>>("minute");
+        get => GetRequiredArgument<TerraformValue<double>>("minute");
         set => SetArgument("minute", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermDevTestScheduleWeeklyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformValue<string> Time
     {
-        get => GetArgument<TerraformValue<string>>("time");
+        get => GetRequiredArgument<TerraformValue<string>>("time");
         set => SetArgument("time", value);
     }
 
@@ -183,9 +183,9 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformValue<string> LabName
     {
-        get => GetArgument<TerraformValue<string>>("lab_name");
+        get => GetRequiredArgument<TerraformValue<string>>("lab_name");
         set => SetArgument("lab_name", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
     public required TerraformValue<string> TaskType
     {
-        get => GetArgument<TerraformValue<string>>("task_type");
+        get => GetRequiredArgument<TerraformValue<string>>("task_type");
         set => SetArgument("task_type", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZoneId is required")]
     public required TerraformValue<string> TimeZoneId
     {
-        get => GetArgument<TerraformValue<string>>("time_zone_id");
+        get => GetRequiredArgument<TerraformValue<string>>("time_zone_id");
         set => SetArgument("time_zone_id", value);
     }
 

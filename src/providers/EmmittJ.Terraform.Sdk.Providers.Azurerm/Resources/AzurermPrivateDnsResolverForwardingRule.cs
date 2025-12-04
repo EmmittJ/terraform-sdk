@@ -19,7 +19,7 @@ public class AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AzurermPrivateDnsResolverForwardingRule(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
     public required TerraformValue<string> DnsForwardingRulesetId
     {
-        get => GetArgument<TerraformValue<string>>("dns_forwarding_ruleset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dns_forwarding_ruleset_id");
         set => SetArgument("dns_forwarding_ruleset_id", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AzurermPrivateDnsResolverForwardingRule(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -123,9 +123,9 @@ public partial class AzurermPrivateDnsResolverForwardingRule(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzurermPrivateDnsResolverForwardingRule(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

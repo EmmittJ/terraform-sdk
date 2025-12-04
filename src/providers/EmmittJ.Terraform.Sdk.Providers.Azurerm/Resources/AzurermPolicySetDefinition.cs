@@ -55,7 +55,7 @@ public class AzurermPolicySetDefinitionPolicyDefinitionGroupBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermPolicySetDefinitionPolicyDefinitionReferenceBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDefinitionId is required")]
     public required TerraformValue<string> PolicyDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("policy_definition_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_definition_id");
         set => SetArgument("policy_definition_id", value);
     }
 
@@ -104,18 +104,18 @@ public class AzurermPolicySetDefinitionPolicyDefinitionReferenceBlock : Terrafor
     /// <summary>
     /// The reference_id attribute.
     /// </summary>
-    public TerraformValue<string>? ReferenceId
+    public TerraformValue<string> ReferenceId
     {
-        get => GetArgument<TerraformValue<string>>("reference_id");
+        get => GetArgument<TerraformValue<string>>("reference_id") ?? AsReference("reference_id");
         set => SetArgument("reference_id", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string>? Version
+    public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 
@@ -193,16 +193,16 @@ public partial class AzurermPolicySetDefinition(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -219,9 +219,9 @@ public partial class AzurermPolicySetDefinition(string name) : TerraformResource
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformValue<string>? Metadata
+    public TerraformValue<string> Metadata
     {
-        get => GetArgument<TerraformValue<string>>("metadata");
+        get => GetArgument<TerraformValue<string>>("metadata") ?? AsReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -231,7 +231,7 @@ public partial class AzurermPolicySetDefinition(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AzurermPolicySetDefinition(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     public required TerraformValue<string> PolicyType
     {
-        get => GetArgument<TerraformValue<string>>("policy_type");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_type");
         set => SetArgument("policy_type", value);
     }
 

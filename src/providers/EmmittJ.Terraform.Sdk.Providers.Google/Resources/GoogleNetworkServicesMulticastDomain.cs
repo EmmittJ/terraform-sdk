@@ -22,7 +22,7 @@ public class GoogleNetworkServicesMulticastDomainConnectionConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionType is required")]
     public required TerraformValue<string> ConnectionType
     {
-        get => GetArgument<TerraformValue<string>>("connection_type");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_type");
         set => SetArgument("connection_type", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleNetworkServicesMulticastDomain(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminNetwork is required")]
     public required TerraformValue<string> AdminNetwork
     {
-        get => GetArgument<TerraformValue<string>>("admin_network");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_network");
         set => SetArgument("admin_network", value);
     }
 
@@ -112,9 +112,9 @@ public partial class GoogleNetworkServicesMulticastDomain(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class GoogleNetworkServicesMulticastDomain(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -160,16 +160,16 @@ public partial class GoogleNetworkServicesMulticastDomain(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MulticastDomainId is required")]
     public required TerraformValue<string> MulticastDomainId
     {
-        get => GetArgument<TerraformValue<string>>("multicast_domain_id");
+        get => GetRequiredArgument<TerraformValue<string>>("multicast_domain_id");
         set => SetArgument("multicast_domain_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

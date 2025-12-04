@@ -14,16 +14,16 @@ public partial class AwsShieldProtectionHealthCheckAssociation(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthCheckArn is required")]
     public required TerraformValue<string> HealthCheckArn
     {
-        get => GetArgument<TerraformValue<string>>("health_check_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("health_check_arn");
         set => SetArgument("health_check_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsShieldProtectionHealthCheckAssociation(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShieldProtectionId is required")]
     public required TerraformValue<string> ShieldProtectionId
     {
-        get => GetArgument<TerraformValue<string>>("shield_protection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("shield_protection_id");
         set => SetArgument("shield_protection_id", value);
     }
 

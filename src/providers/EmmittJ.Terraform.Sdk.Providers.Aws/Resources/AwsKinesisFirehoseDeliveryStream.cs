@@ -55,7 +55,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformValue<string> IndexName
     {
-        get => GetArgument<TerraformValue<string>>("index_name");
+        get => GetRequiredArgument<TerraformValue<string>>("index_name");
         set => SetArgument("index_name", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -238,7 +238,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockProc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -270,7 +270,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockProc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -280,7 +280,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockProc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => GetArgument<TerraformValue<string>>("parameter_value");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -303,7 +303,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -367,7 +367,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -440,7 +440,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockVpcC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -450,7 +450,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockVpcC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -460,7 +460,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockVpcC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -490,7 +490,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -572,7 +572,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1102,9 +1102,9 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string>? CatalogId
+    public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -1114,16 +1114,16 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1133,7 +1133,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1143,7 +1143,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -1237,7 +1237,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1269,7 +1269,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -1279,7 +1279,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => GetArgument<TerraformValue<string>>("parameter_value");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -1302,7 +1302,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -1366,7 +1366,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1503,7 +1503,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -1650,7 +1650,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockProce
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1682,7 +1682,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockProce
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -1692,7 +1692,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockProce
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => GetArgument<TerraformValue<string>>("parameter_value");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -1746,7 +1746,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockReque
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1756,7 +1756,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockReque
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1779,7 +1779,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -1843,7 +1843,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1913,9 +1913,9 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockSecre
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1954,9 +1954,9 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// <summary>
     /// The append_only attribute.
     /// </summary>
-    public TerraformValue<bool>? AppendOnly
+    public TerraformValue<bool> AppendOnly
     {
-        get => GetArgument<TerraformValue<bool>>("append_only");
+        get => GetArgument<TerraformValue<bool>>("append_only") ?? AsReference("append_only");
         set => SetArgument("append_only", value);
     }
 
@@ -1984,7 +1984,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogArn is required")]
     public required TerraformValue<string> CatalogArn
     {
-        get => GetArgument<TerraformValue<string>>("catalog_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("catalog_arn");
         set => SetArgument("catalog_arn", value);
     }
 
@@ -2003,7 +2003,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2117,7 +2117,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockDestinatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -2136,7 +2136,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockDestinatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -2199,7 +2199,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockProcessing
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -2231,7 +2231,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockProcessing
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -2241,7 +2241,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockProcessing
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => GetArgument<TerraformValue<string>>("parameter_value");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -2264,7 +2264,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -2328,7 +2328,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2402,7 +2402,7 @@ public class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KinesisStreamArn is required")]
     public required TerraformValue<string> KinesisStreamArn
     {
-        get => GetArgument<TerraformValue<string>>("kinesis_stream_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("kinesis_stream_arn");
         set => SetArgument("kinesis_stream_arn", value);
     }
 
@@ -2412,7 +2412,7 @@ public class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2436,7 +2436,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MskClusterArn is required")]
     public required TerraformValue<string> MskClusterArn
     {
-        get => GetArgument<TerraformValue<string>>("msk_cluster_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("msk_cluster_arn");
         set => SetArgument("msk_cluster_arn", value);
     }
 
@@ -2455,7 +2455,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformValue<string> TopicName
     {
-        get => GetArgument<TerraformValue<string>>("topic_name");
+        get => GetRequiredArgument<TerraformValue<string>>("topic_name");
         set => SetArgument("topic_name", value);
     }
 
@@ -2491,7 +2491,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlockAuthenti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connectivity is required")]
     public required TerraformValue<string> Connectivity
     {
-        get => GetArgument<TerraformValue<string>>("connectivity");
+        get => GetRequiredArgument<TerraformValue<string>>("connectivity");
         set => SetArgument("connectivity", value);
     }
 
@@ -2501,7 +2501,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlockAuthenti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2561,7 +2561,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformValue<string> IndexName
     {
-        get => GetArgument<TerraformValue<string>>("index_name");
+        get => GetRequiredArgument<TerraformValue<string>>("index_name");
         set => SetArgument("index_name", value);
     }
 
@@ -2589,7 +2589,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2723,7 +2723,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockDocumen
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultDocumentIdFormat is required")]
     public required TerraformValue<string> DefaultDocumentIdFormat
     {
-        get => GetArgument<TerraformValue<string>>("default_document_id_format");
+        get => GetRequiredArgument<TerraformValue<string>>("default_document_id_format");
         set => SetArgument("default_document_id_format", value);
     }
 
@@ -2777,7 +2777,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -2809,7 +2809,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -2819,7 +2819,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => GetArgument<TerraformValue<string>>("parameter_value");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -2842,7 +2842,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -2906,7 +2906,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2979,7 +2979,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockVpcConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2989,7 +2989,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockVpcConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -2999,7 +2999,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockVpcConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -3047,7 +3047,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionEndpoint is required")]
     public required TerraformValue<string> CollectionEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("collection_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("collection_endpoint");
         set => SetArgument("collection_endpoint", value);
     }
 
@@ -3057,7 +3057,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformValue<string> IndexName
     {
-        get => GetArgument<TerraformValue<string>>("index_name");
+        get => GetRequiredArgument<TerraformValue<string>>("index_name");
         set => SetArgument("index_name", value);
     }
 
@@ -3076,7 +3076,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -3222,7 +3222,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -3254,7 +3254,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -3264,7 +3264,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => GetArgument<TerraformValue<string>>("parameter_value");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -3287,7 +3287,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -3351,7 +3351,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -3424,7 +3424,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -3434,7 +3434,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -3444,7 +3444,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -3474,7 +3474,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterJdbcurl is required")]
     public required TerraformValue<string> ClusterJdbcurl
     {
-        get => GetArgument<TerraformValue<string>>("cluster_jdbcurl");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_jdbcurl");
         set => SetArgument("cluster_jdbcurl", value);
     }
 
@@ -3502,7 +3502,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTableName is required")]
     public required TerraformValue<string> DataTableName
     {
-        get => GetArgument<TerraformValue<string>>("data_table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("data_table_name");
         set => SetArgument("data_table_name", value);
     }
 
@@ -3530,7 +3530,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -3695,7 +3695,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockProcessin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -3727,7 +3727,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockProcessin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -3737,7 +3737,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockProcessin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => GetArgument<TerraformValue<string>>("parameter_value");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -3760,7 +3760,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -3824,7 +3824,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -3897,7 +3897,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -3961,7 +3961,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -4031,9 +4031,9 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockSecretsMa
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4116,7 +4116,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountUrl is required")]
     public required TerraformValue<string> AccountUrl
     {
-        get => GetArgument<TerraformValue<string>>("account_url");
+        get => GetRequiredArgument<TerraformValue<string>>("account_url");
         set => SetArgument("account_url", value);
     }
 
@@ -4162,7 +4162,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -4208,7 +4208,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -4227,7 +4227,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -4237,7 +4237,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -4403,7 +4403,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockProcessi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -4435,7 +4435,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockProcessi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -4445,7 +4445,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockProcessi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => GetArgument<TerraformValue<string>>("parameter_value");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -4468,7 +4468,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -4532,7 +4532,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -4602,9 +4602,9 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockSecretsM
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4676,7 +4676,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockSnowflak
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkVpceId is required")]
     public required TerraformValue<string> PrivateLinkVpceId
     {
-        get => GetArgument<TerraformValue<string>>("private_link_vpce_id");
+        get => GetRequiredArgument<TerraformValue<string>>("private_link_vpce_id");
         set => SetArgument("private_link_vpce_id", value);
     }
 
@@ -4727,7 +4727,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HecEndpoint is required")]
     public required TerraformValue<string> HecEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("hec_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("hec_endpoint");
         set => SetArgument("hec_endpoint", value);
     }
 
@@ -4900,7 +4900,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockProcessingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -4932,7 +4932,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockProcessingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -4942,7 +4942,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockProcessingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => GetArgument<TerraformValue<string>>("parameter_value");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -4965,7 +4965,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -5029,7 +5029,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -5099,9 +5099,9 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockSecretsMana
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -5176,9 +5176,9 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string>? Arn
+    public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
         set => SetArgument("arn", value);
     }
 
@@ -5188,25 +5188,25 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => GetArgument<TerraformValue<string>>("destination");
+        get => GetRequiredArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
     /// <summary>
     /// The destination_id attribute.
     /// </summary>
-    public TerraformValue<string>? DestinationId
+    public TerraformValue<string> DestinationId
     {
-        get => GetArgument<TerraformValue<string>>("destination_id");
+        get => GetArgument<TerraformValue<string>>("destination_id") ?? AsReference("destination_id");
         set => SetArgument("destination_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -5216,16 +5216,16 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -5241,18 +5241,18 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformValue<string>? VersionId
+    public TerraformValue<string> VersionId
     {
-        get => GetArgument<TerraformValue<string>>("version_id");
+        get => GetArgument<TerraformValue<string>>("version_id") ?? AsReference("version_id");
         set => SetArgument("version_id", value);
     }
 

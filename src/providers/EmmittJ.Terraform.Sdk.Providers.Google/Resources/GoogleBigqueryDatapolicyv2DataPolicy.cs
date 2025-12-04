@@ -100,7 +100,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyId is required")]
     public required TerraformValue<string> DataPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("data_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_policy_id");
         set => SetArgument("data_policy_id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyType is required")]
     public required TerraformValue<string> DataPolicyType
     {
-        get => GetArgument<TerraformValue<string>>("data_policy_type");
+        get => GetRequiredArgument<TerraformValue<string>>("data_policy_type");
         set => SetArgument("data_policy_type", value);
     }
 
@@ -125,9 +125,9 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// populated in the response of GetDataPolicy, CreateDataPolicy, and
     /// UpdateDataPolicy calls.
     /// </summary>
-    public TerraformValue<string>? Etag
+    public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
         set => SetArgument("etag", value);
     }
 
@@ -141,18 +141,18 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// This field is supported in V2 Data Policy only. In case of V1 data policies
     /// (i.e. verion = 1 and policy_tag is set), this field is not populated.
     /// </summary>
-    public TerraformList<string>? Grantees
+    public TerraformList<string> Grantees
     {
-        get => GetArgument<TerraformList<string>>("grantees");
+        get => GetArgument<TerraformList<string>>("grantees") ?? AsReference("grantees");
         set => SetArgument("grantees", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -162,16 +162,16 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

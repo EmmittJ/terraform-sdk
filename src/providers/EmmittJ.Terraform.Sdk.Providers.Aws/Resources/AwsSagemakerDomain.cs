@@ -19,7 +19,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
     public required TerraformValue<string> ExecutionRole
     {
-        get => GetArgument<TerraformValue<string>>("execution_role");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_role");
         set => SetArgument("execution_role", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockCustomFileSystemConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockCustomFileSystemConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemPath is required")]
     public required TerraformValue<string> FileSystemPath
     {
-        get => GetArgument<TerraformValue<string>>("file_system_path");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_path");
         set => SetArgument("file_system_path", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockCustomPosixUserConfigBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     public required TerraformValue<double> Gid
     {
-        get => GetArgument<TerraformValue<double>>("gid");
+        get => GetRequiredArgument<TerraformValue<double>>("gid");
         set => SetArgument("gid", value);
     }
 
@@ -176,7 +176,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockCustomPosixUserConfigBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     public required TerraformValue<double> Uid
     {
-        get => GetArgument<TerraformValue<double>>("uid");
+        get => GetRequiredArgument<TerraformValue<double>>("uid");
         set => SetArgument("uid", value);
     }
 
@@ -352,7 +352,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockJupyterLabAppSettingsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => GetArgument<TerraformValue<string>>("repository_url");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
@@ -375,7 +375,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockJupyterLabAppSettingsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     public required TerraformValue<string> AppImageConfigName
     {
-        get => GetArgument<TerraformValue<string>>("app_image_config_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_image_config_name");
         set => SetArgument("app_image_config_name", value);
     }
 
@@ -385,7 +385,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockJupyterLabAppSettingsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => GetArgument<TerraformValue<string>>("image_name");
+        get => GetRequiredArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -548,7 +548,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockJupyterServerAppSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => GetArgument<TerraformValue<string>>("repository_url");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
@@ -671,7 +671,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockKernelGatewayAppSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     public required TerraformValue<string> AppImageConfigName
     {
-        get => GetArgument<TerraformValue<string>>("app_image_config_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_image_config_name");
         set => SetArgument("app_image_config_name", value);
     }
 
@@ -681,7 +681,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockKernelGatewayAppSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => GetArgument<TerraformValue<string>>("image_name");
+        get => GetRequiredArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -794,7 +794,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockSpaceStorageSettingsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultEbsVolumeSizeInGb is required")]
     public required TerraformValue<double> DefaultEbsVolumeSizeInGb
     {
-        get => GetArgument<TerraformValue<double>>("default_ebs_volume_size_in_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("default_ebs_volume_size_in_gb");
         set => SetArgument("default_ebs_volume_size_in_gb", value);
     }
 
@@ -804,7 +804,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlockSpaceStorageSettingsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumEbsVolumeSizeInGb is required")]
     public required TerraformValue<double> MaximumEbsVolumeSizeInGb
     {
-        get => GetArgument<TerraformValue<double>>("maximum_ebs_volume_size_in_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("maximum_ebs_volume_size_in_gb");
         set => SetArgument("maximum_ebs_volume_size_in_gb", value);
     }
 
@@ -825,18 +825,18 @@ public class AwsSagemakerDomainDefaultUserSettingsBlock : TerraformBlock
     /// <summary>
     /// The auto_mount_home_efs attribute.
     /// </summary>
-    public TerraformValue<string>? AutoMountHomeEfs
+    public TerraformValue<string> AutoMountHomeEfs
     {
-        get => GetArgument<TerraformValue<string>>("auto_mount_home_efs");
+        get => GetArgument<TerraformValue<string>>("auto_mount_home_efs") ?? AsReference("auto_mount_home_efs");
         set => SetArgument("auto_mount_home_efs", value);
     }
 
     /// <summary>
     /// The default_landing_uri attribute.
     /// </summary>
-    public TerraformValue<string>? DefaultLandingUri
+    public TerraformValue<string> DefaultLandingUri
     {
-        get => GetArgument<TerraformValue<string>>("default_landing_uri");
+        get => GetArgument<TerraformValue<string>>("default_landing_uri") ?? AsReference("default_landing_uri");
         set => SetArgument("default_landing_uri", value);
     }
 
@@ -846,7 +846,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
     public required TerraformValue<string> ExecutionRole
     {
-        get => GetArgument<TerraformValue<string>>("execution_role");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_role");
         set => SetArgument("execution_role", value);
     }
 
@@ -862,9 +862,9 @@ public class AwsSagemakerDomainDefaultUserSettingsBlock : TerraformBlock
     /// <summary>
     /// The studio_web_portal attribute.
     /// </summary>
-    public TerraformValue<string>? StudioWebPortal
+    public TerraformValue<string> StudioWebPortal
     {
-        get => GetArgument<TerraformValue<string>>("studio_web_portal");
+        get => GetArgument<TerraformValue<string>>("studio_web_portal") ?? AsReference("studio_web_portal");
         set => SetArgument("studio_web_portal", value);
     }
 
@@ -1193,7 +1193,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockCanvasAppSettingsBlockIde
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretArn is required")]
     public required TerraformValue<string> SecretArn
     {
-        get => GetArgument<TerraformValue<string>>("secret_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 
@@ -1473,7 +1473,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockCodeEditorAppSettingsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     public required TerraformValue<string> AppImageConfigName
     {
-        get => GetArgument<TerraformValue<string>>("app_image_config_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_image_config_name");
         set => SetArgument("app_image_config_name", value);
     }
 
@@ -1483,7 +1483,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockCodeEditorAppSettingsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => GetArgument<TerraformValue<string>>("image_name");
+        get => GetRequiredArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -1596,7 +1596,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockCustomFileSystemConfigBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -1606,7 +1606,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockCustomFileSystemConfigBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemPath is required")]
     public required TerraformValue<string> FileSystemPath
     {
-        get => GetArgument<TerraformValue<string>>("file_system_path");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_path");
         set => SetArgument("file_system_path", value);
     }
 
@@ -1629,7 +1629,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockCustomPosixUserConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     public required TerraformValue<double> Gid
     {
-        get => GetArgument<TerraformValue<double>>("gid");
+        get => GetRequiredArgument<TerraformValue<double>>("gid");
         set => SetArgument("gid", value);
     }
 
@@ -1639,7 +1639,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockCustomPosixUserConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     public required TerraformValue<double> Uid
     {
-        get => GetArgument<TerraformValue<double>>("uid");
+        get => GetRequiredArgument<TerraformValue<double>>("uid");
         set => SetArgument("uid", value);
     }
 
@@ -1815,7 +1815,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockJupyterLabAppSettingsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => GetArgument<TerraformValue<string>>("repository_url");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
@@ -1838,7 +1838,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockJupyterLabAppSettingsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     public required TerraformValue<string> AppImageConfigName
     {
-        get => GetArgument<TerraformValue<string>>("app_image_config_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_image_config_name");
         set => SetArgument("app_image_config_name", value);
     }
 
@@ -1848,7 +1848,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockJupyterLabAppSettingsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => GetArgument<TerraformValue<string>>("image_name");
+        get => GetRequiredArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -2011,7 +2011,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockJupyterServerAppSettingsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => GetArgument<TerraformValue<string>>("repository_url");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
@@ -2134,7 +2134,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockKernelGatewayAppSettingsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     public required TerraformValue<string> AppImageConfigName
     {
-        get => GetArgument<TerraformValue<string>>("app_image_config_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_image_config_name");
         set => SetArgument("app_image_config_name", value);
     }
 
@@ -2144,7 +2144,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockKernelGatewayAppSettingsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => GetArgument<TerraformValue<string>>("image_name");
+        get => GetRequiredArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -2267,7 +2267,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockRSessionAppSettingsBlockC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     public required TerraformValue<string> AppImageConfigName
     {
-        get => GetArgument<TerraformValue<string>>("app_image_config_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_image_config_name");
         set => SetArgument("app_image_config_name", value);
     }
 
@@ -2277,7 +2277,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockRSessionAppSettingsBlockC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => GetArgument<TerraformValue<string>>("image_name");
+        get => GetRequiredArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -2461,7 +2461,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockSpaceStorageSettingsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultEbsVolumeSizeInGb is required")]
     public required TerraformValue<double> DefaultEbsVolumeSizeInGb
     {
-        get => GetArgument<TerraformValue<double>>("default_ebs_volume_size_in_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("default_ebs_volume_size_in_gb");
         set => SetArgument("default_ebs_volume_size_in_gb", value);
     }
 
@@ -2471,7 +2471,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlockSpaceStorageSettingsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumEbsVolumeSizeInGb is required")]
     public required TerraformValue<double> MaximumEbsVolumeSizeInGb
     {
-        get => GetArgument<TerraformValue<double>>("maximum_ebs_volume_size_in_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("maximum_ebs_volume_size_in_gb");
         set => SetArgument("maximum_ebs_volume_size_in_gb", value);
     }
 
@@ -2698,7 +2698,7 @@ public class AwsSagemakerDomainDomainSettingsBlockRStudioServerProDomainSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainExecutionRoleArn is required")]
     public required TerraformValue<string> DomainExecutionRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("domain_execution_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_execution_role_arn");
         set => SetArgument("domain_execution_role_arn", value);
     }
 
@@ -2844,7 +2844,7 @@ public partial class AwsSagemakerDomain(string name) : TerraformResource("aws_sa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthMode is required")]
     public required TerraformValue<string> AuthMode
     {
-        get => GetArgument<TerraformValue<string>>("auth_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("auth_mode");
         set => SetArgument("auth_mode", value);
     }
 
@@ -2854,16 +2854,16 @@ public partial class AwsSagemakerDomain(string name) : TerraformResource("aws_sa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2879,9 +2879,9 @@ public partial class AwsSagemakerDomain(string name) : TerraformResource("aws_sa
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -2891,7 +2891,7 @@ public partial class AwsSagemakerDomain(string name) : TerraformResource("aws_sa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -2916,9 +2916,9 @@ public partial class AwsSagemakerDomain(string name) : TerraformResource("aws_sa
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -2928,7 +2928,7 @@ public partial class AwsSagemakerDomain(string name) : TerraformResource("aws_sa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 

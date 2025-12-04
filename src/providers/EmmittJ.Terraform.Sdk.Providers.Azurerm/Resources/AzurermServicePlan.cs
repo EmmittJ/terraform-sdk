@@ -70,9 +70,9 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The maximum_elastic_worker_count attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumElasticWorkerCount
+    public TerraformValue<double> MaximumElasticWorkerCount
     {
-        get => GetArgument<TerraformValue<double>>("maximum_elastic_worker_count");
+        get => GetArgument<TerraformValue<double>>("maximum_elastic_worker_count") ?? AsReference("maximum_elastic_worker_count");
         set => SetArgument("maximum_elastic_worker_count", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformValue<string> OsType
     {
-        get => GetArgument<TerraformValue<string>>("os_type");
+        get => GetRequiredArgument<TerraformValue<string>>("os_type");
         set => SetArgument("os_type", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -165,9 +165,9 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// <summary>
     /// The worker_count attribute.
     /// </summary>
-    public TerraformValue<double>? WorkerCount
+    public TerraformValue<double> WorkerCount
     {
-        get => GetArgument<TerraformValue<double>>("worker_count");
+        get => GetArgument<TerraformValue<double>>("worker_count") ?? AsReference("worker_count");
         set => SetArgument("worker_count", value);
     }
 

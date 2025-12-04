@@ -24,7 +24,7 @@ public class GoogleLoggingOrganizationBucketConfigCmekSettingsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleLoggingOrganizationBucketConfigIndexConfigsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldPath is required")]
     public required TerraformValue<string> FieldPath
     {
-        get => GetArgument<TerraformValue<string>>("field_path");
+        get => GetRequiredArgument<TerraformValue<string>>("field_path");
         set => SetArgument("field_path", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleLoggingOrganizationBucketConfigIndexConfigsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -104,25 +104,25 @@ public partial class GoogleLoggingOrganizationBucketConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketId is required")]
     public required TerraformValue<string> BucketId
     {
-        get => GetArgument<TerraformValue<string>>("bucket_id");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_id");
         set => SetArgument("bucket_id", value);
     }
 
     /// <summary>
     /// An optional description for this bucket.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleLoggingOrganizationBucketConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -142,7 +142,7 @@ public partial class GoogleLoggingOrganizationBucketConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => GetArgument<TerraformValue<string>>("organization");
+        get => GetRequiredArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 

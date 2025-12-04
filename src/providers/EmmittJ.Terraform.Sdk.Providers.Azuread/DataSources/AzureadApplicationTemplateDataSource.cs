@@ -34,27 +34,27 @@ public partial class AzureadApplicationTemplateDataSource(string name) : Terrafo
     /// <summary>
     /// The display name for the application template
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The application template&#39;s ID
     /// </summary>
-    public TerraformValue<string>? TemplateId
+    public TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id");
+        get => GetArgument<TerraformValue<string>>("template_id") ?? AsReference("template_id");
         set => SetArgument("template_id", value);
     }
 

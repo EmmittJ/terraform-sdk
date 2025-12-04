@@ -19,7 +19,7 @@ public class AzurermMachineLearningWorkspaceEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMachineLearningWorkspaceEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermMachineLearningWorkspaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -145,9 +145,9 @@ public class AzurermMachineLearningWorkspaceManagedNetworkBlock : TerraformBlock
     /// <summary>
     /// The isolation_mode attribute.
     /// </summary>
-    public TerraformValue<string>? IsolationMode
+    public TerraformValue<string> IsolationMode
     {
-        get => GetArgument<TerraformValue<string>>("isolation_mode");
+        get => GetArgument<TerraformValue<string>>("isolation_mode") ?? AsReference("isolation_mode");
         set => SetArgument("isolation_mode", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformValue<string> ApplicationInsightsId
     {
-        get => GetArgument<TerraformValue<string>>("application_insights_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_insights_id");
         set => SetArgument("application_insights_id", value);
     }
 
@@ -300,9 +300,9 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -321,7 +321,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -340,7 +340,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -350,7 +350,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -378,7 +378,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -406,7 +406,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

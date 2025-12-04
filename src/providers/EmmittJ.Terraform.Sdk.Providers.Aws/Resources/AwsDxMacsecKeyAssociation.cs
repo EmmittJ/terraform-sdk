@@ -20,9 +20,9 @@ public partial class AwsDxMacsecKeyAssociation(string name) : TerraformResource(
     /// <summary>
     /// The ckn attribute.
     /// </summary>
-    public TerraformValue<string>? Ckn
+    public TerraformValue<string> Ckn
     {
-        get => GetArgument<TerraformValue<string>>("ckn");
+        get => GetArgument<TerraformValue<string>>("ckn") ?? AsReference("ckn");
         set => SetArgument("ckn", value);
     }
 
@@ -32,34 +32,34 @@ public partial class AwsDxMacsecKeyAssociation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformValue<string> ConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("connection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
-    public TerraformValue<string>? SecretArn
+    public TerraformValue<string> SecretArn
     {
-        get => GetArgument<TerraformValue<string>>("secret_arn");
+        get => GetArgument<TerraformValue<string>>("secret_arn") ?? AsReference("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 

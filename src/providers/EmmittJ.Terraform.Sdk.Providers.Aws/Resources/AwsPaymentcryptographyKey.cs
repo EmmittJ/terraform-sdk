@@ -19,7 +19,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     public required TerraformValue<string> KeyAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("key_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("key_algorithm");
         set => SetArgument("key_algorithm", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyClass is required")]
     public required TerraformValue<string> KeyClass
     {
-        get => GetArgument<TerraformValue<string>>("key_class");
+        get => GetRequiredArgument<TerraformValue<string>>("key_class");
         set => SetArgument("key_class", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUsage is required")]
     public required TerraformValue<string> KeyUsage
     {
-        get => GetArgument<TerraformValue<string>>("key_usage");
+        get => GetRequiredArgument<TerraformValue<string>>("key_usage");
         set => SetArgument("key_usage", value);
     }
 
@@ -68,81 +68,81 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : Ter
     /// <summary>
     /// The decrypt attribute.
     /// </summary>
-    public TerraformValue<bool>? Decrypt
+    public TerraformValue<bool> Decrypt
     {
-        get => GetArgument<TerraformValue<bool>>("decrypt");
+        get => GetArgument<TerraformValue<bool>>("decrypt") ?? AsReference("decrypt");
         set => SetArgument("decrypt", value);
     }
 
     /// <summary>
     /// The derive_key attribute.
     /// </summary>
-    public TerraformValue<bool>? DeriveKey
+    public TerraformValue<bool> DeriveKey
     {
-        get => GetArgument<TerraformValue<bool>>("derive_key");
+        get => GetArgument<TerraformValue<bool>>("derive_key") ?? AsReference("derive_key");
         set => SetArgument("derive_key", value);
     }
 
     /// <summary>
     /// The encrypt attribute.
     /// </summary>
-    public TerraformValue<bool>? Encrypt
+    public TerraformValue<bool> Encrypt
     {
-        get => GetArgument<TerraformValue<bool>>("encrypt");
+        get => GetArgument<TerraformValue<bool>>("encrypt") ?? AsReference("encrypt");
         set => SetArgument("encrypt", value);
     }
 
     /// <summary>
     /// The generate attribute.
     /// </summary>
-    public TerraformValue<bool>? Generate
+    public TerraformValue<bool> Generate
     {
-        get => GetArgument<TerraformValue<bool>>("generate");
+        get => GetArgument<TerraformValue<bool>>("generate") ?? AsReference("generate");
         set => SetArgument("generate", value);
     }
 
     /// <summary>
     /// The no_restrictions attribute.
     /// </summary>
-    public TerraformValue<bool>? NoRestrictions
+    public TerraformValue<bool> NoRestrictions
     {
-        get => GetArgument<TerraformValue<bool>>("no_restrictions");
+        get => GetArgument<TerraformValue<bool>>("no_restrictions") ?? AsReference("no_restrictions");
         set => SetArgument("no_restrictions", value);
     }
 
     /// <summary>
     /// The sign attribute.
     /// </summary>
-    public TerraformValue<bool>? Sign
+    public TerraformValue<bool> Sign
     {
-        get => GetArgument<TerraformValue<bool>>("sign");
+        get => GetArgument<TerraformValue<bool>>("sign") ?? AsReference("sign");
         set => SetArgument("sign", value);
     }
 
     /// <summary>
     /// The unwrap attribute.
     /// </summary>
-    public TerraformValue<bool>? Unwrap
+    public TerraformValue<bool> Unwrap
     {
-        get => GetArgument<TerraformValue<bool>>("unwrap");
+        get => GetArgument<TerraformValue<bool>>("unwrap") ?? AsReference("unwrap");
         set => SetArgument("unwrap", value);
     }
 
     /// <summary>
     /// The verify attribute.
     /// </summary>
-    public TerraformValue<bool>? Verify
+    public TerraformValue<bool> Verify
     {
-        get => GetArgument<TerraformValue<bool>>("verify");
+        get => GetArgument<TerraformValue<bool>>("verify") ?? AsReference("verify");
         set => SetArgument("verify", value);
     }
 
     /// <summary>
     /// The wrap attribute.
     /// </summary>
-    public TerraformValue<bool>? Wrap
+    public TerraformValue<bool> Wrap
     {
-        get => GetArgument<TerraformValue<bool>>("wrap");
+        get => GetArgument<TerraformValue<bool>>("wrap") ?? AsReference("wrap");
         set => SetArgument("wrap", value);
     }
 
@@ -199,18 +199,18 @@ public partial class AwsPaymentcryptographyKey(string name) : TerraformResource(
     /// <summary>
     /// The deletion_window_in_days attribute.
     /// </summary>
-    public TerraformValue<double>? DeletionWindowInDays
+    public TerraformValue<double> DeletionWindowInDays
     {
-        get => GetArgument<TerraformValue<double>>("deletion_window_in_days");
+        get => GetArgument<TerraformValue<double>>("deletion_window_in_days") ?? AsReference("deletion_window_in_days");
         set => SetArgument("deletion_window_in_days", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -220,25 +220,25 @@ public partial class AwsPaymentcryptographyKey(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exportable is required")]
     public required TerraformValue<bool> Exportable
     {
-        get => GetArgument<TerraformValue<bool>>("exportable");
+        get => GetRequiredArgument<TerraformValue<bool>>("exportable");
         set => SetArgument("exportable", value);
     }
 
     /// <summary>
     /// The key_check_value_algorithm attribute.
     /// </summary>
-    public TerraformValue<string>? KeyCheckValueAlgorithm
+    public TerraformValue<string> KeyCheckValueAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("key_check_value_algorithm");
+        get => GetArgument<TerraformValue<string>>("key_check_value_algorithm") ?? AsReference("key_check_value_algorithm");
         set => SetArgument("key_check_value_algorithm", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

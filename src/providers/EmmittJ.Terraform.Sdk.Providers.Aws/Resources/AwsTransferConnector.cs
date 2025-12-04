@@ -19,7 +19,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compression is required")]
     public required TerraformValue<string> Compression
     {
-        get => GetArgument<TerraformValue<string>>("compression");
+        get => GetRequiredArgument<TerraformValue<string>>("compression");
         set => SetArgument("compression", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionAlgorithm is required")]
     public required TerraformValue<string> EncryptionAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("encryption_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("encryption_algorithm");
         set => SetArgument("encryption_algorithm", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalProfileId is required")]
     public required TerraformValue<string> LocalProfileId
     {
-        get => GetArgument<TerraformValue<string>>("local_profile_id");
+        get => GetRequiredArgument<TerraformValue<string>>("local_profile_id");
         set => SetArgument("local_profile_id", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MdnResponse is required")]
     public required TerraformValue<string> MdnResponse
     {
-        get => GetArgument<TerraformValue<string>>("mdn_response");
+        get => GetRequiredArgument<TerraformValue<string>>("mdn_response");
         set => SetArgument("mdn_response", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerProfileId is required")]
     public required TerraformValue<string> PartnerProfileId
     {
-        get => GetArgument<TerraformValue<string>>("partner_profile_id");
+        get => GetRequiredArgument<TerraformValue<string>>("partner_profile_id");
         set => SetArgument("partner_profile_id", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     public required TerraformValue<string> SigningAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("signing_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("signing_algorithm");
         set => SetArgument("signing_algorithm", value);
     }
 
@@ -138,16 +138,16 @@ public partial class AwsTransferConnector(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessRole is required")]
     public required TerraformValue<string> AccessRole
     {
-        get => GetArgument<TerraformValue<string>>("access_role");
+        get => GetRequiredArgument<TerraformValue<string>>("access_role");
         set => SetArgument("access_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -163,18 +163,18 @@ public partial class AwsTransferConnector(string name) : TerraformResource("aws_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_policy_name attribute.
     /// </summary>
-    public TerraformValue<string>? SecurityPolicyName
+    public TerraformValue<string> SecurityPolicyName
     {
-        get => GetArgument<TerraformValue<string>>("security_policy_name");
+        get => GetArgument<TerraformValue<string>>("security_policy_name") ?? AsReference("security_policy_name");
         set => SetArgument("security_policy_name", value);
     }
 
@@ -190,9 +190,9 @@ public partial class AwsTransferConnector(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AwsTransferConnector(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 

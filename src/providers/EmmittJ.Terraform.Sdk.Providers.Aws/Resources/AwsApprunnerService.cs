@@ -19,7 +19,7 @@ public class AwsApprunnerServiceEncryptionConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformValue<string> KmsKey
     {
-        get => GetArgument<TerraformValue<string>>("kms_key");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -191,9 +191,9 @@ public class AwsApprunnerServiceNetworkConfigurationBlockEgressConfigurationBloc
     /// <summary>
     /// The egress_type attribute.
     /// </summary>
-    public TerraformValue<string>? EgressType
+    public TerraformValue<string> EgressType
     {
-        get => GetArgument<TerraformValue<string>>("egress_type");
+        get => GetArgument<TerraformValue<string>>("egress_type") ?? AsReference("egress_type");
         set => SetArgument("egress_type", value);
     }
 
@@ -257,7 +257,7 @@ public class AwsApprunnerServiceObservabilityConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObservabilityEnabled is required")]
     public required TerraformValue<bool> ObservabilityEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("observability_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("observability_enabled");
         set => SetArgument("observability_enabled", value);
     }
 
@@ -364,16 +364,16 @@ public class AwsApprunnerServiceSourceConfigurationBlockCodeRepositoryBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => GetArgument<TerraformValue<string>>("repository_url");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
     /// <summary>
     /// The source_directory attribute.
     /// </summary>
-    public TerraformValue<string>? SourceDirectory
+    public TerraformValue<string> SourceDirectory
     {
-        get => GetArgument<TerraformValue<string>>("source_directory");
+        get => GetArgument<TerraformValue<string>>("source_directory") ?? AsReference("source_directory");
         set => SetArgument("source_directory", value);
     }
 
@@ -419,7 +419,7 @@ public class AwsApprunnerServiceSourceConfigurationBlockCodeRepositoryBlockCodeC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSource is required")]
     public required TerraformValue<string> ConfigurationSource
     {
-        get => GetArgument<TerraformValue<string>>("configuration_source");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_source");
         set => SetArgument("configuration_source", value);
     }
 
@@ -470,7 +470,7 @@ public class AwsApprunnerServiceSourceConfigurationBlockCodeRepositoryBlockCodeC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformValue<string> Runtime
     {
-        get => GetArgument<TerraformValue<string>>("runtime");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime");
         set => SetArgument("runtime", value);
     }
 
@@ -520,7 +520,7 @@ public class AwsApprunnerServiceSourceConfigurationBlockCodeRepositoryBlockSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -530,7 +530,7 @@ public class AwsApprunnerServiceSourceConfigurationBlockCodeRepositoryBlockSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -553,7 +553,7 @@ public class AwsApprunnerServiceSourceConfigurationBlockImageRepositoryBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageIdentifier is required")]
     public required TerraformValue<string> ImageIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("image_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("image_identifier");
         set => SetArgument("image_identifier", value);
     }
 
@@ -563,7 +563,7 @@ public class AwsApprunnerServiceSourceConfigurationBlockImageRepositoryBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageRepositoryType is required")]
     public required TerraformValue<string> ImageRepositoryType
     {
-        get => GetArgument<TerraformValue<string>>("image_repository_type");
+        get => GetRequiredArgument<TerraformValue<string>>("image_repository_type");
         set => SetArgument("image_repository_type", value);
     }
 
@@ -638,27 +638,27 @@ public partial class AwsApprunnerService(string name) : TerraformResource("aws_a
     /// <summary>
     /// The auto_scaling_configuration_arn attribute.
     /// </summary>
-    public TerraformValue<string>? AutoScalingConfigurationArn
+    public TerraformValue<string> AutoScalingConfigurationArn
     {
-        get => GetArgument<TerraformValue<string>>("auto_scaling_configuration_arn");
+        get => GetArgument<TerraformValue<string>>("auto_scaling_configuration_arn") ?? AsReference("auto_scaling_configuration_arn");
         set => SetArgument("auto_scaling_configuration_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -668,7 +668,7 @@ public partial class AwsApprunnerService(string name) : TerraformResource("aws_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -684,9 +684,9 @@ public partial class AwsApprunnerService(string name) : TerraformResource("aws_a
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

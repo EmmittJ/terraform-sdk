@@ -19,7 +19,7 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRolloutPercentage is required")]
     public required TerraformValue<double> DefaultRolloutPercentage
     {
-        get => GetArgument<TerraformValue<double>>("default_rollout_percentage");
+        get => GetRequiredArgument<TerraformValue<double>>("default_rollout_percentage");
         set => SetArgument("default_rollout_percentage", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlockGroupsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlockGroupsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RolloutPercentage is required")]
     public required TerraformValue<double> RolloutPercentage
     {
-        get => GetArgument<TerraformValue<double>>("rollout_percentage");
+        get => GetRequiredArgument<TerraformValue<double>>("rollout_percentage");
         set => SetArgument("rollout_percentage", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformValue<string> ConfigurationStoreId
     {
-        get => GetArgument<TerraformValue<string>>("configuration_store_id");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_store_id");
         set => SetArgument("configuration_store_id", value);
     }
 
@@ -196,27 +196,27 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformValue<string>? Etag
+    public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
         set => SetArgument("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string>? Key
+    public TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetArgument<TerraformValue<string>>("key") ?? AsReference("key");
         set => SetArgument("key", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

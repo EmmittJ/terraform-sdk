@@ -34,9 +34,9 @@ public partial class AzurermIothubDpsSharedAccessPolicyDataSource(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermIothubDpsSharedAccessPolicyDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubDpsName is required")]
     public required TerraformValue<string> IothubDpsName
     {
-        get => GetArgument<TerraformValue<string>>("iothub_dps_name");
+        get => GetRequiredArgument<TerraformValue<string>>("iothub_dps_name");
         set => SetArgument("iothub_dps_name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermIothubDpsSharedAccessPolicyDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermIothubDpsSharedAccessPolicyDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

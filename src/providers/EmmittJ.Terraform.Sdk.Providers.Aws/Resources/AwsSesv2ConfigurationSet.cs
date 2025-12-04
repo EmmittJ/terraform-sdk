@@ -63,9 +63,9 @@ public class AwsSesv2ConfigurationSetReputationOptionsBlock : TerraformBlock
     /// <summary>
     /// The reputation_metrics_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? ReputationMetricsEnabled
+    public TerraformValue<bool> ReputationMetricsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("reputation_metrics_enabled");
+        get => GetArgument<TerraformValue<bool>>("reputation_metrics_enabled") ?? AsReference("reputation_metrics_enabled");
         set => SetArgument("reputation_metrics_enabled", value);
     }
 
@@ -86,9 +86,9 @@ public class AwsSesv2ConfigurationSetSendingOptionsBlock : TerraformBlock
     /// <summary>
     /// The sending_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? SendingEnabled
+    public TerraformValue<bool> SendingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("sending_enabled");
+        get => GetArgument<TerraformValue<bool>>("sending_enabled") ?? AsReference("sending_enabled");
         set => SetArgument("sending_enabled", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsSesv2ConfigurationSetTrackingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomRedirectDomain is required")]
     public required TerraformValue<string> CustomRedirectDomain
     {
-        get => GetArgument<TerraformValue<string>>("custom_redirect_domain");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_redirect_domain");
         set => SetArgument("custom_redirect_domain", value);
     }
 
@@ -241,25 +241,25 @@ public partial class AwsSesv2ConfigurationSet(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformValue<string> ConfigurationSetName
     {
-        get => GetArgument<TerraformValue<string>>("configuration_set_name");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_set_name");
         set => SetArgument("configuration_set_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -275,9 +275,9 @@ public partial class AwsSesv2ConfigurationSet(string name) : TerraformResource("
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

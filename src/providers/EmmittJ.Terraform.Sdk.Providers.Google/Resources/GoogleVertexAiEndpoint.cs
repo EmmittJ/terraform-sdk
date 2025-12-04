@@ -19,7 +19,7 @@ public class GoogleVertexAiEndpointEncryptionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePrivateServiceConnect is required")]
     public required TerraformValue<bool> EnablePrivateServiceConnect
     {
-        get => GetArgument<TerraformValue<bool>>("enable_private_service_connect");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable_private_service_connect");
         set => SetArgument("enable_private_service_connect", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlockPscAutomation
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlockPscAutomation
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -260,16 +260,16 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -291,7 +291,7 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -301,7 +301,7 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -317,9 +317,9 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -341,9 +341,9 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// 
     /// ~&amp;gt; **Note:** To set the map to empty, set &#39;&amp;quot;{}&amp;quot;&#39;, apply, and then remove the field from your config.
     /// </summary>
-    public TerraformValue<string>? TrafficSplit
+    public TerraformValue<string> TrafficSplit
     {
-        get => GetArgument<TerraformValue<string>>("traffic_split");
+        get => GetArgument<TerraformValue<string>>("traffic_split") ?? AsReference("traffic_split");
         set => SetArgument("traffic_split", value);
     }
 

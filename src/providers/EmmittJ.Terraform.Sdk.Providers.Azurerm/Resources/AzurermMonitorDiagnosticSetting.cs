@@ -71,7 +71,7 @@ public class AzurermMonitorDiagnosticSettingEnabledLogBlockRetentionPolicyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermMonitorDiagnosticSettingEnabledMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => GetArgument<TerraformValue<string>>("category");
+        get => GetRequiredArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermMonitorDiagnosticSettingMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => GetArgument<TerraformValue<string>>("category");
+        get => GetRequiredArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -173,7 +173,7 @@ public class AzurermMonitorDiagnosticSettingMetricBlockRetentionPolicyBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -257,18 +257,18 @@ public partial class AzurermMonitorDiagnosticSetting(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The log_analytics_destination_type attribute.
     /// </summary>
-    public TerraformValue<string>? LogAnalyticsDestinationType
+    public TerraformValue<string> LogAnalyticsDestinationType
     {
-        get => GetArgument<TerraformValue<string>>("log_analytics_destination_type");
+        get => GetArgument<TerraformValue<string>>("log_analytics_destination_type") ?? AsReference("log_analytics_destination_type");
         set => SetArgument("log_analytics_destination_type", value);
     }
 
@@ -287,7 +287,7 @@ public partial class AzurermMonitorDiagnosticSetting(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -315,7 +315,7 @@ public partial class AzurermMonitorDiagnosticSetting(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformValue<string> TargetResourceId
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 

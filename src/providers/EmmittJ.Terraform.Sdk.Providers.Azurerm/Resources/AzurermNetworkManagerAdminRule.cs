@@ -19,7 +19,7 @@ public class AzurermNetworkManagerAdminRuleDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
     public required TerraformValue<string> AddressPrefix
     {
-        get => GetArgument<TerraformValue<string>>("address_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("address_prefix");
         set => SetArgument("address_prefix", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermNetworkManagerAdminRuleDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixType is required")]
     public required TerraformValue<string> AddressPrefixType
     {
-        get => GetArgument<TerraformValue<string>>("address_prefix_type");
+        get => GetRequiredArgument<TerraformValue<string>>("address_prefix_type");
         set => SetArgument("address_prefix_type", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermNetworkManagerAdminRuleSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
     public required TerraformValue<string> AddressPrefix
     {
-        get => GetArgument<TerraformValue<string>>("address_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("address_prefix");
         set => SetArgument("address_prefix", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermNetworkManagerAdminRuleSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixType is required")]
     public required TerraformValue<string> AddressPrefixType
     {
-        get => GetArgument<TerraformValue<string>>("address_prefix_type");
+        get => GetRequiredArgument<TerraformValue<string>>("address_prefix_type");
         set => SetArgument("address_prefix_type", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermNetworkManagerAdminRule(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AzurermNetworkManagerAdminRule(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminRuleCollectionId is required")]
     public required TerraformValue<string> AdminRuleCollectionId
     {
-        get => GetArgument<TerraformValue<string>>("admin_rule_collection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_rule_collection_id");
         set => SetArgument("admin_rule_collection_id", value);
     }
 
@@ -170,16 +170,16 @@ public partial class AzurermNetworkManagerAdminRule(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => GetArgument<TerraformValue<string>>("direction");
+        get => GetRequiredArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AzurermNetworkManagerAdminRule(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AzurermNetworkManagerAdminRule(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AzurermNetworkManagerAdminRule(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 

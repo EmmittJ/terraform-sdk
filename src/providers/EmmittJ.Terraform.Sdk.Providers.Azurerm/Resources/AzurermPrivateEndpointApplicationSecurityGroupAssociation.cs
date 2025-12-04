@@ -55,16 +55,16 @@ public partial class AzurermPrivateEndpointApplicationSecurityGroupAssociation(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationSecurityGroupId is required")]
     public required TerraformValue<string> ApplicationSecurityGroupId
     {
-        get => GetArgument<TerraformValue<string>>("application_security_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_security_group_id");
         set => SetArgument("application_security_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermPrivateEndpointApplicationSecurityGroupAssociation(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateEndpointId is required")]
     public required TerraformValue<string> PrivateEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("private_endpoint_id");
+        get => GetRequiredArgument<TerraformValue<string>>("private_endpoint_id");
         set => SetArgument("private_endpoint_id", value);
     }
 

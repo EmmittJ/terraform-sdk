@@ -79,72 +79,72 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformValue<string>? Domain
+    public TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetArgument<TerraformValue<string>>("domain") ?? AsReference("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The instance attribute.
     /// </summary>
-    public TerraformValue<string>? Instance
+    public TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetArgument<TerraformValue<string>>("instance") ?? AsReference("instance");
         set => SetArgument("instance", value);
     }
 
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    public TerraformValue<string>? IpamPoolId
+    public TerraformValue<string> IpamPoolId
     {
-        get => GetArgument<TerraformValue<string>>("ipam_pool_id");
+        get => GetArgument<TerraformValue<string>>("ipam_pool_id") ?? AsReference("ipam_pool_id");
         set => SetArgument("ipam_pool_id", value);
     }
 
     /// <summary>
     /// The network_border_group attribute.
     /// </summary>
-    public TerraformValue<string>? NetworkBorderGroup
+    public TerraformValue<string> NetworkBorderGroup
     {
-        get => GetArgument<TerraformValue<string>>("network_border_group");
+        get => GetArgument<TerraformValue<string>>("network_border_group") ?? AsReference("network_border_group");
         set => SetArgument("network_border_group", value);
     }
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
-    public TerraformValue<string>? NetworkInterface
+    public TerraformValue<string> NetworkInterface
     {
-        get => GetArgument<TerraformValue<string>>("network_interface");
+        get => GetArgument<TerraformValue<string>>("network_interface") ?? AsReference("network_interface");
         set => SetArgument("network_interface", value);
     }
 
     /// <summary>
     /// The public_ipv4_pool attribute.
     /// </summary>
-    public TerraformValue<string>? PublicIpv4Pool
+    public TerraformValue<string> PublicIpv4Pool
     {
-        get => GetArgument<TerraformValue<string>>("public_ipv4_pool");
+        get => GetArgument<TerraformValue<string>>("public_ipv4_pool") ?? AsReference("public_ipv4_pool");
         set => SetArgument("public_ipv4_pool", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -160,9 +160,9 @@ public partial class AwsEip(string name) : TerraformResource("aws_eip", name)
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

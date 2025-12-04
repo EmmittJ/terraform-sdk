@@ -79,9 +79,9 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// <summary>
     /// The telephone numbers for the user. Only one number can be set for this property. Read-only for users synced with Azure AD Connect
     /// </summary>
-    public TerraformList<string>? BusinessPhones
+    public TerraformList<string> BusinessPhones
     {
-        get => GetArgument<TerraformList<string>>("business_phones");
+        get => GetArgument<TerraformList<string>>("business_phones") ?? AsReference("business_phones");
         set => SetArgument("business_phones", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -233,9 +233,9 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -251,18 +251,18 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// <summary>
     /// The SMTP address for the user. Cannot be unset.
     /// </summary>
-    public TerraformValue<string>? Mail
+    public TerraformValue<string> Mail
     {
-        get => GetArgument<TerraformValue<string>>("mail");
+        get => GetArgument<TerraformValue<string>>("mail") ?? AsReference("mail");
         set => SetArgument("mail", value);
     }
 
     /// <summary>
     /// The mail alias for the user. Defaults to the user name part of the user principal name (UPN)
     /// </summary>
-    public TerraformValue<string>? MailNickname
+    public TerraformValue<string> MailNickname
     {
-        get => GetArgument<TerraformValue<string>>("mail_nickname");
+        get => GetArgument<TerraformValue<string>>("mail_nickname") ?? AsReference("mail_nickname");
         set => SetArgument("mail_nickname", value);
     }
 
@@ -296,9 +296,9 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// <summary>
     /// The value used to associate an on-premise Active Directory user account with their Azure AD user object. This must be specified if you are using a federated domain for the user&#39;s `user_principal_name` property when creating a new user account
     /// </summary>
-    public TerraformValue<string>? OnpremisesImmutableId
+    public TerraformValue<string> OnpremisesImmutableId
     {
-        get => GetArgument<TerraformValue<string>>("onpremises_immutable_id");
+        get => GetArgument<TerraformValue<string>>("onpremises_immutable_id") ?? AsReference("onpremises_immutable_id");
         set => SetArgument("onpremises_immutable_id", value);
     }
 
@@ -314,9 +314,9 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// <summary>
     /// The password for the user. The password must satisfy minimum requirements as specified by the password policy. The maximum length is 256 characters. This property is required when creating a new user
     /// </summary>
-    public TerraformValue<string>? Password
+    public TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetArgument<TerraformValue<string>>("password") ?? AsReference("password");
         set => SetArgument("password", value);
     }
 
@@ -389,7 +389,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPrincipalName is required")]
     public required TerraformValue<string> UserPrincipalName
     {
-        get => GetArgument<TerraformValue<string>>("user_principal_name");
+        get => GetRequiredArgument<TerraformValue<string>>("user_principal_name");
         set => SetArgument("user_principal_name", value);
     }
 

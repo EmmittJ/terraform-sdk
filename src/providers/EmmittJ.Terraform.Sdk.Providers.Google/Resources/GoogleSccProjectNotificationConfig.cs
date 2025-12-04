@@ -43,7 +43,7 @@ public class GoogleSccProjectNotificationConfigStreamingConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleSccProjectNotificationConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     public required TerraformValue<string> ConfigId
     {
-        get => GetArgument<TerraformValue<string>>("config_id");
+        get => GetRequiredArgument<TerraformValue<string>>("config_id");
         set => SetArgument("config_id", value);
     }
 
@@ -119,18 +119,18 @@ public partial class GoogleSccProjectNotificationConfig(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -141,7 +141,7 @@ public partial class GoogleSccProjectNotificationConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformValue<string> PubsubTopic
     {
-        get => GetArgument<TerraformValue<string>>("pubsub_topic");
+        get => GetRequiredArgument<TerraformValue<string>>("pubsub_topic");
         set => SetArgument("pubsub_topic", value);
     }
 

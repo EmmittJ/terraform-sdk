@@ -52,9 +52,9 @@ public partial class AzurermDataShareDatasetKustoDatabase(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermDataShareDatasetKustoDatabase(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseId is required")]
     public required TerraformValue<string> KustoDatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("kusto_database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("kusto_database_id");
         set => SetArgument("kusto_database_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermDataShareDatasetKustoDatabase(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermDataShareDatasetKustoDatabase(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
     public required TerraformValue<string> ShareId
     {
-        get => GetArgument<TerraformValue<string>>("share_id");
+        get => GetRequiredArgument<TerraformValue<string>>("share_id");
         set => SetArgument("share_id", value);
     }
 

@@ -14,7 +14,7 @@ public partial class AwsRoute53CidrLocation(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlocks is required")]
     public required TerraformSet<string> CidrBlocks
     {
-        get => GetArgument<TerraformSet<string>>("cidr_blocks");
+        get => GetRequiredArgument<TerraformSet<string>>("cidr_blocks");
         set => SetArgument("cidr_blocks", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsRoute53CidrLocation(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrCollectionId is required")]
     public required TerraformValue<string> CidrCollectionId
     {
-        get => GetArgument<TerraformValue<string>>("cidr_collection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cidr_collection_id");
         set => SetArgument("cidr_collection_id", value);
     }
 
@@ -34,7 +34,7 @@ public partial class AwsRoute53CidrLocation(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

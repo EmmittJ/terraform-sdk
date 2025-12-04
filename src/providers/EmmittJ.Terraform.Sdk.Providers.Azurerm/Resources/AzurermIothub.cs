@@ -115,9 +115,9 @@ public class AzurermIothubFallbackRouteBlock : TerraformBlock
     /// <summary>
     /// The endpoint_names attribute.
     /// </summary>
-    public TerraformList<string>? EndpointNames
+    public TerraformList<string> EndpointNames
     {
-        get => GetArgument<TerraformList<string>>("endpoint_names");
+        get => GetArgument<TerraformList<string>>("endpoint_names") ?? AsReference("endpoint_names");
         set => SetArgument("endpoint_names", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformValue<string> ConnectionString
     {
-        get => GetArgument<TerraformValue<string>>("connection_string");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermIothubIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -341,7 +341,7 @@ public class AzurermIothubNetworkRuleSetBlockIpRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
     public required TerraformValue<string> IpMask
     {
-        get => GetArgument<TerraformValue<string>>("ip_mask");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_mask");
         set => SetArgument("ip_mask", value);
     }
 
@@ -351,7 +351,7 @@ public class AzurermIothubNetworkRuleSetBlockIpRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -375,7 +375,7 @@ public class AzurermIothubSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformValue<double> Capacity
     {
-        get => GetArgument<TerraformValue<double>>("capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -385,7 +385,7 @@ public class AzurermIothubSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -451,18 +451,18 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? Endpoint
+    public TerraformList<TerraformMap<object>> Endpoint
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("endpoint");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("endpoint") ?? AsReference("endpoint");
         set => SetArgument("endpoint", value);
     }
 
     /// <summary>
     /// The enrichment attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? Enrichment
+    public TerraformList<TerraformMap<object>> Enrichment
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("enrichment");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("enrichment") ?? AsReference("enrichment");
         set => SetArgument("enrichment", value);
     }
 
@@ -487,9 +487,9 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -508,7 +508,7 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -527,7 +527,7 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -546,16 +546,16 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The route attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? Route
+    public TerraformList<TerraformMap<object>> Route
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("route");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("route") ?? AsReference("route");
         set => SetArgument("route", value);
     }
 

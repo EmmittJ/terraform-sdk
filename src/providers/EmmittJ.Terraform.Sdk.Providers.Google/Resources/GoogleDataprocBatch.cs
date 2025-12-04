@@ -76,9 +76,9 @@ public class GoogleDataprocBatchEnvironmentConfigBlockExecutionConfigBlock : Ter
     /// <summary>
     /// Service account that used to execute workload.
     /// </summary>
-    public TerraformValue<string>? ServiceAccount
+    public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -114,9 +114,9 @@ public class GoogleDataprocBatchEnvironmentConfigBlockExecutionConfigBlock : Ter
     /// the conditions are treated as OR conditions: the workload will be terminated when it has been idle for idleTtl or
     /// when ttl has been exceeded, whichever occurs first.
     /// </summary>
-    public TerraformValue<string>? Ttl
+    public TerraformValue<string> Ttl
     {
-        get => GetArgument<TerraformValue<string>>("ttl");
+        get => GetArgument<TerraformValue<string>>("ttl") ?? AsReference("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -327,9 +327,9 @@ public class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlock
     /// <summary>
     /// Version of the batch runtime.
     /// </summary>
-    public TerraformValue<string>? Version
+    public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 
@@ -592,9 +592,9 @@ public partial class GoogleDataprocBatch(string name) : TerraformResource("googl
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -623,9 +623,9 @@ public partial class GoogleDataprocBatch(string name) : TerraformResource("googl
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

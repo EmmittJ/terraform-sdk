@@ -55,7 +55,7 @@ public partial class GoogleIdentityPlatformDefaultSupportedIdpConfig(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleIdentityPlatformDefaultSupportedIdpConfig(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -81,9 +81,9 @@ public partial class GoogleIdentityPlatformDefaultSupportedIdpConfig(string name
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -113,16 +113,16 @@ public partial class GoogleIdentityPlatformDefaultSupportedIdpConfig(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpId is required")]
     public required TerraformValue<string> IdpId
     {
-        get => GetArgument<TerraformValue<string>>("idp_id");
+        get => GetRequiredArgument<TerraformValue<string>>("idp_id");
         set => SetArgument("idp_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

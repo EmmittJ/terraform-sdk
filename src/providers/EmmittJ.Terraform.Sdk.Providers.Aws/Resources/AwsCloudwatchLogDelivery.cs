@@ -14,7 +14,7 @@ public partial class AwsCloudwatchLogDelivery(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryDestinationArn is required")]
     public required TerraformValue<string> DeliveryDestinationArn
     {
-        get => GetArgument<TerraformValue<string>>("delivery_destination_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("delivery_destination_arn");
         set => SetArgument("delivery_destination_arn", value);
     }
 
@@ -24,43 +24,43 @@ public partial class AwsCloudwatchLogDelivery(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliverySourceName is required")]
     public required TerraformValue<string> DeliverySourceName
     {
-        get => GetArgument<TerraformValue<string>>("delivery_source_name");
+        get => GetRequiredArgument<TerraformValue<string>>("delivery_source_name");
         set => SetArgument("delivery_source_name", value);
     }
 
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
-    public TerraformValue<string>? FieldDelimiter
+    public TerraformValue<string> FieldDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("field_delimiter");
+        get => GetArgument<TerraformValue<string>>("field_delimiter") ?? AsReference("field_delimiter");
         set => SetArgument("field_delimiter", value);
     }
 
     /// <summary>
     /// The record_fields attribute.
     /// </summary>
-    public TerraformList<string>? RecordFields
+    public TerraformList<string> RecordFields
     {
-        get => GetArgument<TerraformList<string>>("record_fields");
+        get => GetArgument<TerraformList<string>>("record_fields") ?? AsReference("record_fields");
         set => SetArgument("record_fields", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The s3_delivery_configuration attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? S3DeliveryConfiguration
+    public TerraformList<TerraformMap<object>> S3DeliveryConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("s3_delivery_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("s3_delivery_configuration") ?? AsReference("s3_delivery_configuration");
         set => SetArgument("s3_delivery_configuration", value);
     }
 

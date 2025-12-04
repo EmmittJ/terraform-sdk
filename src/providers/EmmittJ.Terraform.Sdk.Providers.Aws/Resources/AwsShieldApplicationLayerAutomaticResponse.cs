@@ -55,7 +55,7 @@ public partial class AwsShieldApplicationLayerAutomaticResponse(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsShieldApplicationLayerAutomaticResponse(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 

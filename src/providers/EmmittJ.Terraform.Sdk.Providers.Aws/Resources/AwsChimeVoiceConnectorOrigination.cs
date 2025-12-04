@@ -19,7 +19,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => GetArgument<TerraformValue<double>>("weight");
+        get => GetRequiredArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -83,18 +83,18 @@ public partial class AwsChimeVoiceConnectorOrigination(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsChimeVoiceConnectorOrigination(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformValue<string> VoiceConnectorId
     {
-        get => GetArgument<TerraformValue<string>>("voice_connector_id");
+        get => GetRequiredArgument<TerraformValue<string>>("voice_connector_id");
         set => SetArgument("voice_connector_id", value);
     }
 

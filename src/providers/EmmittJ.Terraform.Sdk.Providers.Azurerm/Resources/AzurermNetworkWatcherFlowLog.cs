@@ -19,7 +19,7 @@ public class AzurermNetworkWatcherFlowLogRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
     public required TerraformValue<double> Days
     {
-        get => GetArgument<TerraformValue<double>>("days");
+        get => GetRequiredArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermNetworkWatcherFlowLogRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceRegion is required")]
     public required TerraformValue<string> WorkspaceRegion
     {
-        get => GetArgument<TerraformValue<string>>("workspace_region");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_region");
         set => SetArgument("workspace_region", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceResourceId is required")]
     public required TerraformValue<string> WorkspaceResourceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_resource_id");
         set => SetArgument("workspace_resource_id", value);
     }
 
@@ -161,25 +161,25 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformValue<string>? Location
+    public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
         set => SetArgument("location", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -197,9 +197,9 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     /// The network_security_group_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? NetworkSecurityGroupId
+    public TerraformValue<string> NetworkSecurityGroupId
     {
-        get => GetArgument<TerraformValue<string>>("network_security_group_id");
+        get => GetArgument<TerraformValue<string>>("network_security_group_id") ?? AsReference("network_security_group_id");
         set => SetArgument("network_security_group_id", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherName is required")]
     public required TerraformValue<string> NetworkWatcherName
     {
-        get => GetArgument<TerraformValue<string>>("network_watcher_name");
+        get => GetRequiredArgument<TerraformValue<string>>("network_watcher_name");
         set => SetArgument("network_watcher_name", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -245,9 +245,9 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
-    public TerraformValue<string>? TargetResourceId
+    public TerraformValue<string> TargetResourceId
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_id");
+        get => GetArgument<TerraformValue<string>>("target_resource_id") ?? AsReference("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 

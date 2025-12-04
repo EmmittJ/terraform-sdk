@@ -28,7 +28,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -118,9 +118,9 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUda(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUda(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUda(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Script is required")]
     public required TerraformValue<string> Script
     {
-        get => GetArgument<TerraformValue<string>>("script");
+        get => GetRequiredArgument<TerraformValue<string>>("script");
         set => SetArgument("script", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUda(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformValue<string> StreamAnalyticsJobId
     {
-        get => GetArgument<TerraformValue<string>>("stream_analytics_job_id");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_analytics_job_id");
         set => SetArgument("stream_analytics_job_id", value);
     }
 

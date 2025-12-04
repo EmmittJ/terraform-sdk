@@ -153,9 +153,9 @@ public partial class GoogleIamProjectsPolicyBinding(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleIamProjectsPolicyBinding(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleIamProjectsPolicyBinding(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy");
+        get => GetRequiredArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -185,7 +185,7 @@ public partial class GoogleIamProjectsPolicyBinding(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyBindingId is required")]
     public required TerraformValue<string> PolicyBindingId
     {
-        get => GetArgument<TerraformValue<string>>("policy_binding_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_binding_id");
         set => SetArgument("policy_binding_id", value);
     }
 
@@ -203,9 +203,9 @@ public partial class GoogleIamProjectsPolicyBinding(string name) : TerraformReso
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

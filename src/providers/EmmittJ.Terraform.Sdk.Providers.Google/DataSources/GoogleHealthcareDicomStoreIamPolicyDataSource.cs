@@ -14,16 +14,16 @@ public partial class GoogleHealthcareDicomStoreIamPolicyDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DicomStoreId is required")]
     public required TerraformValue<string> DicomStoreId
     {
-        get => GetArgument<TerraformValue<string>>("dicom_store_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dicom_store_id");
         set => SetArgument("dicom_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

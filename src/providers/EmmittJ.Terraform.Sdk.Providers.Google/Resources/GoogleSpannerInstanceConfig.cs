@@ -98,9 +98,9 @@ public partial class GoogleSpannerInstanceConfig(string name) : TerraformResourc
     /// Only set for user managed configurations.
     /// baseConfig must refer to a configuration of type GOOGLE_MANAGED in the same project as this configuration.
     /// </summary>
-    public TerraformValue<string>? BaseConfig
+    public TerraformValue<string> BaseConfig
     {
-        get => GetArgument<TerraformValue<string>>("base_config");
+        get => GetArgument<TerraformValue<string>>("base_config") ?? AsReference("base_config");
         set => SetArgument("base_config", value);
     }
 
@@ -110,16 +110,16 @@ public partial class GoogleSpannerInstanceConfig(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -141,18 +141,18 @@ public partial class GoogleSpannerInstanceConfig(string name) : TerraformResourc
     /// A unique identifier for the instance configuration. Values are of the
     /// form projects/&amp;lt;project&amp;gt;/instanceConfigs/[a-z][-a-z0-9]*
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

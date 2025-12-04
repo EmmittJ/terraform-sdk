@@ -42,7 +42,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public required TerraformSet<string> IdentityIds
     {
-        get => GetArgument<TerraformSet<string>>("identity_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -221,9 +221,9 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -272,7 +272,7 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInterval is required")]
     public required TerraformValue<string> RetentionInterval
     {
-        get => GetArgument<TerraformValue<string>>("retention_interval");
+        get => GetRequiredArgument<TerraformValue<string>>("retention_interval");
         set => SetArgument("retention_interval", value);
     }
 
@@ -318,7 +318,7 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

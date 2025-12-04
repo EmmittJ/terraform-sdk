@@ -19,7 +19,7 @@ public class AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxReadyCapacity is required")]
     public required TerraformValue<double> MaxReadyCapacity
     {
-        get => GetArgument<TerraformValue<double>>("max_ready_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("max_ready_capacity");
         set => SetArgument("max_ready_capacity", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReadyCapacity is required")]
     public required TerraformValue<double> MinReadyCapacity
     {
-        get => GetArgument<TerraformValue<double>>("min_ready_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("min_ready_capacity");
         set => SetArgument("min_ready_capacity", value);
     }
 
@@ -98,16 +98,16 @@ public partial class AzurermVirtualMachineScaleSetStandbyPool(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachedVirtualMachineScaleSetId is required")]
     public required TerraformValue<string> AttachedVirtualMachineScaleSetId
     {
-        get => GetArgument<TerraformValue<string>>("attached_virtual_machine_scale_set_id");
+        get => GetRequiredArgument<TerraformValue<string>>("attached_virtual_machine_scale_set_id");
         set => SetArgument("attached_virtual_machine_scale_set_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AzurermVirtualMachineScaleSetStandbyPool(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermVirtualMachineScaleSetStandbyPool(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermVirtualMachineScaleSetStandbyPool(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermVirtualMachineScaleSetStandbyPool(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineState is required")]
     public required TerraformValue<string> VirtualMachineState
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_state");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_state");
         set => SetArgument("virtual_machine_state", value);
     }
 

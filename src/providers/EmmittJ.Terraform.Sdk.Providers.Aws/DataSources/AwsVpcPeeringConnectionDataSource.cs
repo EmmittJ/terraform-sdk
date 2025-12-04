@@ -19,7 +19,7 @@ public class AwsVpcPeeringConnectionDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsVpcPeeringConnectionDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => GetArgument<TerraformSet<string>>("values");
+        get => GetRequiredArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -68,81 +68,81 @@ public partial class AwsVpcPeeringConnectionDataSource(string name) : TerraformD
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformValue<string>? CidrBlock
+    public TerraformValue<string> CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block") ?? AsReference("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformValue<string>? OwnerId
+    public TerraformValue<string> OwnerId
     {
-        get => GetArgument<TerraformValue<string>>("owner_id");
+        get => GetArgument<TerraformValue<string>>("owner_id") ?? AsReference("owner_id");
         set => SetArgument("owner_id", value);
     }
 
     /// <summary>
     /// The peer_cidr_block attribute.
     /// </summary>
-    public TerraformValue<string>? PeerCidrBlock
+    public TerraformValue<string> PeerCidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("peer_cidr_block");
+        get => GetArgument<TerraformValue<string>>("peer_cidr_block") ?? AsReference("peer_cidr_block");
         set => SetArgument("peer_cidr_block", value);
     }
 
     /// <summary>
     /// The peer_owner_id attribute.
     /// </summary>
-    public TerraformValue<string>? PeerOwnerId
+    public TerraformValue<string> PeerOwnerId
     {
-        get => GetArgument<TerraformValue<string>>("peer_owner_id");
+        get => GetArgument<TerraformValue<string>>("peer_owner_id") ?? AsReference("peer_owner_id");
         set => SetArgument("peer_owner_id", value);
     }
 
     /// <summary>
     /// The peer_vpc_id attribute.
     /// </summary>
-    public TerraformValue<string>? PeerVpcId
+    public TerraformValue<string> PeerVpcId
     {
-        get => GetArgument<TerraformValue<string>>("peer_vpc_id");
+        get => GetArgument<TerraformValue<string>>("peer_vpc_id") ?? AsReference("peer_vpc_id");
         set => SetArgument("peer_vpc_id", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string>? Status
+    public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
         set => SetArgument("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string>? Tags
+    public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformValue<string>? VpcId
+    public TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id") ?? AsReference("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 

@@ -217,7 +217,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDateTime is required")]
     public required TerraformValue<string> StartDateTime
     {
-        get => GetArgument<TerraformValue<string>>("start_date_time");
+        get => GetRequiredArgument<TerraformValue<string>>("start_date_time");
         set => SetArgument("start_date_time", value);
     }
 
@@ -227,7 +227,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -243,9 +243,9 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -264,7 +264,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -293,7 +293,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -303,7 +303,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 

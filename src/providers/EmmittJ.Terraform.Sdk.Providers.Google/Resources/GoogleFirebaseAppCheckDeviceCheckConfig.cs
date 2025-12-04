@@ -56,16 +56,16 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => GetArgument<TerraformValue<string>>("app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -85,16 +85,16 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformValue<string> PrivateKey
     {
-        get => GetArgument<TerraformValue<string>>("private_key");
+        get => GetRequiredArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -104,9 +104,9 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? TokenTtl
+    public TerraformValue<string> TokenTtl
     {
-        get => GetArgument<TerraformValue<string>>("token_ttl");
+        get => GetArgument<TerraformValue<string>>("token_ttl") ?? AsReference("token_ttl");
         set => SetArgument("token_ttl", value);
     }
 

@@ -19,7 +19,7 @@ public class AzurermFrontdoorRulesEngineRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermFrontdoorRulesEngineRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockMatchConditionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -308,16 +308,16 @@ public partial class AzurermFrontdoorRulesEngine(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontdoorName is required")]
     public required TerraformValue<string> FrontdoorName
     {
-        get => GetArgument<TerraformValue<string>>("frontdoor_name");
+        get => GetRequiredArgument<TerraformValue<string>>("frontdoor_name");
         set => SetArgument("frontdoor_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -327,7 +327,7 @@ public partial class AzurermFrontdoorRulesEngine(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -337,7 +337,7 @@ public partial class AzurermFrontdoorRulesEngine(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

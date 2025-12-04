@@ -19,7 +19,7 @@ public class AzurermAiFoundryEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermAiFoundryEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermAiFoundryIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -104,9 +104,9 @@ public class AzurermAiFoundryManagedNetworkBlock : TerraformBlock
     /// <summary>
     /// The isolation_mode attribute.
     /// </summary>
-    public TerraformValue<string>? IsolationMode
+    public TerraformValue<string> IsolationMode
     {
-        get => GetArgument<TerraformValue<string>>("isolation_mode");
+        get => GetArgument<TerraformValue<string>>("isolation_mode") ?? AsReference("isolation_mode");
         set => SetArgument("isolation_mode", value);
     }
 
@@ -208,18 +208,18 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     /// <summary>
     /// The high_business_impact_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? HighBusinessImpactEnabled
+    public TerraformValue<bool> HighBusinessImpactEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("high_business_impact_enabled");
+        get => GetArgument<TerraformValue<bool>>("high_business_impact_enabled") ?? AsReference("high_business_impact_enabled");
         set => SetArgument("high_business_impact_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -239,7 +239,7 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -249,7 +249,7 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -277,7 +277,7 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -287,7 +287,7 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

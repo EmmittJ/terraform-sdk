@@ -79,9 +79,9 @@ public partial class AwsConfigOrganizationCustomPolicyRule(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsConfigOrganizationCustomPolicyRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsConfigOrganizationCustomPolicyRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyRuntime is required")]
     public required TerraformValue<string> PolicyRuntime
     {
-        get => GetArgument<TerraformValue<string>>("policy_runtime");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_runtime");
         set => SetArgument("policy_runtime", value);
     }
 
@@ -129,16 +129,16 @@ public partial class AwsConfigOrganizationCustomPolicyRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyText is required")]
     public required TerraformValue<string> PolicyText
     {
-        get => GetArgument<TerraformValue<string>>("policy_text");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_text");
         set => SetArgument("policy_text", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AwsConfigOrganizationCustomPolicyRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerTypes is required")]
     public required TerraformSet<string> TriggerTypes
     {
-        get => GetArgument<TerraformSet<string>>("trigger_types");
+        get => GetRequiredArgument<TerraformSet<string>>("trigger_types");
         set => SetArgument("trigger_types", value);
     }
 

@@ -61,9 +61,9 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -103,16 +103,16 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -122,7 +122,7 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShare is required")]
     public required TerraformValue<string> SourceFileShare
     {
-        get => GetArgument<TerraformValue<string>>("source_file_share");
+        get => GetRequiredArgument<TerraformValue<string>>("source_file_share");
         set => SetArgument("source_file_share", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstance is required")]
     public required TerraformValue<string> SourceInstance
     {
-        get => GetArgument<TerraformValue<string>>("source_instance");
+        get => GetRequiredArgument<TerraformValue<string>>("source_instance");
         set => SetArgument("source_instance", value);
     }
 

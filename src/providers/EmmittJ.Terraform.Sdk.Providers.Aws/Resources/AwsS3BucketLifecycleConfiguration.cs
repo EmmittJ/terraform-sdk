@@ -19,7 +19,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -27,9 +27,9 @@ public class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlock
     /// The prefix attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? Prefix
+    public TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix");
+        get => GetArgument<TerraformValue<string>>("prefix") ?? AsReference("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetRequiredArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -144,18 +144,18 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockExpirationBlock : Terrafo
     /// <summary>
     /// The days attribute.
     /// </summary>
-    public TerraformValue<double>? Days
+    public TerraformValue<double> Days
     {
-        get => GetArgument<TerraformValue<double>>("days");
+        get => GetArgument<TerraformValue<double>>("days") ?? AsReference("days");
         set => SetArgument("days", value);
     }
 
     /// <summary>
     /// The expired_object_delete_marker attribute.
     /// </summary>
-    public TerraformValue<bool>? ExpiredObjectDeleteMarker
+    public TerraformValue<bool> ExpiredObjectDeleteMarker
     {
-        get => GetArgument<TerraformValue<bool>>("expired_object_delete_marker");
+        get => GetArgument<TerraformValue<bool>>("expired_object_delete_marker") ?? AsReference("expired_object_delete_marker");
         set => SetArgument("expired_object_delete_marker", value);
     }
 
@@ -175,27 +175,27 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlock : TerraformBl
     /// <summary>
     /// The object_size_greater_than attribute.
     /// </summary>
-    public TerraformValue<double>? ObjectSizeGreaterThan
+    public TerraformValue<double> ObjectSizeGreaterThan
     {
-        get => GetArgument<TerraformValue<double>>("object_size_greater_than");
+        get => GetArgument<TerraformValue<double>>("object_size_greater_than") ?? AsReference("object_size_greater_than");
         set => SetArgument("object_size_greater_than", value);
     }
 
     /// <summary>
     /// The object_size_less_than attribute.
     /// </summary>
-    public TerraformValue<double>? ObjectSizeLessThan
+    public TerraformValue<double> ObjectSizeLessThan
     {
-        get => GetArgument<TerraformValue<double>>("object_size_less_than");
+        get => GetArgument<TerraformValue<double>>("object_size_less_than") ?? AsReference("object_size_less_than");
         set => SetArgument("object_size_less_than", value);
     }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformValue<string>? Prefix
+    public TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix");
+        get => GetArgument<TerraformValue<string>>("prefix") ?? AsReference("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -233,27 +233,27 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlockAndBlock : Ter
     /// <summary>
     /// The object_size_greater_than attribute.
     /// </summary>
-    public TerraformValue<double>? ObjectSizeGreaterThan
+    public TerraformValue<double> ObjectSizeGreaterThan
     {
-        get => GetArgument<TerraformValue<double>>("object_size_greater_than");
+        get => GetArgument<TerraformValue<double>>("object_size_greater_than") ?? AsReference("object_size_greater_than");
         set => SetArgument("object_size_greater_than", value);
     }
 
     /// <summary>
     /// The object_size_less_than attribute.
     /// </summary>
-    public TerraformValue<double>? ObjectSizeLessThan
+    public TerraformValue<double> ObjectSizeLessThan
     {
-        get => GetArgument<TerraformValue<double>>("object_size_less_than");
+        get => GetArgument<TerraformValue<double>>("object_size_less_than") ?? AsReference("object_size_less_than");
         set => SetArgument("object_size_less_than", value);
     }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformValue<string>? Prefix
+    public TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix");
+        get => GetArgument<TerraformValue<string>>("prefix") ?? AsReference("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlockTagBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -295,7 +295,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlockTagBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -327,7 +327,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockNoncurrentVersionExpirati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoncurrentDays is required")]
     public required TerraformValue<double> NoncurrentDays
     {
-        get => GetArgument<TerraformValue<double>>("noncurrent_days");
+        get => GetRequiredArgument<TerraformValue<double>>("noncurrent_days");
         set => SetArgument("noncurrent_days", value);
     }
 
@@ -359,7 +359,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockNoncurrentVersionTransiti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoncurrentDays is required")]
     public required TerraformValue<double> NoncurrentDays
     {
-        get => GetArgument<TerraformValue<double>>("noncurrent_days");
+        get => GetRequiredArgument<TerraformValue<double>>("noncurrent_days");
         set => SetArgument("noncurrent_days", value);
     }
 
@@ -369,7 +369,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockNoncurrentVersionTransiti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformValue<string> StorageClass
     {
-        get => GetArgument<TerraformValue<string>>("storage_class");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -398,9 +398,9 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockTransitionBlock : Terrafo
     /// <summary>
     /// The days attribute.
     /// </summary>
-    public TerraformValue<double>? Days
+    public TerraformValue<double> Days
     {
-        get => GetArgument<TerraformValue<double>>("days");
+        get => GetArgument<TerraformValue<double>>("days") ?? AsReference("days");
         set => SetArgument("days", value);
     }
 
@@ -410,7 +410,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockTransitionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformValue<string> StorageClass
     {
-        get => GetArgument<TerraformValue<string>>("storage_class");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -461,34 +461,34 @@ public partial class AwsS3BucketLifecycleConfiguration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformValue<string>? ExpectedBucketOwner
+    public TerraformValue<string> ExpectedBucketOwner
     {
-        get => GetArgument<TerraformValue<string>>("expected_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("expected_bucket_owner") ?? AsReference("expected_bucket_owner");
         set => SetArgument("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The transition_default_minimum_object_size attribute.
     /// </summary>
-    public TerraformValue<string>? TransitionDefaultMinimumObjectSize
+    public TerraformValue<string> TransitionDefaultMinimumObjectSize
     {
-        get => GetArgument<TerraformValue<string>>("transition_default_minimum_object_size");
+        get => GetArgument<TerraformValue<string>>("transition_default_minimum_object_size") ?? AsReference("transition_default_minimum_object_size");
         set => SetArgument("transition_default_minimum_object_size", value);
     }
 

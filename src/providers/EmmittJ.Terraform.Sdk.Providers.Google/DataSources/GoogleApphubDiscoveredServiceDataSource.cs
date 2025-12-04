@@ -11,9 +11,9 @@ public partial class GoogleApphubDiscoveredServiceDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleApphubDiscoveredServiceDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleApphubDiscoveredServiceDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
     public required TerraformValue<string> ServiceUri
     {
-        get => GetArgument<TerraformValue<string>>("service_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("service_uri");
         set => SetArgument("service_uri", value);
     }
 

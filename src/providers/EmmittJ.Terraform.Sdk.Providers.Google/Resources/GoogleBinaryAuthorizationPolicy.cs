@@ -22,7 +22,7 @@ public class GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePattern is required")]
     public required TerraformValue<string> NamePattern
     {
-        get => GetArgument<TerraformValue<string>>("name_pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("name_pattern");
         set => SetArgument("name_pattern", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -56,7 +56,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforcementMode is required")]
     public required TerraformValue<string> EnforcementMode
     {
-        get => GetArgument<TerraformValue<string>>("enforcement_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("enforcement_mode");
         set => SetArgument("enforcement_mode", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationMode is required")]
     public required TerraformValue<string> EvaluationMode
     {
-        get => GetArgument<TerraformValue<string>>("evaluation_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("evaluation_mode");
         set => SetArgument("evaluation_mode", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforcementMode is required")]
     public required TerraformValue<string> EnforcementMode
     {
-        get => GetArgument<TerraformValue<string>>("enforcement_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("enforcement_mode");
         set => SetArgument("enforcement_mode", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationMode is required")]
     public required TerraformValue<string> EvaluationMode
     {
-        get => GetArgument<TerraformValue<string>>("evaluation_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("evaluation_mode");
         set => SetArgument("evaluation_mode", value);
     }
 
@@ -202,27 +202,27 @@ public partial class GoogleBinaryAuthorizationPolicy(string name) : TerraformRes
     /// for common system-level images. Images not covered by the global
     /// policy will be subject to the project admission policy. Possible values: [&amp;quot;ENABLE&amp;quot;, &amp;quot;DISABLE&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? GlobalPolicyEvaluationMode
+    public TerraformValue<string> GlobalPolicyEvaluationMode
     {
-        get => GetArgument<TerraformValue<string>>("global_policy_evaluation_mode");
+        get => GetArgument<TerraformValue<string>>("global_policy_evaluation_mode") ?? AsReference("global_policy_evaluation_mode");
         set => SetArgument("global_policy_evaluation_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

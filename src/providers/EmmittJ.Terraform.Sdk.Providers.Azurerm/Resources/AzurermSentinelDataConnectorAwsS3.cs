@@ -64,7 +64,7 @@ public partial class AzurermSentinelDataConnectorAwsS3(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRoleArn is required")]
     public required TerraformValue<string> AwsRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("aws_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("aws_role_arn");
         set => SetArgument("aws_role_arn", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermSentinelDataConnectorAwsS3(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationTable is required")]
     public required TerraformValue<string> DestinationTable
     {
-        get => GetArgument<TerraformValue<string>>("destination_table");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_table");
         set => SetArgument("destination_table", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermSentinelDataConnectorAwsS3(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermSentinelDataConnectorAwsS3(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

@@ -42,7 +42,7 @@ public class AwsCognitoUserPoolAccountRecoverySettingBlockRecoveryMechanismBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsCognitoUserPoolAccountRecoverySettingBlockRecoveryMechanismBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -341,9 +341,9 @@ public class AwsCognitoUserPoolLambdaConfigBlock : TerraformBlock
     /// <summary>
     /// The pre_token_generation attribute.
     /// </summary>
-    public TerraformValue<string>? PreTokenGeneration
+    public TerraformValue<string> PreTokenGeneration
     {
-        get => GetArgument<TerraformValue<string>>("pre_token_generation");
+        get => GetArgument<TerraformValue<string>>("pre_token_generation") ?? AsReference("pre_token_generation");
         set => SetArgument("pre_token_generation", value);
     }
 
@@ -414,7 +414,7 @@ public class AwsCognitoUserPoolLambdaConfigBlockCustomEmailSenderBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => GetArgument<TerraformValue<string>>("lambda_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -424,7 +424,7 @@ public class AwsCognitoUserPoolLambdaConfigBlockCustomEmailSenderBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaVersion is required")]
     public required TerraformValue<string> LambdaVersion
     {
-        get => GetArgument<TerraformValue<string>>("lambda_version");
+        get => GetRequiredArgument<TerraformValue<string>>("lambda_version");
         set => SetArgument("lambda_version", value);
     }
 
@@ -447,7 +447,7 @@ public class AwsCognitoUserPoolLambdaConfigBlockCustomSmsSenderBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => GetArgument<TerraformValue<string>>("lambda_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -457,7 +457,7 @@ public class AwsCognitoUserPoolLambdaConfigBlockCustomSmsSenderBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaVersion is required")]
     public required TerraformValue<string> LambdaVersion
     {
-        get => GetArgument<TerraformValue<string>>("lambda_version");
+        get => GetRequiredArgument<TerraformValue<string>>("lambda_version");
         set => SetArgument("lambda_version", value);
     }
 
@@ -480,7 +480,7 @@ public class AwsCognitoUserPoolLambdaConfigBlockPreTokenGenerationConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => GetArgument<TerraformValue<string>>("lambda_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -490,7 +490,7 @@ public class AwsCognitoUserPoolLambdaConfigBlockPreTokenGenerationConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaVersion is required")]
     public required TerraformValue<string> LambdaVersion
     {
-        get => GetArgument<TerraformValue<string>>("lambda_version");
+        get => GetRequiredArgument<TerraformValue<string>>("lambda_version");
         set => SetArgument("lambda_version", value);
     }
 
@@ -565,9 +565,9 @@ public class AwsCognitoUserPoolPasswordPolicyBlock : TerraformBlock
     /// <summary>
     /// The temporary_password_validity_days attribute.
     /// </summary>
-    public TerraformValue<double>? TemporaryPasswordValidityDays
+    public TerraformValue<double> TemporaryPasswordValidityDays
     {
-        get => GetArgument<TerraformValue<double>>("temporary_password_validity_days");
+        get => GetArgument<TerraformValue<double>>("temporary_password_validity_days") ?? AsReference("temporary_password_validity_days");
         set => SetArgument("temporary_password_validity_days", value);
     }
 
@@ -591,7 +591,7 @@ public class AwsCognitoUserPoolSchemaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributeDataType is required")]
     public required TerraformValue<string> AttributeDataType
     {
-        get => GetArgument<TerraformValue<string>>("attribute_data_type");
+        get => GetRequiredArgument<TerraformValue<string>>("attribute_data_type");
         set => SetArgument("attribute_data_type", value);
     }
 
@@ -619,7 +619,7 @@ public class AwsCognitoUserPoolSchemaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -757,7 +757,7 @@ public class AwsCognitoUserPoolSmsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     public required TerraformValue<string> ExternalId
     {
-        get => GetArgument<TerraformValue<string>>("external_id");
+        get => GetRequiredArgument<TerraformValue<string>>("external_id");
         set => SetArgument("external_id", value);
     }
 
@@ -767,16 +767,16 @@ public class AwsCognitoUserPoolSmsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsCallerArn is required")]
     public required TerraformValue<string> SnsCallerArn
     {
-        get => GetArgument<TerraformValue<string>>("sns_caller_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("sns_caller_arn");
         set => SetArgument("sns_caller_arn", value);
     }
 
     /// <summary>
     /// The sns_region attribute.
     /// </summary>
-    public TerraformValue<string>? SnsRegion
+    public TerraformValue<string> SnsRegion
     {
-        get => GetArgument<TerraformValue<string>>("sns_region");
+        get => GetArgument<TerraformValue<string>>("sns_region") ?? AsReference("sns_region");
         set => SetArgument("sns_region", value);
     }
 
@@ -800,7 +800,7 @@ public class AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -824,7 +824,7 @@ public class AwsCognitoUserPoolUserAttributeUpdateSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesRequireVerificationBeforeUpdate is required")]
     public required TerraformSet<string> AttributesRequireVerificationBeforeUpdate
     {
-        get => GetArgument<TerraformSet<string>>("attributes_require_verification_before_update");
+        get => GetRequiredArgument<TerraformSet<string>>("attributes_require_verification_before_update");
         set => SetArgument("attributes_require_verification_before_update", value);
     }
 
@@ -848,7 +848,7 @@ public class AwsCognitoUserPoolUserPoolAddOnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdvancedSecurityMode is required")]
     public required TerraformValue<string> AdvancedSecurityMode
     {
-        get => GetArgument<TerraformValue<string>>("advanced_security_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("advanced_security_mode");
         set => SetArgument("advanced_security_mode", value);
     }
 
@@ -878,9 +878,9 @@ public class AwsCognitoUserPoolUserPoolAddOnsBlockAdvancedSecurityAdditionalFlow
     /// <summary>
     /// The custom_auth_mode attribute.
     /// </summary>
-    public TerraformValue<string>? CustomAuthMode
+    public TerraformValue<string> CustomAuthMode
     {
-        get => GetArgument<TerraformValue<string>>("custom_auth_mode");
+        get => GetArgument<TerraformValue<string>>("custom_auth_mode") ?? AsReference("custom_auth_mode");
         set => SetArgument("custom_auth_mode", value);
     }
 
@@ -901,9 +901,9 @@ public class AwsCognitoUserPoolUsernameConfigurationBlock : TerraformBlock
     /// <summary>
     /// The case_sensitive attribute.
     /// </summary>
-    public TerraformValue<bool>? CaseSensitive
+    public TerraformValue<bool> CaseSensitive
     {
-        get => GetArgument<TerraformValue<bool>>("case_sensitive");
+        get => GetArgument<TerraformValue<bool>>("case_sensitive") ?? AsReference("case_sensitive");
         set => SetArgument("case_sensitive", value);
     }
 
@@ -933,45 +933,45 @@ public class AwsCognitoUserPoolVerificationMessageTemplateBlock : TerraformBlock
     /// <summary>
     /// The email_message attribute.
     /// </summary>
-    public TerraformValue<string>? EmailMessage
+    public TerraformValue<string> EmailMessage
     {
-        get => GetArgument<TerraformValue<string>>("email_message");
+        get => GetArgument<TerraformValue<string>>("email_message") ?? AsReference("email_message");
         set => SetArgument("email_message", value);
     }
 
     /// <summary>
     /// The email_message_by_link attribute.
     /// </summary>
-    public TerraformValue<string>? EmailMessageByLink
+    public TerraformValue<string> EmailMessageByLink
     {
-        get => GetArgument<TerraformValue<string>>("email_message_by_link");
+        get => GetArgument<TerraformValue<string>>("email_message_by_link") ?? AsReference("email_message_by_link");
         set => SetArgument("email_message_by_link", value);
     }
 
     /// <summary>
     /// The email_subject attribute.
     /// </summary>
-    public TerraformValue<string>? EmailSubject
+    public TerraformValue<string> EmailSubject
     {
-        get => GetArgument<TerraformValue<string>>("email_subject");
+        get => GetArgument<TerraformValue<string>>("email_subject") ?? AsReference("email_subject");
         set => SetArgument("email_subject", value);
     }
 
     /// <summary>
     /// The email_subject_by_link attribute.
     /// </summary>
-    public TerraformValue<string>? EmailSubjectByLink
+    public TerraformValue<string> EmailSubjectByLink
     {
-        get => GetArgument<TerraformValue<string>>("email_subject_by_link");
+        get => GetArgument<TerraformValue<string>>("email_subject_by_link") ?? AsReference("email_subject_by_link");
         set => SetArgument("email_subject_by_link", value);
     }
 
     /// <summary>
     /// The sms_message attribute.
     /// </summary>
-    public TerraformValue<string>? SmsMessage
+    public TerraformValue<string> SmsMessage
     {
-        get => GetArgument<TerraformValue<string>>("sms_message");
+        get => GetArgument<TerraformValue<string>>("sms_message") ?? AsReference("sms_message");
         set => SetArgument("sms_message", value);
     }
 
@@ -1046,27 +1046,27 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     /// <summary>
     /// The email_verification_message attribute.
     /// </summary>
-    public TerraformValue<string>? EmailVerificationMessage
+    public TerraformValue<string> EmailVerificationMessage
     {
-        get => GetArgument<TerraformValue<string>>("email_verification_message");
+        get => GetArgument<TerraformValue<string>>("email_verification_message") ?? AsReference("email_verification_message");
         set => SetArgument("email_verification_message", value);
     }
 
     /// <summary>
     /// The email_verification_subject attribute.
     /// </summary>
-    public TerraformValue<string>? EmailVerificationSubject
+    public TerraformValue<string> EmailVerificationSubject
     {
-        get => GetArgument<TerraformValue<string>>("email_verification_subject");
+        get => GetArgument<TerraformValue<string>>("email_verification_subject") ?? AsReference("email_verification_subject");
         set => SetArgument("email_verification_subject", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1085,16 +1085,16 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1110,9 +1110,9 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     /// <summary>
     /// The sms_verification_message attribute.
     /// </summary>
-    public TerraformValue<string>? SmsVerificationMessage
+    public TerraformValue<string> SmsVerificationMessage
     {
-        get => GetArgument<TerraformValue<string>>("sms_verification_message");
+        get => GetArgument<TerraformValue<string>>("sms_verification_message") ?? AsReference("sms_verification_message");
         set => SetArgument("sms_verification_message", value);
     }
 
@@ -1128,18 +1128,18 @@ public partial class AwsCognitoUserPool(string name) : TerraformResource("aws_co
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The user_pool_tier attribute.
     /// </summary>
-    public TerraformValue<string>? UserPoolTier
+    public TerraformValue<string> UserPoolTier
     {
-        get => GetArgument<TerraformValue<string>>("user_pool_tier");
+        get => GetArgument<TerraformValue<string>>("user_pool_tier") ?? AsReference("user_pool_tier");
         set => SetArgument("user_pool_tier", value);
     }
 

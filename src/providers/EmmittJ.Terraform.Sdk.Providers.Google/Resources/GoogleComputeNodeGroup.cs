@@ -17,9 +17,9 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     /// Maximum size of the node group. Set to a value less than or equal
     /// to 100 and greater than or equal to min-nodes.
     /// </summary>
-    public TerraformValue<double>? MaxNodes
+    public TerraformValue<double> MaxNodes
     {
-        get => GetArgument<TerraformValue<double>>("max_nodes");
+        get => GetArgument<TerraformValue<double>>("max_nodes") ?? AsReference("max_nodes");
         set => SetArgument("max_nodes", value);
     }
 
@@ -27,9 +27,9 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     /// Minimum size of the node group. Must be less
     /// than or equal to max-nodes. The default value is 0.
     /// </summary>
-    public TerraformValue<double>? MinNodes
+    public TerraformValue<double> MinNodes
     {
-        get => GetArgument<TerraformValue<double>>("min_nodes");
+        get => GetArgument<TerraformValue<double>>("min_nodes") ?? AsReference("min_nodes");
         set => SetArgument("min_nodes", value);
     }
 
@@ -41,9 +41,9 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     ///   You must use this mode if your node groups are configured to
     ///   restart their hosted VMs on minimal servers. Possible values: [&amp;quot;OFF&amp;quot;, &amp;quot;ON&amp;quot;, &amp;quot;ONLY_SCALE_OUT&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Mode
+    public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleComputeNodeGroupMaintenanceWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleComputeNodeGroupShareSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareType is required")]
     public required TerraformValue<string> ShareType
     {
-        get => GetArgument<TerraformValue<string>>("share_type");
+        get => GetRequiredArgument<TerraformValue<string>>("share_type");
         set => SetArgument("share_type", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleComputeNodeGroupShareSettingsBlockProjectMapBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleComputeNodeGroupShareSettingsBlockProjectMapBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -199,9 +199,9 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -229,7 +229,7 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -239,25 +239,25 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTemplate is required")]
     public required TerraformValue<string> NodeTemplate
     {
-        get => GetArgument<TerraformValue<string>>("node_template");
+        get => GetRequiredArgument<TerraformValue<string>>("node_template");
         set => SetArgument("node_template", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Zone where this node group is located
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformValue<double> Algorithm
     {
-        get => GetArgument<TerraformValue<double>>("algorithm");
+        get => GetRequiredArgument<TerraformValue<double>>("algorithm");
         set => SetArgument("algorithm", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Flags is required")]
     public required TerraformValue<double> Flags
     {
-        get => GetArgument<TerraformValue<double>>("flags");
+        get => GetRequiredArgument<TerraformValue<double>>("flags");
         set => SetArgument("flags", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformValue<string> PublicKey
     {
-        get => GetArgument<TerraformValue<string>>("public_key");
+        get => GetRequiredArgument<TerraformValue<string>>("public_key");
         set => SetArgument("public_key", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsRoute53domainsDelegationSignerRecord(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 

@@ -46,7 +46,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Api is required")]
     public required TerraformValue<string> Api
     {
-        get => GetArgument<TerraformValue<string>>("api");
+        get => GetRequiredArgument<TerraformValue<string>>("api");
         set => SetArgument("api", value);
     }
 
@@ -56,16 +56,16 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => GetArgument<TerraformValue<string>>("environment");
+        get => GetRequiredArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformValue<double> Revision
     {
-        get => GetArgument<TerraformValue<double>>("revision");
+        get => GetRequiredArgument<TerraformValue<double>>("revision");
         set => SetArgument("revision", value);
     }
 

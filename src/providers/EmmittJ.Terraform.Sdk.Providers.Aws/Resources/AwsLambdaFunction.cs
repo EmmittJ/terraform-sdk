@@ -19,7 +19,7 @@ public class AwsLambdaFunctionDeadLetterConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformValue<string> TargetArn
     {
-        get => GetArgument<TerraformValue<string>>("target_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("target_arn");
         set => SetArgument("target_arn", value);
     }
 
@@ -63,9 +63,9 @@ public class AwsLambdaFunctionEphemeralStorageBlock : TerraformBlock
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformValue<double>? Size
+    public TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size");
+        get => GetArgument<TerraformValue<double>>("size") ?? AsReference("size");
         set => SetArgument("size", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsLambdaFunctionFileSystemConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsLambdaFunctionFileSystemConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalMountPath is required")]
     public required TerraformValue<string> LocalMountPath
     {
-        get => GetArgument<TerraformValue<string>>("local_mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("local_mount_path");
         set => SetArgument("local_mount_path", value);
     }
 
@@ -173,16 +173,16 @@ public class AwsLambdaFunctionLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
     public required TerraformValue<string> LogFormat
     {
-        get => GetArgument<TerraformValue<string>>("log_format");
+        get => GetRequiredArgument<TerraformValue<string>>("log_format");
         set => SetArgument("log_format", value);
     }
 
     /// <summary>
     /// The log_group attribute.
     /// </summary>
-    public TerraformValue<string>? LogGroup
+    public TerraformValue<string> LogGroup
     {
-        get => GetArgument<TerraformValue<string>>("log_group");
+        get => GetArgument<TerraformValue<string>>("log_group") ?? AsReference("log_group");
         set => SetArgument("log_group", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsLambdaFunctionSnapStartBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplyOn is required")]
     public required TerraformValue<string> ApplyOn
     {
-        get => GetArgument<TerraformValue<string>>("apply_on");
+        get => GetRequiredArgument<TerraformValue<string>>("apply_on");
         set => SetArgument("apply_on", value);
     }
 
@@ -286,7 +286,7 @@ public class AwsLambdaFunctionTracingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -319,7 +319,7 @@ public class AwsLambdaFunctionVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -329,7 +329,7 @@ public class AwsLambdaFunctionVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -351,9 +351,9 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// <summary>
     /// The architectures attribute.
     /// </summary>
-    public TerraformList<string>? Architectures
+    public TerraformList<string> Architectures
     {
-        get => GetArgument<TerraformList<string>>("architectures");
+        get => GetArgument<TerraformList<string>>("architectures") ?? AsReference("architectures");
         set => SetArgument("architectures", value);
     }
 
@@ -390,7 +390,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => GetArgument<TerraformValue<string>>("function_name");
+        get => GetRequiredArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
@@ -406,9 +406,9 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -469,9 +469,9 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -508,7 +508,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => GetArgument<TerraformValue<string>>("role");
+        get => GetRequiredArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -560,9 +560,9 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
-    public TerraformValue<string>? SourceCodeHash
+    public TerraformValue<string> SourceCodeHash
     {
-        get => GetArgument<TerraformValue<string>>("source_code_hash");
+        get => GetArgument<TerraformValue<string>>("source_code_hash") ?? AsReference("source_code_hash");
         set => SetArgument("source_code_hash", value);
     }
 
@@ -587,9 +587,9 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

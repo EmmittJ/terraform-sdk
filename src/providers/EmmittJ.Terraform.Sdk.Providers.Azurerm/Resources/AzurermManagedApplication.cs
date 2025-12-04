@@ -19,7 +19,7 @@ public class AzurermManagedApplicationPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermManagedApplicationPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformValue<string> Product
     {
-        get => GetArgument<TerraformValue<string>>("product");
+        get => GetRequiredArgument<TerraformValue<string>>("product");
         set => SetArgument("product", value);
     }
 
@@ -48,7 +48,7 @@ public class AzurermManagedApplicationPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -58,7 +58,7 @@ public class AzurermManagedApplicationPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -133,9 +133,9 @@ public partial class AzurermManagedApplication(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermManagedApplication(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformValue<string> Kind
     {
-        get => GetArgument<TerraformValue<string>>("kind");
+        get => GetRequiredArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermManagedApplication(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermManagedApplication(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedResourceGroupName is required")]
     public required TerraformValue<string> ManagedResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("managed_resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_resource_group_name");
         set => SetArgument("managed_resource_group_name", value);
     }
 
@@ -175,16 +175,16 @@ public partial class AzurermManagedApplication(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The parameter_values attribute.
     /// </summary>
-    public TerraformValue<string>? ParameterValues
+    public TerraformValue<string> ParameterValues
     {
-        get => GetArgument<TerraformValue<string>>("parameter_values");
+        get => GetArgument<TerraformValue<string>>("parameter_values") ?? AsReference("parameter_values");
         set => SetArgument("parameter_values", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermManagedApplication(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

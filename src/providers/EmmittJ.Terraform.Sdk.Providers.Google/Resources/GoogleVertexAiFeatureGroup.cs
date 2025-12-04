@@ -54,7 +54,7 @@ public class GoogleVertexAiFeatureGroupBigQueryBlockBigQuerySourceBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputUri is required")]
     public required TerraformValue<string> InputUri
     {
-        get => GetArgument<TerraformValue<string>>("input_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("input_uri");
         set => SetArgument("input_uri", value);
     }
 
@@ -120,9 +120,9 @@ public partial class GoogleVertexAiFeatureGroup(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -150,18 +150,18 @@ public partial class GoogleVertexAiFeatureGroup(string name) : TerraformResource
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region of feature group. eg us-central1
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

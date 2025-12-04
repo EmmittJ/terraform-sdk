@@ -28,7 +28,7 @@ public class AwsEvidentlyLaunchGroupsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
     public required TerraformValue<string> Feature
     {
-        get => GetArgument<TerraformValue<string>>("feature");
+        get => GetRequiredArgument<TerraformValue<string>>("feature");
         set => SetArgument("feature", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsEvidentlyLaunchGroupsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsEvidentlyLaunchGroupsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Variation is required")]
     public required TerraformValue<string> Variation
     {
-        get => GetArgument<TerraformValue<string>>("variation");
+        get => GetRequiredArgument<TerraformValue<string>>("variation");
         set => SetArgument("variation", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsEvidentlyLaunchMetricMonitorsBlockMetricDefinitionBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityIdKey is required")]
     public required TerraformValue<string> EntityIdKey
     {
-        get => GetArgument<TerraformValue<string>>("entity_id_key");
+        get => GetRequiredArgument<TerraformValue<string>>("entity_id_key");
         set => SetArgument("entity_id_key", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsEvidentlyLaunchMetricMonitorsBlockMetricDefinitionBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsEvidentlyLaunchMetricMonitorsBlockMetricDefinitionBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueKey is required")]
     public required TerraformValue<string> ValueKey
     {
-        get => GetArgument<TerraformValue<string>>("value_key");
+        get => GetRequiredArgument<TerraformValue<string>>("value_key");
         set => SetArgument("value_key", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsEvidentlyLaunchScheduledSplitsConfigBlockStepsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupWeights is required")]
     public required TerraformMap<double> GroupWeights
     {
-        get => GetArgument<TerraformMap<double>>("group_weights");
+        get => GetRequiredArgument<TerraformMap<double>>("group_weights");
         set => SetArgument("group_weights", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsEvidentlyLaunchScheduledSplitsConfigBlockStepsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -229,7 +229,7 @@ public class AwsEvidentlyLaunchScheduledSplitsConfigBlockStepsBlockSegmentOverri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationOrder is required")]
     public required TerraformValue<double> EvaluationOrder
     {
-        get => GetArgument<TerraformValue<double>>("evaluation_order");
+        get => GetRequiredArgument<TerraformValue<double>>("evaluation_order");
         set => SetArgument("evaluation_order", value);
     }
 
@@ -239,7 +239,7 @@ public class AwsEvidentlyLaunchScheduledSplitsConfigBlockStepsBlockSegmentOverri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Segment is required")]
     public required TerraformValue<string> Segment
     {
-        get => GetArgument<TerraformValue<string>>("segment");
+        get => GetRequiredArgument<TerraformValue<string>>("segment");
         set => SetArgument("segment", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsEvidentlyLaunchScheduledSplitsConfigBlockStepsBlockSegmentOverri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weights is required")]
     public required TerraformMap<double> Weights
     {
-        get => GetArgument<TerraformMap<double>>("weights");
+        get => GetRequiredArgument<TerraformMap<double>>("weights");
         set => SetArgument("weights", value);
     }
 
@@ -316,9 +316,9 @@ public partial class AwsEvidentlyLaunch(string name) : TerraformResource("aws_ev
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -328,7 +328,7 @@ public partial class AwsEvidentlyLaunch(string name) : TerraformResource("aws_ev
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -338,7 +338,7 @@ public partial class AwsEvidentlyLaunch(string name) : TerraformResource("aws_ev
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -354,9 +354,9 @@ public partial class AwsEvidentlyLaunch(string name) : TerraformResource("aws_ev
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -372,9 +372,9 @@ public partial class AwsEvidentlyLaunch(string name) : TerraformResource("aws_ev
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

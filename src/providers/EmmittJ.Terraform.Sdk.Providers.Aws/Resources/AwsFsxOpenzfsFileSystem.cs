@@ -16,9 +16,9 @@ public class AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock : TerraformBlock
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -66,9 +66,9 @@ public class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock : TerraformBloc
     /// <summary>
     /// The read_only attribute.
     /// </summary>
-    public TerraformValue<bool>? ReadOnlyAttribute
+    public TerraformValue<bool> ReadOnlyAttribute
     {
-        get => GetArgument<TerraformValue<bool>>("read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only") ?? AsReference("read_only");
         set => SetArgument("read_only", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlockNfsExportsBlockC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Clients is required")]
     public required TerraformValue<string> Clients
     {
-        get => GetArgument<TerraformValue<string>>("clients");
+        get => GetRequiredArgument<TerraformValue<string>>("clients");
         set => SetArgument("clients", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlockUserAndGroupQuot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<double> Id
     {
-        get => GetArgument<TerraformValue<double>>("id");
+        get => GetRequiredArgument<TerraformValue<double>>("id");
         set => SetArgument("id", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlockUserAndGroupQuot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityQuotaGib is required")]
     public required TerraformValue<double> StorageCapacityQuotaGib
     {
-        get => GetArgument<TerraformValue<double>>("storage_capacity_quota_gib");
+        get => GetRequiredArgument<TerraformValue<double>>("storage_capacity_quota_gib");
         set => SetArgument("storage_capacity_quota_gib", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlockUserAndGroupQuot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -291,9 +291,9 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public TerraformValue<string>? DailyAutomaticBackupStartTime
+    public TerraformValue<string> DailyAutomaticBackupStartTime
     {
-        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time");
+        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time") ?? AsReference("daily_automatic_backup_start_time");
         set => SetArgument("daily_automatic_backup_start_time", value);
     }
 
@@ -312,16 +312,16 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
     public required TerraformValue<string> DeploymentType
     {
-        get => GetArgument<TerraformValue<string>>("deployment_type");
+        get => GetRequiredArgument<TerraformValue<string>>("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
     /// <summary>
     /// The endpoint_ip_address_range attribute.
     /// </summary>
-    public TerraformValue<string>? EndpointIpAddressRange
+    public TerraformValue<string> EndpointIpAddressRange
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_ip_address_range");
+        get => GetArgument<TerraformValue<string>>("endpoint_ip_address_range") ?? AsReference("endpoint_ip_address_range");
         set => SetArgument("endpoint_ip_address_range", value);
     }
 
@@ -337,18 +337,18 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -364,18 +364,18 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public TerraformSet<string>? RouteTableIds
+    public TerraformSet<string> RouteTableIds
     {
-        get => GetArgument<TerraformSet<string>>("route_table_ids");
+        get => GetArgument<TerraformSet<string>>("route_table_ids") ?? AsReference("route_table_ids");
         set => SetArgument("route_table_ids", value);
     }
 
@@ -437,9 +437,9 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -449,16 +449,16 @@ public partial class AwsFsxOpenzfsFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputCapacity is required")]
     public required TerraformValue<double> ThroughputCapacity
     {
-        get => GetArgument<TerraformValue<double>>("throughput_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("throughput_capacity");
         set => SetArgument("throughput_capacity", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public TerraformValue<string>? WeeklyMaintenanceStartTime
+    public TerraformValue<string> WeeklyMaintenanceStartTime
     {
-        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time") ?? AsReference("weekly_maintenance_start_time");
         set => SetArgument("weekly_maintenance_start_time", value);
     }
 

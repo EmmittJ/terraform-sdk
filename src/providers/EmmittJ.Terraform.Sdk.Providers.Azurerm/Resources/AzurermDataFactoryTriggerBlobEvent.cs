@@ -19,7 +19,7 @@ public class AzurermDataFactoryTriggerBlobEventPipelineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AzurermDataFactoryTriggerBlobEvent(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -161,16 +161,16 @@ public partial class AzurermDataFactoryTriggerBlobEvent(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     public required TerraformSet<string> Events
     {
-        get => GetArgument<TerraformSet<string>>("events");
+        get => GetRequiredArgument<TerraformSet<string>>("events");
         set => SetArgument("events", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AzurermDataFactoryTriggerBlobEvent(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AzurermDataFactoryTriggerBlobEvent(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

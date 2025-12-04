@@ -31,7 +31,7 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerDnsIps is required")]
     public required TerraformSet<string> CustomerDnsIps
     {
-        get => GetArgument<TerraformSet<string>>("customer_dns_ips");
+        get => GetRequiredArgument<TerraformSet<string>>("customer_dns_ips");
         set => SetArgument("customer_dns_ips", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerUsername is required")]
     public required TerraformValue<string> CustomerUsername
     {
-        get => GetArgument<TerraformValue<string>>("customer_username");
+        get => GetRequiredArgument<TerraformValue<string>>("customer_username");
         set => SetArgument("customer_username", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsDirectoryServiceDirectoryVpcSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsDirectoryServiceDirectoryVpcSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -158,9 +158,9 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformValue<string>? Alias
+    public TerraformValue<string> Alias
     {
-        get => GetArgument<TerraformValue<string>>("alias");
+        get => GetArgument<TerraformValue<string>>("alias") ?? AsReference("alias");
         set => SetArgument("alias", value);
     }
 
@@ -176,18 +176,18 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// <summary>
     /// The desired_number_of_domain_controllers attribute.
     /// </summary>
-    public TerraformValue<double>? DesiredNumberOfDomainControllers
+    public TerraformValue<double> DesiredNumberOfDomainControllers
     {
-        get => GetArgument<TerraformValue<double>>("desired_number_of_domain_controllers");
+        get => GetArgument<TerraformValue<double>>("desired_number_of_domain_controllers") ?? AsReference("desired_number_of_domain_controllers");
         set => SetArgument("desired_number_of_domain_controllers", value);
     }
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
-    public TerraformValue<string>? Edition
+    public TerraformValue<string> Edition
     {
-        get => GetArgument<TerraformValue<string>>("edition");
+        get => GetArgument<TerraformValue<string>>("edition") ?? AsReference("edition");
         set => SetArgument("edition", value);
     }
 
@@ -203,9 +203,9 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -225,34 +225,34 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The short_name attribute.
     /// </summary>
-    public TerraformValue<string>? ShortName
+    public TerraformValue<string> ShortName
     {
-        get => GetArgument<TerraformValue<string>>("short_name");
+        get => GetArgument<TerraformValue<string>>("short_name") ?? AsReference("short_name");
         set => SetArgument("short_name", value);
     }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformValue<string>? Size
+    public TerraformValue<string> Size
     {
-        get => GetArgument<TerraformValue<string>>("size");
+        get => GetArgument<TerraformValue<string>>("size") ?? AsReference("size");
         set => SetArgument("size", value);
     }
 
@@ -268,9 +268,9 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

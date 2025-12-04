@@ -46,7 +46,7 @@ public partial class AwsNotificationsNotificationHub(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationHubRegion is required")]
     public required TerraformValue<string> NotificationHubRegion
     {
-        get => GetArgument<TerraformValue<string>>("notification_hub_region");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_hub_region");
         set => SetArgument("notification_hub_region", value);
     }
 

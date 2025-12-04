@@ -19,7 +19,7 @@ public class AwsDatapipelinePipelineDefinitionParameterObjectBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsDatapipelinePipelineDefinitionParameterObjectBlockAttributeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsDatapipelinePipelineDefinitionParameterObjectBlockAttributeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StringValue is required")]
     public required TerraformValue<string> StringValue
     {
-        get => GetArgument<TerraformValue<string>>("string_value");
+        get => GetRequiredArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsDatapipelinePipelineDefinitionParameterValueBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsDatapipelinePipelineDefinitionParameterValueBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StringValue is required")]
     public required TerraformValue<string> StringValue
     {
-        get => GetArgument<TerraformValue<string>>("string_value");
+        get => GetRequiredArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsDatapipelinePipelineDefinitionPipelineObjectBlockFieldBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -195,9 +195,9 @@ public partial class AwsDatapipelinePipelineDefinition(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -207,16 +207,16 @@ public partial class AwsDatapipelinePipelineDefinition(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     public required TerraformValue<string> PipelineId
     {
-        get => GetArgument<TerraformValue<string>>("pipeline_id");
+        get => GetRequiredArgument<TerraformValue<string>>("pipeline_id");
         set => SetArgument("pipeline_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

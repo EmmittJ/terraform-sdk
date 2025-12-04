@@ -34,9 +34,9 @@ public partial class AzurermPortalDashboardDataSource(string name) : TerraformDa
     /// <summary>
     /// The dashboard_properties attribute.
     /// </summary>
-    public TerraformValue<string>? DashboardProperties
+    public TerraformValue<string> DashboardProperties
     {
-        get => GetArgument<TerraformValue<string>>("dashboard_properties");
+        get => GetArgument<TerraformValue<string>>("dashboard_properties") ?? AsReference("dashboard_properties");
         set => SetArgument("dashboard_properties", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermPortalDashboardDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermPortalDashboardDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

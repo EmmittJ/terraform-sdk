@@ -52,9 +52,9 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopedResourceId is required")]
     public required TerraformValue<string> ScopedResourceId
     {
-        get => GetArgument<TerraformValue<string>>("scoped_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("scoped_resource_id");
         set => SetArgument("scoped_resource_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

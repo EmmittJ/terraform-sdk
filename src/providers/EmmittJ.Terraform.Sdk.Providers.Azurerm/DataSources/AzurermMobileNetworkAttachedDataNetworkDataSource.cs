@@ -34,9 +34,9 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource(string na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkDataNetworkName is required")]
     public required TerraformValue<string> MobileNetworkDataNetworkName
     {
-        get => GetArgument<TerraformValue<string>>("mobile_network_data_network_name");
+        get => GetRequiredArgument<TerraformValue<string>>("mobile_network_data_network_name");
         set => SetArgument("mobile_network_data_network_name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreDataPlaneId is required")]
     public required TerraformValue<string> MobileNetworkPacketCoreDataPlaneId
     {
-        get => GetArgument<TerraformValue<string>>("mobile_network_packet_core_data_plane_id");
+        get => GetRequiredArgument<TerraformValue<string>>("mobile_network_packet_core_data_plane_id");
         set => SetArgument("mobile_network_packet_core_data_plane_id", value);
     }
 

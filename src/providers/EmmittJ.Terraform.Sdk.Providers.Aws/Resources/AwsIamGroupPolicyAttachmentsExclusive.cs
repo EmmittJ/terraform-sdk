@@ -14,7 +14,7 @@ public partial class AwsIamGroupPolicyAttachmentsExclusive(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformValue<string> GroupName
     {
-        get => GetArgument<TerraformValue<string>>("group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsIamGroupPolicyAttachmentsExclusive(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArns is required")]
     public required TerraformSet<string> PolicyArns
     {
-        get => GetArgument<TerraformSet<string>>("policy_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("policy_arns");
         set => SetArgument("policy_arns", value);
     }
 

@@ -19,16 +19,16 @@ public class GoogleStorageBucketAutoclassBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The storage class that objects in the bucket eventually transition to if they are not read for a certain length of time. Supported values include: NEARLINE, ARCHIVE.
     /// </summary>
-    public TerraformValue<string>? TerminalStorageClass
+    public TerraformValue<string> TerminalStorageClass
     {
-        get => GetArgument<TerraformValue<string>>("terminal_storage_class");
+        get => GetArgument<TerraformValue<string>>("terminal_storage_class") ?? AsReference("terminal_storage_class");
         set => SetArgument("terminal_storage_class", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleStorageBucketCustomPlacementConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataLocations is required")]
     public required TerraformSet<string> DataLocations
     {
-        get => GetArgument<TerraformSet<string>>("data_locations");
+        get => GetRequiredArgument<TerraformSet<string>>("data_locations");
         set => SetArgument("data_locations", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleStorageBucketEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultKmsKeyName is required")]
     public required TerraformValue<string> DefaultKmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("default_kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("default_kms_key_name");
         set => SetArgument("default_kms_key_name", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleStorageBucketHierarchicalNamespaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleStorageBucketIpFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -267,7 +267,7 @@ public class GoogleStorageBucketIpFilterBlockVpcNetworkSourcesBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -339,7 +339,7 @@ public class GoogleStorageBucketLifecycleRuleBlockActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -486,9 +486,9 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// <summary>
     /// Match to live and/or archived objects. Unversioned buckets have only live objects. Supported values include: &amp;quot;LIVE&amp;quot;, &amp;quot;ARCHIVED&amp;quot;, &amp;quot;ANY&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? WithState
+    public TerraformValue<string> WithState
     {
-        get => GetArgument<TerraformValue<string>>("with_state");
+        get => GetArgument<TerraformValue<string>>("with_state") ?? AsReference("with_state");
         set => SetArgument("with_state", value);
     }
 
@@ -512,16 +512,16 @@ public class GoogleStorageBucketLoggingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogBucket is required")]
     public required TerraformValue<string> LogBucket
     {
-        get => GetArgument<TerraformValue<string>>("log_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("log_bucket");
         set => SetArgument("log_bucket", value);
     }
 
     /// <summary>
     /// The object prefix for log objects. If it&#39;s not provided, by default Google Cloud Storage sets this to this bucket&#39;s name.
     /// </summary>
-    public TerraformValue<string>? LogObjectPrefix
+    public TerraformValue<string> LogObjectPrefix
     {
-        get => GetArgument<TerraformValue<string>>("log_object_prefix");
+        get => GetArgument<TerraformValue<string>>("log_object_prefix") ?? AsReference("log_object_prefix");
         set => SetArgument("log_object_prefix", value);
     }
 
@@ -554,7 +554,7 @@ public class GoogleStorageBucketRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriod is required")]
     public required TerraformValue<string> RetentionPeriod
     {
-        get => GetArgument<TerraformValue<string>>("retention_period");
+        get => GetRequiredArgument<TerraformValue<string>>("retention_period");
         set => SetArgument("retention_period", value);
     }
 
@@ -648,7 +648,7 @@ public class GoogleStorageBucketVersioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -723,9 +723,9 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -744,7 +744,7 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -754,25 +754,25 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Prevents public access to a bucket.
     /// </summary>
-    public TerraformValue<string>? PublicAccessPrevention
+    public TerraformValue<string> PublicAccessPrevention
     {
-        get => GetArgument<TerraformValue<string>>("public_access_prevention");
+        get => GetArgument<TerraformValue<string>>("public_access_prevention") ?? AsReference("public_access_prevention");
         set => SetArgument("public_access_prevention", value);
     }
 
@@ -788,9 +788,9 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// <summary>
     /// Specifies the RPO setting of bucket. If set &#39;ASYNC_TURBO&#39;, The Turbo Replication will be enabled for the dual-region bucket. Value &#39;DEFAULT&#39; will set RPO setting to default. Turbo Replication is only for buckets in dual-regions.See the docs for more details.
     /// </summary>
-    public TerraformValue<string>? Rpo
+    public TerraformValue<string> Rpo
     {
-        get => GetArgument<TerraformValue<string>>("rpo");
+        get => GetArgument<TerraformValue<string>>("rpo") ?? AsReference("rpo");
         set => SetArgument("rpo", value);
     }
 
@@ -806,9 +806,9 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// <summary>
     /// Enables uniform bucket-level access on a bucket.
     /// </summary>
-    public TerraformValue<bool>? UniformBucketLevelAccess
+    public TerraformValue<bool> UniformBucketLevelAccess
     {
-        get => GetArgument<TerraformValue<bool>>("uniform_bucket_level_access");
+        get => GetArgument<TerraformValue<bool>>("uniform_bucket_level_access") ?? AsReference("uniform_bucket_level_access");
         set => SetArgument("uniform_bucket_level_access", value);
     }
 

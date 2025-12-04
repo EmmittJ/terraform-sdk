@@ -203,7 +203,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockBool
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockBool
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<bool> Value
     {
-        get => GetArgument<TerraformValue<bool>>("value");
+        get => GetRequiredArgument<TerraformValue<bool>>("value");
         set => SetArgument("value", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockIsNo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -259,7 +259,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockIsNu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -282,7 +282,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -292,7 +292,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -315,7 +315,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -325,7 +325,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -348,7 +348,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -381,7 +381,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -414,7 +414,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -424,7 +424,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -447,7 +447,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -457,7 +457,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -480,7 +480,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -513,7 +513,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockNumb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -546,7 +546,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockStri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -579,7 +579,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockStri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -612,7 +612,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockStri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -645,7 +645,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockStri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -678,7 +678,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockStri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -711,7 +711,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockStri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -744,7 +744,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockStri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -777,7 +777,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlockStri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -811,7 +811,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionAzureFunctionEndpointBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionId is required")]
     public required TerraformValue<string> FunctionId
     {
-        get => GetArgument<TerraformValue<string>>("function_id");
+        get => GetRequiredArgument<TerraformValue<string>>("function_id");
         set => SetArgument("function_id", value);
     }
 
@@ -853,7 +853,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionDeadLetterIdentityBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -886,7 +886,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionDeliveryIdentityBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -919,7 +919,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionDeliveryPropertyBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -947,7 +947,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionDeliveryPropertyBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -980,7 +980,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionRetryPolicyBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTimeToLive is required")]
     public required TerraformValue<double> EventTimeToLive
     {
-        get => GetArgument<TerraformValue<double>>("event_time_to_live");
+        get => GetRequiredArgument<TerraformValue<double>>("event_time_to_live");
         set => SetArgument("event_time_to_live", value);
     }
 
@@ -990,7 +990,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionRetryPolicyBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxDeliveryAttempts is required")]
     public required TerraformValue<double> MaxDeliveryAttempts
     {
-        get => GetArgument<TerraformValue<double>>("max_delivery_attempts");
+        get => GetRequiredArgument<TerraformValue<double>>("max_delivery_attempts");
         set => SetArgument("max_delivery_attempts", value);
     }
 
@@ -1014,7 +1014,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionStorageBlobDeadLetterDe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -1024,7 +1024,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionStorageBlobDeadLetterDe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageBlobContainerName is required")]
     public required TerraformValue<string> StorageBlobContainerName
     {
-        get => GetArgument<TerraformValue<string>>("storage_blob_container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_blob_container_name");
         set => SetArgument("storage_blob_container_name", value);
     }
 
@@ -1057,7 +1057,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionStorageQueueEndpointBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueName is required")]
     public required TerraformValue<string> QueueName
     {
-        get => GetArgument<TerraformValue<string>>("queue_name");
+        get => GetRequiredArgument<TerraformValue<string>>("queue_name");
         set => SetArgument("queue_name", value);
     }
 
@@ -1067,7 +1067,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionStorageQueueEndpointBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -1224,7 +1224,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionWebhookEndpointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -1258,9 +1258,9 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// <summary>
     /// The eventhub_endpoint_id attribute.
     /// </summary>
-    public TerraformValue<string>? EventhubEndpointId
+    public TerraformValue<string> EventhubEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("eventhub_endpoint_id") ?? AsReference("eventhub_endpoint_id");
         set => SetArgument("eventhub_endpoint_id", value);
     }
 
@@ -1276,27 +1276,27 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// <summary>
     /// The hybrid_connection_endpoint_id attribute.
     /// </summary>
-    public TerraformValue<string>? HybridConnectionEndpointId
+    public TerraformValue<string> HybridConnectionEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("hybrid_connection_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("hybrid_connection_endpoint_id") ?? AsReference("hybrid_connection_endpoint_id");
         set => SetArgument("hybrid_connection_endpoint_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The included_event_types attribute.
     /// </summary>
-    public TerraformList<string>? IncludedEventTypes
+    public TerraformList<string> IncludedEventTypes
     {
-        get => GetArgument<TerraformList<string>>("included_event_types");
+        get => GetArgument<TerraformList<string>>("included_event_types") ?? AsReference("included_event_types");
         set => SetArgument("included_event_types", value);
     }
 
@@ -1315,7 +1315,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1325,7 +1325,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -1353,7 +1353,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SystemTopic is required")]
     public required TerraformValue<string> SystemTopic
     {
-        get => GetArgument<TerraformValue<string>>("system_topic");
+        get => GetRequiredArgument<TerraformValue<string>>("system_topic");
         set => SetArgument("system_topic", value);
     }
 

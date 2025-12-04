@@ -60,7 +60,7 @@ public class AwsS3BucketServerSideEncryptionConfigurationRuleBlockApplyServerSid
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SseAlgorithm is required")]
     public required TerraformValue<string> SseAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("sse_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("sse_algorithm");
         set => SetArgument("sse_algorithm", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsS3BucketServerSideEncryptionConfiguration(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -95,18 +95,18 @@ public partial class AwsS3BucketServerSideEncryptionConfiguration(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

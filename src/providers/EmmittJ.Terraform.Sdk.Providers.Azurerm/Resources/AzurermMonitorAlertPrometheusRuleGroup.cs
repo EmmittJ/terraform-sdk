@@ -46,7 +46,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlockActionBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupId is required")]
     public required TerraformValue<string> ActionGroupId
     {
-        get => GetArgument<TerraformValue<string>>("action_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("action_group_id");
         set => SetArgument("action_group_id", value);
     }
 
@@ -249,9 +249,9 @@ public partial class AzurermMonitorAlertPrometheusRuleGroup(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AzurermMonitorAlertPrometheusRuleGroup(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzurermMonitorAlertPrometheusRuleGroup(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -290,7 +290,7 @@ public partial class AzurermMonitorAlertPrometheusRuleGroup(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

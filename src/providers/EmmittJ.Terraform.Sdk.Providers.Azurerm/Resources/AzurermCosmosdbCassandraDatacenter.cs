@@ -91,7 +91,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CassandraClusterId is required")]
     public required TerraformValue<string> CassandraClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cassandra_cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cassandra_cluster_id");
         set => SetArgument("cassandra_cluster_id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedManagementSubnetId is required")]
     public required TerraformValue<string> DelegatedManagementSubnetId
     {
-        get => GetArgument<TerraformValue<string>>("delegated_management_subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("delegated_management_subnet_id");
         set => SetArgument("delegated_management_subnet_id", value);
     }
 
@@ -126,9 +126,9 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

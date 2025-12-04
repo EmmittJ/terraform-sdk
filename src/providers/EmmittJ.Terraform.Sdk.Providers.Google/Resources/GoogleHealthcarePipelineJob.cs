@@ -117,7 +117,7 @@ public class GoogleHealthcarePipelineJobMappingPipelineJobBlockFhirStreamingSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FhirStore is required")]
     public required TerraformValue<string> FhirStore
     {
-        get => GetArgument<TerraformValue<string>>("fhir_store");
+        get => GetRequiredArgument<TerraformValue<string>>("fhir_store");
         set => SetArgument("fhir_store", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleHealthcarePipelineJobMappingPipelineJobBlockMappingConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportUriPrefix is required")]
     public required TerraformValue<string> ImportUriPrefix
     {
-        get => GetArgument<TerraformValue<string>>("import_uri_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("import_uri_prefix");
         set => SetArgument("import_uri_prefix", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleHealthcarePipelineJobMappingPipelineJobBlockMappingConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -221,7 +221,7 @@ public class GoogleHealthcarePipelineJobReconciliationPipelineJobBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingUriPrefix is required")]
     public required TerraformValue<string> MatchingUriPrefix
     {
-        get => GetArgument<TerraformValue<string>>("matching_uri_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("matching_uri_prefix");
         set => SetArgument("matching_uri_prefix", value);
     }
 
@@ -293,7 +293,7 @@ public class GoogleHealthcarePipelineJobReconciliationPipelineJobBlockMergeConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportUriPrefix is required")]
     public required TerraformValue<string> ImportUriPrefix
     {
-        get => GetArgument<TerraformValue<string>>("import_uri_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("import_uri_prefix");
         set => SetArgument("import_uri_prefix", value);
     }
 
@@ -304,7 +304,7 @@ public class GoogleHealthcarePipelineJobReconciliationPipelineJobBlockMergeConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -364,7 +364,7 @@ public partial class GoogleHealthcarePipelineJob(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformValue<string> Dataset
     {
-        get => GetArgument<TerraformValue<string>>("dataset");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset");
         set => SetArgument("dataset", value);
     }
 
@@ -380,9 +380,9 @@ public partial class GoogleHealthcarePipelineJob(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -414,7 +414,7 @@ public partial class GoogleHealthcarePipelineJob(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -424,7 +424,7 @@ public partial class GoogleHealthcarePipelineJob(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

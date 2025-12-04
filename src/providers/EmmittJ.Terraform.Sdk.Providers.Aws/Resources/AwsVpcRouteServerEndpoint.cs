@@ -43,9 +43,9 @@ public partial class AwsVpcRouteServerEndpoint(string name) : TerraformResource(
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsVpcRouteServerEndpoint(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerId is required")]
     public required TerraformValue<string> RouteServerId
     {
-        get => GetArgument<TerraformValue<string>>("route_server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("route_server_id");
         set => SetArgument("route_server_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsVpcRouteServerEndpoint(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 

@@ -52,9 +52,9 @@ public partial class AzurermSiteRecoveryVmwareReplicationPolicyAssociation(strin
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSiteRecoveryVmwareReplicationPolicyAssociation(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSiteRecoveryVmwareReplicationPolicyAssociation(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformValue<string> PolicyId
     {
-        get => GetArgument<TerraformValue<string>>("policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_id");
         set => SetArgument("policy_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermSiteRecoveryVmwareReplicationPolicyAssociation(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformValue<string> RecoveryVaultId
     {
-        get => GetArgument<TerraformValue<string>>("recovery_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_vault_id");
         set => SetArgument("recovery_vault_id", value);
     }
 

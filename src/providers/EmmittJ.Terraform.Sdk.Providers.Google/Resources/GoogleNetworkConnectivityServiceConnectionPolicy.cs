@@ -43,9 +43,9 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
     /// ProducerInstanceLocation is used to specify which authorization mechanism to use to determine which projects
     /// the Producer instance can be within. Possible values: [&amp;quot;PRODUCER_INSTANCE_LOCATION_UNSPECIFIED&amp;quot;, &amp;quot;CUSTOM_RESOURCE_HIERARCHY_LEVELS&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? ProducerInstanceLocation
+    public TerraformValue<string> ProducerInstanceLocation
     {
-        get => GetArgument<TerraformValue<string>>("producer_instance_location");
+        get => GetArgument<TerraformValue<string>>("producer_instance_location") ?? AsReference("producer_instance_location");
         set => SetArgument("producer_instance_location", value);
     }
 
@@ -121,9 +121,9 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -156,7 +156,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -166,16 +166,16 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -186,7 +186,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceClass is required")]
     public required TerraformValue<string> ServiceClass
     {
-        get => GetArgument<TerraformValue<string>>("service_class");
+        get => GetRequiredArgument<TerraformValue<string>>("service_class");
         set => SetArgument("service_class", value);
     }
 

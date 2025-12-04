@@ -52,9 +52,9 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     public required TerraformValue<string> ManagedHsmId
     {
-        get => GetArgument<TerraformValue<string>>("managed_hsm_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_hsm_id");
         set => SetArgument("managed_hsm_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformValue<string> RoleDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_id");
+        get => GetRequiredArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 

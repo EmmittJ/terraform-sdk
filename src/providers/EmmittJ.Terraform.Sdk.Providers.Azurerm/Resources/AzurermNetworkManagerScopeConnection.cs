@@ -70,9 +70,9 @@ public partial class AzurermNetworkManagerScopeConnection(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermNetworkManagerScopeConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermNetworkManagerScopeConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformValue<string> NetworkManagerId
     {
-        get => GetArgument<TerraformValue<string>>("network_manager_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_manager_id");
         set => SetArgument("network_manager_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermNetworkManagerScopeConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetScopeId is required")]
     public required TerraformValue<string> TargetScopeId
     {
-        get => GetArgument<TerraformValue<string>>("target_scope_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_scope_id");
         set => SetArgument("target_scope_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermNetworkManagerScopeConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

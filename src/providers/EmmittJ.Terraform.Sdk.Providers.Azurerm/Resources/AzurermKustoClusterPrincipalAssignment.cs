@@ -55,16 +55,16 @@ public partial class AzurermKustoClusterPrincipalAssignment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermKustoClusterPrincipalAssignment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermKustoClusterPrincipalAssignment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermKustoClusterPrincipalAssignment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformValue<string> PrincipalType
     {
-        get => GetArgument<TerraformValue<string>>("principal_type");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_type");
         set => SetArgument("principal_type", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermKustoClusterPrincipalAssignment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermKustoClusterPrincipalAssignment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => GetArgument<TerraformValue<string>>("role");
+        get => GetRequiredArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermKustoClusterPrincipalAssignment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

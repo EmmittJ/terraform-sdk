@@ -11,9 +11,9 @@ public partial class AwsQuicksightFolderMembership(string name) : TerraformResou
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsQuicksightFolderMembership(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformValue<string> FolderId
     {
-        get => GetArgument<TerraformValue<string>>("folder_id");
+        get => GetRequiredArgument<TerraformValue<string>>("folder_id");
         set => SetArgument("folder_id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsQuicksightFolderMembership(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberId is required")]
     public required TerraformValue<string> MemberId
     {
-        get => GetArgument<TerraformValue<string>>("member_id");
+        get => GetRequiredArgument<TerraformValue<string>>("member_id");
         set => SetArgument("member_id", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsQuicksightFolderMembership(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberType is required")]
     public required TerraformValue<string> MemberType
     {
-        get => GetArgument<TerraformValue<string>>("member_type");
+        get => GetRequiredArgument<TerraformValue<string>>("member_type");
         set => SetArgument("member_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

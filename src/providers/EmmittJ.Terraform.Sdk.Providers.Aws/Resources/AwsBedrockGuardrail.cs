@@ -16,9 +16,9 @@ public class AwsBedrockGuardrailContentPolicyConfigBlock : TerraformBlock
     /// <summary>
     /// The tier_config attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? TierConfig
+    public TerraformList<TerraformMap<object>> TierConfig
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("tier_config");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("tier_config") ?? AsReference("tier_config");
         set => SetArgument("tier_config", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsBedrockGuardrailContentPolicyConfigBlockFiltersConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputStrength is required")]
     public required TerraformValue<string> InputStrength
     {
-        get => GetArgument<TerraformValue<string>>("input_strength");
+        get => GetRequiredArgument<TerraformValue<string>>("input_strength");
         set => SetArgument("input_strength", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsBedrockGuardrailContentPolicyConfigBlockFiltersConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputStrength is required")]
     public required TerraformValue<string> OutputStrength
     {
-        get => GetArgument<TerraformValue<string>>("output_strength");
+        get => GetRequiredArgument<TerraformValue<string>>("output_strength");
         set => SetArgument("output_strength", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsBedrockGuardrailContentPolicyConfigBlockFiltersConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsBedrockGuardrailContextualGroundingPolicyConfigBlockFiltersConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => GetArgument<TerraformValue<double>>("threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsBedrockGuardrailContextualGroundingPolicyConfigBlockFiltersConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsBedrockGuardrailCrossRegionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuardrailProfileIdentifier is required")]
     public required TerraformValue<string> GuardrailProfileIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("guardrail_profile_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("guardrail_profile_identifier");
         set => SetArgument("guardrail_profile_identifier", value);
     }
 
@@ -205,43 +205,43 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockPiiEntities
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
     /// <summary>
     /// The input_action attribute.
     /// </summary>
-    public TerraformValue<string>? InputAction
+    public TerraformValue<string> InputAction
     {
-        get => GetArgument<TerraformValue<string>>("input_action");
+        get => GetArgument<TerraformValue<string>>("input_action") ?? AsReference("input_action");
         set => SetArgument("input_action", value);
     }
 
     /// <summary>
     /// The input_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? InputEnabled
+    public TerraformValue<bool> InputEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("input_enabled");
+        get => GetArgument<TerraformValue<bool>>("input_enabled") ?? AsReference("input_enabled");
         set => SetArgument("input_enabled", value);
     }
 
     /// <summary>
     /// The output_action attribute.
     /// </summary>
-    public TerraformValue<string>? OutputAction
+    public TerraformValue<string> OutputAction
     {
-        get => GetArgument<TerraformValue<string>>("output_action");
+        get => GetArgument<TerraformValue<string>>("output_action") ?? AsReference("output_action");
         set => SetArgument("output_action", value);
     }
 
     /// <summary>
     /// The output_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? OutputEnabled
+    public TerraformValue<bool> OutputEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("output_enabled");
+        get => GetArgument<TerraformValue<bool>>("output_enabled") ?? AsReference("output_enabled");
         set => SetArgument("output_enabled", value);
     }
 
@@ -251,7 +251,7 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockPiiEntities
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -274,34 +274,34 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockRegexesConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The input_action attribute.
     /// </summary>
-    public TerraformValue<string>? InputAction
+    public TerraformValue<string> InputAction
     {
-        get => GetArgument<TerraformValue<string>>("input_action");
+        get => GetArgument<TerraformValue<string>>("input_action") ?? AsReference("input_action");
         set => SetArgument("input_action", value);
     }
 
     /// <summary>
     /// The input_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? InputEnabled
+    public TerraformValue<bool> InputEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("input_enabled");
+        get => GetArgument<TerraformValue<bool>>("input_enabled") ?? AsReference("input_enabled");
         set => SetArgument("input_enabled", value);
     }
 
@@ -311,25 +311,25 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockRegexesConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The output_action attribute.
     /// </summary>
-    public TerraformValue<string>? OutputAction
+    public TerraformValue<string> OutputAction
     {
-        get => GetArgument<TerraformValue<string>>("output_action");
+        get => GetArgument<TerraformValue<string>>("output_action") ?? AsReference("output_action");
         set => SetArgument("output_action", value);
     }
 
     /// <summary>
     /// The output_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? OutputEnabled
+    public TerraformValue<bool> OutputEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("output_enabled");
+        get => GetArgument<TerraformValue<bool>>("output_enabled") ?? AsReference("output_enabled");
         set => SetArgument("output_enabled", value);
     }
 
@@ -339,7 +339,7 @@ public class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlockRegexesConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -401,9 +401,9 @@ public class AwsBedrockGuardrailTopicPolicyConfigBlock : TerraformBlock
     /// <summary>
     /// The tier_config attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? TierConfig
+    public TerraformList<TerraformMap<object>> TierConfig
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("tier_config");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("tier_config") ?? AsReference("tier_config");
         set => SetArgument("tier_config", value);
     }
 
@@ -435,16 +435,16 @@ public class AwsBedrockGuardrailTopicPolicyConfigBlockTopicsConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
     public required TerraformValue<string> Definition
     {
-        get => GetArgument<TerraformValue<string>>("definition");
+        get => GetRequiredArgument<TerraformValue<string>>("definition");
         set => SetArgument("definition", value);
     }
 
     /// <summary>
     /// The examples attribute.
     /// </summary>
-    public TerraformList<string>? Examples
+    public TerraformList<string> Examples
     {
-        get => GetArgument<TerraformList<string>>("examples");
+        get => GetArgument<TerraformList<string>>("examples") ?? AsReference("examples");
         set => SetArgument("examples", value);
     }
 
@@ -454,7 +454,7 @@ public class AwsBedrockGuardrailTopicPolicyConfigBlockTopicsConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -464,7 +464,7 @@ public class AwsBedrockGuardrailTopicPolicyConfigBlockTopicsConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -555,7 +555,7 @@ public class AwsBedrockGuardrailWordPolicyConfigBlockManagedWordListsConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -614,7 +614,7 @@ public class AwsBedrockGuardrailWordPolicyConfigBlockWordsConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => GetArgument<TerraformValue<string>>("text");
+        get => GetRequiredArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -633,7 +633,7 @@ public partial class AwsBedrockGuardrail(string name) : TerraformResource("aws_b
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockedInputMessaging is required")]
     public required TerraformValue<string> BlockedInputMessaging
     {
-        get => GetArgument<TerraformValue<string>>("blocked_input_messaging");
+        get => GetRequiredArgument<TerraformValue<string>>("blocked_input_messaging");
         set => SetArgument("blocked_input_messaging", value);
     }
 
@@ -643,16 +643,16 @@ public partial class AwsBedrockGuardrail(string name) : TerraformResource("aws_b
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockedOutputsMessaging is required")]
     public required TerraformValue<string> BlockedOutputsMessaging
     {
-        get => GetArgument<TerraformValue<string>>("blocked_outputs_messaging");
+        get => GetRequiredArgument<TerraformValue<string>>("blocked_outputs_messaging");
         set => SetArgument("blocked_outputs_messaging", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
@@ -671,16 +671,16 @@ public partial class AwsBedrockGuardrail(string name) : TerraformResource("aws_b
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

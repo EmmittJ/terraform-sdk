@@ -142,7 +142,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlockAlertCont
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -175,7 +175,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlockAlertRule
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -208,7 +208,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlockAlertRule
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -241,7 +241,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlockDescripti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -274,7 +274,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlockMonitorCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -307,7 +307,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlockMonitorSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -340,7 +340,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlockSeverityB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -373,7 +373,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlockSignalTyp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -406,7 +406,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlockTargetRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -439,7 +439,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlockTargetRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -472,7 +472,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlockTargetRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -596,7 +596,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlockRecurrence
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTime is required")]
     public required TerraformValue<string> EndTime
     {
-        get => GetArgument<TerraformValue<string>>("end_time");
+        get => GetRequiredArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -606,7 +606,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlockRecurrence
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -772,9 +772,9 @@ public partial class AzurermMonitorAlertProcessingRuleSuppression(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -784,7 +784,7 @@ public partial class AzurermMonitorAlertProcessingRuleSuppression(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -794,7 +794,7 @@ public partial class AzurermMonitorAlertProcessingRuleSuppression(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

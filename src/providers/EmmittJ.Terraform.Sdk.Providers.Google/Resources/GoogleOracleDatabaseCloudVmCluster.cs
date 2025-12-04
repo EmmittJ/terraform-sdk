@@ -16,9 +16,9 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// <summary>
     /// OCI Cluster name.
     /// </summary>
-    public TerraformValue<string>? ClusterName
+    public TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name") ?? AsReference("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -34,34 +34,34 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
     public required TerraformValue<double> CpuCoreCount
     {
-        get => GetArgument<TerraformValue<double>>("cpu_core_count");
+        get => GetRequiredArgument<TerraformValue<double>>("cpu_core_count");
         set => SetArgument("cpu_core_count", value);
     }
 
     /// <summary>
     /// The data disk group size to be allocated in TBs.
     /// </summary>
-    public TerraformValue<double>? DataStorageSizeTb
+    public TerraformValue<double> DataStorageSizeTb
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_size_tb");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_tb") ?? AsReference("data_storage_size_tb");
         set => SetArgument("data_storage_size_tb", value);
     }
 
     /// <summary>
     /// Local storage per VM
     /// </summary>
-    public TerraformValue<double>? DbNodeStorageSizeGb
+    public TerraformValue<double> DbNodeStorageSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("db_node_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("db_node_storage_size_gb") ?? AsReference("db_node_storage_size_gb");
         set => SetArgument("db_node_storage_size_gb", value);
     }
 
     /// <summary>
     /// OCID of database servers.
     /// </summary>
-    public TerraformList<string>? DbServerOcids
+    public TerraformList<string> DbServerOcids
     {
-        get => GetArgument<TerraformList<string>>("db_server_ocids");
+        get => GetArgument<TerraformList<string>>("db_server_ocids") ?? AsReference("db_server_ocids");
         set => SetArgument("db_server_ocids", value);
     }
 
@@ -72,9 +72,9 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// HIGH
     /// NORMAL
     /// </summary>
-    public TerraformValue<string>? DiskRedundancy
+    public TerraformValue<string> DiskRedundancy
     {
-        get => GetArgument<TerraformValue<string>>("disk_redundancy");
+        get => GetArgument<TerraformValue<string>>("disk_redundancy") ?? AsReference("disk_redundancy");
         set => SetArgument("disk_redundancy", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformValue<string> LicenseType
     {
-        get => GetArgument<TerraformValue<string>>("license_type");
+        get => GetRequiredArgument<TerraformValue<string>>("license_type");
         set => SetArgument("license_type", value);
     }
 
@@ -143,18 +143,18 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// <summary>
     /// Memory allocated in GBs.
     /// </summary>
-    public TerraformValue<double>? MemorySizeGb
+    public TerraformValue<double> MemorySizeGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_size_gb");
+        get => GetArgument<TerraformValue<double>>("memory_size_gb") ?? AsReference("memory_size_gb");
         set => SetArgument("memory_size_gb", value);
     }
 
     /// <summary>
     /// Number of database servers.
     /// </summary>
-    public TerraformValue<double>? NodeCount
+    public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -173,9 +173,9 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// <summary>
     /// OCPU count per VM. Minimum is 0.1.
     /// </summary>
-    public TerraformValue<double>? OcpuCount
+    public TerraformValue<double> OcpuCount
     {
-        get => GetArgument<TerraformValue<double>>("ocpu_count");
+        get => GetArgument<TerraformValue<double>>("ocpu_count") ?? AsReference("ocpu_count");
         set => SetArgument("ocpu_count", value);
     }
 
@@ -219,9 +219,9 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// <summary>
     /// Use exadata sparse snapshots.
     /// </summary>
-    public TerraformValue<bool>? SparseDiskgroupEnabled
+    public TerraformValue<bool> SparseDiskgroupEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("sparse_diskgroup_enabled");
+        get => GetArgument<TerraformValue<bool>>("sparse_diskgroup_enabled") ?? AsReference("sparse_diskgroup_enabled");
         set => SetArgument("sparse_diskgroup_enabled", value);
     }
 
@@ -338,9 +338,9 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlockTimeZoneBlock : Te
     /// <summary>
     /// IANA Time Zone Database time zone, e.g. &amp;quot;America/New_York&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -399,9 +399,9 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformValue<string>? BackupOdbSubnet
+    public TerraformValue<string> BackupOdbSubnet
     {
-        get => GetArgument<TerraformValue<string>>("backup_odb_subnet");
+        get => GetArgument<TerraformValue<string>>("backup_odb_subnet") ?? AsReference("backup_odb_subnet");
         set => SetArgument("backup_odb_subnet", value);
     }
 
@@ -432,7 +432,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     public required TerraformValue<string> CloudVmClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cloud_vm_cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cloud_vm_cluster_id");
         set => SetArgument("cloud_vm_cluster_id", value);
     }
 
@@ -462,16 +462,16 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExadataInfrastructure is required")]
     public required TerraformValue<string> ExadataInfrastructure
     {
-        get => GetArgument<TerraformValue<string>>("exadata_infrastructure");
+        get => GetRequiredArgument<TerraformValue<string>>("exadata_infrastructure");
         set => SetArgument("exadata_infrastructure", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -493,7 +493,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -514,9 +514,9 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
-    public TerraformValue<string>? OdbNetwork
+    public TerraformValue<string> OdbNetwork
     {
-        get => GetArgument<TerraformValue<string>>("odb_network");
+        get => GetArgument<TerraformValue<string>>("odb_network") ?? AsReference("odb_network");
         set => SetArgument("odb_network", value);
     }
 
@@ -525,18 +525,18 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// IP allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformValue<string>? OdbSubnet
+    public TerraformValue<string> OdbSubnet
     {
-        get => GetArgument<TerraformValue<string>>("odb_subnet");
+        get => GetArgument<TerraformValue<string>>("odb_subnet") ?? AsReference("odb_subnet");
         set => SetArgument("odb_subnet", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

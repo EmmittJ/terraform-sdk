@@ -16,9 +16,9 @@ public class AzurermExpressRouteConnectionRoutingBlock : TerraformBlock
     /// <summary>
     /// The associated_route_table_id attribute.
     /// </summary>
-    public TerraformValue<string>? AssociatedRouteTableId
+    public TerraformValue<string> AssociatedRouteTableId
     {
-        get => GetArgument<TerraformValue<string>>("associated_route_table_id");
+        get => GetArgument<TerraformValue<string>>("associated_route_table_id") ?? AsReference("associated_route_table_id");
         set => SetArgument("associated_route_table_id", value);
     }
 
@@ -66,18 +66,18 @@ public class AzurermExpressRouteConnectionRoutingBlockPropagatedRouteTableBlock 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public TerraformSet<string>? Labels
+    public TerraformSet<string> Labels
     {
-        get => GetArgument<TerraformSet<string>>("labels");
+        get => GetArgument<TerraformSet<string>>("labels") ?? AsReference("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public TerraformList<string>? RouteTableIds
+    public TerraformList<string> RouteTableIds
     {
-        get => GetArgument<TerraformList<string>>("route_table_ids");
+        get => GetArgument<TerraformList<string>>("route_table_ids") ?? AsReference("route_table_ids");
         set => SetArgument("route_table_ids", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermExpressRouteConnection(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitPeeringId is required")]
     public required TerraformValue<string> ExpressRouteCircuitPeeringId
     {
-        get => GetArgument<TerraformValue<string>>("express_route_circuit_peering_id");
+        get => GetRequiredArgument<TerraformValue<string>>("express_route_circuit_peering_id");
         set => SetArgument("express_route_circuit_peering_id", value);
     }
 
@@ -183,16 +183,16 @@ public partial class AzurermExpressRouteConnection(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteGatewayId is required")]
     public required TerraformValue<string> ExpressRouteGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("express_route_gateway_id");
+        get => GetRequiredArgument<TerraformValue<string>>("express_route_gateway_id");
         set => SetArgument("express_route_gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AzurermExpressRouteConnection(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

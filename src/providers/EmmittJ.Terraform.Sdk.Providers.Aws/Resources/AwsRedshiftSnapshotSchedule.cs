@@ -14,7 +14,7 @@ public partial class AwsRedshiftSnapshotSchedule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definitions is required")]
     public required TerraformSet<string> Definitions
     {
-        get => GetArgument<TerraformSet<string>>("definitions");
+        get => GetRequiredArgument<TerraformSet<string>>("definitions");
         set => SetArgument("definitions", value);
     }
 
@@ -39,36 +39,36 @@ public partial class AwsRedshiftSnapshotSchedule(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public TerraformValue<string>? Identifier
+    public TerraformValue<string> Identifier
     {
-        get => GetArgument<TerraformValue<string>>("identifier");
+        get => GetArgument<TerraformValue<string>>("identifier") ?? AsReference("identifier");
         set => SetArgument("identifier", value);
     }
 
     /// <summary>
     /// The identifier_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? IdentifierPrefix
+    public TerraformValue<string> IdentifierPrefix
     {
-        get => GetArgument<TerraformValue<string>>("identifier_prefix");
+        get => GetArgument<TerraformValue<string>>("identifier_prefix") ?? AsReference("identifier_prefix");
         set => SetArgument("identifier_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -84,9 +84,9 @@ public partial class AwsRedshiftSnapshotSchedule(string name) : TerraformResourc
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

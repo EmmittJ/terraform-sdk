@@ -19,7 +19,7 @@ public class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleBeyondcorpAppConnectionGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppGateway is required")]
     public required TerraformValue<string> AppGateway
     {
-        get => GetArgument<TerraformValue<string>>("app_gateway");
+        get => GetRequiredArgument<TerraformValue<string>>("app_gateway");
         set => SetArgument("app_gateway", value);
     }
 
@@ -151,9 +151,9 @@ public partial class GoogleBeyondcorpAppConnection(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -176,16 +176,16 @@ public partial class GoogleBeyondcorpAppConnection(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

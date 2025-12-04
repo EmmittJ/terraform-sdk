@@ -14,16 +14,16 @@ public partial class AwsSignerSigningProfilePermission(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsSignerSigningProfilePermission(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetRequiredArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -43,43 +43,43 @@ public partial class AwsSignerSigningProfilePermission(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     public required TerraformValue<string> ProfileName
     {
-        get => GetArgument<TerraformValue<string>>("profile_name");
+        get => GetRequiredArgument<TerraformValue<string>>("profile_name");
         set => SetArgument("profile_name", value);
     }
 
     /// <summary>
     /// The profile_version attribute.
     /// </summary>
-    public TerraformValue<string>? ProfileVersion
+    public TerraformValue<string> ProfileVersion
     {
-        get => GetArgument<TerraformValue<string>>("profile_version");
+        get => GetArgument<TerraformValue<string>>("profile_version") ?? AsReference("profile_version");
         set => SetArgument("profile_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The statement_id attribute.
     /// </summary>
-    public TerraformValue<string>? StatementId
+    public TerraformValue<string> StatementId
     {
-        get => GetArgument<TerraformValue<string>>("statement_id");
+        get => GetArgument<TerraformValue<string>>("statement_id") ?? AsReference("statement_id");
         set => SetArgument("statement_id", value);
     }
 
     /// <summary>
     /// The statement_id_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? StatementIdPrefix
+    public TerraformValue<string> StatementIdPrefix
     {
-        get => GetArgument<TerraformValue<string>>("statement_id_prefix");
+        get => GetArgument<TerraformValue<string>>("statement_id_prefix") ?? AsReference("statement_id_prefix");
         set => SetArgument("statement_id_prefix", value);
     }
 

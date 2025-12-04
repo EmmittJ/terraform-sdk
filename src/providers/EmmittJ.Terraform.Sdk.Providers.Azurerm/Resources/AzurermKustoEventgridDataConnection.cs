@@ -73,7 +73,7 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -108,9 +108,9 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     /// <summary>
     /// The eventgrid_event_subscription_id attribute.
     /// </summary>
-    public TerraformValue<string>? EventgridEventSubscriptionId
+    public TerraformValue<string> EventgridEventSubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("eventgrid_event_subscription_id");
+        get => GetArgument<TerraformValue<string>>("eventgrid_event_subscription_id") ?? AsReference("eventgrid_event_subscription_id");
         set => SetArgument("eventgrid_event_subscription_id", value);
     }
 
@@ -118,9 +118,9 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     /// The eventgrid_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? EventgridResourceId
+    public TerraformValue<string> EventgridResourceId
     {
-        get => GetArgument<TerraformValue<string>>("eventgrid_resource_id");
+        get => GetArgument<TerraformValue<string>>("eventgrid_resource_id") ?? AsReference("eventgrid_resource_id");
         set => SetArgument("eventgrid_resource_id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubConsumerGroupName is required")]
     public required TerraformValue<string> EventhubConsumerGroupName
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_consumer_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_consumer_group_name");
         set => SetArgument("eventhub_consumer_group_name", value);
     }
 
@@ -140,16 +140,16 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubId is required")]
     public required TerraformValue<string> EventhubId
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_id");
         set => SetArgument("eventhub_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -159,16 +159,16 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The managed_identity_id attribute.
     /// </summary>
-    public TerraformValue<string>? ManagedIdentityId
+    public TerraformValue<string> ManagedIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("managed_identity_id");
+        get => GetArgument<TerraformValue<string>>("managed_identity_id") ?? AsReference("managed_identity_id");
         set => SetArgument("managed_identity_id", value);
     }
 
@@ -176,9 +176,9 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     /// The managed_identity_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? ManagedIdentityResourceId
+    public TerraformValue<string> ManagedIdentityResourceId
     {
-        get => GetArgument<TerraformValue<string>>("managed_identity_resource_id");
+        get => GetArgument<TerraformValue<string>>("managed_identity_resource_id") ?? AsReference("managed_identity_resource_id");
         set => SetArgument("managed_identity_resource_id", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -207,7 +207,7 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -226,7 +226,7 @@ public partial class AzurermKustoEventgridDataConnection(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

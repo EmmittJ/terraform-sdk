@@ -28,7 +28,7 @@ public class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSubnets is required")]
     public required TerraformSet<string> ClientSubnets
     {
-        get => GetArgument<TerraformSet<string>>("client_subnets");
+        get => GetRequiredArgument<TerraformSet<string>>("client_subnets");
         set => SetArgument("client_subnets", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
     public required TerraformSet<string> SecurityGroups
     {
-        get => GetArgument<TerraformSet<string>>("security_groups");
+        get => GetRequiredArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -121,9 +121,9 @@ public class AwsMskClusterBrokerNodeGroupInfoBlockConnectivityInfoBlockPublicAcc
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -166,9 +166,9 @@ public class AwsMskClusterBrokerNodeGroupInfoBlockConnectivityInfoBlockVpcConnec
     /// <summary>
     /// The tls attribute.
     /// </summary>
-    public TerraformValue<bool>? Tls
+    public TerraformValue<bool> Tls
     {
-        get => GetArgument<TerraformValue<bool>>("tls");
+        get => GetArgument<TerraformValue<bool>>("tls") ?? AsReference("tls");
         set => SetArgument("tls", value);
     }
 
@@ -198,18 +198,18 @@ public class AwsMskClusterBrokerNodeGroupInfoBlockConnectivityInfoBlockVpcConnec
     /// <summary>
     /// The iam attribute.
     /// </summary>
-    public TerraformValue<bool>? Iam
+    public TerraformValue<bool> Iam
     {
-        get => GetArgument<TerraformValue<bool>>("iam");
+        get => GetArgument<TerraformValue<bool>>("iam") ?? AsReference("iam");
         set => SetArgument("iam", value);
     }
 
     /// <summary>
     /// The scram attribute.
     /// </summary>
-    public TerraformValue<bool>? Scram
+    public TerraformValue<bool> Scram
     {
-        get => GetArgument<TerraformValue<bool>>("scram");
+        get => GetArgument<TerraformValue<bool>>("scram") ?? AsReference("scram");
         set => SetArgument("scram", value);
     }
 
@@ -415,7 +415,7 @@ public class AwsMskClusterConfigurationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -425,7 +425,7 @@ public class AwsMskClusterConfigurationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformValue<double> Revision
     {
-        get => GetArgument<TerraformValue<double>>("revision");
+        get => GetRequiredArgument<TerraformValue<double>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -446,9 +446,9 @@ public class AwsMskClusterEncryptionInfoBlock : TerraformBlock
     /// <summary>
     /// The encryption_at_rest_kms_key_arn attribute.
     /// </summary>
-    public TerraformValue<string>? EncryptionAtRestKmsKeyArn
+    public TerraformValue<string> EncryptionAtRestKmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("encryption_at_rest_kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("encryption_at_rest_kms_key_arn") ?? AsReference("encryption_at_rest_kms_key_arn");
         set => SetArgument("encryption_at_rest_kms_key_arn", value);
     }
 
@@ -582,7 +582,7 @@ public class AwsMskClusterLoggingInfoBlockBrokerLogsBlockCloudwatchLogsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -623,7 +623,7 @@ public class AwsMskClusterLoggingInfoBlockBrokerLogsBlockFirehoseBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -655,7 +655,7 @@ public class AwsMskClusterLoggingInfoBlockBrokerLogsBlockS3Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -747,7 +747,7 @@ public class AwsMskClusterOpenMonitoringBlockPrometheusBlockJmxExporterBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledInBroker is required")]
     public required TerraformValue<bool> EnabledInBroker
     {
-        get => GetArgument<TerraformValue<bool>>("enabled_in_broker");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled_in_broker");
         set => SetArgument("enabled_in_broker", value);
     }
 
@@ -770,7 +770,7 @@ public class AwsMskClusterOpenMonitoringBlockPrometheusBlockNodeExporterBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledInBroker is required")]
     public required TerraformValue<bool> EnabledInBroker
     {
-        get => GetArgument<TerraformValue<bool>>("enabled_in_broker");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled_in_broker");
         set => SetArgument("enabled_in_broker", value);
     }
 
@@ -830,7 +830,7 @@ public partial class AwsMskCluster(string name) : TerraformResource("aws_msk_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -846,9 +846,9 @@ public partial class AwsMskCluster(string name) : TerraformResource("aws_msk_clu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -858,7 +858,7 @@ public partial class AwsMskCluster(string name) : TerraformResource("aws_msk_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaVersion is required")]
     public required TerraformValue<string> KafkaVersion
     {
-        get => GetArgument<TerraformValue<string>>("kafka_version");
+        get => GetRequiredArgument<TerraformValue<string>>("kafka_version");
         set => SetArgument("kafka_version", value);
     }
 
@@ -868,25 +868,25 @@ public partial class AwsMskCluster(string name) : TerraformResource("aws_msk_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfBrokerNodes is required")]
     public required TerraformValue<double> NumberOfBrokerNodes
     {
-        get => GetArgument<TerraformValue<double>>("number_of_broker_nodes");
+        get => GetRequiredArgument<TerraformValue<double>>("number_of_broker_nodes");
         set => SetArgument("number_of_broker_nodes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The storage_mode attribute.
     /// </summary>
-    public TerraformValue<string>? StorageMode
+    public TerraformValue<string> StorageMode
     {
-        get => GetArgument<TerraformValue<string>>("storage_mode");
+        get => GetArgument<TerraformValue<string>>("storage_mode") ?? AsReference("storage_mode");
         set => SetArgument("storage_mode", value);
     }
 
@@ -902,9 +902,9 @@ public partial class AwsMskCluster(string name) : TerraformResource("aws_msk_clu
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

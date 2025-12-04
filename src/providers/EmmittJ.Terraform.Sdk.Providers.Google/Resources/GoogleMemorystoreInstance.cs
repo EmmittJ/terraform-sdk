@@ -21,7 +21,7 @@ public class GoogleMemorystoreInstanceAutomatedBackupConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     public required TerraformValue<string> Retention
     {
-        get => GetArgument<TerraformValue<string>>("retention");
+        get => GetRequiredArgument<TerraformValue<string>>("retention");
         set => SetArgument("retention", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleMemorystoreInstanceAutomatedBackupConfigBlockFixedFrequencySc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hours is required")]
     public required TerraformValue<double> Hours
     {
-        get => GetArgument<TerraformValue<double>>("hours");
+        get => GetRequiredArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -223,7 +223,7 @@ public class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -233,7 +233,7 @@ public class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -259,7 +259,7 @@ public class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -269,7 +269,7 @@ public class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -294,7 +294,7 @@ public class GoogleMemorystoreInstanceGcsSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     public required TerraformSet<string> Uris
     {
-        get => GetArgument<TerraformSet<string>>("uris");
+        get => GetRequiredArgument<TerraformSet<string>>("uris");
         set => SetArgument("uris", value);
     }
 
@@ -365,7 +365,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlockWeeklyMaintenanceWin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => GetArgument<TerraformValue<string>>("day");
+        get => GetRequiredArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -462,7 +462,7 @@ public class GoogleMemorystoreInstanceManagedBackupSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
     public required TerraformValue<string> Backup
     {
-        get => GetArgument<TerraformValue<string>>("backup");
+        get => GetRequiredArgument<TerraformValue<string>>("backup");
         set => SetArgument("backup", value);
     }
 
@@ -487,9 +487,9 @@ public class GoogleMemorystoreInstancePersistenceConfigBlock : TerraformBlock
     /// RDB
     /// AOF Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;RDB&amp;quot;, &amp;quot;AOF&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Mode
+    public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -533,9 +533,9 @@ public class GoogleMemorystoreInstancePersistenceConfigBlockAofConfigBlock : Ter
     /// EVERY_SEC
     /// ALWAYS
     /// </summary>
-    public TerraformValue<string>? AppendFsync
+    public TerraformValue<string> AppendFsync
     {
-        get => GetArgument<TerraformValue<string>>("append_fsync");
+        get => GetArgument<TerraformValue<string>>("append_fsync") ?? AsReference("append_fsync");
         set => SetArgument("append_fsync", value);
     }
 
@@ -560,9 +560,9 @@ public class GoogleMemorystoreInstancePersistenceConfigBlockRdbConfigBlock : Ter
     /// TWELVE_HOURS
     /// TWENTY_FOUR_HOURS
     /// </summary>
-    public TerraformValue<string>? RdbSnapshotPeriod
+    public TerraformValue<string> RdbSnapshotPeriod
     {
-        get => GetArgument<TerraformValue<string>>("rdb_snapshot_period");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_period") ?? AsReference("rdb_snapshot_period");
         set => SetArgument("rdb_snapshot_period", value);
     }
 
@@ -571,9 +571,9 @@ public class GoogleMemorystoreInstancePersistenceConfigBlockRdbConfigBlock : Ter
     /// snapshots will be aligned. If not provided, the current time will be
     /// used.
     /// </summary>
-    public TerraformValue<string>? RdbSnapshotStartTime
+    public TerraformValue<string> RdbSnapshotStartTime
     {
-        get => GetArgument<TerraformValue<string>>("rdb_snapshot_start_time");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_start_time") ?? AsReference("rdb_snapshot_start_time");
         set => SetArgument("rdb_snapshot_start_time", value);
     }
 
@@ -638,9 +638,9 @@ public class GoogleMemorystoreInstanceZoneDistributionConfigBlock : TerraformBlo
     ///  MULTI_ZONE
     /// SINGLE_ZONE Possible values: [&amp;quot;MULTI_ZONE&amp;quot;, &amp;quot;SINGLE_ZONE&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Mode
+    public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -668,9 +668,9 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     ///  AUTH_DISABLED
     /// IAM_AUTH
     /// </summary>
-    public TerraformValue<string>? AuthorizationMode
+    public TerraformValue<string> AuthorizationMode
     {
-        get => GetArgument<TerraformValue<string>>("authorization_mode");
+        get => GetArgument<TerraformValue<string>>("authorization_mode") ?? AsReference("authorization_mode");
         set => SetArgument("authorization_mode", value);
     }
 
@@ -695,18 +695,18 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// <summary>
     /// Optional. Engine version of the instance.
     /// </summary>
-    public TerraformValue<string>? EngineVersion
+    public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -725,7 +725,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -756,7 +756,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -776,9 +776,9 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     ///  CLUSTER
     ///  CLUSTER_DISABLED Possible values: [&amp;quot;CLUSTER&amp;quot;, &amp;quot;CLUSTER_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Mode
+    public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -790,27 +790,27 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// HIGHMEM_XLARGE
     /// STANDARD_SMALL
     /// </summary>
-    public TerraformValue<string>? NodeType
+    public TerraformValue<string> NodeType
     {
-        get => GetArgument<TerraformValue<string>>("node_type");
+        get => GetArgument<TerraformValue<string>>("node_type") ?? AsReference("node_type");
         set => SetArgument("node_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.
     /// </summary>
-    public TerraformValue<double>? ReplicaCount
+    public TerraformValue<double> ReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("replica_count");
+        get => GetArgument<TerraformValue<double>>("replica_count") ?? AsReference("replica_count");
         set => SetArgument("replica_count", value);
     }
 
@@ -820,7 +820,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
     public required TerraformValue<double> ShardCount
     {
-        get => GetArgument<TerraformValue<double>>("shard_count");
+        get => GetRequiredArgument<TerraformValue<double>>("shard_count");
         set => SetArgument("shard_count", value);
     }
 
@@ -830,9 +830,9 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     ///  TRANSIT_ENCRYPTION_DISABLED
     /// SERVER_AUTHENTICATION
     /// </summary>
-    public TerraformValue<string>? TransitEncryptionMode
+    public TerraformValue<string> TransitEncryptionMode
     {
-        get => GetArgument<TerraformValue<string>>("transit_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("transit_encryption_mode") ?? AsReference("transit_encryption_mode");
         set => SetArgument("transit_encryption_mode", value);
     }
 

@@ -14,25 +14,25 @@ public partial class AwsAppstreamFleetStackAssociation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FleetName is required")]
     public required TerraformValue<string> FleetName
     {
-        get => GetArgument<TerraformValue<string>>("fleet_name");
+        get => GetRequiredArgument<TerraformValue<string>>("fleet_name");
         set => SetArgument("fleet_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsAppstreamFleetStackAssociation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackName is required")]
     public required TerraformValue<string> StackName
     {
-        get => GetArgument<TerraformValue<string>>("stack_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stack_name");
         set => SetArgument("stack_name", value);
     }
 

@@ -55,7 +55,7 @@ public class AzurermManagedDiskEncryptionSettingsBlockDiskEncryptionKeyBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUrl is required")]
     public required TerraformValue<string> SecretUrl
     {
-        get => GetArgument<TerraformValue<string>>("secret_url");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_url");
         set => SetArgument("secret_url", value);
     }
 
@@ -65,7 +65,7 @@ public class AzurermManagedDiskEncryptionSettingsBlockDiskEncryptionKeyBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformValue<string> SourceVaultId
     {
-        get => GetArgument<TerraformValue<string>>("source_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_vault_id");
         set => SetArgument("source_vault_id", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermManagedDiskEncryptionSettingsBlockKeyEncryptionKeyBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUrl is required")]
     public required TerraformValue<string> KeyUrl
     {
-        get => GetArgument<TerraformValue<string>>("key_url");
+        get => GetRequiredArgument<TerraformValue<string>>("key_url");
         set => SetArgument("key_url", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermManagedDiskEncryptionSettingsBlockKeyEncryptionKeyBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformValue<string> SourceVaultId
     {
-        get => GetArgument<TerraformValue<string>>("source_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_vault_id");
         set => SetArgument("source_vault_id", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformValue<string> CreateOption
     {
-        get => GetArgument<TerraformValue<string>>("create_option");
+        get => GetRequiredArgument<TerraformValue<string>>("create_option");
         set => SetArgument("create_option", value);
     }
 
@@ -192,45 +192,45 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// <summary>
     /// The disk_iops_read_only attribute.
     /// </summary>
-    public TerraformValue<double>? DiskIopsReadOnly
+    public TerraformValue<double> DiskIopsReadOnly
     {
-        get => GetArgument<TerraformValue<double>>("disk_iops_read_only");
+        get => GetArgument<TerraformValue<double>>("disk_iops_read_only") ?? AsReference("disk_iops_read_only");
         set => SetArgument("disk_iops_read_only", value);
     }
 
     /// <summary>
     /// The disk_iops_read_write attribute.
     /// </summary>
-    public TerraformValue<double>? DiskIopsReadWrite
+    public TerraformValue<double> DiskIopsReadWrite
     {
-        get => GetArgument<TerraformValue<double>>("disk_iops_read_write");
+        get => GetArgument<TerraformValue<double>>("disk_iops_read_write") ?? AsReference("disk_iops_read_write");
         set => SetArgument("disk_iops_read_write", value);
     }
 
     /// <summary>
     /// The disk_mbps_read_only attribute.
     /// </summary>
-    public TerraformValue<double>? DiskMbpsReadOnly
+    public TerraformValue<double> DiskMbpsReadOnly
     {
-        get => GetArgument<TerraformValue<double>>("disk_mbps_read_only");
+        get => GetArgument<TerraformValue<double>>("disk_mbps_read_only") ?? AsReference("disk_mbps_read_only");
         set => SetArgument("disk_mbps_read_only", value);
     }
 
     /// <summary>
     /// The disk_mbps_read_write attribute.
     /// </summary>
-    public TerraformValue<double>? DiskMbpsReadWrite
+    public TerraformValue<double> DiskMbpsReadWrite
     {
-        get => GetArgument<TerraformValue<double>>("disk_mbps_read_write");
+        get => GetArgument<TerraformValue<double>>("disk_mbps_read_write") ?? AsReference("disk_mbps_read_write");
         set => SetArgument("disk_mbps_read_write", value);
     }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformValue<double>? DiskSizeGb
+    public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -264,9 +264,9 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -285,25 +285,25 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The logical_sector_size attribute.
     /// </summary>
-    public TerraformValue<double>? LogicalSectorSize
+    public TerraformValue<double> LogicalSectorSize
     {
-        get => GetArgument<TerraformValue<double>>("logical_sector_size");
+        get => GetArgument<TerraformValue<double>>("logical_sector_size") ?? AsReference("logical_sector_size");
         set => SetArgument("logical_sector_size", value);
     }
 
     /// <summary>
     /// The max_shares attribute.
     /// </summary>
-    public TerraformValue<double>? MaxShares
+    public TerraformValue<double> MaxShares
     {
-        get => GetArgument<TerraformValue<double>>("max_shares");
+        get => GetArgument<TerraformValue<double>>("max_shares") ?? AsReference("max_shares");
         set => SetArgument("max_shares", value);
     }
 
@@ -313,7 +313,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -377,7 +377,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -411,9 +411,9 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// <summary>
     /// The source_uri attribute.
     /// </summary>
-    public TerraformValue<string>? SourceUri
+    public TerraformValue<string> SourceUri
     {
-        get => GetArgument<TerraformValue<string>>("source_uri");
+        get => GetArgument<TerraformValue<string>>("source_uri") ?? AsReference("source_uri");
         set => SetArgument("source_uri", value);
     }
 
@@ -432,7 +432,7 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
     public required TerraformValue<string> StorageAccountType
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_type");
         set => SetArgument("storage_account_type", value);
     }
 
@@ -448,9 +448,9 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformValue<string>? Tier
+    public TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier");
+        get => GetArgument<TerraformValue<string>>("tier") ?? AsReference("tier");
         set => SetArgument("tier", value);
     }
 

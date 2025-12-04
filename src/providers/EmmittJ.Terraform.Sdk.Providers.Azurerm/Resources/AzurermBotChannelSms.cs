@@ -64,16 +64,16 @@ public partial class AzurermBotChannelSms(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformValue<string> BotName
     {
-        get => GetArgument<TerraformValue<string>>("bot_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bot_name");
         set => SetArgument("bot_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermBotChannelSms(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermBotChannelSms(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermBotChannelSms(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermBotChannelSms(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmsChannelAccountSecurityId is required")]
     public required TerraformValue<string> SmsChannelAccountSecurityId
     {
-        get => GetArgument<TerraformValue<string>>("sms_channel_account_security_id");
+        get => GetRequiredArgument<TerraformValue<string>>("sms_channel_account_security_id");
         set => SetArgument("sms_channel_account_security_id", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AzurermBotChannelSms(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmsChannelAuthToken is required")]
     public required TerraformValue<string> SmsChannelAuthToken
     {
-        get => GetArgument<TerraformValue<string>>("sms_channel_auth_token");
+        get => GetRequiredArgument<TerraformValue<string>>("sms_channel_auth_token");
         set => SetArgument("sms_channel_auth_token", value);
     }
 

@@ -14,25 +14,25 @@ public partial class AwsCodeartifactRepositoryPermissionsPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetRequiredArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
-    public TerraformValue<string>? DomainOwner
+    public TerraformValue<string> DomainOwner
     {
-        get => GetArgument<TerraformValue<string>>("domain_owner");
+        get => GetArgument<TerraformValue<string>>("domain_owner") ?? AsReference("domain_owner");
         set => SetArgument("domain_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,25 +42,25 @@ public partial class AwsCodeartifactRepositoryPermissionsPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformValue<string> PolicyDocument
     {
-        get => GetArgument<TerraformValue<string>>("policy_document");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_document");
         set => SetArgument("policy_document", value);
     }
 
     /// <summary>
     /// The policy_revision attribute.
     /// </summary>
-    public TerraformValue<string>? PolicyRevision
+    public TerraformValue<string> PolicyRevision
     {
-        get => GetArgument<TerraformValue<string>>("policy_revision");
+        get => GetArgument<TerraformValue<string>>("policy_revision") ?? AsReference("policy_revision");
         set => SetArgument("policy_revision", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsCodeartifactRepositoryPermissionsPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => GetArgument<TerraformValue<string>>("repository");
+        get => GetRequiredArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 

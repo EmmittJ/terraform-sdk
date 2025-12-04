@@ -27,7 +27,7 @@ public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleCloudIdentityGroupMembershipRolesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleCloudIdentityGroupMembershipRolesBlockExpiryDetailBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpireTime is required")]
     public required TerraformValue<string> ExpireTime
     {
-        get => GetArgument<TerraformValue<string>>("expire_time");
+        get => GetRequiredArgument<TerraformValue<string>>("expire_time");
         set => SetArgument("expire_time", value);
     }
 
@@ -174,16 +174,16 @@ public partial class GoogleCloudIdentityGroupMembership(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformValue<string> Group
     {
-        get => GetArgument<TerraformValue<string>>("group");
+        get => GetRequiredArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

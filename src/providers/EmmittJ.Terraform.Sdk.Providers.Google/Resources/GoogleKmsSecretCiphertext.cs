@@ -56,16 +56,16 @@ public partial class GoogleKmsSecretCiphertext(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformValue<string> CryptoKey
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key");
         set => SetArgument("crypto_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleKmsSecretCiphertext(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plaintext is required")]
     public required TerraformValue<string> Plaintext
     {
-        get => GetArgument<TerraformValue<string>>("plaintext");
+        get => GetRequiredArgument<TerraformValue<string>>("plaintext");
         set => SetArgument("plaintext", value);
     }
 

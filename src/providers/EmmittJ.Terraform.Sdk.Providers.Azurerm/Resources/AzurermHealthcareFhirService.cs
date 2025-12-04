@@ -19,7 +19,7 @@ public class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audience is required")]
     public required TerraformValue<string> Audience
     {
-        get => GetArgument<TerraformValue<string>>("audience");
+        get => GetRequiredArgument<TerraformValue<string>>("audience");
         set => SetArgument("audience", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
     public required TerraformValue<string> Authority
     {
-        get => GetArgument<TerraformValue<string>>("authority");
+        get => GetRequiredArgument<TerraformValue<string>>("authority");
         set => SetArgument("authority", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
     public required TerraformSet<string> AllowedHeaders
     {
-        get => GetArgument<TerraformSet<string>>("allowed_headers");
+        get => GetRequiredArgument<TerraformSet<string>>("allowed_headers");
         set => SetArgument("allowed_headers", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     public required TerraformSet<string> AllowedMethods
     {
-        get => GetArgument<TerraformSet<string>>("allowed_methods");
+        get => GetRequiredArgument<TerraformSet<string>>("allowed_methods");
         set => SetArgument("allowed_methods", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public required TerraformSet<string> AllowedOrigins
     {
-        get => GetArgument<TerraformSet<string>>("allowed_origins");
+        get => GetRequiredArgument<TerraformSet<string>>("allowed_origins");
         set => SetArgument("allowed_origins", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermHealthcareFhirServiceOciArtifactBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginServer is required")]
     public required TerraformValue<string> LoginServer
     {
-        get => GetArgument<TerraformValue<string>>("login_server");
+        get => GetRequiredArgument<TerraformValue<string>>("login_server");
         set => SetArgument("login_server", value);
     }
 
@@ -280,9 +280,9 @@ public partial class AzurermHealthcareFhirService(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -301,7 +301,7 @@ public partial class AzurermHealthcareFhirService(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -311,7 +311,7 @@ public partial class AzurermHealthcareFhirService(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -321,7 +321,7 @@ public partial class AzurermHealthcareFhirService(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -340,7 +340,7 @@ public partial class AzurermHealthcareFhirService(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

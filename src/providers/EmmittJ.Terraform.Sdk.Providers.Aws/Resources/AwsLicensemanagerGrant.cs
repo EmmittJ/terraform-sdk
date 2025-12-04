@@ -14,16 +14,16 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOperations is required")]
     public required TerraformSet<string> AllowedOperations
     {
-        get => GetArgument<TerraformSet<string>>("allowed_operations");
+        get => GetRequiredArgument<TerraformSet<string>>("allowed_operations");
         set => SetArgument("allowed_operations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseArn is required")]
     public required TerraformValue<string> LicenseArn
     {
-        get => GetArgument<TerraformValue<string>>("license_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("license_arn");
         set => SetArgument("license_arn", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -53,16 +53,16 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetRequiredArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

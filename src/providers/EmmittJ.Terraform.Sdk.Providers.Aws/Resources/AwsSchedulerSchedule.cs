@@ -28,7 +28,7 @@ public class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsSchedulerScheduleTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsSchedulerScheduleTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsSchedulerScheduleTargetBlockDeadLetterConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinitionArn is required")]
     public required TerraformValue<string> TaskDefinitionArn
     {
-        get => GetArgument<TerraformValue<string>>("task_definition_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("task_definition_arn");
         set => SetArgument("task_definition_arn", value);
     }
 
@@ -340,7 +340,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockCapacityProviderSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformValue<string> CapacityProvider
     {
-        get => GetArgument<TerraformValue<string>>("capacity_provider");
+        get => GetRequiredArgument<TerraformValue<string>>("capacity_provider");
         set => SetArgument("capacity_provider", value);
     }
 
@@ -390,7 +390,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockNetworkConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => GetArgument<TerraformSet<string>>("subnets");
+        get => GetRequiredArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -422,7 +422,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockPlacementConstrain
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -454,7 +454,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockPlacementStrategyB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -477,7 +477,7 @@ public class AwsSchedulerScheduleTargetBlockEventbridgeParametersBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetailType is required")]
     public required TerraformValue<string> DetailType
     {
-        get => GetArgument<TerraformValue<string>>("detail_type");
+        get => GetRequiredArgument<TerraformValue<string>>("detail_type");
         set => SetArgument("detail_type", value);
     }
 
@@ -487,7 +487,7 @@ public class AwsSchedulerScheduleTargetBlockEventbridgeParametersBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -510,7 +510,7 @@ public class AwsSchedulerScheduleTargetBlockKinesisParametersBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     public required TerraformValue<string> PartitionKey
     {
-        get => GetArgument<TerraformValue<string>>("partition_key");
+        get => GetRequiredArgument<TerraformValue<string>>("partition_key");
         set => SetArgument("partition_key", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsSchedulerScheduleTargetBlockSagemakerPipelineParametersBlockPipe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -597,7 +597,7 @@ public class AwsSchedulerScheduleTargetBlockSagemakerPipelineParametersBlockPipe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -635,9 +635,9 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// <summary>
     /// The action_after_completion attribute.
     /// </summary>
-    public TerraformValue<string>? ActionAfterCompletion
+    public TerraformValue<string> ActionAfterCompletion
     {
-        get => GetArgument<TerraformValue<string>>("action_after_completion");
+        get => GetArgument<TerraformValue<string>>("action_after_completion") ?? AsReference("action_after_completion");
         set => SetArgument("action_after_completion", value);
     }
 
@@ -662,18 +662,18 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    public TerraformValue<string>? GroupName
+    public TerraformValue<string> GroupName
     {
-        get => GetArgument<TerraformValue<string>>("group_name");
+        get => GetArgument<TerraformValue<string>>("group_name") ?? AsReference("group_name");
         set => SetArgument("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -689,27 +689,27 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? NamePrefix
+    public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -719,7 +719,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformValue<string> ScheduleExpression
     {
-        get => GetArgument<TerraformValue<string>>("schedule_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 

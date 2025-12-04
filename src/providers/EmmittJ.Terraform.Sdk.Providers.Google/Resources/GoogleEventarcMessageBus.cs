@@ -17,9 +17,9 @@ public class GoogleEventarcMessageBusLoggingConfigBlock : TerraformBlock
     /// Optional. The minimum severity of logs that will be sent to Stackdriver/Platform
     /// Telemetry. Logs at severitiy ≥ this value will be sent, unless it is NONE. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;DEBUG&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;NOTICE&amp;quot;, &amp;quot;WARNING&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;CRITICAL&amp;quot;, &amp;quot;ALERT&amp;quot;, &amp;quot;EMERGENCY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? LogSeverity
+    public TerraformValue<string> LogSeverity
     {
-        get => GetArgument<TerraformValue<string>>("log_severity");
+        get => GetArgument<TerraformValue<string>>("log_severity") ?? AsReference("log_severity");
         set => SetArgument("log_severity", value);
     }
 
@@ -110,9 +110,9 @@ public partial class GoogleEventarcMessageBus(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -134,7 +134,7 @@ public partial class GoogleEventarcMessageBus(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -145,16 +145,16 @@ public partial class GoogleEventarcMessageBus(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageBusId is required")]
     public required TerraformValue<string> MessageBusId
     {
-        get => GetArgument<TerraformValue<string>>("message_bus_id");
+        get => GetRequiredArgument<TerraformValue<string>>("message_bus_id");
         set => SetArgument("message_bus_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

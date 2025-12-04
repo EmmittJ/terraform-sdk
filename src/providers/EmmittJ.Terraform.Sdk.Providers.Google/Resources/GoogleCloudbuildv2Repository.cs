@@ -55,18 +55,18 @@ public partial class GoogleCloudbuildv2Repository(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformValue<string>? Location
+    public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
         set => SetArgument("location", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleCloudbuildv2Repository(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -86,16 +86,16 @@ public partial class GoogleCloudbuildv2Repository(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentConnection is required")]
     public required TerraformValue<string> ParentConnection
     {
-        get => GetArgument<TerraformValue<string>>("parent_connection");
+        get => GetRequiredArgument<TerraformValue<string>>("parent_connection");
         set => SetArgument("parent_connection", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -105,7 +105,7 @@ public partial class GoogleCloudbuildv2Repository(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteUri is required")]
     public required TerraformValue<string> RemoteUri
     {
-        get => GetArgument<TerraformValue<string>>("remote_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("remote_uri");
         set => SetArgument("remote_uri", value);
     }
 

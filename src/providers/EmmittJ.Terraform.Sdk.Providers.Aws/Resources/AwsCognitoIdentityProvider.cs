@@ -11,18 +11,18 @@ public partial class AwsCognitoIdentityProvider(string name) : TerraformResource
     /// <summary>
     /// The attribute_mapping attribute.
     /// </summary>
-    public TerraformMap<string>? AttributeMapping
+    public TerraformMap<string> AttributeMapping
     {
-        get => GetArgument<TerraformMap<string>>("attribute_mapping");
+        get => GetArgument<TerraformMap<string>>("attribute_mapping") ?? AsReference("attribute_mapping");
         set => SetArgument("attribute_mapping", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCognitoIdentityProvider(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderDetails is required")]
     public required TerraformMap<string> ProviderDetails
     {
-        get => GetArgument<TerraformMap<string>>("provider_details");
+        get => GetRequiredArgument<TerraformMap<string>>("provider_details");
         set => SetArgument("provider_details", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsCognitoIdentityProvider(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderName is required")]
     public required TerraformValue<string> ProviderName
     {
-        get => GetArgument<TerraformValue<string>>("provider_name");
+        get => GetRequiredArgument<TerraformValue<string>>("provider_name");
         set => SetArgument("provider_name", value);
     }
 
@@ -61,16 +61,16 @@ public partial class AwsCognitoIdentityProvider(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
     public required TerraformValue<string> ProviderType
     {
-        get => GetArgument<TerraformValue<string>>("provider_type");
+        get => GetRequiredArgument<TerraformValue<string>>("provider_type");
         set => SetArgument("provider_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsCognitoIdentityProvider(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => GetArgument<TerraformValue<string>>("user_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 

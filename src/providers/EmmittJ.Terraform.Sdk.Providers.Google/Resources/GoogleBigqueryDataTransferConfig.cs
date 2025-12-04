@@ -19,7 +19,7 @@ public class GoogleBigqueryDataTransferConfigEmailPreferencesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableFailureEmail is required")]
     public required TerraformValue<bool> EnableFailureEmail
     {
-        get => GetArgument<TerraformValue<bool>>("enable_failure_email");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable_failure_email");
         set => SetArgument("enable_failure_email", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -209,7 +209,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     public required TerraformValue<string> DataSourceId
     {
-        get => GetArgument<TerraformValue<string>>("data_source_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_source_id");
         set => SetArgument("data_source_id", value);
     }
 
@@ -237,16 +237,16 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -280,16 +280,16 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParamsAttribute is required")]
     public required TerraformMap<string> ParamsAttribute
     {
-        get => GetArgument<TerraformMap<string>>("params");
+        get => GetRequiredArgument<TerraformMap<string>>("params");
         set => SetArgument("params", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

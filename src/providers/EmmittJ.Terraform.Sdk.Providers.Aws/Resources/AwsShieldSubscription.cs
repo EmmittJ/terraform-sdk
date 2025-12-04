@@ -11,9 +11,9 @@ public partial class AwsShieldSubscription(string name) : TerraformResource("aws
     /// <summary>
     /// Whether to automatically renew the subscription when it expires.
     /// </summary>
-    public TerraformValue<string>? AutoRenew
+    public TerraformValue<string> AutoRenew
     {
-        get => GetArgument<TerraformValue<string>>("auto_renew");
+        get => GetArgument<TerraformValue<string>>("auto_renew") ?? AsReference("auto_renew");
         set => SetArgument("auto_renew", value);
     }
 

@@ -20,7 +20,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Privacy is required")]
     public required TerraformValue<string> Privacy
     {
-        get => GetArgument<TerraformValue<string>>("privacy");
+        get => GetRequiredArgument<TerraformValue<string>>("privacy");
         set => SetArgument("privacy", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -204,7 +204,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionCode is required")]
     public required TerraformValue<string> RegionCode
     {
-        get => GetArgument<TerraformValue<string>>("region_code");
+        get => GetRequiredArgument<TerraformValue<string>>("region_code");
         set => SetArgument("region_code", value);
     }
 
@@ -227,7 +227,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -246,7 +246,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -349,7 +349,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionCode is required")]
     public required TerraformValue<string> RegionCode
     {
-        get => GetArgument<TerraformValue<string>>("region_code");
+        get => GetRequiredArgument<TerraformValue<string>>("region_code");
         set => SetArgument("region_code", value);
     }
 
@@ -372,7 +372,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -391,7 +391,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -494,7 +494,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionCode is required")]
     public required TerraformValue<string> RegionCode
     {
-        get => GetArgument<TerraformValue<string>>("region_code");
+        get => GetRequiredArgument<TerraformValue<string>>("region_code");
         set => SetArgument("region_code", value);
     }
 
@@ -632,7 +632,7 @@ public class GoogleClouddomainsRegistrationDnsSettingsBlockGlueRecordsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -680,9 +680,9 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
     /// problems with the billing account or reported domain abuse. In such cases, check the issues field on the Registration. After
     /// the problem is resolved, the renewalMethod is automatically updated to preferredRenewalMethod in a few hours.
     /// </summary>
-    public TerraformValue<string>? PreferredRenewalMethod
+    public TerraformValue<string> PreferredRenewalMethod
     {
-        get => GetArgument<TerraformValue<string>>("preferred_renewal_method");
+        get => GetArgument<TerraformValue<string>>("preferred_renewal_method") ?? AsReference("preferred_renewal_method");
         set => SetArgument("preferred_renewal_method", value);
     }
 
@@ -698,9 +698,9 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
     /// <summary>
     /// Controls whether the domain can be transferred to another registrar. Values are UNLOCKED or LOCKED.
     /// </summary>
-    public TerraformValue<string>? TransferLockState
+    public TerraformValue<string> TransferLockState
     {
-        get => GetArgument<TerraformValue<string>>("transfer_lock_state");
+        get => GetArgument<TerraformValue<string>>("transfer_lock_state") ?? AsReference("transfer_lock_state");
         set => SetArgument("transfer_lock_state", value);
     }
 
@@ -801,7 +801,7 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -817,9 +817,9 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -841,16 +841,16 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -19,7 +19,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -195,7 +195,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockExternalBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -205,7 +205,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockExternalBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -229,7 +229,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockNetworkBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -432,7 +432,7 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -449,18 +449,18 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -479,7 +479,7 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformValue<string> SecurityGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("security_gateway_id");
+        get => GetRequiredArgument<TerraformValue<string>>("security_gateway_id");
         set => SetArgument("security_gateway_id", value);
     }
 

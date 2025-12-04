@@ -19,7 +19,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
     public required TerraformValue<double> ComputeCount
     {
-        get => GetArgument<TerraformValue<double>>("compute_count");
+        get => GetRequiredArgument<TerraformValue<double>>("compute_count");
         set => SetArgument("compute_count", value);
     }
 
@@ -29,18 +29,18 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     /// ECPU
     /// OCPU
     /// </summary>
-    public TerraformValue<string>? ComputeModel
+    public TerraformValue<string> ComputeModel
     {
-        get => GetArgument<TerraformValue<string>>("compute_model");
+        get => GetArgument<TerraformValue<string>>("compute_model") ?? AsReference("compute_model");
         set => SetArgument("compute_model", value);
     }
 
     /// <summary>
     /// The data storage size in GB that is currently available to DbSystems.
     /// </summary>
-    public TerraformValue<double>? DataStorageSizeGb
+    public TerraformValue<double> DataStorageSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_gb") ?? AsReference("data_storage_size_gb");
         set => SetArgument("data_storage_size_gb", value);
     }
 
@@ -54,16 +54,16 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseEdition is required")]
     public required TerraformValue<string> DatabaseEdition
     {
-        get => GetArgument<TerraformValue<string>>("database_edition");
+        get => GetRequiredArgument<TerraformValue<string>>("database_edition");
         set => SetArgument("database_edition", value);
     }
 
     /// <summary>
     /// The host domain name of the DbSystem.
     /// </summary>
-    public TerraformValue<string>? Domain
+    public TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetArgument<TerraformValue<string>>("domain") ?? AsReference("domain");
         set => SetArgument("domain", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialDataStorageSizeGb is required")]
     public required TerraformValue<double> InitialDataStorageSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("initial_data_storage_size_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("initial_data_storage_size_gb");
         set => SetArgument("initial_data_storage_size_gb", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
     public required TerraformValue<string> LicenseModel
     {
-        get => GetArgument<TerraformValue<string>>("license_model");
+        get => GetRequiredArgument<TerraformValue<string>>("license_model");
         set => SetArgument("license_model", value);
     }
 
@@ -125,18 +125,18 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     /// <summary>
     /// The memory size in GB.
     /// </summary>
-    public TerraformValue<double>? MemorySizeGb
+    public TerraformValue<double> MemorySizeGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_size_gb");
+        get => GetArgument<TerraformValue<double>>("memory_size_gb") ?? AsReference("memory_size_gb");
         set => SetArgument("memory_size_gb", value);
     }
 
     /// <summary>
     /// The number of nodes in the DbSystem.
     /// </summary>
-    public TerraformValue<double>? NodeCount
+    public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -149,18 +149,18 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     /// <summary>
     /// The private IP address of the DbSystem.
     /// </summary>
-    public TerraformValue<string>? PrivateIp
+    public TerraformValue<string> PrivateIp
     {
-        get => GetArgument<TerraformValue<string>>("private_ip");
+        get => GetArgument<TerraformValue<string>>("private_ip") ?? AsReference("private_ip");
         set => SetArgument("private_ip", value);
     }
 
     /// <summary>
     /// The reco/redo storage size in GB.
     /// </summary>
-    public TerraformValue<double>? RecoStorageSizeGb
+    public TerraformValue<double> RecoStorageSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("reco_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("reco_storage_size_gb") ?? AsReference("reco_storage_size_gb");
         set => SetArgument("reco_storage_size_gb", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
     public required TerraformValue<string> Shape
     {
-        get => GetArgument<TerraformValue<string>>("shape");
+        get => GetRequiredArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -275,7 +275,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbVersion is required")]
     public required TerraformValue<string> DbVersion
     {
-        get => GetArgument<TerraformValue<string>>("db_version");
+        get => GetRequiredArgument<TerraformValue<string>>("db_version");
         set => SetArgument("db_version", value);
     }
 
@@ -292,9 +292,9 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlock : TerraformB
     /// <summary>
     /// Whether unified auditing is enabled for the Database Home.
     /// </summary>
-    public TerraformValue<bool>? IsUnifiedAuditingEnabled
+    public TerraformValue<bool> IsUnifiedAuditingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("is_unified_auditing_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_unified_auditing_enabled") ?? AsReference("is_unified_auditing_enabled");
         set => SetArgument("is_unified_auditing_enabled", value);
     }
 
@@ -330,16 +330,16 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
     public required TerraformValue<string> AdminPassword
     {
-        get => GetArgument<TerraformValue<string>>("admin_password");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_password");
         set => SetArgument("admin_password", value);
     }
 
     /// <summary>
     /// The character set for the database. The default is AL32UTF8.
     /// </summary>
-    public TerraformValue<string>? CharacterSet
+    public TerraformValue<string> CharacterSet
     {
-        get => GetArgument<TerraformValue<string>>("character_set");
+        get => GetArgument<TerraformValue<string>>("character_set") ?? AsReference("character_set");
         set => SetArgument("character_set", value);
     }
 
@@ -355,16 +355,16 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformValue<string> DatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("database_id");
         set => SetArgument("database_id", value);
     }
 
     /// <summary>
     /// The name of the DbHome resource associated with the Database.
     /// </summary>
-    public TerraformValue<string>? DbHomeName
+    public TerraformValue<string> DbHomeName
     {
-        get => GetArgument<TerraformValue<string>>("db_home_name");
+        get => GetArgument<TerraformValue<string>>("db_home_name") ?? AsReference("db_home_name");
         set => SetArgument("db_home_name", value);
     }
 
@@ -382,18 +382,18 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// <summary>
     /// The DB_UNIQUE_NAME of the Oracle Database being backed up.
     /// </summary>
-    public TerraformValue<string>? DbUniqueName
+    public TerraformValue<string> DbUniqueName
     {
-        get => GetArgument<TerraformValue<string>>("db_unique_name");
+        get => GetArgument<TerraformValue<string>>("db_unique_name") ?? AsReference("db_unique_name");
         set => SetArgument("db_unique_name", value);
     }
 
     /// <summary>
     /// The GCP Oracle zone where the Database is created.
     /// </summary>
-    public TerraformValue<string>? GcpOracleZone
+    public TerraformValue<string> GcpOracleZone
     {
-        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone");
+        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? AsReference("gcp_oracle_zone");
         set => SetArgument("gcp_oracle_zone", value);
     }
 
@@ -407,9 +407,9 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// <summary>
     /// The national character set for the database. The default is AL16UTF16.
     /// </summary>
-    public TerraformValue<string>? NcharacterSet
+    public TerraformValue<string> NcharacterSet
     {
-        get => GetArgument<TerraformValue<string>>("ncharacter_set");
+        get => GetArgument<TerraformValue<string>>("ncharacter_set") ?? AsReference("ncharacter_set");
         set => SetArgument("ncharacter_set", value);
     }
 
@@ -470,7 +470,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbVersion is required")]
     public required TerraformValue<string> DbVersion
     {
-        get => GetArgument<TerraformValue<string>>("db_version");
+        get => GetRequiredArgument<TerraformValue<string>>("db_version");
         set => SetArgument("db_version", value);
     }
 
@@ -603,9 +603,9 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// SLOT_ELEVEN
     /// SLOT_TWELVE
     /// </summary>
-    public TerraformValue<string>? AutoFullBackupWindow
+    public TerraformValue<string> AutoFullBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("auto_full_backup_window");
+        get => GetArgument<TerraformValue<string>>("auto_full_backup_window") ?? AsReference("auto_full_backup_window");
         set => SetArgument("auto_full_backup_window", value);
     }
 
@@ -627,9 +627,9 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// SLOT_ELEVEN
     /// SLOT_TWELVE
     /// </summary>
-    public TerraformValue<string>? AutoIncrementalBackupWindow
+    public TerraformValue<string> AutoIncrementalBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("auto_incremental_backup_window");
+        get => GetArgument<TerraformValue<string>>("auto_incremental_backup_window") ?? AsReference("auto_incremental_backup_window");
         set => SetArgument("auto_incremental_backup_window", value);
     }
 
@@ -639,9 +639,9 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// DELETE_IMMEDIATELY
     /// DELETE_AFTER_RETENTION_PERIOD
     /// </summary>
-    public TerraformValue<string>? BackupDeletionPolicy
+    public TerraformValue<string> BackupDeletionPolicy
     {
-        get => GetArgument<TerraformValue<string>>("backup_deletion_policy");
+        get => GetArgument<TerraformValue<string>>("backup_deletion_policy") ?? AsReference("backup_deletion_policy");
         set => SetArgument("backup_deletion_policy", value);
     }
 
@@ -650,9 +650,9 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// automatically deleted. This value determines the earliest point in time to
     /// which a database can be restored. Min: 1, Max: 60.
     /// </summary>
-    public TerraformValue<double>? RetentionPeriodDays
+    public TerraformValue<double> RetentionPeriodDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_period_days");
+        get => GetArgument<TerraformValue<double>>("retention_period_days") ?? AsReference("retention_period_days");
         set => SetArgument("retention_period_days", value);
     }
 
@@ -687,9 +687,9 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbHomeBlockDatabaseBlock
     /// LOCAL
     /// DBRS
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -712,9 +712,9 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockDbSystemOptionsBlock : T
     /// ASM
     /// LVM
     /// </summary>
-    public TerraformValue<string>? StorageManagement
+    public TerraformValue<string> StorageManagement
     {
-        get => GetArgument<TerraformValue<string>>("storage_management");
+        get => GetArgument<TerraformValue<string>>("storage_management") ?? AsReference("storage_management");
         set => SetArgument("storage_management", value);
     }
 
@@ -734,9 +734,9 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlockTimeZoneBlock : Terrafor
     /// <summary>
     /// IANA Time Zone Database time zone. For example &amp;quot;America/New_York&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -799,7 +799,7 @@ public partial class GoogleOracleDatabaseDbSystem(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbSystemId is required")]
     public required TerraformValue<string> DbSystemId
     {
-        get => GetArgument<TerraformValue<string>>("db_system_id");
+        get => GetRequiredArgument<TerraformValue<string>>("db_system_id");
         set => SetArgument("db_system_id", value);
     }
 
@@ -819,7 +819,7 @@ public partial class GoogleOracleDatabaseDbSystem(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -828,18 +828,18 @@ public partial class GoogleOracleDatabaseDbSystem(string name) : TerraformResour
     /// Example: us-east4-b-r2.
     /// If not specified, the system will pick a zone based on availability.
     /// </summary>
-    public TerraformValue<string>? GcpOracleZone
+    public TerraformValue<string> GcpOracleZone
     {
-        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone");
+        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? AsReference("gcp_oracle_zone");
         set => SetArgument("gcp_oracle_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -861,7 +861,7 @@ public partial class GoogleOracleDatabaseDbSystem(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -885,16 +885,16 @@ public partial class GoogleOracleDatabaseDbSystem(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbSubnet is required")]
     public required TerraformValue<string> OdbSubnet
     {
-        get => GetArgument<TerraformValue<string>>("odb_subnet");
+        get => GetRequiredArgument<TerraformValue<string>>("odb_subnet");
         set => SetArgument("odb_subnet", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -28,7 +28,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -361,7 +361,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockAptRepos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryBase is required")]
     public required TerraformValue<string> RepositoryBase
     {
-        get => GetArgument<TerraformValue<string>>("repository_base");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_base");
         set => SetArgument("repository_base", value);
     }
 
@@ -371,7 +371,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockAptRepos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryPath is required")]
     public required TerraformValue<string> RepositoryPath
     {
-        get => GetArgument<TerraformValue<string>>("repository_path");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_path");
         set => SetArgument("repository_path", value);
     }
 
@@ -397,7 +397,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockCommonRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -715,7 +715,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockYumRepos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryBase is required")]
     public required TerraformValue<string> RepositoryBase
     {
-        get => GetArgument<TerraformValue<string>>("repository_base");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_base");
         set => SetArgument("repository_base", value);
     }
 
@@ -725,7 +725,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockYumRepos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryPath is required")]
     public required TerraformValue<string> RepositoryPath
     {
-        get => GetArgument<TerraformValue<string>>("repository_path");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_path");
         set => SetArgument("repository_path", value);
     }
 
@@ -906,16 +906,16 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetRequiredArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -956,9 +956,9 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// [google_artifact_registry_locations](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/artifact_registry_locations)
     /// data source for possible values.
     /// </summary>
-    public TerraformValue<string>? Location
+    public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
         set => SetArgument("location", value);
     }
 
@@ -974,9 +974,9 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -987,7 +987,7 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => GetArgument<TerraformValue<string>>("repository_id");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 

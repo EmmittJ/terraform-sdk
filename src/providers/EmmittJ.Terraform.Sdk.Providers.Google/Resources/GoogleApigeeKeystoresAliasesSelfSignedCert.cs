@@ -148,7 +148,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
     public required TerraformValue<string> Alias
     {
-        get => GetArgument<TerraformValue<string>>("alias");
+        get => GetRequiredArgument<TerraformValue<string>>("alias");
         set => SetArgument("alias", value);
     }
 
@@ -167,16 +167,16 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => GetArgument<TerraformValue<string>>("environment");
+        get => GetRequiredArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -195,7 +195,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
     public required TerraformValue<string> Keystore
     {
-        get => GetArgument<TerraformValue<string>>("keystore");
+        get => GetRequiredArgument<TerraformValue<string>>("keystore");
         set => SetArgument("keystore", value);
     }
 
@@ -205,7 +205,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -215,7 +215,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigAlg is required")]
     public required TerraformValue<string> SigAlg
     {
-        get => GetArgument<TerraformValue<string>>("sig_alg");
+        get => GetRequiredArgument<TerraformValue<string>>("sig_alg");
         set => SetArgument("sig_alg", value);
     }
 

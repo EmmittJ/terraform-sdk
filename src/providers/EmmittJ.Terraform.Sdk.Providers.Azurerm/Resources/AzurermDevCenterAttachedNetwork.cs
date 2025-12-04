@@ -55,16 +55,16 @@ public partial class AzurermDevCenterAttachedNetwork(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     public required TerraformValue<string> DevCenterId
     {
-        get => GetArgument<TerraformValue<string>>("dev_center_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dev_center_id");
         set => SetArgument("dev_center_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermDevCenterAttachedNetwork(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermDevCenterAttachedNetwork(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkConnectionId is required")]
     public required TerraformValue<string> NetworkConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("network_connection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_connection_id");
         set => SetArgument("network_connection_id", value);
     }
 

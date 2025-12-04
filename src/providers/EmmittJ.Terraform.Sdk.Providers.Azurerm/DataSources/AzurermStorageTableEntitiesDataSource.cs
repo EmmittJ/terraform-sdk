@@ -37,16 +37,16 @@ public partial class AzurermStorageTableEntitiesDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermStorageTableEntitiesDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
     public required TerraformValue<string> StorageTableId
     {
-        get => GetArgument<TerraformValue<string>>("storage_table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_table_id");
         set => SetArgument("storage_table_id", value);
     }
 

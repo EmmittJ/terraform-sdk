@@ -16,45 +16,45 @@ public class AwsVpclatticeTargetGroupConfigBlock : TerraformBlock
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string>? IpAddressType
+    public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
     /// <summary>
     /// The lambda_event_structure_version attribute.
     /// </summary>
-    public TerraformValue<string>? LambdaEventStructureVersion
+    public TerraformValue<string> LambdaEventStructureVersion
     {
-        get => GetArgument<TerraformValue<string>>("lambda_event_structure_version");
+        get => GetArgument<TerraformValue<string>>("lambda_event_structure_version") ?? AsReference("lambda_event_structure_version");
         set => SetArgument("lambda_event_structure_version", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformValue<string>? Protocol
+    public TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetArgument<TerraformValue<string>>("protocol") ?? AsReference("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// The protocol_version attribute.
     /// </summary>
-    public TerraformValue<string>? ProtocolVersion
+    public TerraformValue<string> ProtocolVersion
     {
-        get => GetArgument<TerraformValue<string>>("protocol_version");
+        get => GetArgument<TerraformValue<string>>("protocol_version") ?? AsReference("protocol_version");
         set => SetArgument("protocol_version", value);
     }
 
@@ -138,18 +138,18 @@ public class AwsVpclatticeTargetGroupConfigBlockHealthCheckBlock : TerraformBloc
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformValue<string>? Protocol
+    public TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetArgument<TerraformValue<string>>("protocol") ?? AsReference("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -256,9 +256,9 @@ public partial class AwsVpclatticeTargetGroup(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -268,16 +268,16 @@ public partial class AwsVpclatticeTargetGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -293,9 +293,9 @@ public partial class AwsVpclatticeTargetGroup(string name) : TerraformResource("
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -305,7 +305,7 @@ public partial class AwsVpclatticeTargetGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

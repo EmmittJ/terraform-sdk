@@ -55,7 +55,7 @@ public partial class AwsOdbNetworkPeeringConnection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsOdbNetworkPeeringConnection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformValue<string> OdbNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("odb_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("odb_network_id");
         set => SetArgument("odb_network_id", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AwsOdbNetworkPeeringConnection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetworkId is required")]
     public required TerraformValue<string> PeerNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("peer_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("peer_network_id");
         set => SetArgument("peer_network_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

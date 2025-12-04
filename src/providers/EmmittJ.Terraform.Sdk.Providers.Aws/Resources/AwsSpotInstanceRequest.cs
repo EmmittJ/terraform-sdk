@@ -80,27 +80,27 @@ public class AwsSpotInstanceRequestCpuOptionsBlock : TerraformBlock
     /// <summary>
     /// The amd_sev_snp attribute.
     /// </summary>
-    public TerraformValue<string>? AmdSevSnp
+    public TerraformValue<string> AmdSevSnp
     {
-        get => GetArgument<TerraformValue<string>>("amd_sev_snp");
+        get => GetArgument<TerraformValue<string>>("amd_sev_snp") ?? AsReference("amd_sev_snp");
         set => SetArgument("amd_sev_snp", value);
     }
 
     /// <summary>
     /// The core_count attribute.
     /// </summary>
-    public TerraformValue<double>? CoreCount
+    public TerraformValue<double> CoreCount
     {
-        get => GetArgument<TerraformValue<double>>("core_count");
+        get => GetArgument<TerraformValue<double>>("core_count") ?? AsReference("core_count");
         set => SetArgument("core_count", value);
     }
 
     /// <summary>
     /// The threads_per_core attribute.
     /// </summary>
-    public TerraformValue<double>? ThreadsPerCore
+    public TerraformValue<double> ThreadsPerCore
     {
-        get => GetArgument<TerraformValue<double>>("threads_per_core");
+        get => GetArgument<TerraformValue<double>>("threads_per_core") ?? AsReference("threads_per_core");
         set => SetArgument("threads_per_core", value);
     }
 
@@ -156,43 +156,43 @@ public class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetRequiredArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformValue<bool>? Encrypted
+    public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
-    public TerraformValue<string>? SnapshotId
+    public TerraformValue<string> SnapshotId
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_id") ?? AsReference("snapshot_id");
         set => SetArgument("snapshot_id", value);
     }
 
@@ -208,18 +208,18 @@ public class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlock
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -232,18 +232,18 @@ public class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlock
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    public TerraformValue<double>? VolumeSize
+    public TerraformValue<double> VolumeSize
     {
-        get => GetArgument<TerraformValue<double>>("volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size") ?? AsReference("volume_size");
         set => SetArgument("volume_size", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformValue<string>? VolumeType
+    public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -264,9 +264,9 @@ public class AwsSpotInstanceRequestEnclaveOptionsBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -290,7 +290,7 @@ public class AwsSpotInstanceRequestEphemeralBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetRequiredArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -329,18 +329,18 @@ public class AwsSpotInstanceRequestLaunchTemplateBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -370,9 +370,9 @@ public class AwsSpotInstanceRequestMaintenanceOptionsBlock : TerraformBlock
     /// <summary>
     /// The auto_recovery attribute.
     /// </summary>
-    public TerraformValue<string>? AutoRecovery
+    public TerraformValue<string> AutoRecovery
     {
-        get => GetArgument<TerraformValue<string>>("auto_recovery");
+        get => GetArgument<TerraformValue<string>>("auto_recovery") ?? AsReference("auto_recovery");
         set => SetArgument("auto_recovery", value);
     }
 
@@ -411,27 +411,27 @@ public class AwsSpotInstanceRequestMetadataOptionsBlock : TerraformBlock
     /// <summary>
     /// The http_put_response_hop_limit attribute.
     /// </summary>
-    public TerraformValue<double>? HttpPutResponseHopLimit
+    public TerraformValue<double> HttpPutResponseHopLimit
     {
-        get => GetArgument<TerraformValue<double>>("http_put_response_hop_limit");
+        get => GetArgument<TerraformValue<double>>("http_put_response_hop_limit") ?? AsReference("http_put_response_hop_limit");
         set => SetArgument("http_put_response_hop_limit", value);
     }
 
     /// <summary>
     /// The http_tokens attribute.
     /// </summary>
-    public TerraformValue<string>? HttpTokens
+    public TerraformValue<string> HttpTokens
     {
-        get => GetArgument<TerraformValue<string>>("http_tokens");
+        get => GetArgument<TerraformValue<string>>("http_tokens") ?? AsReference("http_tokens");
         set => SetArgument("http_tokens", value);
     }
 
     /// <summary>
     /// The instance_metadata_tags attribute.
     /// </summary>
-    public TerraformValue<string>? InstanceMetadataTags
+    public TerraformValue<string> InstanceMetadataTags
     {
-        get => GetArgument<TerraformValue<string>>("instance_metadata_tags");
+        get => GetArgument<TerraformValue<string>>("instance_metadata_tags") ?? AsReference("instance_metadata_tags");
         set => SetArgument("instance_metadata_tags", value);
     }
 
@@ -465,7 +465,7 @@ public class AwsSpotInstanceRequestNetworkInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceIndex is required")]
     public required TerraformValue<double> DeviceIndex
     {
-        get => GetArgument<TerraformValue<double>>("device_index");
+        get => GetRequiredArgument<TerraformValue<double>>("device_index");
         set => SetArgument("device_index", value);
     }
 
@@ -481,7 +481,7 @@ public class AwsSpotInstanceRequestNetworkInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformValue<string> NetworkInterfaceId
     {
-        get => GetArgument<TerraformValue<string>>("network_interface_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
@@ -502,27 +502,27 @@ public class AwsSpotInstanceRequestPrivateDnsNameOptionsBlock : TerraformBlock
     /// <summary>
     /// The enable_resource_name_dns_a_record attribute.
     /// </summary>
-    public TerraformValue<bool>? EnableResourceNameDnsARecord
+    public TerraformValue<bool> EnableResourceNameDnsARecord
     {
-        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_a_record");
+        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_a_record") ?? AsReference("enable_resource_name_dns_a_record");
         set => SetArgument("enable_resource_name_dns_a_record", value);
     }
 
     /// <summary>
     /// The enable_resource_name_dns_aaaa_record attribute.
     /// </summary>
-    public TerraformValue<bool>? EnableResourceNameDnsAaaaRecord
+    public TerraformValue<bool> EnableResourceNameDnsAaaaRecord
     {
-        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_aaaa_record");
+        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_aaaa_record") ?? AsReference("enable_resource_name_dns_aaaa_record");
         set => SetArgument("enable_resource_name_dns_aaaa_record", value);
     }
 
     /// <summary>
     /// The hostname_type attribute.
     /// </summary>
-    public TerraformValue<string>? HostnameType
+    public TerraformValue<string> HostnameType
     {
-        get => GetArgument<TerraformValue<string>>("hostname_type");
+        get => GetArgument<TerraformValue<string>>("hostname_type") ?? AsReference("hostname_type");
         set => SetArgument("hostname_type", value);
     }
 
@@ -558,27 +558,27 @@ public class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlock
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformValue<bool>? Encrypted
+    public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -594,18 +594,18 @@ public class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlock
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -618,18 +618,18 @@ public class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlock
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    public TerraformValue<double>? VolumeSize
+    public TerraformValue<double> VolumeSize
     {
-        get => GetArgument<TerraformValue<double>>("volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size") ?? AsReference("volume_size");
         set => SetArgument("volume_size", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformValue<string>? VolumeType
+    public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -686,63 +686,63 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// <summary>
     /// The ami attribute.
     /// </summary>
-    public TerraformValue<string>? Ami
+    public TerraformValue<string> Ami
     {
-        get => GetArgument<TerraformValue<string>>("ami");
+        get => GetArgument<TerraformValue<string>>("ami") ?? AsReference("ami");
         set => SetArgument("ami", value);
     }
 
     /// <summary>
     /// The associate_public_ip_address attribute.
     /// </summary>
-    public TerraformValue<bool>? AssociatePublicIpAddress
+    public TerraformValue<bool> AssociatePublicIpAddress
     {
-        get => GetArgument<TerraformValue<bool>>("associate_public_ip_address");
+        get => GetArgument<TerraformValue<bool>>("associate_public_ip_address") ?? AsReference("associate_public_ip_address");
         set => SetArgument("associate_public_ip_address", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZone
+    public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
     /// <summary>
     /// The disable_api_stop attribute.
     /// </summary>
-    public TerraformValue<bool>? DisableApiStop
+    public TerraformValue<bool> DisableApiStop
     {
-        get => GetArgument<TerraformValue<bool>>("disable_api_stop");
+        get => GetArgument<TerraformValue<bool>>("disable_api_stop") ?? AsReference("disable_api_stop");
         set => SetArgument("disable_api_stop", value);
     }
 
     /// <summary>
     /// The disable_api_termination attribute.
     /// </summary>
-    public TerraformValue<bool>? DisableApiTermination
+    public TerraformValue<bool> DisableApiTermination
     {
-        get => GetArgument<TerraformValue<bool>>("disable_api_termination");
+        get => GetArgument<TerraformValue<bool>>("disable_api_termination") ?? AsReference("disable_api_termination");
         set => SetArgument("disable_api_termination", value);
     }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformValue<bool>? EbsOptimized
+    public TerraformValue<bool> EbsOptimized
     {
-        get => GetArgument<TerraformValue<bool>>("ebs_optimized");
+        get => GetArgument<TerraformValue<bool>>("ebs_optimized") ?? AsReference("ebs_optimized");
         set => SetArgument("ebs_optimized", value);
     }
 
     /// <summary>
     /// The enable_primary_ipv6 attribute.
     /// </summary>
-    public TerraformValue<bool>? EnablePrimaryIpv6
+    public TerraformValue<bool> EnablePrimaryIpv6
     {
-        get => GetArgument<TerraformValue<bool>>("enable_primary_ipv6");
+        get => GetArgument<TerraformValue<bool>>("enable_primary_ipv6") ?? AsReference("enable_primary_ipv6");
         set => SetArgument("enable_primary_ipv6", value);
     }
 
@@ -776,45 +776,45 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// <summary>
     /// The host_id attribute.
     /// </summary>
-    public TerraformValue<string>? HostId
+    public TerraformValue<string> HostId
     {
-        get => GetArgument<TerraformValue<string>>("host_id");
+        get => GetArgument<TerraformValue<string>>("host_id") ?? AsReference("host_id");
         set => SetArgument("host_id", value);
     }
 
     /// <summary>
     /// The host_resource_group_arn attribute.
     /// </summary>
-    public TerraformValue<string>? HostResourceGroupArn
+    public TerraformValue<string> HostResourceGroupArn
     {
-        get => GetArgument<TerraformValue<string>>("host_resource_group_arn");
+        get => GetArgument<TerraformValue<string>>("host_resource_group_arn") ?? AsReference("host_resource_group_arn");
         set => SetArgument("host_resource_group_arn", value);
     }
 
     /// <summary>
     /// The iam_instance_profile attribute.
     /// </summary>
-    public TerraformValue<string>? IamInstanceProfile
+    public TerraformValue<string> IamInstanceProfile
     {
-        get => GetArgument<TerraformValue<string>>("iam_instance_profile");
+        get => GetArgument<TerraformValue<string>>("iam_instance_profile") ?? AsReference("iam_instance_profile");
         set => SetArgument("iam_instance_profile", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The instance_initiated_shutdown_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? InstanceInitiatedShutdownBehavior
+    public TerraformValue<string> InstanceInitiatedShutdownBehavior
     {
-        get => GetArgument<TerraformValue<string>>("instance_initiated_shutdown_behavior");
+        get => GetArgument<TerraformValue<string>>("instance_initiated_shutdown_behavior") ?? AsReference("instance_initiated_shutdown_behavior");
         set => SetArgument("instance_initiated_shutdown_behavior", value);
     }
 
@@ -830,36 +830,36 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformValue<string>? InstanceType
+    public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// The ipv6_address_count attribute.
     /// </summary>
-    public TerraformValue<double>? Ipv6AddressCount
+    public TerraformValue<double> Ipv6AddressCount
     {
-        get => GetArgument<TerraformValue<double>>("ipv6_address_count");
+        get => GetArgument<TerraformValue<double>>("ipv6_address_count") ?? AsReference("ipv6_address_count");
         set => SetArgument("ipv6_address_count", value);
     }
 
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
-    public TerraformList<string>? Ipv6Addresses
+    public TerraformList<string> Ipv6Addresses
     {
-        get => GetArgument<TerraformList<string>>("ipv6_addresses");
+        get => GetArgument<TerraformList<string>>("ipv6_addresses") ?? AsReference("ipv6_addresses");
         set => SetArgument("ipv6_addresses", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformValue<string>? KeyName
+    public TerraformValue<string> KeyName
     {
-        get => GetArgument<TerraformValue<string>>("key_name");
+        get => GetArgument<TerraformValue<string>>("key_name") ?? AsReference("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -875,72 +875,72 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// <summary>
     /// The monitoring attribute.
     /// </summary>
-    public TerraformValue<bool>? Monitoring
+    public TerraformValue<bool> Monitoring
     {
-        get => GetArgument<TerraformValue<bool>>("monitoring");
+        get => GetArgument<TerraformValue<bool>>("monitoring") ?? AsReference("monitoring");
         set => SetArgument("monitoring", value);
     }
 
     /// <summary>
     /// The placement_group attribute.
     /// </summary>
-    public TerraformValue<string>? PlacementGroup
+    public TerraformValue<string> PlacementGroup
     {
-        get => GetArgument<TerraformValue<string>>("placement_group");
+        get => GetArgument<TerraformValue<string>>("placement_group") ?? AsReference("placement_group");
         set => SetArgument("placement_group", value);
     }
 
     /// <summary>
     /// The placement_group_id attribute.
     /// </summary>
-    public TerraformValue<string>? PlacementGroupId
+    public TerraformValue<string> PlacementGroupId
     {
-        get => GetArgument<TerraformValue<string>>("placement_group_id");
+        get => GetArgument<TerraformValue<string>>("placement_group_id") ?? AsReference("placement_group_id");
         set => SetArgument("placement_group_id", value);
     }
 
     /// <summary>
     /// The placement_partition_number attribute.
     /// </summary>
-    public TerraformValue<double>? PlacementPartitionNumber
+    public TerraformValue<double> PlacementPartitionNumber
     {
-        get => GetArgument<TerraformValue<double>>("placement_partition_number");
+        get => GetArgument<TerraformValue<double>>("placement_partition_number") ?? AsReference("placement_partition_number");
         set => SetArgument("placement_partition_number", value);
     }
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateIp
+    public TerraformValue<string> PrivateIp
     {
-        get => GetArgument<TerraformValue<string>>("private_ip");
+        get => GetArgument<TerraformValue<string>>("private_ip") ?? AsReference("private_ip");
         set => SetArgument("private_ip", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The secondary_private_ips attribute.
     /// </summary>
-    public TerraformSet<string>? SecondaryPrivateIps
+    public TerraformSet<string> SecondaryPrivateIps
     {
-        get => GetArgument<TerraformSet<string>>("secondary_private_ips");
+        get => GetArgument<TerraformSet<string>>("secondary_private_ips") ?? AsReference("secondary_private_ips");
         set => SetArgument("secondary_private_ips", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroups
+    public TerraformSet<string> SecurityGroups
     {
-        get => GetArgument<TerraformSet<string>>("security_groups");
+        get => GetArgument<TerraformSet<string>>("security_groups") ?? AsReference("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -956,9 +956,9 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// <summary>
     /// The spot_price attribute.
     /// </summary>
-    public TerraformValue<string>? SpotPrice
+    public TerraformValue<string> SpotPrice
     {
-        get => GetArgument<TerraformValue<string>>("spot_price");
+        get => GetArgument<TerraformValue<string>>("spot_price") ?? AsReference("spot_price");
         set => SetArgument("spot_price", value);
     }
 
@@ -974,9 +974,9 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformValue<string>? SubnetId
+    public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -992,18 +992,18 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
-    public TerraformValue<string>? Tenancy
+    public TerraformValue<string> Tenancy
     {
-        get => GetArgument<TerraformValue<string>>("tenancy");
+        get => GetArgument<TerraformValue<string>>("tenancy") ?? AsReference("tenancy");
         set => SetArgument("tenancy", value);
     }
 
@@ -1019,9 +1019,9 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
-    public TerraformValue<string>? UserDataBase64
+    public TerraformValue<string> UserDataBase64
     {
-        get => GetArgument<TerraformValue<string>>("user_data_base64");
+        get => GetArgument<TerraformValue<string>>("user_data_base64") ?? AsReference("user_data_base64");
         set => SetArgument("user_data_base64", value);
     }
 
@@ -1037,18 +1037,18 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// <summary>
     /// The valid_from attribute.
     /// </summary>
-    public TerraformValue<string>? ValidFrom
+    public TerraformValue<string> ValidFrom
     {
-        get => GetArgument<TerraformValue<string>>("valid_from");
+        get => GetArgument<TerraformValue<string>>("valid_from") ?? AsReference("valid_from");
         set => SetArgument("valid_from", value);
     }
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
-    public TerraformValue<string>? ValidUntil
+    public TerraformValue<string> ValidUntil
     {
-        get => GetArgument<TerraformValue<string>>("valid_until");
+        get => GetArgument<TerraformValue<string>>("valid_until") ?? AsReference("valid_until");
         set => SetArgument("valid_until", value);
     }
 
@@ -1064,9 +1064,9 @@ public partial class AwsSpotInstanceRequest(string name) : TerraformResource("aw
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? VpcSecurityGroupIds
+    public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 

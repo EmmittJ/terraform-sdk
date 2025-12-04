@@ -19,7 +19,7 @@ public class AzurermMonitorMetricAlertActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupId is required")]
     public required TerraformValue<string> ActionGroupId
     {
-        get => GetArgument<TerraformValue<string>>("action_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("action_group_id");
         set => SetArgument("action_group_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentId is required")]
     public required TerraformValue<string> ComponentId
     {
-        get => GetArgument<TerraformValue<string>>("component_id");
+        get => GetRequiredArgument<TerraformValue<string>>("component_id");
         set => SetArgument("component_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailedLocationCount is required")]
     public required TerraformValue<double> FailedLocationCount
     {
-        get => GetArgument<TerraformValue<double>>("failed_location_count");
+        get => GetRequiredArgument<TerraformValue<double>>("failed_location_count");
         set => SetArgument("failed_location_count", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebTestId is required")]
     public required TerraformValue<string> WebTestId
     {
-        get => GetArgument<TerraformValue<string>>("web_test_id");
+        get => GetRequiredArgument<TerraformValue<string>>("web_test_id");
         set => SetArgument("web_test_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
     public required TerraformValue<string> Aggregation
     {
-        get => GetArgument<TerraformValue<string>>("aggregation");
+        get => GetRequiredArgument<TerraformValue<string>>("aggregation");
         set => SetArgument("aggregation", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => GetArgument<TerraformValue<string>>("metric_name");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
     public required TerraformValue<string> MetricNamespace
     {
-        get => GetArgument<TerraformValue<string>>("metric_namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_namespace");
         set => SetArgument("metric_namespace", value);
     }
 
@@ -126,7 +126,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => GetArgument<TerraformValue<double>>("threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermMonitorMetricAlertCriteriaBlockDimensionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermMonitorMetricAlertCriteriaBlockDimensionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
     public required TerraformValue<string> Aggregation
     {
-        get => GetArgument<TerraformValue<string>>("aggregation");
+        get => GetRequiredArgument<TerraformValue<string>>("aggregation");
         set => SetArgument("aggregation", value);
     }
 
@@ -231,7 +231,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertSensitivity is required")]
     public required TerraformValue<string> AlertSensitivity
     {
-        get => GetArgument<TerraformValue<string>>("alert_sensitivity");
+        get => GetRequiredArgument<TerraformValue<string>>("alert_sensitivity");
         set => SetArgument("alert_sensitivity", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => GetArgument<TerraformValue<string>>("metric_name");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -278,7 +278,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
     public required TerraformValue<string> MetricNamespace
     {
-        get => GetArgument<TerraformValue<string>>("metric_namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_namespace");
         set => SetArgument("metric_namespace", value);
     }
 
@@ -288,7 +288,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -329,7 +329,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlockDimensionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -339,7 +339,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlockDimensionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -451,9 +451,9 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -463,7 +463,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -473,7 +473,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -483,7 +483,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     public required TerraformSet<string> Scopes
     {
-        get => GetArgument<TerraformSet<string>>("scopes");
+        get => GetRequiredArgument<TerraformSet<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -508,18 +508,18 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// <summary>
     /// The location of the target pluginsdk. Required when using subscription, resource group scope or multiple scopes.
     /// </summary>
-    public TerraformValue<string>? TargetResourceLocation
+    public TerraformValue<string> TargetResourceLocation
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_location");
+        get => GetArgument<TerraformValue<string>>("target_resource_location") ?? AsReference("target_resource_location");
         set => SetArgument("target_resource_location", value);
     }
 
     /// <summary>
     /// The resource type (e.g. Microsoft.Compute/virtualMachines) of the target pluginsdk. Required when using subscription, resource group scope or multiple scopes.
     /// </summary>
-    public TerraformValue<string>? TargetResourceType
+    public TerraformValue<string> TargetResourceType
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_type");
+        get => GetArgument<TerraformValue<string>>("target_resource_type") ?? AsReference("target_resource_type");
         set => SetArgument("target_resource_type", value);
     }
 

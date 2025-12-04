@@ -42,7 +42,7 @@ public class AwsS3controlAccessGrantGranteeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeIdentifier is required")]
     public required TerraformValue<string> GranteeIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("grantee_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("grantee_identifier");
         set => SetArgument("grantee_identifier", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsS3controlAccessGrantGranteeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeType is required")]
     public required TerraformValue<string> GranteeType
     {
-        get => GetArgument<TerraformValue<string>>("grantee_type");
+        get => GetRequiredArgument<TerraformValue<string>>("grantee_type");
         set => SetArgument("grantee_type", value);
     }
 
@@ -71,16 +71,16 @@ public partial class AwsS3controlAccessGrant(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessGrantsLocationId is required")]
     public required TerraformValue<string> AccessGrantsLocationId
     {
-        get => GetArgument<TerraformValue<string>>("access_grants_location_id");
+        get => GetRequiredArgument<TerraformValue<string>>("access_grants_location_id");
         set => SetArgument("access_grants_location_id", value);
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AccountId
+    public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AwsS3controlAccessGrant(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformValue<string> Permission
     {
-        get => GetArgument<TerraformValue<string>>("permission");
+        get => GetRequiredArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

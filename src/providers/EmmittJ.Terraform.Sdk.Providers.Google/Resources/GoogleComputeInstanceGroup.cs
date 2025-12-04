@@ -19,7 +19,7 @@ public class GoogleComputeInstanceGroupNamedPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleComputeInstanceGroupNamedPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -95,18 +95,18 @@ public partial class GoogleComputeInstanceGroup(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The list of instances in the group, in self_link format. When adding instances they must all be in the same network and zone as the instance group.
     /// </summary>
-    public TerraformSet<string>? Instances
+    public TerraformSet<string> Instances
     {
-        get => GetArgument<TerraformSet<string>>("instances");
+        get => GetArgument<TerraformSet<string>>("instances") ?? AsReference("instances");
         set => SetArgument("instances", value);
     }
 
@@ -116,34 +116,34 @@ public partial class GoogleComputeInstanceGroup(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The URL of the network the instance group is in. If this is different from the network where the instances are in, the creation fails. Defaults to the network where the instances are in (if neither network nor instances is specified, this field will be blank).
     /// </summary>
-    public TerraformValue<string>? Network
+    public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The zone that this instance group should be created in.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

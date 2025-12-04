@@ -61,54 +61,54 @@ public partial class AwsAppsyncSourceApiAssociation(string name) : TerraformReso
     /// <summary>
     /// The merged_api_arn attribute.
     /// </summary>
-    public TerraformValue<string>? MergedApiArn
+    public TerraformValue<string> MergedApiArn
     {
-        get => GetArgument<TerraformValue<string>>("merged_api_arn");
+        get => GetArgument<TerraformValue<string>>("merged_api_arn") ?? AsReference("merged_api_arn");
         set => SetArgument("merged_api_arn", value);
     }
 
     /// <summary>
     /// The merged_api_id attribute.
     /// </summary>
-    public TerraformValue<string>? MergedApiId
+    public TerraformValue<string> MergedApiId
     {
-        get => GetArgument<TerraformValue<string>>("merged_api_id");
+        get => GetArgument<TerraformValue<string>>("merged_api_id") ?? AsReference("merged_api_id");
         set => SetArgument("merged_api_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The source_api_arn attribute.
     /// </summary>
-    public TerraformValue<string>? SourceApiArn
+    public TerraformValue<string> SourceApiArn
     {
-        get => GetArgument<TerraformValue<string>>("source_api_arn");
+        get => GetArgument<TerraformValue<string>>("source_api_arn") ?? AsReference("source_api_arn");
         set => SetArgument("source_api_arn", value);
     }
 
     /// <summary>
     /// The source_api_association_config attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? SourceApiAssociationConfig
+    public TerraformList<TerraformMap<object>> SourceApiAssociationConfig
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("source_api_association_config");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("source_api_association_config") ?? AsReference("source_api_association_config");
         set => SetArgument("source_api_association_config", value);
     }
 
     /// <summary>
     /// The source_api_id attribute.
     /// </summary>
-    public TerraformValue<string>? SourceApiId
+    public TerraformValue<string> SourceApiId
     {
-        get => GetArgument<TerraformValue<string>>("source_api_id");
+        get => GetArgument<TerraformValue<string>>("source_api_id") ?? AsReference("source_api_id");
         set => SetArgument("source_api_id", value);
     }
 

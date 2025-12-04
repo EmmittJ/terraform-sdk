@@ -28,7 +28,7 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => GetArgument<TerraformValue<double>>("interval");
+        get => GetRequiredArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDuration is required")]
     public required TerraformValue<double> RetentionDuration
     {
-        get => GetArgument<TerraformValue<double>>("retention_duration");
+        get => GetRequiredArgument<TerraformValue<double>>("retention_duration");
         set => SetArgument("retention_duration", value);
     }
 
@@ -57,7 +57,7 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Units is required")]
     public required TerraformValue<string> Units
     {
-        get => GetArgument<TerraformValue<string>>("units");
+        get => GetRequiredArgument<TerraformValue<string>>("units");
         set => SetArgument("units", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociateDefaultSecurityGroup is required")]
     public required TerraformValue<bool> AssociateDefaultSecurityGroup
     {
-        get => GetArgument<TerraformValue<bool>>("associate_default_security_group");
+        get => GetRequiredArgument<TerraformValue<bool>>("associate_default_security_group");
         set => SetArgument("associate_default_security_group", value);
     }
 
     /// <summary>
     /// The auto_replicate_new_disks attribute.
     /// </summary>
-    public TerraformValue<bool>? AutoReplicateNewDisks
+    public TerraformValue<bool> AutoReplicateNewDisks
     {
-        get => GetArgument<TerraformValue<bool>>("auto_replicate_new_disks");
+        get => GetArgument<TerraformValue<bool>>("auto_replicate_new_disks") ?? AsReference("auto_replicate_new_disks");
         set => SetArgument("auto_replicate_new_disks", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthThrottling is required")]
     public required TerraformValue<double> BandwidthThrottling
     {
-        get => GetArgument<TerraformValue<double>>("bandwidth_throttling");
+        get => GetRequiredArgument<TerraformValue<double>>("bandwidth_throttling");
         set => SetArgument("bandwidth_throttling", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatePublicIp is required")]
     public required TerraformValue<bool> CreatePublicIp
     {
-        get => GetArgument<TerraformValue<bool>>("create_public_ip");
+        get => GetRequiredArgument<TerraformValue<bool>>("create_public_ip");
         set => SetArgument("create_public_ip", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPlaneRouting is required")]
     public required TerraformValue<string> DataPlaneRouting
     {
-        get => GetArgument<TerraformValue<string>>("data_plane_routing");
+        get => GetRequiredArgument<TerraformValue<string>>("data_plane_routing");
         set => SetArgument("data_plane_routing", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLargeStagingDiskType is required")]
     public required TerraformValue<string> DefaultLargeStagingDiskType
     {
-        get => GetArgument<TerraformValue<string>>("default_large_staging_disk_type");
+        get => GetRequiredArgument<TerraformValue<string>>("default_large_staging_disk_type");
         set => SetArgument("default_large_staging_disk_type", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsEncryption is required")]
     public required TerraformValue<string> EbsEncryption
     {
-        get => GetArgument<TerraformValue<string>>("ebs_encryption");
+        get => GetRequiredArgument<TerraformValue<string>>("ebs_encryption");
         set => SetArgument("ebs_encryption", value);
     }
 
@@ -192,9 +192,9 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationServerInstanceType is required")]
     public required TerraformValue<string> ReplicationServerInstanceType
     {
-        get => GetArgument<TerraformValue<string>>("replication_server_instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("replication_server_instance_type");
         set => SetArgument("replication_server_instance_type", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingAreaSubnetId is required")]
     public required TerraformValue<string> StagingAreaSubnetId
     {
-        get => GetArgument<TerraformValue<string>>("staging_area_subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("staging_area_subnet_id");
         set => SetArgument("staging_area_subnet_id", value);
     }
 
@@ -234,7 +234,7 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingAreaTags is required")]
     public required TerraformMap<string> StagingAreaTags
     {
-        get => GetArgument<TerraformMap<string>>("staging_area_tags");
+        get => GetRequiredArgument<TerraformMap<string>>("staging_area_tags");
         set => SetArgument("staging_area_tags", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AwsDrsReplicationConfigurationTemplate(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UseDedicatedReplicationServer is required")]
     public required TerraformValue<bool> UseDedicatedReplicationServer
     {
-        get => GetArgument<TerraformValue<bool>>("use_dedicated_replication_server");
+        get => GetRequiredArgument<TerraformValue<bool>>("use_dedicated_replication_server");
         set => SetArgument("use_dedicated_replication_server", value);
     }
 

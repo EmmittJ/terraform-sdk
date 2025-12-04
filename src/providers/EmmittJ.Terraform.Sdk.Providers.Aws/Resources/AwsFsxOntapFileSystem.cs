@@ -16,9 +16,9 @@ public class AwsFsxOntapFileSystemDiskIopsConfigurationBlock : TerraformBlock
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -93,9 +93,9 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public TerraformValue<string>? DailyAutomaticBackupStartTime
+    public TerraformValue<string> DailyAutomaticBackupStartTime
     {
-        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time");
+        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time") ?? AsReference("daily_automatic_backup_start_time");
         set => SetArgument("daily_automatic_backup_start_time", value);
     }
 
@@ -105,16 +105,16 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
     public required TerraformValue<string> DeploymentType
     {
-        get => GetArgument<TerraformValue<string>>("deployment_type");
+        get => GetRequiredArgument<TerraformValue<string>>("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
     /// <summary>
     /// The endpoint_ip_address_range attribute.
     /// </summary>
-    public TerraformValue<string>? EndpointIpAddressRange
+    public TerraformValue<string> EndpointIpAddressRange
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_ip_address_range");
+        get => GetArgument<TerraformValue<string>>("endpoint_ip_address_range") ?? AsReference("endpoint_ip_address_range");
         set => SetArgument("endpoint_ip_address_range", value);
     }
 
@@ -130,27 +130,27 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// <summary>
     /// The ha_pairs attribute.
     /// </summary>
-    public TerraformValue<double>? HaPairs
+    public TerraformValue<double> HaPairs
     {
-        get => GetArgument<TerraformValue<double>>("ha_pairs");
+        get => GetArgument<TerraformValue<double>>("ha_pairs") ?? AsReference("ha_pairs");
         set => SetArgument("ha_pairs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -160,25 +160,25 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredSubnetId is required")]
     public required TerraformValue<string> PreferredSubnetId
     {
-        get => GetArgument<TerraformValue<string>>("preferred_subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("preferred_subnet_id");
         set => SetArgument("preferred_subnet_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public TerraformSet<string>? RouteTableIds
+    public TerraformSet<string> RouteTableIds
     {
-        get => GetArgument<TerraformSet<string>>("route_table_ids");
+        get => GetArgument<TerraformSet<string>>("route_table_ids") ?? AsReference("route_table_ids");
         set => SetArgument("route_table_ids", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
     public required TerraformValue<double> StorageCapacity
     {
-        get => GetArgument<TerraformValue<double>>("storage_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("storage_capacity");
         set => SetArgument("storage_capacity", value);
     }
 
@@ -232,36 +232,36 @@ public partial class AwsFsxOntapFileSystem(string name) : TerraformResource("aws
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
-    public TerraformValue<double>? ThroughputCapacity
+    public TerraformValue<double> ThroughputCapacity
     {
-        get => GetArgument<TerraformValue<double>>("throughput_capacity");
+        get => GetArgument<TerraformValue<double>>("throughput_capacity") ?? AsReference("throughput_capacity");
         set => SetArgument("throughput_capacity", value);
     }
 
     /// <summary>
     /// The throughput_capacity_per_ha_pair attribute.
     /// </summary>
-    public TerraformValue<double>? ThroughputCapacityPerHaPair
+    public TerraformValue<double> ThroughputCapacityPerHaPair
     {
-        get => GetArgument<TerraformValue<double>>("throughput_capacity_per_ha_pair");
+        get => GetArgument<TerraformValue<double>>("throughput_capacity_per_ha_pair") ?? AsReference("throughput_capacity_per_ha_pair");
         set => SetArgument("throughput_capacity_per_ha_pair", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public TerraformValue<string>? WeeklyMaintenanceStartTime
+    public TerraformValue<string> WeeklyMaintenanceStartTime
     {
-        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time") ?? AsReference("weekly_maintenance_start_time");
         set => SetArgument("weekly_maintenance_start_time", value);
     }
 

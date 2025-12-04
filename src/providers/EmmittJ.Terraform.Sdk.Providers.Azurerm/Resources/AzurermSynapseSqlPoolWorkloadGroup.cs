@@ -61,9 +61,9 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxResourcePercent is required")]
     public required TerraformValue<double> MaxResourcePercent
     {
-        get => GetArgument<TerraformValue<double>>("max_resource_percent");
+        get => GetRequiredArgument<TerraformValue<double>>("max_resource_percent");
         set => SetArgument("max_resource_percent", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinResourcePercent is required")]
     public required TerraformValue<double> MinResourcePercent
     {
-        get => GetArgument<TerraformValue<double>>("min_resource_percent");
+        get => GetRequiredArgument<TerraformValue<double>>("min_resource_percent");
         set => SetArgument("min_resource_percent", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlPoolId is required")]
     public required TerraformValue<string> SqlPoolId
     {
-        get => GetArgument<TerraformValue<string>>("sql_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_pool_id");
         set => SetArgument("sql_pool_id", value);
     }
 

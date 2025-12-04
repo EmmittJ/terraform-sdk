@@ -14,7 +14,7 @@ public partial class AwsElasticacheReservedCacheNodeOfferingDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheNodeType is required")]
     public required TerraformValue<string> CacheNodeType
     {
-        get => GetArgument<TerraformValue<string>>("cache_node_type");
+        get => GetRequiredArgument<TerraformValue<string>>("cache_node_type");
         set => SetArgument("cache_node_type", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsElasticacheReservedCacheNodeOfferingDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetRequiredArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -34,7 +34,7 @@ public partial class AwsElasticacheReservedCacheNodeOfferingDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingType is required")]
     public required TerraformValue<string> OfferingType
     {
-        get => GetArgument<TerraformValue<string>>("offering_type");
+        get => GetRequiredArgument<TerraformValue<string>>("offering_type");
         set => SetArgument("offering_type", value);
     }
 
@@ -44,16 +44,16 @@ public partial class AwsElasticacheReservedCacheNodeOfferingDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductDescription is required")]
     public required TerraformValue<string> ProductDescription
     {
-        get => GetArgument<TerraformValue<string>>("product_description");
+        get => GetRequiredArgument<TerraformValue<string>>("product_description");
         set => SetArgument("product_description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

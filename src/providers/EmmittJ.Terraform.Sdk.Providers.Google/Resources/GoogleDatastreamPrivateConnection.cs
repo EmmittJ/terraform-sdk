@@ -25,7 +25,7 @@ public class GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAttachment is required")]
     public required TerraformValue<string> NetworkAttachment
     {
-        get => GetArgument<TerraformValue<string>>("network_attachment");
+        get => GetRequiredArgument<TerraformValue<string>>("network_attachment");
         set => SetArgument("network_attachment", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnet is required")]
     public required TerraformValue<string> Subnet
     {
-        get => GetArgument<TerraformValue<string>>("subnet");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet");
         set => SetArgument("subnet", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vpc is required")]
     public required TerraformValue<string> Vpc
     {
-        get => GetArgument<TerraformValue<string>>("vpc");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc");
         set => SetArgument("vpc", value);
     }
 
@@ -129,16 +129,16 @@ public partial class GoogleDatastreamPrivateConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -160,7 +160,7 @@ public partial class GoogleDatastreamPrivateConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -170,16 +170,16 @@ public partial class GoogleDatastreamPrivateConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnectionId is required")]
     public required TerraformValue<string> PrivateConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("private_connection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("private_connection_id");
         set => SetArgument("private_connection_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

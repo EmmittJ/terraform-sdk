@@ -61,27 +61,27 @@ public partial class AzureadAdministrativeUnitDataSource(string name) : Terrafor
     /// <summary>
     /// The display name for the administrative unit
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The object ID of the administrative unit
     /// </summary>
-    public TerraformValue<string>? ObjectId
+    public TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetArgument<TerraformValue<string>>("object_id") ?? AsReference("object_id");
         set => SetArgument("object_id", value);
     }
 

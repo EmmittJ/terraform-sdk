@@ -19,7 +19,7 @@ public class AzurermSubnetDelegationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermSubnetDelegationBlockServiceDelegationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfIpAddresses is required")]
     public required TerraformValue<string> NumberOfIpAddresses
     {
-        get => GetArgument<TerraformValue<string>>("number_of_ip_addresses");
+        get => GetRequiredArgument<TerraformValue<string>>("number_of_ip_addresses");
         set => SetArgument("number_of_ip_addresses", value);
     }
 
@@ -188,9 +188,9 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -228,7 +228,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -265,7 +265,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkName is required")]
     public required TerraformValue<string> VirtualNetworkName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_network_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_network_name");
         set => SetArgument("virtual_network_name", value);
     }
 

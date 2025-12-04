@@ -52,9 +52,9 @@ public partial class GoogleGeminiReleaseChannelSettingBinding(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,18 +82,18 @@ public partial class GoogleGeminiReleaseChannelSettingBinding(string name) : Ter
     /// <summary>
     /// Product type of the setting binding. Possible values: [&amp;quot;GEMINI_CLOUD_ASSIST&amp;quot;, &amp;quot;GEMINI_CODE_ASSIST&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Product
+    public TerraformValue<string> Product
     {
-        get => GetArgument<TerraformValue<string>>("product");
+        get => GetArgument<TerraformValue<string>>("product") ?? AsReference("product");
         set => SetArgument("product", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleGeminiReleaseChannelSettingBinding(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseChannelSettingId is required")]
     public required TerraformValue<string> ReleaseChannelSettingId
     {
-        get => GetArgument<TerraformValue<string>>("release_channel_setting_id");
+        get => GetRequiredArgument<TerraformValue<string>>("release_channel_setting_id");
         set => SetArgument("release_channel_setting_id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class GoogleGeminiReleaseChannelSettingBinding(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SettingBindingId is required")]
     public required TerraformValue<string> SettingBindingId
     {
-        get => GetArgument<TerraformValue<string>>("setting_binding_id");
+        get => GetRequiredArgument<TerraformValue<string>>("setting_binding_id");
         set => SetArgument("setting_binding_id", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleGeminiReleaseChannelSettingBinding(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => GetArgument<TerraformValue<string>>("target");
+        get => GetRequiredArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 

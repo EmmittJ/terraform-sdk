@@ -86,7 +86,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlockTagsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tag is required")]
     public required TerraformValue<string> Tag
     {
-        get => GetArgument<TerraformValue<string>>("tag");
+        get => GetRequiredArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -162,9 +162,9 @@ public partial class AzurermMaintenanceAssignmentDynamicScope(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AzurermMaintenanceAssignmentDynamicScope(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceConfigurationId is required")]
     public required TerraformValue<string> MaintenanceConfigurationId
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_configuration_id");
+        get => GetRequiredArgument<TerraformValue<string>>("maintenance_configuration_id");
         set => SetArgument("maintenance_configuration_id", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermMaintenanceAssignmentDynamicScope(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

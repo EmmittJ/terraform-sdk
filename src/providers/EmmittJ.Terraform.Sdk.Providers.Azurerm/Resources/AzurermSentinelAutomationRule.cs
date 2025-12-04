@@ -46,7 +46,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => GetArgument<TerraformValue<double>>("order");
+        get => GetRequiredArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => GetArgument<TerraformValue<double>>("order");
+        get => GetRequiredArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => GetArgument<TerraformValue<string>>("title");
+        get => GetRequiredArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformValue<string> LogicAppId
     {
-        get => GetArgument<TerraformValue<string>>("logic_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("logic_app_id");
         set => SetArgument("logic_app_id", value);
     }
 
@@ -150,16 +150,16 @@ public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => GetArgument<TerraformValue<double>>("order");
+        get => GetRequiredArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string>? TenantId
+    public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -262,9 +262,9 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -284,7 +284,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -294,7 +294,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => GetArgument<TerraformValue<double>>("order");
+        get => GetRequiredArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 

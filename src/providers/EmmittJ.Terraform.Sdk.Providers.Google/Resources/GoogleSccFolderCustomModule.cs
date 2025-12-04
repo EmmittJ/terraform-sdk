@@ -32,7 +32,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Recommendation is required")]
     public required TerraformValue<string> Recommendation
     {
-        get => GetArgument<TerraformValue<string>>("recommendation");
+        get => GetRequiredArgument<TerraformValue<string>>("recommendation");
         set => SetArgument("recommendation", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformValue<string> Severity
     {
-        get => GetArgument<TerraformValue<string>>("severity");
+        get => GetRequiredArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockCustomOutputBlockProper
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -218,7 +218,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockPredicateBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -325,7 +325,7 @@ public partial class GoogleSccFolderCustomModule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -335,7 +335,7 @@ public partial class GoogleSccFolderCustomModule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablementState is required")]
     public required TerraformValue<string> EnablementState
     {
-        get => GetArgument<TerraformValue<string>>("enablement_state");
+        get => GetRequiredArgument<TerraformValue<string>>("enablement_state");
         set => SetArgument("enablement_state", value);
     }
 
@@ -345,16 +345,16 @@ public partial class GoogleSccFolderCustomModule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformValue<string> Folder
     {
-        get => GetArgument<TerraformValue<string>>("folder");
+        get => GetRequiredArgument<TerraformValue<string>>("folder");
         set => SetArgument("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

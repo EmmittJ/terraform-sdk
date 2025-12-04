@@ -43,18 +43,18 @@ public partial class GoogleApphubServiceProjectAttachment(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleApphubServiceProjectAttachment(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProjectAttachmentId is required")]
     public required TerraformValue<string> ServiceProjectAttachmentId
     {
-        get => GetArgument<TerraformValue<string>>("service_project_attachment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("service_project_attachment_id");
         set => SetArgument("service_project_attachment_id", value);
     }
 

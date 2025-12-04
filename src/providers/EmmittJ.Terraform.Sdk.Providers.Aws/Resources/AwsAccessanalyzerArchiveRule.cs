@@ -16,9 +16,9 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     /// <summary>
     /// The contains attribute.
     /// </summary>
-    public TerraformList<string>? ContainsAttribute
+    public TerraformList<string> ContainsAttribute
     {
-        get => GetArgument<TerraformList<string>>("contains");
+        get => GetArgument<TerraformList<string>>("contains") ?? AsReference("contains");
         set => SetArgument("contains", value);
     }
 
@@ -28,34 +28,34 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     public required TerraformValue<string> Criteria
     {
-        get => GetArgument<TerraformValue<string>>("criteria");
+        get => GetRequiredArgument<TerraformValue<string>>("criteria");
         set => SetArgument("criteria", value);
     }
 
     /// <summary>
     /// The eq attribute.
     /// </summary>
-    public TerraformList<string>? Eq
+    public TerraformList<string> Eq
     {
-        get => GetArgument<TerraformList<string>>("eq");
+        get => GetArgument<TerraformList<string>>("eq") ?? AsReference("eq");
         set => SetArgument("eq", value);
     }
 
     /// <summary>
     /// The exists attribute.
     /// </summary>
-    public TerraformValue<string>? Exists
+    public TerraformValue<string> Exists
     {
-        get => GetArgument<TerraformValue<string>>("exists");
+        get => GetArgument<TerraformValue<string>>("exists") ?? AsReference("exists");
         set => SetArgument("exists", value);
     }
 
     /// <summary>
     /// The neq attribute.
     /// </summary>
-    public TerraformList<string>? Neq
+    public TerraformList<string> Neq
     {
-        get => GetArgument<TerraformList<string>>("neq");
+        get => GetArgument<TerraformList<string>>("neq") ?? AsReference("neq");
         set => SetArgument("neq", value);
     }
 
@@ -74,25 +74,25 @@ public partial class AwsAccessanalyzerArchiveRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalyzerName is required")]
     public required TerraformValue<string> AnalyzerName
     {
-        get => GetArgument<TerraformValue<string>>("analyzer_name");
+        get => GetRequiredArgument<TerraformValue<string>>("analyzer_name");
         set => SetArgument("analyzer_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsAccessanalyzerArchiveRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformValue<string> RuleName
     {
-        get => GetArgument<TerraformValue<string>>("rule_name");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 

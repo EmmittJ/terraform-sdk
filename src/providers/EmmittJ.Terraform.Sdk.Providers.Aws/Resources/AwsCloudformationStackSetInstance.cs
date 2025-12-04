@@ -179,9 +179,9 @@ public partial class AwsCloudformationStackSetInstance(string name) : TerraformR
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AccountId
+    public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -197,9 +197,9 @@ public partial class AwsCloudformationStackSetInstance(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -216,9 +216,9 @@ public partial class AwsCloudformationStackSetInstance(string name) : TerraformR
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -234,9 +234,9 @@ public partial class AwsCloudformationStackSetInstance(string name) : TerraformR
     /// <summary>
     /// The stack_set_instance_region attribute.
     /// </summary>
-    public TerraformValue<string>? StackSetInstanceRegion
+    public TerraformValue<string> StackSetInstanceRegion
     {
-        get => GetArgument<TerraformValue<string>>("stack_set_instance_region");
+        get => GetArgument<TerraformValue<string>>("stack_set_instance_region") ?? AsReference("stack_set_instance_region");
         set => SetArgument("stack_set_instance_region", value);
     }
 
@@ -246,7 +246,7 @@ public partial class AwsCloudformationStackSetInstance(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackSetName is required")]
     public required TerraformValue<string> StackSetName
     {
-        get => GetArgument<TerraformValue<string>>("stack_set_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stack_set_name");
         set => SetArgument("stack_set_name", value);
     }
 

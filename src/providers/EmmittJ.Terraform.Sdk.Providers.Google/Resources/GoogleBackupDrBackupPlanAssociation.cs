@@ -58,7 +58,7 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
     public required TerraformValue<string> BackupPlan
     {
-        get => GetArgument<TerraformValue<string>>("backup_plan");
+        get => GetRequiredArgument<TerraformValue<string>>("backup_plan");
         set => SetArgument("backup_plan", value);
     }
 
@@ -68,16 +68,16 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanAssociationId is required")]
     public required TerraformValue<string> BackupPlanAssociationId
     {
-        get => GetArgument<TerraformValue<string>>("backup_plan_association_id");
+        get => GetRequiredArgument<TerraformValue<string>>("backup_plan_association_id");
         set => SetArgument("backup_plan_association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -87,16 +87,16 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => GetArgument<TerraformValue<string>>("resource");
+        get => GetRequiredArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -117,7 +117,7 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => GetArgument<TerraformValue<string>>("resource_type");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 

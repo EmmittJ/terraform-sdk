@@ -29,9 +29,9 @@ public partial class AwsLambdaLayerVersionDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,25 +41,25 @@ public partial class AwsLambdaLayerVersionDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
     public required TerraformValue<string> LayerName
     {
-        get => GetArgument<TerraformValue<string>>("layer_name");
+        get => GetRequiredArgument<TerraformValue<string>>("layer_name");
         set => SetArgument("layer_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<double>? Version
+    public TerraformValue<double> Version
     {
-        get => GetArgument<TerraformValue<double>>("version");
+        get => GetArgument<TerraformValue<double>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 

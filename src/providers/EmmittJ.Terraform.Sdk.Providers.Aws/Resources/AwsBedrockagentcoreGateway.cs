@@ -59,7 +59,7 @@ public class AwsBedrockagentcoreGatewayAuthorizerConfigurationBlockCustomJwtAuth
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiscoveryUrl is required")]
     public required TerraformValue<string> DiscoveryUrl
     {
-        get => GetArgument<TerraformValue<string>>("discovery_url");
+        get => GetRequiredArgument<TerraformValue<string>>("discovery_url");
         set => SetArgument("discovery_url", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerType is required")]
     public required TerraformValue<string> AuthorizerType
     {
-        get => GetArgument<TerraformValue<string>>("authorizer_type");
+        get => GetRequiredArgument<TerraformValue<string>>("authorizer_type");
         set => SetArgument("authorizer_type", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -229,16 +229,16 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
     public required TerraformValue<string> ProtocolType
     {
-        get => GetArgument<TerraformValue<string>>("protocol_type");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol_type");
         set => SetArgument("protocol_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -248,7 +248,7 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 

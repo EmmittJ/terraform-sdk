@@ -118,7 +118,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_directions");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_types");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -175,7 +175,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -207,7 +207,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_directions");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_types");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -264,7 +264,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -328,7 +328,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_directions");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -338,7 +338,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_types");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -357,7 +357,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -385,7 +385,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -417,7 +417,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_directions");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -427,7 +427,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_types");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -446,7 +446,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -474,7 +474,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -538,7 +538,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_directions");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -548,7 +548,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_types");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -567,7 +567,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -595,7 +595,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -627,7 +627,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_directions");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -637,7 +637,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => GetArgument<TerraformSet<string>>("fail_over_types");
+        get => GetRequiredArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -656,7 +656,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -684,7 +684,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -750,9 +750,9 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -762,7 +762,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -772,7 +772,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformValue<string> RecoveryVaultId
     {
-        get => GetArgument<TerraformValue<string>>("recovery_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_vault_id");
         set => SetArgument("recovery_vault_id", value);
     }
 
@@ -782,7 +782,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryFabricId is required")]
     public required TerraformValue<string> SourceRecoveryFabricId
     {
-        get => GetArgument<TerraformValue<string>>("source_recovery_fabric_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_recovery_fabric_id");
         set => SetArgument("source_recovery_fabric_id", value);
     }
 
@@ -792,7 +792,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryFabricId is required")]
     public required TerraformValue<string> TargetRecoveryFabricId
     {
-        get => GetArgument<TerraformValue<string>>("target_recovery_fabric_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_recovery_fabric_id");
         set => SetArgument("target_recovery_fabric_id", value);
     }
 

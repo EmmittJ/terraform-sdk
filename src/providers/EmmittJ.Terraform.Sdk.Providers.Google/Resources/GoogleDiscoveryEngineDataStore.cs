@@ -301,7 +301,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockParsingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileType is required")]
     public required TerraformValue<string> FileType
     {
-        get => GetArgument<TerraformValue<string>>("file_type");
+        get => GetRequiredArgument<TerraformValue<string>>("file_type");
         set => SetArgument("file_type", value);
     }
 
@@ -493,7 +493,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentConfig is required")]
     public required TerraformValue<string> ContentConfig
     {
-        get => GetArgument<TerraformValue<string>>("content_config");
+        get => GetRequiredArgument<TerraformValue<string>>("content_config");
         set => SetArgument("content_config", value);
     }
 
@@ -514,7 +514,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformValue<string> DataStoreId
     {
-        get => GetArgument<TerraformValue<string>>("data_store_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_store_id");
         set => SetArgument("data_store_id", value);
     }
 
@@ -525,16 +525,16 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -544,7 +544,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndustryVertical is required")]
     public required TerraformValue<string> IndustryVertical
     {
-        get => GetArgument<TerraformValue<string>>("industry_vertical");
+        get => GetRequiredArgument<TerraformValue<string>>("industry_vertical");
         set => SetArgument("industry_vertical", value);
     }
 
@@ -569,16 +569,16 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

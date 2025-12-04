@@ -55,7 +55,7 @@ public partial class GoogleSccFolderSccBigQueryExport(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     public required TerraformValue<string> BigQueryExportId
     {
-        get => GetArgument<TerraformValue<string>>("big_query_export_id");
+        get => GetRequiredArgument<TerraformValue<string>>("big_query_export_id");
         set => SetArgument("big_query_export_id", value);
     }
 
@@ -67,7 +67,7 @@ public partial class GoogleSccFolderSccBigQueryExport(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformValue<string> Dataset
     {
-        get => GetArgument<TerraformValue<string>>("dataset");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset");
         set => SetArgument("dataset", value);
     }
 
@@ -77,7 +77,7 @@ public partial class GoogleSccFolderSccBigQueryExport(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleSccFolderSccBigQueryExport(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -122,16 +122,16 @@ public partial class GoogleSccFolderSccBigQueryExport(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformValue<string> Folder
     {
-        get => GetArgument<TerraformValue<string>>("folder");
+        get => GetRequiredArgument<TerraformValue<string>>("folder");
         set => SetArgument("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

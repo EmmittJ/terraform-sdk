@@ -16,9 +16,9 @@ public class AwsConnectBotAssociationDataSourceLexBotBlock : TerraformBlock
     /// <summary>
     /// The lex_region attribute.
     /// </summary>
-    public TerraformValue<string>? LexRegion
+    public TerraformValue<string> LexRegion
     {
-        get => GetArgument<TerraformValue<string>>("lex_region");
+        get => GetArgument<TerraformValue<string>>("lex_region") ?? AsReference("lex_region");
         set => SetArgument("lex_region", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsConnectBotAssociationDataSourceLexBotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -44,9 +44,9 @@ public partial class AwsConnectBotAssociationDataSource(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AwsConnectBotAssociationDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -116,7 +116,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
     public required TerraformValue<string> EntryGroup
     {
-        get => GetArgument<TerraformValue<string>>("entry_group");
+        get => GetRequiredArgument<TerraformValue<string>>("entry_group");
         set => SetArgument("entry_group", value);
     }
 
@@ -126,16 +126,16 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryId is required")]
     public required TerraformValue<string> EntryId
     {
-        get => GetArgument<TerraformValue<string>>("entry_id");
+        get => GetRequiredArgument<TerraformValue<string>>("entry_id");
         set => SetArgument("entry_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -147,9 +147,9 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// Output only when Entry is of type in the EntryType enum. For entries with userSpecifiedType,
     /// this field is optional and defaults to an empty string.
     /// </summary>
-    public TerraformValue<string>? LinkedResource
+    public TerraformValue<string> LinkedResource
     {
-        get => GetArgument<TerraformValue<string>>("linked_resource");
+        get => GetArgument<TerraformValue<string>>("linked_resource") ?? AsReference("linked_resource");
         set => SetArgument("linked_resource", value);
     }
 

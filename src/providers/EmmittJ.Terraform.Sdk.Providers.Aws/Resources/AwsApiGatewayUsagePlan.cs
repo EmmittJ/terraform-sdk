@@ -19,7 +19,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => GetArgument<TerraformValue<string>>("api_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     public required TerraformValue<string> Stage
     {
-        get => GetArgument<TerraformValue<string>>("stage");
+        get => GetRequiredArgument<TerraformValue<string>>("stage");
         set => SetArgument("stage", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlockThrottleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Limit is required")]
     public required TerraformValue<double> Limit
     {
-        get => GetArgument<TerraformValue<double>>("limit");
+        get => GetRequiredArgument<TerraformValue<double>>("limit");
         set => SetArgument("limit", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Period is required")]
     public required TerraformValue<string> Period
     {
-        get => GetArgument<TerraformValue<string>>("period");
+        get => GetRequiredArgument<TerraformValue<string>>("period");
         set => SetArgument("period", value);
     }
 
@@ -179,9 +179,9 @@ public partial class AwsApiGatewayUsagePlan(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsApiGatewayUsagePlan(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -207,9 +207,9 @@ public partial class AwsApiGatewayUsagePlan(string name) : TerraformResource("aw
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -225,9 +225,9 @@ public partial class AwsApiGatewayUsagePlan(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

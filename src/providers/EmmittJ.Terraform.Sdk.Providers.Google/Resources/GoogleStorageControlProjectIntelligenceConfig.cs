@@ -198,18 +198,18 @@ public partial class GoogleStorageControlProjectIntelligenceConfig(string name) 
     /// <summary>
     /// Edition configuration of the Storage Intelligence resource. Valid values are INHERIT, TRIAL, DISABLED and STANDARD.
     /// </summary>
-    public TerraformValue<string>? EditionConfig
+    public TerraformValue<string> EditionConfig
     {
-        get => GetArgument<TerraformValue<string>>("edition_config");
+        get => GetArgument<TerraformValue<string>>("edition_config") ?? AsReference("edition_config");
         set => SetArgument("edition_config", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -219,7 +219,7 @@ public partial class GoogleStorageControlProjectIntelligenceConfig(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

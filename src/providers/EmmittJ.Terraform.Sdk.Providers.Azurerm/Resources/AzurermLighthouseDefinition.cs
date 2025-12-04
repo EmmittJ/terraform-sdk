@@ -37,7 +37,7 @@ public class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformValue<string> RoleDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_id");
+        get => GetRequiredArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermLighthouseDefinitionEligibleAuthorizationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermLighthouseDefinitionEligibleAuthorizationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformValue<string> RoleDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_id");
+        get => GetRequiredArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermLighthouseDefinitionEligibleAuthorizationBlockJustInTimeAcce
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -196,7 +196,7 @@ public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformValue<string> Product
     {
-        get => GetArgument<TerraformValue<string>>("product");
+        get => GetRequiredArgument<TerraformValue<string>>("product");
         set => SetArgument("product", value);
     }
 
@@ -216,7 +216,7 @@ public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -226,7 +226,7 @@ public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -301,18 +301,18 @@ public partial class AzurermLighthouseDefinition(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The lighthouse_definition_id attribute.
     /// </summary>
-    public TerraformValue<string>? LighthouseDefinitionId
+    public TerraformValue<string> LighthouseDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("lighthouse_definition_id");
+        get => GetArgument<TerraformValue<string>>("lighthouse_definition_id") ?? AsReference("lighthouse_definition_id");
         set => SetArgument("lighthouse_definition_id", value);
     }
 
@@ -322,7 +322,7 @@ public partial class AzurermLighthouseDefinition(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagingTenantId is required")]
     public required TerraformValue<string> ManagingTenantId
     {
-        get => GetArgument<TerraformValue<string>>("managing_tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managing_tenant_id");
         set => SetArgument("managing_tenant_id", value);
     }
 
@@ -332,7 +332,7 @@ public partial class AzurermLighthouseDefinition(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -342,7 +342,7 @@ public partial class AzurermLighthouseDefinition(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 

@@ -11,27 +11,27 @@ public partial class AwsEmrStudioSessionMapping(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformValue<string>? IdentityId
+    public TerraformValue<string> IdentityId
     {
-        get => GetArgument<TerraformValue<string>>("identity_id");
+        get => GetArgument<TerraformValue<string>>("identity_id") ?? AsReference("identity_id");
         set => SetArgument("identity_id", value);
     }
 
     /// <summary>
     /// The identity_name attribute.
     /// </summary>
-    public TerraformValue<string>? IdentityName
+    public TerraformValue<string> IdentityName
     {
-        get => GetArgument<TerraformValue<string>>("identity_name");
+        get => GetArgument<TerraformValue<string>>("identity_name") ?? AsReference("identity_name");
         set => SetArgument("identity_name", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsEmrStudioSessionMapping(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityType is required")]
     public required TerraformValue<string> IdentityType
     {
-        get => GetArgument<TerraformValue<string>>("identity_type");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_type");
         set => SetArgument("identity_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsEmrStudioSessionMapping(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionPolicyArn is required")]
     public required TerraformValue<string> SessionPolicyArn
     {
-        get => GetArgument<TerraformValue<string>>("session_policy_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("session_policy_arn");
         set => SetArgument("session_policy_arn", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsEmrStudioSessionMapping(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioId is required")]
     public required TerraformValue<string> StudioId
     {
-        get => GetArgument<TerraformValue<string>>("studio_id");
+        get => GetRequiredArgument<TerraformValue<string>>("studio_id");
         set => SetArgument("studio_id", value);
     }
 

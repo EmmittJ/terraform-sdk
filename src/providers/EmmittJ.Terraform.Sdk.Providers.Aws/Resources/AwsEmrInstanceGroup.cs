@@ -28,7 +28,7 @@ public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size");
+        get => GetRequiredArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -109,18 +109,18 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformValue<double>? InstanceCount
+    public TerraformValue<double> InstanceCount
     {
-        get => GetArgument<TerraformValue<double>>("instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count") ?? AsReference("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -146,9 +146,9 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

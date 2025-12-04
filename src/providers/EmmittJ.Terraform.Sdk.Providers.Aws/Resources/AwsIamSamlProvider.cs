@@ -11,9 +11,9 @@ public partial class AwsIamSamlProvider(string name) : TerraformResource("aws_ia
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsIamSamlProvider(string name) : TerraformResource("aws_ia
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsIamSamlProvider(string name) : TerraformResource("aws_ia
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamlMetadataDocument is required")]
     public required TerraformValue<string> SamlMetadataDocument
     {
-        get => GetArgument<TerraformValue<string>>("saml_metadata_document");
+        get => GetRequiredArgument<TerraformValue<string>>("saml_metadata_document");
         set => SetArgument("saml_metadata_document", value);
     }
 
@@ -49,9 +49,9 @@ public partial class AwsIamSamlProvider(string name) : TerraformResource("aws_ia
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

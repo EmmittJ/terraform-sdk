@@ -19,7 +19,7 @@ public class AwsOsisPipelineBufferOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PersistentBufferEnabled is required")]
     public required TerraformValue<bool> PersistentBufferEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("persistent_buffer_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("persistent_buffer_enabled");
         set => SetArgument("persistent_buffer_enabled", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsOsisPipelineEncryptionAtRestOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsOsisPipelineLogPublishingOptionsBlockCloudwatchLogDestinationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroup is required")]
     public required TerraformValue<string> LogGroup
     {
-        get => GetArgument<TerraformValue<string>>("log_group");
+        get => GetRequiredArgument<TerraformValue<string>>("log_group");
         set => SetArgument("log_group", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsOsisPipelineVpcOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnits is required")]
     public required TerraformValue<double> MaxUnits
     {
-        get => GetArgument<TerraformValue<double>>("max_units");
+        get => GetRequiredArgument<TerraformValue<double>>("max_units");
         set => SetArgument("max_units", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinUnits is required")]
     public required TerraformValue<double> MinUnits
     {
-        get => GetArgument<TerraformValue<double>>("min_units");
+        get => GetRequiredArgument<TerraformValue<double>>("min_units");
         set => SetArgument("min_units", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineConfigurationBody is required")]
     public required TerraformValue<string> PipelineConfigurationBody
     {
-        get => GetArgument<TerraformValue<string>>("pipeline_configuration_body");
+        get => GetRequiredArgument<TerraformValue<string>>("pipeline_configuration_body");
         set => SetArgument("pipeline_configuration_body", value);
     }
 
@@ -230,16 +230,16 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineName is required")]
     public required TerraformValue<string> PipelineName
     {
-        get => GetArgument<TerraformValue<string>>("pipeline_name");
+        get => GetRequiredArgument<TerraformValue<string>>("pipeline_name");
         set => SetArgument("pipeline_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

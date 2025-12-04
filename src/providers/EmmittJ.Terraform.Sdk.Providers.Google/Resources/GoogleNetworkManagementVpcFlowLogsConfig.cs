@@ -53,9 +53,9 @@ public partial class GoogleNetworkManagementVpcFlowLogsConfig(string name) : Ter
     /// Optional. The aggregation interval for the logs. Default value is
     /// INTERVAL_5_SEC.   Possible values:  AGGREGATION_INTERVAL_UNSPECIFIED INTERVAL_5_SEC INTERVAL_30_SEC INTERVAL_1_MIN INTERVAL_5_MIN INTERVAL_10_MIN INTERVAL_15_MIN
     /// </summary>
-    public TerraformValue<string>? AggregationInterval
+    public TerraformValue<string> AggregationInterval
     {
-        get => GetArgument<TerraformValue<string>>("aggregation_interval");
+        get => GetArgument<TerraformValue<string>>("aggregation_interval") ?? AsReference("aggregation_interval");
         set => SetArgument("aggregation_interval", value);
     }
 
@@ -84,18 +84,18 @@ public partial class GoogleNetworkManagementVpcFlowLogsConfig(string name) : Ter
     /// sampling rate to 0.0 is not allowed. If you want to disable VPC Flow Logs, use
     /// the state field instead. Default value is 1.0.
     /// </summary>
-    public TerraformValue<double>? FlowSampling
+    public TerraformValue<double> FlowSampling
     {
-        get => GetArgument<TerraformValue<double>>("flow_sampling");
+        get => GetArgument<TerraformValue<double>>("flow_sampling") ?? AsReference("flow_sampling");
         set => SetArgument("flow_sampling", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleNetworkManagementVpcFlowLogsConfig(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -138,9 +138,9 @@ public partial class GoogleNetworkManagementVpcFlowLogsConfig(string name) : Ter
     /// should be added to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA.
     ///   Possible values:  METADATA_UNSPECIFIED INCLUDE_ALL_METADATA EXCLUDE_ALL_METADATA CUSTOM_METADATA
     /// </summary>
-    public TerraformValue<string>? Metadata
+    public TerraformValue<string> Metadata
     {
-        get => GetArgument<TerraformValue<string>>("metadata");
+        get => GetArgument<TerraformValue<string>>("metadata") ?? AsReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -166,9 +166,9 @@ public partial class GoogleNetworkManagementVpcFlowLogsConfig(string name) : Ter
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -177,9 +177,9 @@ public partial class GoogleNetworkManagementVpcFlowLogsConfig(string name) : Ter
     /// is ENABLED. When creating a new configuration, it must be enabled.
     /// Possible values: STATE_UNSPECIFIED ENABLED DISABLED
     /// </summary>
-    public TerraformValue<string>? State
+    public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
         set => SetArgument("state", value);
     }
 
@@ -198,7 +198,7 @@ public partial class GoogleNetworkManagementVpcFlowLogsConfig(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcFlowLogsConfigId is required")]
     public required TerraformValue<string> VpcFlowLogsConfigId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_flow_logs_config_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_flow_logs_config_id");
         set => SetArgument("vpc_flow_logs_config_id", value);
     }
 

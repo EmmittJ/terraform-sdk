@@ -109,7 +109,7 @@ public class GoogleStorageInsightsDatasetConfigIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -299,7 +299,7 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetConfigId is required")]
     public required TerraformValue<string> DatasetConfigId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_config_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_config_id");
         set => SetArgument("dataset_config_id", value);
     }
 
@@ -315,9 +315,9 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -349,7 +349,7 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -357,9 +357,9 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// Organization resource ID that the source projects should belong to.
     /// Projects that do not belong to the provided organization are not considered when creating the dataset.
     /// </summary>
-    public TerraformValue<string>? OrganizationNumber
+    public TerraformValue<string> OrganizationNumber
     {
-        get => GetArgument<TerraformValue<string>>("organization_number");
+        get => GetArgument<TerraformValue<string>>("organization_number") ?? AsReference("organization_number");
         set => SetArgument("organization_number", value);
     }
 
@@ -375,9 +375,9 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -387,7 +387,7 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodDays is required")]
     public required TerraformValue<double> RetentionPeriodDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_period_days");
+        get => GetRequiredArgument<TerraformValue<double>>("retention_period_days");
         set => SetArgument("retention_period_days", value);
     }
 

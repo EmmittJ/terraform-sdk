@@ -19,7 +19,7 @@ public class AwsCloudfrontOriginRequestPolicyCookiesConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieBehavior is required")]
     public required TerraformValue<string> CookieBehavior
     {
-        get => GetArgument<TerraformValue<string>>("cookie_behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("cookie_behavior");
         set => SetArgument("cookie_behavior", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStringBehavior is required")]
     public required TerraformValue<string> QueryStringBehavior
     {
-        get => GetArgument<TerraformValue<string>>("query_string_behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("query_string_behavior");
         set => SetArgument("query_string_behavior", value);
     }
 
@@ -187,9 +187,9 @@ public partial class AwsCloudfrontOriginRequestPolicy(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsCloudfrontOriginRequestPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

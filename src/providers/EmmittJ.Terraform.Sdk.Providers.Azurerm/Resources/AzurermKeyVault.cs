@@ -20,7 +20,7 @@ public class AzurermKeyVaultContactBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermKeyVaultNetworkAclsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bypass is required")]
     public required TerraformValue<string> Bypass
     {
-        get => GetArgument<TerraformValue<string>>("bypass");
+        get => GetRequiredArgument<TerraformValue<string>>("bypass");
         set => SetArgument("bypass", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermKeyVaultNetworkAclsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformValue<string> DefaultAction
     {
-        get => GetArgument<TerraformValue<string>>("default_action");
+        get => GetRequiredArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
@@ -156,9 +156,9 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// <summary>
     /// The access_policy attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? AccessPolicy
+    public TerraformList<TerraformMap<object>> AccessPolicy
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("access_policy");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("access_policy") ?? AsReference("access_policy");
         set => SetArgument("access_policy", value);
     }
 
@@ -166,9 +166,9 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// The enable_rbac_authorization attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EnableRbacAuthorization
+    public TerraformValue<bool> EnableRbacAuthorization
     {
-        get => GetArgument<TerraformValue<bool>>("enable_rbac_authorization");
+        get => GetArgument<TerraformValue<bool>>("enable_rbac_authorization") ?? AsReference("enable_rbac_authorization");
         set => SetArgument("enable_rbac_authorization", value);
     }
 
@@ -202,9 +202,9 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -249,9 +249,9 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// <summary>
     /// The rbac_authorization_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? RbacAuthorizationEnabled
+    public TerraformValue<bool> RbacAuthorizationEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("rbac_authorization_enabled");
+        get => GetArgument<TerraformValue<bool>>("rbac_authorization_enabled") ?? AsReference("rbac_authorization_enabled");
         set => SetArgument("rbac_authorization_enabled", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -299,7 +299,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

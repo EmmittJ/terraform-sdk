@@ -55,16 +55,16 @@ public partial class AzureadApplicationOwner(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadApplicationOwner(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerObjectId is required")]
     public required TerraformValue<string> OwnerObjectId
     {
-        get => GetArgument<TerraformValue<string>>("owner_object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("owner_object_id");
         set => SetArgument("owner_object_id", value);
     }
 

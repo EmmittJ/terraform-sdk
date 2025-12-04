@@ -69,7 +69,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => GetArgument<TerraformValue<double>>("order");
+        get => GetRequiredArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -189,9 +189,9 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -239,7 +239,7 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudGatewayId is required")]
     public required TerraformValue<string> SpringCloudGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_gateway_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_gateway_id");
         set => SetArgument("spring_cloud_gateway_id", value);
     }
 

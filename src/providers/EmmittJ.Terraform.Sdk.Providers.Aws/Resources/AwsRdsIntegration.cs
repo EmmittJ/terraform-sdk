@@ -52,9 +52,9 @@ public partial class AwsRdsIntegration(string name) : TerraformResource("aws_rds
     /// <summary>
     /// The data_filter attribute.
     /// </summary>
-    public TerraformValue<string>? DataFilter
+    public TerraformValue<string> DataFilter
     {
-        get => GetArgument<TerraformValue<string>>("data_filter");
+        get => GetArgument<TerraformValue<string>>("data_filter") ?? AsReference("data_filter");
         set => SetArgument("data_filter", value);
     }
 
@@ -64,25 +64,25 @@ public partial class AwsRdsIntegration(string name) : TerraformResource("aws_rds
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationName is required")]
     public required TerraformValue<string> IntegrationName
     {
-        get => GetArgument<TerraformValue<string>>("integration_name");
+        get => GetRequiredArgument<TerraformValue<string>>("integration_name");
         set => SetArgument("integration_name", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsRdsIntegration(string name) : TerraformResource("aws_rds
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformValue<string> SourceArn
     {
-        get => GetArgument<TerraformValue<string>>("source_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("source_arn");
         set => SetArgument("source_arn", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsRdsIntegration(string name) : TerraformResource("aws_rds
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformValue<string> TargetArn
     {
-        get => GetArgument<TerraformValue<string>>("target_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("target_arn");
         set => SetArgument("target_arn", value);
     }
 

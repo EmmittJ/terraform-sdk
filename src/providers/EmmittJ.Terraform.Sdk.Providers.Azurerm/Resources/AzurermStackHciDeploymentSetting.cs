@@ -19,7 +19,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActiveDirectoryOrganizationalUnitPath is required")]
     public required TerraformValue<string> ActiveDirectoryOrganizationalUnitPath
     {
-        get => GetArgument<TerraformValue<string>>("active_directory_organizational_unit_path");
+        get => GetRequiredArgument<TerraformValue<string>>("active_directory_organizational_unit_path");
         set => SetArgument("active_directory_organizational_unit_path", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainFqdn is required")]
     public required TerraformValue<string> DomainFqdn
     {
-        get => GetArgument<TerraformValue<string>>("domain_fqdn");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_fqdn");
         set => SetArgument("domain_fqdn", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePrefix is required")]
     public required TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretsLocation is required")]
     public required TerraformValue<string> SecretsLocation
     {
-        get => GetArgument<TerraformValue<string>>("secrets_location");
+        get => GetRequiredArgument<TerraformValue<string>>("secrets_location");
         set => SetArgument("secrets_location", value);
     }
 
@@ -265,7 +265,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockClusterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureServiceEndpoint is required")]
     public required TerraformValue<string> AzureServiceEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("azure_service_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("azure_service_endpoint");
         set => SetArgument("azure_service_endpoint", value);
     }
 
@@ -275,7 +275,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockClusterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudAccountName is required")]
     public required TerraformValue<string> CloudAccountName
     {
-        get => GetArgument<TerraformValue<string>>("cloud_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cloud_account_name");
         set => SetArgument("cloud_account_name", value);
     }
 
@@ -285,7 +285,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockClusterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -295,7 +295,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockClusterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WitnessPath is required")]
     public required TerraformValue<string> WitnessPath
     {
-        get => GetArgument<TerraformValue<string>>("witness_path");
+        get => GetRequiredArgument<TerraformValue<string>>("witness_path");
         set => SetArgument("witness_path", value);
     }
 
@@ -305,7 +305,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockClusterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WitnessType is required")]
     public required TerraformValue<string> WitnessType
     {
-        get => GetArgument<TerraformValue<string>>("witness_type");
+        get => GetRequiredArgument<TerraformValue<string>>("witness_type");
         set => SetArgument("witness_type", value);
     }
 
@@ -402,7 +402,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockHostNetworkBlockInten
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -594,7 +594,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockHostNetworkBlockStora
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -604,7 +604,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockHostNetworkBlockStora
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAdapterName is required")]
     public required TerraformValue<string> NetworkAdapterName
     {
-        get => GetArgument<TerraformValue<string>>("network_adapter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("network_adapter_name");
         set => SetArgument("network_adapter_name", value);
     }
 
@@ -614,7 +614,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockHostNetworkBlockStora
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VlanId is required")]
     public required TerraformValue<string> VlanId
     {
-        get => GetArgument<TerraformValue<string>>("vlan_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vlan_id");
         set => SetArgument("vlan_id", value);
     }
 
@@ -656,7 +656,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockInfrastructureNetwork
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gateway is required")]
     public required TerraformValue<string> Gateway
     {
-        get => GetArgument<TerraformValue<string>>("gateway");
+        get => GetRequiredArgument<TerraformValue<string>>("gateway");
         set => SetArgument("gateway", value);
     }
 
@@ -666,7 +666,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockInfrastructureNetwork
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetMask is required")]
     public required TerraformValue<string> SubnetMask
     {
-        get => GetArgument<TerraformValue<string>>("subnet_mask");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_mask");
         set => SetArgument("subnet_mask", value);
     }
 
@@ -701,7 +701,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockInfrastructureNetwork
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndingAddress is required")]
     public required TerraformValue<string> EndingAddress
     {
-        get => GetArgument<TerraformValue<string>>("ending_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ending_address");
         set => SetArgument("ending_address", value);
     }
 
@@ -711,7 +711,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockInfrastructureNetwork
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartingAddress is required")]
     public required TerraformValue<string> StartingAddress
     {
-        get => GetArgument<TerraformValue<string>>("starting_address");
+        get => GetRequiredArgument<TerraformValue<string>>("starting_address");
         set => SetArgument("starting_address", value);
     }
 
@@ -734,7 +734,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockOptionalServiceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocation is required")]
     public required TerraformValue<string> CustomLocation
     {
-        get => GetArgument<TerraformValue<string>>("custom_location");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_location");
         set => SetArgument("custom_location", value);
     }
 
@@ -757,7 +757,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockPhysicalNodeBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ipv4Address is required")]
     public required TerraformValue<string> Ipv4Address
     {
-        get => GetArgument<TerraformValue<string>>("ipv4_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ipv4_address");
         set => SetArgument("ipv4_address", value);
     }
 
@@ -767,7 +767,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockPhysicalNodeBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -790,7 +790,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlockStorageBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationMode is required")]
     public required TerraformValue<string> ConfigurationMode
     {
-        get => GetArgument<TerraformValue<string>>("configuration_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_mode");
         set => SetArgument("configuration_mode", value);
     }
 
@@ -857,9 +857,9 @@ public partial class AzurermStackHciDeploymentSetting(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -869,7 +869,7 @@ public partial class AzurermStackHciDeploymentSetting(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackHciClusterId is required")]
     public required TerraformValue<string> StackHciClusterId
     {
-        get => GetArgument<TerraformValue<string>>("stack_hci_cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("stack_hci_cluster_id");
         set => SetArgument("stack_hci_cluster_id", value);
     }
 
@@ -879,7 +879,7 @@ public partial class AzurermStackHciDeploymentSetting(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

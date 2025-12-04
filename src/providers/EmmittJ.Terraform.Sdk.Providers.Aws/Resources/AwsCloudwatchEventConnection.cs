@@ -72,7 +72,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockApiKeyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockApiKeyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockBasicBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockBasicBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -298,7 +298,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformValue<string> AuthorizationEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("authorization_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("authorization_endpoint");
         set => SetArgument("authorization_endpoint", value);
     }
 
@@ -308,7 +308,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformValue<string> HttpMethod
     {
-        get => GetArgument<TerraformValue<string>>("http_method");
+        get => GetRequiredArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
@@ -354,7 +354,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockClientPara
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockClientPara
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -580,7 +580,7 @@ public class AwsCloudwatchEventConnectionInvocationConnectivityParametersBlockRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceConfigurationArn is required")]
     public required TerraformValue<string> ResourceConfigurationArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_configuration_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_configuration_arn");
         set => SetArgument("resource_configuration_arn", value);
     }
 
@@ -599,7 +599,7 @@ public partial class AwsCloudwatchEventConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
     public required TerraformValue<string> AuthorizationType
     {
-        get => GetArgument<TerraformValue<string>>("authorization_type");
+        get => GetRequiredArgument<TerraformValue<string>>("authorization_type");
         set => SetArgument("authorization_type", value);
     }
 
@@ -615,9 +615,9 @@ public partial class AwsCloudwatchEventConnection(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -636,16 +636,16 @@ public partial class AwsCloudwatchEventConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

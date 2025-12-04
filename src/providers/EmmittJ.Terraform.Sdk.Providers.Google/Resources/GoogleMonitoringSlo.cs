@@ -118,7 +118,7 @@ public class GoogleMonitoringSloBasicSliBlockLatencyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<string> Threshold
     {
-        get => GetArgument<TerraformValue<string>>("threshold");
+        get => GetRequiredArgument<TerraformValue<string>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleMonitoringSloRequestBasedSliBlockDistributionCutBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DistributionFilter is required")]
     public required TerraformValue<string> DistributionFilter
     {
-        get => GetArgument<TerraformValue<string>>("distribution_filter");
+        get => GetRequiredArgument<TerraformValue<string>>("distribution_filter");
         set => SetArgument("distribution_filter", value);
     }
 
@@ -561,7 +561,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<string> Threshold
     {
-        get => GetArgument<TerraformValue<string>>("threshold");
+        get => GetRequiredArgument<TerraformValue<string>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -621,7 +621,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DistributionFilter is required")]
     public required TerraformValue<string> DistributionFilter
     {
-        get => GetArgument<TerraformValue<string>>("distribution_filter");
+        get => GetRequiredArgument<TerraformValue<string>>("distribution_filter");
         set => SetArgument("distribution_filter", value);
     }
 
@@ -755,7 +755,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockMetricMeanInRangeBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeSeries is required")]
     public required TerraformValue<string> TimeSeries
     {
-        get => GetArgument<TerraformValue<string>>("time_series");
+        get => GetRequiredArgument<TerraformValue<string>>("time_series");
         set => SetArgument("time_series", value);
     }
 
@@ -833,7 +833,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockMetricSumInRangeBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeSeries is required")]
     public required TerraformValue<string> TimeSeries
     {
-        get => GetArgument<TerraformValue<string>>("time_series");
+        get => GetRequiredArgument<TerraformValue<string>>("time_series");
         set => SetArgument("time_series", value);
     }
 
@@ -920,25 +920,25 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
     public required TerraformValue<double> Goal
     {
-        get => GetArgument<TerraformValue<double>>("goal");
+        get => GetRequiredArgument<TerraformValue<double>>("goal");
         set => SetArgument("goal", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -958,16 +958,16 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
     /// <summary>
     /// The id to use for this ServiceLevelObjective. If omitted, an id will be generated instead.
     /// </summary>
-    public TerraformValue<string>? SloId
+    public TerraformValue<string> SloId
     {
-        get => GetArgument<TerraformValue<string>>("slo_id");
+        get => GetArgument<TerraformValue<string>>("slo_id") ?? AsReference("slo_id");
         set => SetArgument("slo_id", value);
     }
 

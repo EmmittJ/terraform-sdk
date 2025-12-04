@@ -55,7 +55,7 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
     public required TerraformValue<string> ConnectionPreference
     {
-        get => GetArgument<TerraformValue<string>>("connection_preference");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_preference");
         set => SetArgument("connection_preference", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -99,18 +99,18 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// URL of the region where the network attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -37,7 +37,7 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlockHttpBasicAuthBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlockHttpBasicAuthBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -202,7 +202,7 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -212,7 +212,7 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -253,7 +253,7 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformValue<string> PrivateKey
     {
-        get => GetArgument<TerraformValue<string>>("private_key");
+        get => GetRequiredArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
@@ -303,7 +303,7 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlockSshAuthBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformValue<string> PrivateKey
     {
-        get => GetArgument<TerraformValue<string>>("private_key");
+        get => GetRequiredArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
@@ -336,7 +336,7 @@ public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -346,7 +346,7 @@ public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -356,7 +356,7 @@ public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => GetArgument<TerraformValue<string>>("server");
+        get => GetRequiredArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -366,7 +366,7 @@ public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -413,7 +413,7 @@ public class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformValue<string> Plan
     {
-        get => GetArgument<TerraformValue<string>>("plan");
+        get => GetRequiredArgument<TerraformValue<string>>("plan");
         set => SetArgument("plan", value);
     }
 
@@ -423,7 +423,7 @@ public class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformValue<string> Product
     {
-        get => GetArgument<TerraformValue<string>>("product");
+        get => GetRequiredArgument<TerraformValue<string>>("product");
         set => SetArgument("product", value);
     }
 
@@ -433,7 +433,7 @@ public class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -454,9 +454,9 @@ public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
     /// <summary>
     /// The app_network_resource_group attribute.
     /// </summary>
-    public TerraformValue<string>? AppNetworkResourceGroup
+    public TerraformValue<string> AppNetworkResourceGroup
     {
-        get => GetArgument<TerraformValue<string>>("app_network_resource_group");
+        get => GetArgument<TerraformValue<string>>("app_network_resource_group") ?? AsReference("app_network_resource_group");
         set => SetArgument("app_network_resource_group", value);
     }
 
@@ -466,7 +466,7 @@ public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppSubnetId is required")]
     public required TerraformValue<string> AppSubnetId
     {
-        get => GetArgument<TerraformValue<string>>("app_subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_subnet_id");
         set => SetArgument("app_subnet_id", value);
     }
 
@@ -501,9 +501,9 @@ public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
     /// <summary>
     /// The service_runtime_network_resource_group attribute.
     /// </summary>
-    public TerraformValue<string>? ServiceRuntimeNetworkResourceGroup
+    public TerraformValue<string> ServiceRuntimeNetworkResourceGroup
     {
-        get => GetArgument<TerraformValue<string>>("service_runtime_network_resource_group");
+        get => GetArgument<TerraformValue<string>>("service_runtime_network_resource_group") ?? AsReference("service_runtime_network_resource_group");
         set => SetArgument("service_runtime_network_resource_group", value);
     }
 
@@ -513,7 +513,7 @@ public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRuntimeSubnetId is required")]
     public required TerraformValue<string> ServiceRuntimeSubnetId
     {
-        get => GetArgument<TerraformValue<string>>("service_runtime_subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("service_runtime_subnet_id");
         set => SetArgument("service_runtime_subnet_id", value);
     }
 
@@ -620,9 +620,9 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -632,7 +632,7 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -660,7 +660,7 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -670,7 +670,7 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -695,9 +695,9 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
-    public TerraformValue<string>? SkuTier
+    public TerraformValue<string> SkuTier
     {
-        get => GetArgument<TerraformValue<string>>("sku_tier");
+        get => GetArgument<TerraformValue<string>>("sku_tier") ?? AsReference("sku_tier");
         set => SetArgument("sku_tier", value);
     }
 

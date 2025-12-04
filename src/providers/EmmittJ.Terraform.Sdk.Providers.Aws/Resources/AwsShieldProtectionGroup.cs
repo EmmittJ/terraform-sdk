@@ -14,16 +14,16 @@ public partial class AwsShieldProtectionGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
     public required TerraformValue<string> Aggregation
     {
-        get => GetArgument<TerraformValue<string>>("aggregation");
+        get => GetRequiredArgument<TerraformValue<string>>("aggregation");
         set => SetArgument("aggregation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsShieldProtectionGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsShieldProtectionGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionGroupId is required")]
     public required TerraformValue<string> ProtectionGroupId
     {
-        get => GetArgument<TerraformValue<string>>("protection_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("protection_group_id");
         set => SetArgument("protection_group_id", value);
     }
 
@@ -77,9 +77,9 @@ public partial class AwsShieldProtectionGroup(string name) : TerraformResource("
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

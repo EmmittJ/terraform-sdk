@@ -153,7 +153,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternName is required")]
     public required TerraformValue<string> PatternName
     {
-        get => GetArgument<TerraformValue<string>>("pattern_name");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern_name");
         set => SetArgument("pattern_name", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternRegex is required")]
     public required TerraformValue<string> PatternRegex
     {
-        get => GetArgument<TerraformValue<string>>("pattern_regex");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern_regex");
         set => SetArgument("pattern_regex", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedactionPlaceHolderType is required")]
     public required TerraformValue<string> RedactionPlaceHolderType
     {
-        get => GetArgument<TerraformValue<string>>("redaction_place_holder_type");
+        get => GetRequiredArgument<TerraformValue<string>>("redaction_place_holder_type");
         set => SetArgument("redaction_place_holder_type", value);
     }
 
@@ -241,16 +241,16 @@ public partial class AwsWorkspaceswebDataProtectionSettings(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

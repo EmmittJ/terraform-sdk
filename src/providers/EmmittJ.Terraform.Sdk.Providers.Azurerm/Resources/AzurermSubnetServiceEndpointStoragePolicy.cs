@@ -28,7 +28,7 @@ public class AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceResources is required")]
     public required TerraformSet<string> ServiceResources
     {
-        get => GetArgument<TerraformSet<string>>("service_resources");
+        get => GetRequiredArgument<TerraformSet<string>>("service_resources");
         set => SetArgument("service_resources", value);
     }
 
@@ -113,9 +113,9 @@ public partial class AzurermSubnetServiceEndpointStoragePolicy(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermSubnetServiceEndpointStoragePolicy(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermSubnetServiceEndpointStoragePolicy(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermSubnetServiceEndpointStoragePolicy(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

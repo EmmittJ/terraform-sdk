@@ -19,7 +19,7 @@ public class AzureadGroupWithoutMembersDynamicMembershipBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -29,7 +29,7 @@ public class AzureadGroupWithoutMembersDynamicMembershipBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformValue<string> Rule
     {
-        get => GetArgument<TerraformValue<string>>("rule");
+        get => GetRequiredArgument<TerraformValue<string>>("rule");
         set => SetArgument("rule", value);
     }
 
@@ -113,9 +113,9 @@ public partial class AzureadGroupWithoutMembers(string name) : TerraformResource
     /// <summary>
     /// Indicates whether new members added to the group will be auto-subscribed to receive email notifications.
     /// </summary>
-    public TerraformValue<bool>? AutoSubscribeNewMembers
+    public TerraformValue<bool> AutoSubscribeNewMembers
     {
-        get => GetArgument<TerraformValue<bool>>("auto_subscribe_new_members");
+        get => GetArgument<TerraformValue<bool>>("auto_subscribe_new_members") ?? AsReference("auto_subscribe_new_members");
         set => SetArgument("auto_subscribe_new_members", value);
     }
 
@@ -143,43 +143,43 @@ public partial class AzureadGroupWithoutMembers(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// Indicates whether people external to the organization can send messages to the group.
     /// </summary>
-    public TerraformValue<bool>? ExternalSendersAllowed
+    public TerraformValue<bool> ExternalSendersAllowed
     {
-        get => GetArgument<TerraformValue<bool>>("external_senders_allowed");
+        get => GetArgument<TerraformValue<bool>>("external_senders_allowed") ?? AsReference("external_senders_allowed");
         set => SetArgument("external_senders_allowed", value);
     }
 
     /// <summary>
     /// Indicates whether the group is displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups.
     /// </summary>
-    public TerraformValue<bool>? HideFromAddressLists
+    public TerraformValue<bool> HideFromAddressLists
     {
-        get => GetArgument<TerraformValue<bool>>("hide_from_address_lists");
+        get => GetArgument<TerraformValue<bool>>("hide_from_address_lists") ?? AsReference("hide_from_address_lists");
         set => SetArgument("hide_from_address_lists", value);
     }
 
     /// <summary>
     /// Indicates whether the group is displayed in Outlook clients, such as Outlook for Windows and Outlook on the web.
     /// </summary>
-    public TerraformValue<bool>? HideFromOutlookClients
+    public TerraformValue<bool> HideFromOutlookClients
     {
-        get => GetArgument<TerraformValue<bool>>("hide_from_outlook_clients");
+        get => GetArgument<TerraformValue<bool>>("hide_from_outlook_clients") ?? AsReference("hide_from_outlook_clients");
         set => SetArgument("hide_from_outlook_clients", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -195,27 +195,27 @@ public partial class AzureadGroupWithoutMembers(string name) : TerraformResource
     /// <summary>
     /// The mail alias for the group, unique in the organisation
     /// </summary>
-    public TerraformValue<string>? MailNickname
+    public TerraformValue<string> MailNickname
     {
-        get => GetArgument<TerraformValue<string>>("mail_nickname");
+        get => GetArgument<TerraformValue<string>>("mail_nickname") ?? AsReference("mail_nickname");
         set => SetArgument("mail_nickname", value);
     }
 
     /// <summary>
     /// Indicates the target on-premise group type the group will be written back as
     /// </summary>
-    public TerraformValue<string>? OnpremisesGroupType
+    public TerraformValue<string> OnpremisesGroupType
     {
-        get => GetArgument<TerraformValue<string>>("onpremises_group_type");
+        get => GetArgument<TerraformValue<string>>("onpremises_group_type") ?? AsReference("onpremises_group_type");
         set => SetArgument("onpremises_group_type", value);
     }
 
     /// <summary>
     /// A set of owners who own this group. Supported object types are Users or Service Principals
     /// </summary>
-    public TerraformSet<string>? Owners
+    public TerraformSet<string> Owners
     {
-        get => GetArgument<TerraformSet<string>>("owners");
+        get => GetArgument<TerraformSet<string>>("owners") ?? AsReference("owners");
         set => SetArgument("owners", value);
     }
 
@@ -267,9 +267,9 @@ public partial class AzureadGroupWithoutMembers(string name) : TerraformResource
     /// <summary>
     /// Specifies the group join policy and group content visibility
     /// </summary>
-    public TerraformValue<string>? Visibility
+    public TerraformValue<string> Visibility
     {
-        get => GetArgument<TerraformValue<string>>("visibility");
+        get => GetArgument<TerraformValue<string>>("visibility") ?? AsReference("visibility");
         set => SetArgument("visibility", value);
     }
 

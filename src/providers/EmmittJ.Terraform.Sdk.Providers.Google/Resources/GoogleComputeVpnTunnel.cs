@@ -184,9 +184,9 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -219,9 +219,9 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// for example &#39;192.168.0.0/16&#39;. The ranges should be disjoint.
     /// Only IPv4 is supported.
     /// </summary>
-    public TerraformSet<string>? LocalTrafficSelector
+    public TerraformSet<string> LocalTrafficSelector
     {
-        get => GetArgument<TerraformSet<string>>("local_traffic_selector");
+        get => GetArgument<TerraformSet<string>>("local_traffic_selector") ?? AsReference("local_traffic_selector");
         set => SetArgument("local_traffic_selector", value);
     }
 
@@ -237,7 +237,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -274,27 +274,27 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// <summary>
     /// IP address of the peer VPN gateway. Only IPv4 is supported.
     /// </summary>
-    public TerraformValue<string>? PeerIp
+    public TerraformValue<string> PeerIp
     {
-        get => GetArgument<TerraformValue<string>>("peer_ip");
+        get => GetArgument<TerraformValue<string>>("peer_ip") ?? AsReference("peer_ip");
         set => SetArgument("peer_ip", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region where the tunnel is located. If unset, is set to the region of &#39;target_vpn_gateway&#39;.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -304,9 +304,9 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// for example &#39;192.168.0.0/16&#39;. The ranges should be disjoint.
     /// Only IPv4 is supported.
     /// </summary>
-    public TerraformSet<string>? RemoteTrafficSelector
+    public TerraformSet<string> RemoteTrafficSelector
     {
-        get => GetArgument<TerraformSet<string>>("remote_traffic_selector");
+        get => GetArgument<TerraformSet<string>>("remote_traffic_selector") ?? AsReference("remote_traffic_selector");
         set => SetArgument("remote_traffic_selector", value);
     }
 

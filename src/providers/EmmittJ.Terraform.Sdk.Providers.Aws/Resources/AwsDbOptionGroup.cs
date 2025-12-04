@@ -28,7 +28,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptionName is required")]
     public required TerraformValue<string> OptionName
     {
-        get => GetArgument<TerraformValue<string>>("option_name");
+        get => GetRequiredArgument<TerraformValue<string>>("option_name");
         set => SetArgument("option_name", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsDbOptionGroupOptionBlockOptionSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsDbOptionGroupOptionBlockOptionSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -139,16 +139,16 @@ public partial class AwsDbOptionGroup(string name) : TerraformResource("aws_db_o
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineName is required")]
     public required TerraformValue<string> EngineName
     {
-        get => GetArgument<TerraformValue<string>>("engine_name");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_name");
         set => SetArgument("engine_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -158,25 +158,25 @@ public partial class AwsDbOptionGroup(string name) : TerraformResource("aws_db_o
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MajorEngineVersion is required")]
     public required TerraformValue<string> MajorEngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("major_engine_version");
+        get => GetRequiredArgument<TerraformValue<string>>("major_engine_version");
         set => SetArgument("major_engine_version", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? NamePrefix
+    public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -192,9 +192,9 @@ public partial class AwsDbOptionGroup(string name) : TerraformResource("aws_db_o
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -219,9 +219,9 @@ public partial class AwsDbOptionGroup(string name) : TerraformResource("aws_db_o
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

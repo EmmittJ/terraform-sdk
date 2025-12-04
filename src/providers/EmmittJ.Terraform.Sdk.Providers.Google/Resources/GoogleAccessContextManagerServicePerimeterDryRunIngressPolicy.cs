@@ -250,9 +250,9 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -262,7 +262,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Perimeter is required")]
     public required TerraformValue<string> Perimeter
     {
-        get => GetArgument<TerraformValue<string>>("perimeter");
+        get => GetRequiredArgument<TerraformValue<string>>("perimeter");
         set => SetArgument("perimeter", value);
     }
 

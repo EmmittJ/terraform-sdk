@@ -92,7 +92,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -191,7 +191,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlockPolicyOptionBlockNetworkA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForceRemediateForFirstEntries is required")]
     public required TerraformValue<bool> ForceRemediateForFirstEntries
     {
-        get => GetArgument<TerraformValue<bool>>("force_remediate_for_first_entries");
+        get => GetRequiredArgument<TerraformValue<bool>>("force_remediate_for_first_entries");
         set => SetArgument("force_remediate_for_first_entries", value);
     }
 
@@ -201,7 +201,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlockPolicyOptionBlockNetworkA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForceRemediateForLastEntries is required")]
     public required TerraformValue<bool> ForceRemediateForLastEntries
     {
-        get => GetArgument<TerraformValue<bool>>("force_remediate_for_last_entries");
+        get => GetRequiredArgument<TerraformValue<bool>>("force_remediate_for_last_entries");
         set => SetArgument("force_remediate_for_last_entries", value);
     }
 
@@ -251,7 +251,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlockPolicyOptionBlockNetworkA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Egress is required")]
     public required TerraformValue<bool> Egress
     {
-        get => GetArgument<TerraformValue<bool>>("egress");
+        get => GetRequiredArgument<TerraformValue<bool>>("egress");
         set => SetArgument("egress", value);
     }
 
@@ -270,7 +270,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlockPolicyOptionBlockNetworkA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -280,7 +280,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlockPolicyOptionBlockNetworkA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleAction is required")]
     public required TerraformValue<string> RuleAction
     {
-        get => GetArgument<TerraformValue<string>>("rule_action");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_action");
         set => SetArgument("rule_action", value);
     }
 
@@ -392,7 +392,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlockPolicyOptionBlockNetworkA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Egress is required")]
     public required TerraformValue<bool> Egress
     {
-        get => GetArgument<TerraformValue<bool>>("egress");
+        get => GetRequiredArgument<TerraformValue<bool>>("egress");
         set => SetArgument("egress", value);
     }
 
@@ -411,7 +411,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlockPolicyOptionBlockNetworkA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -421,7 +421,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlockPolicyOptionBlockNetworkA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleAction is required")]
     public required TerraformValue<string> RuleAction
     {
-        get => GetArgument<TerraformValue<string>>("rule_action");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_action");
         set => SetArgument("rule_action", value);
     }
 
@@ -591,16 +591,16 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExcludeResourceTags is required")]
     public required TerraformValue<bool> ExcludeResourceTags
     {
-        get => GetArgument<TerraformValue<bool>>("exclude_resource_tags");
+        get => GetRequiredArgument<TerraformValue<bool>>("exclude_resource_tags");
         set => SetArgument("exclude_resource_tags", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -610,16 +610,16 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -635,18 +635,18 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     /// <summary>
     /// The resource_set_ids attribute.
     /// </summary>
-    public TerraformSet<string>? ResourceSetIds
+    public TerraformSet<string> ResourceSetIds
     {
-        get => GetArgument<TerraformSet<string>>("resource_set_ids");
+        get => GetArgument<TerraformSet<string>>("resource_set_ids") ?? AsReference("resource_set_ids");
         set => SetArgument("resource_set_ids", value);
     }
 
     /// <summary>
     /// The resource_tag_logical_operator attribute.
     /// </summary>
-    public TerraformValue<string>? ResourceTagLogicalOperator
+    public TerraformValue<string> ResourceTagLogicalOperator
     {
-        get => GetArgument<TerraformValue<string>>("resource_tag_logical_operator");
+        get => GetArgument<TerraformValue<string>>("resource_tag_logical_operator") ?? AsReference("resource_tag_logical_operator");
         set => SetArgument("resource_tag_logical_operator", value);
     }
 
@@ -662,18 +662,18 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformValue<string>? ResourceTypeAttribute
+    public TerraformValue<string> ResourceTypeAttribute
     {
-        get => GetArgument<TerraformValue<string>>("resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type") ?? AsReference("resource_type");
         set => SetArgument("resource_type", value);
     }
 
     /// <summary>
     /// The resource_type_list attribute.
     /// </summary>
-    public TerraformSet<string>? ResourceTypeList
+    public TerraformSet<string> ResourceTypeList
     {
-        get => GetArgument<TerraformSet<string>>("resource_type_list");
+        get => GetArgument<TerraformSet<string>>("resource_type_list") ?? AsReference("resource_type_list");
         set => SetArgument("resource_type_list", value);
     }
 
@@ -689,9 +689,9 @@ public partial class AwsFmsPolicy(string name) : TerraformResource("aws_fms_poli
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

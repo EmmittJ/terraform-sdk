@@ -16,18 +16,18 @@ public class GoogleBigtableTableAutomatedBackupPolicyBlock : TerraformBlock
     /// <summary>
     /// How frequently automated backups should occur.
     /// </summary>
-    public TerraformValue<string>? Frequency
+    public TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetArgument<TerraformValue<string>>("frequency") ?? AsReference("frequency");
         set => SetArgument("frequency", value);
     }
 
     /// <summary>
     /// How long the automated backups should be retained.
     /// </summary>
-    public TerraformValue<string>? RetentionPeriod
+    public TerraformValue<string> RetentionPeriod
     {
-        get => GetArgument<TerraformValue<string>>("retention_period");
+        get => GetArgument<TerraformValue<string>>("retention_period") ?? AsReference("retention_period");
         set => SetArgument("retention_period", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleBigtableTableColumnFamilyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformValue<string> Family
     {
-        get => GetArgument<TerraformValue<string>>("family");
+        get => GetRequiredArgument<TerraformValue<string>>("family");
         set => SetArgument("family", value);
     }
 
@@ -108,27 +108,27 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     /// <summary>
     /// Duration to retain change stream data for the table. Set to 0 to disable. Must be between 1 and 7 days.
     /// </summary>
-    public TerraformValue<string>? ChangeStreamRetention
+    public TerraformValue<string> ChangeStreamRetention
     {
-        get => GetArgument<TerraformValue<string>>("change_stream_retention");
+        get => GetArgument<TerraformValue<string>>("change_stream_retention") ?? AsReference("change_stream_retention");
         set => SetArgument("change_stream_retention", value);
     }
 
     /// <summary>
     /// A field to make the table protected against data loss i.e. when set to PROTECTED, deleting the table, the column families in the table, and the instance containing the table would be prohibited. If not provided, currently deletion protection will be set to UNPROTECTED as it is the API default value.
     /// </summary>
-    public TerraformValue<string>? DeletionProtection
+    public TerraformValue<string> DeletionProtection
     {
-        get => GetArgument<TerraformValue<string>>("deletion_protection");
+        get => GetArgument<TerraformValue<string>>("deletion_protection") ?? AsReference("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformValue<string> InstanceName
     {
-        get => GetArgument<TerraformValue<string>>("instance_name");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_name");
         set => SetArgument("instance_name", value);
     }
 
@@ -148,16 +148,16 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

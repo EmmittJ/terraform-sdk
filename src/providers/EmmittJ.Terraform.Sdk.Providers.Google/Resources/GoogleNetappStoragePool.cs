@@ -75,16 +75,16 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformValue<string> CapacityGib
     {
-        get => GetArgument<TerraformValue<string>>("capacity_gib");
+        get => GetRequiredArgument<TerraformValue<string>>("capacity_gib");
         set => SetArgument("capacity_gib", value);
     }
 
     /// <summary>
     /// Optional. True if using Independent Scaling of capacity and performance (Hyperdisk). Default is false.
     /// </summary>
-    public TerraformValue<bool>? CustomPerformanceEnabled
+    public TerraformValue<bool> CustomPerformanceEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("custom_performance_enabled");
+        get => GetArgument<TerraformValue<bool>>("custom_performance_enabled") ?? AsReference("custom_performance_enabled");
         set => SetArgument("custom_performance_enabled", value);
     }
 
@@ -120,9 +120,9 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -185,16 +185,16 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -202,9 +202,9 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// QoS (Quality of Service) type of the storage pool.
     /// Possible values are: AUTO, MANUAL. Possible values: [&amp;quot;QOS_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;AUTO&amp;quot;, &amp;quot;MANUAL&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? QosType
+    public TerraformValue<string> QosType
     {
-        get => GetArgument<TerraformValue<string>>("qos_type");
+        get => GetArgument<TerraformValue<string>>("qos_type") ?? AsReference("qos_type");
         set => SetArgument("qos_type", value);
     }
 
@@ -224,25 +224,25 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
     public required TerraformValue<string> ServiceLevel
     {
-        get => GetArgument<TerraformValue<string>>("service_level");
+        get => GetRequiredArgument<TerraformValue<string>>("service_level");
         set => SetArgument("service_level", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total IOPS of the pool If not provided, it will be calculated based on the totalThroughputMibps
     /// </summary>
-    public TerraformValue<string>? TotalIops
+    public TerraformValue<string> TotalIops
     {
-        get => GetArgument<TerraformValue<string>>("total_iops");
+        get => GetArgument<TerraformValue<string>>("total_iops") ?? AsReference("total_iops");
         set => SetArgument("total_iops", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total Throughput of the pool (in MiB/s).
     /// </summary>
-    public TerraformValue<string>? TotalThroughputMibps
+    public TerraformValue<string> TotalThroughputMibps
     {
-        get => GetArgument<TerraformValue<string>>("total_throughput_mibps");
+        get => GetArgument<TerraformValue<string>>("total_throughput_mibps") ?? AsReference("total_throughput_mibps");
         set => SetArgument("total_throughput_mibps", value);
     }
 
@@ -251,9 +251,9 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// This field is used to control whether the pool supports FILE based volumes only or UNIFIED (both FILE and BLOCK) volumes.
     /// If not specified during creation, it defaults to FILE. Possible values: [&amp;quot;STORAGE_POOL_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;FILE&amp;quot;, &amp;quot;UNIFIED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -262,9 +262,9 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
     /// If you want to create a zonal Flex pool, specify a zone name for &#39;location&#39; and omit &#39;zone&#39;.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

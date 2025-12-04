@@ -47,16 +47,16 @@ public partial class GoogleApigeeEnvironmentKeyvaluemapsEntries(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvKeyvaluemapId is required")]
     public required TerraformValue<string> EnvKeyvaluemapId
     {
-        get => GetArgument<TerraformValue<string>>("env_keyvaluemap_id");
+        get => GetRequiredArgument<TerraformValue<string>>("env_keyvaluemap_id");
         set => SetArgument("env_keyvaluemap_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleApigeeEnvironmentKeyvaluemapsEntries(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleApigeeEnvironmentKeyvaluemapsEntries(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 

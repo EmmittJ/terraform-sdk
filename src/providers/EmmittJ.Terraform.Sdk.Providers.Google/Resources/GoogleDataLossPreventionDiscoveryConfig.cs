@@ -356,7 +356,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockTagResourcesBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -937,7 +937,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -947,7 +947,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => GetArgument<TerraformValue<string>>("table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -1292,7 +1292,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -1302,7 +1302,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseResource is required")]
     public required TerraformValue<string> DatabaseResource
     {
-        get => GetArgument<TerraformValue<string>>("database_resource");
+        get => GetRequiredArgument<TerraformValue<string>>("database_resource");
         set => SetArgument("database_resource", value);
     }
 
@@ -1312,7 +1312,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -1322,7 +1322,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1400,7 +1400,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -2364,9 +2364,9 @@ public partial class GoogleDataLossPreventionDiscoveryConfig(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2385,7 +2385,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -2398,7 +2398,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 

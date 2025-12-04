@@ -154,7 +154,7 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformValue<string> Collection
     {
-        get => GetArgument<TerraformValue<string>>("collection");
+        get => GetRequiredArgument<TerraformValue<string>>("collection");
         set => SetArgument("collection", value);
     }
 
@@ -170,18 +170,18 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// <summary>
     /// The density configuration for this index. Possible values: [&amp;quot;SPARSE_ALL&amp;quot;, &amp;quot;SPARSE_ANY&amp;quot;, &amp;quot;DENSE&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Density
+    public TerraformValue<string> Density
     {
-        get => GetArgument<TerraformValue<string>>("density");
+        get => GetArgument<TerraformValue<string>>("density") ?? AsReference("density");
         set => SetArgument("density", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -197,9 +197,9 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -215,9 +215,9 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// <summary>
     /// Whether it is an unique index. Unique index ensures all values for the indexed field(s) are unique across documents.
     /// </summary>
-    public TerraformValue<bool>? Unique
+    public TerraformValue<bool> Unique
     {
-        get => GetArgument<TerraformValue<bool>>("unique");
+        get => GetArgument<TerraformValue<bool>>("unique") ?? AsReference("unique");
         set => SetArgument("unique", value);
     }
 

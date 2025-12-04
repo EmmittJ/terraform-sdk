@@ -56,9 +56,9 @@ public partial class AwsNetworkAclRule(string name) : TerraformResource("aws_net
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsNetworkAclRule(string name) : TerraformResource("aws_net
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAclId is required")]
     public required TerraformValue<string> NetworkAclId
     {
-        get => GetArgument<TerraformValue<string>>("network_acl_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_acl_id");
         set => SetArgument("network_acl_id", value);
     }
 
@@ -87,16 +87,16 @@ public partial class AwsNetworkAclRule(string name) : TerraformResource("aws_net
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsNetworkAclRule(string name) : TerraformResource("aws_net
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleAction is required")]
     public required TerraformValue<string> RuleAction
     {
-        get => GetArgument<TerraformValue<string>>("rule_action");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_action");
         set => SetArgument("rule_action", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsNetworkAclRule(string name) : TerraformResource("aws_net
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformValue<double> RuleNumber
     {
-        get => GetArgument<TerraformValue<double>>("rule_number");
+        get => GetRequiredArgument<TerraformValue<double>>("rule_number");
         set => SetArgument("rule_number", value);
     }
 

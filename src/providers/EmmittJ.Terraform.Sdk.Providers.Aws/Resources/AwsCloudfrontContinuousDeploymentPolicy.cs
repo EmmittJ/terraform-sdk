@@ -28,7 +28,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quantity is required")]
     public required TerraformValue<double> Quantity
     {
-        get => GetArgument<TerraformValue<double>>("quantity");
+        get => GetRequiredArgument<TerraformValue<double>>("quantity");
         set => SetArgument("quantity", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlockSingleHead
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Header is required")]
     public required TerraformValue<string> Header
     {
-        get => GetArgument<TerraformValue<string>>("header");
+        get => GetRequiredArgument<TerraformValue<string>>("header");
         set => SetArgument("header", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlockSingleHead
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlockSingleWeig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => GetArgument<TerraformValue<double>>("weight");
+        get => GetRequiredArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlockSingleWeig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdleTtl is required")]
     public required TerraformValue<double> IdleTtl
     {
-        get => GetArgument<TerraformValue<double>>("idle_ttl");
+        get => GetRequiredArgument<TerraformValue<double>>("idle_ttl");
         set => SetArgument("idle_ttl", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlockSingleWeig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTtl is required")]
     public required TerraformValue<double> MaximumTtl
     {
-        get => GetArgument<TerraformValue<double>>("maximum_ttl");
+        get => GetRequiredArgument<TerraformValue<double>>("maximum_ttl");
         set => SetArgument("maximum_ttl", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsCloudfrontContinuousDeploymentPolicy(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 

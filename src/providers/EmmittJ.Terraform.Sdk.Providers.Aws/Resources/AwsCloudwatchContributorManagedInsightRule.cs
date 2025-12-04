@@ -11,9 +11,9 @@ public partial class AwsCloudwatchContributorManagedInsightRule(string name) : T
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsCloudwatchContributorManagedInsightRule(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string>? State
+    public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
         set => SetArgument("state", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsCloudwatchContributorManagedInsightRule(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateName is required")]
     public required TerraformValue<string> TemplateName
     {
-        get => GetArgument<TerraformValue<string>>("template_name");
+        get => GetRequiredArgument<TerraformValue<string>>("template_name");
         set => SetArgument("template_name", value);
     }
 

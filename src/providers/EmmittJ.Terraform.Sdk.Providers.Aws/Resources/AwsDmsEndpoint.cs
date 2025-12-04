@@ -19,7 +19,7 @@ public class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointUri is required")]
     public required TerraformValue<string> EndpointUri
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_uri");
         set => SetArgument("endpoint_uri", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccessRoleArn is required")]
     public required TerraformValue<string> ServiceAccessRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("service_access_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("service_access_role_arn");
         set => SetArgument("service_access_role_arn", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Broker is required")]
     public required TerraformValue<string> Broker
     {
-        get => GetArgument<TerraformValue<string>>("broker");
+        get => GetRequiredArgument<TerraformValue<string>>("broker");
         set => SetArgument("broker", value);
     }
 
@@ -435,90 +435,90 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// <summary>
     /// The after_connect_script attribute.
     /// </summary>
-    public TerraformValue<string>? AfterConnectScript
+    public TerraformValue<string> AfterConnectScript
     {
-        get => GetArgument<TerraformValue<string>>("after_connect_script");
+        get => GetArgument<TerraformValue<string>>("after_connect_script") ?? AsReference("after_connect_script");
         set => SetArgument("after_connect_script", value);
     }
 
     /// <summary>
     /// The authentication_method attribute.
     /// </summary>
-    public TerraformValue<string>? AuthenticationMethod
+    public TerraformValue<string> AuthenticationMethod
     {
-        get => GetArgument<TerraformValue<string>>("authentication_method");
+        get => GetArgument<TerraformValue<string>>("authentication_method") ?? AsReference("authentication_method");
         set => SetArgument("authentication_method", value);
     }
 
     /// <summary>
     /// The clean_source_metadata_on_mismatch attribute.
     /// </summary>
-    public TerraformValue<bool>? CleanSourceMetadataOnMismatch
+    public TerraformValue<bool> CleanSourceMetadataOnMismatch
     {
-        get => GetArgument<TerraformValue<bool>>("clean_source_metadata_on_mismatch");
+        get => GetArgument<TerraformValue<bool>>("clean_source_metadata_on_mismatch") ?? AsReference("clean_source_metadata_on_mismatch");
         set => SetArgument("clean_source_metadata_on_mismatch", value);
     }
 
     /// <summary>
     /// The events_poll_interval attribute.
     /// </summary>
-    public TerraformValue<double>? EventsPollInterval
+    public TerraformValue<double> EventsPollInterval
     {
-        get => GetArgument<TerraformValue<double>>("events_poll_interval");
+        get => GetArgument<TerraformValue<double>>("events_poll_interval") ?? AsReference("events_poll_interval");
         set => SetArgument("events_poll_interval", value);
     }
 
     /// <summary>
     /// The execute_timeout attribute.
     /// </summary>
-    public TerraformValue<double>? ExecuteTimeout
+    public TerraformValue<double> ExecuteTimeout
     {
-        get => GetArgument<TerraformValue<double>>("execute_timeout");
+        get => GetArgument<TerraformValue<double>>("execute_timeout") ?? AsReference("execute_timeout");
         set => SetArgument("execute_timeout", value);
     }
 
     /// <summary>
     /// The max_file_size attribute.
     /// </summary>
-    public TerraformValue<double>? MaxFileSize
+    public TerraformValue<double> MaxFileSize
     {
-        get => GetArgument<TerraformValue<double>>("max_file_size");
+        get => GetArgument<TerraformValue<double>>("max_file_size") ?? AsReference("max_file_size");
         set => SetArgument("max_file_size", value);
     }
 
     /// <summary>
     /// The parallel_load_threads attribute.
     /// </summary>
-    public TerraformValue<double>? ParallelLoadThreads
+    public TerraformValue<double> ParallelLoadThreads
     {
-        get => GetArgument<TerraformValue<double>>("parallel_load_threads");
+        get => GetArgument<TerraformValue<double>>("parallel_load_threads") ?? AsReference("parallel_load_threads");
         set => SetArgument("parallel_load_threads", value);
     }
 
     /// <summary>
     /// The server_timezone attribute.
     /// </summary>
-    public TerraformValue<string>? ServerTimezone
+    public TerraformValue<string> ServerTimezone
     {
-        get => GetArgument<TerraformValue<string>>("server_timezone");
+        get => GetArgument<TerraformValue<string>>("server_timezone") ?? AsReference("server_timezone");
         set => SetArgument("server_timezone", value);
     }
 
     /// <summary>
     /// The service_access_role_arn attribute.
     /// </summary>
-    public TerraformValue<string>? ServiceAccessRoleArn
+    public TerraformValue<string> ServiceAccessRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("service_access_role_arn");
+        get => GetArgument<TerraformValue<string>>("service_access_role_arn") ?? AsReference("service_access_role_arn");
         set => SetArgument("service_access_role_arn", value);
     }
 
     /// <summary>
     /// The target_db_type attribute.
     /// </summary>
-    public TerraformValue<string>? TargetDbType
+    public TerraformValue<string> TargetDbType
     {
-        get => GetArgument<TerraformValue<string>>("target_db_type");
+        get => GetArgument<TerraformValue<string>>("target_db_type") ?? AsReference("target_db_type");
         set => SetArgument("target_db_type", value);
     }
 
@@ -539,9 +539,9 @@ public class AwsDmsEndpointOracleSettingsBlock : TerraformBlock
     /// <summary>
     /// The authentication_method attribute.
     /// </summary>
-    public TerraformValue<string>? AuthenticationMethod
+    public TerraformValue<string> AuthenticationMethod
     {
-        get => GetArgument<TerraformValue<string>>("authentication_method");
+        get => GetArgument<TerraformValue<string>>("authentication_method") ?? AsReference("authentication_method");
         set => SetArgument("authentication_method", value);
     }
 
@@ -571,9 +571,9 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// <summary>
     /// The authentication_method attribute.
     /// </summary>
-    public TerraformValue<string>? AuthenticationMethod
+    public TerraformValue<string> AuthenticationMethod
     {
-        get => GetArgument<TerraformValue<string>>("authentication_method");
+        get => GetArgument<TerraformValue<string>>("authentication_method") ?? AsReference("authentication_method");
         set => SetArgument("authentication_method", value);
     }
 
@@ -750,7 +750,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => GetArgument<TerraformValue<string>>("auth_type");
+        get => GetRequiredArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -769,7 +769,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -779,7 +779,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformValue<string> ServerName
     {
-        get => GetArgument<TerraformValue<string>>("server_name");
+        get => GetRequiredArgument<TerraformValue<string>>("server_name");
         set => SetArgument("server_name", value);
     }
 
@@ -904,9 +904,9 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public TerraformValue<string>? CertificateArn
+    public TerraformValue<string> CertificateArn
     {
-        get => GetArgument<TerraformValue<string>>("certificate_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_arn") ?? AsReference("certificate_arn");
         set => SetArgument("certificate_arn", value);
     }
 
@@ -925,7 +925,7 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointId is required")]
     public required TerraformValue<string> EndpointId
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_id");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_id");
         set => SetArgument("endpoint_id", value);
     }
 
@@ -935,7 +935,7 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformValue<string> EndpointType
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_type");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_type");
         set => SetArgument("endpoint_type", value);
     }
 
@@ -945,34 +945,34 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineName is required")]
     public required TerraformValue<string> EngineName
     {
-        get => GetArgument<TerraformValue<string>>("engine_name");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_name");
         set => SetArgument("engine_name", value);
     }
 
     /// <summary>
     /// The extra_connection_attributes attribute.
     /// </summary>
-    public TerraformValue<string>? ExtraConnectionAttributes
+    public TerraformValue<string> ExtraConnectionAttributes
     {
-        get => GetArgument<TerraformValue<string>>("extra_connection_attributes");
+        get => GetArgument<TerraformValue<string>>("extra_connection_attributes") ?? AsReference("extra_connection_attributes");
         set => SetArgument("extra_connection_attributes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyArn
+    public TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? AsReference("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -1006,9 +1006,9 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1051,9 +1051,9 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// <summary>
     /// The ssl_mode attribute.
     /// </summary>
-    public TerraformValue<string>? SslMode
+    public TerraformValue<string> SslMode
     {
-        get => GetArgument<TerraformValue<string>>("ssl_mode");
+        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? AsReference("ssl_mode");
         set => SetArgument("ssl_mode", value);
     }
 
@@ -1069,9 +1069,9 @@ public partial class AwsDmsEndpoint(string name) : TerraformResource("aws_dms_en
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

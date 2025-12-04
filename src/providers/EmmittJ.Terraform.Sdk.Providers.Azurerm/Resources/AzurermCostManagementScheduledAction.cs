@@ -82,7 +82,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddressSender is required")]
     public required TerraformValue<string> EmailAddressSender
     {
-        get => GetArgument<TerraformValue<string>>("email_address_sender");
+        get => GetRequiredArgument<TerraformValue<string>>("email_address_sender");
         set => SetArgument("email_address_sender", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailSubject is required")]
     public required TerraformValue<string> EmailSubject
     {
-        get => GetArgument<TerraformValue<string>>("email_subject");
+        get => GetRequiredArgument<TerraformValue<string>>("email_subject");
         set => SetArgument("email_subject", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndDate is required")]
     public required TerraformValue<string> EndDate
     {
-        get => GetArgument<TerraformValue<string>>("end_date");
+        get => GetRequiredArgument<TerraformValue<string>>("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -148,9 +148,9 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
     public required TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date");
+        get => GetRequiredArgument<TerraformValue<string>>("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewId is required")]
     public required TerraformValue<string> ViewId
     {
-        get => GetArgument<TerraformValue<string>>("view_id");
+        get => GetRequiredArgument<TerraformValue<string>>("view_id");
         set => SetArgument("view_id", value);
     }
 

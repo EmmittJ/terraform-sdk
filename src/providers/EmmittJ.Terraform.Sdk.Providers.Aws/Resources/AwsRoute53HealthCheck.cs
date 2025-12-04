@@ -56,18 +56,18 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// <summary>
     /// The enable_sni attribute.
     /// </summary>
-    public TerraformValue<bool>? EnableSni
+    public TerraformValue<bool> EnableSni
     {
-        get => GetArgument<TerraformValue<bool>>("enable_sni");
+        get => GetArgument<TerraformValue<bool>>("enable_sni") ?? AsReference("enable_sni");
         set => SetArgument("enable_sni", value);
     }
 
     /// <summary>
     /// The failure_threshold attribute.
     /// </summary>
-    public TerraformValue<double>? FailureThreshold
+    public TerraformValue<double> FailureThreshold
     {
-        get => GetArgument<TerraformValue<double>>("failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold") ?? AsReference("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -83,9 +83,9 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -200,18 +200,18 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformMap<string>? Triggers
+    public TerraformMap<string> Triggers
     {
-        get => GetArgument<TerraformMap<string>>("triggers");
+        get => GetArgument<TerraformMap<string>>("triggers") ?? AsReference("triggers");
         set => SetArgument("triggers", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

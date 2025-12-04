@@ -55,7 +55,7 @@ public partial class AzurermManagedDiskSasToken(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessLevel is required")]
     public required TerraformValue<string> AccessLevel
     {
-        get => GetArgument<TerraformValue<string>>("access_level");
+        get => GetRequiredArgument<TerraformValue<string>>("access_level");
         set => SetArgument("access_level", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermManagedDiskSasToken(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DurationInSeconds is required")]
     public required TerraformValue<double> DurationInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("duration_in_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("duration_in_seconds");
         set => SetArgument("duration_in_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermManagedDiskSasToken(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedDiskId is required")]
     public required TerraformValue<string> ManagedDiskId
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_disk_id");
         set => SetArgument("managed_disk_id", value);
     }
 

@@ -66,9 +66,9 @@ public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
     /// <summary>
     /// The cdn_frontdoor_secret_id attribute.
     /// </summary>
-    public TerraformValue<string>? CdnFrontdoorSecretId
+    public TerraformValue<string> CdnFrontdoorSecretId
     {
-        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_secret_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_secret_id") ?? AsReference("cdn_frontdoor_secret_id");
         set => SetArgument("cdn_frontdoor_secret_id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     public required TerraformValue<string> CdnFrontdoorProfileId
     {
-        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_profile_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cdn_frontdoor_profile_id");
         set => SetArgument("cdn_frontdoor_profile_id", value);
     }
 
@@ -125,16 +125,16 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

@@ -55,16 +55,16 @@ public partial class AzurermRedisCacheAccessPolicyAssignment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicyName is required")]
     public required TerraformValue<string> AccessPolicyName
     {
-        get => GetArgument<TerraformValue<string>>("access_policy_name");
+        get => GetRequiredArgument<TerraformValue<string>>("access_policy_name");
         set => SetArgument("access_policy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermRedisCacheAccessPolicyAssignment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermRedisCacheAccessPolicyAssignment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermRedisCacheAccessPolicyAssignment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdAlias is required")]
     public required TerraformValue<string> ObjectIdAlias
     {
-        get => GetArgument<TerraformValue<string>>("object_id_alias");
+        get => GetRequiredArgument<TerraformValue<string>>("object_id_alias");
         set => SetArgument("object_id_alias", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermRedisCacheAccessPolicyAssignment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheId is required")]
     public required TerraformValue<string> RedisCacheId
     {
-        get => GetArgument<TerraformValue<string>>("redis_cache_id");
+        get => GetRequiredArgument<TerraformValue<string>>("redis_cache_id");
         set => SetArgument("redis_cache_id", value);
     }
 

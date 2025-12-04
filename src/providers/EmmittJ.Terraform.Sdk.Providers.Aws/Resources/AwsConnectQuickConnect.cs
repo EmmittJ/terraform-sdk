@@ -19,7 +19,7 @@ public class AwsConnectQuickConnectQuickConnectConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuickConnectType is required")]
     public required TerraformValue<string> QuickConnectType
     {
-        get => GetArgument<TerraformValue<string>>("quick_connect_type");
+        get => GetRequiredArgument<TerraformValue<string>>("quick_connect_type");
         set => SetArgument("quick_connect_type", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsConnectQuickConnectQuickConnectConfigBlockPhoneConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsConnectQuickConnectQuickConnectConfigBlockQueueConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactFlowId is required")]
     public required TerraformValue<string> ContactFlowId
     {
-        get => GetArgument<TerraformValue<string>>("contact_flow_id");
+        get => GetRequiredArgument<TerraformValue<string>>("contact_flow_id");
         set => SetArgument("contact_flow_id", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsConnectQuickConnectQuickConnectConfigBlockQueueConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueId is required")]
     public required TerraformValue<string> QueueId
     {
-        get => GetArgument<TerraformValue<string>>("queue_id");
+        get => GetRequiredArgument<TerraformValue<string>>("queue_id");
         set => SetArgument("queue_id", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsConnectQuickConnectQuickConnectConfigBlockUserConfigBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactFlowId is required")]
     public required TerraformValue<string> ContactFlowId
     {
-        get => GetArgument<TerraformValue<string>>("contact_flow_id");
+        get => GetRequiredArgument<TerraformValue<string>>("contact_flow_id");
         set => SetArgument("contact_flow_id", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsConnectQuickConnectQuickConnectConfigBlockUserConfigBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformValue<string> UserId
     {
-        get => GetArgument<TerraformValue<string>>("user_id");
+        get => GetRequiredArgument<TerraformValue<string>>("user_id");
         set => SetArgument("user_id", value);
     }
 
@@ -160,9 +160,9 @@ public partial class AwsConnectQuickConnect(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AwsConnectQuickConnect(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -182,16 +182,16 @@ public partial class AwsConnectQuickConnect(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -207,9 +207,9 @@ public partial class AwsConnectQuickConnect(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

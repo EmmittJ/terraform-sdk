@@ -52,9 +52,9 @@ public partial class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalName is required")]
     public required TerraformValue<string> PrincipalName
     {
-        get => GetArgument<TerraformValue<string>>("principal_name");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_name");
         set => SetArgument("principal_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformValue<string> PrincipalType
     {
-        get => GetArgument<TerraformValue<string>>("principal_type");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_type");
         set => SetArgument("principal_type", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformValue<string> ServerName
     {
-        get => GetArgument<TerraformValue<string>>("server_name");
+        get => GetRequiredArgument<TerraformValue<string>>("server_name");
         set => SetArgument("server_name", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

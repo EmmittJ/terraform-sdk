@@ -77,7 +77,7 @@ public class GoogleGkeonpremBareMetalAdminClusterControlPlaneBlockApiServerArgsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Argument is required")]
     public required TerraformValue<string> Argument
     {
-        get => GetArgument<TerraformValue<string>>("argument");
+        get => GetRequiredArgument<TerraformValue<string>>("argument");
         set => SetArgument("argument", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleGkeonpremBareMetalAdminClusterControlPlaneBlockApiServerArgsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -325,7 +325,7 @@ public class GoogleGkeonpremBareMetalAdminClusterLoadBalancerBlockManualLbConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -348,7 +348,7 @@ public class GoogleGkeonpremBareMetalAdminClusterLoadBalancerBlockPortConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPlaneLoadBalancerPort is required")]
     public required TerraformValue<double> ControlPlaneLoadBalancerPort
     {
-        get => GetArgument<TerraformValue<double>>("control_plane_load_balancer_port");
+        get => GetRequiredArgument<TerraformValue<double>>("control_plane_load_balancer_port");
         set => SetArgument("control_plane_load_balancer_port", value);
     }
 
@@ -371,7 +371,7 @@ public class GoogleGkeonpremBareMetalAdminClusterLoadBalancerBlockVipConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPlaneVip is required")]
     public required TerraformValue<string> ControlPlaneVip
     {
-        get => GetArgument<TerraformValue<string>>("control_plane_vip");
+        get => GetRequiredArgument<TerraformValue<string>>("control_plane_vip");
         set => SetArgument("control_plane_vip", value);
     }
 
@@ -540,7 +540,7 @@ public class GoogleGkeonpremBareMetalAdminClusterProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -612,7 +612,7 @@ public class GoogleGkeonpremBareMetalAdminClusterSecurityConfigBlockAuthorizatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -675,7 +675,7 @@ public class GoogleGkeonpremBareMetalAdminClusterStorageBlockLvpNodeMountsConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -685,7 +685,7 @@ public class GoogleGkeonpremBareMetalAdminClusterStorageBlockLvpNodeMountsConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformValue<string> StorageClass
     {
-        get => GetArgument<TerraformValue<string>>("storage_class");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -743,7 +743,7 @@ public class GoogleGkeonpremBareMetalAdminClusterStorageBlockLvpShareConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -753,7 +753,7 @@ public class GoogleGkeonpremBareMetalAdminClusterStorageBlockLvpShareConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformValue<string> StorageClass
     {
-        get => GetArgument<TerraformValue<string>>("storage_class");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -848,9 +848,9 @@ public partial class GoogleGkeonpremBareMetalAdminCluster(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -860,7 +860,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -870,16 +870,16 @@ public partial class GoogleGkeonpremBareMetalAdminCluster(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

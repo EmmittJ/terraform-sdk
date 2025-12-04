@@ -146,7 +146,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FamilyName is required")]
     public required TerraformValue<string> FamilyName
     {
-        get => GetArgument<TerraformValue<string>>("family_name");
+        get => GetRequiredArgument<TerraformValue<string>>("family_name");
         set => SetArgument("family_name", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GivenName is required")]
     public required TerraformValue<string> GivenName
     {
-        get => GetArgument<TerraformValue<string>>("given_name");
+        get => GetRequiredArgument<TerraformValue<string>>("given_name");
         set => SetArgument("given_name", value);
     }
 
@@ -252,16 +252,16 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformValue<string> IdentityStoreId
     {
-        get => GetArgument<TerraformValue<string>>("identity_store_id");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_store_id");
         set => SetArgument("identity_store_id", value);
     }
 
@@ -314,9 +314,9 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -344,7 +344,7 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => GetArgument<TerraformValue<string>>("user_name");
+        get => GetRequiredArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 

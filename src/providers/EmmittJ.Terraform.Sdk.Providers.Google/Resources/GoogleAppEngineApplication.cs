@@ -19,7 +19,7 @@ public class GoogleAppEngineApplicationFeatureSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SplitHealthChecks is required")]
     public required TerraformValue<bool> SplitHealthChecks
     {
-        get => GetArgument<TerraformValue<bool>>("split_health_checks");
+        get => GetRequiredArgument<TerraformValue<bool>>("split_health_checks");
         set => SetArgument("split_health_checks", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauth2ClientId is required")]
     public required TerraformValue<string> Oauth2ClientId
     {
-        get => GetArgument<TerraformValue<string>>("oauth2_client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("oauth2_client_id");
         set => SetArgument("oauth2_client_id", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauth2ClientSecret is required")]
     public required TerraformValue<string> Oauth2ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("oauth2_client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("oauth2_client_secret");
         set => SetArgument("oauth2_client_secret", value);
     }
 
@@ -116,27 +116,27 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     /// <summary>
     /// The domain to authenticate users with when using App Engine&#39;s User API.
     /// </summary>
-    public TerraformValue<string>? AuthDomain
+    public TerraformValue<string> AuthDomain
     {
-        get => GetArgument<TerraformValue<string>>("auth_domain");
+        get => GetArgument<TerraformValue<string>>("auth_domain") ?? AsReference("auth_domain");
         set => SetArgument("auth_domain", value);
     }
 
     /// <summary>
     /// The database_type attribute.
     /// </summary>
-    public TerraformValue<string>? DatabaseType
+    public TerraformValue<string> DatabaseType
     {
-        get => GetArgument<TerraformValue<string>>("database_type");
+        get => GetArgument<TerraformValue<string>>("database_type") ?? AsReference("database_type");
         set => SetArgument("database_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -146,34 +146,34 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationId is required")]
     public required TerraformValue<string> LocationId
     {
-        get => GetArgument<TerraformValue<string>>("location_id");
+        get => GetRequiredArgument<TerraformValue<string>>("location_id");
         set => SetArgument("location_id", value);
     }
 
     /// <summary>
     /// The project ID to create the application under.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The serving status of the app.
     /// </summary>
-    public TerraformValue<string>? ServingStatus
+    public TerraformValue<string> ServingStatus
     {
-        get => GetArgument<TerraformValue<string>>("serving_status");
+        get => GetArgument<TerraformValue<string>>("serving_status") ?? AsReference("serving_status");
         set => SetArgument("serving_status", value);
     }
 
     /// <summary>
     /// The SSL policy that will be applied to the application. If set to Modern it will restrict traffic with TLS \u003c 1.2 and allow only Modern Ciphers suite
     /// </summary>
-    public TerraformValue<string>? SslPolicy
+    public TerraformValue<string> SslPolicy
     {
-        get => GetArgument<TerraformValue<string>>("ssl_policy");
+        get => GetArgument<TerraformValue<string>>("ssl_policy") ?? AsReference("ssl_policy");
         set => SetArgument("ssl_policy", value);
     }
 

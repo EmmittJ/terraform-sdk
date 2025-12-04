@@ -69,7 +69,7 @@ public class AwsS3AccessPointVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -85,9 +85,9 @@ public partial class AwsS3AccessPoint(string name) : TerraformResource("aws_s3_a
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AccountId
+    public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -97,25 +97,25 @@ public partial class AwsS3AccessPoint(string name) : TerraformResource("aws_s3_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The bucket_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? BucketAccountId
+    public TerraformValue<string> BucketAccountId
     {
-        get => GetArgument<TerraformValue<string>>("bucket_account_id");
+        get => GetArgument<TerraformValue<string>>("bucket_account_id") ?? AsReference("bucket_account_id");
         set => SetArgument("bucket_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -125,25 +125,25 @@ public partial class AwsS3AccessPoint(string name) : TerraformResource("aws_s3_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformValue<string>? Policy
+    public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -159,9 +159,9 @@ public partial class AwsS3AccessPoint(string name) : TerraformResource("aws_s3_a
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

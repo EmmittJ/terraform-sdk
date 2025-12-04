@@ -131,7 +131,7 @@ public class GoogleNetworkServicesTcpRouteRulesBlockMatchesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformValue<string> Address
     {
-        get => GetArgument<TerraformValue<string>>("address");
+        get => GetRequiredArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleNetworkServicesTcpRouteRulesBlockMatchesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<string> Port
     {
-        get => GetArgument<TerraformValue<string>>("port");
+        get => GetRequiredArgument<TerraformValue<string>>("port");
         set => SetArgument("port", value);
     }
 
@@ -217,9 +217,9 @@ public partial class GoogleNetworkServicesTcpRoute(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -252,16 +252,16 @@ public partial class GoogleNetworkServicesTcpRoute(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

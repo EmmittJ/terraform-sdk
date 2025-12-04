@@ -29,7 +29,7 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformValue<bool> SiteToSiteDataTransfer
     {
-        get => GetArgument<TerraformValue<bool>>("site_to_site_data_transfer");
+        get => GetRequiredArgument<TerraformValue<bool>>("site_to_site_data_transfer");
         set => SetArgument("site_to_site_data_transfer", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     public required TerraformValue<string> Peering
     {
-        get => GetArgument<TerraformValue<string>>("peering");
+        get => GetRequiredArgument<TerraformValue<string>>("peering");
         set => SetArgument("peering", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformValue<bool> SiteToSiteDataTransfer
     {
-        get => GetArgument<TerraformValue<bool>>("site_to_site_data_transfer");
+        get => GetRequiredArgument<TerraformValue<bool>>("site_to_site_data_transfer");
         set => SetArgument("site_to_site_data_transfer", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachine is required")]
     public required TerraformValue<string> VirtualMachine
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine");
         set => SetArgument("virtual_machine", value);
     }
 
@@ -218,7 +218,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -252,7 +252,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformValue<bool> SiteToSiteDataTransfer
     {
-        get => GetArgument<TerraformValue<bool>>("site_to_site_data_transfer");
+        get => GetRequiredArgument<TerraformValue<bool>>("site_to_site_data_transfer");
         set => SetArgument("site_to_site_data_transfer", value);
     }
 
@@ -328,9 +328,9 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     /// <summary>
     /// The name of the group that this spoke is associated with.
     /// </summary>
-    public TerraformValue<string>? Group
+    public TerraformValue<string> Group
     {
-        get => GetArgument<TerraformValue<string>>("group");
+        get => GetArgument<TerraformValue<string>>("group") ?? AsReference("group");
         set => SetArgument("group", value);
     }
 
@@ -340,16 +340,16 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hub is required")]
     public required TerraformValue<string> Hub
     {
-        get => GetArgument<TerraformValue<string>>("hub");
+        get => GetRequiredArgument<TerraformValue<string>>("hub");
         set => SetArgument("hub", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -371,7 +371,7 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -381,16 +381,16 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

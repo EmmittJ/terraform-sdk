@@ -73,7 +73,7 @@ public partial class AzurermDevTestPolicy(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluatorType is required")]
     public required TerraformValue<string> EvaluatorType
     {
-        get => GetArgument<TerraformValue<string>>("evaluator_type");
+        get => GetRequiredArgument<TerraformValue<string>>("evaluator_type");
         set => SetArgument("evaluator_type", value);
     }
 
@@ -89,9 +89,9 @@ public partial class AzurermDevTestPolicy(string name) : TerraformResource("azur
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermDevTestPolicy(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformValue<string> LabName
     {
-        get => GetArgument<TerraformValue<string>>("lab_name");
+        get => GetRequiredArgument<TerraformValue<string>>("lab_name");
         set => SetArgument("lab_name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermDevTestPolicy(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermDevTestPolicy(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySetName is required")]
     public required TerraformValue<string> PolicySetName
     {
-        get => GetArgument<TerraformValue<string>>("policy_set_name");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_set_name");
         set => SetArgument("policy_set_name", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermDevTestPolicy(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermDevTestPolicy(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<string> Threshold
     {
-        get => GetArgument<TerraformValue<string>>("threshold");
+        get => GetRequiredArgument<TerraformValue<string>>("threshold");
         set => SetArgument("threshold", value);
     }
 

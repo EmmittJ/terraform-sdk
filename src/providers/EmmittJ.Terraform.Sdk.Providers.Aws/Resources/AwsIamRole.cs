@@ -47,7 +47,7 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssumeRolePolicy is required")]
     public required TerraformValue<string> AssumeRolePolicy
     {
-        get => GetArgument<TerraformValue<string>>("assume_role_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("assume_role_policy");
         set => SetArgument("assume_role_policy", value);
     }
 
@@ -72,9 +72,9 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,9 +82,9 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// The managed_policy_arns attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformSet<string>? ManagedPolicyArns
+    public TerraformSet<string> ManagedPolicyArns
     {
-        get => GetArgument<TerraformSet<string>>("managed_policy_arns");
+        get => GetArgument<TerraformSet<string>>("managed_policy_arns") ?? AsReference("managed_policy_arns");
         set => SetArgument("managed_policy_arns", value);
     }
 
@@ -100,18 +100,18 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? NamePrefix
+    public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -145,9 +145,9 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

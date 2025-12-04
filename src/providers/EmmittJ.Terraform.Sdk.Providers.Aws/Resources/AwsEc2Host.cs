@@ -52,9 +52,9 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// <summary>
     /// The asset_id attribute.
     /// </summary>
-    public TerraformValue<string>? AssetId
+    public TerraformValue<string> AssetId
     {
-        get => GetArgument<TerraformValue<string>>("asset_id");
+        get => GetArgument<TerraformValue<string>>("asset_id") ?? AsReference("asset_id");
         set => SetArgument("asset_id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
     public required TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -89,9 +89,9 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -125,9 +125,9 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -143,9 +143,9 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

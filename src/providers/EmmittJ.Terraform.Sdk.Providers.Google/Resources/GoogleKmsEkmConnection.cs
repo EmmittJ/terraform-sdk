@@ -16,9 +16,9 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     /// <summary>
     /// Optional. The filter applied to the endpoints of the resolved service. If no filter is specified, all endpoints will be considered. An endpoint will be chosen arbitrarily from the filtered list for each request. For endpoint filter syntax and examples, see https://cloud.google.com/service-directory/docs/reference/rpc/google.cloud.servicedirectory.v1#resolveservicerequest.
     /// </summary>
-    public TerraformValue<string>? EndpointFilter
+    public TerraformValue<string> EndpointFilter
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_filter");
+        get => GetArgument<TerraformValue<string>>("endpoint_filter") ?? AsReference("endpoint_filter");
         set => SetArgument("endpoint_filter", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceDirectoryService is required")]
     public required TerraformValue<string> ServiceDirectoryService
     {
-        get => GetArgument<TerraformValue<string>>("service_directory_service");
+        get => GetRequiredArgument<TerraformValue<string>>("service_directory_service");
         set => SetArgument("service_directory_service", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlockServerCertificatesBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RawDer is required")]
     public required TerraformValue<string> RawDer
     {
-        get => GetArgument<TerraformValue<string>>("raw_der");
+        get => GetRequiredArgument<TerraformValue<string>>("raw_der");
         set => SetArgument("raw_der", value);
     }
 
@@ -124,9 +124,9 @@ public class GoogleKmsEkmConnectionServiceResolversBlockServerCertificatesBlock 
     /// <summary>
     /// Output only. The subject Alternative DNS names. Only present if parsed is true.
     /// </summary>
-    public TerraformList<string>? SubjectAlternativeDnsNames
+    public TerraformList<string> SubjectAlternativeDnsNames
     {
-        get => GetArgument<TerraformList<string>>("subject_alternative_dns_names");
+        get => GetArgument<TerraformList<string>>("subject_alternative_dns_names") ?? AsReference("subject_alternative_dns_names");
         set => SetArgument("subject_alternative_dns_names", value);
     }
 
@@ -183,27 +183,27 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     /// <summary>
     /// Optional. Identifies the EKM Crypto Space that this EkmConnection maps to. Note: This field is required if KeyManagementMode is CLOUD_KMS.
     /// </summary>
-    public TerraformValue<string>? CryptoSpacePath
+    public TerraformValue<string> CryptoSpacePath
     {
-        get => GetArgument<TerraformValue<string>>("crypto_space_path");
+        get => GetArgument<TerraformValue<string>>("crypto_space_path") ?? AsReference("crypto_space_path");
         set => SetArgument("crypto_space_path", value);
     }
 
     /// <summary>
     /// Optional. Etag of the currently stored EkmConnection.
     /// </summary>
-    public TerraformValue<string>? Etag
+    public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
         set => SetArgument("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -223,7 +223,7 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -233,16 +233,16 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

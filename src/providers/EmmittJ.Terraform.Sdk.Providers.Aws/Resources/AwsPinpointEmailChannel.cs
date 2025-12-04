@@ -14,7 +14,7 @@ public partial class AwsPinpointEmailChannel(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsPinpointEmailChannel(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromAddress is required")]
     public required TerraformValue<string> FromAddress
     {
-        get => GetArgument<TerraformValue<string>>("from_address");
+        get => GetRequiredArgument<TerraformValue<string>>("from_address");
         set => SetArgument("from_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsPinpointEmailChannel(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     public required TerraformValue<string> Identity
     {
-        get => GetArgument<TerraformValue<string>>("identity");
+        get => GetRequiredArgument<TerraformValue<string>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -77,9 +77,9 @@ public partial class AwsPinpointEmailChannel(string name) : TerraformResource("a
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

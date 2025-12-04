@@ -55,7 +55,7 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUserName is required")]
     public required TerraformValue<string> AdminUserName
     {
-        get => GetArgument<TerraformValue<string>>("admin_user_name");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_user_name");
         set => SetArgument("admin_user_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUserPassword is required")]
     public required TerraformValue<string> AdminUserPassword
     {
-        get => GetArgument<TerraformValue<string>>("admin_user_password");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_user_password");
         set => SetArgument("admin_user_password", value);
     }
 
@@ -75,25 +75,25 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => GetArgument<TerraformValue<string>>("auth_type");
+        get => GetRequiredArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
     /// <summary>
     /// The backup_retention_period attribute.
     /// </summary>
-    public TerraformValue<double>? BackupRetentionPeriod
+    public TerraformValue<double> BackupRetentionPeriod
     {
-        get => GetArgument<TerraformValue<double>>("backup_retention_period");
+        get => GetArgument<TerraformValue<double>>("backup_retention_period") ?? AsReference("backup_retention_period");
         set => SetArgument("backup_retention_period", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -103,34 +103,34 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredBackupWindow
+    public TerraformValue<string> PreferredBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_backup_window");
+        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? AsReference("preferred_backup_window");
         set => SetArgument("preferred_backup_window", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredMaintenanceWindow
+    public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCapacity is required")]
     public required TerraformValue<double> ShardCapacity
     {
-        get => GetArgument<TerraformValue<double>>("shard_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("shard_capacity");
         set => SetArgument("shard_capacity", value);
     }
 
@@ -150,16 +150,16 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
     public required TerraformValue<double> ShardCount
     {
-        get => GetArgument<TerraformValue<double>>("shard_count");
+        get => GetRequiredArgument<TerraformValue<double>>("shard_count");
         set => SetArgument("shard_count", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SubnetIds
+    public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -175,9 +175,9 @@ public partial class AwsDocdbelasticCluster(string name) : TerraformResource("aw
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? VpcSecurityGroupIds
+    public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 

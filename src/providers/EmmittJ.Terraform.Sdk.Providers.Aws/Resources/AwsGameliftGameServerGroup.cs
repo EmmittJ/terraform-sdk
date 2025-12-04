@@ -16,9 +16,9 @@ public class AwsGameliftGameServerGroupAutoScalingPolicyBlock : TerraformBlock
     /// <summary>
     /// The estimated_instance_warmup attribute.
     /// </summary>
-    public TerraformValue<double>? EstimatedInstanceWarmup
+    public TerraformValue<double> EstimatedInstanceWarmup
     {
-        get => GetArgument<TerraformValue<double>>("estimated_instance_warmup");
+        get => GetArgument<TerraformValue<double>>("estimated_instance_warmup") ?? AsReference("estimated_instance_warmup");
         set => SetArgument("estimated_instance_warmup", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsGameliftGameServerGroupAutoScalingPolicyBlockTargetTrackingConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetValue is required")]
     public required TerraformValue<double> TargetValue
     {
-        get => GetArgument<TerraformValue<double>>("target_value");
+        get => GetRequiredArgument<TerraformValue<double>>("target_value");
         set => SetArgument("target_value", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsGameliftGameServerGroupInstanceDefinitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -108,18 +108,18 @@ public class AwsGameliftGameServerGroupLaunchTemplateBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -176,9 +176,9 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// <summary>
     /// The balancing_strategy attribute.
     /// </summary>
-    public TerraformValue<string>? BalancingStrategy
+    public TerraformValue<string> BalancingStrategy
     {
-        get => GetArgument<TerraformValue<string>>("balancing_strategy");
+        get => GetArgument<TerraformValue<string>>("balancing_strategy") ?? AsReference("balancing_strategy");
         set => SetArgument("balancing_strategy", value);
     }
 
@@ -188,25 +188,25 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GameServerGroupName is required")]
     public required TerraformValue<string> GameServerGroupName
     {
-        get => GetArgument<TerraformValue<string>>("game_server_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("game_server_group_name");
         set => SetArgument("game_server_group_name", value);
     }
 
     /// <summary>
     /// The game_server_protection_policy attribute.
     /// </summary>
-    public TerraformValue<string>? GameServerProtectionPolicy
+    public TerraformValue<string> GameServerProtectionPolicy
     {
-        get => GetArgument<TerraformValue<string>>("game_server_protection_policy");
+        get => GetArgument<TerraformValue<string>>("game_server_protection_policy") ?? AsReference("game_server_protection_policy");
         set => SetArgument("game_server_protection_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
     public required TerraformValue<double> MaxSize
     {
-        get => GetArgument<TerraformValue<double>>("max_size");
+        get => GetRequiredArgument<TerraformValue<double>>("max_size");
         set => SetArgument("max_size", value);
     }
 
@@ -226,16 +226,16 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
     public required TerraformValue<double> MinSize
     {
-        get => GetArgument<TerraformValue<double>>("min_size");
+        get => GetRequiredArgument<TerraformValue<double>>("min_size");
         set => SetArgument("min_size", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -245,7 +245,7 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -261,9 +261,9 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

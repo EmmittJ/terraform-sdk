@@ -52,7 +52,7 @@ public class AwsSagemakerWorkteamMemberDefinitionBlockCognitoMemberDefinitionBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsSagemakerWorkteamMemberDefinitionBlockCognitoMemberDefinitionBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserGroup is required")]
     public required TerraformValue<string> UserGroup
     {
-        get => GetArgument<TerraformValue<string>>("user_group");
+        get => GetRequiredArgument<TerraformValue<string>>("user_group");
         set => SetArgument("user_group", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsSagemakerWorkteamMemberDefinitionBlockCognitoMemberDefinitionBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPool is required")]
     public required TerraformValue<string> UserPool
     {
-        get => GetArgument<TerraformValue<string>>("user_pool");
+        get => GetRequiredArgument<TerraformValue<string>>("user_pool");
         set => SetArgument("user_pool", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsSagemakerWorkteamMemberDefinitionBlockOidcMemberDefinitionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Groups is required")]
     public required TerraformSet<string> Groups
     {
-        get => GetArgument<TerraformSet<string>>("groups");
+        get => GetRequiredArgument<TerraformSet<string>>("groups");
         set => SetArgument("groups", value);
     }
 
@@ -185,18 +185,18 @@ public class AwsSagemakerWorkteamWorkerAccessConfigurationBlockS3PresignBlockIam
     /// <summary>
     /// The source_ip attribute.
     /// </summary>
-    public TerraformValue<string>? SourceIp
+    public TerraformValue<string> SourceIp
     {
-        get => GetArgument<TerraformValue<string>>("source_ip");
+        get => GetArgument<TerraformValue<string>>("source_ip") ?? AsReference("source_ip");
         set => SetArgument("source_ip", value);
     }
 
     /// <summary>
     /// The vpc_source_ip attribute.
     /// </summary>
-    public TerraformValue<string>? VpcSourceIp
+    public TerraformValue<string> VpcSourceIp
     {
-        get => GetArgument<TerraformValue<string>>("vpc_source_ip");
+        get => GetArgument<TerraformValue<string>>("vpc_source_ip") ?? AsReference("vpc_source_ip");
         set => SetArgument("vpc_source_ip", value);
     }
 
@@ -215,25 +215,25 @@ public partial class AwsSagemakerWorkteam(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -249,9 +249,9 @@ public partial class AwsSagemakerWorkteam(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AwsSagemakerWorkteam(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkteamName is required")]
     public required TerraformValue<string> WorkteamName
     {
-        get => GetArgument<TerraformValue<string>>("workteam_name");
+        get => GetRequiredArgument<TerraformValue<string>>("workteam_name");
         set => SetArgument("workteam_name", value);
     }
 

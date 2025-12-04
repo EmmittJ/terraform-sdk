@@ -16,9 +16,9 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// <summary>
     /// The gateway_load_balancer_frontend_ip_configuration_id attribute.
     /// </summary>
-    public TerraformValue<string>? GatewayLoadBalancerFrontendIpConfigurationId
+    public TerraformValue<string> GatewayLoadBalancerFrontendIpConfigurationId
     {
-        get => GetArgument<TerraformValue<string>>("gateway_load_balancer_frontend_ip_configuration_id");
+        get => GetArgument<TerraformValue<string>>("gateway_load_balancer_frontend_ip_configuration_id") ?? AsReference("gateway_load_balancer_frontend_ip_configuration_id");
         set => SetArgument("gateway_load_balancer_frontend_ip_configuration_id", value);
     }
 
@@ -28,25 +28,25 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The primary attribute.
     /// </summary>
-    public TerraformValue<bool>? Primary
+    public TerraformValue<bool> Primary
     {
-        get => GetArgument<TerraformValue<bool>>("primary");
+        get => GetArgument<TerraformValue<bool>>("primary") ?? AsReference("primary");
         set => SetArgument("primary", value);
     }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateIpAddress
+    public TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? AsReference("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddressAllocation is required")]
     public required TerraformValue<string> PrivateIpAddressAllocation
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address_allocation");
+        get => GetRequiredArgument<TerraformValue<string>>("private_ip_address_allocation");
         set => SetArgument("private_ip_address_allocation", value);
     }
 
@@ -194,9 +194,9 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -234,7 +234,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

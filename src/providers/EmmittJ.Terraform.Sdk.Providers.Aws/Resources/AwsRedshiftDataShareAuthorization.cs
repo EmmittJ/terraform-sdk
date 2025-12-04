@@ -23,7 +23,7 @@ public partial class AwsRedshiftDataShareAuthorization(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerIdentifier is required")]
     public required TerraformValue<string> ConsumerIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("consumer_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_identifier");
         set => SetArgument("consumer_identifier", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsRedshiftDataShareAuthorization(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareArn is required")]
     public required TerraformValue<string> DataShareArn
     {
-        get => GetArgument<TerraformValue<string>>("data_share_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("data_share_arn");
         set => SetArgument("data_share_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

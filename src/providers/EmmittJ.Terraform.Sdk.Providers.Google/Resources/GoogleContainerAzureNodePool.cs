@@ -19,7 +19,7 @@ public class GoogleContainerAzureNodePoolAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformValue<double> MaxNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("max_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleContainerAzureNodePoolAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformValue<double> MinNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("min_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -68,9 +68,9 @@ public class GoogleContainerAzureNodePoolConfigBlock : TerraformBlock
     /// <summary>
     /// Optional. The Azure VM size name. Example: `Standard_DS2_v2`. See (/anthos/clusters/docs/azure/reference/supported-vms) for options. When unspecified, it defaults to `Standard_DS2_v2`.
     /// </summary>
-    public TerraformValue<string>? VmSize
+    public TerraformValue<string> VmSize
     {
-        get => GetArgument<TerraformValue<string>>("vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size") ?? AsReference("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleContainerAzureNodePoolConfigBlockProxyConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformValue<string> ResourceGroupId
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_id");
         set => SetArgument("resource_group_id", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleContainerAzureNodePoolConfigBlockProxyConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => GetArgument<TerraformValue<string>>("secret_id");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -156,9 +156,9 @@ public class GoogleContainerAzureNodePoolConfigBlockRootVolumeBlock : TerraformB
     /// <summary>
     /// Optional. The size of the disk, in GiBs. When unspecified, a default value is provided. See the specific reference in the parent resource.
     /// </summary>
-    public TerraformValue<double>? SizeGib
+    public TerraformValue<double> SizeGib
     {
-        get => GetArgument<TerraformValue<double>>("size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib") ?? AsReference("size_gib");
         set => SetArgument("size_gib", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleContainerAzureNodePoolConfigBlockSshConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizedKey is required")]
     public required TerraformValue<string> AuthorizedKey
     {
-        get => GetArgument<TerraformValue<string>>("authorized_key");
+        get => GetRequiredArgument<TerraformValue<string>>("authorized_key");
         set => SetArgument("authorized_key", value);
     }
 
@@ -202,9 +202,9 @@ public class GoogleContainerAzureNodePoolManagementBlock : TerraformBlock
     /// <summary>
     /// Optional. Whether or not the nodes will be automatically repaired.
     /// </summary>
-    public TerraformValue<bool>? AutoRepair
+    public TerraformValue<bool> AutoRepair
     {
-        get => GetArgument<TerraformValue<bool>>("auto_repair");
+        get => GetArgument<TerraformValue<bool>>("auto_repair") ?? AsReference("auto_repair");
         set => SetArgument("auto_repair", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleContainerAzureNodePoolMaxPodsConstraintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPodsPerNode is required")]
     public required TerraformValue<double> MaxPodsPerNode
     {
-        get => GetArgument<TerraformValue<double>>("max_pods_per_node");
+        get => GetRequiredArgument<TerraformValue<double>>("max_pods_per_node");
         set => SetArgument("max_pods_per_node", value);
     }
 
@@ -297,9 +297,9 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     /// <summary>
     /// Optional. The Azure availability zone of the nodes in this nodepool. When unspecified, it defaults to `1`.
     /// </summary>
-    public TerraformValue<string>? AzureAvailabilityZone
+    public TerraformValue<string> AzureAvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("azure_availability_zone");
+        get => GetArgument<TerraformValue<string>>("azure_availability_zone") ?? AsReference("azure_availability_zone");
         set => SetArgument("azure_availability_zone", value);
     }
 
@@ -309,16 +309,16 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -328,7 +328,7 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -338,16 +338,16 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -357,7 +357,7 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -367,7 +367,7 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

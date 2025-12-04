@@ -19,7 +19,7 @@ public class AzurermTrafficManagerNestedEndpointCustomHeaderBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermTrafficManagerNestedEndpointCustomHeaderBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermTrafficManagerNestedEndpointSubnetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "First is required")]
     public required TerraformValue<string> First
     {
-        get => GetArgument<TerraformValue<string>>("first");
+        get => GetRequiredArgument<TerraformValue<string>>("first");
         set => SetArgument("first", value);
     }
 
@@ -146,9 +146,9 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     /// <summary>
     /// The endpoint_location attribute.
     /// </summary>
-    public TerraformValue<string>? EndpointLocation
+    public TerraformValue<string> EndpointLocation
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_location");
+        get => GetArgument<TerraformValue<string>>("endpoint_location") ?? AsReference("endpoint_location");
         set => SetArgument("endpoint_location", value);
     }
 
@@ -164,9 +164,9 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumChildEndpoints is required")]
     public required TerraformValue<double> MinimumChildEndpoints
     {
-        get => GetArgument<TerraformValue<double>>("minimum_child_endpoints");
+        get => GetRequiredArgument<TerraformValue<double>>("minimum_child_endpoints");
         set => SetArgument("minimum_child_endpoints", value);
     }
 
@@ -204,16 +204,16 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformValue<double>? Priority
+    public TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetArgument<TerraformValue<double>>("priority") ?? AsReference("priority");
         set => SetArgument("priority", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformValue<string> ProfileId
     {
-        get => GetArgument<TerraformValue<string>>("profile_id");
+        get => GetRequiredArgument<TerraformValue<string>>("profile_id");
         set => SetArgument("profile_id", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformValue<string> TargetResourceId
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 

@@ -50,7 +50,7 @@ public class AwsPrometheusQueryLoggingConfigurationDestinationBlockCloudwatchLog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupArn is required")]
     public required TerraformValue<string> LogGroupArn
     {
-        get => GetArgument<TerraformValue<string>>("log_group_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("log_group_arn");
         set => SetArgument("log_group_arn", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsPrometheusQueryLoggingConfigurationDestinationBlockFiltersBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QspThreshold is required")]
     public required TerraformValue<double> QspThreshold
     {
-        get => GetArgument<TerraformValue<double>>("qsp_threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("qsp_threshold");
         set => SetArgument("qsp_threshold", value);
     }
 
@@ -130,9 +130,9 @@ public partial class AwsPrometheusQueryLoggingConfiguration(string name) : Terra
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsPrometheusQueryLoggingConfiguration(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

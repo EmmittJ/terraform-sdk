@@ -37,7 +37,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlockMetricBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => GetArgument<TerraformValue<string>>("metric_name");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlockMetricBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Period is required")]
     public required TerraformValue<double> Period
     {
-        get => GetArgument<TerraformValue<double>>("period");
+        get => GetRequiredArgument<TerraformValue<double>>("period");
         set => SetArgument("period", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlockMetricBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stat is required")]
     public required TerraformValue<string> Stat
     {
-        get => GetArgument<TerraformValue<string>>("stat");
+        get => GetRequiredArgument<TerraformValue<string>>("stat");
         set => SetArgument("stat", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
     public required TerraformValue<string> AlarmName
     {
-        get => GetArgument<TerraformValue<string>>("alarm_name");
+        get => GetRequiredArgument<TerraformValue<string>>("alarm_name");
         set => SetArgument("alarm_name", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
     public required TerraformValue<string> ComparisonOperator
     {
-        get => GetArgument<TerraformValue<string>>("comparison_operator");
+        get => GetRequiredArgument<TerraformValue<string>>("comparison_operator");
         set => SetArgument("comparison_operator", value);
     }
 
@@ -225,9 +225,9 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// <summary>
     /// The evaluate_low_sample_count_percentiles attribute.
     /// </summary>
-    public TerraformValue<string>? EvaluateLowSampleCountPercentiles
+    public TerraformValue<string> EvaluateLowSampleCountPercentiles
     {
-        get => GetArgument<TerraformValue<string>>("evaluate_low_sample_count_percentiles");
+        get => GetArgument<TerraformValue<string>>("evaluate_low_sample_count_percentiles") ?? AsReference("evaluate_low_sample_count_percentiles");
         set => SetArgument("evaluate_low_sample_count_percentiles", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationPeriods is required")]
     public required TerraformValue<double> EvaluationPeriods
     {
-        get => GetArgument<TerraformValue<double>>("evaluation_periods");
+        get => GetRequiredArgument<TerraformValue<double>>("evaluation_periods");
         set => SetArgument("evaluation_periods", value);
     }
 
@@ -253,9 +253,9 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -307,9 +307,9 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -334,9 +334,9 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

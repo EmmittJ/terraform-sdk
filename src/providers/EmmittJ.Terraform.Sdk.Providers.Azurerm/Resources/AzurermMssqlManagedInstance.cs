@@ -28,7 +28,7 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginUsername is required")]
     public required TerraformValue<string> LoginUsername
     {
-        get => GetArgument<TerraformValue<string>>("login_username");
+        get => GetRequiredArgument<TerraformValue<string>>("login_username");
         set => SetArgument("login_username", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -48,7 +48,7 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformValue<string> PrincipalType
     {
-        get => GetArgument<TerraformValue<string>>("principal_type");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_type");
         set => SetArgument("principal_type", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermMssqlManagedInstanceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -168,9 +168,9 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
-    public TerraformValue<string>? AdministratorLogin
+    public TerraformValue<string> AdministratorLogin
     {
-        get => GetArgument<TerraformValue<string>>("administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login") ?? AsReference("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -222,9 +222,9 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -234,7 +234,7 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformValue<string> LicenseType
     {
-        get => GetArgument<TerraformValue<string>>("license_type");
+        get => GetRequiredArgument<TerraformValue<string>>("license_type");
         set => SetArgument("license_type", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -272,7 +272,7 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -300,7 +300,7 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -319,7 +319,7 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -338,7 +338,7 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSizeInGb is required")]
     public required TerraformValue<double> StorageSizeInGb
     {
-        get => GetArgument<TerraformValue<double>>("storage_size_in_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("storage_size_in_gb");
         set => SetArgument("storage_size_in_gb", value);
     }
 
@@ -348,7 +348,7 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -376,7 +376,7 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vcores is required")]
     public required TerraformValue<double> Vcores
     {
-        get => GetArgument<TerraformValue<double>>("vcores");
+        get => GetRequiredArgument<TerraformValue<double>>("vcores");
         set => SetArgument("vcores", value);
     }
 

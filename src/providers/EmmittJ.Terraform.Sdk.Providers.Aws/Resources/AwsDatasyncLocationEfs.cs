@@ -19,7 +19,7 @@ public class AwsDatasyncLocationEfsEc2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupArns is required")]
     public required TerraformSet<string> SecurityGroupArns
     {
-        get => GetArgument<TerraformSet<string>>("security_group_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_arns");
         set => SetArgument("security_group_arns", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsDatasyncLocationEfsEc2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetArn is required")]
     public required TerraformValue<string> SubnetArn
     {
-        get => GetArgument<TerraformValue<string>>("subnet_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_arn");
         set => SetArgument("subnet_arn", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AwsDatasyncLocationEfs(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EfsFileSystemArn is required")]
     public required TerraformValue<string> EfsFileSystemArn
     {
-        get => GetArgument<TerraformValue<string>>("efs_file_system_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("efs_file_system_arn");
         set => SetArgument("efs_file_system_arn", value);
     }
 
@@ -73,9 +73,9 @@ public partial class AwsDatasyncLocationEfs(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,9 +91,9 @@ public partial class AwsDatasyncLocationEfs(string name) : TerraformResource("aw
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -118,9 +118,9 @@ public partial class AwsDatasyncLocationEfs(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

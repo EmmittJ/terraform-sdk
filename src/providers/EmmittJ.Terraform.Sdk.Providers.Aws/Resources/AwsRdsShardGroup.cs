@@ -52,9 +52,9 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     /// <summary>
     /// The compute_redundancy attribute.
     /// </summary>
-    public TerraformValue<double>? ComputeRedundancy
+    public TerraformValue<double> ComputeRedundancy
     {
-        get => GetArgument<TerraformValue<double>>("compute_redundancy");
+        get => GetArgument<TerraformValue<double>>("compute_redundancy") ?? AsReference("compute_redundancy");
         set => SetArgument("compute_redundancy", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
     public required TerraformValue<string> DbClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("db_cluster_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("db_cluster_identifier");
         set => SetArgument("db_cluster_identifier", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbShardGroupIdentifier is required")]
     public required TerraformValue<string> DbShardGroupIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("db_shard_group_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("db_shard_group_identifier");
         set => SetArgument("db_shard_group_identifier", value);
     }
 
@@ -84,34 +84,34 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAcu is required")]
     public required TerraformValue<double> MaxAcu
     {
-        get => GetArgument<TerraformValue<double>>("max_acu");
+        get => GetRequiredArgument<TerraformValue<double>>("max_acu");
         set => SetArgument("max_acu", value);
     }
 
     /// <summary>
     /// The min_acu attribute.
     /// </summary>
-    public TerraformValue<double>? MinAcu
+    public TerraformValue<double> MinAcu
     {
-        get => GetArgument<TerraformValue<double>>("min_acu");
+        get => GetArgument<TerraformValue<double>>("min_acu") ?? AsReference("min_acu");
         set => SetArgument("min_acu", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformValue<bool>? PubliclyAccessible
+    public TerraformValue<bool> PubliclyAccessible
     {
-        get => GetArgument<TerraformValue<bool>>("publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible") ?? AsReference("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

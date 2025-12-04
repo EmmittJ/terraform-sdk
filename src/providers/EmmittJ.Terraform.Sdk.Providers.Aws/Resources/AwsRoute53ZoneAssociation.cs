@@ -43,9 +43,9 @@ public partial class AwsRoute53ZoneAssociation(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsRoute53ZoneAssociation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
     /// <summary>
     /// The vpc_region attribute.
     /// </summary>
-    public TerraformValue<string>? VpcRegion
+    public TerraformValue<string> VpcRegion
     {
-        get => GetArgument<TerraformValue<string>>("vpc_region");
+        get => GetArgument<TerraformValue<string>>("vpc_region") ?? AsReference("vpc_region");
         set => SetArgument("vpc_region", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsRoute53ZoneAssociation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformValue<string> ZoneId
     {
-        get => GetArgument<TerraformValue<string>>("zone_id");
+        get => GetRequiredArgument<TerraformValue<string>>("zone_id");
         set => SetArgument("zone_id", value);
     }
 

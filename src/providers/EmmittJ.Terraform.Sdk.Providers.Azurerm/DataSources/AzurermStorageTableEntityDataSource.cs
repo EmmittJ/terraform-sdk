@@ -34,9 +34,9 @@ public partial class AzurermStorageTableEntityDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermStorageTableEntityDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     public required TerraformValue<string> PartitionKey
     {
-        get => GetArgument<TerraformValue<string>>("partition_key");
+        get => GetRequiredArgument<TerraformValue<string>>("partition_key");
         set => SetArgument("partition_key", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermStorageTableEntityDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
     public required TerraformValue<string> RowKey
     {
-        get => GetArgument<TerraformValue<string>>("row_key");
+        get => GetRequiredArgument<TerraformValue<string>>("row_key");
         set => SetArgument("row_key", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermStorageTableEntityDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
     public required TerraformValue<string> StorageTableId
     {
-        get => GetArgument<TerraformValue<string>>("storage_table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_table_id");
         set => SetArgument("storage_table_id", value);
     }
 

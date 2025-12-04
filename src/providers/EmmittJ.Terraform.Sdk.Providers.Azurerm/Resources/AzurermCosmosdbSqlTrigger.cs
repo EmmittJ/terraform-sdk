@@ -64,7 +64,7 @@ public partial class AzurermCosmosdbSqlTrigger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformValue<string> Body
     {
-        get => GetArgument<TerraformValue<string>>("body");
+        get => GetRequiredArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermCosmosdbSqlTrigger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     public required TerraformValue<string> ContainerId
     {
-        get => GetArgument<TerraformValue<string>>("container_id");
+        get => GetRequiredArgument<TerraformValue<string>>("container_id");
         set => SetArgument("container_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermCosmosdbSqlTrigger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermCosmosdbSqlTrigger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operation is required")]
     public required TerraformValue<string> Operation
     {
-        get => GetArgument<TerraformValue<string>>("operation");
+        get => GetRequiredArgument<TerraformValue<string>>("operation");
         set => SetArgument("operation", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermCosmosdbSqlTrigger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

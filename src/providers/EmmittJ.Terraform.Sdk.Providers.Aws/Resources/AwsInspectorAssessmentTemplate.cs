@@ -19,7 +19,7 @@ public class AwsInspectorAssessmentTemplateEventSubscriptionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventAttribute is required")]
     public required TerraformValue<string> EventAttribute
     {
-        get => GetArgument<TerraformValue<string>>("event");
+        get => GetRequiredArgument<TerraformValue<string>>("event");
         set => SetArgument("event", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsInspectorAssessmentTemplateEventSubscriptionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformValue<string> TopicArn
     {
-        get => GetArgument<TerraformValue<string>>("topic_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -48,16 +48,16 @@ public partial class AwsInspectorAssessmentTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<double> Duration
     {
-        get => GetArgument<TerraformValue<double>>("duration");
+        get => GetRequiredArgument<TerraformValue<double>>("duration");
         set => SetArgument("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -67,16 +67,16 @@ public partial class AwsInspectorAssessmentTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsInspectorAssessmentTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulesPackageArns is required")]
     public required TerraformSet<string> RulesPackageArns
     {
-        get => GetArgument<TerraformSet<string>>("rules_package_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("rules_package_arns");
         set => SetArgument("rules_package_arns", value);
     }
 
@@ -102,9 +102,9 @@ public partial class AwsInspectorAssessmentTemplate(string name) : TerraformReso
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsInspectorAssessmentTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformValue<string> TargetArn
     {
-        get => GetArgument<TerraformValue<string>>("target_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("target_arn");
         set => SetArgument("target_arn", value);
     }
 

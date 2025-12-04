@@ -80,7 +80,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlockGroupLabelsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Labels is required")]
     public required TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels");
+        get => GetRequiredArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecuteTime is required")]
     public required TerraformValue<string> ExecuteTime
     {
-        get => GetArgument<TerraformValue<string>>("execute_time");
+        get => GetRequiredArgument<TerraformValue<string>>("execute_time");
         set => SetArgument("execute_time", value);
     }
 
@@ -272,7 +272,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockGooBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -379,7 +379,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockLinuxExec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -389,7 +389,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockLinuxExec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GenerationNumber is required")]
     public required TerraformValue<string> GenerationNumber
     {
-        get => GetArgument<TerraformValue<string>>("generation_number");
+        get => GetRequiredArgument<TerraformValue<string>>("generation_number");
         set => SetArgument("generation_number", value);
     }
 
@@ -399,7 +399,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockLinuxExec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -473,7 +473,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockWindowsEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -483,7 +483,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockWindowsEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GenerationNumber is required")]
     public required TerraformValue<string> GenerationNumber
     {
-        get => GetArgument<TerraformValue<string>>("generation_number");
+        get => GetRequiredArgument<TerraformValue<string>>("generation_number");
         set => SetArgument("generation_number", value);
     }
 
@@ -493,7 +493,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockWindowsEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -600,7 +600,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockLinuxExecS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -610,7 +610,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockLinuxExecS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GenerationNumber is required")]
     public required TerraformValue<string> GenerationNumber
     {
-        get => GetArgument<TerraformValue<string>>("generation_number");
+        get => GetRequiredArgument<TerraformValue<string>>("generation_number");
         set => SetArgument("generation_number", value);
     }
 
@@ -620,7 +620,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockLinuxExecS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -694,7 +694,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockWindowsExe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -704,7 +704,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockWindowsExe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GenerationNumber is required")]
     public required TerraformValue<string> GenerationNumber
     {
-        get => GetArgument<TerraformValue<string>>("generation_number");
+        get => GetRequiredArgument<TerraformValue<string>>("generation_number");
         set => SetArgument("generation_number", value);
     }
 
@@ -714,7 +714,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockWindowsExe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1025,7 +1025,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockMonthlyBlockWeek
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => GetArgument<TerraformValue<string>>("day_of_week");
+        get => GetRequiredArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -1044,7 +1044,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockMonthlyBlockWeek
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WeekOrdinal is required")]
     public required TerraformValue<double> WeekOrdinal
     {
-        get => GetArgument<TerraformValue<double>>("week_ordinal");
+        get => GetRequiredArgument<TerraformValue<double>>("week_ordinal");
         set => SetArgument("week_ordinal", value);
     }
 
@@ -1117,7 +1117,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockTimeZoneBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1149,7 +1149,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockWeeklyBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => GetArgument<TerraformValue<string>>("day_of_week");
+        get => GetRequiredArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -1173,7 +1173,7 @@ public class GoogleOsConfigPatchDeploymentRolloutBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -1284,9 +1284,9 @@ public partial class GoogleOsConfigPatchDeployment(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1301,16 +1301,16 @@ public partial class GoogleOsConfigPatchDeployment(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchDeploymentId is required")]
     public required TerraformValue<string> PatchDeploymentId
     {
-        get => GetArgument<TerraformValue<string>>("patch_deployment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("patch_deployment_id");
         set => SetArgument("patch_deployment_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

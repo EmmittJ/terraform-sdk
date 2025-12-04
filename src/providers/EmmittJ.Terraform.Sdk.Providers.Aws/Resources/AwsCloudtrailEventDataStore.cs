@@ -16,9 +16,9 @@ public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock : TerraformBl
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -47,63 +47,63 @@ public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlockFieldSelectorB
     /// <summary>
     /// The ends_with attribute.
     /// </summary>
-    public TerraformList<string>? EndsWith
+    public TerraformList<string> EndsWith
     {
-        get => GetArgument<TerraformList<string>>("ends_with");
+        get => GetArgument<TerraformList<string>>("ends_with") ?? AsReference("ends_with");
         set => SetArgument("ends_with", value);
     }
 
     /// <summary>
     /// The equals attribute.
     /// </summary>
-    public TerraformList<string>? EqualsAttribute
+    public TerraformList<string> EqualsAttribute
     {
-        get => GetArgument<TerraformList<string>>("equals");
+        get => GetArgument<TerraformList<string>>("equals") ?? AsReference("equals");
         set => SetArgument("equals", value);
     }
 
     /// <summary>
     /// The field attribute.
     /// </summary>
-    public TerraformValue<string>? Field
+    public TerraformValue<string> Field
     {
-        get => GetArgument<TerraformValue<string>>("field");
+        get => GetArgument<TerraformValue<string>>("field") ?? AsReference("field");
         set => SetArgument("field", value);
     }
 
     /// <summary>
     /// The not_ends_with attribute.
     /// </summary>
-    public TerraformList<string>? NotEndsWith
+    public TerraformList<string> NotEndsWith
     {
-        get => GetArgument<TerraformList<string>>("not_ends_with");
+        get => GetArgument<TerraformList<string>>("not_ends_with") ?? AsReference("not_ends_with");
         set => SetArgument("not_ends_with", value);
     }
 
     /// <summary>
     /// The not_equals attribute.
     /// </summary>
-    public TerraformList<string>? NotEquals
+    public TerraformList<string> NotEquals
     {
-        get => GetArgument<TerraformList<string>>("not_equals");
+        get => GetArgument<TerraformList<string>>("not_equals") ?? AsReference("not_equals");
         set => SetArgument("not_equals", value);
     }
 
     /// <summary>
     /// The not_starts_with attribute.
     /// </summary>
-    public TerraformList<string>? NotStartsWith
+    public TerraformList<string> NotStartsWith
     {
-        get => GetArgument<TerraformList<string>>("not_starts_with");
+        get => GetArgument<TerraformList<string>>("not_starts_with") ?? AsReference("not_starts_with");
         set => SetArgument("not_starts_with", value);
     }
 
     /// <summary>
     /// The starts_with attribute.
     /// </summary>
-    public TerraformList<string>? StartsWith
+    public TerraformList<string> StartsWith
     {
-        get => GetArgument<TerraformList<string>>("starts_with");
+        get => GetArgument<TerraformList<string>>("starts_with") ?? AsReference("starts_with");
         set => SetArgument("starts_with", value);
     }
 
@@ -169,9 +169,9 @@ public partial class AwsCloudtrailEventDataStore(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsCloudtrailEventDataStore(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -215,9 +215,9 @@ public partial class AwsCloudtrailEventDataStore(string name) : TerraformResourc
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -251,9 +251,9 @@ public partial class AwsCloudtrailEventDataStore(string name) : TerraformResourc
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

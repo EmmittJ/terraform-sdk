@@ -40,7 +40,7 @@ public class AzurermManagementGroupPolicyAssignmentIdentityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermManagementGroupPolicyAssignmentNonComplianceMessageBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermManagementGroupPolicyAssignmentOverridesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermManagementGroupPolicyAssignmentResourceSelectorsBlockSelecto
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformValue<string> Kind
     {
-        get => GetArgument<TerraformValue<string>>("kind");
+        get => GetRequiredArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -315,9 +315,9 @@ public partial class AzurermManagementGroupPolicyAssignment(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -336,16 +336,16 @@ public partial class AzurermManagementGroupPolicyAssignment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformValue<string> ManagementGroupId
     {
-        get => GetArgument<TerraformValue<string>>("management_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("management_group_id");
         set => SetArgument("management_group_id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformValue<string>? Metadata
+    public TerraformValue<string> Metadata
     {
-        get => GetArgument<TerraformValue<string>>("metadata");
+        get => GetArgument<TerraformValue<string>>("metadata") ?? AsReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -355,7 +355,7 @@ public partial class AzurermManagementGroupPolicyAssignment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -383,7 +383,7 @@ public partial class AzurermManagementGroupPolicyAssignment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDefinitionId is required")]
     public required TerraformValue<string> PolicyDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("policy_definition_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_definition_id");
         set => SetArgument("policy_definition_id", value);
     }
 

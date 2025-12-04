@@ -79,9 +79,9 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,9 +97,9 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     /// <summary>
     /// The protection_state attribute.
     /// </summary>
-    public TerraformValue<string>? ProtectionState
+    public TerraformValue<string> ProtectionState
     {
-        get => GetArgument<TerraformValue<string>>("protection_state");
+        get => GetArgument<TerraformValue<string>>("protection_state") ?? AsReference("protection_state");
         set => SetArgument("protection_state", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformValue<string> RecoveryVaultName
     {
-        get => GetArgument<TerraformValue<string>>("recovery_vault_name");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_vault_name");
         set => SetArgument("recovery_vault_name", value);
     }
 
@@ -119,16 +119,16 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_vm_id attribute.
     /// </summary>
-    public TerraformValue<string>? SourceVmId
+    public TerraformValue<string> SourceVmId
     {
-        get => GetArgument<TerraformValue<string>>("source_vm_id");
+        get => GetArgument<TerraformValue<string>>("source_vm_id") ?? AsReference("source_vm_id");
         set => SetArgument("source_vm_id", value);
     }
 

@@ -47,9 +47,9 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
     public required TerraformValue<string> LayerName
     {
-        get => GetArgument<TerraformValue<string>>("layer_name");
+        get => GetRequiredArgument<TerraformValue<string>>("layer_name");
         set => SetArgument("layer_name", value);
     }
 
@@ -75,9 +75,9 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -120,9 +120,9 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
-    public TerraformValue<string>? SourceCodeHash
+    public TerraformValue<string> SourceCodeHash
     {
-        get => GetArgument<TerraformValue<string>>("source_code_hash");
+        get => GetArgument<TerraformValue<string>>("source_code_hash") ?? AsReference("source_code_hash");
         set => SetArgument("source_code_hash", value);
     }
 

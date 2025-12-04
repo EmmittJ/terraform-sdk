@@ -87,7 +87,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterSubnetType is required")]
     public required TerraformValue<string> ClusterSubnetType
     {
-        get => GetArgument<TerraformValue<string>>("cluster_subnet_type");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_subnet_type");
         set => SetArgument("cluster_subnet_type", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fqdn is required")]
     public required TerraformValue<string> Fqdn
     {
-        get => GetArgument<TerraformValue<string>>("fqdn");
+        get => GetRequiredArgument<TerraformValue<string>>("fqdn");
         set => SetArgument("fqdn", value);
     }
 
@@ -149,9 +149,9 @@ public partial class AzurermMssqlVirtualMachineGroup(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermMssqlVirtualMachineGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermMssqlVirtualMachineGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermMssqlVirtualMachineGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermMssqlVirtualMachineGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlImageOffer is required")]
     public required TerraformValue<string> SqlImageOffer
     {
-        get => GetArgument<TerraformValue<string>>("sql_image_offer");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_image_offer");
         set => SetArgument("sql_image_offer", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AzurermMssqlVirtualMachineGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlImageSku is required")]
     public required TerraformValue<string> SqlImageSku
     {
-        get => GetArgument<TerraformValue<string>>("sql_image_sku");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_image_sku");
         set => SetArgument("sql_image_sku", value);
     }
 

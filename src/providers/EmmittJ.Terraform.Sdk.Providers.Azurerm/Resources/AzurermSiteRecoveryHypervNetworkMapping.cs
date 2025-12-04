@@ -52,9 +52,9 @@ public partial class AzurermSiteRecoveryHypervNetworkMapping(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSiteRecoveryHypervNetworkMapping(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSiteRecoveryHypervNetworkMapping(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformValue<string> RecoveryVaultId
     {
-        get => GetArgument<TerraformValue<string>>("recovery_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_vault_id");
         set => SetArgument("recovery_vault_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermSiteRecoveryHypervNetworkMapping(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceNetworkName is required")]
     public required TerraformValue<string> SourceNetworkName
     {
-        get => GetArgument<TerraformValue<string>>("source_network_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_network_name");
         set => SetArgument("source_network_name", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermSiteRecoveryHypervNetworkMapping(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSystemCenterVirtualMachineManagerName is required")]
     public required TerraformValue<string> SourceSystemCenterVirtualMachineManagerName
     {
-        get => GetArgument<TerraformValue<string>>("source_system_center_virtual_machine_manager_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_system_center_virtual_machine_manager_name");
         set => SetArgument("source_system_center_virtual_machine_manager_name", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermSiteRecoveryHypervNetworkMapping(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
     public required TerraformValue<string> TargetNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("target_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_network_id");
         set => SetArgument("target_network_id", value);
     }
 

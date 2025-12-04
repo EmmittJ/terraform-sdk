@@ -47,7 +47,7 @@ public partial class GoogleApigeeEnvgroupAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvgroupId is required")]
     public required TerraformValue<string> EnvgroupId
     {
-        get => GetArgument<TerraformValue<string>>("envgroup_id");
+        get => GetRequiredArgument<TerraformValue<string>>("envgroup_id");
         set => SetArgument("envgroup_id", value);
     }
 
@@ -57,16 +57,16 @@ public partial class GoogleApigeeEnvgroupAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => GetArgument<TerraformValue<string>>("environment");
+        get => GetRequiredArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

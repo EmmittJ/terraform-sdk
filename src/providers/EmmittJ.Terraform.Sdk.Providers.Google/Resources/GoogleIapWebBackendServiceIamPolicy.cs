@@ -11,9 +11,9 @@ public partial class GoogleIapWebBackendServiceIamPolicy(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class GoogleIapWebBackendServiceIamPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => GetArgument<TerraformValue<string>>("policy_data");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleIapWebBackendServiceIamPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebBackendService is required")]
     public required TerraformValue<string> WebBackendService
     {
-        get => GetArgument<TerraformValue<string>>("web_backend_service");
+        get => GetRequiredArgument<TerraformValue<string>>("web_backend_service");
         set => SetArgument("web_backend_service", value);
     }
 

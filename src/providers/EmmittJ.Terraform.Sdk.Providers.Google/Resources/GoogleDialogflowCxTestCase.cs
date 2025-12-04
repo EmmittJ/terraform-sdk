@@ -186,7 +186,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockUserInputBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventAttribute is required")]
     public required TerraformValue<string> EventAttribute
     {
-        get => GetArgument<TerraformValue<string>>("event");
+        get => GetRequiredArgument<TerraformValue<string>>("event");
         set => SetArgument("event", value);
     }
 
@@ -209,7 +209,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockUserInputBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => GetArgument<TerraformValue<string>>("text");
+        get => GetRequiredArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -445,16 +445,16 @@ public partial class GoogleDialogflowCxTestCase(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

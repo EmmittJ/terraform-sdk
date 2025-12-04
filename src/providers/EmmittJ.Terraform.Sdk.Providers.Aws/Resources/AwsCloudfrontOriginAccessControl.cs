@@ -20,9 +20,9 @@ public partial class AwsCloudfrontOriginAccessControl(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCloudfrontOriginAccessControl(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsCloudfrontOriginAccessControl(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAccessControlOriginType is required")]
     public required TerraformValue<string> OriginAccessControlOriginType
     {
-        get => GetArgument<TerraformValue<string>>("origin_access_control_origin_type");
+        get => GetRequiredArgument<TerraformValue<string>>("origin_access_control_origin_type");
         set => SetArgument("origin_access_control_origin_type", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsCloudfrontOriginAccessControl(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningBehavior is required")]
     public required TerraformValue<string> SigningBehavior
     {
-        get => GetArgument<TerraformValue<string>>("signing_behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("signing_behavior");
         set => SetArgument("signing_behavior", value);
     }
 
@@ -62,7 +62,7 @@ public partial class AwsCloudfrontOriginAccessControl(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningProtocol is required")]
     public required TerraformValue<string> SigningProtocol
     {
-        get => GetArgument<TerraformValue<string>>("signing_protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("signing_protocol");
         set => SetArgument("signing_protocol", value);
     }
 

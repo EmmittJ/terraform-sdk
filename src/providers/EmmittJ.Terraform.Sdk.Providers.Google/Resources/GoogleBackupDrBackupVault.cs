@@ -86,7 +86,7 @@ public partial class GoogleBackupDrBackupVault(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupMinimumEnforcedRetentionDuration is required")]
     public required TerraformValue<string> BackupMinimumEnforcedRetentionDuration
     {
-        get => GetArgument<TerraformValue<string>>("backup_minimum_enforced_retention_duration");
+        get => GetRequiredArgument<TerraformValue<string>>("backup_minimum_enforced_retention_duration");
         set => SetArgument("backup_minimum_enforced_retention_duration", value);
     }
 
@@ -105,7 +105,7 @@ public partial class GoogleBackupDrBackupVault(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
     public required TerraformValue<string> BackupVaultId
     {
-        get => GetArgument<TerraformValue<string>>("backup_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("backup_vault_id");
         set => SetArgument("backup_vault_id", value);
     }
 
@@ -154,9 +154,9 @@ public partial class GoogleBackupDrBackupVault(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -198,16 +198,16 @@ public partial class GoogleBackupDrBackupVault(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

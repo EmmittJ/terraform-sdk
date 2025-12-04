@@ -43,9 +43,9 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsAccountRegion is required")]
     public required TerraformValue<string> AwsAccountRegion
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_region");
+        get => GetRequiredArgument<TerraformValue<string>>("aws_account_region");
         set => SetArgument("aws_account_region", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformValue<string> DomainIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("domain_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_identifier");
         set => SetArgument("domain_identifier", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentBlueprintIdentifier is required")]
     public required TerraformValue<string> EnvironmentBlueprintIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("environment_blueprint_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("environment_blueprint_identifier");
         set => SetArgument("environment_blueprint_identifier", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -104,16 +104,16 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectIdentifier is required")]
     public required TerraformValue<string> ProjectIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("project_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("project_identifier");
         set => SetArgument("project_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

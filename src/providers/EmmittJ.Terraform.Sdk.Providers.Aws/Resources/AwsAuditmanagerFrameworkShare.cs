@@ -23,7 +23,7 @@ public partial class AwsAuditmanagerFrameworkShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationAccount is required")]
     public required TerraformValue<string> DestinationAccount
     {
-        get => GetArgument<TerraformValue<string>>("destination_account");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_account");
         set => SetArgument("destination_account", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsAuditmanagerFrameworkShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRegion is required")]
     public required TerraformValue<string> DestinationRegion
     {
-        get => GetArgument<TerraformValue<string>>("destination_region");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_region");
         set => SetArgument("destination_region", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsAuditmanagerFrameworkShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
     public required TerraformValue<string> FrameworkId
     {
-        get => GetArgument<TerraformValue<string>>("framework_id");
+        get => GetRequiredArgument<TerraformValue<string>>("framework_id");
         set => SetArgument("framework_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

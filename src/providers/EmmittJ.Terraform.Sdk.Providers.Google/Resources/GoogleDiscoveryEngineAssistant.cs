@@ -71,7 +71,7 @@ public class GoogleDiscoveryEngineAssistantCustomerPolicyBlockBannedPhrasesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Phrase is required")]
     public required TerraformValue<string> Phrase
     {
-        get => GetArgument<TerraformValue<string>>("phrase");
+        get => GetRequiredArgument<TerraformValue<string>>("phrase");
         set => SetArgument("phrase", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleDiscoveryEngineAssistantCustomerPolicyBlockModelArmorConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseTemplate is required")]
     public required TerraformValue<string> ResponseTemplate
     {
-        get => GetArgument<TerraformValue<string>>("response_template");
+        get => GetRequiredArgument<TerraformValue<string>>("response_template");
         set => SetArgument("response_template", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleDiscoveryEngineAssistantCustomerPolicyBlockModelArmorConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPromptTemplate is required")]
     public required TerraformValue<string> UserPromptTemplate
     {
-        get => GetArgument<TerraformValue<string>>("user_prompt_template");
+        get => GetRequiredArgument<TerraformValue<string>>("user_prompt_template");
         set => SetArgument("user_prompt_template", value);
     }
 
@@ -240,7 +240,7 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssistantId is required")]
     public required TerraformValue<string> AssistantId
     {
-        get => GetArgument<TerraformValue<string>>("assistant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("assistant_id");
         set => SetArgument("assistant_id", value);
     }
 
@@ -250,7 +250,7 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => GetArgument<TerraformValue<string>>("collection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
@@ -272,7 +272,7 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -282,16 +282,16 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformValue<string> EngineId
     {
-        get => GetArgument<TerraformValue<string>>("engine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_id");
         set => SetArgument("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -302,16 +302,16 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

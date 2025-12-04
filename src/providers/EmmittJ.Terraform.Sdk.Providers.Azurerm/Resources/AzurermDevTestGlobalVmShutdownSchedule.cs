@@ -28,7 +28,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DailyRecurrenceTime is required")]
     public required TerraformValue<string> DailyRecurrenceTime
     {
-        get => GetArgument<TerraformValue<string>>("daily_recurrence_time");
+        get => GetRequiredArgument<TerraformValue<string>>("daily_recurrence_time");
         set => SetArgument("daily_recurrence_time", value);
     }
 
@@ -131,9 +131,9 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timezone is required")]
     public required TerraformValue<string> Timezone
     {
-        get => GetArgument<TerraformValue<string>>("timezone");
+        get => GetRequiredArgument<TerraformValue<string>>("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 

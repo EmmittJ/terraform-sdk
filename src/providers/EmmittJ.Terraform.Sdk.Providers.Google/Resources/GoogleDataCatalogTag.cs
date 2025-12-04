@@ -52,7 +52,7 @@ public class GoogleDataCatalogTagFieldsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldName is required")]
     public required TerraformValue<string> FieldName
     {
-        get => GetArgument<TerraformValue<string>>("field_name");
+        get => GetRequiredArgument<TerraformValue<string>>("field_name");
         set => SetArgument("field_name", value);
     }
 
@@ -149,9 +149,9 @@ public partial class GoogleDataCatalogTag(string name) : TerraformResource("goog
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -173,7 +173,7 @@ public partial class GoogleDataCatalogTag(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
     public required TerraformValue<string> Template
     {
-        get => GetArgument<TerraformValue<string>>("template");
+        get => GetRequiredArgument<TerraformValue<string>>("template");
         set => SetArgument("template", value);
     }
 

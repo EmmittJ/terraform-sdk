@@ -55,16 +55,16 @@ public partial class AwsVpcEndpointService(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceptanceRequired is required")]
     public required TerraformValue<bool> AcceptanceRequired
     {
-        get => GetArgument<TerraformValue<bool>>("acceptance_required");
+        get => GetRequiredArgument<TerraformValue<bool>>("acceptance_required");
         set => SetArgument("acceptance_required", value);
     }
 
     /// <summary>
     /// The allowed_principals attribute.
     /// </summary>
-    public TerraformSet<string>? AllowedPrincipals
+    public TerraformSet<string> AllowedPrincipals
     {
-        get => GetArgument<TerraformSet<string>>("allowed_principals");
+        get => GetArgument<TerraformSet<string>>("allowed_principals") ?? AsReference("allowed_principals");
         set => SetArgument("allowed_principals", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AwsVpcEndpointService(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -98,36 +98,36 @@ public partial class AwsVpcEndpointService(string name) : TerraformResource("aws
     /// <summary>
     /// The private_dns_name attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateDnsName
+    public TerraformValue<string> PrivateDnsName
     {
-        get => GetArgument<TerraformValue<string>>("private_dns_name");
+        get => GetArgument<TerraformValue<string>>("private_dns_name") ?? AsReference("private_dns_name");
         set => SetArgument("private_dns_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The supported_ip_address_types attribute.
     /// </summary>
-    public TerraformSet<string>? SupportedIpAddressTypes
+    public TerraformSet<string> SupportedIpAddressTypes
     {
-        get => GetArgument<TerraformSet<string>>("supported_ip_address_types");
+        get => GetArgument<TerraformSet<string>>("supported_ip_address_types") ?? AsReference("supported_ip_address_types");
         set => SetArgument("supported_ip_address_types", value);
     }
 
     /// <summary>
     /// The supported_regions attribute.
     /// </summary>
-    public TerraformSet<string>? SupportedRegions
+    public TerraformSet<string> SupportedRegions
     {
-        get => GetArgument<TerraformSet<string>>("supported_regions");
+        get => GetArgument<TerraformSet<string>>("supported_regions") ?? AsReference("supported_regions");
         set => SetArgument("supported_regions", value);
     }
 
@@ -143,9 +143,9 @@ public partial class AwsVpcEndpointService(string name) : TerraformResource("aws
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

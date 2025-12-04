@@ -16,18 +16,18 @@ public class AwsFsxOntapVolumeAggregateConfigurationBlock : TerraformBlock
     /// <summary>
     /// The aggregates attribute.
     /// </summary>
-    public TerraformList<string>? Aggregates
+    public TerraformList<string> Aggregates
     {
-        get => GetArgument<TerraformList<string>>("aggregates");
+        get => GetArgument<TerraformList<string>>("aggregates") ?? AsReference("aggregates");
         set => SetArgument("aggregates", value);
     }
 
     /// <summary>
     /// The constituents_per_aggregate attribute.
     /// </summary>
-    public TerraformValue<double>? ConstituentsPerAggregate
+    public TerraformValue<double> ConstituentsPerAggregate
     {
-        get => GetArgument<TerraformValue<double>>("constituents_per_aggregate");
+        get => GetArgument<TerraformValue<double>>("constituents_per_aggregate") ?? AsReference("constituents_per_aggregate");
         set => SetArgument("constituents_per_aggregate", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnaplockType is required")]
     public required TerraformValue<string> SnaplockType
     {
-        get => GetArgument<TerraformValue<string>>("snaplock_type");
+        get => GetRequiredArgument<TerraformValue<string>>("snaplock_type");
         set => SetArgument("snaplock_type", value);
     }
 
@@ -124,9 +124,9 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlockAutocommitPeriodBlock : 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -198,9 +198,9 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlockRetentionPeriodBlockDefa
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -229,9 +229,9 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlockRetentionPeriodBlockMaxi
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -260,9 +260,9 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlockRetentionPeriodBlockMini
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -292,18 +292,18 @@ public class AwsFsxOntapVolumeTieringPolicyBlock : TerraformBlock
     /// <summary>
     /// The cooling_period attribute.
     /// </summary>
-    public TerraformValue<double>? CoolingPeriod
+    public TerraformValue<double> CoolingPeriod
     {
-        get => GetArgument<TerraformValue<double>>("cooling_period");
+        get => GetArgument<TerraformValue<double>>("cooling_period") ?? AsReference("cooling_period");
         set => SetArgument("cooling_period", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -387,9 +387,9 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -408,52 +408,52 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ontap_volume_type attribute.
     /// </summary>
-    public TerraformValue<string>? OntapVolumeType
+    public TerraformValue<string> OntapVolumeType
     {
-        get => GetArgument<TerraformValue<string>>("ontap_volume_type");
+        get => GetArgument<TerraformValue<string>>("ontap_volume_type") ?? AsReference("ontap_volume_type");
         set => SetArgument("ontap_volume_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_style attribute.
     /// </summary>
-    public TerraformValue<string>? SecurityStyle
+    public TerraformValue<string> SecurityStyle
     {
-        get => GetArgument<TerraformValue<string>>("security_style");
+        get => GetArgument<TerraformValue<string>>("security_style") ?? AsReference("security_style");
         set => SetArgument("security_style", value);
     }
 
     /// <summary>
     /// The size_in_bytes attribute.
     /// </summary>
-    public TerraformValue<string>? SizeInBytes
+    public TerraformValue<string> SizeInBytes
     {
-        get => GetArgument<TerraformValue<string>>("size_in_bytes");
+        get => GetArgument<TerraformValue<string>>("size_in_bytes") ?? AsReference("size_in_bytes");
         set => SetArgument("size_in_bytes", value);
     }
 
     /// <summary>
     /// The size_in_megabytes attribute.
     /// </summary>
-    public TerraformValue<double>? SizeInMegabytes
+    public TerraformValue<double> SizeInMegabytes
     {
-        get => GetArgument<TerraformValue<double>>("size_in_megabytes");
+        get => GetArgument<TerraformValue<double>>("size_in_megabytes") ?? AsReference("size_in_megabytes");
         set => SetArgument("size_in_megabytes", value);
     }
 
@@ -469,9 +469,9 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// <summary>
     /// The snapshot_policy attribute.
     /// </summary>
-    public TerraformValue<string>? SnapshotPolicy
+    public TerraformValue<string> SnapshotPolicy
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_policy");
+        get => GetArgument<TerraformValue<string>>("snapshot_policy") ?? AsReference("snapshot_policy");
         set => SetArgument("snapshot_policy", value);
     }
 
@@ -490,7 +490,7 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageVirtualMachineId is required")]
     public required TerraformValue<string> StorageVirtualMachineId
     {
-        get => GetArgument<TerraformValue<string>>("storage_virtual_machine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_virtual_machine_id");
         set => SetArgument("storage_virtual_machine_id", value);
     }
 
@@ -506,18 +506,18 @@ public partial class AwsFsxOntapVolume(string name) : TerraformResource("aws_fsx
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The volume_style attribute.
     /// </summary>
-    public TerraformValue<string>? VolumeStyle
+    public TerraformValue<string> VolumeStyle
     {
-        get => GetArgument<TerraformValue<string>>("volume_style");
+        get => GetArgument<TerraformValue<string>>("volume_style") ?? AsReference("volume_style");
         set => SetArgument("volume_style", value);
     }
 

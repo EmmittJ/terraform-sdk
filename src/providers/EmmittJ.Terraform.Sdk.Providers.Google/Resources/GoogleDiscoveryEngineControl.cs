@@ -19,7 +19,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformValue<string> DataStore
     {
-        get => GetArgument<TerraformValue<string>>("data_store");
+        get => GetRequiredArgument<TerraformValue<string>>("data_store");
         set => SetArgument("data_store", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformValue<string> DataStore
     {
-        get => GetArgument<TerraformValue<string>>("data_store");
+        get => GetRequiredArgument<TerraformValue<string>>("data_store");
         set => SetArgument("data_store", value);
     }
 
@@ -267,7 +267,7 @@ public class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -291,7 +291,7 @@ public class GoogleDiscoveryEngineControlPromoteActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformValue<string> DataStore
     {
-        get => GetArgument<TerraformValue<string>>("data_store");
+        get => GetRequiredArgument<TerraformValue<string>>("data_store");
         set => SetArgument("data_store", value);
     }
 
@@ -363,7 +363,7 @@ public class GoogleDiscoveryEngineControlPromoteActionBlockSearchLinkPromotionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => GetArgument<TerraformValue<string>>("title");
+        get => GetRequiredArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -396,7 +396,7 @@ public class GoogleDiscoveryEngineControlRedirectActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUri is required")]
     public required TerraformValue<string> RedirectUri
     {
-        get => GetArgument<TerraformValue<string>>("redirect_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("redirect_uri");
         set => SetArgument("redirect_uri", value);
     }
 
@@ -488,7 +488,7 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlId is required")]
     public required TerraformValue<string> ControlId
     {
-        get => GetArgument<TerraformValue<string>>("control_id");
+        get => GetRequiredArgument<TerraformValue<string>>("control_id");
         set => SetArgument("control_id", value);
     }
 
@@ -499,7 +499,7 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -509,16 +509,16 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformValue<string> EngineId
     {
-        get => GetArgument<TerraformValue<string>>("engine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_id");
         set => SetArgument("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -529,16 +529,16 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -548,7 +548,7 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SolutionType is required")]
     public required TerraformValue<string> SolutionType
     {
-        get => GetArgument<TerraformValue<string>>("solution_type");
+        get => GetRequiredArgument<TerraformValue<string>>("solution_type");
         set => SetArgument("solution_type", value);
     }
 

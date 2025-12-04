@@ -45,7 +45,7 @@ public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorFirewallPolicyId is required")]
     public required TerraformValue<string> CdnFrontdoorFirewallPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_firewall_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cdn_frontdoor_firewall_policy_id");
         set => SetArgument("cdn_frontdoor_firewall_policy_id", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorDomainId is required")]
     public required TerraformValue<string> CdnFrontdoorDomainId
     {
-        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_domain_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cdn_frontdoor_domain_id");
         set => SetArgument("cdn_frontdoor_domain_id", value);
     }
 
@@ -192,16 +192,16 @@ public partial class AzurermCdnFrontdoorSecurityPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     public required TerraformValue<string> CdnFrontdoorProfileId
     {
-        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_profile_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cdn_frontdoor_profile_id");
         set => SetArgument("cdn_frontdoor_profile_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -211,7 +211,7 @@ public partial class AzurermCdnFrontdoorSecurityPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

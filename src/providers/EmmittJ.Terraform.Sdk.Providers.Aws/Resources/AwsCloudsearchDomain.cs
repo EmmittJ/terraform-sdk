@@ -16,18 +16,18 @@ public class AwsCloudsearchDomainEndpointOptionsBlock : TerraformBlock
     /// <summary>
     /// The enforce_https attribute.
     /// </summary>
-    public TerraformValue<bool>? EnforceHttps
+    public TerraformValue<bool> EnforceHttps
     {
-        get => GetArgument<TerraformValue<bool>>("enforce_https");
+        get => GetArgument<TerraformValue<bool>>("enforce_https") ?? AsReference("enforce_https");
         set => SetArgument("enforce_https", value);
     }
 
     /// <summary>
     /// The tls_security_policy attribute.
     /// </summary>
-    public TerraformValue<string>? TlsSecurityPolicy
+    public TerraformValue<string> TlsSecurityPolicy
     {
-        get => GetArgument<TerraformValue<string>>("tls_security_policy");
+        get => GetArgument<TerraformValue<string>>("tls_security_policy") ?? AsReference("tls_security_policy");
         set => SetArgument("tls_security_policy", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -154,27 +154,27 @@ public class AwsCloudsearchDomainScalingParametersBlock : TerraformBlock
     /// <summary>
     /// The desired_instance_type attribute.
     /// </summary>
-    public TerraformValue<string>? DesiredInstanceType
+    public TerraformValue<string> DesiredInstanceType
     {
-        get => GetArgument<TerraformValue<string>>("desired_instance_type");
+        get => GetArgument<TerraformValue<string>>("desired_instance_type") ?? AsReference("desired_instance_type");
         set => SetArgument("desired_instance_type", value);
     }
 
     /// <summary>
     /// The desired_partition_count attribute.
     /// </summary>
-    public TerraformValue<double>? DesiredPartitionCount
+    public TerraformValue<double> DesiredPartitionCount
     {
-        get => GetArgument<TerraformValue<double>>("desired_partition_count");
+        get => GetArgument<TerraformValue<double>>("desired_partition_count") ?? AsReference("desired_partition_count");
         set => SetArgument("desired_partition_count", value);
     }
 
     /// <summary>
     /// The desired_replication_count attribute.
     /// </summary>
-    public TerraformValue<double>? DesiredReplicationCount
+    public TerraformValue<double> DesiredReplicationCount
     {
-        get => GetArgument<TerraformValue<double>>("desired_replication_count");
+        get => GetArgument<TerraformValue<double>>("desired_replication_count") ?? AsReference("desired_replication_count");
         set => SetArgument("desired_replication_count", value);
     }
 
@@ -231,18 +231,18 @@ public partial class AwsCloudsearchDomain(string name) : TerraformResource("aws_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
-    public TerraformValue<bool>? MultiAz
+    public TerraformValue<bool> MultiAz
     {
-        get => GetArgument<TerraformValue<bool>>("multi_az");
+        get => GetArgument<TerraformValue<bool>>("multi_az") ?? AsReference("multi_az");
         set => SetArgument("multi_az", value);
     }
 
@@ -252,16 +252,16 @@ public partial class AwsCloudsearchDomain(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

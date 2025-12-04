@@ -73,7 +73,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformValue<string> DigitalTwinsId
     {
-        get => GetArgument<TerraformValue<string>>("digital_twins_id");
+        get => GetRequiredArgument<TerraformValue<string>>("digital_twins_id");
         set => SetArgument("digital_twins_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicEndpoint is required")]
     public required TerraformValue<string> EventgridTopicEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("eventgrid_topic_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("eventgrid_topic_endpoint");
         set => SetArgument("eventgrid_topic_endpoint", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicPrimaryAccessKey is required")]
     public required TerraformValue<string> EventgridTopicPrimaryAccessKey
     {
-        get => GetArgument<TerraformValue<string>>("eventgrid_topic_primary_access_key");
+        get => GetRequiredArgument<TerraformValue<string>>("eventgrid_topic_primary_access_key");
         set => SetArgument("eventgrid_topic_primary_access_key", value);
     }
 
@@ -103,16 +103,16 @@ public partial class AzurermDigitalTwinsEndpointEventgrid(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicSecondaryAccessKey is required")]
     public required TerraformValue<string> EventgridTopicSecondaryAccessKey
     {
-        get => GetArgument<TerraformValue<string>>("eventgrid_topic_secondary_access_key");
+        get => GetRequiredArgument<TerraformValue<string>>("eventgrid_topic_secondary_access_key");
         set => SetArgument("eventgrid_topic_secondary_access_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

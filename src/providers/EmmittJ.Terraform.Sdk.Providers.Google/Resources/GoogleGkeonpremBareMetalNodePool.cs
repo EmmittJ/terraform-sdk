@@ -25,18 +25,18 @@ public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock : TerraformBloc
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs.
     /// For example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public TerraformMap<string>? Labels
+    public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// Specifies the nodes operating system (default: LINUX).
     /// </summary>
-    public TerraformValue<string>? OperatingSystem
+    public TerraformValue<string> OperatingSystem
     {
-        get => GetArgument<TerraformValue<string>>("operating_system");
+        get => GetArgument<TerraformValue<string>>("operating_system") ?? AsReference("operating_system");
         set => SetArgument("operating_system", value);
     }
 
@@ -218,7 +218,7 @@ public partial class GoogleGkeonpremBareMetalNodePool(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BareMetalCluster is required")]
     public required TerraformValue<string> BareMetalCluster
     {
-        get => GetArgument<TerraformValue<string>>("bare_metal_cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("bare_metal_cluster");
         set => SetArgument("bare_metal_cluster", value);
     }
 
@@ -234,9 +234,9 @@ public partial class GoogleGkeonpremBareMetalNodePool(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -246,7 +246,7 @@ public partial class GoogleGkeonpremBareMetalNodePool(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -256,16 +256,16 @@ public partial class GoogleGkeonpremBareMetalNodePool(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

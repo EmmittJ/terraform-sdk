@@ -25,9 +25,9 @@ public class AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock : Terra
     /// <summary>
     /// The client_ip_preservation_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? ClientIpPreservationEnabled
+    public TerraformValue<bool> ClientIpPreservationEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("client_ip_preservation_enabled");
+        get => GetArgument<TerraformValue<bool>>("client_ip_preservation_enabled") ?? AsReference("client_ip_preservation_enabled");
         set => SetArgument("client_ip_preservation_enabled", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsGlobalacceleratorEndpointGroupPortOverrideBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointPort is required")]
     public required TerraformValue<double> EndpointPort
     {
-        get => GetArgument<TerraformValue<double>>("endpoint_port");
+        get => GetRequiredArgument<TerraformValue<double>>("endpoint_port");
         set => SetArgument("endpoint_port", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsGlobalacceleratorEndpointGroupPortOverrideBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerPort is required")]
     public required TerraformValue<double> ListenerPort
     {
-        get => GetArgument<TerraformValue<double>>("listener_port");
+        get => GetRequiredArgument<TerraformValue<double>>("listener_port");
         set => SetArgument("listener_port", value);
     }
 
@@ -136,9 +136,9 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// <summary>
     /// The endpoint_group_region attribute.
     /// </summary>
-    public TerraformValue<string>? EndpointGroupRegion
+    public TerraformValue<string> EndpointGroupRegion
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_group_region");
+        get => GetArgument<TerraformValue<string>>("endpoint_group_region") ?? AsReference("endpoint_group_region");
         set => SetArgument("endpoint_group_region", value);
     }
 
@@ -154,18 +154,18 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// <summary>
     /// The health_check_path attribute.
     /// </summary>
-    public TerraformValue<string>? HealthCheckPath
+    public TerraformValue<string> HealthCheckPath
     {
-        get => GetArgument<TerraformValue<string>>("health_check_path");
+        get => GetArgument<TerraformValue<string>>("health_check_path") ?? AsReference("health_check_path");
         set => SetArgument("health_check_path", value);
     }
 
     /// <summary>
     /// The health_check_port attribute.
     /// </summary>
-    public TerraformValue<double>? HealthCheckPort
+    public TerraformValue<double> HealthCheckPort
     {
-        get => GetArgument<TerraformValue<double>>("health_check_port");
+        get => GetArgument<TerraformValue<double>>("health_check_port") ?? AsReference("health_check_port");
         set => SetArgument("health_check_port", value);
     }
 
@@ -181,9 +181,9 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
     public required TerraformValue<string> ListenerArn
     {
-        get => GetArgument<TerraformValue<string>>("listener_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("listener_arn");
         set => SetArgument("listener_arn", value);
     }
 

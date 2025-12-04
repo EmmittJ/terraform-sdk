@@ -72,7 +72,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockActionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedCallerIpAddressRange is required")]
     public required TerraformSet<string> AllowedCallerIpAddressRange
     {
-        get => GetArgument<TerraformSet<string>>("allowed_caller_ip_address_range");
+        get => GetRequiredArgument<TerraformSet<string>>("allowed_caller_ip_address_range");
         set => SetArgument("allowed_caller_ip_address_range", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockContentBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedCallerIpAddressRange is required")]
     public required TerraformSet<string> AllowedCallerIpAddressRange
     {
-        get => GetArgument<TerraformSet<string>>("allowed_caller_ip_address_range");
+        get => GetRequiredArgument<TerraformSet<string>>("allowed_caller_ip_address_range");
         set => SetArgument("allowed_caller_ip_address_range", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthentica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthentica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthentica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockWorkflowManagementBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedCallerIpAddressRange is required")]
     public required TerraformSet<string> AllowedCallerIpAddressRange
     {
-        get => GetArgument<TerraformSet<string>>("allowed_caller_ip_address_range");
+        get => GetRequiredArgument<TerraformSet<string>>("allowed_caller_ip_address_range");
         set => SetArgument("allowed_caller_ip_address_range", value);
     }
 
@@ -262,7 +262,7 @@ public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -337,9 +337,9 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -358,7 +358,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -377,7 +377,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -396,7 +396,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

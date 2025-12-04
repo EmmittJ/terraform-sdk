@@ -28,7 +28,7 @@ public class AzurermArcKubernetesFluxConfigurationBlobStorageBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     public required TerraformValue<string> ContainerId
     {
-        get => GetArgument<TerraformValue<string>>("container_id");
+        get => GetRequiredArgument<TerraformValue<string>>("container_id");
         set => SetArgument("container_id", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermArcKubernetesFluxConfigurationBlobStorageBlockServicePrincip
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermArcKubernetesFluxConfigurationBlobStorageBlockServicePrincip
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -176,7 +176,7 @@ public class AzurermArcKubernetesFluxConfigurationBucketBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -231,7 +231,7 @@ public class AzurermArcKubernetesFluxConfigurationBucketBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -291,7 +291,7 @@ public class AzurermArcKubernetesFluxConfigurationGitRepositoryBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceType is required")]
     public required TerraformValue<string> ReferenceType
     {
-        get => GetArgument<TerraformValue<string>>("reference_type");
+        get => GetRequiredArgument<TerraformValue<string>>("reference_type");
         set => SetArgument("reference_type", value);
     }
 
@@ -301,7 +301,7 @@ public class AzurermArcKubernetesFluxConfigurationGitRepositoryBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceValue is required")]
     public required TerraformValue<string> ReferenceValue
     {
-        get => GetArgument<TerraformValue<string>>("reference_value");
+        get => GetRequiredArgument<TerraformValue<string>>("reference_value");
         set => SetArgument("reference_value", value);
     }
 
@@ -347,7 +347,7 @@ public class AzurermArcKubernetesFluxConfigurationGitRepositoryBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -389,7 +389,7 @@ public class AzurermArcKubernetesFluxConfigurationKustomizationsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -503,7 +503,7 @@ public partial class AzurermArcKubernetesFluxConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -519,9 +519,9 @@ public partial class AzurermArcKubernetesFluxConfiguration(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -531,7 +531,7 @@ public partial class AzurermArcKubernetesFluxConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -541,7 +541,7 @@ public partial class AzurermArcKubernetesFluxConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 

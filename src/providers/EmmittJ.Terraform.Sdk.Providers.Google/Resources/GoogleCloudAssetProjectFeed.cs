@@ -29,7 +29,7 @@ public class GoogleCloudAssetProjectFeedConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleCloudAssetProjectFeedFeedOutputConfigBlockPubsubDestinationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => GetArgument<TerraformValue<string>>("topic");
+        get => GetRequiredArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -205,25 +205,25 @@ public partial class GoogleCloudAssetProjectFeed(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeedId is required")]
     public required TerraformValue<string> FeedId
     {
-        get => GetArgument<TerraformValue<string>>("feed_id");
+        get => GetRequiredArgument<TerraformValue<string>>("feed_id");
         set => SetArgument("feed_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -14,7 +14,7 @@ public partial class AwsIamRolePoliciesExclusive(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyNames is required")]
     public required TerraformSet<string> PolicyNames
     {
-        get => GetArgument<TerraformSet<string>>("policy_names");
+        get => GetRequiredArgument<TerraformSet<string>>("policy_names");
         set => SetArgument("policy_names", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsIamRolePoliciesExclusive(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformValue<string> RoleName
     {
-        get => GetArgument<TerraformValue<string>>("role_name");
+        get => GetRequiredArgument<TerraformValue<string>>("role_name");
         set => SetArgument("role_name", value);
     }
 

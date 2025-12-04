@@ -64,16 +64,16 @@ public partial class AzurermAppServiceManagedCertificate(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomHostnameBindingId is required")]
     public required TerraformValue<string> CustomHostnameBindingId
     {
-        get => GetArgument<TerraformValue<string>>("custom_hostname_binding_id");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_hostname_binding_id");
         set => SetArgument("custom_hostname_binding_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

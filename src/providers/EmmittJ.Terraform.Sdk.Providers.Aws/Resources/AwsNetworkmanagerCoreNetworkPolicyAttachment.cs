@@ -37,16 +37,16 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyAttachment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformValue<string> CoreNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("core_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("core_network_id");
         set => SetArgument("core_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyAttachment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformValue<string> PolicyDocument
     {
-        get => GetArgument<TerraformValue<string>>("policy_document");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_document");
         set => SetArgument("policy_document", value);
     }
 

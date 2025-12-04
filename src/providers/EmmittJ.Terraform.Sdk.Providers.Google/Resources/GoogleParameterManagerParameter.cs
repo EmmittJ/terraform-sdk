@@ -61,9 +61,9 @@ public partial class GoogleParameterManagerParameter(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -107,16 +107,16 @@ public partial class GoogleParameterManagerParameter(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterId is required")]
     public required TerraformValue<string> ParameterId
     {
-        get => GetArgument<TerraformValue<string>>("parameter_id");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_id");
         set => SetArgument("parameter_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

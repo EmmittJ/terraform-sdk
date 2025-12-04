@@ -14,16 +14,16 @@ public partial class GoogleBillingAccountIamPolicyDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountId is required")]
     public required TerraformValue<string> BillingAccountId
     {
-        get => GetArgument<TerraformValue<string>>("billing_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("billing_account_id");
         set => SetArgument("billing_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

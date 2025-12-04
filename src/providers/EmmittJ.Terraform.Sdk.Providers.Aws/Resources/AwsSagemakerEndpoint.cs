@@ -85,7 +85,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockAutoRollbackConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
     public required TerraformValue<string> AlarmName
     {
-        get => GetArgument<TerraformValue<string>>("alarm_name");
+        get => GetRequiredArgument<TerraformValue<string>>("alarm_name");
         set => SetArgument("alarm_name", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockBlueGreenUpdatePolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockBlueGreenUpdatePolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WaitIntervalInSeconds is required")]
     public required TerraformValue<double> WaitIntervalInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("wait_interval_in_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("wait_interval_in_seconds");
         set => SetArgument("wait_interval_in_seconds", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockBlueGreenUpdatePolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockBlueGreenUpdatePolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -238,7 +238,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockBlueGreenUpdatePolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -248,7 +248,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockBlueGreenUpdatePolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -280,7 +280,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockRollingUpdatePolicyBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WaitIntervalInSeconds is required")]
     public required TerraformValue<double> WaitIntervalInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("wait_interval_in_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("wait_interval_in_seconds");
         set => SetArgument("wait_interval_in_seconds", value);
     }
 
@@ -326,7 +326,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockRollingUpdatePolicyBlockMa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -336,7 +336,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockRollingUpdatePolicyBlockMa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -359,7 +359,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockRollingUpdatePolicyBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -369,7 +369,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlockRollingUpdatePolicyBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -388,34 +388,34 @@ public partial class AwsSagemakerEndpoint(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointConfigName is required")]
     public required TerraformValue<string> EndpointConfigName
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_config_name");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_config_name");
         set => SetArgument("endpoint_config_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -431,9 +431,9 @@ public partial class AwsSagemakerEndpoint(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

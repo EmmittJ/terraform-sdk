@@ -158,7 +158,7 @@ public class AwsRoute53domainsDomainAdminContactBlockExtraParamBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsRoute53domainsDomainAdminContactBlockExtraParamBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -331,7 +331,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlockExtraParamBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -341,7 +341,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlockExtraParamBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -504,7 +504,7 @@ public class AwsRoute53domainsDomainTechContactBlockExtraParamBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -514,7 +514,7 @@ public class AwsRoute53domainsDomainTechContactBlockExtraParamBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -571,36 +571,36 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// <summary>
     /// The admin_privacy attribute.
     /// </summary>
-    public TerraformValue<bool>? AdminPrivacy
+    public TerraformValue<bool> AdminPrivacy
     {
-        get => GetArgument<TerraformValue<bool>>("admin_privacy");
+        get => GetArgument<TerraformValue<bool>>("admin_privacy") ?? AsReference("admin_privacy");
         set => SetArgument("admin_privacy", value);
     }
 
     /// <summary>
     /// The auto_renew attribute.
     /// </summary>
-    public TerraformValue<bool>? AutoRenew
+    public TerraformValue<bool> AutoRenew
     {
-        get => GetArgument<TerraformValue<bool>>("auto_renew");
+        get => GetArgument<TerraformValue<bool>>("auto_renew") ?? AsReference("auto_renew");
         set => SetArgument("auto_renew", value);
     }
 
     /// <summary>
     /// The billing_contact attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? BillingContact
+    public TerraformList<TerraformMap<object>> BillingContact
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("billing_contact");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("billing_contact") ?? AsReference("billing_contact");
         set => SetArgument("billing_contact", value);
     }
 
     /// <summary>
     /// The billing_privacy attribute.
     /// </summary>
-    public TerraformValue<bool>? BillingPrivacy
+    public TerraformValue<bool> BillingPrivacy
     {
-        get => GetArgument<TerraformValue<bool>>("billing_privacy");
+        get => GetArgument<TerraformValue<bool>>("billing_privacy") ?? AsReference("billing_privacy");
         set => SetArgument("billing_privacy", value);
     }
 
@@ -610,34 +610,34 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The duration_in_years attribute.
     /// </summary>
-    public TerraformValue<double>? DurationInYears
+    public TerraformValue<double> DurationInYears
     {
-        get => GetArgument<TerraformValue<double>>("duration_in_years");
+        get => GetArgument<TerraformValue<double>>("duration_in_years") ?? AsReference("duration_in_years");
         set => SetArgument("duration_in_years", value);
     }
 
     /// <summary>
     /// The name_server attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? NameServer
+    public TerraformList<TerraformMap<object>> NameServer
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("name_server");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("name_server") ?? AsReference("name_server");
         set => SetArgument("name_server", value);
     }
 
     /// <summary>
     /// The registrant_privacy attribute.
     /// </summary>
-    public TerraformValue<bool>? RegistrantPrivacy
+    public TerraformValue<bool> RegistrantPrivacy
     {
-        get => GetArgument<TerraformValue<bool>>("registrant_privacy");
+        get => GetArgument<TerraformValue<bool>>("registrant_privacy") ?? AsReference("registrant_privacy");
         set => SetArgument("registrant_privacy", value);
     }
 
@@ -653,18 +653,18 @@ public partial class AwsRoute53domainsDomain(string name) : TerraformResource("a
     /// <summary>
     /// The tech_privacy attribute.
     /// </summary>
-    public TerraformValue<bool>? TechPrivacy
+    public TerraformValue<bool> TechPrivacy
     {
-        get => GetArgument<TerraformValue<bool>>("tech_privacy");
+        get => GetArgument<TerraformValue<bool>>("tech_privacy") ?? AsReference("tech_privacy");
         set => SetArgument("tech_privacy", value);
     }
 
     /// <summary>
     /// The transfer_lock attribute.
     /// </summary>
-    public TerraformValue<bool>? TransferLock
+    public TerraformValue<bool> TransferLock
     {
-        get => GetArgument<TerraformValue<bool>>("transfer_lock");
+        get => GetArgument<TerraformValue<bool>>("transfer_lock") ?? AsReference("transfer_lock");
         set => SetArgument("transfer_lock", value);
     }
 

@@ -65,7 +65,7 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     public required TerraformValue<string> AppServiceName
     {
-        get => GetArgument<TerraformValue<string>>("app_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_service_name");
         set => SetArgument("app_service_name", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelayId is required")]
     public required TerraformValue<string> RelayId
     {
-        get => GetArgument<TerraformValue<string>>("relay_id");
+        get => GetRequiredArgument<TerraformValue<string>>("relay_id");
         set => SetArgument("relay_id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

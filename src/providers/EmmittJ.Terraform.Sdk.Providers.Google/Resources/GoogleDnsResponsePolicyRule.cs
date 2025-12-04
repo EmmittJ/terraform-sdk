@@ -44,7 +44,7 @@ public class GoogleDnsResponsePolicyRuleLocalDataBlockLocalDatasBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleDnsResponsePolicyRuleLocalDataBlockLocalDatasBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -133,25 +133,25 @@ public partial class GoogleDnsResponsePolicyRule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
     public required TerraformValue<string> DnsName
     {
-        get => GetArgument<TerraformValue<string>>("dns_name");
+        get => GetRequiredArgument<TerraformValue<string>>("dns_name");
         set => SetArgument("dns_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -161,7 +161,7 @@ public partial class GoogleDnsResponsePolicyRule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicy is required")]
     public required TerraformValue<string> ResponsePolicy
     {
-        get => GetArgument<TerraformValue<string>>("response_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("response_policy");
         set => SetArgument("response_policy", value);
     }
 
@@ -171,7 +171,7 @@ public partial class GoogleDnsResponsePolicyRule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformValue<string> RuleName
     {
-        get => GetArgument<TerraformValue<string>>("rule_name");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 

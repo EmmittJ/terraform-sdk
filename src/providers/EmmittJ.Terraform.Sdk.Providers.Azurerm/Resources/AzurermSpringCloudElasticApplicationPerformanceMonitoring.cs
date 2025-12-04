@@ -80,9 +80,9 @@ public partial class AzurermSpringCloudElasticApplicationPerformanceMonitoring(s
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSpringCloudElasticApplicationPerformanceMonitoring(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermSpringCloudElasticApplicationPerformanceMonitoring(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerUrl is required")]
     public required TerraformValue<string> ServerUrl
     {
-        get => GetArgument<TerraformValue<string>>("server_url");
+        get => GetRequiredArgument<TerraformValue<string>>("server_url");
         set => SetArgument("server_url", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermSpringCloudElasticApplicationPerformanceMonitoring(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermSpringCloudElasticApplicationPerformanceMonitoring(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformValue<string> SpringCloudServiceId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_service_id");
         set => SetArgument("spring_cloud_service_id", value);
     }
 

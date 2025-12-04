@@ -45,7 +45,7 @@ public class AwsGlueCatalogTableOpenTableFormatInputBlockIcebergInputBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataOperation is required")]
     public required TerraformValue<string> MetadataOperation
     {
-        get => GetArgument<TerraformValue<string>>("metadata_operation");
+        get => GetRequiredArgument<TerraformValue<string>>("metadata_operation");
         set => SetArgument("metadata_operation", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformValue<string> IndexName
     {
-        get => GetArgument<TerraformValue<string>>("index_name");
+        get => GetRequiredArgument<TerraformValue<string>>("index_name");
         set => SetArgument("index_name", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -320,7 +320,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockColumnsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -370,7 +370,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSchemaReferenceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaVersionNumber is required")]
     public required TerraformValue<double> SchemaVersionNumber
     {
-        get => GetArgument<TerraformValue<double>>("schema_version_number");
+        get => GetRequiredArgument<TerraformValue<double>>("schema_version_number");
         set => SetArgument("schema_version_number", value);
     }
 
@@ -523,7 +523,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSortColumnsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Column is required")]
     public required TerraformValue<string> Column
     {
-        get => GetArgument<TerraformValue<string>>("column");
+        get => GetRequiredArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -533,7 +533,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSortColumnsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SortOrder is required")]
     public required TerraformValue<double> SortOrder
     {
-        get => GetArgument<TerraformValue<double>>("sort_order");
+        get => GetRequiredArgument<TerraformValue<double>>("sort_order");
         set => SetArgument("sort_order", value);
     }
 
@@ -557,7 +557,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id");
+        get => GetRequiredArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -567,7 +567,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -577,7 +577,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -602,9 +602,9 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string>? CatalogId
+    public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -614,7 +614,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -630,9 +630,9 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -642,7 +642,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -667,9 +667,9 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

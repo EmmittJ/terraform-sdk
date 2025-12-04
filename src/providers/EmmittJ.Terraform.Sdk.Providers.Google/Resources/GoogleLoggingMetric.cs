@@ -85,7 +85,7 @@ public class GoogleLoggingMetricBucketOptionsBlockExponentialBucketsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrowthFactor is required")]
     public required TerraformValue<double> GrowthFactor
     {
-        get => GetArgument<TerraformValue<double>>("growth_factor");
+        get => GetRequiredArgument<TerraformValue<double>>("growth_factor");
         set => SetArgument("growth_factor", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleLoggingMetricBucketOptionsBlockExponentialBucketsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumFiniteBuckets is required")]
     public required TerraformValue<double> NumFiniteBuckets
     {
-        get => GetArgument<TerraformValue<double>>("num_finite_buckets");
+        get => GetRequiredArgument<TerraformValue<double>>("num_finite_buckets");
         set => SetArgument("num_finite_buckets", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleLoggingMetricBucketOptionsBlockExponentialBucketsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scale is required")]
     public required TerraformValue<double> Scale
     {
-        get => GetArgument<TerraformValue<double>>("scale");
+        get => GetRequiredArgument<TerraformValue<double>>("scale");
         set => SetArgument("scale", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleLoggingMetricBucketOptionsBlockLinearBucketsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumFiniteBuckets is required")]
     public required TerraformValue<double> NumFiniteBuckets
     {
-        get => GetArgument<TerraformValue<double>>("num_finite_buckets");
+        get => GetRequiredArgument<TerraformValue<double>>("num_finite_buckets");
         set => SetArgument("num_finite_buckets", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleLoggingMetricBucketOptionsBlockLinearBucketsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offset is required")]
     public required TerraformValue<double> Offset
     {
-        get => GetArgument<TerraformValue<double>>("offset");
+        get => GetRequiredArgument<TerraformValue<double>>("offset");
         set => SetArgument("offset", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleLoggingMetricBucketOptionsBlockLinearBucketsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Width is required")]
     public required TerraformValue<double> Width
     {
-        get => GetArgument<TerraformValue<double>>("width");
+        get => GetRequiredArgument<TerraformValue<double>>("width");
         set => SetArgument("width", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
     public required TerraformValue<string> MetricKind
     {
-        get => GetArgument<TerraformValue<string>>("metric_kind");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_kind");
         set => SetArgument("metric_kind", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformValue<string> ValueType
     {
-        get => GetArgument<TerraformValue<string>>("value_type");
+        get => GetRequiredArgument<TerraformValue<string>>("value_type");
         set => SetArgument("value_type", value);
     }
 
@@ -249,7 +249,7 @@ public class GoogleLoggingMetricMetricDescriptorBlockLabelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -348,16 +348,16 @@ public partial class GoogleLoggingMetric(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -383,16 +383,16 @@ public partial class GoogleLoggingMetric(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -97,9 +97,9 @@ public partial class AzurermIothubEndpointServicebusTopic(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermIothubEndpointServicebusTopic(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformValue<string> IothubId
     {
-        get => GetArgument<TerraformValue<string>>("iothub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("iothub_id");
         set => SetArgument("iothub_id", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermIothubEndpointServicebusTopic(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -138,16 +138,16 @@ public partial class AzurermIothubEndpointServicebusTopic(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformValue<string>? SubscriptionId
+    public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 

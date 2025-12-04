@@ -55,7 +55,7 @@ public partial class GoogleStorageBucketAccessControl(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -79,16 +79,16 @@ public partial class GoogleStorageBucketAccessControl(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
     public required TerraformValue<string> Entity
     {
-        get => GetArgument<TerraformValue<string>>("entity");
+        get => GetRequiredArgument<TerraformValue<string>>("entity");
         set => SetArgument("entity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

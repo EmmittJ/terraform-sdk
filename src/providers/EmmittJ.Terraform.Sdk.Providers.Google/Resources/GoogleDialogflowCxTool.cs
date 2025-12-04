@@ -148,7 +148,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextSchema is required")]
     public required TerraformValue<string> TextSchema
     {
-        get => GetArgument<TerraformValue<string>>("text_schema");
+        get => GetRequiredArgument<TerraformValue<string>>("text_schema");
         set => SetArgument("text_schema", value);
     }
 
@@ -264,7 +264,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockApiKeyConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
     public required TerraformValue<string> KeyName
     {
-        get => GetArgument<TerraformValue<string>>("key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -275,7 +275,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockApiKeyConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestLocation is required")]
     public required TerraformValue<string> RequestLocation
     {
-        get => GetArgument<TerraformValue<string>>("request_location");
+        get => GetRequiredArgument<TerraformValue<string>>("request_location");
         set => SetArgument("request_location", value);
     }
 
@@ -342,7 +342,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockOauthConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -362,7 +362,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockOauthConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthGrantType is required")]
     public required TerraformValue<string> OauthGrantType
     {
-        get => GetArgument<TerraformValue<string>>("oauth_grant_type");
+        get => GetRequiredArgument<TerraformValue<string>>("oauth_grant_type");
         set => SetArgument("oauth_grant_type", value);
     }
 
@@ -392,7 +392,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockOauthConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformValue<string> TokenEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("token_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -440,7 +440,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockServiceDirectoryConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -498,7 +498,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockTlsConfigBlockCaCertsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cert is required")]
     public required TerraformValue<string> Cert
     {
-        get => GetArgument<TerraformValue<string>>("cert");
+        get => GetRequiredArgument<TerraformValue<string>>("cert");
         set => SetArgument("cert", value);
     }
 
@@ -508,7 +508,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockTlsConfigBlockCaCertsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -568,7 +568,7 @@ public partial class GoogleDialogflowCxTool(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -578,16 +578,16 @@ public partial class GoogleDialogflowCxTool(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

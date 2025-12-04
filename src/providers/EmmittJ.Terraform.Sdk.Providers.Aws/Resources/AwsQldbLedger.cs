@@ -52,27 +52,27 @@ public partial class AwsQldbLedger(string name) : TerraformResource("aws_qldb_le
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKey
+    public TerraformValue<string> KmsKey
     {
-        get => GetArgument<TerraformValue<string>>("kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key") ?? AsReference("kms_key");
         set => SetArgument("kms_key", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AwsQldbLedger(string name) : TerraformResource("aws_qldb_le
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionsMode is required")]
     public required TerraformValue<string> PermissionsMode
     {
-        get => GetArgument<TerraformValue<string>>("permissions_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("permissions_mode");
         set => SetArgument("permissions_mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -107,9 +107,9 @@ public partial class AwsQldbLedger(string name) : TerraformResource("aws_qldb_le
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

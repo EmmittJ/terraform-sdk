@@ -25,9 +25,9 @@ public class AwsImagebuilderImageRecipeBlockDeviceMappingBlock : TerraformBlock
     /// <summary>
     /// The no_device attribute.
     /// </summary>
-    public TerraformValue<bool>? NoDevice
+    public TerraformValue<bool> NoDevice
     {
-        get => GetArgument<TerraformValue<bool>>("no_device");
+        get => GetArgument<TerraformValue<bool>>("no_device") ?? AsReference("no_device");
         set => SetArgument("no_device", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsImagebuilderImageRecipeComponentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentArn is required")]
     public required TerraformValue<string> ComponentArn
     {
-        get => GetArgument<TerraformValue<string>>("component_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("component_arn");
         set => SetArgument("component_arn", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsImagebuilderImageRecipeComponentBlockParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -197,7 +197,7 @@ public class AwsImagebuilderImageRecipeComponentBlockParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsImagebuilderImageRecipeSystemsManagerAgentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UninstallAfterBuild is required")]
     public required TerraformValue<bool> UninstallAfterBuild
     {
-        get => GetArgument<TerraformValue<bool>>("uninstall_after_build");
+        get => GetRequiredArgument<TerraformValue<bool>>("uninstall_after_build");
         set => SetArgument("uninstall_after_build", value);
     }
 
@@ -255,9 +255,9 @@ public partial class AwsImagebuilderImageRecipe(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -267,7 +267,7 @@ public partial class AwsImagebuilderImageRecipe(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -277,16 +277,16 @@ public partial class AwsImagebuilderImageRecipe(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentImage is required")]
     public required TerraformValue<string> ParentImage
     {
-        get => GetArgument<TerraformValue<string>>("parent_image");
+        get => GetRequiredArgument<TerraformValue<string>>("parent_image");
         set => SetArgument("parent_image", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -302,18 +302,18 @@ public partial class AwsImagebuilderImageRecipe(string name) : TerraformResource
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
-    public TerraformValue<string>? UserDataBase64
+    public TerraformValue<string> UserDataBase64
     {
-        get => GetArgument<TerraformValue<string>>("user_data_base64");
+        get => GetArgument<TerraformValue<string>>("user_data_base64") ?? AsReference("user_data_base64");
         set => SetArgument("user_data_base64", value);
     }
 
@@ -323,7 +323,7 @@ public partial class AwsImagebuilderImageRecipe(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

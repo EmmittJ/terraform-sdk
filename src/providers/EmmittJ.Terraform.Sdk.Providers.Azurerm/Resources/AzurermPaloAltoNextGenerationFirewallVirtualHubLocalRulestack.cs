@@ -19,7 +19,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddress is required")]
     public required TerraformValue<string> PublicIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("public_ip_address");
         set => SetArgument("public_ip_address", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     public required TerraformValue<string> PublicIpAddressId
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_address_id");
+        get => GetRequiredArgument<TerraformValue<string>>("public_ip_address_id");
         set => SetArgument("public_ip_address_id", value);
     }
 
@@ -198,7 +198,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetwor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkVirtualApplianceId is required")]
     public required TerraformValue<string> NetworkVirtualApplianceId
     {
-        get => GetArgument<TerraformValue<string>>("network_virtual_appliance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_virtual_appliance_id");
         set => SetArgument("network_virtual_appliance_id", value);
     }
 
@@ -245,7 +245,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetwor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformValue<string> VirtualHubId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_hub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_hub_id");
         set => SetArgument("virtual_hub_id", value);
     }
 
@@ -311,9 +311,9 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -332,7 +332,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -351,7 +351,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -361,7 +361,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
     public required TerraformValue<string> RulestackId
     {
-        get => GetArgument<TerraformValue<string>>("rulestack_id");
+        get => GetRequiredArgument<TerraformValue<string>>("rulestack_id");
         set => SetArgument("rulestack_id", value);
     }
 

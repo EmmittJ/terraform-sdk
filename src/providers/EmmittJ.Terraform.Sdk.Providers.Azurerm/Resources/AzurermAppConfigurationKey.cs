@@ -64,34 +64,34 @@ public partial class AzurermAppConfigurationKey(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformValue<string> ConfigurationStoreId
     {
-        get => GetArgument<TerraformValue<string>>("configuration_store_id");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_store_id");
         set => SetArgument("configuration_store_id", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformValue<string>? ContentType
+    public TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetArgument<TerraformValue<string>>("content_type") ?? AsReference("content_type");
         set => SetArgument("content_type", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformValue<string>? Etag
+    public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
         set => SetArgument("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermAppConfigurationKey(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 

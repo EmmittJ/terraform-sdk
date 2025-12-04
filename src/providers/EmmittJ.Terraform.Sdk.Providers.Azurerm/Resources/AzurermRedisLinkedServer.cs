@@ -52,9 +52,9 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheId is required")]
     public required TerraformValue<string> LinkedRedisCacheId
     {
-        get => GetArgument<TerraformValue<string>>("linked_redis_cache_id");
+        get => GetRequiredArgument<TerraformValue<string>>("linked_redis_cache_id");
         set => SetArgument("linked_redis_cache_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheLocation is required")]
     public required TerraformValue<string> LinkedRedisCacheLocation
     {
-        get => GetArgument<TerraformValue<string>>("linked_redis_cache_location");
+        get => GetRequiredArgument<TerraformValue<string>>("linked_redis_cache_location");
         set => SetArgument("linked_redis_cache_location", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerRole is required")]
     public required TerraformValue<string> ServerRole
     {
-        get => GetArgument<TerraformValue<string>>("server_role");
+        get => GetRequiredArgument<TerraformValue<string>>("server_role");
         set => SetArgument("server_role", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRedisCacheName is required")]
     public required TerraformValue<string> TargetRedisCacheName
     {
-        get => GetArgument<TerraformValue<string>>("target_redis_cache_name");
+        get => GetRequiredArgument<TerraformValue<string>>("target_redis_cache_name");
         set => SetArgument("target_redis_cache_name", value);
     }
 

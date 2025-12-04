@@ -19,7 +19,7 @@ public class AzurermSynapseSparkPoolAutoPauseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelayInMinutes is required")]
     public required TerraformValue<double> DelayInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("delay_in_minutes");
+        get => GetRequiredArgument<TerraformValue<double>>("delay_in_minutes");
         set => SetArgument("delay_in_minutes", value);
     }
 
@@ -43,7 +43,7 @@ public class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformValue<double> MaxNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("max_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformValue<double> MinNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("min_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     public required TerraformValue<string> Filename
     {
-        get => GetArgument<TerraformValue<string>>("filename");
+        get => GetRequiredArgument<TerraformValue<string>>("filename");
         set => SetArgument("filename", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     public required TerraformValue<string> Filename
     {
-        get => GetArgument<TerraformValue<string>>("filename");
+        get => GetRequiredArgument<TerraformValue<string>>("filename");
         set => SetArgument("filename", value);
     }
 
@@ -214,9 +214,9 @@ public partial class AzurermSynapseSparkPool(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -244,16 +244,16 @@ public partial class AzurermSynapseSparkPool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
-    public TerraformValue<double>? NodeCount
+    public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AzurermSynapseSparkPool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSize is required")]
     public required TerraformValue<string> NodeSize
     {
-        get => GetArgument<TerraformValue<string>>("node_size");
+        get => GetRequiredArgument<TerraformValue<string>>("node_size");
         set => SetArgument("node_size", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AzurermSynapseSparkPool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSizeFamily is required")]
     public required TerraformValue<string> NodeSizeFamily
     {
-        get => GetArgument<TerraformValue<string>>("node_size_family");
+        get => GetRequiredArgument<TerraformValue<string>>("node_size_family");
         set => SetArgument("node_size_family", value);
     }
 
@@ -310,7 +310,7 @@ public partial class AzurermSynapseSparkPool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SparkVersion is required")]
     public required TerraformValue<string> SparkVersion
     {
-        get => GetArgument<TerraformValue<string>>("spark_version");
+        get => GetRequiredArgument<TerraformValue<string>>("spark_version");
         set => SetArgument("spark_version", value);
     }
 
@@ -320,7 +320,7 @@ public partial class AzurermSynapseSparkPool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("synapse_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("synapse_workspace_id");
         set => SetArgument("synapse_workspace_id", value);
     }
 

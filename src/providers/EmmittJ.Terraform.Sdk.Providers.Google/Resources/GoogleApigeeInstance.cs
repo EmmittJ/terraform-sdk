@@ -19,7 +19,7 @@ public class GoogleApigeeInstanceAccessLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -91,9 +91,9 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// which the customers can provide during the instance creation. By default, the customer
     /// project associated with the Apigee organization will be included to the list.
     /// </summary>
-    public TerraformList<string>? ConsumerAcceptList
+    public TerraformList<string> ConsumerAcceptList
     {
-        get => GetArgument<TerraformList<string>>("consumer_accept_list");
+        get => GetArgument<TerraformList<string>>("consumer_accept_list") ?? AsReference("consumer_accept_list");
         set => SetArgument("consumer_accept_list", value);
     }
 
@@ -128,9 +128,9 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -176,7 +176,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -184,9 +184,9 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// The size of the CIDR block range that will be reserved by the instance. For valid values,
     /// see [CidrRange](https://cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.instances#CidrRange) on the documentation.
     /// </summary>
-    public TerraformValue<string>? PeeringCidrRange
+    public TerraformValue<string> PeeringCidrRange
     {
-        get => GetArgument<TerraformValue<string>>("peering_cidr_range");
+        get => GetArgument<TerraformValue<string>>("peering_cidr_range") ?? AsReference("peering_cidr_range");
         set => SetArgument("peering_cidr_range", value);
     }
 

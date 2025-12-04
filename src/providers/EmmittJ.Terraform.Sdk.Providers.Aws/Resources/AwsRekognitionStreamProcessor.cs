@@ -19,7 +19,7 @@ public class AwsRekognitionStreamProcessorDataSharingPreferenceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptIn is required")]
     public required TerraformValue<bool> OptIn
     {
-        get => GetArgument<TerraformValue<bool>>("opt_in");
+        get => GetRequiredArgument<TerraformValue<bool>>("opt_in");
         set => SetArgument("opt_in", value);
     }
 
@@ -65,7 +65,7 @@ public class AwsRekognitionStreamProcessorInputBlockKinesisVideoStreamBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -346,9 +346,9 @@ public class AwsRekognitionStreamProcessorSettingsBlockConnectedHomeBlock : Terr
     /// <summary>
     /// The minimum confidence required to label an object in the video.
     /// </summary>
-    public TerraformValue<double>? MinConfidence
+    public TerraformValue<double> MinConfidence
     {
-        get => GetArgument<TerraformValue<double>>("min_confidence");
+        get => GetArgument<TerraformValue<double>>("min_confidence") ?? AsReference("min_confidence");
         set => SetArgument("min_confidence", value);
     }
 
@@ -371,16 +371,16 @@ public class AwsRekognitionStreamProcessorSettingsBlockFaceSearchBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => GetArgument<TerraformValue<string>>("collection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
     /// <summary>
     /// Minimum face match confidence score that must be met to return a result for a recognized face.
     /// </summary>
-    public TerraformValue<double>? FaceMatchThreshold
+    public TerraformValue<double> FaceMatchThreshold
     {
-        get => GetArgument<TerraformValue<double>>("face_match_threshold");
+        get => GetArgument<TerraformValue<double>>("face_match_threshold") ?? AsReference("face_match_threshold");
         set => SetArgument("face_match_threshold", value);
     }
 
@@ -449,16 +449,16 @@ public partial class AwsRekognitionStreamProcessor(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -468,7 +468,7 @@ public partial class AwsRekognitionStreamProcessor(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 

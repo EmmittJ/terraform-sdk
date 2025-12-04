@@ -85,7 +85,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicaCount is required")]
     public required TerraformValue<double> MinReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("min_replica_count");
+        get => GetRequiredArgument<TerraformValue<double>>("min_replica_count");
         set => SetArgument("min_replica_count", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => GetArgument<TerraformValue<string>>("metric_name");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -306,7 +306,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationAffinityType is required")]
     public required TerraformValue<string> ReservationAffinityType
     {
-        get => GetArgument<TerraformValue<string>>("reservation_affinity_type");
+        get => GetRequiredArgument<TerraformValue<string>>("reservation_affinity_type");
         set => SetArgument("reservation_affinity_type", value);
     }
 
@@ -387,7 +387,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePrivateServiceConnect is required")]
     public required TerraformValue<bool> EnablePrivateServiceConnect
     {
-        get => GetArgument<TerraformValue<bool>>("enable_private_service_connect");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable_private_service_connect");
         set => SetArgument("enable_private_service_connect", value);
     }
 
@@ -455,7 +455,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -465,7 +465,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -701,7 +701,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageUri is required")]
     public required TerraformValue<string> ImageUri
     {
-        get => GetArgument<TerraformValue<string>>("image_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("image_uri");
         set => SetArgument("image_uri", value);
     }
 
@@ -825,7 +825,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -841,7 +841,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1851,9 +1851,9 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment(string name
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1863,16 +1863,16 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

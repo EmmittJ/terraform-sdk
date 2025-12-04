@@ -112,7 +112,7 @@ public class GoogleOsConfigOsPolicyAssignmentInstanceFilterBlockInventoriesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsShortName is required")]
     public required TerraformValue<string> OsShortName
     {
-        get => GetArgument<TerraformValue<string>>("os_short_name");
+        get => GetRequiredArgument<TerraformValue<string>>("os_short_name");
         set => SetArgument("os_short_name", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -178,7 +178,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -247,7 +247,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsShortName is required")]
     public required TerraformValue<string> OsShortName
     {
-        get => GetArgument<TerraformValue<string>>("os_short_name");
+        get => GetRequiredArgument<TerraformValue<string>>("os_short_name");
         set => SetArgument("os_short_name", value);
     }
 
@@ -286,7 +286,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -394,7 +394,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interpreter is required")]
     public required TerraformValue<string> Interpreter
     {
-        get => GetArgument<TerraformValue<string>>("interpreter");
+        get => GetRequiredArgument<TerraformValue<string>>("interpreter");
         set => SetArgument("interpreter", value);
     }
 
@@ -496,7 +496,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -515,7 +515,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -547,7 +547,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -579,7 +579,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interpreter is required")]
     public required TerraformValue<string> Interpreter
     {
-        get => GetArgument<TerraformValue<string>>("interpreter");
+        get => GetRequiredArgument<TerraformValue<string>>("interpreter");
         set => SetArgument("interpreter", value);
     }
 
@@ -682,7 +682,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -701,7 +701,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -733,7 +733,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -765,7 +765,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -782,7 +782,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetRequiredArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -866,7 +866,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -885,7 +885,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -917,7 +917,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -940,7 +940,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
     public required TerraformValue<string> DesiredState
     {
-        get => GetArgument<TerraformValue<string>>("desired_state");
+        get => GetRequiredArgument<TerraformValue<string>>("desired_state");
         set => SetArgument("desired_state", value);
     }
 
@@ -1033,7 +1033,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1143,7 +1143,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1162,7 +1162,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1194,7 +1194,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1217,7 +1217,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1327,7 +1327,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1346,7 +1346,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1378,7 +1378,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1488,7 +1488,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1507,7 +1507,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1539,7 +1539,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1562,7 +1562,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1585,7 +1585,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1661,7 +1661,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArchiveType is required")]
     public required TerraformValue<string> ArchiveType
     {
-        get => GetArgument<TerraformValue<string>>("archive_type");
+        get => GetRequiredArgument<TerraformValue<string>>("archive_type");
         set => SetArgument("archive_type", value);
     }
 
@@ -1681,7 +1681,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Distribution is required")]
     public required TerraformValue<string> Distribution
     {
-        get => GetArgument<TerraformValue<string>>("distribution");
+        get => GetRequiredArgument<TerraformValue<string>>("distribution");
         set => SetArgument("distribution", value);
     }
 
@@ -1700,7 +1700,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1723,7 +1723,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1733,7 +1733,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -1756,7 +1756,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseUrl is required")]
     public required TerraformValue<string> BaseUrl
     {
-        get => GetArgument<TerraformValue<string>>("base_url");
+        get => GetRequiredArgument<TerraformValue<string>>("base_url");
         set => SetArgument("base_url", value);
     }
 
@@ -1784,7 +1784,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1807,7 +1807,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseUrl is required")]
     public required TerraformValue<string> BaseUrl
     {
-        get => GetArgument<TerraformValue<string>>("base_url");
+        get => GetRequiredArgument<TerraformValue<string>>("base_url");
         set => SetArgument("base_url", value);
     }
 
@@ -1835,7 +1835,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlockResourceGroupsBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1859,7 +1859,7 @@ public class GoogleOsConfigOsPolicyAssignmentRolloutBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinWaitDuration is required")]
     public required TerraformValue<string> MinWaitDuration
     {
-        get => GetArgument<TerraformValue<string>>("min_wait_duration");
+        get => GetRequiredArgument<TerraformValue<string>>("min_wait_duration");
         set => SetArgument("min_wait_duration", value);
     }
 
@@ -1969,9 +1969,9 @@ public partial class GoogleOsConfigOsPolicyAssignment(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1981,7 +1981,7 @@ public partial class GoogleOsConfigOsPolicyAssignment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1991,16 +1991,16 @@ public partial class GoogleOsConfigOsPolicyAssignment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -19,7 +19,7 @@ public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionName is required")]
     public required TerraformValue<string> ActionName
     {
-        get => GetArgument<TerraformValue<string>>("action_name");
+        get => GetRequiredArgument<TerraformValue<string>>("action_name");
         set => SetArgument("action_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionResult is required")]
     public required TerraformValue<string> ActionResult
     {
-        get => GetArgument<TerraformValue<string>>("action_result");
+        get => GetRequiredArgument<TerraformValue<string>>("action_result");
         set => SetArgument("action_result", value);
     }
 
@@ -113,9 +113,9 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformValue<string> LogicAppId
     {
-        get => GetArgument<TerraformValue<string>>("logic_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("logic_app_id");
         set => SetArgument("logic_app_id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     public required TerraformValue<string> Method
     {
-        get => GetArgument<TerraformValue<string>>("method");
+        get => GetRequiredArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 

@@ -43,9 +43,9 @@ public partial class AwsNetworkmanagerTransitGatewayRouteTableAttachment(string 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsNetworkmanagerTransitGatewayRouteTableAttachment(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringId is required")]
     public required TerraformValue<string> PeeringId
     {
-        get => GetArgument<TerraformValue<string>>("peering_id");
+        get => GetRequiredArgument<TerraformValue<string>>("peering_id");
         set => SetArgument("peering_id", value);
     }
 
@@ -71,9 +71,9 @@ public partial class AwsNetworkmanagerTransitGatewayRouteTableAttachment(string 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsNetworkmanagerTransitGatewayRouteTableAttachment(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableArn is required")]
     public required TerraformValue<string> TransitGatewayRouteTableArn
     {
-        get => GetArgument<TerraformValue<string>>("transit_gateway_route_table_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("transit_gateway_route_table_arn");
         set => SetArgument("transit_gateway_route_table_arn", value);
     }
 

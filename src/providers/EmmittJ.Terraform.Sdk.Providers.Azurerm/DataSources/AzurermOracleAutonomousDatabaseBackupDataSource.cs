@@ -37,7 +37,7 @@ public partial class AzurermOracleAutonomousDatabaseBackupDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformValue<string> AutonomousDatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("autonomous_database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("autonomous_database_id");
         set => SetArgument("autonomous_database_id", value);
     }
 
@@ -47,7 +47,7 @@ public partial class AzurermOracleAutonomousDatabaseBackupDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

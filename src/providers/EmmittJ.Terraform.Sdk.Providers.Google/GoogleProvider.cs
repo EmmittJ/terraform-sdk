@@ -51,7 +51,7 @@ public class GoogleProviderExternalCredentialsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audience is required")]
     public required TerraformValue<string> Audience
     {
-        get => GetArgument<TerraformValue<string>>("audience");
+        get => GetRequiredArgument<TerraformValue<string>>("audience");
         set => SetArgument("audience", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleProviderExternalCredentialsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityToken is required")]
     public required TerraformValue<string> IdentityToken
     {
-        get => GetArgument<TerraformValue<string>>("identity_token");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_token");
         set => SetArgument("identity_token", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleProviderExternalCredentialsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     public required TerraformValue<string> ServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("service_account_email");
+        get => GetRequiredArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 

@@ -93,9 +93,9 @@ public partial class AzureadInvitation(string name) : TerraformResource("azuread
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AzureadInvitation(string name) : TerraformResource("azuread
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUrl is required")]
     public required TerraformValue<string> RedirectUrl
     {
-        get => GetArgument<TerraformValue<string>>("redirect_url");
+        get => GetRequiredArgument<TerraformValue<string>>("redirect_url");
         set => SetArgument("redirect_url", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzureadInvitation(string name) : TerraformResource("azuread
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserEmailAddress is required")]
     public required TerraformValue<string> UserEmailAddress
     {
-        get => GetArgument<TerraformValue<string>>("user_email_address");
+        get => GetRequiredArgument<TerraformValue<string>>("user_email_address");
         set => SetArgument("user_email_address", value);
     }
 

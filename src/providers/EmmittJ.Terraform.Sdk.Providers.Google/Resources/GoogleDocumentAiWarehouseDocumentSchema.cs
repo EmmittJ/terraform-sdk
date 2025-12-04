@@ -73,7 +73,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -357,7 +357,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -694,7 +694,7 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -710,9 +710,9 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -722,7 +722,7 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -732,7 +732,7 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectNumber is required")]
     public required TerraformValue<string> ProjectNumber
     {
-        get => GetArgument<TerraformValue<string>>("project_number");
+        get => GetRequiredArgument<TerraformValue<string>>("project_number");
         set => SetArgument("project_number", value);
     }
 

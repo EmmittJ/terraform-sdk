@@ -86,16 +86,16 @@ public class AwsWorkspaceswebSessionLoggerLogConfigurationBlockS3Block : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The bucket_owner attribute.
     /// </summary>
-    public TerraformValue<string>? BucketOwner
+    public TerraformValue<string> BucketOwner
     {
-        get => GetArgument<TerraformValue<string>>("bucket_owner");
+        get => GetArgument<TerraformValue<string>>("bucket_owner") ?? AsReference("bucket_owner");
         set => SetArgument("bucket_owner", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsWorkspaceswebSessionLoggerLogConfigurationBlockS3Block : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderStructure is required")]
     public required TerraformValue<string> FolderStructure
     {
-        get => GetArgument<TerraformValue<string>>("folder_structure");
+        get => GetRequiredArgument<TerraformValue<string>>("folder_structure");
         set => SetArgument("folder_structure", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsWorkspaceswebSessionLoggerLogConfigurationBlockS3Block : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFileFormat is required")]
     public required TerraformValue<string> LogFileFormat
     {
-        get => GetArgument<TerraformValue<string>>("log_file_format");
+        get => GetRequiredArgument<TerraformValue<string>>("log_file_format");
         set => SetArgument("log_file_format", value);
     }
 
@@ -167,9 +167,9 @@ public partial class AwsWorkspaceswebSessionLogger(string name) : TerraformResou
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

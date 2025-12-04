@@ -55,16 +55,16 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformValue<string> AutomationAccountName
     {
-        get => GetArgument<TerraformValue<string>>("automation_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("automation_account_name");
         set => SetArgument("automation_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmResourceId is required")]
     public required TerraformValue<string> VmResourceId
     {
-        get => GetArgument<TerraformValue<string>>("vm_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vm_resource_id");
         set => SetArgument("vm_resource_id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerGroupName is required")]
     public required TerraformValue<string> WorkerGroupName
     {
-        get => GetArgument<TerraformValue<string>>("worker_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("worker_group_name");
         set => SetArgument("worker_group_name", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerId is required")]
     public required TerraformValue<string> WorkerId
     {
-        get => GetArgument<TerraformValue<string>>("worker_id");
+        get => GetRequiredArgument<TerraformValue<string>>("worker_id");
         set => SetArgument("worker_id", value);
     }
 

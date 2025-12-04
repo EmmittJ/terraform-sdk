@@ -57,9 +57,9 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     /// This field designates whether this is a failover backend. More
     /// than one failover backend can be configured for a given RegionBackendService.
     /// </summary>
-    public TerraformValue<bool>? Failover
+    public TerraformValue<bool> Failover
     {
-        get => GetArgument<TerraformValue<bool>>("failover");
+        get => GetArgument<TerraformValue<bool>>("failover") ?? AsReference("failover");
         set => SetArgument("failover", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformValue<string> Group
     {
-        get => GetArgument<TerraformValue<string>>("group");
+        get => GetRequiredArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
@@ -220,7 +220,7 @@ public class GoogleComputeRegionBackendServiceBackendBlockCustomMetricsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DryRun is required")]
     public required TerraformValue<bool> DryRun
     {
-        get => GetArgument<TerraformValue<bool>>("dry_run");
+        get => GetRequiredArgument<TerraformValue<bool>>("dry_run");
         set => SetArgument("dry_run", value);
     }
 
@@ -248,7 +248,7 @@ public class GoogleComputeRegionBackendServiceBackendBlockCustomMetricsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -270,18 +270,18 @@ public class GoogleComputeRegionBackendServiceCdnPolicyBlock : TerraformBlock
     /// Specifies the cache setting for all responses from this backend.
     /// The possible values are: USE_ORIGIN_HEADERS, FORCE_CACHE_ALL and CACHE_ALL_STATIC Possible values: [&amp;quot;USE_ORIGIN_HEADERS&amp;quot;, &amp;quot;FORCE_CACHE_ALL&amp;quot;, &amp;quot;CACHE_ALL_STATIC&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? CacheMode
+    public TerraformValue<string> CacheMode
     {
-        get => GetArgument<TerraformValue<string>>("cache_mode");
+        get => GetArgument<TerraformValue<string>>("cache_mode") ?? AsReference("cache_mode");
         set => SetArgument("cache_mode", value);
     }
 
     /// <summary>
     /// Specifies the maximum allowed TTL for cached content served by this origin.
     /// </summary>
-    public TerraformValue<double>? ClientTtl
+    public TerraformValue<double> ClientTtl
     {
-        get => GetArgument<TerraformValue<double>>("client_ttl");
+        get => GetArgument<TerraformValue<double>>("client_ttl") ?? AsReference("client_ttl");
         set => SetArgument("client_ttl", value);
     }
 
@@ -289,36 +289,36 @@ public class GoogleComputeRegionBackendServiceCdnPolicyBlock : TerraformBlock
     /// Specifies the default TTL for cached content served by this origin for responses
     /// that do not have an existing valid TTL (max-age or s-max-age).
     /// </summary>
-    public TerraformValue<double>? DefaultTtl
+    public TerraformValue<double> DefaultTtl
     {
-        get => GetArgument<TerraformValue<double>>("default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl") ?? AsReference("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
     /// <summary>
     /// Specifies the maximum allowed TTL for cached content served by this origin.
     /// </summary>
-    public TerraformValue<double>? MaxTtl
+    public TerraformValue<double> MaxTtl
     {
-        get => GetArgument<TerraformValue<double>>("max_ttl");
+        get => GetArgument<TerraformValue<double>>("max_ttl") ?? AsReference("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
     /// <summary>
     /// Negative caching allows per-status code TTLs to be set, in order to apply fine-grained caching for common errors or redirects.
     /// </summary>
-    public TerraformValue<bool>? NegativeCaching
+    public TerraformValue<bool> NegativeCaching
     {
-        get => GetArgument<TerraformValue<bool>>("negative_caching");
+        get => GetArgument<TerraformValue<bool>>("negative_caching") ?? AsReference("negative_caching");
         set => SetArgument("negative_caching", value);
     }
 
     /// <summary>
     /// Serve existing content from the cache (if available) when revalidating content with the origin, or when an error is encountered when refreshing the cache.
     /// </summary>
-    public TerraformValue<double>? ServeWhileStale
+    public TerraformValue<double> ServeWhileStale
     {
-        get => GetArgument<TerraformValue<double>>("serve_while_stale");
+        get => GetArgument<TerraformValue<double>>("serve_while_stale") ?? AsReference("serve_while_stale");
         set => SetArgument("serve_while_stale", value);
     }
 
@@ -652,7 +652,7 @@ public class GoogleComputeRegionBackendServiceConsistentHashBlockHttpCookieBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<double> Seconds
     {
-        get => GetArgument<TerraformValue<double>>("seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -676,7 +676,7 @@ public class GoogleComputeRegionBackendServiceCustomMetricsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DryRun is required")]
     public required TerraformValue<bool> DryRun
     {
-        get => GetArgument<TerraformValue<bool>>("dry_run");
+        get => GetRequiredArgument<TerraformValue<bool>>("dry_run");
         set => SetArgument("dry_run", value);
     }
 
@@ -694,7 +694,7 @@ public class GoogleComputeRegionBackendServiceCustomMetricsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -722,9 +722,9 @@ public class GoogleComputeRegionBackendServiceFailoverPolicyBlock : TerraformBlo
     /// This can be set to true only if the protocol is TCP.
     /// The default is false.
     /// </summary>
-    public TerraformValue<bool>? DisableConnectionDrainOnFailover
+    public TerraformValue<bool> DisableConnectionDrainOnFailover
     {
-        get => GetArgument<TerraformValue<bool>>("disable_connection_drain_on_failover");
+        get => GetArgument<TerraformValue<bool>>("disable_connection_drain_on_failover") ?? AsReference("disable_connection_drain_on_failover");
         set => SetArgument("disable_connection_drain_on_failover", value);
     }
 
@@ -734,9 +734,9 @@ public class GoogleComputeRegionBackendServiceFailoverPolicyBlock : TerraformBlo
     /// set to false, new connections are sent across all VMs in the primary group.
     /// The default is false.
     /// </summary>
-    public TerraformValue<bool>? DropTrafficIfUnhealthy
+    public TerraformValue<bool> DropTrafficIfUnhealthy
     {
-        get => GetArgument<TerraformValue<bool>>("drop_traffic_if_unhealthy");
+        get => GetArgument<TerraformValue<bool>>("drop_traffic_if_unhealthy") ?? AsReference("drop_traffic_if_unhealthy");
         set => SetArgument("drop_traffic_if_unhealthy", value);
     }
 
@@ -878,7 +878,7 @@ public class GoogleComputeRegionBackendServiceIapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -932,9 +932,9 @@ public class GoogleComputeRegionBackendServiceLogConfigBlock : TerraformBlock
     /// <summary>
     /// Specifies the fields to include in logging. This field can only be specified if logging is enabled for this backend service.
     /// </summary>
-    public TerraformList<string>? OptionalFields
+    public TerraformList<string> OptionalFields
     {
-        get => GetArgument<TerraformList<string>>("optional_fields");
+        get => GetArgument<TerraformList<string>>("optional_fields") ?? AsReference("optional_fields");
         set => SetArgument("optional_fields", value);
     }
 
@@ -942,9 +942,9 @@ public class GoogleComputeRegionBackendServiceLogConfigBlock : TerraformBlock
     /// Specifies the optional logging mode for the load balancer traffic.
     /// Supported values: INCLUDE_ALL_OPTIONAL, EXCLUDE_ALL_OPTIONAL, CUSTOM. Possible values: [&amp;quot;INCLUDE_ALL_OPTIONAL&amp;quot;, &amp;quot;EXCLUDE_ALL_OPTIONAL&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? OptionalMode
+    public TerraformValue<string> OptionalMode
     {
-        get => GetArgument<TerraformValue<string>>("optional_mode");
+        get => GetArgument<TerraformValue<string>>("optional_mode") ?? AsReference("optional_mode");
         set => SetArgument("optional_mode", value);
     }
 
@@ -1129,7 +1129,7 @@ public class GoogleComputeRegionBackendServiceOutlierDetectionBlockBaseEjectionT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<double> Seconds
     {
-        get => GetArgument<TerraformValue<double>>("seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1164,7 +1164,7 @@ public class GoogleComputeRegionBackendServiceOutlierDetectionBlockIntervalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<double> Seconds
     {
-        get => GetArgument<TerraformValue<double>>("seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1267,7 +1267,7 @@ public class GoogleComputeRegionBackendServiceStrongSessionAffinityCookieBlockTt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<double> Seconds
     {
-        get => GetArgument<TerraformValue<double>>("seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1380,9 +1380,9 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1490,7 +1490,7 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1515,18 +1515,18 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// default of &amp;quot;http&amp;quot; if not given.
     /// Must be omitted when the loadBalancingScheme is INTERNAL (Internal TCP/UDP Load Balancing).
     /// </summary>
-    public TerraformValue<string>? PortName
+    public TerraformValue<string> PortName
     {
-        get => GetArgument<TerraformValue<string>>("port_name");
+        get => GetArgument<TerraformValue<string>>("port_name") ?? AsReference("port_name");
         set => SetArgument("port_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1536,9 +1536,9 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// or GRPC. Refer to the documentation for the load balancers or for Traffic Director
     /// for more information. Possible values: [&amp;quot;HTTP&amp;quot;, &amp;quot;HTTPS&amp;quot;, &amp;quot;HTTP2&amp;quot;, &amp;quot;TCP&amp;quot;, &amp;quot;SSL&amp;quot;, &amp;quot;UDP&amp;quot;, &amp;quot;GRPC&amp;quot;, &amp;quot;UNSPECIFIED&amp;quot;, &amp;quot;H2C&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Protocol
+    public TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetArgument<TerraformValue<string>>("protocol") ?? AsReference("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -1546,9 +1546,9 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// The Region in which the created backend service should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1565,9 +1565,9 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// Type of session affinity to use. The default is NONE. Session affinity is
     /// not applicable if the protocol is UDP. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;CLIENT_IP&amp;quot;, &amp;quot;CLIENT_IP_PORT_PROTO&amp;quot;, &amp;quot;CLIENT_IP_PROTO&amp;quot;, &amp;quot;GENERATED_COOKIE&amp;quot;, &amp;quot;HEADER_FIELD&amp;quot;, &amp;quot;HTTP_COOKIE&amp;quot;, &amp;quot;CLIENT_IP_NO_DESTINATION&amp;quot;, &amp;quot;STRONG_COOKIE_AFFINITY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? SessionAffinity
+    public TerraformValue<string> SessionAffinity
     {
-        get => GetArgument<TerraformValue<string>>("session_affinity");
+        get => GetArgument<TerraformValue<string>>("session_affinity") ?? AsReference("session_affinity");
         set => SetArgument("session_affinity", value);
     }
 
@@ -1577,9 +1577,9 @@ public partial class GoogleComputeRegionBackendService(string name) : TerraformR
     /// The default is 30 seconds.
     /// The full range of timeout values allowed goes from 1 through 2,147,483,647 seconds.
     /// </summary>
-    public TerraformValue<double>? TimeoutSec
+    public TerraformValue<double> TimeoutSec
     {
-        get => GetArgument<TerraformValue<double>>("timeout_sec");
+        get => GetArgument<TerraformValue<double>>("timeout_sec") ?? AsReference("timeout_sec");
         set => SetArgument("timeout_sec", value);
     }
 

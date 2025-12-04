@@ -34,9 +34,9 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// <summary>
     /// List of experiments that should be used by the job. An example value is [&amp;quot;enable_stackdriver_agent_metrics&amp;quot;].
     /// </summary>
-    public TerraformSet<string>? AdditionalExperiments
+    public TerraformSet<string> AdditionalExperiments
     {
-        get => GetArgument<TerraformSet<string>>("additional_experiments");
+        get => GetArgument<TerraformSet<string>>("additional_experiments") ?? AsReference("additional_experiments");
         set => SetArgument("additional_experiments", value);
     }
 
@@ -52,9 +52,9 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -144,9 +144,9 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// <summary>
     /// The project in which the resource belongs.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -192,7 +192,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TempGcsLocation is required")]
     public required TerraformValue<string> TempGcsLocation
     {
-        get => GetArgument<TerraformValue<string>>("temp_gcs_location");
+        get => GetRequiredArgument<TerraformValue<string>>("temp_gcs_location");
         set => SetArgument("temp_gcs_location", value);
     }
 
@@ -202,7 +202,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateGcsPath is required")]
     public required TerraformValue<string> TemplateGcsPath
     {
-        get => GetArgument<TerraformValue<string>>("template_gcs_path");
+        get => GetRequiredArgument<TerraformValue<string>>("template_gcs_path");
         set => SetArgument("template_gcs_path", value);
     }
 

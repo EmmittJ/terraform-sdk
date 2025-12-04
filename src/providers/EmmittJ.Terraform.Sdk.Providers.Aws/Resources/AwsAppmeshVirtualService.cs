@@ -75,7 +75,7 @@ public class AwsAppmeshVirtualServiceSpecBlockProviderAttributeBlockVirtualNodeB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNodeName is required")]
     public required TerraformValue<string> VirtualNodeName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_node_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_node_name");
         set => SetArgument("virtual_node_name", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsAppmeshVirtualServiceSpecBlockProviderAttributeBlockVirtualRoute
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualRouterName is required")]
     public required TerraformValue<string> VirtualRouterName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_router_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_router_name");
         set => SetArgument("virtual_router_name", value);
     }
 
@@ -114,9 +114,9 @@ public partial class AwsAppmeshVirtualService(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -126,16 +126,16 @@ public partial class AwsAppmeshVirtualService(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshName is required")]
     public required TerraformValue<string> MeshName
     {
-        get => GetArgument<TerraformValue<string>>("mesh_name");
+        get => GetRequiredArgument<TerraformValue<string>>("mesh_name");
         set => SetArgument("mesh_name", value);
     }
 
     /// <summary>
     /// The mesh_owner attribute.
     /// </summary>
-    public TerraformValue<string>? MeshOwner
+    public TerraformValue<string> MeshOwner
     {
-        get => GetArgument<TerraformValue<string>>("mesh_owner");
+        get => GetArgument<TerraformValue<string>>("mesh_owner") ?? AsReference("mesh_owner");
         set => SetArgument("mesh_owner", value);
     }
 
@@ -145,16 +145,16 @@ public partial class AwsAppmeshVirtualService(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -170,9 +170,9 @@ public partial class AwsAppmeshVirtualService(string name) : TerraformResource("
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

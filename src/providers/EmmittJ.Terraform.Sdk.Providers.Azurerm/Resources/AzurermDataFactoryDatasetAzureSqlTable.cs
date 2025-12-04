@@ -28,7 +28,7 @@ public class AzurermDataFactoryDatasetAzureSqlTableSchemaColumnBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermDataFactoryDatasetAzureSqlTable(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -149,9 +149,9 @@ public partial class AzurermDataFactoryDatasetAzureSqlTable(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermDataFactoryDatasetAzureSqlTable(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceId is required")]
     public required TerraformValue<string> LinkedServiceId
     {
-        get => GetArgument<TerraformValue<string>>("linked_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("linked_service_id");
         set => SetArgument("linked_service_id", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermDataFactoryDatasetAzureSqlTable(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

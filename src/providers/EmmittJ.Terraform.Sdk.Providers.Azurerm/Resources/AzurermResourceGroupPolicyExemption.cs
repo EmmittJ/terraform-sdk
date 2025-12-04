@@ -82,7 +82,7 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExemptionCategory is required")]
     public required TerraformValue<string> ExemptionCategory
     {
-        get => GetArgument<TerraformValue<string>>("exemption_category");
+        get => GetRequiredArgument<TerraformValue<string>>("exemption_category");
         set => SetArgument("exemption_category", value);
     }
 
@@ -98,18 +98,18 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformValue<string>? Metadata
+    public TerraformValue<string> Metadata
     {
-        get => GetArgument<TerraformValue<string>>("metadata");
+        get => GetArgument<TerraformValue<string>>("metadata") ?? AsReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
     public required TerraformValue<string> PolicyAssignmentId
     {
-        get => GetArgument<TerraformValue<string>>("policy_assignment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_assignment_id");
         set => SetArgument("policy_assignment_id", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformValue<string> ResourceGroupId
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_id");
         set => SetArgument("resource_group_id", value);
     }
 

@@ -16,9 +16,9 @@ public class AwsIvschatRoomMessageReviewHandlerBlock : TerraformBlock
     /// <summary>
     /// The fallback_result attribute.
     /// </summary>
-    public TerraformValue<string>? FallbackResult
+    public TerraformValue<string> FallbackResult
     {
-        get => GetArgument<TerraformValue<string>>("fallback_result");
+        get => GetArgument<TerraformValue<string>>("fallback_result") ?? AsReference("fallback_result");
         set => SetArgument("fallback_result", value);
     }
 
@@ -84,9 +84,9 @@ public partial class AwsIvschatRoom(string name) : TerraformResource("aws_ivscha
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,18 +102,18 @@ public partial class AwsIvschatRoom(string name) : TerraformResource("aws_ivscha
     /// <summary>
     /// The maximum_message_length attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumMessageLength
+    public TerraformValue<double> MaximumMessageLength
     {
-        get => GetArgument<TerraformValue<double>>("maximum_message_length");
+        get => GetArgument<TerraformValue<double>>("maximum_message_length") ?? AsReference("maximum_message_length");
         set => SetArgument("maximum_message_length", value);
     }
 
     /// <summary>
     /// The maximum_message_rate_per_second attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumMessageRatePerSecond
+    public TerraformValue<double> MaximumMessageRatePerSecond
     {
-        get => GetArgument<TerraformValue<double>>("maximum_message_rate_per_second");
+        get => GetArgument<TerraformValue<double>>("maximum_message_rate_per_second") ?? AsReference("maximum_message_rate_per_second");
         set => SetArgument("maximum_message_rate_per_second", value);
     }
 
@@ -129,9 +129,9 @@ public partial class AwsIvschatRoom(string name) : TerraformResource("aws_ivscha
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -147,9 +147,9 @@ public partial class AwsIvschatRoom(string name) : TerraformResource("aws_ivscha
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

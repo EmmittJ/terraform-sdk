@@ -64,7 +64,7 @@ public partial class AzurermApiManagementGatewayHostNameConfiguration(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformValue<string> ApiManagementId
     {
-        get => GetArgument<TerraformValue<string>>("api_management_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_management_id");
         set => SetArgument("api_management_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermApiManagementGatewayHostNameConfiguration(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     public required TerraformValue<string> CertificateId
     {
-        get => GetArgument<TerraformValue<string>>("certificate_id");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_id");
         set => SetArgument("certificate_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermApiManagementGatewayHostNameConfiguration(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     public required TerraformValue<string> GatewayName
     {
-        get => GetArgument<TerraformValue<string>>("gateway_name");
+        get => GetRequiredArgument<TerraformValue<string>>("gateway_name");
         set => SetArgument("gateway_name", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermApiManagementGatewayHostNameConfiguration(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -110,9 +110,9 @@ public partial class AzurermApiManagementGatewayHostNameConfiguration(string nam
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermApiManagementGatewayHostNameConfiguration(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

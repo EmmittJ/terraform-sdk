@@ -61,9 +61,9 @@ public partial class GoogleComputeNetworkFirewallPolicy(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleComputeNetworkFirewallPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -82,18 +82,18 @@ public partial class GoogleComputeNetworkFirewallPolicy(string name) : Terraform
     /// A policy can be associated with a network only if the network has the matching policyType in its network profile.
     /// Different policy types may support some of the Firewall Rules features. Possible values: [&amp;quot;VPC_POLICY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? PolicyType
+    public TerraformValue<string> PolicyType
     {
-        get => GetArgument<TerraformValue<string>>("policy_type");
+        get => GetArgument<TerraformValue<string>>("policy_type") ?? AsReference("policy_type");
         set => SetArgument("policy_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -79,9 +79,9 @@ public partial class AzurermMachineLearningDatastoreBlobstorage(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermMachineLearningDatastoreBlobstorage(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermMachineLearningDatastoreBlobstorage(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
     public required TerraformValue<string> StorageContainerId
     {
-        get => GetArgument<TerraformValue<string>>("storage_container_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_container_id");
         set => SetArgument("storage_container_id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermMachineLearningDatastoreBlobstorage(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

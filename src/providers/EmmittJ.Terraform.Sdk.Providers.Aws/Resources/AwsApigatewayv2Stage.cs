@@ -19,7 +19,7 @@ public class AwsApigatewayv2StageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformValue<string> DestinationArn
     {
-        get => GetArgument<TerraformValue<string>>("destination_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_arn");
         set => SetArgument("destination_arn", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsApigatewayv2StageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetRequiredArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -68,9 +68,9 @@ public class AwsApigatewayv2StageDefaultRouteSettingsBlock : TerraformBlock
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformValue<string>? LoggingLevel
+    public TerraformValue<string> LoggingLevel
     {
-        get => GetArgument<TerraformValue<string>>("logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level") ?? AsReference("logging_level");
         set => SetArgument("logging_level", value);
     }
 
@@ -127,9 +127,9 @@ public class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlock
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformValue<string>? LoggingLevel
+    public TerraformValue<string> LoggingLevel
     {
-        get => GetArgument<TerraformValue<string>>("logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level") ?? AsReference("logging_level");
         set => SetArgument("logging_level", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteKey is required")]
     public required TerraformValue<string> RouteKey
     {
-        get => GetArgument<TerraformValue<string>>("route_key");
+        get => GetRequiredArgument<TerraformValue<string>>("route_key");
         set => SetArgument("route_key", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => GetArgument<TerraformValue<string>>("api_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -201,9 +201,9 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// <summary>
     /// The deployment_id attribute.
     /// </summary>
-    public TerraformValue<string>? DeploymentId
+    public TerraformValue<string> DeploymentId
     {
-        get => GetArgument<TerraformValue<string>>("deployment_id");
+        get => GetArgument<TerraformValue<string>>("deployment_id") ?? AsReference("deployment_id");
         set => SetArgument("deployment_id", value);
     }
 
@@ -219,9 +219,9 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -231,16 +231,16 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -265,9 +265,9 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

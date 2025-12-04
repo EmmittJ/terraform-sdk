@@ -34,54 +34,54 @@ public partial class AzureadUserDataSource(string name) : TerraformDataSource("a
     /// <summary>
     /// The employee identifier assigned to the user by the organisation
     /// </summary>
-    public TerraformValue<string>? EmployeeId
+    public TerraformValue<string> EmployeeId
     {
-        get => GetArgument<TerraformValue<string>>("employee_id");
+        get => GetArgument<TerraformValue<string>>("employee_id") ?? AsReference("employee_id");
         set => SetArgument("employee_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The SMTP address for the user
     /// </summary>
-    public TerraformValue<string>? Mail
+    public TerraformValue<string> Mail
     {
-        get => GetArgument<TerraformValue<string>>("mail");
+        get => GetArgument<TerraformValue<string>>("mail") ?? AsReference("mail");
         set => SetArgument("mail", value);
     }
 
     /// <summary>
     /// The email alias of the user
     /// </summary>
-    public TerraformValue<string>? MailNickname
+    public TerraformValue<string> MailNickname
     {
-        get => GetArgument<TerraformValue<string>>("mail_nickname");
+        get => GetArgument<TerraformValue<string>>("mail_nickname") ?? AsReference("mail_nickname");
         set => SetArgument("mail_nickname", value);
     }
 
     /// <summary>
     /// The object ID of the user
     /// </summary>
-    public TerraformValue<string>? ObjectId
+    public TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetArgument<TerraformValue<string>>("object_id") ?? AsReference("object_id");
         set => SetArgument("object_id", value);
     }
 
     /// <summary>
     /// The user principal name (UPN) of the user
     /// </summary>
-    public TerraformValue<string>? UserPrincipalName
+    public TerraformValue<string> UserPrincipalName
     {
-        get => GetArgument<TerraformValue<string>>("user_principal_name");
+        get => GetArgument<TerraformValue<string>>("user_principal_name") ?? AsReference("user_principal_name");
         set => SetArgument("user_principal_name", value);
     }
 

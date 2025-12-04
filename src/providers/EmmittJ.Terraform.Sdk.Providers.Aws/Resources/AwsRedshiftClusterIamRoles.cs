@@ -55,43 +55,43 @@ public partial class AwsRedshiftClusterIamRoles(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
     /// <summary>
     /// The default_iam_role_arn attribute.
     /// </summary>
-    public TerraformValue<string>? DefaultIamRoleArn
+    public TerraformValue<string> DefaultIamRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("default_iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("default_iam_role_arn") ?? AsReference("default_iam_role_arn");
         set => SetArgument("default_iam_role_arn", value);
     }
 
     /// <summary>
     /// The iam_role_arns attribute.
     /// </summary>
-    public TerraformSet<string>? IamRoleArns
+    public TerraformSet<string> IamRoleArns
     {
-        get => GetArgument<TerraformSet<string>>("iam_role_arns");
+        get => GetArgument<TerraformSet<string>>("iam_role_arns") ?? AsReference("iam_role_arns");
         set => SetArgument("iam_role_arns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -40,7 +40,7 @@ public class AzurermRedisCacheIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermRedisCachePatchScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => GetArgument<TerraformValue<string>>("day_of_week");
+        get => GetRequiredArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -163,18 +163,18 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// <summary>
     /// The maxfragmentationmemory_reserved attribute.
     /// </summary>
-    public TerraformValue<double>? MaxfragmentationmemoryReserved
+    public TerraformValue<double> MaxfragmentationmemoryReserved
     {
-        get => GetArgument<TerraformValue<double>>("maxfragmentationmemory_reserved");
+        get => GetArgument<TerraformValue<double>>("maxfragmentationmemory_reserved") ?? AsReference("maxfragmentationmemory_reserved");
         set => SetArgument("maxfragmentationmemory_reserved", value);
     }
 
     /// <summary>
     /// The maxmemory_delta attribute.
     /// </summary>
-    public TerraformValue<double>? MaxmemoryDelta
+    public TerraformValue<double> MaxmemoryDelta
     {
-        get => GetArgument<TerraformValue<double>>("maxmemory_delta");
+        get => GetArgument<TerraformValue<double>>("maxmemory_delta") ?? AsReference("maxmemory_delta");
         set => SetArgument("maxmemory_delta", value);
     }
 
@@ -190,9 +190,9 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// <summary>
     /// The maxmemory_reserved attribute.
     /// </summary>
-    public TerraformValue<double>? MaxmemoryReserved
+    public TerraformValue<double> MaxmemoryReserved
     {
-        get => GetArgument<TerraformValue<double>>("maxmemory_reserved");
+        get => GetArgument<TerraformValue<double>>("maxmemory_reserved") ?? AsReference("maxmemory_reserved");
         set => SetArgument("maxmemory_reserved", value);
     }
 
@@ -324,7 +324,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformValue<double> Capacity
     {
-        get => GetArgument<TerraformValue<double>>("capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -334,16 +334,16 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformValue<string> Family
     {
-        get => GetArgument<TerraformValue<string>>("family");
+        get => GetRequiredArgument<TerraformValue<string>>("family");
         set => SetArgument("family", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -353,7 +353,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -372,7 +372,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -388,9 +388,9 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// <summary>
     /// The private_static_ip_address attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateStaticIpAddress
+    public TerraformValue<string> PrivateStaticIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_static_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_static_ip_address") ?? AsReference("private_static_ip_address");
         set => SetArgument("private_static_ip_address", value);
     }
 
@@ -415,18 +415,18 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// <summary>
     /// The replicas_per_master attribute.
     /// </summary>
-    public TerraformValue<double>? ReplicasPerMaster
+    public TerraformValue<double> ReplicasPerMaster
     {
-        get => GetArgument<TerraformValue<double>>("replicas_per_master");
+        get => GetArgument<TerraformValue<double>>("replicas_per_master") ?? AsReference("replicas_per_master");
         set => SetArgument("replicas_per_master", value);
     }
 
     /// <summary>
     /// The replicas_per_primary attribute.
     /// </summary>
-    public TerraformValue<double>? ReplicasPerPrimary
+    public TerraformValue<double> ReplicasPerPrimary
     {
-        get => GetArgument<TerraformValue<double>>("replicas_per_primary");
+        get => GetArgument<TerraformValue<double>>("replicas_per_primary") ?? AsReference("replicas_per_primary");
         set => SetArgument("replicas_per_primary", value);
     }
 
@@ -436,7 +436,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -455,7 +455,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 

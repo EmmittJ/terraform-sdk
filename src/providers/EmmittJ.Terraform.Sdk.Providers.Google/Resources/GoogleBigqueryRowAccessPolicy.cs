@@ -55,7 +55,7 @@ public partial class GoogleBigqueryRowAccessPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleBigqueryRowAccessPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterPredicate is required")]
     public required TerraformValue<string> FilterPredicate
     {
-        get => GetArgument<TerraformValue<string>>("filter_predicate");
+        get => GetRequiredArgument<TerraformValue<string>>("filter_predicate");
         set => SetArgument("filter_predicate", value);
     }
 
@@ -111,9 +111,9 @@ public partial class GoogleBigqueryRowAccessPolicy(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -125,16 +125,16 @@ public partial class GoogleBigqueryRowAccessPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformValue<string> PolicyId
     {
-        get => GetArgument<TerraformValue<string>>("policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_id");
         set => SetArgument("policy_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -144,7 +144,7 @@ public partial class GoogleBigqueryRowAccessPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => GetArgument<TerraformValue<string>>("table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 

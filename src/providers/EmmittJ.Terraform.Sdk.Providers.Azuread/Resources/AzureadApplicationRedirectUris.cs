@@ -64,16 +64,16 @@ public partial class AzureadApplicationRedirectUris(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzureadApplicationRedirectUris(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUris is required")]
     public required TerraformSet<string> RedirectUris
     {
-        get => GetArgument<TerraformSet<string>>("redirect_uris");
+        get => GetRequiredArgument<TerraformSet<string>>("redirect_uris");
         set => SetArgument("redirect_uris", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzureadApplicationRedirectUris(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

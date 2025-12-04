@@ -64,16 +64,16 @@ public partial class AzurermPrivateDnsResolverVirtualNetworkLink(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
     public required TerraformValue<string> DnsForwardingRulesetId
     {
-        get => GetArgument<TerraformValue<string>>("dns_forwarding_ruleset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dns_forwarding_ruleset_id");
         set => SetArgument("dns_forwarding_ruleset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermPrivateDnsResolverVirtualNetworkLink(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermPrivateDnsResolverVirtualNetworkLink(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformValue<string> VirtualNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 

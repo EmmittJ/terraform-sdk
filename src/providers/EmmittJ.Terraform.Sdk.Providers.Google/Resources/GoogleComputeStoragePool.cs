@@ -52,9 +52,9 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// <summary>
     /// Provisioning type of the byte capacity of the pool. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? CapacityProvisioningType
+    public TerraformValue<string> CapacityProvisioningType
     {
-        get => GetArgument<TerraformValue<string>>("capacity_provisioning_type");
+        get => GetArgument<TerraformValue<string>>("capacity_provisioning_type") ?? AsReference("capacity_provisioning_type");
         set => SetArgument("capacity_provisioning_type", value);
     }
 
@@ -104,16 +104,16 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Provisioning type of the performance-related parameters of the pool, such as throughput and IOPS. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? PerformanceProvisioningType
+    public TerraformValue<string> PerformanceProvisioningType
     {
-        get => GetArgument<TerraformValue<string>>("performance_provisioning_type");
+        get => GetArgument<TerraformValue<string>>("performance_provisioning_type") ?? AsReference("performance_provisioning_type");
         set => SetArgument("performance_provisioning_type", value);
     }
 
@@ -124,7 +124,7 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedCapacityGb is required")]
     public required TerraformValue<string> PoolProvisionedCapacityGb
     {
-        get => GetArgument<TerraformValue<string>>("pool_provisioned_capacity_gb");
+        get => GetRequiredArgument<TerraformValue<string>>("pool_provisioned_capacity_gb");
         set => SetArgument("pool_provisioned_capacity_gb", value);
     }
 
@@ -145,16 +145,16 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedThroughput is required")]
     public required TerraformValue<string> PoolProvisionedThroughput
     {
-        get => GetArgument<TerraformValue<string>>("pool_provisioned_throughput");
+        get => GetRequiredArgument<TerraformValue<string>>("pool_provisioned_throughput");
         set => SetArgument("pool_provisioned_throughput", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -168,16 +168,16 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
     public required TerraformValue<string> StoragePoolType
     {
-        get => GetArgument<TerraformValue<string>>("storage_pool_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_pool_type");
         set => SetArgument("storage_pool_type", value);
     }
 
     /// <summary>
     /// A reference to the zone where the storage pool resides.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

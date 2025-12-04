@@ -61,9 +61,9 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformValue<string> LogicAppId
     {
-        get => GetArgument<TerraformValue<string>>("logic_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("logic_app_id");
         set => SetArgument("logic_app_id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 

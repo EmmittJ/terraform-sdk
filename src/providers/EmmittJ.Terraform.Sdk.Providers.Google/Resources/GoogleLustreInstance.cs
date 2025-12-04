@@ -56,7 +56,7 @@ public partial class GoogleLustreInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformValue<string> CapacityGib
     {
-        get => GetArgument<TerraformValue<string>>("capacity_gib");
+        get => GetRequiredArgument<TerraformValue<string>>("capacity_gib");
         set => SetArgument("capacity_gib", value);
     }
 
@@ -77,7 +77,7 @@ public partial class GoogleLustreInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filesystem is required")]
     public required TerraformValue<string> Filesystem
     {
-        get => GetArgument<TerraformValue<string>>("filesystem");
+        get => GetRequiredArgument<TerraformValue<string>>("filesystem");
         set => SetArgument("filesystem", value);
     }
 
@@ -94,9 +94,9 @@ public partial class GoogleLustreInstance(string name) : TerraformResource("goog
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleLustreInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class GoogleLustreInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -145,7 +145,7 @@ public partial class GoogleLustreInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -156,16 +156,16 @@ public partial class GoogleLustreInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerUnitStorageThroughput is required")]
     public required TerraformValue<string> PerUnitStorageThroughput
     {
-        get => GetArgument<TerraformValue<string>>("per_unit_storage_throughput");
+        get => GetRequiredArgument<TerraformValue<string>>("per_unit_storage_throughput");
         set => SetArgument("per_unit_storage_throughput", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

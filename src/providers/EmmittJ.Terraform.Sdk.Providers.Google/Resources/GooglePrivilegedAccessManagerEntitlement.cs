@@ -158,7 +158,7 @@ public class GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlockManual
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principals is required")]
     public required TerraformSet<string> Principals
     {
-        get => GetArgument<TerraformSet<string>>("principals");
+        get => GetRequiredArgument<TerraformSet<string>>("principals");
         set => SetArgument("principals", value);
     }
 
@@ -182,7 +182,7 @@ public class GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principals is required")]
     public required TerraformSet<string> Principals
     {
-        get => GetArgument<TerraformSet<string>>("principals");
+        get => GetRequiredArgument<TerraformSet<string>>("principals");
         set => SetArgument("principals", value);
     }
 
@@ -232,7 +232,7 @@ public class GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlockGcpIam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => GetArgument<TerraformValue<string>>("resource");
+        get => GetRequiredArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -242,7 +242,7 @@ public class GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlockGcpIam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => GetArgument<TerraformValue<string>>("resource_type");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -287,7 +287,7 @@ public class GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlockGcpIam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => GetArgument<TerraformValue<string>>("role");
+        get => GetRequiredArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -409,16 +409,16 @@ public partial class GooglePrivilegedAccessManagerEntitlement(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntitlementId is required")]
     public required TerraformValue<string> EntitlementId
     {
-        get => GetArgument<TerraformValue<string>>("entitlement_id");
+        get => GetRequiredArgument<TerraformValue<string>>("entitlement_id");
         set => SetArgument("entitlement_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -428,7 +428,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -440,7 +440,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRequestDuration is required")]
     public required TerraformValue<string> MaxRequestDuration
     {
-        get => GetArgument<TerraformValue<string>>("max_request_duration");
+        get => GetRequiredArgument<TerraformValue<string>>("max_request_duration");
         set => SetArgument("max_request_duration", value);
     }
 
@@ -450,7 +450,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 

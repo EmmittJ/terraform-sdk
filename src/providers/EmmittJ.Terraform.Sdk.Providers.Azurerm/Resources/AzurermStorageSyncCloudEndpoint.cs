@@ -55,16 +55,16 @@ public partial class AzurermStorageSyncCloudEndpoint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileShareName is required")]
     public required TerraformValue<string> FileShareName
     {
-        get => GetArgument<TerraformValue<string>>("file_share_name");
+        get => GetRequiredArgument<TerraformValue<string>>("file_share_name");
         set => SetArgument("file_share_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermStorageSyncCloudEndpoint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermStorageSyncCloudEndpoint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
     /// <summary>
     /// The storage_account_tenant_id attribute.
     /// </summary>
-    public TerraformValue<string>? StorageAccountTenantId
+    public TerraformValue<string> StorageAccountTenantId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_tenant_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_tenant_id") ?? AsReference("storage_account_tenant_id");
         set => SetArgument("storage_account_tenant_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermStorageSyncCloudEndpoint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncGroupId is required")]
     public required TerraformValue<string> StorageSyncGroupId
     {
-        get => GetArgument<TerraformValue<string>>("storage_sync_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_sync_group_id");
         set => SetArgument("storage_sync_group_id", value);
     }
 

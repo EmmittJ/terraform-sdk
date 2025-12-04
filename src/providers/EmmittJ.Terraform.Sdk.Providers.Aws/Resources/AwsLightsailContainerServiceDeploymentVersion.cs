@@ -28,7 +28,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image");
+        get => GetRequiredArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerPort is required")]
     public required TerraformValue<double> ContainerPort
     {
-        get => GetArgument<TerraformValue<double>>("container_port");
+        get => GetRequiredArgument<TerraformValue<double>>("container_port");
         set => SetArgument("container_port", value);
     }
 
@@ -209,18 +209,18 @@ public partial class AwsLightsailContainerServiceDeploymentVersion(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -230,7 +230,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersion(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 

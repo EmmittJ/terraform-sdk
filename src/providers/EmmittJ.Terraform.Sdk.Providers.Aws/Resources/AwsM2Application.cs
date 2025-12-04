@@ -96,7 +96,7 @@ public partial class AwsM2Application(string name) : TerraformResource("aws_m2_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
     public required TerraformValue<string> EngineType
     {
-        get => GetArgument<TerraformValue<string>>("engine_type");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_type");
         set => SetArgument("engine_type", value);
     }
 
@@ -115,16 +115,16 @@ public partial class AwsM2Application(string name) : TerraformResource("aws_m2_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

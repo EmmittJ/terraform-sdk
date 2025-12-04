@@ -11,9 +11,9 @@ public partial class AwsS3controlAccessGrantsLocation(string name) : TerraformRe
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AccountId
+    public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsS3controlAccessGrantsLocation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformValue<string> IamRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("iam_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsS3controlAccessGrantsLocation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationScope is required")]
     public required TerraformValue<string> LocationScope
     {
-        get => GetArgument<TerraformValue<string>>("location_scope");
+        get => GetRequiredArgument<TerraformValue<string>>("location_scope");
         set => SetArgument("location_scope", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

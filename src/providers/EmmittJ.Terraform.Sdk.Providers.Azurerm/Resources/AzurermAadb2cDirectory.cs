@@ -61,9 +61,9 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     /// <summary>
     /// Country code of the B2C tenant. See https://aka.ms/B2CDataResidency for valid country codes.
     /// </summary>
-    public TerraformValue<string>? CountryCode
+    public TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code");
+        get => GetArgument<TerraformValue<string>>("country_code") ?? AsReference("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataResidencyLocation is required")]
     public required TerraformValue<string> DataResidencyLocation
     {
-        get => GetArgument<TerraformValue<string>>("data_residency_location");
+        get => GetRequiredArgument<TerraformValue<string>>("data_residency_location");
         set => SetArgument("data_residency_location", value);
     }
 
     /// <summary>
     /// The initial display name of the B2C tenant.
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 

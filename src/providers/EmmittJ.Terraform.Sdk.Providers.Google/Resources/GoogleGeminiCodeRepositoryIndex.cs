@@ -55,7 +55,7 @@ public partial class GoogleGeminiCodeRepositoryIndex(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryIndexId is required")]
     public required TerraformValue<string> CodeRepositoryIndexId
     {
-        get => GetArgument<TerraformValue<string>>("code_repository_index_id");
+        get => GetRequiredArgument<TerraformValue<string>>("code_repository_index_id");
         set => SetArgument("code_repository_index_id", value);
     }
 
@@ -71,9 +71,9 @@ public partial class GoogleGeminiCodeRepositoryIndex(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -105,16 +105,16 @@ public partial class GoogleGeminiCodeRepositoryIndex(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

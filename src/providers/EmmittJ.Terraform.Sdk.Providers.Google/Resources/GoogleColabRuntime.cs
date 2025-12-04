@@ -19,7 +19,7 @@ public class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotebookRuntimeTemplate is required")]
     public required TerraformValue<string> NotebookRuntimeTemplate
     {
-        get => GetArgument<TerraformValue<string>>("notebook_runtime_template");
+        get => GetRequiredArgument<TerraformValue<string>>("notebook_runtime_template");
         set => SetArgument("notebook_runtime_template", value);
     }
 
@@ -106,16 +106,16 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -141,9 +141,9 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -153,7 +153,7 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeUser is required")]
     public required TerraformValue<string> RuntimeUser
     {
-        get => GetArgument<TerraformValue<string>>("runtime_user");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime_user");
         set => SetArgument("runtime_user", value);
     }
 

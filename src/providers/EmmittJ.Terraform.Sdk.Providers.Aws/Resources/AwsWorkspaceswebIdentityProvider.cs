@@ -14,7 +14,7 @@ public partial class AwsWorkspaceswebIdentityProvider(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderDetails is required")]
     public required TerraformMap<string> IdentityProviderDetails
     {
-        get => GetArgument<TerraformMap<string>>("identity_provider_details");
+        get => GetRequiredArgument<TerraformMap<string>>("identity_provider_details");
         set => SetArgument("identity_provider_details", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsWorkspaceswebIdentityProvider(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderName is required")]
     public required TerraformValue<string> IdentityProviderName
     {
-        get => GetArgument<TerraformValue<string>>("identity_provider_name");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_provider_name");
         set => SetArgument("identity_provider_name", value);
     }
 
@@ -34,7 +34,7 @@ public partial class AwsWorkspaceswebIdentityProvider(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderType is required")]
     public required TerraformValue<string> IdentityProviderType
     {
-        get => GetArgument<TerraformValue<string>>("identity_provider_type");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_provider_type");
         set => SetArgument("identity_provider_type", value);
     }
 
@@ -44,16 +44,16 @@ public partial class AwsWorkspaceswebIdentityProvider(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
     public required TerraformValue<string> PortalArn
     {
-        get => GetArgument<TerraformValue<string>>("portal_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("portal_arn");
         set => SetArgument("portal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

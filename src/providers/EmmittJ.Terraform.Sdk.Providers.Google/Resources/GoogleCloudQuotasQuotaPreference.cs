@@ -36,7 +36,7 @@ public class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredValue is required")]
     public required TerraformValue<string> PreferredValue
     {
-        get => GetArgument<TerraformValue<string>>("preferred_value");
+        get => GetRequiredArgument<TerraformValue<string>>("preferred_value");
         set => SetArgument("preferred_value", value);
     }
 
@@ -126,18 +126,18 @@ public partial class GoogleCloudQuotasQuotaPreference(string name) : TerraformRe
     /// 
     /// Example: &#39;{&amp;quot;provider&amp;quot;: &amp;quot;Foo Inc&amp;quot;}&#39; where &amp;quot;provider&amp;quot; is a service specific dimension.
     /// </summary>
-    public TerraformMap<string>? Dimensions
+    public TerraformMap<string> Dimensions
     {
-        get => GetArgument<TerraformMap<string>>("dimensions");
+        get => GetArgument<TerraformMap<string>>("dimensions") ?? AsReference("dimensions");
         set => SetArgument("dimensions", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -162,18 +162,18 @@ public partial class GoogleCloudQuotasQuotaPreference(string name) : TerraformRe
     /// <summary>
     /// The resource name of the quota preference. Required except in the CREATE requests.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The parent of the quota preference. Allowed parents are &amp;quot;projects/[project-id / number]&amp;quot; or &amp;quot;folders/[folder-id / number]&amp;quot; or &amp;quot;organizations/[org-id / number]&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? Parent
+    public TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetArgument<TerraformValue<string>>("parent") ?? AsReference("parent");
         set => SetArgument("parent", value);
     }
 
@@ -181,18 +181,18 @@ public partial class GoogleCloudQuotasQuotaPreference(string name) : TerraformRe
     /// The id of the quota to which the quota preference is applied. A quota id is unique in the service.
     /// Example: &#39;CPUS-per-project-region&#39;.
     /// </summary>
-    public TerraformValue<string>? QuotaId
+    public TerraformValue<string> QuotaId
     {
-        get => GetArgument<TerraformValue<string>>("quota_id");
+        get => GetArgument<TerraformValue<string>>("quota_id") ?? AsReference("quota_id");
         set => SetArgument("quota_id", value);
     }
 
     /// <summary>
     /// The name of the service to which the quota preference is applied.
     /// </summary>
-    public TerraformValue<string>? Service
+    public TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetArgument<TerraformValue<string>>("service") ?? AsReference("service");
         set => SetArgument("service", value);
     }
 

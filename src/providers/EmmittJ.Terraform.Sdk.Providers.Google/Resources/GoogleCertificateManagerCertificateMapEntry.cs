@@ -84,9 +84,9 @@ public partial class GoogleCertificateManagerCertificateMapEntry(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleCertificateManagerCertificateMapEntry(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Map is required")]
     public required TerraformValue<string> Map
     {
-        get => GetArgument<TerraformValue<string>>("map");
+        get => GetRequiredArgument<TerraformValue<string>>("map");
         set => SetArgument("map", value);
     }
 
@@ -132,16 +132,16 @@ public partial class GoogleCertificateManagerCertificateMapEntry(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

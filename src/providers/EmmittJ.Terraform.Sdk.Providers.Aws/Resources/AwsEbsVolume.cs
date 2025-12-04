@@ -55,16 +55,16 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
     public required TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformValue<bool>? Encrypted
+    public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
@@ -80,27 +80,27 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -125,27 +125,27 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformValue<double>? Size
+    public TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size");
+        get => GetArgument<TerraformValue<double>>("size") ?? AsReference("size");
         set => SetArgument("size", value);
     }
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
-    public TerraformValue<string>? SnapshotId
+    public TerraformValue<string> SnapshotId
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_id") ?? AsReference("snapshot_id");
         set => SetArgument("snapshot_id", value);
     }
 
@@ -161,27 +161,27 @@ public partial class AwsEbsVolume(string name) : TerraformResource("aws_ebs_volu
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 

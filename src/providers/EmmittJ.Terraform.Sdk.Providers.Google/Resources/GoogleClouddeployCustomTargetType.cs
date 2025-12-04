@@ -19,7 +19,7 @@ public class GoogleClouddeployCustomTargetTypeCustomActionsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeployAction is required")]
     public required TerraformValue<string> DeployAction
     {
-        get => GetArgument<TerraformValue<string>>("deploy_action");
+        get => GetRequiredArgument<TerraformValue<string>>("deploy_action");
         set => SetArgument("deploy_action", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleClouddeployCustomTargetTypeCustomActionsBlockIncludeSkaffoldM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repo is required")]
     public required TerraformValue<string> Repo
     {
-        get => GetArgument<TerraformValue<string>>("repo");
+        get => GetRequiredArgument<TerraformValue<string>>("repo");
         set => SetArgument("repo", value);
     }
 
@@ -171,7 +171,7 @@ public class GoogleClouddeployCustomTargetTypeCustomActionsBlockIncludeSkaffoldM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => GetArgument<TerraformValue<string>>("repository");
+        get => GetRequiredArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -203,7 +203,7 @@ public class GoogleClouddeployCustomTargetTypeCustomActionsBlockIncludeSkaffoldM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -281,9 +281,9 @@ public partial class GoogleClouddeployCustomTargetType(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -305,7 +305,7 @@ public partial class GoogleClouddeployCustomTargetType(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -315,16 +315,16 @@ public partial class GoogleClouddeployCustomTargetType(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

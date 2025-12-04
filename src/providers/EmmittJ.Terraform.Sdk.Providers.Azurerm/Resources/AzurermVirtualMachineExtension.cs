@@ -19,7 +19,7 @@ public class AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUrl is required")]
     public required TerraformValue<string> SecretUrl
     {
-        get => GetArgument<TerraformValue<string>>("secret_url");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_url");
         set => SetArgument("secret_url", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformValue<string> SourceVaultId
     {
-        get => GetArgument<TerraformValue<string>>("source_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_vault_id");
         set => SetArgument("source_vault_id", value);
     }
 
@@ -122,9 +122,9 @@ public partial class AzurermVirtualMachineExtension(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermVirtualMachineExtension(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermVirtualMachineExtension(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzurermVirtualMachineExtension(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermVirtualMachineExtension(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeHandlerVersion is required")]
     public required TerraformValue<string> TypeHandlerVersion
     {
-        get => GetArgument<TerraformValue<string>>("type_handler_version");
+        get => GetRequiredArgument<TerraformValue<string>>("type_handler_version");
         set => SetArgument("type_handler_version", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AzurermVirtualMachineExtension(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 

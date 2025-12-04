@@ -19,7 +19,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
     public required TerraformValue<string> DiskId
     {
-        get => GetArgument<TerraformValue<string>>("disk_id");
+        get => GetRequiredArgument<TerraformValue<string>>("disk_id");
         set => SetArgument("disk_id", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDiskType is required")]
     public required TerraformValue<string> TargetDiskType
     {
-        get => GetArgument<TerraformValue<string>>("target_disk_type");
+        get => GetRequiredArgument<TerraformValue<string>>("target_disk_type");
         set => SetArgument("target_disk_type", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrimary is required")]
     public required TerraformValue<bool> IsPrimary
     {
-        get => GetArgument<TerraformValue<bool>>("is_primary");
+        get => GetRequiredArgument<TerraformValue<bool>>("is_primary");
         set => SetArgument("is_primary", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceMacAddress is required")]
     public required TerraformValue<string> SourceMacAddress
     {
-        get => GetArgument<TerraformValue<string>>("source_mac_address");
+        get => GetRequiredArgument<TerraformValue<string>>("source_mac_address");
         set => SetArgument("source_mac_address", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVm(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplianceName is required")]
     public required TerraformValue<string> ApplianceName
     {
-        get => GetArgument<TerraformValue<string>>("appliance_name");
+        get => GetRequiredArgument<TerraformValue<string>>("appliance_name");
         set => SetArgument("appliance_name", value);
     }
 
@@ -211,9 +211,9 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVm(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVm(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVm(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhysicalServerCredentialName is required")]
     public required TerraformValue<string> PhysicalServerCredentialName
     {
-        get => GetArgument<TerraformValue<string>>("physical_server_credential_name");
+        get => GetRequiredArgument<TerraformValue<string>>("physical_server_credential_name");
         set => SetArgument("physical_server_credential_name", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVm(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryReplicationPolicyId is required")]
     public required TerraformValue<string> RecoveryReplicationPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("recovery_replication_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_replication_policy_id");
         set => SetArgument("recovery_replication_policy_id", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVm(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformValue<string> RecoveryVaultId
     {
-        get => GetArgument<TerraformValue<string>>("recovery_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_vault_id");
         set => SetArgument("recovery_vault_id", value);
     }
 
@@ -281,7 +281,7 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVm(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVmName is required")]
     public required TerraformValue<string> SourceVmName
     {
-        get => GetArgument<TerraformValue<string>>("source_vm_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_vm_name");
         set => SetArgument("source_vm_name", value);
     }
 
@@ -327,7 +327,7 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVm(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceGroupId is required")]
     public required TerraformValue<string> TargetResourceGroupId
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_resource_group_id");
         set => SetArgument("target_resource_group_id", value);
     }
 
@@ -337,7 +337,7 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVm(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVmName is required")]
     public required TerraformValue<string> TargetVmName
     {
-        get => GetArgument<TerraformValue<string>>("target_vm_name");
+        get => GetRequiredArgument<TerraformValue<string>>("target_vm_name");
         set => SetArgument("target_vm_name", value);
     }
 

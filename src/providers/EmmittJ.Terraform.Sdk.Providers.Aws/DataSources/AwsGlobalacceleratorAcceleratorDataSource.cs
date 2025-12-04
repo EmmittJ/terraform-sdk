@@ -11,18 +11,18 @@ public partial class AwsGlobalacceleratorAcceleratorDataSource(string name) : Te
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string>? Arn
+    public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 

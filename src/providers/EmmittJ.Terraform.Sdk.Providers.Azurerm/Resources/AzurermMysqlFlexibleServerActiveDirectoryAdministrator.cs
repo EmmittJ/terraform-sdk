@@ -61,9 +61,9 @@ public partial class AzurermMysqlFlexibleServerActiveDirectoryAdministrator(stri
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermMysqlFlexibleServerActiveDirectoryAdministrator(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityId is required")]
     public required TerraformValue<string> IdentityId
     {
-        get => GetArgument<TerraformValue<string>>("identity_id");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_id");
         set => SetArgument("identity_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermMysqlFlexibleServerActiveDirectoryAdministrator(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Login is required")]
     public required TerraformValue<string> Login
     {
-        get => GetArgument<TerraformValue<string>>("login");
+        get => GetRequiredArgument<TerraformValue<string>>("login");
         set => SetArgument("login", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermMysqlFlexibleServerActiveDirectoryAdministrator(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermMysqlFlexibleServerActiveDirectoryAdministrator(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => GetArgument<TerraformValue<string>>("server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermMysqlFlexibleServerActiveDirectoryAdministrator(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

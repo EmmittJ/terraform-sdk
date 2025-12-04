@@ -14,7 +14,7 @@ public partial class AwsCloudfrontFunction(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformValue<string> Code
     {
-        get => GetArgument<TerraformValue<string>>("code");
+        get => GetRequiredArgument<TerraformValue<string>>("code");
         set => SetArgument("code", value);
     }
 
@@ -30,9 +30,9 @@ public partial class AwsCloudfrontFunction(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsCloudfrontFunction(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsCloudfrontFunction(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformValue<string> Runtime
     {
-        get => GetArgument<TerraformValue<string>>("runtime");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime");
         set => SetArgument("runtime", value);
     }
 

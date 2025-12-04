@@ -54,9 +54,9 @@ public partial class GoogleComputeRegionNetworkEndpoint(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -77,25 +77,25 @@ public partial class GoogleComputeRegionNetworkEndpoint(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the containing network endpoint group is located.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -105,7 +105,7 @@ public partial class GoogleComputeRegionNetworkEndpoint(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionNetworkEndpointGroup is required")]
     public required TerraformValue<string> RegionNetworkEndpointGroup
     {
-        get => GetArgument<TerraformValue<string>>("region_network_endpoint_group");
+        get => GetRequiredArgument<TerraformValue<string>>("region_network_endpoint_group");
         set => SetArgument("region_network_endpoint_group", value);
     }
 

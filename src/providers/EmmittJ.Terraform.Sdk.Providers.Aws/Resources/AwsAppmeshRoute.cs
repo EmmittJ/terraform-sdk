@@ -160,9 +160,9 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockActionBlockWeightedTargetBloc
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockActionBlockWeightedTargetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNode is required")]
     public required TerraformValue<string> VirtualNode
     {
-        get => GetArgument<TerraformValue<string>>("virtual_node");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_node");
         set => SetArgument("virtual_node", value);
     }
 
@@ -182,7 +182,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockActionBlockWeightedTargetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => GetArgument<TerraformValue<double>>("weight");
+        get => GetRequiredArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -273,7 +273,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockMatchBlockMetadataBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -365,7 +365,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockMatchBlockMetadataBlockMatchB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<double> End
     {
-        get => GetArgument<TerraformValue<double>>("end");
+        get => GetRequiredArgument<TerraformValue<double>>("end");
         set => SetArgument("end", value);
     }
 
@@ -375,7 +375,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockMatchBlockMetadataBlockMatchB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<double> Start
     {
-        get => GetArgument<TerraformValue<double>>("start");
+        get => GetRequiredArgument<TerraformValue<double>>("start");
         set => SetArgument("start", value);
     }
 
@@ -416,7 +416,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockRetryPolicyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetries is required")]
     public required TerraformValue<double> MaxRetries
     {
-        get => GetArgument<TerraformValue<double>>("max_retries");
+        get => GetRequiredArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -461,7 +461,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockRetryPolicyBlockPerRetryTimeo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -471,7 +471,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockRetryPolicyBlockPerRetryTimeo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -527,7 +527,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockTimeoutBlockIdleBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -537,7 +537,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockTimeoutBlockIdleBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -560,7 +560,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockTimeoutBlockPerRequestBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -570,7 +570,7 @@ public class AwsAppmeshRouteSpecBlockGrpcRouteBlockTimeoutBlockPerRequestBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -675,9 +675,9 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockActionBlockWeightedTargetBlo
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -687,7 +687,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockActionBlockWeightedTargetBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNode is required")]
     public required TerraformValue<string> VirtualNode
     {
-        get => GetArgument<TerraformValue<string>>("virtual_node");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_node");
         set => SetArgument("virtual_node", value);
     }
 
@@ -697,7 +697,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockActionBlockWeightedTargetBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => GetArgument<TerraformValue<double>>("weight");
+        get => GetRequiredArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -808,7 +808,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockMatchBlockHeaderBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -900,7 +900,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockMatchBlockHeaderBlockMatchBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<double> End
     {
-        get => GetArgument<TerraformValue<double>>("end");
+        get => GetRequiredArgument<TerraformValue<double>>("end");
         set => SetArgument("end", value);
     }
 
@@ -910,7 +910,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockMatchBlockHeaderBlockMatchBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<double> Start
     {
-        get => GetArgument<TerraformValue<double>>("start");
+        get => GetRequiredArgument<TerraformValue<double>>("start");
         set => SetArgument("start", value);
     }
 
@@ -964,7 +964,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockMatchBlockQueryParameterBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1028,7 +1028,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockRetryPolicyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetries is required")]
     public required TerraformValue<double> MaxRetries
     {
-        get => GetArgument<TerraformValue<double>>("max_retries");
+        get => GetRequiredArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -1073,7 +1073,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockRetryPolicyBlockPerRetryTime
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1083,7 +1083,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockRetryPolicyBlockPerRetryTime
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1139,7 +1139,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockTimeoutBlockIdleBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1149,7 +1149,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockTimeoutBlockIdleBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1172,7 +1172,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockTimeoutBlockPerRequestBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1182,7 +1182,7 @@ public class AwsAppmeshRouteSpecBlockHttp2RouteBlockTimeoutBlockPerRequestBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1287,9 +1287,9 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockActionBlockWeightedTargetBloc
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1299,7 +1299,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockActionBlockWeightedTargetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNode is required")]
     public required TerraformValue<string> VirtualNode
     {
-        get => GetArgument<TerraformValue<string>>("virtual_node");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_node");
         set => SetArgument("virtual_node", value);
     }
 
@@ -1309,7 +1309,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockActionBlockWeightedTargetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => GetArgument<TerraformValue<double>>("weight");
+        get => GetRequiredArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -1420,7 +1420,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockMatchBlockHeaderBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1512,7 +1512,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockMatchBlockHeaderBlockMatchBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<double> End
     {
-        get => GetArgument<TerraformValue<double>>("end");
+        get => GetRequiredArgument<TerraformValue<double>>("end");
         set => SetArgument("end", value);
     }
 
@@ -1522,7 +1522,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockMatchBlockHeaderBlockMatchBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<double> Start
     {
-        get => GetArgument<TerraformValue<double>>("start");
+        get => GetRequiredArgument<TerraformValue<double>>("start");
         set => SetArgument("start", value);
     }
 
@@ -1576,7 +1576,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockMatchBlockQueryParameterBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1640,7 +1640,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockRetryPolicyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetries is required")]
     public required TerraformValue<double> MaxRetries
     {
-        get => GetArgument<TerraformValue<double>>("max_retries");
+        get => GetRequiredArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -1685,7 +1685,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockRetryPolicyBlockPerRetryTimeo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1695,7 +1695,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockRetryPolicyBlockPerRetryTimeo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1751,7 +1751,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockTimeoutBlockIdleBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1761,7 +1761,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockTimeoutBlockIdleBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1784,7 +1784,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockTimeoutBlockPerRequestBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1794,7 +1794,7 @@ public class AwsAppmeshRouteSpecBlockHttpRouteBlockTimeoutBlockPerRequestBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1886,9 +1886,9 @@ public class AwsAppmeshRouteSpecBlockTcpRouteBlockActionBlockWeightedTargetBlock
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1898,7 +1898,7 @@ public class AwsAppmeshRouteSpecBlockTcpRouteBlockActionBlockWeightedTargetBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNode is required")]
     public required TerraformValue<string> VirtualNode
     {
-        get => GetArgument<TerraformValue<string>>("virtual_node");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_node");
         set => SetArgument("virtual_node", value);
     }
 
@@ -1908,7 +1908,7 @@ public class AwsAppmeshRouteSpecBlockTcpRouteBlockActionBlockWeightedTargetBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => GetArgument<TerraformValue<double>>("weight");
+        get => GetRequiredArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -1976,7 +1976,7 @@ public class AwsAppmeshRouteSpecBlockTcpRouteBlockTimeoutBlockIdleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1986,7 +1986,7 @@ public class AwsAppmeshRouteSpecBlockTcpRouteBlockTimeoutBlockIdleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2002,9 +2002,9 @@ public partial class AwsAppmeshRoute(string name) : TerraformResource("aws_appme
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2014,16 +2014,16 @@ public partial class AwsAppmeshRoute(string name) : TerraformResource("aws_appme
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshName is required")]
     public required TerraformValue<string> MeshName
     {
-        get => GetArgument<TerraformValue<string>>("mesh_name");
+        get => GetRequiredArgument<TerraformValue<string>>("mesh_name");
         set => SetArgument("mesh_name", value);
     }
 
     /// <summary>
     /// The mesh_owner attribute.
     /// </summary>
-    public TerraformValue<string>? MeshOwner
+    public TerraformValue<string> MeshOwner
     {
-        get => GetArgument<TerraformValue<string>>("mesh_owner");
+        get => GetArgument<TerraformValue<string>>("mesh_owner") ?? AsReference("mesh_owner");
         set => SetArgument("mesh_owner", value);
     }
 
@@ -2033,16 +2033,16 @@ public partial class AwsAppmeshRoute(string name) : TerraformResource("aws_appme
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -2058,9 +2058,9 @@ public partial class AwsAppmeshRoute(string name) : TerraformResource("aws_appme
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -2070,7 +2070,7 @@ public partial class AwsAppmeshRoute(string name) : TerraformResource("aws_appme
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualRouterName is required")]
     public required TerraformValue<string> VirtualRouterName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_router_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_router_name");
         set => SetArgument("virtual_router_name", value);
     }
 

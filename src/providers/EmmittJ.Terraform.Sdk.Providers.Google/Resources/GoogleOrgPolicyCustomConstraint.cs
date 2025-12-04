@@ -55,7 +55,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
     public required TerraformValue<string> ActionType
     {
-        get => GetArgument<TerraformValue<string>>("action_type");
+        get => GetRequiredArgument<TerraformValue<string>>("action_type");
         set => SetArgument("action_type", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Condition is required")]
     public required TerraformValue<string> Condition
     {
-        get => GetArgument<TerraformValue<string>>("condition");
+        get => GetRequiredArgument<TerraformValue<string>>("condition");
         set => SetArgument("condition", value);
     }
 
@@ -90,9 +90,9 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 

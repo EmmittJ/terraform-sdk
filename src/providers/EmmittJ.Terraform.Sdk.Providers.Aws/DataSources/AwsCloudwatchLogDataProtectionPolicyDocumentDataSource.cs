@@ -42,7 +42,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfiguration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfiguration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regex is required")]
     public required TerraformValue<string> Regex
     {
-        get => GetArgument<TerraformValue<string>>("regex");
+        get => GetRequiredArgument<TerraformValue<string>>("regex");
         set => SetArgument("regex", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataIdentifiers is required")]
     public required TerraformSet<string> DataIdentifiers
     {
-        get => GetArgument<TerraformSet<string>>("data_identifiers");
+        get => GetRequiredArgument<TerraformSet<string>>("data_identifiers");
         set => SetArgument("data_identifiers", value);
     }
 
@@ -223,7 +223,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroup is required")]
     public required TerraformValue<string> LogGroup
     {
-        get => GetArgument<TerraformValue<string>>("log_group");
+        get => GetRequiredArgument<TerraformValue<string>>("log_group");
         set => SetArgument("log_group", value);
     }
 
@@ -246,7 +246,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryStream is required")]
     public required TerraformValue<string> DeliveryStream
     {
-        get => GetArgument<TerraformValue<string>>("delivery_stream");
+        get => GetRequiredArgument<TerraformValue<string>>("delivery_stream");
         set => SetArgument("delivery_stream", value);
     }
 
@@ -269,7 +269,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -333,9 +333,9 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource(stri
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -345,7 +345,7 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

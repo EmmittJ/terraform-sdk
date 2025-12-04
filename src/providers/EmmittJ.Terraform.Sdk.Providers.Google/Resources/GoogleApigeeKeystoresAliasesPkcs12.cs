@@ -46,7 +46,7 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
     public required TerraformValue<string> Alias
     {
-        get => GetArgument<TerraformValue<string>>("alias");
+        get => GetRequiredArgument<TerraformValue<string>>("alias");
         set => SetArgument("alias", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => GetArgument<TerraformValue<string>>("environment");
+        get => GetRequiredArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "File is required")]
     public required TerraformValue<string> File
     {
-        get => GetArgument<TerraformValue<string>>("file");
+        get => GetRequiredArgument<TerraformValue<string>>("file");
         set => SetArgument("file", value);
     }
 
@@ -76,16 +76,16 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filehash is required")]
     public required TerraformValue<string> Filehash
     {
-        get => GetArgument<TerraformValue<string>>("filehash");
+        get => GetRequiredArgument<TerraformValue<string>>("filehash");
         set => SetArgument("filehash", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -95,7 +95,7 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
     public required TerraformValue<string> Keystore
     {
-        get => GetArgument<TerraformValue<string>>("keystore");
+        get => GetRequiredArgument<TerraformValue<string>>("keystore");
         set => SetArgument("keystore", value);
     }
 
@@ -105,16 +105,16 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
     /// <summary>
     /// Password for the Private Key if it&#39;s encrypted
     /// </summary>
-    public TerraformValue<string>? Password
+    public TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetArgument<TerraformValue<string>>("password") ?? AsReference("password");
         set => SetArgument("password", value);
     }
 

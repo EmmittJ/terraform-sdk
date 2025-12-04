@@ -11,9 +11,9 @@ public partial class AwsOrganizationsPolicyAttachment(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsOrganizationsPolicyAttachment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformValue<string> PolicyId
     {
-        get => GetArgument<TerraformValue<string>>("policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_id");
         set => SetArgument("policy_id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsOrganizationsPolicyAttachment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformValue<string> TargetId
     {
-        get => GetArgument<TerraformValue<string>>("target_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_id");
         set => SetArgument("target_id", value);
     }
 

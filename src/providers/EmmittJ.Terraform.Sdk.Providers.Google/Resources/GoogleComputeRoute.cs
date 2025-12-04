@@ -85,16 +85,16 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestRange is required")]
     public required TerraformValue<string> DestRange
     {
-        get => GetArgument<TerraformValue<string>>("dest_range");
+        get => GetRequiredArgument<TerraformValue<string>>("dest_range");
         set => SetArgument("dest_range", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -180,18 +180,18 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     /// <summary>
     /// The zone of the instance specified in next_hop_instance. Omit if next_hop_instance is specified as a URL.
     /// </summary>
-    public TerraformValue<string>? NextHopInstanceZone
+    public TerraformValue<string> NextHopInstanceZone
     {
-        get => GetArgument<TerraformValue<string>>("next_hop_instance_zone");
+        get => GetArgument<TerraformValue<string>>("next_hop_instance_zone") ?? AsReference("next_hop_instance_zone");
         set => SetArgument("next_hop_instance_zone", value);
     }
 
     /// <summary>
     /// Network IP address of an instance that should handle matching packets.
     /// </summary>
-    public TerraformValue<string>? NextHopIp
+    public TerraformValue<string> NextHopIp
     {
-        get => GetArgument<TerraformValue<string>>("next_hop_ip");
+        get => GetArgument<TerraformValue<string>>("next_hop_ip") ?? AsReference("next_hop_ip");
         set => SetArgument("next_hop_ip", value);
     }
 
@@ -222,9 +222,9 @@ public partial class GoogleComputeRoute(string name) : TerraformResource("google
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

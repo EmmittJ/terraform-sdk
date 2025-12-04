@@ -19,7 +19,7 @@ public class AwsM2EnvironmentHighAvailabilityConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredCapacity is required")]
     public required TerraformValue<double> DesiredCapacity
     {
-        get => GetArgument<TerraformValue<double>>("desired_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("desired_capacity");
         set => SetArgument("desired_capacity", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsM2EnvironmentStorageConfigurationBlockEfsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsM2EnvironmentStorageConfigurationBlockEfsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPoint is required")]
     public required TerraformValue<string> MountPoint
     {
-        get => GetArgument<TerraformValue<string>>("mount_point");
+        get => GetRequiredArgument<TerraformValue<string>>("mount_point");
         set => SetArgument("mount_point", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsM2EnvironmentStorageConfigurationBlockFsxBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsM2EnvironmentStorageConfigurationBlockFsxBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPoint is required")]
     public required TerraformValue<string> MountPoint
     {
-        get => GetArgument<TerraformValue<string>>("mount_point");
+        get => GetRequiredArgument<TerraformValue<string>>("mount_point");
         set => SetArgument("mount_point", value);
     }
 
@@ -195,16 +195,16 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
     public required TerraformValue<string> EngineType
     {
-        get => GetArgument<TerraformValue<string>>("engine_type");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_type");
         set => SetArgument("engine_type", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string>? EngineVersion
+    public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -242,52 +242,52 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredMaintenanceWindow
+    public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformValue<bool>? PubliclyAccessible
+    public TerraformValue<bool> PubliclyAccessible
     {
-        get => GetArgument<TerraformValue<bool>>("publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible") ?? AsReference("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroupIds
+    public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SubnetIds
+    public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 

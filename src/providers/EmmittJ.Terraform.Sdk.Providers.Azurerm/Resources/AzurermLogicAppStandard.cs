@@ -19,7 +19,7 @@ public class AzurermLogicAppStandardConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermLogicAppStandardConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermLogicAppStandardConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermLogicAppStandardIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -114,9 +114,9 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The app_scale_limit attribute.
     /// </summary>
-    public TerraformValue<double>? AppScaleLimit
+    public TerraformValue<double> AppScaleLimit
     {
-        get => GetArgument<TerraformValue<double>>("app_scale_limit");
+        get => GetArgument<TerraformValue<double>>("app_scale_limit") ?? AsReference("app_scale_limit");
         set => SetArgument("app_scale_limit", value);
     }
 
@@ -138,18 +138,18 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The elastic_instance_minimum attribute.
     /// </summary>
-    public TerraformValue<double>? ElasticInstanceMinimum
+    public TerraformValue<double> ElasticInstanceMinimum
     {
-        get => GetArgument<TerraformValue<double>>("elastic_instance_minimum");
+        get => GetArgument<TerraformValue<double>>("elastic_instance_minimum") ?? AsReference("elastic_instance_minimum");
         set => SetArgument("elastic_instance_minimum", value);
     }
 
     /// <summary>
     /// The ftps_state attribute.
     /// </summary>
-    public TerraformValue<string>? FtpsState
+    public TerraformValue<string> FtpsState
     {
-        get => GetArgument<TerraformValue<string>>("ftps_state");
+        get => GetArgument<TerraformValue<string>>("ftps_state") ?? AsReference("ftps_state");
         set => SetArgument("ftps_state", value);
     }
 
@@ -174,27 +174,27 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The linux_fx_version attribute.
     /// </summary>
-    public TerraformValue<string>? LinuxFxVersion
+    public TerraformValue<string> LinuxFxVersion
     {
-        get => GetArgument<TerraformValue<string>>("linux_fx_version");
+        get => GetArgument<TerraformValue<string>>("linux_fx_version") ?? AsReference("linux_fx_version");
         set => SetArgument("linux_fx_version", value);
     }
 
     /// <summary>
     /// The min_tls_version attribute.
     /// </summary>
-    public TerraformValue<string>? MinTlsVersion
+    public TerraformValue<string> MinTlsVersion
     {
-        get => GetArgument<TerraformValue<string>>("min_tls_version");
+        get => GetArgument<TerraformValue<string>>("min_tls_version") ?? AsReference("min_tls_version");
         set => SetArgument("min_tls_version", value);
     }
 
     /// <summary>
     /// The pre_warmed_instance_count attribute.
     /// </summary>
-    public TerraformValue<double>? PreWarmedInstanceCount
+    public TerraformValue<double> PreWarmedInstanceCount
     {
-        get => GetArgument<TerraformValue<double>>("pre_warmed_instance_count");
+        get => GetArgument<TerraformValue<double>>("pre_warmed_instance_count") ?? AsReference("pre_warmed_instance_count");
         set => SetArgument("pre_warmed_instance_count", value);
     }
 
@@ -202,9 +202,9 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// The public_network_access_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? PublicNetworkAccessEnabled
+    public TerraformValue<bool> PublicNetworkAccessEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled") ?? AsReference("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -220,18 +220,18 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The scm_min_tls_version attribute.
     /// </summary>
-    public TerraformValue<string>? ScmMinTlsVersion
+    public TerraformValue<string> ScmMinTlsVersion
     {
-        get => GetArgument<TerraformValue<string>>("scm_min_tls_version");
+        get => GetArgument<TerraformValue<string>>("scm_min_tls_version") ?? AsReference("scm_min_tls_version");
         set => SetArgument("scm_min_tls_version", value);
     }
 
     /// <summary>
     /// The scm_type attribute.
     /// </summary>
-    public TerraformValue<string>? ScmType
+    public TerraformValue<string> ScmType
     {
-        get => GetArgument<TerraformValue<string>>("scm_type");
+        get => GetArgument<TerraformValue<string>>("scm_type") ?? AsReference("scm_type");
         set => SetArgument("scm_type", value);
     }
 
@@ -256,9 +256,9 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The vnet_route_all_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? VnetRouteAllEnabled
+    public TerraformValue<bool> VnetRouteAllEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("vnet_route_all_enabled");
+        get => GetArgument<TerraformValue<bool>>("vnet_route_all_enabled") ?? AsReference("vnet_route_all_enabled");
         set => SetArgument("vnet_route_all_enabled", value);
     }
 
@@ -382,9 +382,9 @@ public class AzurermLogicAppStandardSiteConfigBlockIpRestrictionBlock : Terrafor
     /// <summary>
     /// The name which should be used for this `ip_restriction`.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -467,9 +467,9 @@ public class AzurermLogicAppStandardSiteConfigBlockScmIpRestrictionBlock : Terra
     /// <summary>
     /// The name which should be used for this `ip_restriction`.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -565,16 +565,16 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServicePlanId is required")]
     public required TerraformValue<string> AppServicePlanId
     {
-        get => GetArgument<TerraformValue<string>>("app_service_plan_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_service_plan_id");
         set => SetArgument("app_service_plan_id", value);
     }
 
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
-    public TerraformMap<string>? AppSettings
+    public TerraformMap<string> AppSettings
     {
-        get => GetArgument<TerraformMap<string>>("app_settings");
+        get => GetArgument<TerraformMap<string>>("app_settings") ?? AsReference("app_settings");
         set => SetArgument("app_settings", value);
     }
 
@@ -590,9 +590,9 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     /// <summary>
     /// The client_affinity_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? ClientAffinityEnabled
+    public TerraformValue<bool> ClientAffinityEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("client_affinity_enabled");
+        get => GetArgument<TerraformValue<bool>>("client_affinity_enabled") ?? AsReference("client_affinity_enabled");
         set => SetArgument("client_affinity_enabled", value);
     }
 
@@ -635,9 +635,9 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -647,7 +647,7 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -657,16 +657,16 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformValue<string>? PublicNetworkAccess
+    public TerraformValue<string> PublicNetworkAccess
     {
-        get => GetArgument<TerraformValue<string>>("public_network_access");
+        get => GetArgument<TerraformValue<string>>("public_network_access") ?? AsReference("public_network_access");
         set => SetArgument("public_network_access", value);
     }
 
@@ -676,7 +676,7 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -695,7 +695,7 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountAccessKey is required")]
     public required TerraformValue<string> StorageAccountAccessKey
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_access_key");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_access_key");
         set => SetArgument("storage_account_access_key", value);
     }
 
@@ -705,16 +705,16 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformValue<string> StorageAccountName
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
     /// <summary>
     /// The storage_account_share_name attribute.
     /// </summary>
-    public TerraformValue<string>? StorageAccountShareName
+    public TerraformValue<string> StorageAccountShareName
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_share_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_share_name") ?? AsReference("storage_account_share_name");
         set => SetArgument("storage_account_share_name", value);
     }
 

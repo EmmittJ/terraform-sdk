@@ -19,7 +19,7 @@ public class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformValue<double> MaxCapacity
     {
-        get => GetArgument<TerraformValue<double>>("max_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformValue<double> MinCapacity
     {
-        get => GetArgument<TerraformValue<double>>("min_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("min_capacity");
         set => SetArgument("min_capacity", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationMethod is required")]
     public required TerraformValue<string> AllocationMethod
     {
-        get => GetArgument<TerraformValue<string>>("allocation_method");
+        get => GetRequiredArgument<TerraformValue<string>>("allocation_method");
         set => SetArgument("allocation_method", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermNginxDeploymentIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -208,7 +208,7 @@ public class AzurermNginxDeploymentNetworkInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -282,7 +282,7 @@ public class AzurermNginxDeploymentWebApplicationFirewallBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActivationStateEnabled is required")]
     public required TerraformValue<bool> ActivationStateEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("activation_state_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("activation_state_enabled");
         set => SetArgument("activation_state_enabled", value);
     }
 
@@ -340,9 +340,9 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -352,7 +352,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -360,9 +360,9 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// The managed_resource_group attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? ManagedResourceGroup
+    public TerraformValue<string> ManagedResourceGroup
     {
-        get => GetArgument<TerraformValue<string>>("managed_resource_group");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group") ?? AsReference("managed_resource_group");
         set => SetArgument("managed_resource_group", value);
     }
 
@@ -372,7 +372,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -382,7 +382,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -392,7 +392,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => GetArgument<TerraformValue<string>>("sku");
+        get => GetRequiredArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 

@@ -55,7 +55,7 @@ public class AzurermSnapshotEncryptionSettingsBlockDiskEncryptionKeyBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUrl is required")]
     public required TerraformValue<string> SecretUrl
     {
-        get => GetArgument<TerraformValue<string>>("secret_url");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_url");
         set => SetArgument("secret_url", value);
     }
 
@@ -65,7 +65,7 @@ public class AzurermSnapshotEncryptionSettingsBlockDiskEncryptionKeyBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformValue<string> SourceVaultId
     {
-        get => GetArgument<TerraformValue<string>>("source_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_vault_id");
         set => SetArgument("source_vault_id", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermSnapshotEncryptionSettingsBlockKeyEncryptionKeyBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUrl is required")]
     public required TerraformValue<string> KeyUrl
     {
-        get => GetArgument<TerraformValue<string>>("key_url");
+        get => GetRequiredArgument<TerraformValue<string>>("key_url");
         set => SetArgument("key_url", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermSnapshotEncryptionSettingsBlockKeyEncryptionKeyBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformValue<string> SourceVaultId
     {
-        get => GetArgument<TerraformValue<string>>("source_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_vault_id");
         set => SetArgument("source_vault_id", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformValue<string> CreateOption
     {
-        get => GetArgument<TerraformValue<string>>("create_option");
+        get => GetRequiredArgument<TerraformValue<string>>("create_option");
         set => SetArgument("create_option", value);
     }
 
@@ -183,18 +183,18 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformValue<double>? DiskSizeGb
+    public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

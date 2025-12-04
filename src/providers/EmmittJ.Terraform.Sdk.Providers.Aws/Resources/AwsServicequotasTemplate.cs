@@ -11,9 +11,9 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformValue<string>? AwsRegion
+    public TerraformValue<string> AwsRegion
     {
-        get => GetArgument<TerraformValue<string>>("aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region") ?? AsReference("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaCode is required")]
     public required TerraformValue<string> QuotaCode
     {
-        get => GetArgument<TerraformValue<string>>("quota_code");
+        get => GetRequiredArgument<TerraformValue<string>>("quota_code");
         set => SetArgument("quota_code", value);
     }
 
@@ -31,9 +31,9 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
     public required TerraformValue<string> ServiceCode
     {
-        get => GetArgument<TerraformValue<string>>("service_code");
+        get => GetRequiredArgument<TerraformValue<string>>("service_code");
         set => SetArgument("service_code", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 

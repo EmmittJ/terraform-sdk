@@ -55,16 +55,16 @@ public partial class AzureadAdministrativeUnitRoleMember(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministrativeUnitObjectId is required")]
     public required TerraformValue<string> AdministrativeUnitObjectId
     {
-        get => GetArgument<TerraformValue<string>>("administrative_unit_object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("administrative_unit_object_id");
         set => SetArgument("administrative_unit_object_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadAdministrativeUnitRoleMember(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberObjectId is required")]
     public required TerraformValue<string> MemberObjectId
     {
-        get => GetArgument<TerraformValue<string>>("member_object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("member_object_id");
         set => SetArgument("member_object_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzureadAdministrativeUnitRoleMember(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleObjectId is required")]
     public required TerraformValue<string> RoleObjectId
     {
-        get => GetArgument<TerraformValue<string>>("role_object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("role_object_id");
         set => SetArgument("role_object_id", value);
     }
 

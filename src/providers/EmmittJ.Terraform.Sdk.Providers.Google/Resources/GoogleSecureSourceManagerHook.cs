@@ -88,9 +88,9 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     /// <summary>
     /// The events that trigger hook on. Possible values: [&amp;quot;PUSH&amp;quot;, &amp;quot;PULL_REQUEST&amp;quot;]
     /// </summary>
-    public TerraformList<string>? Events
+    public TerraformList<string> Events
     {
-        get => GetArgument<TerraformList<string>>("events");
+        get => GetArgument<TerraformList<string>>("events") ?? AsReference("events");
         set => SetArgument("events", value);
     }
 
@@ -100,16 +100,16 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HookId is required")]
     public required TerraformValue<string> HookId
     {
-        get => GetArgument<TerraformValue<string>>("hook_id");
+        get => GetRequiredArgument<TerraformValue<string>>("hook_id");
         set => SetArgument("hook_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,16 +119,16 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => GetArgument<TerraformValue<string>>("repository_id");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -157,7 +157,7 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetUri is required")]
     public required TerraformValue<string> TargetUri
     {
-        get => GetArgument<TerraformValue<string>>("target_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("target_uri");
         set => SetArgument("target_uri", value);
     }
 

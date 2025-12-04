@@ -51,7 +51,7 @@ public class AwsAppstreamDirectoryConfigServiceAccountCredentialsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsAppstreamDirectoryConfigServiceAccountCredentialsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountPassword is required")]
     public required TerraformValue<string> AccountPassword
     {
-        get => GetArgument<TerraformValue<string>>("account_password");
+        get => GetRequiredArgument<TerraformValue<string>>("account_password");
         set => SetArgument("account_password", value);
     }
 
@@ -80,16 +80,16 @@ public partial class AwsAppstreamDirectoryConfig(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryName is required")]
     public required TerraformValue<string> DirectoryName
     {
-        get => GetArgument<TerraformValue<string>>("directory_name");
+        get => GetRequiredArgument<TerraformValue<string>>("directory_name");
         set => SetArgument("directory_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AwsAppstreamDirectoryConfig(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationalUnitDistinguishedNames is required")]
     public required TerraformSet<string> OrganizationalUnitDistinguishedNames
     {
-        get => GetArgument<TerraformSet<string>>("organizational_unit_distinguished_names");
+        get => GetRequiredArgument<TerraformSet<string>>("organizational_unit_distinguished_names");
         set => SetArgument("organizational_unit_distinguished_names", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

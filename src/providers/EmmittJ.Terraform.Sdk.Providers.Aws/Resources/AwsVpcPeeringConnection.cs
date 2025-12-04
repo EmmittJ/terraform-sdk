@@ -107,27 +107,27 @@ public partial class AwsVpcPeeringConnection(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The peer_owner_id attribute.
     /// </summary>
-    public TerraformValue<string>? PeerOwnerId
+    public TerraformValue<string> PeerOwnerId
     {
-        get => GetArgument<TerraformValue<string>>("peer_owner_id");
+        get => GetArgument<TerraformValue<string>>("peer_owner_id") ?? AsReference("peer_owner_id");
         set => SetArgument("peer_owner_id", value);
     }
 
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
-    public TerraformValue<string>? PeerRegion
+    public TerraformValue<string> PeerRegion
     {
-        get => GetArgument<TerraformValue<string>>("peer_region");
+        get => GetArgument<TerraformValue<string>>("peer_region") ?? AsReference("peer_region");
         set => SetArgument("peer_region", value);
     }
 
@@ -137,16 +137,16 @@ public partial class AwsVpcPeeringConnection(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerVpcId is required")]
     public required TerraformValue<string> PeerVpcId
     {
-        get => GetArgument<TerraformValue<string>>("peer_vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("peer_vpc_id");
         set => SetArgument("peer_vpc_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -162,9 +162,9 @@ public partial class AwsVpcPeeringConnection(string name) : TerraformResource("a
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AwsVpcPeeringConnection(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 

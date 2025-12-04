@@ -102,7 +102,7 @@ public partial class GoogleDeveloperConnectAccountConnector(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountConnectorId is required")]
     public required TerraformValue<string> AccountConnectorId
     {
-        get => GetArgument<TerraformValue<string>>("account_connector_id");
+        get => GetRequiredArgument<TerraformValue<string>>("account_connector_id");
         set => SetArgument("account_connector_id", value);
     }
 
@@ -121,9 +121,9 @@ public partial class GoogleDeveloperConnectAccountConnector(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -145,16 +145,16 @@ public partial class GoogleDeveloperConnectAccountConnector(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

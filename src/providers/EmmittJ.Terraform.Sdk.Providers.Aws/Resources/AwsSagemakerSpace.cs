@@ -19,7 +19,7 @@ public class AwsSagemakerSpaceOwnershipSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerUserProfileName is required")]
     public required TerraformValue<string> OwnerUserProfileName
     {
-        get => GetArgument<TerraformValue<string>>("owner_user_profile_name");
+        get => GetRequiredArgument<TerraformValue<string>>("owner_user_profile_name");
         set => SetArgument("owner_user_profile_name", value);
     }
 
@@ -289,7 +289,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockCustomFileSystemBlockEfsFileSyst
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterLabAppSettingsBlockCodeRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => GetArgument<TerraformValue<string>>("repository_url");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
@@ -529,7 +529,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterServerAppSettingsBlockCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => GetArgument<TerraformValue<string>>("repository_url");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
@@ -655,7 +655,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockKernelGatewayAppSettingsBlockCus
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     public required TerraformValue<string> AppImageConfigName
     {
-        get => GetArgument<TerraformValue<string>>("app_image_config_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_image_config_name");
         set => SetArgument("app_image_config_name", value);
     }
 
@@ -665,7 +665,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockKernelGatewayAppSettingsBlockCus
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => GetArgument<TerraformValue<string>>("image_name");
+        get => GetRequiredArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -781,7 +781,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockSpaceStorageSettingsBlockEbsStor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsVolumeSizeInGb is required")]
     public required TerraformValue<double> EbsVolumeSizeInGb
     {
-        get => GetArgument<TerraformValue<double>>("ebs_volume_size_in_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("ebs_volume_size_in_gb");
         set => SetArgument("ebs_volume_size_in_gb", value);
     }
 
@@ -805,7 +805,7 @@ public class AwsSagemakerSpaceSpaceSharingSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharingType is required")]
     public required TerraformValue<string> SharingType
     {
-        get => GetArgument<TerraformValue<string>>("sharing_type");
+        get => GetRequiredArgument<TerraformValue<string>>("sharing_type");
         set => SetArgument("sharing_type", value);
     }
 
@@ -824,25 +824,25 @@ public partial class AwsSagemakerSpace(string name) : TerraformResource("aws_sag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformValue<string> DomainId
     {
-        get => GetArgument<TerraformValue<string>>("domain_id");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_id");
         set => SetArgument("domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -861,7 +861,7 @@ public partial class AwsSagemakerSpace(string name) : TerraformResource("aws_sag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
     public required TerraformValue<string> SpaceName
     {
-        get => GetArgument<TerraformValue<string>>("space_name");
+        get => GetRequiredArgument<TerraformValue<string>>("space_name");
         set => SetArgument("space_name", value);
     }
 
@@ -877,9 +877,9 @@ public partial class AwsSagemakerSpace(string name) : TerraformResource("aws_sag
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

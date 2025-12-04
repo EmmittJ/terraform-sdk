@@ -29,7 +29,7 @@ public class GoogleCloudAssetOrganizationFeedConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleCloudAssetOrganizationFeedFeedOutputConfigBlockPubsubDestinat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => GetArgument<TerraformValue<string>>("topic");
+        get => GetRequiredArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -186,7 +186,7 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProject is required")]
     public required TerraformValue<string> BillingProject
     {
-        get => GetArgument<TerraformValue<string>>("billing_project");
+        get => GetRequiredArgument<TerraformValue<string>>("billing_project");
         set => SetArgument("billing_project", value);
     }
 
@@ -205,16 +205,16 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeedId is required")]
     public required TerraformValue<string> FeedId
     {
-        get => GetArgument<TerraformValue<string>>("feed_id");
+        get => GetRequiredArgument<TerraformValue<string>>("feed_id");
         set => SetArgument("feed_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -224,7 +224,7 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 

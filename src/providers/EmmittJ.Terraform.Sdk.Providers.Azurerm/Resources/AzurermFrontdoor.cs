@@ -19,7 +19,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthProbeName is required")]
     public required TerraformValue<string> HealthProbeName
     {
-        get => GetArgument<TerraformValue<string>>("health_probe_name");
+        get => GetRequiredArgument<TerraformValue<string>>("health_probe_name");
         set => SetArgument("health_probe_name", value);
     }
 
@@ -35,7 +35,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingName is required")]
     public required TerraformValue<string> LoadBalancingName
     {
-        get => GetArgument<TerraformValue<string>>("load_balancing_name");
+        get => GetRequiredArgument<TerraformValue<string>>("load_balancing_name");
         set => SetArgument("load_balancing_name", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformValue<string> Address
     {
-        get => GetArgument<TerraformValue<string>>("address");
+        get => GetRequiredArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -100,7 +100,7 @@ public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostHeader is required")]
     public required TerraformValue<string> HostHeader
     {
-        get => GetArgument<TerraformValue<string>>("host_header");
+        get => GetRequiredArgument<TerraformValue<string>>("host_header");
         set => SetArgument("host_header", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpPort is required")]
     public required TerraformValue<double> HttpPort
     {
-        get => GetArgument<TerraformValue<double>>("http_port");
+        get => GetRequiredArgument<TerraformValue<double>>("http_port");
         set => SetArgument("http_port", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpsPort is required")]
     public required TerraformValue<double> HttpsPort
     {
-        get => GetArgument<TerraformValue<double>>("https_port");
+        get => GetRequiredArgument<TerraformValue<double>>("https_port");
         set => SetArgument("https_port", value);
     }
 
@@ -186,7 +186,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -303,7 +303,7 @@ public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforceBackendPoolsCertificateNameCheck is required")]
     public required TerraformValue<bool> EnforceBackendPoolsCertificateNameCheck
     {
-        get => GetArgument<TerraformValue<bool>>("enforce_backend_pools_certificate_name_check");
+        get => GetRequiredArgument<TerraformValue<bool>>("enforce_backend_pools_certificate_name_check");
         set => SetArgument("enforce_backend_pools_certificate_name_check", value);
     }
 
@@ -327,7 +327,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -343,7 +343,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -429,7 +429,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -482,7 +482,7 @@ public class AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPoolName is required")]
     public required TerraformValue<string> BackendPoolName
     {
-        get => GetArgument<TerraformValue<string>>("backend_pool_name");
+        get => GetRequiredArgument<TerraformValue<string>>("backend_pool_name");
         set => SetArgument("backend_pool_name", value);
     }
 
@@ -604,7 +604,7 @@ public class AzurermFrontdoorRoutingRuleBlockRedirectConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectProtocol is required")]
     public required TerraformValue<string> RedirectProtocol
     {
-        get => GetArgument<TerraformValue<string>>("redirect_protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("redirect_protocol");
         set => SetArgument("redirect_protocol", value);
     }
 
@@ -614,7 +614,7 @@ public class AzurermFrontdoorRoutingRuleBlockRedirectConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectType is required")]
     public required TerraformValue<string> RedirectType
     {
-        get => GetArgument<TerraformValue<string>>("redirect_type");
+        get => GetRequiredArgument<TerraformValue<string>>("redirect_type");
         set => SetArgument("redirect_type", value);
     }
 
@@ -689,9 +689,9 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -710,7 +710,7 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -720,7 +720,7 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

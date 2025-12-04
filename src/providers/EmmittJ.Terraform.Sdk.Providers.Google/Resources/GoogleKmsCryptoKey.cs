@@ -61,7 +61,7 @@ public class GoogleKmsCryptoKeyVersionTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformValue<string> Algorithm
     {
-        get => GetArgument<TerraformValue<string>>("algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("algorithm");
         set => SetArgument("algorithm", value);
     }
 
@@ -87,9 +87,9 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// The resource name of the backend environment associated with all CryptoKeyVersions within this CryptoKey.
     /// The resource name is in the format &amp;quot;projects/*/locations/*/ekmConnections/*&amp;quot; and only applies to &amp;quot;EXTERNAL_VPC&amp;quot; keys.
     /// </summary>
-    public TerraformValue<string>? CryptoKeyBackend
+    public TerraformValue<string> CryptoKeyBackend
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_backend");
+        get => GetArgument<TerraformValue<string>>("crypto_key_backend") ?? AsReference("crypto_key_backend");
         set => SetArgument("crypto_key_backend", value);
     }
 
@@ -97,27 +97,27 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.
     /// If not specified at creation time, the default duration is 30 days.
     /// </summary>
-    public TerraformValue<string>? DestroyScheduledDuration
+    public TerraformValue<string> DestroyScheduledDuration
     {
-        get => GetArgument<TerraformValue<string>>("destroy_scheduled_duration");
+        get => GetArgument<TerraformValue<string>>("destroy_scheduled_duration") ?? AsReference("destroy_scheduled_duration");
         set => SetArgument("destroy_scheduled_duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Whether this key may contain imported versions only.
     /// </summary>
-    public TerraformValue<bool>? ImportOnly
+    public TerraformValue<bool> ImportOnly
     {
-        get => GetArgument<TerraformValue<bool>>("import_only");
+        get => GetArgument<TerraformValue<bool>>("import_only") ?? AsReference("import_only");
         set => SetArgument("import_only", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformValue<string> KeyRing
     {
-        get => GetArgument<TerraformValue<string>>("key_ring");
+        get => GetRequiredArgument<TerraformValue<string>>("key_ring");
         set => SetArgument("key_ring", value);
     }
 
@@ -151,7 +151,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

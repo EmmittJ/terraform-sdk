@@ -64,7 +64,7 @@ public partial class AzurermContainerRegistryWebhook(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     public required TerraformSet<string> Actions
     {
-        get => GetArgument<TerraformSet<string>>("actions");
+        get => GetRequiredArgument<TerraformSet<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AzurermContainerRegistryWebhook(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermContainerRegistryWebhook(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermContainerRegistryWebhook(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermContainerRegistryWebhook(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryName is required")]
     public required TerraformValue<string> RegistryName
     {
-        get => GetArgument<TerraformValue<string>>("registry_name");
+        get => GetRequiredArgument<TerraformValue<string>>("registry_name");
         set => SetArgument("registry_name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermContainerRegistryWebhook(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermContainerRegistryWebhook(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
     public required TerraformValue<string> ServiceUri
     {
-        get => GetArgument<TerraformValue<string>>("service_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("service_uri");
         set => SetArgument("service_uri", value);
     }
 

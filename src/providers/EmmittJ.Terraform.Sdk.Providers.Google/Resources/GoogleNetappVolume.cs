@@ -61,9 +61,9 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// &#39;projects/{project_id}/locations/{location}/hostGroups/{host_group_id}&#39;
     /// This field can be updated after the block device is created.
     /// </summary>
-    public TerraformList<string>? HostGroups
+    public TerraformList<string> HostGroups
     {
-        get => GetArgument<TerraformList<string>>("host_groups");
+        get => GetArgument<TerraformList<string>>("host_groups") ?? AsReference("host_groups");
         set => SetArgument("host_groups", value);
     }
 
@@ -83,9 +83,9 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     ///     and the following special characters: &amp;quot;-&amp;quot;, &amp;quot;_&amp;quot;, &amp;quot;}&amp;quot;, &amp;quot;{&amp;quot;, &amp;quot;.&amp;quot;.
     /// *   Spaces are not allowed.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformValue<string> OsType
     {
-        get => GetArgument<TerraformValue<string>>("os_type");
+        get => GetRequiredArgument<TerraformValue<string>>("os_type");
         set => SetArgument("os_type", value);
     }
 
@@ -178,9 +178,9 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// <summary>
     /// If enabled, the root user (UID = 0) of the specified clients doesn&#39;t get mapped to nobody (UID = 65534). This is also known as no_root_squash.
     /// </summary>
-    public TerraformValue<string>? HasRootAccess
+    public TerraformValue<string> HasRootAccess
     {
-        get => GetArgument<TerraformValue<string>>("has_root_access");
+        get => GetArgument<TerraformValue<string>>("has_root_access") ?? AsReference("has_root_access");
         set => SetArgument("has_root_access", value);
     }
 
@@ -259,9 +259,9 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// <summary>
     /// SquashMode defines how remote user privileges are restricted when accessing an NFS export. It controls how the user identities (like root) are mapped to anonymous users to limit access and enforce security. Possible values: [&amp;quot;NO_ROOT_SQUASH&amp;quot;, &amp;quot;ROOT_SQUASH&amp;quot;, &amp;quot;ALL_SQUASH&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? SquashMode
+    public TerraformValue<string> SquashMode
     {
-        get => GetArgument<TerraformValue<string>>("squash_mode");
+        get => GetArgument<TerraformValue<string>>("squash_mode") ?? AsReference("squash_mode");
         set => SetArgument("squash_mode", value);
     }
 
@@ -516,7 +516,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockDailyScheduleBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
+        get => GetRequiredArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -548,7 +548,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockHourlyScheduleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
+        get => GetRequiredArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -598,7 +598,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockMonthlyScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
+        get => GetRequiredArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -648,7 +648,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockWeeklyScheduleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
+        get => GetRequiredArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -751,7 +751,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformValue<string> CapacityGib
     {
-        get => GetArgument<TerraformValue<string>>("capacity_gib");
+        get => GetRequiredArgument<TerraformValue<string>>("capacity_gib");
         set => SetArgument("capacity_gib", value);
     }
 
@@ -779,9 +779,9 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -822,7 +822,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -842,16 +842,16 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -878,9 +878,9 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// Security Style of the Volume. Use UNIX to use UNIX or NFSV4 ACLs for file permissions.
     /// Use NTFS to use NTFS ACLs for file permissions. Can only be set for volumes which use SMB together with NFS as protocol. Possible values: [&amp;quot;NTFS&amp;quot;, &amp;quot;UNIX&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? SecurityStyle
+    public TerraformValue<string> SecurityStyle
     {
-        get => GetArgument<TerraformValue<string>>("security_style");
+        get => GetArgument<TerraformValue<string>>("security_style") ?? AsReference("security_style");
         set => SetArgument("security_style", value);
     }
 
@@ -896,9 +896,9 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// <summary>
     /// Settings for volumes with SMB access. Possible values: [&amp;quot;ENCRYPT_DATA&amp;quot;, &amp;quot;BROWSABLE&amp;quot;, &amp;quot;CHANGE_NOTIFY&amp;quot;, &amp;quot;NON_BROWSABLE&amp;quot;, &amp;quot;OPLOCKS&amp;quot;, &amp;quot;SHOW_SNAPSHOT&amp;quot;, &amp;quot;SHOW_PREVIOUS_VERSIONS&amp;quot;, &amp;quot;ACCESS_BASED_ENUMERATION&amp;quot;, &amp;quot;CONTINUOUSLY_AVAILABLE&amp;quot;]
     /// </summary>
-    public TerraformList<string>? SmbSettings
+    public TerraformList<string> SmbSettings
     {
-        get => GetArgument<TerraformList<string>>("smb_settings");
+        get => GetArgument<TerraformList<string>>("smb_settings") ?? AsReference("smb_settings");
         set => SetArgument("smb_settings", value);
     }
 
@@ -917,25 +917,25 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePool is required")]
     public required TerraformValue<string> StoragePool
     {
-        get => GetArgument<TerraformValue<string>>("storage_pool");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_pool");
         set => SetArgument("storage_pool", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total Throughput of the pool (in MiB/s).
     /// </summary>
-    public TerraformValue<double>? ThroughputMibps
+    public TerraformValue<double> ThroughputMibps
     {
-        get => GetArgument<TerraformValue<double>>("throughput_mibps");
+        get => GetArgument<TerraformValue<double>>("throughput_mibps") ?? AsReference("throughput_mibps");
         set => SetArgument("throughput_mibps", value);
     }
 
     /// <summary>
     /// Unix permission the mount point will be created with. Default is 0770. Applicable for UNIX security style volumes only.
     /// </summary>
-    public TerraformValue<string>? UnixPermissions
+    public TerraformValue<string> UnixPermissions
     {
-        get => GetArgument<TerraformValue<string>>("unix_permissions");
+        get => GetArgument<TerraformValue<string>>("unix_permissions") ?? AsReference("unix_permissions");
         set => SetArgument("unix_permissions", value);
     }
 

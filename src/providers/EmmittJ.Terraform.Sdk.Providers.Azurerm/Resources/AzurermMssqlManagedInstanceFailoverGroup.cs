@@ -28,7 +28,7 @@ public class AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -94,9 +94,9 @@ public partial class AzurermMssqlManagedInstanceFailoverGroup(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AzurermMssqlManagedInstanceFailoverGroup(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AzurermMssqlManagedInstanceFailoverGroup(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformValue<string> ManagedInstanceId
     {
-        get => GetArgument<TerraformValue<string>>("managed_instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_instance_id");
         set => SetArgument("managed_instance_id", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AzurermMssqlManagedInstanceFailoverGroup(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermMssqlManagedInstanceFailoverGroup(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerManagedInstanceId is required")]
     public required TerraformValue<string> PartnerManagedInstanceId
     {
-        get => GetArgument<TerraformValue<string>>("partner_managed_instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("partner_managed_instance_id");
         set => SetArgument("partner_managed_instance_id", value);
     }
 

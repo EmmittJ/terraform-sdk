@@ -16,36 +16,36 @@ public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
     /// <summary>
     /// The instance_ids attribute.
     /// </summary>
-    public TerraformList<string>? InstanceIds
+    public TerraformList<string> InstanceIds
     {
-        get => GetArgument<TerraformList<string>>("instance_ids");
+        get => GetArgument<TerraformList<string>>("instance_ids") ?? AsReference("instance_ids");
         set => SetArgument("instance_ids", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformValue<string>? InstanceType
+    public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// The lifecycle attribute.
     /// </summary>
-    public TerraformValue<string>? LifecycleAttribute
+    public TerraformValue<string> LifecycleAttribute
     {
-        get => GetArgument<TerraformValue<string>>("lifecycle");
+        get => GetArgument<TerraformValue<string>>("lifecycle") ?? AsReference("lifecycle");
         set => SetArgument("lifecycle", value);
     }
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    public TerraformValue<string>? Platform
+    public TerraformValue<string> Platform
     {
-        get => GetArgument<TerraformValue<string>>("platform");
+        get => GetArgument<TerraformValue<string>>("platform") ?? AsReference("platform");
         set => SetArgument("platform", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockLaunchTemplateSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -597,7 +597,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => GetArgument<TerraformValue<double>>("min");
+        get => GetRequiredArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -722,7 +722,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => GetArgument<TerraformValue<double>>("min");
+        get => GetRequiredArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -978,7 +978,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultTargetCapacityType is required")]
     public required TerraformValue<string> DefaultTargetCapacityType
     {
-        get => GetArgument<TerraformValue<string>>("default_target_capacity_type");
+        get => GetRequiredArgument<TerraformValue<string>>("default_target_capacity_type");
         set => SetArgument("default_target_capacity_type", value);
     }
 
@@ -1015,7 +1015,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalTargetCapacity is required")]
     public required TerraformValue<double> TotalTargetCapacity
     {
-        get => GetArgument<TerraformValue<double>>("total_target_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("total_target_capacity");
         set => SetArgument("total_target_capacity", value);
     }
 
@@ -1090,45 +1090,45 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// <summary>
     /// The fleet_state attribute.
     /// </summary>
-    public TerraformValue<string>? FleetState
+    public TerraformValue<string> FleetState
     {
-        get => GetArgument<TerraformValue<string>>("fleet_state");
+        get => GetArgument<TerraformValue<string>>("fleet_state") ?? AsReference("fleet_state");
         set => SetArgument("fleet_state", value);
     }
 
     /// <summary>
     /// The fulfilled_capacity attribute.
     /// </summary>
-    public TerraformValue<double>? FulfilledCapacity
+    public TerraformValue<double> FulfilledCapacity
     {
-        get => GetArgument<TerraformValue<double>>("fulfilled_capacity");
+        get => GetArgument<TerraformValue<double>>("fulfilled_capacity") ?? AsReference("fulfilled_capacity");
         set => SetArgument("fulfilled_capacity", value);
     }
 
     /// <summary>
     /// The fulfilled_on_demand_capacity attribute.
     /// </summary>
-    public TerraformValue<double>? FulfilledOnDemandCapacity
+    public TerraformValue<double> FulfilledOnDemandCapacity
     {
-        get => GetArgument<TerraformValue<double>>("fulfilled_on_demand_capacity");
+        get => GetArgument<TerraformValue<double>>("fulfilled_on_demand_capacity") ?? AsReference("fulfilled_on_demand_capacity");
         set => SetArgument("fulfilled_on_demand_capacity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1153,9 +1153,9 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

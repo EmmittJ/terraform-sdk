@@ -19,7 +19,7 @@ public class AwsSsmAssociationOutputLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsSsmAssociationTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -123,18 +123,18 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// <summary>
     /// The document_version attribute.
     /// </summary>
-    public TerraformValue<string>? DocumentVersion
+    public TerraformValue<string> DocumentVersion
     {
-        get => GetArgument<TerraformValue<string>>("document_version");
+        get => GetArgument<TerraformValue<string>>("document_version") ?? AsReference("document_version");
         set => SetArgument("document_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -162,25 +162,25 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMap<string>? Parameters
+    public TerraformMap<string> Parameters
     {
-        get => GetArgument<TerraformMap<string>>("parameters");
+        get => GetArgument<TerraformMap<string>>("parameters") ?? AsReference("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -214,9 +214,9 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

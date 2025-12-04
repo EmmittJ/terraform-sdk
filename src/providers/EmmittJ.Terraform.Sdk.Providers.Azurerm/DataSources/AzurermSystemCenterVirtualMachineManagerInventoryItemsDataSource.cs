@@ -34,9 +34,9 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InventoryType is required")]
     public required TerraformValue<string> InventoryType
     {
-        get => GetArgument<TerraformValue<string>>("inventory_type");
+        get => GetRequiredArgument<TerraformValue<string>>("inventory_type");
         set => SetArgument("inventory_type", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SystemCenterVirtualMachineManagerServerId is required")]
     public required TerraformValue<string> SystemCenterVirtualMachineManagerServerId
     {
-        get => GetArgument<TerraformValue<string>>("system_center_virtual_machine_manager_server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("system_center_virtual_machine_manager_server_id");
         set => SetArgument("system_center_virtual_machine_manager_server_id", value);
     }
 

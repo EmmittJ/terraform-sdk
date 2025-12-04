@@ -73,7 +73,7 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformValue<string> CreateOption
     {
-        get => GetArgument<TerraformValue<string>>("create_option");
+        get => GetRequiredArgument<TerraformValue<string>>("create_option");
         set => SetArgument("create_option", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
     public required TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformValue<double> Lun
     {
-        get => GetArgument<TerraformValue<double>>("lun");
+        get => GetRequiredArgument<TerraformValue<double>>("lun");
         set => SetArgument("lun", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     public required TerraformValue<string> SourceResourceId
     {
-        get => GetArgument<TerraformValue<string>>("source_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_resource_id");
         set => SetArgument("source_resource_id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 

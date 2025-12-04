@@ -88,9 +88,9 @@ public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyState is required")]
     public required TerraformValue<string> PolicyState
     {
-        get => GetArgument<TerraformValue<string>>("policy_state");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_state");
         set => SetArgument("policy_state", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("synapse_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("synapse_workspace_id");
         set => SetArgument("synapse_workspace_id", value);
     }
 

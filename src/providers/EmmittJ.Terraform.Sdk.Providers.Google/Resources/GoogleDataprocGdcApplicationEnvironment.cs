@@ -114,9 +114,9 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -154,9 +154,9 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -166,7 +166,7 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serviceinstance is required")]
     public required TerraformValue<string> Serviceinstance
     {
-        get => GetArgument<TerraformValue<string>>("serviceinstance");
+        get => GetRequiredArgument<TerraformValue<string>>("serviceinstance");
         set => SetArgument("serviceinstance", value);
     }
 

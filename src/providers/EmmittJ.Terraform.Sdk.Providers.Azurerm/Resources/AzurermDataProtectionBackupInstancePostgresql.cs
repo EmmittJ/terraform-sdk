@@ -64,7 +64,7 @@ public partial class AzurermDataProtectionBackupInstancePostgresql(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     public required TerraformValue<string> BackupPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("backup_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("backup_policy_id");
         set => SetArgument("backup_policy_id", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AzurermDataProtectionBackupInstancePostgresql(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformValue<string> DatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("database_id");
         set => SetArgument("database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermDataProtectionBackupInstancePostgresql(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermDataProtectionBackupInstancePostgresql(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermDataProtectionBackupInstancePostgresql(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     public required TerraformValue<string> VaultId
     {
-        get => GetArgument<TerraformValue<string>>("vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vault_id");
         set => SetArgument("vault_id", value);
     }
 

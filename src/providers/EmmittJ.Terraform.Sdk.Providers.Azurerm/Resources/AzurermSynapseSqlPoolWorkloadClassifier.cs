@@ -79,9 +79,9 @@ public partial class AzurermSynapseSqlPoolWorkloadClassifier(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermSynapseSqlPoolWorkloadClassifier(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberName is required")]
     public required TerraformValue<string> MemberName
     {
-        get => GetArgument<TerraformValue<string>>("member_name");
+        get => GetRequiredArgument<TerraformValue<string>>("member_name");
         set => SetArgument("member_name", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermSynapseSqlPoolWorkloadClassifier(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermSynapseSqlPoolWorkloadClassifier(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadGroupId is required")]
     public required TerraformValue<string> WorkloadGroupId
     {
-        get => GetArgument<TerraformValue<string>>("workload_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workload_group_id");
         set => SetArgument("workload_group_id", value);
     }
 

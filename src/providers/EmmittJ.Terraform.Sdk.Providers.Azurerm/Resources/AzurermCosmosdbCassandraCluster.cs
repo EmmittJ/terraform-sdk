@@ -31,7 +31,7 @@ public class AzurermCosmosdbCassandraClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAdminPassword is required")]
     public required TerraformValue<string> DefaultAdminPassword
     {
-        get => GetArgument<TerraformValue<string>>("default_admin_password");
+        get => GetRequiredArgument<TerraformValue<string>>("default_admin_password");
         set => SetArgument("default_admin_password", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedManagementSubnetId is required")]
     public required TerraformValue<string> DelegatedManagementSubnetId
     {
-        get => GetArgument<TerraformValue<string>>("delegated_management_subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("delegated_management_subnet_id");
         set => SetArgument("delegated_management_subnet_id", value);
     }
 
@@ -162,9 +162,9 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -203,7 +203,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

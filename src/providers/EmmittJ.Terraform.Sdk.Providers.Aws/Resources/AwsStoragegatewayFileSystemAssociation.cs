@@ -87,16 +87,16 @@ public partial class AwsStoragegatewayFileSystemAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     public required TerraformValue<string> GatewayArn
     {
-        get => GetArgument<TerraformValue<string>>("gateway_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("gateway_arn");
         set => SetArgument("gateway_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsStoragegatewayFileSystemAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationArn is required")]
     public required TerraformValue<string> LocationArn
     {
-        get => GetArgument<TerraformValue<string>>("location_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("location_arn");
         set => SetArgument("location_arn", value);
     }
 
@@ -116,16 +116,16 @@ public partial class AwsStoragegatewayFileSystemAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -141,9 +141,9 @@ public partial class AwsStoragegatewayFileSystemAssociation(string name) : Terra
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsStoragegatewayFileSystemAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

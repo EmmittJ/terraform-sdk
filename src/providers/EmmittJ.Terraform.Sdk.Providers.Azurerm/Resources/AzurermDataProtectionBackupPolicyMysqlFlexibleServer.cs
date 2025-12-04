@@ -44,7 +44,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreType is required")]
     public required TerraformValue<string> DataStoreType
     {
-        get => GetArgument<TerraformValue<string>>("data_store_type");
+        get => GetRequiredArgument<TerraformValue<string>>("data_store_type");
         set => SetArgument("data_store_type", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetRequiredArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreType is required")]
     public required TerraformValue<string> DataStoreType
     {
-        get => GetArgument<TerraformValue<string>>("data_store_type");
+        get => GetRequiredArgument<TerraformValue<string>>("data_store_type");
         set => SetArgument("data_store_type", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetRequiredArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -271,9 +271,9 @@ public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServer(string
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -283,7 +283,7 @@ public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServer(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -302,7 +302,7 @@ public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServer(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     public required TerraformValue<string> VaultId
     {
-        get => GetArgument<TerraformValue<string>>("vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vault_id");
         set => SetArgument("vault_id", value);
     }
 

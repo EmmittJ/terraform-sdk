@@ -52,54 +52,54 @@ public partial class AwsIvsChannel(string name) : TerraformResource("aws_ivs_cha
     /// <summary>
     /// The authorized attribute.
     /// </summary>
-    public TerraformValue<bool>? Authorized
+    public TerraformValue<bool> Authorized
     {
-        get => GetArgument<TerraformValue<bool>>("authorized");
+        get => GetArgument<TerraformValue<bool>>("authorized") ?? AsReference("authorized");
         set => SetArgument("authorized", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The latency_mode attribute.
     /// </summary>
-    public TerraformValue<string>? LatencyMode
+    public TerraformValue<string> LatencyMode
     {
-        get => GetArgument<TerraformValue<string>>("latency_mode");
+        get => GetArgument<TerraformValue<string>>("latency_mode") ?? AsReference("latency_mode");
         set => SetArgument("latency_mode", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The recording_configuration_arn attribute.
     /// </summary>
-    public TerraformValue<string>? RecordingConfigurationArn
+    public TerraformValue<string> RecordingConfigurationArn
     {
-        get => GetArgument<TerraformValue<string>>("recording_configuration_arn");
+        get => GetArgument<TerraformValue<string>>("recording_configuration_arn") ?? AsReference("recording_configuration_arn");
         set => SetArgument("recording_configuration_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -115,18 +115,18 @@ public partial class AwsIvsChannel(string name) : TerraformResource("aws_ivs_cha
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 

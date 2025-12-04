@@ -19,7 +19,7 @@ public class AwsAcmpcaCertificateValidityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsAcmpcaCertificateValidityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AwsAcmpcaCertificate(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
     public required TerraformValue<string> CertificateAuthorityArn
     {
-        get => GetArgument<TerraformValue<string>>("certificate_authority_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_authority_arn");
         set => SetArgument("certificate_authority_arn", value);
     }
 
@@ -67,25 +67,25 @@ public partial class AwsAcmpcaCertificate(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateSigningRequest is required")]
     public required TerraformValue<string> CertificateSigningRequest
     {
-        get => GetArgument<TerraformValue<string>>("certificate_signing_request");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_signing_request");
         set => SetArgument("certificate_signing_request", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsAcmpcaCertificate(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     public required TerraformValue<string> SigningAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("signing_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("signing_algorithm");
         set => SetArgument("signing_algorithm", value);
     }
 

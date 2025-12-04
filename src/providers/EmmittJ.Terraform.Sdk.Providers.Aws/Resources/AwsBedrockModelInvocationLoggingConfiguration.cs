@@ -16,36 +16,36 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : T
     /// <summary>
     /// The embedding_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? EmbeddingDataDeliveryEnabled
+    public TerraformValue<bool> EmbeddingDataDeliveryEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("embedding_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("embedding_data_delivery_enabled") ?? AsReference("embedding_data_delivery_enabled");
         set => SetArgument("embedding_data_delivery_enabled", value);
     }
 
     /// <summary>
     /// The image_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? ImageDataDeliveryEnabled
+    public TerraformValue<bool> ImageDataDeliveryEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("image_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("image_data_delivery_enabled") ?? AsReference("image_data_delivery_enabled");
         set => SetArgument("image_data_delivery_enabled", value);
     }
 
     /// <summary>
     /// The text_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? TextDataDeliveryEnabled
+    public TerraformValue<bool> TextDataDeliveryEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("text_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("text_data_delivery_enabled") ?? AsReference("text_data_delivery_enabled");
         set => SetArgument("text_data_delivery_enabled", value);
     }
 
     /// <summary>
     /// The video_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? VideoDataDeliveryEnabled
+    public TerraformValue<bool> VideoDataDeliveryEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("video_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("video_data_delivery_enabled") ?? AsReference("video_data_delivery_enabled");
         set => SetArgument("video_data_delivery_enabled", value);
     }
 
@@ -181,9 +181,9 @@ public partial class AwsBedrockModelInvocationLoggingConfiguration(string name) 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -16,27 +16,27 @@ public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBl
     /// <summary>
     /// The diagnostics_events_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? DiagnosticsEventsEnabled
+    public TerraformValue<bool> DiagnosticsEventsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("diagnostics_events_enabled");
+        get => GetArgument<TerraformValue<bool>>("diagnostics_events_enabled") ?? AsReference("diagnostics_events_enabled");
         set => SetArgument("diagnostics_events_enabled", value);
     }
 
     /// <summary>
     /// The health_monitoring_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? HealthMonitoringEnabled
+    public TerraformValue<bool> HealthMonitoringEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("health_monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("health_monitoring_enabled") ?? AsReference("health_monitoring_enabled");
         set => SetArgument("health_monitoring_enabled", value);
     }
 
     /// <summary>
     /// The incident_logs_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? IncidentLogsEnabled
+    public TerraformValue<bool> IncidentLogsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("incident_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("incident_logs_enabled") ?? AsReference("incident_logs_enabled");
         set => SetArgument("incident_logs_enabled", value);
     }
 
@@ -146,16 +146,16 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformValue<string> CloudExadataInfrastructureId
     {
-        get => GetArgument<TerraformValue<string>>("cloud_exadata_infrastructure_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cloud_exadata_infrastructure_id");
         set => SetArgument("cloud_exadata_infrastructure_id", value);
     }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformValue<string>? ClusterName
+    public TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name") ?? AsReference("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -165,34 +165,34 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
     public required TerraformValue<double> CpuCoreCount
     {
-        get => GetArgument<TerraformValue<double>>("cpu_core_count");
+        get => GetRequiredArgument<TerraformValue<double>>("cpu_core_count");
         set => SetArgument("cpu_core_count", value);
     }
 
     /// <summary>
     /// The data_storage_percentage attribute.
     /// </summary>
-    public TerraformValue<double>? DataStoragePercentage
+    public TerraformValue<double> DataStoragePercentage
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_percentage");
+        get => GetArgument<TerraformValue<double>>("data_storage_percentage") ?? AsReference("data_storage_percentage");
         set => SetArgument("data_storage_percentage", value);
     }
 
     /// <summary>
     /// The data_storage_size_in_tbs attribute.
     /// </summary>
-    public TerraformValue<double>? DataStorageSizeInTbs
+    public TerraformValue<double> DataStorageSizeInTbs
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_size_in_tbs");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_in_tbs") ?? AsReference("data_storage_size_in_tbs");
         set => SetArgument("data_storage_size_in_tbs", value);
     }
 
     /// <summary>
     /// The db_node_storage_size_in_gbs attribute.
     /// </summary>
-    public TerraformValue<double>? DbNodeStorageSizeInGbs
+    public TerraformValue<double> DbNodeStorageSizeInGbs
     {
-        get => GetArgument<TerraformValue<double>>("db_node_storage_size_in_gbs");
+        get => GetArgument<TerraformValue<double>>("db_node_storage_size_in_gbs") ?? AsReference("db_node_storage_size_in_gbs");
         set => SetArgument("db_node_storage_size_in_gbs", value);
     }
 
@@ -212,16 +212,16 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformValue<string>? Domain
+    public TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetArgument<TerraformValue<string>>("domain") ?? AsReference("domain");
         set => SetArgument("domain", value);
     }
 
@@ -231,7 +231,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GiVersion is required")]
     public required TerraformValue<string> GiVersion
     {
-        get => GetArgument<TerraformValue<string>>("gi_version");
+        get => GetRequiredArgument<TerraformValue<string>>("gi_version");
         set => SetArgument("gi_version", value);
     }
 
@@ -241,16 +241,16 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -260,16 +260,16 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
     public required TerraformValue<string> LicenseModel
     {
-        get => GetArgument<TerraformValue<string>>("license_model");
+        get => GetRequiredArgument<TerraformValue<string>>("license_model");
         set => SetArgument("license_model", value);
     }
 
     /// <summary>
     /// The local_backup_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? LocalBackupEnabled
+    public TerraformValue<bool> LocalBackupEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("local_backup_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_backup_enabled") ?? AsReference("local_backup_enabled");
         set => SetArgument("local_backup_enabled", value);
     }
 
@@ -279,16 +279,16 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The memory_size_in_gbs attribute.
     /// </summary>
-    public TerraformValue<double>? MemorySizeInGbs
+    public TerraformValue<double> MemorySizeInGbs
     {
-        get => GetArgument<TerraformValue<double>>("memory_size_in_gbs");
+        get => GetArgument<TerraformValue<double>>("memory_size_in_gbs") ?? AsReference("memory_size_in_gbs");
         set => SetArgument("memory_size_in_gbs", value);
     }
 
@@ -298,7 +298,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -308,7 +308,7 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -333,9 +333,9 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// <summary>
     /// The sparse_diskgroup_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? SparseDiskgroupEnabled
+    public TerraformValue<bool> SparseDiskgroupEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("sparse_diskgroup_enabled");
+        get => GetArgument<TerraformValue<bool>>("sparse_diskgroup_enabled") ?? AsReference("sparse_diskgroup_enabled");
         set => SetArgument("sparse_diskgroup_enabled", value);
     }
 
@@ -355,16 +355,16 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
     /// <summary>
     /// The system_version attribute.
     /// </summary>
-    public TerraformValue<string>? SystemVersion
+    public TerraformValue<string> SystemVersion
     {
-        get => GetArgument<TerraformValue<string>>("system_version");
+        get => GetArgument<TerraformValue<string>>("system_version") ?? AsReference("system_version");
         set => SetArgument("system_version", value);
     }
 
@@ -380,9 +380,9 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformValue<string>? TimeZone
+    public TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone") ?? AsReference("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -392,16 +392,16 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformValue<string> VirtualNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformValue<string>? ZoneId
+    public TerraformValue<string> ZoneId
     {
-        get => GetArgument<TerraformValue<string>>("zone_id");
+        get => GetArgument<TerraformValue<string>>("zone_id") ?? AsReference("zone_id");
         set => SetArgument("zone_id", value);
     }
 

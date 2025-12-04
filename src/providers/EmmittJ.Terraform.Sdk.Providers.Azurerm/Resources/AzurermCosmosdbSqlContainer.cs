@@ -16,9 +16,9 @@ public class AzurermCosmosdbSqlContainerAutoscaleSettingsBlock : TerraformBlock
     /// <summary>
     /// The max_throughput attribute.
     /// </summary>
-    public TerraformValue<double>? MaxThroughput
+    public TerraformValue<double> MaxThroughput
     {
-        get => GetArgument<TerraformValue<double>>("max_throughput");
+        get => GetArgument<TerraformValue<double>>("max_throughput") ?? AsReference("max_throughput");
         set => SetArgument("max_throughput", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockCompositeIndexBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<string> Order
     {
-        get => GetArgument<TerraformValue<string>>("order");
+        get => GetRequiredArgument<TerraformValue<string>>("order");
         set => SetArgument("order", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockCompositeIndexBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockExcludedPathBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockIncludedPathBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -246,7 +246,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockSpatialIndexBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -326,7 +326,7 @@ public class AzurermCosmosdbSqlContainerUniqueKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     public required TerraformSet<string> Paths
     {
-        get => GetArgument<TerraformSet<string>>("paths");
+        get => GetRequiredArgument<TerraformSet<string>>("paths");
         set => SetArgument("paths", value);
     }
 
@@ -345,7 +345,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -364,7 +364,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -380,9 +380,9 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -392,7 +392,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -430,16 +430,16 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 

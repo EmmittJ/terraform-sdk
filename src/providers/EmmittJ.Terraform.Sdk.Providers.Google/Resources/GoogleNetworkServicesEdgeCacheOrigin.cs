@@ -19,7 +19,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
     public required TerraformValue<string> AccessKeyId
     {
-        get => GetArgument<TerraformValue<string>>("access_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("access_key_id");
         set => SetArgument("access_key_id", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginRegion is required")]
     public required TerraformValue<string> OriginRegion
     {
-        get => GetArgument<TerraformValue<string>>("origin_region");
+        get => GetRequiredArgument<TerraformValue<string>>("origin_region");
         set => SetArgument("origin_region", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretAccessKeyVersion is required")]
     public required TerraformValue<string> SecretAccessKeyVersion
     {
-        get => GetArgument<TerraformValue<string>>("secret_access_key_version");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_access_key_version");
         set => SetArgument("secret_access_key_version", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlockHeader
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlockHeader
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -376,9 +376,9 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -422,7 +422,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -437,7 +437,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAddress is required")]
     public required TerraformValue<string> OriginAddress
     {
-        get => GetArgument<TerraformValue<string>>("origin_address");
+        get => GetRequiredArgument<TerraformValue<string>>("origin_address");
         set => SetArgument("origin_address", value);
     }
 
@@ -445,18 +445,18 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// The port to connect to the origin on.
     /// Defaults to port 443 for HTTP2 and HTTPS protocols, and port 80 for HTTP.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -465,9 +465,9 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// 
     /// When using HTTP2 or HTTPS as the protocol, a valid, publicly-signed, unexpired TLS (SSL) certificate must be presented by the origin server. Possible values: [&amp;quot;HTTP2&amp;quot;, &amp;quot;HTTPS&amp;quot;, &amp;quot;HTTP&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Protocol
+    public TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetArgument<TerraformValue<string>>("protocol") ?? AsReference("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -491,9 +491,9 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// - NOT_FOUND: Retry if the origin returns a HTTP 404 (Not Found). This can be useful when generating video content, and the segment is not available yet.
     /// - FORBIDDEN: Retry if the origin returns a HTTP 403 (Forbidden). Possible values: [&amp;quot;CONNECT_FAILURE&amp;quot;, &amp;quot;HTTP_5XX&amp;quot;, &amp;quot;GATEWAY_ERROR&amp;quot;, &amp;quot;RETRIABLE_4XX&amp;quot;, &amp;quot;NOT_FOUND&amp;quot;, &amp;quot;FORBIDDEN&amp;quot;]
     /// </summary>
-    public TerraformList<string>? RetryConditions
+    public TerraformList<string> RetryConditions
     {
-        get => GetArgument<TerraformList<string>>("retry_conditions");
+        get => GetArgument<TerraformList<string>>("retry_conditions") ?? AsReference("retry_conditions");
         set => SetArgument("retry_conditions", value);
     }
 

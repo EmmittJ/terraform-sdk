@@ -11,18 +11,18 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformValue<bool>? ApplyImmediately
+    public TerraformValue<bool> ApplyImmediately
     {
-        get => GetArgument<TerraformValue<bool>>("apply_immediately");
+        get => GetArgument<TerraformValue<bool>>("apply_immediately") ?? AsReference("apply_immediately");
         set => SetArgument("apply_immediately", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZone
+    public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlueprintId is required")]
     public required TerraformValue<string> BlueprintId
     {
-        get => GetArgument<TerraformValue<string>>("blueprint_id");
+        get => GetRequiredArgument<TerraformValue<string>>("blueprint_id");
         set => SetArgument("blueprint_id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     public required TerraformValue<string> BundleId
     {
-        get => GetArgument<TerraformValue<string>>("bundle_id");
+        get => GetRequiredArgument<TerraformValue<string>>("bundle_id");
         set => SetArgument("bundle_id", value);
     }
 
@@ -67,9 +67,9 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterDatabaseName is required")]
     public required TerraformValue<string> MasterDatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("master_database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("master_database_name");
         set => SetArgument("master_database_name", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterPassword is required")]
     public required TerraformValue<string> MasterPassword
     {
-        get => GetArgument<TerraformValue<string>>("master_password");
+        get => GetRequiredArgument<TerraformValue<string>>("master_password");
         set => SetArgument("master_password", value);
     }
 
@@ -99,25 +99,25 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterUsername is required")]
     public required TerraformValue<string> MasterUsername
     {
-        get => GetArgument<TerraformValue<string>>("master_username");
+        get => GetRequiredArgument<TerraformValue<string>>("master_username");
         set => SetArgument("master_username", value);
     }
 
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredBackupWindow
+    public TerraformValue<string> PreferredBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_backup_window");
+        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? AsReference("preferred_backup_window");
         set => SetArgument("preferred_backup_window", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredMaintenanceWindow
+    public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
@@ -133,9 +133,9 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelationalDatabaseName is required")]
     public required TerraformValue<string> RelationalDatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("relational_database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("relational_database_name");
         set => SetArgument("relational_database_name", value);
     }
 
@@ -170,9 +170,9 @@ public partial class AwsLightsailDatabase(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

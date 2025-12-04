@@ -11,18 +11,18 @@ public partial class AwsIamUserDataSource(string name) : TerraformDataSource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string>? Tags
+    public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsIamUserDataSource(string name) : TerraformDataSource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => GetArgument<TerraformValue<string>>("user_name");
+        get => GetRequiredArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 

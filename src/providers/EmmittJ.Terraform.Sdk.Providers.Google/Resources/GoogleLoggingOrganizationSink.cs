@@ -19,7 +19,7 @@ public class GoogleLoggingOrganizationSinkBigqueryOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsePartitionedTables is required")]
     public required TerraformValue<bool> UsePartitionedTables
     {
-        get => GetArgument<TerraformValue<bool>>("use_partitioned_tables");
+        get => GetRequiredArgument<TerraformValue<bool>>("use_partitioned_tables");
         set => SetArgument("use_partitioned_tables", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleLoggingOrganizationSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleLoggingOrganizationSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -99,7 +99,7 @@ public partial class GoogleLoggingOrganizationSink(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => GetArgument<TerraformValue<string>>("destination");
+        get => GetRequiredArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -124,9 +124,9 @@ public partial class GoogleLoggingOrganizationSink(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -154,7 +154,7 @@ public partial class GoogleLoggingOrganizationSink(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleLoggingOrganizationSink(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 

@@ -19,7 +19,7 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeName is required")]
     public required TerraformValue<string> RelativeName
     {
-        get => GetArgument<TerraformValue<string>>("relative_name");
+        get => GetRequiredArgument<TerraformValue<string>>("relative_name");
         set => SetArgument("relative_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformValue<double> Ttl
     {
-        get => GetArgument<TerraformValue<double>>("ttl");
+        get => GetRequiredArgument<TerraformValue<double>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlockCustomHeaderBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlockCustomHeaderBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -216,9 +216,9 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -256,7 +256,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -275,7 +275,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficRoutingMethod is required")]
     public required TerraformValue<string> TrafficRoutingMethod
     {
-        get => GetArgument<TerraformValue<string>>("traffic_routing_method");
+        get => GetRequiredArgument<TerraformValue<string>>("traffic_routing_method");
         set => SetArgument("traffic_routing_method", value);
     }
 

@@ -62,9 +62,9 @@ public partial class GoogleComputeRouterNatAddress(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,25 +75,25 @@ public partial class GoogleComputeRouterNatAddress(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatIps is required")]
     public required TerraformSet<string> NatIps
     {
-        get => GetArgument<TerraformSet<string>>("nat_ips");
+        get => GetRequiredArgument<TerraformSet<string>>("nat_ips");
         set => SetArgument("nat_ips", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the NAT service reside.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleComputeRouterNatAddress(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformValue<string> Router
     {
-        get => GetArgument<TerraformValue<string>>("router");
+        get => GetRequiredArgument<TerraformValue<string>>("router");
         set => SetArgument("router", value);
     }
 
@@ -113,7 +113,7 @@ public partial class GoogleComputeRouterNatAddress(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouterNat is required")]
     public required TerraformValue<string> RouterNat
     {
-        get => GetArgument<TerraformValue<string>>("router_nat");
+        get => GetRequiredArgument<TerraformValue<string>>("router_nat");
         set => SetArgument("router_nat", value);
     }
 

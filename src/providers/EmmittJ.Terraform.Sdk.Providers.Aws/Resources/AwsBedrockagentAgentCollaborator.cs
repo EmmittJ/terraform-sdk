@@ -19,7 +19,7 @@ public class AwsBedrockagentAgentCollaboratorAgentDescriptorBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasArn is required")]
     public required TerraformValue<string> AliasArn
     {
-        get => GetArgument<TerraformValue<string>>("alias_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("alias_arn");
         set => SetArgument("alias_arn", value);
     }
 
@@ -79,16 +79,16 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformValue<string> AgentId
     {
-        get => GetArgument<TerraformValue<string>>("agent_id");
+        get => GetRequiredArgument<TerraformValue<string>>("agent_id");
         set => SetArgument("agent_id", value);
     }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public TerraformValue<string>? AgentVersion
+    public TerraformValue<string> AgentVersion
     {
-        get => GetArgument<TerraformValue<string>>("agent_version");
+        get => GetArgument<TerraformValue<string>>("agent_version") ?? AsReference("agent_version");
         set => SetArgument("agent_version", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationInstruction is required")]
     public required TerraformValue<string> CollaborationInstruction
     {
-        get => GetArgument<TerraformValue<string>>("collaboration_instruction");
+        get => GetRequiredArgument<TerraformValue<string>>("collaboration_instruction");
         set => SetArgument("collaboration_instruction", value);
     }
 
@@ -108,34 +108,34 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaboratorName is required")]
     public required TerraformValue<string> CollaboratorName
     {
-        get => GetArgument<TerraformValue<string>>("collaborator_name");
+        get => GetRequiredArgument<TerraformValue<string>>("collaborator_name");
         set => SetArgument("collaborator_name", value);
     }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public TerraformValue<bool>? PrepareAgent
+    public TerraformValue<bool> PrepareAgent
     {
-        get => GetArgument<TerraformValue<bool>>("prepare_agent");
+        get => GetArgument<TerraformValue<bool>>("prepare_agent") ?? AsReference("prepare_agent");
         set => SetArgument("prepare_agent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The relay_conversation_history attribute.
     /// </summary>
-    public TerraformValue<string>? RelayConversationHistory
+    public TerraformValue<string> RelayConversationHistory
     {
-        get => GetArgument<TerraformValue<string>>("relay_conversation_history");
+        get => GetArgument<TerraformValue<string>>("relay_conversation_history") ?? AsReference("relay_conversation_history");
         set => SetArgument("relay_conversation_history", value);
     }
 

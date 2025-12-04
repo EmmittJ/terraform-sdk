@@ -64,7 +64,7 @@ public partial class AzurermSecurityCenterContact(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertNotifications is required")]
     public required TerraformValue<bool> AlertNotifications
     {
-        get => GetArgument<TerraformValue<bool>>("alert_notifications");
+        get => GetRequiredArgument<TerraformValue<bool>>("alert_notifications");
         set => SetArgument("alert_notifications", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSecurityCenterContact(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertsToAdmins is required")]
     public required TerraformValue<bool> AlertsToAdmins
     {
-        get => GetArgument<TerraformValue<bool>>("alerts_to_admins");
+        get => GetRequiredArgument<TerraformValue<bool>>("alerts_to_admins");
         set => SetArgument("alerts_to_admins", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermSecurityCenterContact(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermSecurityCenterContact(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

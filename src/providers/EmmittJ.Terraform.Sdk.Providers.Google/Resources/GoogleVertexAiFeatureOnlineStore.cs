@@ -42,9 +42,9 @@ public class GoogleVertexAiFeatureOnlineStoreBigtableBlockAutoScalingBlock : Ter
     /// <summary>
     /// A percentage of the cluster&#39;s CPU capacity. Can be from 10% to 80%. When a cluster&#39;s CPU utilization exceeds the target that you have set, Bigtable immediately adds nodes to the cluster. When CPU utilization is substantially lower than the target, Bigtable removes nodes. If not set will default to 50%.
     /// </summary>
-    public TerraformValue<double>? CpuUtilizationTarget
+    public TerraformValue<double> CpuUtilizationTarget
     {
-        get => GetArgument<TerraformValue<double>>("cpu_utilization_target");
+        get => GetArgument<TerraformValue<double>>("cpu_utilization_target") ?? AsReference("cpu_utilization_target");
         set => SetArgument("cpu_utilization_target", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleVertexAiFeatureOnlineStoreBigtableBlockAutoScalingBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformValue<double> MaxNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("max_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleVertexAiFeatureOnlineStoreBigtableBlockAutoScalingBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformValue<double> MinNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("min_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlockPrivat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePrivateServiceConnect is required")]
     public required TerraformValue<bool> EnablePrivateServiceConnect
     {
-        get => GetArgument<TerraformValue<bool>>("enable_private_service_connect");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable_private_service_connect");
         set => SetArgument("enable_private_service_connect", value);
     }
 
@@ -212,9 +212,9 @@ public partial class GoogleVertexAiFeatureOnlineStore(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -236,25 +236,25 @@ public partial class GoogleVertexAiFeatureOnlineStore(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region of feature online store. eg us-central1
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

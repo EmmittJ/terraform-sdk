@@ -16,9 +16,9 @@ public class AwsOpensearchDomainAdvancedSecurityOptionsBlock : TerraformBlock
     /// <summary>
     /// The anonymous_auth_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? AnonymousAuthEnabled
+    public TerraformValue<bool> AnonymousAuthEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("anonymous_auth_enabled");
+        get => GetArgument<TerraformValue<bool>>("anonymous_auth_enabled") ?? AsReference("anonymous_auth_enabled");
         set => SetArgument("anonymous_auth_enabled", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsOpensearchDomainAdvancedSecurityOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -141,9 +141,9 @@ public class AwsOpensearchDomainAimlOptionsBlockNaturalLanguageQueryGenerationOp
     /// <summary>
     /// The desired_state attribute.
     /// </summary>
-    public TerraformValue<string>? DesiredState
+    public TerraformValue<string> DesiredState
     {
-        get => GetArgument<TerraformValue<string>>("desired_state");
+        get => GetArgument<TerraformValue<string>>("desired_state") ?? AsReference("desired_state");
         set => SetArgument("desired_state", value);
     }
 
@@ -163,9 +163,9 @@ public class AwsOpensearchDomainAimlOptionsBlockS3VectorsEngineBlock : Terraform
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -189,16 +189,16 @@ public class AwsOpensearchDomainAutoTuneOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
     public required TerraformValue<string> DesiredState
     {
-        get => GetArgument<TerraformValue<string>>("desired_state");
+        get => GetRequiredArgument<TerraformValue<string>>("desired_state");
         set => SetArgument("desired_state", value);
     }
 
     /// <summary>
     /// The rollback_on_disable attribute.
     /// </summary>
-    public TerraformValue<string>? RollbackOnDisable
+    public TerraformValue<string> RollbackOnDisable
     {
-        get => GetArgument<TerraformValue<string>>("rollback_on_disable");
+        get => GetArgument<TerraformValue<string>>("rollback_on_disable") ?? AsReference("rollback_on_disable");
         set => SetArgument("rollback_on_disable", value);
     }
 
@@ -239,7 +239,7 @@ public class AwsOpensearchDomainAutoTuneOptionsBlockMaintenanceScheduleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CronExpressionForRecurrence is required")]
     public required TerraformValue<string> CronExpressionForRecurrence
     {
-        get => GetArgument<TerraformValue<string>>("cron_expression_for_recurrence");
+        get => GetRequiredArgument<TerraformValue<string>>("cron_expression_for_recurrence");
         set => SetArgument("cron_expression_for_recurrence", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsOpensearchDomainAutoTuneOptionsBlockMaintenanceScheduleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartAt is required")]
     public required TerraformValue<string> StartAt
     {
-        get => GetArgument<TerraformValue<string>>("start_at");
+        get => GetRequiredArgument<TerraformValue<string>>("start_at");
         set => SetArgument("start_at", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsOpensearchDomainAutoTuneOptionsBlockMaintenanceScheduleBlockDura
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -295,7 +295,7 @@ public class AwsOpensearchDomainAutoTuneOptionsBlockMaintenanceScheduleBlockDura
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -448,9 +448,9 @@ public class AwsOpensearchDomainClusterConfigBlockColdStorageOptionsBlock : Terr
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -470,9 +470,9 @@ public class AwsOpensearchDomainClusterConfigBlockNodeOptionsBlock : TerraformBl
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public TerraformValue<string>? NodeType
+    public TerraformValue<string> NodeType
     {
-        get => GetArgument<TerraformValue<string>>("node_type");
+        get => GetArgument<TerraformValue<string>>("node_type") ?? AsReference("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -502,27 +502,27 @@ public class AwsOpensearchDomainClusterConfigBlockNodeOptionsBlockNodeConfigBloc
     /// <summary>
     /// The count attribute.
     /// </summary>
-    public TerraformValue<double>? CountAttribute
+    public TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetArgument<TerraformValue<double>>("count") ?? AsReference("count");
         set => SetArgument("count", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -577,7 +577,7 @@ public class AwsOpensearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformValue<string> IdentityPoolId
     {
-        get => GetArgument<TerraformValue<string>>("identity_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_pool_id");
         set => SetArgument("identity_pool_id", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsOpensearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -597,7 +597,7 @@ public class AwsOpensearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => GetArgument<TerraformValue<string>>("user_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 
@@ -654,9 +654,9 @@ public class AwsOpensearchDomainDomainEndpointOptionsBlock : TerraformBlock
     /// <summary>
     /// The tls_security_policy attribute.
     /// </summary>
-    public TerraformValue<string>? TlsSecurityPolicy
+    public TerraformValue<string> TlsSecurityPolicy
     {
-        get => GetArgument<TerraformValue<string>>("tls_security_policy");
+        get => GetArgument<TerraformValue<string>>("tls_security_policy") ?? AsReference("tls_security_policy");
         set => SetArgument("tls_security_policy", value);
     }
 
@@ -680,25 +680,25 @@ public class AwsOpensearchDomainEbsOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsEnabled is required")]
     public required TerraformValue<bool> EbsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("ebs_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("ebs_enabled");
         set => SetArgument("ebs_enabled", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -714,9 +714,9 @@ public class AwsOpensearchDomainEbsOptionsBlock : TerraformBlock
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformValue<string>? VolumeType
+    public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -740,16 +740,16 @@ public class AwsOpensearchDomainEncryptAtRestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -773,7 +773,7 @@ public class AwsOpensearchDomainLogPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogGroupArn is required")]
     public required TerraformValue<string> CloudwatchLogGroupArn
     {
-        get => GetArgument<TerraformValue<string>>("cloudwatch_log_group_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("cloudwatch_log_group_arn");
         set => SetArgument("cloudwatch_log_group_arn", value);
     }
 
@@ -792,7 +792,7 @@ public class AwsOpensearchDomainLogPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformValue<string> LogType
     {
-        get => GetArgument<TerraformValue<string>>("log_type");
+        get => GetRequiredArgument<TerraformValue<string>>("log_type");
         set => SetArgument("log_type", value);
     }
 
@@ -816,7 +816,7 @@ public class AwsOpensearchDomainNodeToNodeEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -837,9 +837,9 @@ public class AwsOpensearchDomainOffPeakWindowOptionsBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -892,18 +892,18 @@ public class AwsOpensearchDomainOffPeakWindowOptionsBlockOffPeakWindowBlockWindo
     /// <summary>
     /// The hours attribute.
     /// </summary>
-    public TerraformValue<double>? Hours
+    public TerraformValue<double> Hours
     {
-        get => GetArgument<TerraformValue<double>>("hours");
+        get => GetArgument<TerraformValue<double>>("hours") ?? AsReference("hours");
         set => SetArgument("hours", value);
     }
 
     /// <summary>
     /// The minutes attribute.
     /// </summary>
-    public TerraformValue<double>? Minutes
+    public TerraformValue<double> Minutes
     {
-        get => GetArgument<TerraformValue<double>>("minutes");
+        get => GetArgument<TerraformValue<double>>("minutes") ?? AsReference("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -927,7 +927,7 @@ public class AwsOpensearchDomainSnapshotOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomatedSnapshotStartHour is required")]
     public required TerraformValue<double> AutomatedSnapshotStartHour
     {
-        get => GetArgument<TerraformValue<double>>("automated_snapshot_start_hour");
+        get => GetRequiredArgument<TerraformValue<double>>("automated_snapshot_start_hour");
         set => SetArgument("automated_snapshot_start_hour", value);
     }
 
@@ -948,9 +948,9 @@ public class AwsOpensearchDomainSoftwareUpdateOptionsBlock : TerraformBlock
     /// <summary>
     /// The auto_software_update_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? AutoSoftwareUpdateEnabled
+    public TerraformValue<bool> AutoSoftwareUpdateEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("auto_software_update_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_software_update_enabled") ?? AsReference("auto_software_update_enabled");
         set => SetArgument("auto_software_update_enabled", value);
     }
 
@@ -1051,18 +1051,18 @@ public partial class AwsOpensearchDomain(string name) : TerraformResource("aws_o
     /// <summary>
     /// The access_policies attribute.
     /// </summary>
-    public TerraformValue<string>? AccessPolicies
+    public TerraformValue<string> AccessPolicies
     {
-        get => GetArgument<TerraformValue<string>>("access_policies");
+        get => GetArgument<TerraformValue<string>>("access_policies") ?? AsReference("access_policies");
         set => SetArgument("access_policies", value);
     }
 
     /// <summary>
     /// The advanced_options attribute.
     /// </summary>
-    public TerraformMap<string>? AdvancedOptions
+    public TerraformMap<string> AdvancedOptions
     {
-        get => GetArgument<TerraformMap<string>>("advanced_options");
+        get => GetArgument<TerraformMap<string>>("advanced_options") ?? AsReference("advanced_options");
         set => SetArgument("advanced_options", value);
     }
 
@@ -1072,43 +1072,43 @@ public partial class AwsOpensearchDomain(string name) : TerraformResource("aws_o
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string>? EngineVersion
+    public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string>? IpAddressType
+    public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1124,9 +1124,9 @@ public partial class AwsOpensearchDomain(string name) : TerraformResource("aws_o
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

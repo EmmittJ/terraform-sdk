@@ -124,16 +124,16 @@ public class AwsImagebuilderImagePipelineScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformValue<string> ScheduleExpression
     {
-        get => GetArgument<TerraformValue<string>>("schedule_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public TerraformValue<string>? Timezone
+    public TerraformValue<string> Timezone
     {
-        get => GetArgument<TerraformValue<string>>("timezone");
+        get => GetArgument<TerraformValue<string>>("timezone") ?? AsReference("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsImagebuilderImagePipelineWorkflowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkflowArn is required")]
     public required TerraformValue<string> WorkflowArn
     {
-        get => GetArgument<TerraformValue<string>>("workflow_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("workflow_arn");
         set => SetArgument("workflow_arn", value);
     }
 
@@ -207,7 +207,7 @@ public class AwsImagebuilderImagePipelineWorkflowBlockParameterBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsImagebuilderImagePipelineWorkflowBlockParameterBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -278,9 +278,9 @@ public partial class AwsImagebuilderImagePipeline(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -299,7 +299,7 @@ public partial class AwsImagebuilderImagePipeline(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureConfigurationArn is required")]
     public required TerraformValue<string> InfrastructureConfigurationArn
     {
-        get => GetArgument<TerraformValue<string>>("infrastructure_configuration_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("infrastructure_configuration_arn");
         set => SetArgument("infrastructure_configuration_arn", value);
     }
 
@@ -309,16 +309,16 @@ public partial class AwsImagebuilderImagePipeline(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -343,9 +343,9 @@ public partial class AwsImagebuilderImagePipeline(string name) : TerraformResour
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

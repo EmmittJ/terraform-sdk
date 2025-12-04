@@ -29,7 +29,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Handle is required")]
     public required TerraformValue<string> Handle
     {
-        get => GetArgument<TerraformValue<string>>("handle");
+        get => GetRequiredArgument<TerraformValue<string>>("handle");
         set => SetArgument("handle", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tool is required")]
     public required TerraformValue<string> Tool
     {
-        get => GetArgument<TerraformValue<string>>("tool");
+        get => GetRequiredArgument<TerraformValue<string>>("tool");
         set => SetArgument("tool", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlockConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlockConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -150,16 +150,16 @@ public partial class GoogleGeminiCodeToolsSetting(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeToolsSettingId is required")]
     public required TerraformValue<string> CodeToolsSettingId
     {
-        get => GetArgument<TerraformValue<string>>("code_tools_setting_id");
+        get => GetRequiredArgument<TerraformValue<string>>("code_tools_setting_id");
         set => SetArgument("code_tools_setting_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -187,9 +187,9 @@ public partial class GoogleGeminiCodeToolsSetting(string name) : TerraformResour
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -42,7 +42,7 @@ public class GoogleFirestoreDatabaseCmekConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -99,27 +99,27 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// <summary>
     /// The App Engine integration mode to use for this database. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? AppEngineIntegrationMode
+    public TerraformValue<string> AppEngineIntegrationMode
     {
-        get => GetArgument<TerraformValue<string>>("app_engine_integration_mode");
+        get => GetArgument<TerraformValue<string>>("app_engine_integration_mode") ?? AsReference("app_engine_integration_mode");
         set => SetArgument("app_engine_integration_mode", value);
     }
 
     /// <summary>
     /// The concurrency control mode to use for this database. Possible values: [&amp;quot;OPTIMISTIC&amp;quot;, &amp;quot;PESSIMISTIC&amp;quot;, &amp;quot;OPTIMISTIC_WITH_ENTITY_GROUPS&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? ConcurrencyMode
+    public TerraformValue<string> ConcurrencyMode
     {
-        get => GetArgument<TerraformValue<string>>("concurrency_mode");
+        get => GetArgument<TerraformValue<string>>("concurrency_mode") ?? AsReference("concurrency_mode");
         set => SetArgument("concurrency_mode", value);
     }
 
     /// <summary>
     /// The database edition. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? DatabaseEdition
+    public TerraformValue<string> DatabaseEdition
     {
-        get => GetArgument<TerraformValue<string>>("database_edition");
+        get => GetArgument<TerraformValue<string>>("database_edition") ?? AsReference("database_edition");
         set => SetArgument("database_edition", value);
     }
 
@@ -129,9 +129,9 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// The default value is &#39;DELETE_PROTECTION_STATE_UNSPECIFIED&#39;, which is currently equivalent to &#39;DELETE_PROTECTION_DISABLED&#39;.
     /// **Note:** Additionally, to delete this database using &#39;terraform destroy&#39;, &#39;deletion_policy&#39; must be set to &#39;DELETE&#39;. Possible values: [&amp;quot;DELETE_PROTECTION_STATE_UNSPECIFIED&amp;quot;, &amp;quot;DELETE_PROTECTION_ENABLED&amp;quot;, &amp;quot;DELETE_PROTECTION_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? DeleteProtectionState
+    public TerraformValue<string> DeleteProtectionState
     {
-        get => GetArgument<TerraformValue<string>>("delete_protection_state");
+        get => GetArgument<TerraformValue<string>>("delete_protection_state") ?? AsReference("delete_protection_state");
         set => SetArgument("delete_protection_state", value);
     }
 
@@ -151,9 +151,9 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationId is required")]
     public required TerraformValue<string> LocationId
     {
-        get => GetArgument<TerraformValue<string>>("location_id");
+        get => GetRequiredArgument<TerraformValue<string>>("location_id");
         set => SetArgument("location_id", value);
     }
 
@@ -179,7 +179,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -199,9 +199,9 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -227,7 +227,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

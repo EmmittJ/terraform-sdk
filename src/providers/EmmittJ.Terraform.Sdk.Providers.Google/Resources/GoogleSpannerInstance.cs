@@ -126,7 +126,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAsymmetricAutoscalingOpt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodes is required")]
     public required TerraformValue<double> MaxNodes
     {
-        get => GetArgument<TerraformValue<double>>("max_nodes");
+        get => GetRequiredArgument<TerraformValue<double>>("max_nodes");
         set => SetArgument("max_nodes", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAsymmetricAutoscalingOpt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodes is required")]
     public required TerraformValue<double> MinNodes
     {
-        get => GetArgument<TerraformValue<double>>("min_nodes");
+        get => GetRequiredArgument<TerraformValue<double>>("min_nodes");
         set => SetArgument("min_nodes", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAsymmetricAutoscalingOpt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -313,7 +313,7 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     public required TerraformValue<string> Config
     {
-        get => GetArgument<TerraformValue<string>>("config");
+        get => GetRequiredArgument<TerraformValue<string>>("config");
         set => SetArgument("config", value);
     }
 
@@ -322,9 +322,9 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// Note that &#39;AUTOMATIC&#39; is not permitted for free instances, as backups and backup schedules are not allowed for free instances.
     /// if unset or NONE, no default backup schedule will be created for new databases within the instance. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;AUTOMATIC&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? DefaultBackupScheduleType
+    public TerraformValue<string> DefaultBackupScheduleType
     {
-        get => GetArgument<TerraformValue<string>>("default_backup_schedule_type");
+        get => GetArgument<TerraformValue<string>>("default_backup_schedule_type") ?? AsReference("default_backup_schedule_type");
         set => SetArgument("default_backup_schedule_type", value);
     }
 
@@ -335,16 +335,16 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The edition selected for this instance. Different editions provide different capabilities at different price points. Possible values: [&amp;quot;EDITION_UNSPECIFIED&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;, &amp;quot;ENTERPRISE_PLUS&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Edition
+    public TerraformValue<string> Edition
     {
-        get => GetArgument<TerraformValue<string>>("edition");
+        get => GetArgument<TerraformValue<string>>("edition") ?? AsReference("edition");
         set => SetArgument("edition", value);
     }
 
@@ -361,9 +361,9 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -372,9 +372,9 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// usage restrictions, quotas and billing. Currently this is used to distinguish FREE_INSTANCE vs PROVISIONED instances.
     /// When configured as FREE_INSTANCE, the field &#39;edition&#39; should not be configured. Possible values: [&amp;quot;PROVISIONED&amp;quot;, &amp;quot;FREE_INSTANCE&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? InstanceType
+    public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -398,9 +398,9 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// in length.
     /// If not provided, a random string starting with &#39;tf-&#39; will be selected.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -408,9 +408,9 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// The number of nodes allocated to this instance. Exactly one of either num_nodes, processing_units or
     /// autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
-    public TerraformValue<double>? NumNodes
+    public TerraformValue<double> NumNodes
     {
-        get => GetArgument<TerraformValue<double>>("num_nodes");
+        get => GetArgument<TerraformValue<double>>("num_nodes") ?? AsReference("num_nodes");
         set => SetArgument("num_nodes", value);
     }
 
@@ -418,18 +418,18 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// The number of processing units allocated to this instance. Exactly one of either num_nodes,
     /// processing_units or autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
-    public TerraformValue<double>? ProcessingUnits
+    public TerraformValue<double> ProcessingUnits
     {
-        get => GetArgument<TerraformValue<double>>("processing_units");
+        get => GetArgument<TerraformValue<double>>("processing_units") ?? AsReference("processing_units");
         set => SetArgument("processing_units", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

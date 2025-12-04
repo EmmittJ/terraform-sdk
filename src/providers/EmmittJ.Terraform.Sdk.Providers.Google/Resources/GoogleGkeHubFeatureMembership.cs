@@ -16,18 +16,18 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlock : TerraformBlock
     /// <summary>
     /// Set this field to MANAGEMENT_AUTOMATIC to enable Config Sync auto-upgrades, and set this field to MANAGEMENT_MANUAL or MANAGEMENT_UNSPECIFIED to disable Config Sync auto-upgrades.
     /// </summary>
-    public TerraformValue<string>? Management
+    public TerraformValue<string> Management
     {
-        get => GetArgument<TerraformValue<string>>("management");
+        get => GetArgument<TerraformValue<string>>("management") ?? AsReference("management");
         set => SetArgument("management", value);
     }
 
     /// <summary>
     /// Optional. Version of ACM to install. Defaults to the latest version.
     /// </summary>
-    public TerraformValue<string>? Version
+    public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 
@@ -95,9 +95,9 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlock :
     /// <summary>
     /// Set to true to enable the Config Sync admission webhook to prevent drifts. If set to `false`, disables the Config Sync admission webhook and does not prevent drifts.
     /// </summary>
-    public TerraformValue<bool>? PreventDrift
+    public TerraformValue<bool> PreventDrift
     {
-        get => GetArgument<TerraformValue<bool>>("prevent_drift");
+        get => GetArgument<TerraformValue<bool>>("prevent_drift") ?? AsReference("prevent_drift");
         set => SetArgument("prevent_drift", value);
     }
 
@@ -531,9 +531,9 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockPolicyControllerB
     /// <summary>
     ///  Specifies the list of backends Policy Controller will export to. Specifying an empty value `[]` disables metrics export.
     /// </summary>
-    public TerraformList<string>? Backends
+    public TerraformList<string> Backends
     {
-        get => GetArgument<TerraformList<string>>("backends");
+        get => GetArgument<TerraformList<string>>("backends") ?? AsReference("backends");
         set => SetArgument("backends", value);
     }
 
@@ -587,9 +587,9 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlock : TerraformBlock
     /// <summary>
     /// Optional. Version of Policy Controller to install. Defaults to the latest version.
     /// </summary>
-    public TerraformValue<string>? Version
+    public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 
@@ -730,7 +730,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentName is required")]
     public required TerraformValue<string> ComponentName
     {
-        get => GetArgument<TerraformValue<string>>("component_name");
+        get => GetRequiredArgument<TerraformValue<string>>("component_name");
         set => SetArgument("component_name", value);
     }
 
@@ -931,9 +931,9 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// <summary>
     ///  Specifies the list of backends Policy Controller will export to. Specifying an empty value `[]` disables metrics export.
     /// </summary>
-    public TerraformList<string>? Backends
+    public TerraformList<string> Backends
     {
-        get => GetArgument<TerraformList<string>>("backends");
+        get => GetArgument<TerraformList<string>>("backends") ?? AsReference("backends");
         set => SetArgument("backends", value);
     }
 
@@ -988,7 +988,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleName is required")]
     public required TerraformValue<string> BundleName
     {
-        get => GetArgument<TerraformValue<string>>("bundle_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bundle_name");
         set => SetArgument("bundle_name", value);
     }
 
@@ -1079,16 +1079,16 @@ public partial class GoogleGkeHubFeatureMembership(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
     public required TerraformValue<string> Feature
     {
-        get => GetArgument<TerraformValue<string>>("feature");
+        get => GetRequiredArgument<TerraformValue<string>>("feature");
         set => SetArgument("feature", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1098,7 +1098,7 @@ public partial class GoogleGkeHubFeatureMembership(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1108,7 +1108,7 @@ public partial class GoogleGkeHubFeatureMembership(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Membership is required")]
     public required TerraformValue<string> Membership
     {
-        get => GetArgument<TerraformValue<string>>("membership");
+        get => GetRequiredArgument<TerraformValue<string>>("membership");
         set => SetArgument("membership", value);
     }
 
@@ -1124,9 +1124,9 @@ public partial class GoogleGkeHubFeatureMembership(string name) : TerraformResou
     /// <summary>
     /// The project of the feature
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

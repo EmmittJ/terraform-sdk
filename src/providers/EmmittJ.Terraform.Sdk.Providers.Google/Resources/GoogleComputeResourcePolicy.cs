@@ -19,7 +19,7 @@ public class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -161,7 +161,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlockVmStartSchedu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => GetArgument<TerraformValue<string>>("schedule");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlockVmStopSchedul
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => GetArgument<TerraformValue<string>>("schedule");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -254,7 +254,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockRetentionPoli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetentionDays is required")]
     public required TerraformValue<double> MaxRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("max_retention_days");
+        get => GetRequiredArgument<TerraformValue<double>>("max_retention_days");
         set => SetArgument("max_retention_days", value);
     }
 
@@ -330,7 +330,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysInCycle is required")]
     public required TerraformValue<double> DaysInCycle
     {
-        get => GetArgument<TerraformValue<double>>("days_in_cycle");
+        get => GetRequiredArgument<TerraformValue<double>>("days_in_cycle");
         set => SetArgument("days_in_cycle", value);
     }
 
@@ -342,7 +342,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -365,7 +365,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HoursInCycle is required")]
     public required TerraformValue<double> HoursInCycle
     {
-        get => GetArgument<TerraformValue<double>>("hours_in_cycle");
+        get => GetRequiredArgument<TerraformValue<double>>("hours_in_cycle");
         set => SetArgument("hours_in_cycle", value);
     }
 
@@ -377,7 +377,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -426,7 +426,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => GetArgument<TerraformValue<string>>("day");
+        get => GetRequiredArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -437,7 +437,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -574,7 +574,7 @@ public class GoogleComputeResourcePolicyWorkloadPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -599,9 +599,9 @@ public partial class GoogleComputeResourcePolicy(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -617,25 +617,25 @@ public partial class GoogleComputeResourcePolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where resource policy resides.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

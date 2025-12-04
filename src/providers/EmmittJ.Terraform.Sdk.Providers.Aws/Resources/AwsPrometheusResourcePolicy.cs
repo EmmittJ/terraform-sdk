@@ -55,25 +55,25 @@ public partial class AwsPrometheusResourcePolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformValue<string> PolicyDocument
     {
-        get => GetArgument<TerraformValue<string>>("policy_document");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_document");
         set => SetArgument("policy_document", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The revision_id attribute.
     /// </summary>
-    public TerraformValue<string>? RevisionId
+    public TerraformValue<string> RevisionId
     {
-        get => GetArgument<TerraformValue<string>>("revision_id");
+        get => GetArgument<TerraformValue<string>>("revision_id") ?? AsReference("revision_id");
         set => SetArgument("revision_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsPrometheusResourcePolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

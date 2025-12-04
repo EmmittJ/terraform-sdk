@@ -52,36 +52,36 @@ public partial class AwsRouteTable(string name) : TerraformResource("aws_route_t
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The propagating_vgws attribute.
     /// </summary>
-    public TerraformSet<string>? PropagatingVgws
+    public TerraformSet<string> PropagatingVgws
     {
-        get => GetArgument<TerraformSet<string>>("propagating_vgws");
+        get => GetArgument<TerraformSet<string>>("propagating_vgws") ?? AsReference("propagating_vgws");
         set => SetArgument("propagating_vgws", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The route attribute.
     /// </summary>
-    public TerraformSet<TerraformMap<object>>? Route
+    public TerraformSet<TerraformMap<object>> Route
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("route");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("route") ?? AsReference("route");
         set => SetArgument("route", value);
     }
 
@@ -97,9 +97,9 @@ public partial class AwsRouteTable(string name) : TerraformResource("aws_route_t
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsRouteTable(string name) : TerraformResource("aws_route_t
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 

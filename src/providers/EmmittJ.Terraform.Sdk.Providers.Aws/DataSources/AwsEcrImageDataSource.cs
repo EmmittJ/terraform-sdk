@@ -11,18 +11,18 @@ public partial class AwsEcrImageDataSource(string name) : TerraformDataSource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The image_digest attribute.
     /// </summary>
-    public TerraformValue<string>? ImageDigest
+    public TerraformValue<string> ImageDigest
     {
-        get => GetArgument<TerraformValue<string>>("image_digest");
+        get => GetArgument<TerraformValue<string>>("image_digest") ?? AsReference("image_digest");
         set => SetArgument("image_digest", value);
     }
 
@@ -47,18 +47,18 @@ public partial class AwsEcrImageDataSource(string name) : TerraformDataSource("a
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
-    public TerraformValue<string>? RegistryId
+    public TerraformValue<string> RegistryId
     {
-        get => GetArgument<TerraformValue<string>>("registry_id");
+        get => GetArgument<TerraformValue<string>>("registry_id") ?? AsReference("registry_id");
         set => SetArgument("registry_id", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsEcrImageDataSource(string name) : TerraformDataSource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => GetArgument<TerraformValue<string>>("repository_name");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 

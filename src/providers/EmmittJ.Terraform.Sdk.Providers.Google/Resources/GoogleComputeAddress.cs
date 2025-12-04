@@ -54,9 +54,9 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// The IP address must be inside the specified subnetwork,
     /// if any. Set by the API if undefined.
     /// </summary>
-    public TerraformValue<string>? Address
+    public TerraformValue<string> Address
     {
-        get => GetArgument<TerraformValue<string>>("address");
+        get => GetArgument<TerraformValue<string>>("address") ?? AsReference("address");
         set => SetArgument("address", value);
     }
 
@@ -82,9 +82,9 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -152,27 +152,27 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// specified, it is assumed to be PREMIUM.
     /// This argument should not be used when configuring Internal addresses, because [network tier cannot be set for internal traffic; it&#39;s always Premium](https://cloud.google.com/network-tiers/docs/overview). Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? NetworkTier
+    public TerraformValue<string> NetworkTier
     {
-        get => GetArgument<TerraformValue<string>>("network_tier");
+        get => GetArgument<TerraformValue<string>>("network_tier") ?? AsReference("network_tier");
         set => SetArgument("network_tier", value);
     }
 
     /// <summary>
     /// The prefix length if the resource represents an IP range.
     /// </summary>
-    public TerraformValue<double>? PrefixLength
+    public TerraformValue<double> PrefixLength
     {
-        get => GetArgument<TerraformValue<double>>("prefix_length");
+        get => GetArgument<TerraformValue<double>>("prefix_length") ?? AsReference("prefix_length");
         set => SetArgument("prefix_length", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -197,9 +197,9 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// 
     /// This should only be set when using an Internal address.
     /// </summary>
-    public TerraformValue<string>? Purpose
+    public TerraformValue<string> Purpose
     {
-        get => GetArgument<TerraformValue<string>>("purpose");
+        get => GetArgument<TerraformValue<string>>("purpose") ?? AsReference("purpose");
         set => SetArgument("purpose", value);
     }
 
@@ -207,9 +207,9 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// The Region in which the created address should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -219,9 +219,9 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// This field can only be used with INTERNAL type with
     /// GCE_ENDPOINT/DNS_RESOLVER purposes.
     /// </summary>
-    public TerraformValue<string>? Subnetwork
+    public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 

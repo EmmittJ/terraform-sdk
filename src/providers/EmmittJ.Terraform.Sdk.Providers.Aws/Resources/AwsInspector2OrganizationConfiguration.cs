@@ -28,7 +28,7 @@ public class AwsInspector2OrganizationConfigurationAutoEnableBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2 is required")]
     public required TerraformValue<bool> Ec2
     {
-        get => GetArgument<TerraformValue<bool>>("ec2");
+        get => GetRequiredArgument<TerraformValue<bool>>("ec2");
         set => SetArgument("ec2", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsInspector2OrganizationConfigurationAutoEnableBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ecr is required")]
     public required TerraformValue<bool> Ecr
     {
-        get => GetArgument<TerraformValue<bool>>("ecr");
+        get => GetRequiredArgument<TerraformValue<bool>>("ecr");
         set => SetArgument("ecr", value);
     }
 
@@ -113,18 +113,18 @@ public partial class AwsInspector2OrganizationConfiguration(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

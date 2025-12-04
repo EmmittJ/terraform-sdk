@@ -37,7 +37,7 @@ public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformValue<double> HourOfDay
     {
-        get => GetArgument<TerraformValue<double>>("hour_of_day");
+        get => GetRequiredArgument<TerraformValue<double>>("hour_of_day");
         set => SetArgument("hour_of_day", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -162,9 +162,9 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// <summary>
     /// The activation_key attribute.
     /// </summary>
-    public TerraformValue<string>? ActivationKey
+    public TerraformValue<string> ActivationKey
     {
-        get => GetArgument<TerraformValue<string>>("activation_key");
+        get => GetArgument<TerraformValue<string>>("activation_key") ?? AsReference("activation_key");
         set => SetArgument("activation_key", value);
     }
 
@@ -198,9 +198,9 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// <summary>
     /// The gateway_ip_address attribute.
     /// </summary>
-    public TerraformValue<string>? GatewayIpAddress
+    public TerraformValue<string> GatewayIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("gateway_ip_address");
+        get => GetArgument<TerraformValue<string>>("gateway_ip_address") ?? AsReference("gateway_ip_address");
         set => SetArgument("gateway_ip_address", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     public required TerraformValue<string> GatewayName
     {
-        get => GetArgument<TerraformValue<string>>("gateway_name");
+        get => GetRequiredArgument<TerraformValue<string>>("gateway_name");
         set => SetArgument("gateway_name", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayTimezone is required")]
     public required TerraformValue<string> GatewayTimezone
     {
-        get => GetArgument<TerraformValue<string>>("gateway_timezone");
+        get => GetRequiredArgument<TerraformValue<string>>("gateway_timezone");
         set => SetArgument("gateway_timezone", value);
     }
 
@@ -245,9 +245,9 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -263,9 +263,9 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -290,9 +290,9 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// <summary>
     /// The smb_security_strategy attribute.
     /// </summary>
-    public TerraformValue<string>? SmbSecurityStrategy
+    public TerraformValue<string> SmbSecurityStrategy
     {
-        get => GetArgument<TerraformValue<string>>("smb_security_strategy");
+        get => GetArgument<TerraformValue<string>>("smb_security_strategy") ?? AsReference("smb_security_strategy");
         set => SetArgument("smb_security_strategy", value);
     }
 
@@ -308,9 +308,9 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -70,9 +70,9 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
     public required TerraformValue<string> KeyName
     {
-        get => GetArgument<TerraformValue<string>>("key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -98,9 +98,9 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     /// <summary>
     /// The key_vault_uri attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultUri
+    public TerraformValue<string> KeyVaultUri
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_uri");
+        get => GetArgument<TerraformValue<string>>("key_vault_uri") ?? AsReference("key_vault_uri");
         set => SetArgument("key_vault_uri", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

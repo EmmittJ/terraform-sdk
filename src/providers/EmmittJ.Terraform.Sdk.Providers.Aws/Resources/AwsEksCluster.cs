@@ -16,9 +16,9 @@ public class AwsEksClusterAccessConfigBlock : TerraformBlock
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public TerraformValue<string>? AuthenticationMode
+    public TerraformValue<string> AuthenticationMode
     {
-        get => GetArgument<TerraformValue<string>>("authentication_mode");
+        get => GetArgument<TerraformValue<string>>("authentication_mode") ?? AsReference("authentication_mode");
         set => SetArgument("authentication_mode", value);
     }
 
@@ -48,9 +48,9 @@ public class AwsEksClusterComputeConfigBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsEksClusterEncryptionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resources is required")]
     public required TerraformSet<string> Resources
     {
-        get => GetArgument<TerraformSet<string>>("resources");
+        get => GetRequiredArgument<TerraformSet<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsEksClusterEncryptionConfigBlockProviderAttributeBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyArn is required")]
     public required TerraformValue<string> KeyArn
     {
-        get => GetArgument<TerraformValue<string>>("key_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("key_arn");
         set => SetArgument("key_arn", value);
     }
 
@@ -149,18 +149,18 @@ public class AwsEksClusterKubernetesNetworkConfigBlock : TerraformBlock
     /// <summary>
     /// The ip_family attribute.
     /// </summary>
-    public TerraformValue<string>? IpFamily
+    public TerraformValue<string> IpFamily
     {
-        get => GetArgument<TerraformValue<string>>("ip_family");
+        get => GetArgument<TerraformValue<string>>("ip_family") ?? AsReference("ip_family");
         set => SetArgument("ip_family", value);
     }
 
     /// <summary>
     /// The service_ipv4_cidr attribute.
     /// </summary>
-    public TerraformValue<string>? ServiceIpv4Cidr
+    public TerraformValue<string> ServiceIpv4Cidr
     {
-        get => GetArgument<TerraformValue<string>>("service_ipv4_cidr");
+        get => GetArgument<TerraformValue<string>>("service_ipv4_cidr") ?? AsReference("service_ipv4_cidr");
         set => SetArgument("service_ipv4_cidr", value);
     }
 
@@ -196,9 +196,9 @@ public class AwsEksClusterKubernetesNetworkConfigBlockElasticLoadBalancingBlock 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -222,7 +222,7 @@ public class AwsEksClusterOutpostConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPlaneInstanceType is required")]
     public required TerraformValue<string> ControlPlaneInstanceType
     {
-        get => GetArgument<TerraformValue<string>>("control_plane_instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("control_plane_instance_type");
         set => SetArgument("control_plane_instance_type", value);
     }
 
@@ -232,7 +232,7 @@ public class AwsEksClusterOutpostConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutpostArns is required")]
     public required TerraformSet<string> OutpostArns
     {
-        get => GetArgument<TerraformSet<string>>("outpost_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("outpost_arns");
         set => SetArgument("outpost_arns", value);
     }
 
@@ -265,7 +265,7 @@ public class AwsEksClusterOutpostConfigBlockControlPlanePlacementBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformValue<string> GroupName
     {
-        get => GetArgument<TerraformValue<string>>("group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
@@ -390,9 +390,9 @@ public class AwsEksClusterStorageConfigBlockBlockStorageBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -454,9 +454,9 @@ public class AwsEksClusterUpgradePolicyBlock : TerraformBlock
     /// <summary>
     /// The support_type attribute.
     /// </summary>
-    public TerraformValue<string>? SupportType
+    public TerraformValue<string> SupportType
     {
-        get => GetArgument<TerraformValue<string>>("support_type");
+        get => GetArgument<TerraformValue<string>>("support_type") ?? AsReference("support_type");
         set => SetArgument("support_type", value);
     }
 
@@ -501,9 +501,9 @@ public class AwsEksClusterVpcConfigBlock : TerraformBlock
     /// <summary>
     /// The public_access_cidrs attribute.
     /// </summary>
-    public TerraformSet<string>? PublicAccessCidrs
+    public TerraformSet<string> PublicAccessCidrs
     {
-        get => GetArgument<TerraformSet<string>>("public_access_cidrs");
+        get => GetArgument<TerraformSet<string>>("public_access_cidrs") ?? AsReference("public_access_cidrs");
         set => SetArgument("public_access_cidrs", value);
     }
 
@@ -522,7 +522,7 @@ public class AwsEksClusterVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -576,9 +576,9 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformValue<bool>? DeletionProtection
+    public TerraformValue<bool> DeletionProtection
     {
-        get => GetArgument<TerraformValue<bool>>("deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection") ?? AsReference("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -603,9 +603,9 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -615,16 +615,16 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -634,7 +634,7 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -650,18 +650,18 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string>? Version
+    public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 

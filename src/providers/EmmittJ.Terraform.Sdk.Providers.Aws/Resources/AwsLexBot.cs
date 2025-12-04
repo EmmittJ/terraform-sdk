@@ -54,7 +54,7 @@ public class AwsLexBotAbortStatementBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsLexBotAbortStatementBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsLexBotClarificationPromptBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
     public required TerraformValue<double> MaxAttempts
     {
-        get => GetArgument<TerraformValue<double>>("max_attempts");
+        get => GetRequiredArgument<TerraformValue<double>>("max_attempts");
         set => SetArgument("max_attempts", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsLexBotClarificationPromptBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsLexBotClarificationPromptBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsLexBotIntentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentName is required")]
     public required TerraformValue<string> IntentName
     {
-        get => GetArgument<TerraformValue<string>>("intent_name");
+        get => GetRequiredArgument<TerraformValue<string>>("intent_name");
         set => SetArgument("intent_name", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsLexBotIntentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentVersion is required")]
     public required TerraformValue<string> IntentVersion
     {
-        get => GetArgument<TerraformValue<string>>("intent_version");
+        get => GetRequiredArgument<TerraformValue<string>>("intent_version");
         set => SetArgument("intent_version", value);
     }
 
@@ -255,7 +255,7 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChildDirected is required")]
     public required TerraformValue<bool> ChildDirected
     {
-        get => GetArgument<TerraformValue<bool>>("child_directed");
+        get => GetRequiredArgument<TerraformValue<bool>>("child_directed");
         set => SetArgument("child_directed", value);
     }
 
@@ -298,9 +298,9 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -328,7 +328,7 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -353,18 +353,18 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The voice_id attribute.
     /// </summary>
-    public TerraformValue<string>? VoiceId
+    public TerraformValue<string> VoiceId
     {
-        get => GetArgument<TerraformValue<string>>("voice_id");
+        get => GetArgument<TerraformValue<string>>("voice_id") ?? AsReference("voice_id");
         set => SetArgument("voice_id", value);
     }
 

@@ -19,7 +19,7 @@ public class AzurermSharedImageGallerySharingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformValue<string> Permission
     {
-        get => GetArgument<TerraformValue<string>>("permission");
+        get => GetRequiredArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermSharedImageGallerySharingBlockCommunityGalleryBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Eula is required")]
     public required TerraformValue<string> Eula
     {
-        get => GetArgument<TerraformValue<string>>("eula");
+        get => GetRequiredArgument<TerraformValue<string>>("eula");
         set => SetArgument("eula", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermSharedImageGallerySharingBlockCommunityGalleryBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermSharedImageGallerySharingBlockCommunityGalleryBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublisherEmail is required")]
     public required TerraformValue<string> PublisherEmail
     {
-        get => GetArgument<TerraformValue<string>>("publisher_email");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher_email");
         set => SetArgument("publisher_email", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermSharedImageGallerySharingBlockCommunityGalleryBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublisherUri is required")]
     public required TerraformValue<string> PublisherUri
     {
-        get => GetArgument<TerraformValue<string>>("publisher_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher_uri");
         set => SetArgument("publisher_uri", value);
     }
 
@@ -163,9 +163,9 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

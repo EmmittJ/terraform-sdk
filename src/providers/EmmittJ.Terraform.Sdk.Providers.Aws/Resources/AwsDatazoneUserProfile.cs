@@ -46,25 +46,25 @@ public partial class AwsDatazoneUserProfile(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformValue<string> DomainIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("domain_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_identifier");
         set => SetArgument("domain_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string>? Status
+    public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
         set => SetArgument("status", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsDatazoneUserProfile(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserIdentifier is required")]
     public required TerraformValue<string> UserIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("user_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("user_identifier");
         set => SetArgument("user_identifier", value);
     }
 
     /// <summary>
     /// The user_type attribute.
     /// </summary>
-    public TerraformValue<string>? UserType
+    public TerraformValue<string> UserType
     {
-        get => GetArgument<TerraformValue<string>>("user_type");
+        get => GetArgument<TerraformValue<string>>("user_type") ?? AsReference("user_type");
         set => SetArgument("user_type", value);
     }
 

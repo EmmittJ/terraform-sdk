@@ -64,16 +64,16 @@ public partial class AzurermApplicationLoadBalancerFrontend(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationLoadBalancerId is required")]
     public required TerraformValue<string> ApplicationLoadBalancerId
     {
-        get => GetArgument<TerraformValue<string>>("application_load_balancer_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_load_balancer_id");
         set => SetArgument("application_load_balancer_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermApplicationLoadBalancerFrontend(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

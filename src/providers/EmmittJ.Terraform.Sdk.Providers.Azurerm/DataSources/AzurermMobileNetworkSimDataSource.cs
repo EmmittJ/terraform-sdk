@@ -34,9 +34,9 @@ public partial class AzurermMobileNetworkSimDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMobileNetworkSimDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
     public required TerraformValue<string> MobileNetworkSimGroupId
     {
-        get => GetArgument<TerraformValue<string>>("mobile_network_sim_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("mobile_network_sim_group_id");
         set => SetArgument("mobile_network_sim_group_id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMobileNetworkSimDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

@@ -218,7 +218,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockDataImportBlockEven
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -228,7 +228,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockDataImportBlockEven
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stream is required")]
     public required TerraformValue<string> Stream
     {
-        get => GetArgument<TerraformValue<string>>("stream");
+        get => GetRequiredArgument<TerraformValue<string>>("stream");
         set => SetArgument("stream", value);
     }
 
@@ -260,7 +260,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockExtensionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionName is required")]
     public required TerraformValue<string> ExtensionName
     {
-        get => GetArgument<TerraformValue<string>>("extension_name");
+        get => GetRequiredArgument<TerraformValue<string>>("extension_name");
         set => SetArgument("extension_name", value);
     }
 
@@ -279,7 +279,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockExtensionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -321,7 +321,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockIisLogBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -364,7 +364,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockLogFileBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetRequiredArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -374,7 +374,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockLogFileBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -443,7 +443,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockLogFileBlockSetting
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordStartTimestampFormat is required")]
     public required TerraformValue<string> RecordStartTimestampFormat
     {
-        get => GetArgument<TerraformValue<string>>("record_start_timestamp_format");
+        get => GetRequiredArgument<TerraformValue<string>>("record_start_timestamp_format");
         set => SetArgument("record_start_timestamp_format", value);
     }
 
@@ -476,7 +476,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockPerformanceCounterB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -486,7 +486,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockPerformanceCounterB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingFrequencyInSeconds is required")]
     public required TerraformValue<double> SamplingFrequencyInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("sampling_frequency_in_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("sampling_frequency_in_seconds");
         set => SetArgument("sampling_frequency_in_seconds", value);
     }
 
@@ -519,7 +519,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockPlatformTelemetryBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -552,7 +552,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockPrometheusForwarder
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -594,7 +594,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockPrometheusForwarder
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Label is required")]
     public required TerraformValue<string> Label
     {
-        get => GetArgument<TerraformValue<string>>("label");
+        get => GetRequiredArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -604,7 +604,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockPrometheusForwarder
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -647,7 +647,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockSyslogBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -680,7 +680,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockWindowsEventLogBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -723,7 +723,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlockWindowsFirewallLogB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -845,7 +845,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockAzureMonitorMetric
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -868,7 +868,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockEventHubBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventHubId is required")]
     public required TerraformValue<string> EventHubId
     {
-        get => GetArgument<TerraformValue<string>>("event_hub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("event_hub_id");
         set => SetArgument("event_hub_id", value);
     }
 
@@ -878,7 +878,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockEventHubBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -901,7 +901,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockEventHubDirectBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventHubId is required")]
     public required TerraformValue<string> EventHubId
     {
-        get => GetArgument<TerraformValue<string>>("event_hub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("event_hub_id");
         set => SetArgument("event_hub_id", value);
     }
 
@@ -911,7 +911,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockEventHubDirectBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -934,7 +934,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockLogAnalyticsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -944,7 +944,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockLogAnalyticsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceResourceId is required")]
     public required TerraformValue<string> WorkspaceResourceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_resource_id");
         set => SetArgument("workspace_resource_id", value);
     }
 
@@ -967,7 +967,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockMonitorAccountBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorAccountId is required")]
     public required TerraformValue<string> MonitorAccountId
     {
-        get => GetArgument<TerraformValue<string>>("monitor_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("monitor_account_id");
         set => SetArgument("monitor_account_id", value);
     }
 
@@ -977,7 +977,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockMonitorAccountBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1000,7 +1000,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockStorageBlobBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -1010,7 +1010,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockStorageBlobBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1020,7 +1020,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockStorageBlobBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -1043,7 +1043,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockStorageBlobDirectB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -1053,7 +1053,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockStorageBlobDirectB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1063,7 +1063,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockStorageBlobDirectB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -1086,7 +1086,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockStorageTableDirect
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1096,7 +1096,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockStorageTableDirect
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -1106,7 +1106,7 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlockStorageTableDirect
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -1151,7 +1151,7 @@ public class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1175,7 +1175,7 @@ public class AzurermMonitorDataCollectionRuleStreamDeclarationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformValue<string> StreamName
     {
-        get => GetArgument<TerraformValue<string>>("stream_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_name");
         set => SetArgument("stream_name", value);
     }
 
@@ -1210,7 +1210,7 @@ public class AzurermMonitorDataCollectionRuleStreamDeclarationBlockColumnBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1220,7 +1220,7 @@ public class AzurermMonitorDataCollectionRuleStreamDeclarationBlockColumnBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1304,9 +1304,9 @@ public partial class AzurermMonitorDataCollectionRule(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1325,7 +1325,7 @@ public partial class AzurermMonitorDataCollectionRule(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1335,7 +1335,7 @@ public partial class AzurermMonitorDataCollectionRule(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1345,7 +1345,7 @@ public partial class AzurermMonitorDataCollectionRule(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

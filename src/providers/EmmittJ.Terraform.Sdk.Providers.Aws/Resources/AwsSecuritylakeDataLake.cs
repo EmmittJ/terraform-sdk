@@ -16,9 +16,9 @@ public class AwsSecuritylakeDataLakeConfigurationBlock : TerraformBlock
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? EncryptionConfiguration
+    public TerraformList<TerraformMap<object>> EncryptionConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption_configuration") ?? AsReference("encryption_configuration");
         set => SetArgument("encryption_configuration", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSecuritylakeDataLakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -221,16 +221,16 @@ public partial class AwsSecuritylakeDataLake(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetaStoreManagerRoleArn is required")]
     public required TerraformValue<string> MetaStoreManagerRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("meta_store_manager_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("meta_store_manager_role_arn");
         set => SetArgument("meta_store_manager_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

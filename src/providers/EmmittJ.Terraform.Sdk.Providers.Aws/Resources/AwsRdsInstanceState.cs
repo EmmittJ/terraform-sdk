@@ -46,16 +46,16 @@ public partial class AwsRdsInstanceState(string name) : TerraformResource("aws_r
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<string> Identifier
     {
-        get => GetArgument<TerraformValue<string>>("identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsRdsInstanceState(string name) : TerraformResource("aws_r
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetRequiredArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 

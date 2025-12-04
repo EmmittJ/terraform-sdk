@@ -23,7 +23,7 @@ public partial class AwsWorkspaceswebBrowserSettings(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrowserPolicy is required")]
     public required TerraformValue<string> BrowserPolicy
     {
-        get => GetArgument<TerraformValue<string>>("browser_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("browser_policy");
         set => SetArgument("browser_policy", value);
     }
 
@@ -39,9 +39,9 @@ public partial class AwsWorkspaceswebBrowserSettings(string name) : TerraformRes
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

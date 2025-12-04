@@ -16,45 +16,45 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// <summary>
     /// The disk attribute.
     /// </summary>
-    public TerraformValue<double>? Disk
+    public TerraformValue<double> Disk
     {
-        get => GetArgument<TerraformValue<double>>("disk");
+        get => GetArgument<TerraformValue<double>>("disk") ?? AsReference("disk");
         set => SetArgument("disk", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformValue<string>? InstanceType
+    public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// The machine_type attribute.
     /// </summary>
-    public TerraformValue<string>? MachineType
+    public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    public TerraformValue<double>? Memory
+    public TerraformValue<double> Memory
     {
-        get => GetArgument<TerraformValue<double>>("memory");
+        get => GetArgument<TerraformValue<double>>("memory") ?? AsReference("memory");
         set => SetArgument("memory", value);
     }
 
     /// <summary>
     /// The vcpu attribute.
     /// </summary>
-    public TerraformValue<double>? Vcpu
+    public TerraformValue<double> Vcpu
     {
-        get => GetArgument<TerraformValue<double>>("vcpu");
+        get => GetArgument<TerraformValue<double>>("vcpu") ?? AsReference("vcpu");
         set => SetArgument("vcpu", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => GetArgument<TerraformSet<string>>("subnets");
+        get => GetRequiredArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -176,7 +176,7 @@ public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseCapacity is required")]
     public required TerraformValue<double> BaseCapacity
     {
-        get => GetArgument<TerraformValue<double>>("base_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("base_capacity");
         set => SetArgument("base_capacity", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
     public required TerraformValue<string> ComputeType
     {
-        get => GetArgument<TerraformValue<string>>("compute_type");
+        get => GetRequiredArgument<TerraformValue<string>>("compute_type");
         set => SetArgument("compute_type", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentType is required")]
     public required TerraformValue<string> EnvironmentType
     {
-        get => GetArgument<TerraformValue<string>>("environment_type");
+        get => GetRequiredArgument<TerraformValue<string>>("environment_type");
         set => SetArgument("environment_type", value);
     }
 
@@ -243,25 +243,25 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The overflow_behavior attribute.
     /// </summary>
-    public TerraformValue<string>? OverflowBehavior
+    public TerraformValue<string> OverflowBehavior
     {
-        get => GetArgument<TerraformValue<string>>("overflow_behavior");
+        get => GetArgument<TerraformValue<string>>("overflow_behavior") ?? AsReference("overflow_behavior");
         set => SetArgument("overflow_behavior", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -277,9 +277,9 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

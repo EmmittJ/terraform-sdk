@@ -55,16 +55,16 @@ public partial class AzurermIpGroupCidr(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformValue<string> Cidr
     {
-        get => GetArgument<TerraformValue<string>>("cidr");
+        get => GetRequiredArgument<TerraformValue<string>>("cidr");
         set => SetArgument("cidr", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermIpGroupCidr(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpGroupId is required")]
     public required TerraformValue<string> IpGroupId
     {
-        get => GetArgument<TerraformValue<string>>("ip_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_group_id");
         set => SetArgument("ip_group_id", value);
     }
 

@@ -61,9 +61,9 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     /// <summary>
     /// The categories attribute.
     /// </summary>
-    public TerraformSet<string>? Categories
+    public TerraformSet<string> Categories
     {
-        get => GetArgument<TerraformSet<string>>("categories");
+        get => GetArgument<TerraformSet<string>>("categories") ?? AsReference("categories");
         set => SetArgument("categories", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

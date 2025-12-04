@@ -55,7 +55,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMethod is required")]
     public required TerraformValue<string> AuthenticationMethod
     {
-        get => GetArgument<TerraformValue<string>>("authentication_method");
+        get => GetRequiredArgument<TerraformValue<string>>("authentication_method");
         set => SetArgument("authentication_method", value);
     }
 
@@ -117,9 +117,9 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Edition is required")]
     public required TerraformValue<string> Edition
     {
-        get => GetArgument<TerraformValue<string>>("edition");
+        get => GetRequiredArgument<TerraformValue<string>>("edition");
         set => SetArgument("edition", value);
     }
 
@@ -181,9 +181,9 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationEmail is required")]
     public required TerraformValue<string> NotificationEmail
     {
-        get => GetArgument<TerraformValue<string>>("notification_email");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_email");
         set => SetArgument("notification_email", value);
     }
 
@@ -236,9 +236,9 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

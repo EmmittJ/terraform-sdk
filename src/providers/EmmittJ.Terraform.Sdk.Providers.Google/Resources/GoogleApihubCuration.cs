@@ -45,7 +45,7 @@ public class GoogleApihubCurationEndpointBlockApplicationIntegrationEndpointDeta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerId is required")]
     public required TerraformValue<string> TriggerId
     {
-        get => GetArgument<TerraformValue<string>>("trigger_id");
+        get => GetRequiredArgument<TerraformValue<string>>("trigger_id");
         set => SetArgument("trigger_id", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleApihubCurationEndpointBlockApplicationIntegrationEndpointDeta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CurationId is required")]
     public required TerraformValue<string> CurationId
     {
-        get => GetArgument<TerraformValue<string>>("curation_id");
+        get => GetRequiredArgument<TerraformValue<string>>("curation_id");
         set => SetArgument("curation_id", value);
     }
 
@@ -148,16 +148,16 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -167,16 +167,16 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

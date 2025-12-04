@@ -55,7 +55,7 @@ public partial class GoogleAppEngineFirewallRule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -71,9 +71,9 @@ public partial class GoogleAppEngineFirewallRule(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -94,9 +94,9 @@ public partial class GoogleAppEngineFirewallRule(string name) : TerraformResourc
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleAppEngineFirewallRule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRange is required")]
     public required TerraformValue<string> SourceRange
     {
-        get => GetArgument<TerraformValue<string>>("source_range");
+        get => GetRequiredArgument<TerraformValue<string>>("source_range");
         set => SetArgument("source_range", value);
     }
 

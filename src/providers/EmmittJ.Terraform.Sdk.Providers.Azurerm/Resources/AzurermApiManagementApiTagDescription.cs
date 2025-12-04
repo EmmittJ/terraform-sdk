@@ -64,7 +64,7 @@ public partial class AzurermApiManagementApiTagDescription(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiTagId is required")]
     public required TerraformValue<string> ApiTagId
     {
-        get => GetArgument<TerraformValue<string>>("api_tag_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_tag_id");
         set => SetArgument("api_tag_id", value);
     }
 
@@ -98,9 +98,9 @@ public partial class AzurermApiManagementApiTagDescription(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

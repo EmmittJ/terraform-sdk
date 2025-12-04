@@ -19,7 +19,7 @@ public class AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRange is required")]
     public required TerraformValue<double> MaxRange
     {
-        get => GetArgument<TerraformValue<double>>("max_range");
+        get => GetRequiredArgument<TerraformValue<double>>("max_range");
         set => SetArgument("max_range", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinRange is required")]
     public required TerraformValue<double> MinRange
     {
-        get => GetArgument<TerraformValue<double>>("min_range");
+        get => GetRequiredArgument<TerraformValue<double>>("min_range");
         set => SetArgument("min_range", value);
     }
 
@@ -48,25 +48,25 @@ public partial class AwsEmrBlockPublicAccessConfiguration(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockPublicSecurityGroupRules is required")]
     public required TerraformValue<bool> BlockPublicSecurityGroupRules
     {
-        get => GetArgument<TerraformValue<bool>>("block_public_security_group_rules");
+        get => GetRequiredArgument<TerraformValue<bool>>("block_public_security_group_rules");
         set => SetArgument("block_public_security_group_rules", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

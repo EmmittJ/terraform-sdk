@@ -41,7 +41,7 @@ public class AwsSsmincidentsResponsePlanActionBlockSsmAutomationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentName is required")]
     public required TerraformValue<string> DocumentName
     {
-        get => GetArgument<TerraformValue<string>>("document_name");
+        get => GetRequiredArgument<TerraformValue<string>>("document_name");
         set => SetArgument("document_name", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsSsmincidentsResponsePlanActionBlockSsmAutomationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsSsmincidentsResponsePlanActionBlockSsmAutomationBlockParameterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsSsmincidentsResponsePlanActionBlockSsmAutomationBlockParameterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => GetArgument<TerraformSet<string>>("values");
+        get => GetRequiredArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Impact is required")]
     public required TerraformValue<double> Impact
     {
-        get => GetArgument<TerraformValue<double>>("impact");
+        get => GetRequiredArgument<TerraformValue<double>>("impact");
         set => SetArgument("impact", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => GetArgument<TerraformValue<string>>("title");
+        get => GetRequiredArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlockNotificationTargetB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopicArn is required")]
     public required TerraformValue<string> SnsTopicArn
     {
-        get => GetArgument<TerraformValue<string>>("sns_topic_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("sns_topic_arn");
         set => SetArgument("sns_topic_arn", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsSsmincidentsResponsePlanIntegrationBlockPagerdutyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -269,7 +269,7 @@ public class AwsSsmincidentsResponsePlanIntegrationBlockPagerdutyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => GetArgument<TerraformValue<string>>("secret_id");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -279,7 +279,7 @@ public class AwsSsmincidentsResponsePlanIntegrationBlockPagerdutyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformValue<string> ServiceId
     {
-        get => GetArgument<TerraformValue<string>>("service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("service_id");
         set => SetArgument("service_id", value);
     }
 
@@ -322,9 +322,9 @@ public partial class AwsSsmincidentsResponsePlan(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -334,16 +334,16 @@ public partial class AwsSsmincidentsResponsePlan(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -359,9 +359,9 @@ public partial class AwsSsmincidentsResponsePlan(string name) : TerraformResourc
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

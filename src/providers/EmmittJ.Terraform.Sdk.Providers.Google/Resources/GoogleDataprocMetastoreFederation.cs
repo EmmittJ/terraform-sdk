@@ -19,7 +19,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetastoreType is required")]
     public required TerraformValue<string> MetastoreType
     {
-        get => GetArgument<TerraformValue<string>>("metastore_type");
+        get => GetRequiredArgument<TerraformValue<string>>("metastore_type");
         set => SetArgument("metastore_type", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rank is required")]
     public required TerraformValue<string> Rank
     {
-        get => GetArgument<TerraformValue<string>>("rank");
+        get => GetRequiredArgument<TerraformValue<string>>("rank");
         set => SetArgument("rank", value);
     }
 
@@ -112,16 +112,16 @@ public partial class GoogleDataprocMetastoreFederation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FederationId is required")]
     public required TerraformValue<string> FederationId
     {
-        get => GetArgument<TerraformValue<string>>("federation_id");
+        get => GetRequiredArgument<TerraformValue<string>>("federation_id");
         set => SetArgument("federation_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -149,9 +149,9 @@ public partial class GoogleDataprocMetastoreFederation(string name) : TerraformR
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -172,7 +172,7 @@ public partial class GoogleDataprocMetastoreFederation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

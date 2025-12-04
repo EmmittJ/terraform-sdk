@@ -461,7 +461,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockSelectedApplicationsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -471,7 +471,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockSelectedApplicationsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -572,7 +572,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockTransformationRulesBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Op is required")]
     public required TerraformValue<string> Op
     {
-        get => GetArgument<TerraformValue<string>>("op");
+        get => GetRequiredArgument<TerraformValue<string>>("op");
         set => SetArgument("op", value);
     }
 
@@ -700,7 +700,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockVolumeDataRestorePolicy
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy");
+        get => GetRequiredArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -711,7 +711,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockVolumeDataRestorePolicy
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeType is required")]
     public required TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -772,7 +772,7 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
     public required TerraformValue<string> BackupPlan
     {
-        get => GetArgument<TerraformValue<string>>("backup_plan");
+        get => GetRequiredArgument<TerraformValue<string>>("backup_plan");
         set => SetArgument("backup_plan", value);
     }
 
@@ -782,7 +782,7 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -798,9 +798,9 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -825,7 +825,7 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -835,16 +835,16 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

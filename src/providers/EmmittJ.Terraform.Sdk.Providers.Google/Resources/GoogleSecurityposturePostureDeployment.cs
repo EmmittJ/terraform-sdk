@@ -61,9 +61,9 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureDeploymentId is required")]
     public required TerraformValue<string> PostureDeploymentId
     {
-        get => GetArgument<TerraformValue<string>>("posture_deployment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("posture_deployment_id");
         set => SetArgument("posture_deployment_id", value);
     }
 
@@ -104,7 +104,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureId is required")]
     public required TerraformValue<string> PostureId
     {
-        get => GetArgument<TerraformValue<string>>("posture_id");
+        get => GetRequiredArgument<TerraformValue<string>>("posture_id");
         set => SetArgument("posture_id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureRevisionId is required")]
     public required TerraformValue<string> PostureRevisionId
     {
-        get => GetArgument<TerraformValue<string>>("posture_revision_id");
+        get => GetRequiredArgument<TerraformValue<string>>("posture_revision_id");
         set => SetArgument("posture_revision_id", value);
     }
 
@@ -127,7 +127,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResource is required")]
     public required TerraformValue<string> TargetResource
     {
-        get => GetArgument<TerraformValue<string>>("target_resource");
+        get => GetRequiredArgument<TerraformValue<string>>("target_resource");
         set => SetArgument("target_resource", value);
     }
 

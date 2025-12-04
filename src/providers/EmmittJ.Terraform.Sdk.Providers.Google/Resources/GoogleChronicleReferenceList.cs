@@ -19,7 +19,7 @@ public class GoogleChronicleReferenceListEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -127,16 +127,16 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -156,16 +156,16 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -180,7 +180,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceListId is required")]
     public required TerraformValue<string> ReferenceListId
     {
-        get => GetArgument<TerraformValue<string>>("reference_list_id");
+        get => GetRequiredArgument<TerraformValue<string>>("reference_list_id");
         set => SetArgument("reference_list_id", value);
     }
 
@@ -193,7 +193,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyntaxType is required")]
     public required TerraformValue<string> SyntaxType
     {
-        get => GetArgument<TerraformValue<string>>("syntax_type");
+        get => GetRequiredArgument<TerraformValue<string>>("syntax_type");
         set => SetArgument("syntax_type", value);
     }
 

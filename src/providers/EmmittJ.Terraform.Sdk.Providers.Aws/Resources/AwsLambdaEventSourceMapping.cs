@@ -16,9 +16,9 @@ public class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock
     /// <summary>
     /// The consumer_group_id attribute.
     /// </summary>
-    public TerraformValue<string>? ConsumerGroupId
+    public TerraformValue<string> ConsumerGroupId
     {
-        get => GetArgument<TerraformValue<string>>("consumer_group_id");
+        get => GetArgument<TerraformValue<string>>("consumer_group_id") ?? AsReference("consumer_group_id");
         set => SetArgument("consumer_group_id", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsLambdaEventSourceMappingDestinationConfigBlockOnFailureBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformValue<string> DestinationArn
     {
-        get => GetArgument<TerraformValue<string>>("destination_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_arn");
         set => SetArgument("destination_arn", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -289,7 +289,7 @@ public class AwsLambdaEventSourceMappingMetricsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metrics is required")]
     public required TerraformSet<string> Metrics
     {
-        get => GetArgument<TerraformSet<string>>("metrics");
+        get => GetRequiredArgument<TerraformSet<string>>("metrics");
         set => SetArgument("metrics", value);
     }
 
@@ -310,18 +310,18 @@ public class AwsLambdaEventSourceMappingProvisionedPollerConfigBlock : Terraform
     /// <summary>
     /// The maximum_pollers attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumPollers
+    public TerraformValue<double> MaximumPollers
     {
-        get => GetArgument<TerraformValue<double>>("maximum_pollers");
+        get => GetArgument<TerraformValue<double>>("maximum_pollers") ?? AsReference("maximum_pollers");
         set => SetArgument("maximum_pollers", value);
     }
 
     /// <summary>
     /// The minimum_pollers attribute.
     /// </summary>
-    public TerraformValue<double>? MinimumPollers
+    public TerraformValue<double> MinimumPollers
     {
-        get => GetArgument<TerraformValue<double>>("minimum_pollers");
+        get => GetArgument<TerraformValue<double>>("minimum_pollers") ?? AsReference("minimum_pollers");
         set => SetArgument("minimum_pollers", value);
     }
 
@@ -368,7 +368,7 @@ public class AwsLambdaEventSourceMappingSelfManagedEventSourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoints is required")]
     public required TerraformMap<string> Endpoints
     {
-        get => GetArgument<TerraformMap<string>>("endpoints");
+        get => GetRequiredArgument<TerraformMap<string>>("endpoints");
         set => SetArgument("endpoints", value);
     }
 
@@ -389,9 +389,9 @@ public class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlock :
     /// <summary>
     /// The consumer_group_id attribute.
     /// </summary>
-    public TerraformValue<string>? ConsumerGroupId
+    public TerraformValue<string> ConsumerGroupId
     {
-        get => GetArgument<TerraformValue<string>>("consumer_group_id");
+        get => GetArgument<TerraformValue<string>>("consumer_group_id") ?? AsReference("consumer_group_id");
         set => SetArgument("consumer_group_id", value);
     }
 
@@ -527,7 +527,7 @@ public class AwsLambdaEventSourceMappingSourceAccessConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -537,7 +537,7 @@ public class AwsLambdaEventSourceMappingSourceAccessConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -592,7 +592,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => GetArgument<TerraformValue<string>>("function_name");
+        get => GetRequiredArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
@@ -608,9 +608,9 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -635,27 +635,27 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// <summary>
     /// The maximum_record_age_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumRecordAgeInSeconds
+    public TerraformValue<double> MaximumRecordAgeInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds") ?? AsReference("maximum_record_age_in_seconds");
         set => SetArgument("maximum_record_age_in_seconds", value);
     }
 
     /// <summary>
     /// The maximum_retry_attempts attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumRetryAttempts
+    public TerraformValue<double> MaximumRetryAttempts
     {
-        get => GetArgument<TerraformValue<double>>("maximum_retry_attempts");
+        get => GetArgument<TerraformValue<double>>("maximum_retry_attempts") ?? AsReference("maximum_retry_attempts");
         set => SetArgument("maximum_retry_attempts", value);
     }
 
     /// <summary>
     /// The parallelization_factor attribute.
     /// </summary>
-    public TerraformValue<double>? ParallelizationFactor
+    public TerraformValue<double> ParallelizationFactor
     {
-        get => GetArgument<TerraformValue<double>>("parallelization_factor");
+        get => GetArgument<TerraformValue<double>>("parallelization_factor") ?? AsReference("parallelization_factor");
         set => SetArgument("parallelization_factor", value);
     }
 
@@ -671,9 +671,9 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -707,9 +707,9 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

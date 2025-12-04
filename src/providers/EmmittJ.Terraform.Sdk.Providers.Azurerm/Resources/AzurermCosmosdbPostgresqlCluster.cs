@@ -111,9 +111,9 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// <summary>
     /// The citus_version attribute.
     /// </summary>
-    public TerraformValue<string>? CitusVersion
+    public TerraformValue<string> CitusVersion
     {
-        get => GetArgument<TerraformValue<string>>("citus_version");
+        get => GetArgument<TerraformValue<string>>("citus_version") ?? AsReference("citus_version");
         set => SetArgument("citus_version", value);
     }
 
@@ -165,9 +165,9 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -222,18 +222,18 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// <summary>
     /// The node_storage_quota_in_mb attribute.
     /// </summary>
-    public TerraformValue<double>? NodeStorageQuotaInMb
+    public TerraformValue<double> NodeStorageQuotaInMb
     {
-        get => GetArgument<TerraformValue<double>>("node_storage_quota_in_mb");
+        get => GetArgument<TerraformValue<double>>("node_storage_quota_in_mb") ?? AsReference("node_storage_quota_in_mb");
         set => SetArgument("node_storage_quota_in_mb", value);
     }
 
     /// <summary>
     /// The node_vcores attribute.
     /// </summary>
-    public TerraformValue<double>? NodeVcores
+    public TerraformValue<double> NodeVcores
     {
-        get => GetArgument<TerraformValue<double>>("node_vcores");
+        get => GetArgument<TerraformValue<double>>("node_vcores") ?? AsReference("node_vcores");
         set => SetArgument("node_vcores", value);
     }
 
@@ -261,16 +261,16 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The shards_on_coordinator_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? ShardsOnCoordinatorEnabled
+    public TerraformValue<bool> ShardsOnCoordinatorEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("shards_on_coordinator_enabled");
+        get => GetArgument<TerraformValue<bool>>("shards_on_coordinator_enabled") ?? AsReference("shards_on_coordinator_enabled");
         set => SetArgument("shards_on_coordinator_enabled", value);
     }
 
@@ -295,9 +295,9 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// <summary>
     /// The sql_version attribute.
     /// </summary>
-    public TerraformValue<string>? SqlVersion
+    public TerraformValue<string> SqlVersion
     {
-        get => GetArgument<TerraformValue<string>>("sql_version");
+        get => GetArgument<TerraformValue<string>>("sql_version") ?? AsReference("sql_version");
         set => SetArgument("sql_version", value);
     }
 

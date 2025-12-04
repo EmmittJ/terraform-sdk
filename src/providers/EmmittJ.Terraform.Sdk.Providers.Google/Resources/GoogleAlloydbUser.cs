@@ -56,7 +56,7 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -72,9 +72,9 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformValue<string> UserId
     {
-        get => GetArgument<TerraformValue<string>>("user_id");
+        get => GetRequiredArgument<TerraformValue<string>>("user_id");
         set => SetArgument("user_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserType is required")]
     public required TerraformValue<string> UserType
     {
-        get => GetArgument<TerraformValue<string>>("user_type");
+        get => GetRequiredArgument<TerraformValue<string>>("user_type");
         set => SetArgument("user_type", value);
     }
 

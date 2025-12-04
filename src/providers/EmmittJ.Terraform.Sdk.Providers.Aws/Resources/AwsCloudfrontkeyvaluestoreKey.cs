@@ -14,7 +14,7 @@ public partial class AwsCloudfrontkeyvaluestoreKey(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsCloudfrontkeyvaluestoreKey(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValueStoreArn is required")]
     public required TerraformValue<string> KeyValueStoreArn
     {
-        get => GetArgument<TerraformValue<string>>("key_value_store_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("key_value_store_arn");
         set => SetArgument("key_value_store_arn", value);
     }
 
@@ -34,7 +34,7 @@ public partial class AwsCloudfrontkeyvaluestoreKey(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 

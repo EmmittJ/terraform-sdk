@@ -11,36 +11,36 @@ public partial class AwsServicequotasServiceQuotaDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The quota_code attribute.
     /// </summary>
-    public TerraformValue<string>? QuotaCode
+    public TerraformValue<string> QuotaCode
     {
-        get => GetArgument<TerraformValue<string>>("quota_code");
+        get => GetArgument<TerraformValue<string>>("quota_code") ?? AsReference("quota_code");
         set => SetArgument("quota_code", value);
     }
 
     /// <summary>
     /// The quota_name attribute.
     /// </summary>
-    public TerraformValue<string>? QuotaName
+    public TerraformValue<string> QuotaName
     {
-        get => GetArgument<TerraformValue<string>>("quota_name");
+        get => GetArgument<TerraformValue<string>>("quota_name") ?? AsReference("quota_name");
         set => SetArgument("quota_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsServicequotasServiceQuotaDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
     public required TerraformValue<string> ServiceCode
     {
-        get => GetArgument<TerraformValue<string>>("service_code");
+        get => GetRequiredArgument<TerraformValue<string>>("service_code");
         set => SetArgument("service_code", value);
     }
 

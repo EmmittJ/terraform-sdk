@@ -14,16 +14,16 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
     public required TerraformValue<string> LayerName
     {
-        get => GetArgument<TerraformValue<string>>("layer_name");
+        get => GetRequiredArgument<TerraformValue<string>>("layer_name");
         set => SetArgument("layer_name", value);
     }
 
@@ -52,16 +52,16 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetRequiredArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
     public required TerraformValue<string> StatementId
     {
-        get => GetArgument<TerraformValue<string>>("statement_id");
+        get => GetRequiredArgument<TerraformValue<string>>("statement_id");
         set => SetArgument("statement_id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionNumber is required")]
     public required TerraformValue<double> VersionNumber
     {
-        get => GetArgument<TerraformValue<double>>("version_number");
+        get => GetRequiredArgument<TerraformValue<double>>("version_number");
         set => SetArgument("version_number", value);
     }
 

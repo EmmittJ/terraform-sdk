@@ -28,7 +28,7 @@ public class AzurermAutomationSourceControlSecurityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformValue<string> Token
     {
-        get => GetArgument<TerraformValue<string>>("token");
+        get => GetRequiredArgument<TerraformValue<string>>("token");
         set => SetArgument("token", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermAutomationSourceControlSecurityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenType is required")]
     public required TerraformValue<string> TokenType
     {
-        get => GetArgument<TerraformValue<string>>("token_type");
+        get => GetRequiredArgument<TerraformValue<string>>("token_type");
         set => SetArgument("token_type", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformValue<string> AutomationAccountId
     {
-        get => GetArgument<TerraformValue<string>>("automation_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("automation_account_id");
         set => SetArgument("automation_account_id", value);
     }
 
@@ -144,16 +144,16 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderPath is required")]
     public required TerraformValue<string> FolderPath
     {
-        get => GetArgument<TerraformValue<string>>("folder_path");
+        get => GetRequiredArgument<TerraformValue<string>>("folder_path");
         set => SetArgument("folder_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => GetArgument<TerraformValue<string>>("repository_url");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceControlType is required")]
     public required TerraformValue<string> SourceControlType
     {
-        get => GetArgument<TerraformValue<string>>("source_control_type");
+        get => GetRequiredArgument<TerraformValue<string>>("source_control_type");
         set => SetArgument("source_control_type", value);
     }
 

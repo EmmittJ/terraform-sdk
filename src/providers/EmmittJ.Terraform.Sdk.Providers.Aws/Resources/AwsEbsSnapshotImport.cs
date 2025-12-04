@@ -25,27 +25,27 @@ public class AwsEbsSnapshotImportClientDataBlock : TerraformBlock
     /// <summary>
     /// The upload_end attribute.
     /// </summary>
-    public TerraformValue<string>? UploadEnd
+    public TerraformValue<string> UploadEnd
     {
-        get => GetArgument<TerraformValue<string>>("upload_end");
+        get => GetArgument<TerraformValue<string>>("upload_end") ?? AsReference("upload_end");
         set => SetArgument("upload_end", value);
     }
 
     /// <summary>
     /// The upload_size attribute.
     /// </summary>
-    public TerraformValue<double>? UploadSize
+    public TerraformValue<double> UploadSize
     {
-        get => GetArgument<TerraformValue<double>>("upload_size");
+        get => GetArgument<TerraformValue<double>>("upload_size") ?? AsReference("upload_size");
         set => SetArgument("upload_size", value);
     }
 
     /// <summary>
     /// The upload_start attribute.
     /// </summary>
-    public TerraformValue<string>? UploadStart
+    public TerraformValue<string> UploadStart
     {
-        get => GetArgument<TerraformValue<string>>("upload_start");
+        get => GetArgument<TerraformValue<string>>("upload_start") ?? AsReference("upload_start");
         set => SetArgument("upload_start", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsEbsSnapshotImportDiskContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetRequiredArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsEbsSnapshotImportDiskContainerBlockUserBucketBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsEbsSnapshotImportDiskContainerBlockUserBucketBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Key is required")]
     public required TerraformValue<string> S3Key
     {
-        get => GetArgument<TerraformValue<string>>("s3_key");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_key");
         set => SetArgument("s3_key", value);
     }
 
@@ -178,9 +178,9 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
@@ -196,9 +196,9 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -223,9 +223,9 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -241,9 +241,9 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
-    public TerraformValue<string>? StorageTier
+    public TerraformValue<string> StorageTier
     {
-        get => GetArgument<TerraformValue<string>>("storage_tier");
+        get => GetArgument<TerraformValue<string>>("storage_tier") ?? AsReference("storage_tier");
         set => SetArgument("storage_tier", value);
     }
 
@@ -259,9 +259,9 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

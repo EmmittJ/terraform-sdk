@@ -71,9 +71,9 @@ public partial class AzurermNetworkManagerDeployment(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermNetworkManagerDeployment(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermNetworkManagerDeployment(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformValue<string> NetworkManagerId
     {
-        get => GetArgument<TerraformValue<string>>("network_manager_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_manager_id");
         set => SetArgument("network_manager_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermNetworkManagerDeployment(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeAccess is required")]
     public required TerraformValue<string> ScopeAccess
     {
-        get => GetArgument<TerraformValue<string>>("scope_access");
+        get => GetRequiredArgument<TerraformValue<string>>("scope_access");
         set => SetArgument("scope_access", value);
     }
 

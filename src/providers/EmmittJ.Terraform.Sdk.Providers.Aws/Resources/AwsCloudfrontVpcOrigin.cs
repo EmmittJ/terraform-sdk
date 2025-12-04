@@ -60,7 +60,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpPort is required")]
     public required TerraformValue<double> HttpPort
     {
-        get => GetArgument<TerraformValue<double>>("http_port");
+        get => GetRequiredArgument<TerraformValue<double>>("http_port");
         set => SetArgument("http_port", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpsPort is required")]
     public required TerraformValue<double> HttpsPort
     {
-        get => GetArgument<TerraformValue<double>>("https_port");
+        get => GetRequiredArgument<TerraformValue<double>>("https_port");
         set => SetArgument("https_port", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginProtocolPolicy is required")]
     public required TerraformValue<string> OriginProtocolPolicy
     {
-        get => GetArgument<TerraformValue<string>>("origin_protocol_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("origin_protocol_policy");
         set => SetArgument("origin_protocol_policy", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlockOriginSslProtocol
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Items is required")]
     public required TerraformSet<string> Items
     {
-        get => GetArgument<TerraformSet<string>>("items");
+        get => GetRequiredArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlockOriginSslProtocol
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quantity is required")]
     public required TerraformValue<double> Quantity
     {
-        get => GetArgument<TerraformValue<double>>("quantity");
+        get => GetRequiredArgument<TerraformValue<double>>("quantity");
         set => SetArgument("quantity", value);
     }
 

@@ -68,7 +68,7 @@ public class AwsResiliencehubResiliencyPolicyPolicyBlockAzBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rpo is required")]
     public required TerraformValue<string> Rpo
     {
-        get => GetArgument<TerraformValue<string>>("rpo");
+        get => GetRequiredArgument<TerraformValue<string>>("rpo");
         set => SetArgument("rpo", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsResiliencehubResiliencyPolicyPolicyBlockAzBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rto is required")]
     public required TerraformValue<string> Rto
     {
-        get => GetArgument<TerraformValue<string>>("rto");
+        get => GetRequiredArgument<TerraformValue<string>>("rto");
         set => SetArgument("rto", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsResiliencehubResiliencyPolicyPolicyBlockHardwareBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rpo is required")]
     public required TerraformValue<string> Rpo
     {
-        get => GetArgument<TerraformValue<string>>("rpo");
+        get => GetRequiredArgument<TerraformValue<string>>("rpo");
         set => SetArgument("rpo", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsResiliencehubResiliencyPolicyPolicyBlockHardwareBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rto is required")]
     public required TerraformValue<string> Rto
     {
-        get => GetArgument<TerraformValue<string>>("rto");
+        get => GetRequiredArgument<TerraformValue<string>>("rto");
         set => SetArgument("rto", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsResiliencehubResiliencyPolicyPolicyBlockSoftwareBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rpo is required")]
     public required TerraformValue<string> Rpo
     {
-        get => GetArgument<TerraformValue<string>>("rpo");
+        get => GetRequiredArgument<TerraformValue<string>>("rpo");
         set => SetArgument("rpo", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsResiliencehubResiliencyPolicyPolicyBlockSoftwareBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rto is required")]
     public required TerraformValue<string> Rto
     {
-        get => GetArgument<TerraformValue<string>>("rto");
+        get => GetRequiredArgument<TerraformValue<string>>("rto");
         set => SetArgument("rto", value);
     }
 
@@ -232,9 +232,9 @@ public partial class AwsResiliencehubResiliencyPolicy(string name) : TerraformRe
     /// <summary>
     /// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
     /// </summary>
-    public TerraformValue<string>? DataLocationConstraint
+    public TerraformValue<string> DataLocationConstraint
     {
-        get => GetArgument<TerraformValue<string>>("data_location_constraint");
+        get => GetArgument<TerraformValue<string>>("data_location_constraint") ?? AsReference("data_location_constraint");
         set => SetArgument("data_location_constraint", value);
     }
 
@@ -253,16 +253,16 @@ public partial class AwsResiliencehubResiliencyPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -281,7 +281,7 @@ public partial class AwsResiliencehubResiliencyPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier");
+        get => GetRequiredArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 

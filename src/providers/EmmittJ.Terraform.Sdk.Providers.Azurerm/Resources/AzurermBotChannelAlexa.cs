@@ -64,16 +64,16 @@ public partial class AzurermBotChannelAlexa(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformValue<string> BotName
     {
-        get => GetArgument<TerraformValue<string>>("bot_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bot_name");
         set => SetArgument("bot_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermBotChannelAlexa(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermBotChannelAlexa(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermBotChannelAlexa(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkillId is required")]
     public required TerraformValue<string> SkillId
     {
-        get => GetArgument<TerraformValue<string>>("skill_id");
+        get => GetRequiredArgument<TerraformValue<string>>("skill_id");
         set => SetArgument("skill_id", value);
     }
 

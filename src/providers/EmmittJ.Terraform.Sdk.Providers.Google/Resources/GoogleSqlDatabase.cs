@@ -56,9 +56,9 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;UTF8&#39; at creation time.
     /// </summary>
-    public TerraformValue<string>? Charset
+    public TerraformValue<string> Charset
     {
-        get => GetArgument<TerraformValue<string>>("charset");
+        get => GetArgument<TerraformValue<string>>("charset") ?? AsReference("charset");
         set => SetArgument("charset", value);
     }
 
@@ -69,9 +69,9 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;en_US.UTF8&#39; at creation time.
     /// </summary>
-    public TerraformValue<string>? Collation
+    public TerraformValue<string> Collation
     {
-        get => GetArgument<TerraformValue<string>>("collation");
+        get => GetArgument<TerraformValue<string>>("collation") ?? AsReference("collation");
         set => SetArgument("collation", value);
     }
 
@@ -90,9 +90,9 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -114,16 +114,16 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -170,9 +170,9 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// <summary>
     /// The security_descriptor_copy_flags attribute.
     /// </summary>
-    public TerraformValue<string>? SecurityDescriptorCopyFlags
+    public TerraformValue<string> SecurityDescriptorCopyFlags
     {
-        get => GetArgument<TerraformValue<string>>("security_descriptor_copy_flags");
+        get => GetArgument<TerraformValue<string>>("security_descriptor_copy_flags") ?? AsReference("security_descriptor_copy_flags");
         set => SetArgument("security_descriptor_copy_flags", value);
     }
 
@@ -232,7 +232,7 @@ public class AwsDatasyncTaskScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformValue<string> ScheduleExpression
     {
-        get => GetArgument<TerraformValue<string>>("schedule_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
@@ -368,7 +368,7 @@ public class AwsDatasyncTaskTaskReportConfigBlockS3DestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketAccessRoleArn is required")]
     public required TerraformValue<string> BucketAccessRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_access_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_access_role_arn");
         set => SetArgument("bucket_access_role_arn", value);
     }
 
@@ -378,7 +378,7 @@ public class AwsDatasyncTaskTaskReportConfigBlockS3DestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketArn is required")]
     public required TerraformValue<string> S3BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket_arn");
         set => SetArgument("s3_bucket_arn", value);
     }
 
@@ -438,16 +438,16 @@ public partial class AwsDatasyncTask(string name) : TerraformResource("aws_datas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationLocationArn is required")]
     public required TerraformValue<string> DestinationLocationArn
     {
-        get => GetArgument<TerraformValue<string>>("destination_location_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_location_arn");
         set => SetArgument("destination_location_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -463,9 +463,9 @@ public partial class AwsDatasyncTask(string name) : TerraformResource("aws_datas
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -475,7 +475,7 @@ public partial class AwsDatasyncTask(string name) : TerraformResource("aws_datas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceLocationArn is required")]
     public required TerraformValue<string> SourceLocationArn
     {
-        get => GetArgument<TerraformValue<string>>("source_location_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("source_location_arn");
         set => SetArgument("source_location_arn", value);
     }
 
@@ -491,18 +491,18 @@ public partial class AwsDatasyncTask(string name) : TerraformResource("aws_datas
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The task_mode attribute.
     /// </summary>
-    public TerraformValue<string>? TaskMode
+    public TerraformValue<string> TaskMode
     {
-        get => GetArgument<TerraformValue<string>>("task_mode");
+        get => GetArgument<TerraformValue<string>>("task_mode") ?? AsReference("task_mode");
         set => SetArgument("task_mode", value);
     }
 

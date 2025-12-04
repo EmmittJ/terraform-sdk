@@ -14,7 +14,7 @@ public partial class AwsNotificationscontactsEmailContact(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformValue<string> EmailAddress
     {
-        get => GetArgument<TerraformValue<string>>("email_address");
+        get => GetRequiredArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsNotificationscontactsEmailContact(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

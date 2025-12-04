@@ -47,16 +47,16 @@ public partial class GoogleApigeeEnvKeystore(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformValue<string> EnvId
     {
-        get => GetArgument<TerraformValue<string>>("env_id");
+        get => GetRequiredArgument<TerraformValue<string>>("env_id");
         set => SetArgument("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

@@ -231,7 +231,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockImag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockImag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -356,7 +356,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -398,7 +398,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1313,7 +1313,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -1325,7 +1325,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -1348,7 +1348,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1373,7 +1373,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1437,7 +1437,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1526,7 +1526,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -1538,7 +1538,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -1561,7 +1561,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1586,7 +1586,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1746,7 +1746,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -1758,7 +1758,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -1781,7 +1781,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1806,7 +1806,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1870,7 +1870,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1893,7 +1893,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LowerBoundDays is required")]
     public required TerraformValue<double> LowerBoundDays
     {
-        get => GetArgument<TerraformValue<double>>("lower_bound_days");
+        get => GetRequiredArgument<TerraformValue<double>>("lower_bound_days");
         set => SetArgument("lower_bound_days", value);
     }
 
@@ -1904,7 +1904,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpperBoundDays is required")]
     public required TerraformValue<double> UpperBoundDays
     {
-        get => GetArgument<TerraformValue<double>>("upper_bound_days");
+        get => GetRequiredArgument<TerraformValue<double>>("upper_bound_days");
         set => SetArgument("upper_bound_days", value);
     }
 
@@ -1947,7 +1947,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2013,7 +2013,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -2024,7 +2024,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -2047,7 +2047,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2071,7 +2071,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -2096,7 +2096,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketSize is required")]
     public required TerraformValue<double> BucketSize
     {
-        get => GetArgument<TerraformValue<double>>("bucket_size");
+        get => GetRequiredArgument<TerraformValue<double>>("bucket_size");
         set => SetArgument("bucket_size", value);
     }
 
@@ -2658,7 +2658,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -2984,7 +2984,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3026,7 +3026,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -3894,7 +3894,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3960,7 +3960,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -3972,7 +3972,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -3995,7 +3995,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4020,7 +4020,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -4043,7 +4043,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4085,7 +4085,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -4177,7 +4177,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -4189,7 +4189,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -4212,7 +4212,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4237,7 +4237,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -4335,7 +4335,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4401,7 +4401,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -4413,7 +4413,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -4436,7 +4436,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4461,7 +4461,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -4484,7 +4484,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4526,7 +4526,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -4549,7 +4549,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LowerBoundDays is required")]
     public required TerraformValue<double> LowerBoundDays
     {
-        get => GetArgument<TerraformValue<double>>("lower_bound_days");
+        get => GetRequiredArgument<TerraformValue<double>>("lower_bound_days");
         set => SetArgument("lower_bound_days", value);
     }
 
@@ -4561,7 +4561,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpperBoundDays is required")]
     public required TerraformValue<double> UpperBoundDays
     {
-        get => GetArgument<TerraformValue<double>>("upper_bound_days");
+        get => GetRequiredArgument<TerraformValue<double>>("upper_bound_days");
         set => SetArgument("upper_bound_days", value);
     }
 
@@ -4604,7 +4604,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4670,7 +4670,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -4682,7 +4682,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -4705,7 +4705,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4730,7 +4730,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -4755,7 +4755,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketSize is required")]
     public required TerraformValue<double> BucketSize
     {
-        get => GetArgument<TerraformValue<double>>("bucket_size");
+        get => GetRequiredArgument<TerraformValue<double>>("bucket_size");
         set => SetArgument("bucket_size", value);
     }
 
@@ -5144,7 +5144,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartToExtract is required")]
     public required TerraformValue<string> PartToExtract
     {
-        get => GetArgument<TerraformValue<string>>("part_to_extract");
+        get => GetRequiredArgument<TerraformValue<string>>("part_to_extract");
         set => SetArgument("part_to_extract", value);
     }
 
@@ -6085,7 +6085,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -6097,7 +6097,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -6120,7 +6120,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6145,7 +6145,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -6209,7 +6209,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -6298,7 +6298,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -6310,7 +6310,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -6333,7 +6333,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6358,7 +6358,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -6518,7 +6518,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -6530,7 +6530,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -6553,7 +6553,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6578,7 +6578,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -6642,7 +6642,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -6665,7 +6665,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LowerBoundDays is required")]
     public required TerraformValue<double> LowerBoundDays
     {
-        get => GetArgument<TerraformValue<double>>("lower_bound_days");
+        get => GetRequiredArgument<TerraformValue<double>>("lower_bound_days");
         set => SetArgument("lower_bound_days", value);
     }
 
@@ -6677,7 +6677,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpperBoundDays is required")]
     public required TerraformValue<double> UpperBoundDays
     {
-        get => GetArgument<TerraformValue<double>>("upper_bound_days");
+        get => GetRequiredArgument<TerraformValue<double>>("upper_bound_days");
         set => SetArgument("upper_bound_days", value);
     }
 
@@ -6785,7 +6785,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => GetArgument<TerraformValue<string>>("crypto_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -6797,7 +6797,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => GetArgument<TerraformValue<string>>("wrapped_key");
+        get => GetRequiredArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -6820,7 +6820,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6845,7 +6845,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -6870,7 +6870,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketSize is required")]
     public required TerraformValue<double> BucketSize
     {
-        get => GetArgument<TerraformValue<double>>("bucket_size");
+        get => GetRequiredArgument<TerraformValue<double>>("bucket_size");
         set => SetArgument("bucket_size", value);
     }
 
@@ -7654,7 +7654,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -7950,9 +7950,9 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -7967,7 +7967,7 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -7976,9 +7976,9 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate(string name) : T
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+. The maximum length is
     /// 100 characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformValue<string>? TemplateId
+    public TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id");
+        get => GetArgument<TerraformValue<string>>("template_id") ?? AsReference("template_id");
         set => SetArgument("template_id", value);
     }
 

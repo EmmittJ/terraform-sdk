@@ -46,16 +46,16 @@ public partial class AwsDefaultRouteTable(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRouteTableId is required")]
     public required TerraformValue<string> DefaultRouteTableId
     {
-        get => GetArgument<TerraformValue<string>>("default_route_table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("default_route_table_id");
         set => SetArgument("default_route_table_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -71,18 +71,18 @@ public partial class AwsDefaultRouteTable(string name) : TerraformResource("aws_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The route attribute.
     /// </summary>
-    public TerraformSet<TerraformMap<object>>? Route
+    public TerraformSet<TerraformMap<object>> Route
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("route");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("route") ?? AsReference("route");
         set => SetArgument("route", value);
     }
 
@@ -98,9 +98,9 @@ public partial class AwsDefaultRouteTable(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

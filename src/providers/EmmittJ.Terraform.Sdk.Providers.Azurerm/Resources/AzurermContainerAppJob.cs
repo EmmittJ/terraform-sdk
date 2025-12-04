@@ -108,7 +108,7 @@ public class AzurermContainerAppJobEventTriggerConfigBlockScaleBlockRulesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomRuleType is required")]
     public required TerraformValue<string> CustomRuleType
     {
-        get => GetArgument<TerraformValue<string>>("custom_rule_type");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_rule_type");
         set => SetArgument("custom_rule_type", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermContainerAppJobEventTriggerConfigBlockScaleBlockRulesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     public required TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata");
+        get => GetRequiredArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermContainerAppJobEventTriggerConfigBlockScaleBlockRulesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermContainerAppJobEventTriggerConfigBlockScaleBlockRulesBlockAu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -170,7 +170,7 @@ public class AzurermContainerAppJobEventTriggerConfigBlockScaleBlockRulesBlockAu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerParameter is required")]
     public required TerraformValue<string> TriggerParameter
     {
-        get => GetArgument<TerraformValue<string>>("trigger_parameter");
+        get => GetRequiredArgument<TerraformValue<string>>("trigger_parameter");
         set => SetArgument("trigger_parameter", value);
     }
 
@@ -215,7 +215,7 @@ public class AzurermContainerAppJobIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -289,7 +289,7 @@ public class AzurermContainerAppJobRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => GetArgument<TerraformValue<string>>("server");
+        get => GetRequiredArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -322,7 +322,7 @@ public class AzurermContainerAppJobScheduleTriggerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CronExpression is required")]
     public required TerraformValue<string> CronExpression
     {
-        get => GetArgument<TerraformValue<string>>("cron_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("cron_expression");
         set => SetArgument("cron_expression", value);
     }
 
@@ -382,7 +382,7 @@ public class AzurermContainerAppJobSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -476,7 +476,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu");
+        get => GetRequiredArgument<TerraformValue<double>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -492,7 +492,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image");
+        get => GetRequiredArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -502,7 +502,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Memory is required")]
     public required TerraformValue<string> Memory
     {
-        get => GetArgument<TerraformValue<string>>("memory");
+        get => GetRequiredArgument<TerraformValue<string>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -512,7 +512,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -580,7 +580,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockEnvBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -654,9 +654,9 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockLivenessProbeBlock
     /// <summary>
     /// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
     /// </summary>
-    public TerraformValue<string>? Path
+    public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
         set => SetArgument("path", value);
     }
 
@@ -666,7 +666,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockLivenessProbeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -691,7 +691,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockLivenessProbeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Transport is required")]
     public required TerraformValue<string> Transport
     {
-        get => GetArgument<TerraformValue<string>>("transport");
+        get => GetRequiredArgument<TerraformValue<string>>("transport");
         set => SetArgument("transport", value);
     }
 
@@ -723,7 +723,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockLivenessProbeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -733,7 +733,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockLivenessProbeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -789,9 +789,9 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockReadinessProbeBloc
     /// <summary>
     /// The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
     /// </summary>
-    public TerraformValue<string>? Path
+    public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
         set => SetArgument("path", value);
     }
 
@@ -801,7 +801,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockReadinessProbeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -829,7 +829,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockReadinessProbeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Transport is required")]
     public required TerraformValue<string> Transport
     {
-        get => GetArgument<TerraformValue<string>>("transport");
+        get => GetRequiredArgument<TerraformValue<string>>("transport");
         set => SetArgument("transport", value);
     }
 
@@ -861,7 +861,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockReadinessProbeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -871,7 +871,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockReadinessProbeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -927,9 +927,9 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockStartupProbeBlock 
     /// <summary>
     /// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
     /// </summary>
-    public TerraformValue<string>? Path
+    public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
         set => SetArgument("path", value);
     }
 
@@ -939,7 +939,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockStartupProbeBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -964,7 +964,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockStartupProbeBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Transport is required")]
     public required TerraformValue<string> Transport
     {
-        get => GetArgument<TerraformValue<string>>("transport");
+        get => GetRequiredArgument<TerraformValue<string>>("transport");
         set => SetArgument("transport", value);
     }
 
@@ -996,7 +996,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockStartupProbeBlockH
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1006,7 +1006,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockStartupProbeBlockH
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1029,7 +1029,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockVolumeMountsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1039,7 +1039,7 @@ public class AzurermContainerAppJobTemplateBlockContainerBlockVolumeMountsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1104,7 +1104,7 @@ public class AzurermContainerAppJobTemplateBlockInitContainerBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image");
+        get => GetRequiredArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -1123,7 +1123,7 @@ public class AzurermContainerAppJobTemplateBlockInitContainerBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1164,7 +1164,7 @@ public class AzurermContainerAppJobTemplateBlockInitContainerBlockEnvBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1205,7 +1205,7 @@ public class AzurermContainerAppJobTemplateBlockInitContainerBlockVolumeMountsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1215,7 +1215,7 @@ public class AzurermContainerAppJobTemplateBlockInitContainerBlockVolumeMountsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1256,7 +1256,7 @@ public class AzurermContainerAppJobTemplateBlockVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1343,16 +1343,16 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformValue<string> ContainerAppEnvironmentId
     {
-        get => GetArgument<TerraformValue<string>>("container_app_environment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("container_app_environment_id");
         set => SetArgument("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1362,7 +1362,7 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1372,7 +1372,7 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1391,7 +1391,7 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicaTimeoutInSeconds is required")]
     public required TerraformValue<double> ReplicaTimeoutInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("replica_timeout_in_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("replica_timeout_in_seconds");
         set => SetArgument("replica_timeout_in_seconds", value);
     }
 
@@ -1401,7 +1401,7 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

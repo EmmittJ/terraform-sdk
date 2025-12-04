@@ -46,16 +46,16 @@ public partial class GoogleAccessContextManagerEgressPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EgressPolicyName is required")]
     public required TerraformValue<string> EgressPolicyName
     {
-        get => GetArgument<TerraformValue<string>>("egress_policy_name");
+        get => GetRequiredArgument<TerraformValue<string>>("egress_policy_name");
         set => SetArgument("egress_policy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleAccessContextManagerEgressPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => GetArgument<TerraformValue<string>>("resource");
+        get => GetRequiredArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 

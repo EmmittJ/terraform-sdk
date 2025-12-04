@@ -64,7 +64,7 @@ public partial class AzurermVirtualDesktopScalingPlanHostPoolAssociation(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermVirtualDesktopScalingPlanHostPoolAssociation(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostPoolId is required")]
     public required TerraformValue<string> HostPoolId
     {
-        get => GetArgument<TerraformValue<string>>("host_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("host_pool_id");
         set => SetArgument("host_pool_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermVirtualDesktopScalingPlanHostPoolAssociation(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingPlanId is required")]
     public required TerraformValue<string> ScalingPlanId
     {
-        get => GetArgument<TerraformValue<string>>("scaling_plan_id");
+        get => GetRequiredArgument<TerraformValue<string>>("scaling_plan_id");
         set => SetArgument("scaling_plan_id", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsAlbAccessLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsAlbConnectionLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsAlbIpamPoolsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ipv4IpamPoolId is required")]
     public required TerraformValue<string> Ipv4IpamPoolId
     {
-        get => GetArgument<TerraformValue<string>>("ipv4_ipam_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("ipv4_ipam_pool_id");
         set => SetArgument("ipv4_ipam_pool_id", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsAlbMinimumLoadBalancerCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityUnits is required")]
     public required TerraformValue<double> CapacityUnits
     {
-        get => GetArgument<TerraformValue<double>>("capacity_units");
+        get => GetRequiredArgument<TerraformValue<double>>("capacity_units");
         set => SetArgument("capacity_units", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsAlbSubnetMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -349,18 +349,18 @@ public partial class AwsAlb(string name) : TerraformResource("aws_alb", name)
     /// <summary>
     /// The enforce_security_group_inbound_rules_on_private_link_traffic attribute.
     /// </summary>
-    public TerraformValue<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
+    public TerraformValue<string> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
     {
-        get => GetArgument<TerraformValue<string>>("enforce_security_group_inbound_rules_on_private_link_traffic");
+        get => GetArgument<TerraformValue<string>>("enforce_security_group_inbound_rules_on_private_link_traffic") ?? AsReference("enforce_security_group_inbound_rules_on_private_link_traffic");
         set => SetArgument("enforce_security_group_inbound_rules_on_private_link_traffic", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -376,18 +376,18 @@ public partial class AwsAlb(string name) : TerraformResource("aws_alb", name)
     /// <summary>
     /// The internal attribute.
     /// </summary>
-    public TerraformValue<bool>? InternalAttribute
+    public TerraformValue<bool> InternalAttribute
     {
-        get => GetArgument<TerraformValue<bool>>("internal");
+        get => GetArgument<TerraformValue<bool>>("internal") ?? AsReference("internal");
         set => SetArgument("internal", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string>? IpAddressType
+    public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -403,18 +403,18 @@ public partial class AwsAlb(string name) : TerraformResource("aws_alb", name)
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? NamePrefix
+    public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -430,36 +430,36 @@ public partial class AwsAlb(string name) : TerraformResource("aws_alb", name)
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The secondary_ips_auto_assigned_per_subnet attribute.
     /// </summary>
-    public TerraformValue<double>? SecondaryIpsAutoAssignedPerSubnet
+    public TerraformValue<double> SecondaryIpsAutoAssignedPerSubnet
     {
-        get => GetArgument<TerraformValue<double>>("secondary_ips_auto_assigned_per_subnet");
+        get => GetArgument<TerraformValue<double>>("secondary_ips_auto_assigned_per_subnet") ?? AsReference("secondary_ips_auto_assigned_per_subnet");
         set => SetArgument("secondary_ips_auto_assigned_per_subnet", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroups
+    public TerraformSet<string> SecurityGroups
     {
-        get => GetArgument<TerraformSet<string>>("security_groups");
+        get => GetArgument<TerraformSet<string>>("security_groups") ?? AsReference("security_groups");
         set => SetArgument("security_groups", value);
     }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    public TerraformSet<string>? Subnets
+    public TerraformSet<string> Subnets
     {
-        get => GetArgument<TerraformSet<string>>("subnets");
+        get => GetArgument<TerraformSet<string>>("subnets") ?? AsReference("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -475,9 +475,9 @@ public partial class AwsAlb(string name) : TerraformResource("aws_alb", name)
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

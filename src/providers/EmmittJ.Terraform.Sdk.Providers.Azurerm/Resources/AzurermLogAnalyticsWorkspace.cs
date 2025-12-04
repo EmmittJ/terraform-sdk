@@ -40,7 +40,7 @@ public class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -142,9 +142,9 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -179,18 +179,18 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// The local_authentication_disabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? LocalAuthenticationDisabled
+    public TerraformValue<bool> LocalAuthenticationDisabled
     {
-        get => GetArgument<TerraformValue<bool>>("local_authentication_disabled");
+        get => GetArgument<TerraformValue<bool>>("local_authentication_disabled") ?? AsReference("local_authentication_disabled");
         set => SetArgument("local_authentication_disabled", value);
     }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? LocalAuthenticationEnabled
+    public TerraformValue<bool> LocalAuthenticationEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("local_authentication_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_authentication_enabled") ?? AsReference("local_authentication_enabled");
         set => SetArgument("local_authentication_enabled", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -229,25 +229,25 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public TerraformValue<double>? RetentionInDays
+    public TerraformValue<double> RetentionInDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_in_days") ?? AsReference("retention_in_days");
         set => SetArgument("retention_in_days", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformValue<string>? Sku
+    public TerraformValue<string> Sku
     {
-        get => GetArgument<TerraformValue<string>>("sku");
+        get => GetArgument<TerraformValue<string>>("sku") ?? AsReference("sku");
         set => SetArgument("sku", value);
     }
 

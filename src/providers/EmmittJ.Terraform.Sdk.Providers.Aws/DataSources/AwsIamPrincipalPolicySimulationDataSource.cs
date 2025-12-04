@@ -19,7 +19,7 @@ public class AwsIamPrincipalPolicySimulationDataSourceContextBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsIamPrincipalPolicySimulationDataSourceContextBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsIamPrincipalPolicySimulationDataSourceContextBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => GetArgument<TerraformSet<string>>("values");
+        get => GetRequiredArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionNames is required")]
     public required TerraformSet<string> ActionNames
     {
-        get => GetArgument<TerraformSet<string>>("action_names");
+        get => GetRequiredArgument<TerraformSet<string>>("action_names");
         set => SetArgument("action_names", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySourceArn is required")]
     public required TerraformValue<string> PolicySourceArn
     {
-        get => GetArgument<TerraformValue<string>>("policy_source_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_source_arn");
         set => SetArgument("policy_source_arn", value);
     }
 

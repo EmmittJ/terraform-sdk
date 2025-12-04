@@ -23,7 +23,7 @@ public partial class AwsCurReportDefinition(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdditionalSchemaElements is required")]
     public required TerraformSet<string> AdditionalSchemaElements
     {
-        get => GetArgument<TerraformSet<string>>("additional_schema_elements");
+        get => GetRequiredArgument<TerraformSet<string>>("additional_schema_elements");
         set => SetArgument("additional_schema_elements", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsCurReportDefinition(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compression is required")]
     public required TerraformValue<string> Compression
     {
-        get => GetArgument<TerraformValue<string>>("compression");
+        get => GetRequiredArgument<TerraformValue<string>>("compression");
         set => SetArgument("compression", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsCurReportDefinition(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetRequiredArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -71,7 +71,7 @@ public partial class AwsCurReportDefinition(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportName is required")]
     public required TerraformValue<string> ReportName
     {
-        get => GetArgument<TerraformValue<string>>("report_name");
+        get => GetRequiredArgument<TerraformValue<string>>("report_name");
         set => SetArgument("report_name", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsCurReportDefinition(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsCurReportDefinition(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Prefix is required")]
     public required TerraformValue<string> S3Prefix
     {
-        get => GetArgument<TerraformValue<string>>("s3_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_prefix");
         set => SetArgument("s3_prefix", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsCurReportDefinition(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Region is required")]
     public required TerraformValue<string> S3Region
     {
-        get => GetArgument<TerraformValue<string>>("s3_region");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_region");
         set => SetArgument("s3_region", value);
     }
 
@@ -126,9 +126,9 @@ public partial class AwsCurReportDefinition(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AwsCurReportDefinition(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeUnit is required")]
     public required TerraformValue<string> TimeUnit
     {
-        get => GetArgument<TerraformValue<string>>("time_unit");
+        get => GetRequiredArgument<TerraformValue<string>>("time_unit");
         set => SetArgument("time_unit", value);
     }
 

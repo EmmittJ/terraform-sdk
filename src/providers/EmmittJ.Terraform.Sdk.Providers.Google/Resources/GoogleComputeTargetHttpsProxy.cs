@@ -103,9 +103,9 @@ public partial class GoogleComputeTargetHttpsProxy(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -121,16 +121,16 @@ public partial class GoogleComputeTargetHttpsProxy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -138,9 +138,9 @@ public partial class GoogleComputeTargetHttpsProxy(string name) : TerraformResou
     /// This field only applies when the forwarding rule that references
     /// this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public TerraformValue<bool>? ProxyBind
+    public TerraformValue<bool> ProxyBind
     {
-        get => GetArgument<TerraformValue<bool>>("proxy_bind");
+        get => GetArgument<TerraformValue<bool>>("proxy_bind") ?? AsReference("proxy_bind");
         set => SetArgument("proxy_bind", value);
     }
 
@@ -206,9 +206,9 @@ public partial class GoogleComputeTargetHttpsProxy(string name) : TerraformResou
     /// (a HTTP request) alongside the handshake, reducing the effective round trips to “zero”.
     /// This applies to TLS 1.3 connections over TCP (HTTP/2) as well as over UDP (QUIC/h3). Possible values: [&amp;quot;STRICT&amp;quot;, &amp;quot;PERMISSIVE&amp;quot;, &amp;quot;UNRESTRICTED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? TlsEarlyData
+    public TerraformValue<string> TlsEarlyData
     {
-        get => GetArgument<TerraformValue<string>>("tls_early_data");
+        get => GetArgument<TerraformValue<string>>("tls_early_data") ?? AsReference("tls_early_data");
         set => SetArgument("tls_early_data", value);
     }
 
@@ -219,7 +219,7 @@ public partial class GoogleComputeTargetHttpsProxy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlMap is required")]
     public required TerraformValue<string> UrlMap
     {
-        get => GetArgument<TerraformValue<string>>("url_map");
+        get => GetRequiredArgument<TerraformValue<string>>("url_map");
         set => SetArgument("url_map", value);
     }
 

@@ -55,16 +55,16 @@ public partial class AzurermStaticWebAppFunctionAppRegistration(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformValue<string> FunctionAppId
     {
-        get => GetArgument<TerraformValue<string>>("function_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("function_app_id");
         set => SetArgument("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermStaticWebAppFunctionAppRegistration(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticWebAppId is required")]
     public required TerraformValue<string> StaticWebAppId
     {
-        get => GetArgument<TerraformValue<string>>("static_web_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("static_web_app_id");
         set => SetArgument("static_web_app_id", value);
     }
 

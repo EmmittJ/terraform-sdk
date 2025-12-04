@@ -25,7 +25,7 @@ public class AwsNetworkInterfaceAttachmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceIndex is required")]
     public required TerraformValue<double> DeviceIndex
     {
-        get => GetArgument<TerraformValue<double>>("device_index");
+        get => GetRequiredArgument<TerraformValue<double>>("device_index");
         set => SetArgument("device_index", value);
     }
 
@@ -35,16 +35,16 @@ public class AwsNetworkInterfaceAttachmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
     /// <summary>
     /// The network_card_index attribute.
     /// </summary>
-    public TerraformValue<double>? NetworkCardIndex
+    public TerraformValue<double> NetworkCardIndex
     {
-        get => GetArgument<TerraformValue<double>>("network_card_index");
+        get => GetArgument<TerraformValue<double>>("network_card_index") ?? AsReference("network_card_index");
         set => SetArgument("network_card_index", value);
     }
 
@@ -69,63 +69,63 @@ public partial class AwsNetworkInterface(string name) : TerraformResource("aws_n
     /// <summary>
     /// The enable_primary_ipv6 attribute.
     /// </summary>
-    public TerraformValue<bool>? EnablePrimaryIpv6
+    public TerraformValue<bool> EnablePrimaryIpv6
     {
-        get => GetArgument<TerraformValue<bool>>("enable_primary_ipv6");
+        get => GetArgument<TerraformValue<bool>>("enable_primary_ipv6") ?? AsReference("enable_primary_ipv6");
         set => SetArgument("enable_primary_ipv6", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The interface_type attribute.
     /// </summary>
-    public TerraformValue<string>? InterfaceType
+    public TerraformValue<string> InterfaceType
     {
-        get => GetArgument<TerraformValue<string>>("interface_type");
+        get => GetArgument<TerraformValue<string>>("interface_type") ?? AsReference("interface_type");
         set => SetArgument("interface_type", value);
     }
 
     /// <summary>
     /// The ipv4_prefix_count attribute.
     /// </summary>
-    public TerraformValue<double>? Ipv4PrefixCount
+    public TerraformValue<double> Ipv4PrefixCount
     {
-        get => GetArgument<TerraformValue<double>>("ipv4_prefix_count");
+        get => GetArgument<TerraformValue<double>>("ipv4_prefix_count") ?? AsReference("ipv4_prefix_count");
         set => SetArgument("ipv4_prefix_count", value);
     }
 
     /// <summary>
     /// The ipv4_prefixes attribute.
     /// </summary>
-    public TerraformSet<string>? Ipv4Prefixes
+    public TerraformSet<string> Ipv4Prefixes
     {
-        get => GetArgument<TerraformSet<string>>("ipv4_prefixes");
+        get => GetArgument<TerraformSet<string>>("ipv4_prefixes") ?? AsReference("ipv4_prefixes");
         set => SetArgument("ipv4_prefixes", value);
     }
 
     /// <summary>
     /// The ipv6_address_count attribute.
     /// </summary>
-    public TerraformValue<double>? Ipv6AddressCount
+    public TerraformValue<double> Ipv6AddressCount
     {
-        get => GetArgument<TerraformValue<double>>("ipv6_address_count");
+        get => GetArgument<TerraformValue<double>>("ipv6_address_count") ?? AsReference("ipv6_address_count");
         set => SetArgument("ipv6_address_count", value);
     }
 
     /// <summary>
     /// The ipv6_address_list attribute.
     /// </summary>
-    public TerraformList<string>? Ipv6AddressList
+    public TerraformList<string> Ipv6AddressList
     {
-        get => GetArgument<TerraformList<string>>("ipv6_address_list");
+        get => GetArgument<TerraformList<string>>("ipv6_address_list") ?? AsReference("ipv6_address_list");
         set => SetArgument("ipv6_address_list", value);
     }
 
@@ -141,45 +141,45 @@ public partial class AwsNetworkInterface(string name) : TerraformResource("aws_n
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
-    public TerraformSet<string>? Ipv6Addresses
+    public TerraformSet<string> Ipv6Addresses
     {
-        get => GetArgument<TerraformSet<string>>("ipv6_addresses");
+        get => GetArgument<TerraformSet<string>>("ipv6_addresses") ?? AsReference("ipv6_addresses");
         set => SetArgument("ipv6_addresses", value);
     }
 
     /// <summary>
     /// The ipv6_prefix_count attribute.
     /// </summary>
-    public TerraformValue<double>? Ipv6PrefixCount
+    public TerraformValue<double> Ipv6PrefixCount
     {
-        get => GetArgument<TerraformValue<double>>("ipv6_prefix_count");
+        get => GetArgument<TerraformValue<double>>("ipv6_prefix_count") ?? AsReference("ipv6_prefix_count");
         set => SetArgument("ipv6_prefix_count", value);
     }
 
     /// <summary>
     /// The ipv6_prefixes attribute.
     /// </summary>
-    public TerraformSet<string>? Ipv6Prefixes
+    public TerraformSet<string> Ipv6Prefixes
     {
-        get => GetArgument<TerraformSet<string>>("ipv6_prefixes");
+        get => GetArgument<TerraformSet<string>>("ipv6_prefixes") ?? AsReference("ipv6_prefixes");
         set => SetArgument("ipv6_prefixes", value);
     }
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateIp
+    public TerraformValue<string> PrivateIp
     {
-        get => GetArgument<TerraformValue<string>>("private_ip");
+        get => GetArgument<TerraformValue<string>>("private_ip") ?? AsReference("private_ip");
         set => SetArgument("private_ip", value);
     }
 
     /// <summary>
     /// The private_ip_list attribute.
     /// </summary>
-    public TerraformList<string>? PrivateIpList
+    public TerraformList<string> PrivateIpList
     {
-        get => GetArgument<TerraformList<string>>("private_ip_list");
+        get => GetArgument<TerraformList<string>>("private_ip_list") ?? AsReference("private_ip_list");
         set => SetArgument("private_ip_list", value);
     }
 
@@ -195,36 +195,36 @@ public partial class AwsNetworkInterface(string name) : TerraformResource("aws_n
     /// <summary>
     /// The private_ips attribute.
     /// </summary>
-    public TerraformSet<string>? PrivateIps
+    public TerraformSet<string> PrivateIps
     {
-        get => GetArgument<TerraformSet<string>>("private_ips");
+        get => GetArgument<TerraformSet<string>>("private_ips") ?? AsReference("private_ips");
         set => SetArgument("private_ips", value);
     }
 
     /// <summary>
     /// The private_ips_count attribute.
     /// </summary>
-    public TerraformValue<double>? PrivateIpsCount
+    public TerraformValue<double> PrivateIpsCount
     {
-        get => GetArgument<TerraformValue<double>>("private_ips_count");
+        get => GetArgument<TerraformValue<double>>("private_ips_count") ?? AsReference("private_ips_count");
         set => SetArgument("private_ips_count", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroups
+    public TerraformSet<string> SecurityGroups
     {
-        get => GetArgument<TerraformSet<string>>("security_groups");
+        get => GetArgument<TerraformSet<string>>("security_groups") ?? AsReference("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AwsNetworkInterface(string name) : TerraformResource("aws_n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -259,9 +259,9 @@ public partial class AwsNetworkInterface(string name) : TerraformResource("aws_n
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

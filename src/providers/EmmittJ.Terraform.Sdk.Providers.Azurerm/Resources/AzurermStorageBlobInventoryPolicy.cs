@@ -19,7 +19,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetRequiredArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => GetArgument<TerraformValue<string>>("schedule");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformValue<string> StorageContainerName
     {
-        get => GetArgument<TerraformValue<string>>("storage_container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_container_name");
         set => SetArgument("storage_container_name", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlockFilterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobTypes is required")]
     public required TerraformSet<string> BlobTypes
     {
-        get => GetArgument<TerraformSet<string>>("blob_types");
+        get => GetRequiredArgument<TerraformSet<string>>("blob_types");
         set => SetArgument("blob_types", value);
     }
 
@@ -213,9 +213,9 @@ public partial class AzurermStorageBlobInventoryPolicy(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AzurermStorageBlobInventoryPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

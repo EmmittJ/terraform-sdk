@@ -46,16 +46,16 @@ public partial class GoogleApigeeEndpointAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointAttachmentId is required")]
     public required TerraformValue<string> EndpointAttachmentId
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_attachment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_attachment_id");
         set => SetArgument("endpoint_attachment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleApigeeEndpointAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleApigeeEndpointAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleApigeeEndpointAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAttachment is required")]
     public required TerraformValue<string> ServiceAttachment
     {
-        get => GetArgument<TerraformValue<string>>("service_attachment");
+        get => GetRequiredArgument<TerraformValue<string>>("service_attachment");
         set => SetArgument("service_attachment", value);
     }
 

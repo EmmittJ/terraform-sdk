@@ -19,7 +19,7 @@ public class AwsBudgetsBudgetAutoAdjustDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoAdjustType is required")]
     public required TerraformValue<string> AutoAdjustType
     {
-        get => GetArgument<TerraformValue<string>>("auto_adjust_type");
+        get => GetRequiredArgument<TerraformValue<string>>("auto_adjust_type");
         set => SetArgument("auto_adjust_type", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsBudgetsBudgetAutoAdjustDataBlockHistoricalOptionsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetAdjustmentPeriod is required")]
     public required TerraformValue<double> BudgetAdjustmentPeriod
     {
-        get => GetArgument<TerraformValue<double>>("budget_adjustment_period");
+        get => GetRequiredArgument<TerraformValue<double>>("budget_adjustment_period");
         set => SetArgument("budget_adjustment_period", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsBudgetsBudgetCostFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
     public required TerraformValue<string> ComparisonOperator
     {
-        get => GetArgument<TerraformValue<string>>("comparison_operator");
+        get => GetRequiredArgument<TerraformValue<string>>("comparison_operator");
         set => SetArgument("comparison_operator", value);
     }
 
@@ -245,7 +245,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformValue<string> NotificationType
     {
-        get => GetArgument<TerraformValue<string>>("notification_type");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_type");
         set => SetArgument("notification_type", value);
     }
 
@@ -273,7 +273,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => GetArgument<TerraformValue<double>>("threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThresholdType is required")]
     public required TerraformValue<string> ThresholdType
     {
-        get => GetArgument<TerraformValue<string>>("threshold_type");
+        get => GetRequiredArgument<TerraformValue<string>>("threshold_type");
         set => SetArgument("threshold_type", value);
     }
 
@@ -307,7 +307,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformValue<string> Amount
     {
-        get => GetArgument<TerraformValue<string>>("amount");
+        get => GetRequiredArgument<TerraformValue<string>>("amount");
         set => SetArgument("amount", value);
     }
 
@@ -317,7 +317,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -327,7 +327,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -343,9 +343,9 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AccountId
+    public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -364,52 +364,52 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetType is required")]
     public required TerraformValue<string> BudgetType
     {
-        get => GetArgument<TerraformValue<string>>("budget_type");
+        get => GetRequiredArgument<TerraformValue<string>>("budget_type");
         set => SetArgument("budget_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The limit_amount attribute.
     /// </summary>
-    public TerraformValue<string>? LimitAmount
+    public TerraformValue<string> LimitAmount
     {
-        get => GetArgument<TerraformValue<string>>("limit_amount");
+        get => GetArgument<TerraformValue<string>>("limit_amount") ?? AsReference("limit_amount");
         set => SetArgument("limit_amount", value);
     }
 
     /// <summary>
     /// The limit_unit attribute.
     /// </summary>
-    public TerraformValue<string>? LimitUnit
+    public TerraformValue<string> LimitUnit
     {
-        get => GetArgument<TerraformValue<string>>("limit_unit");
+        get => GetArgument<TerraformValue<string>>("limit_unit") ?? AsReference("limit_unit");
         set => SetArgument("limit_unit", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? NamePrefix
+    public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -425,9 +425,9 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -443,9 +443,9 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// <summary>
     /// The time_period_start attribute.
     /// </summary>
-    public TerraformValue<string>? TimePeriodStart
+    public TerraformValue<string> TimePeriodStart
     {
-        get => GetArgument<TerraformValue<string>>("time_period_start");
+        get => GetArgument<TerraformValue<string>>("time_period_start") ?? AsReference("time_period_start");
         set => SetArgument("time_period_start", value);
     }
 
@@ -455,7 +455,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeUnit is required")]
     public required TerraformValue<string> TimeUnit
     {
-        get => GetArgument<TerraformValue<string>>("time_unit");
+        get => GetRequiredArgument<TerraformValue<string>>("time_unit");
         set => SetArgument("time_unit", value);
     }
 

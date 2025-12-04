@@ -52,9 +52,9 @@ public partial class AzurermMarketplaceAgreement(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermMarketplaceAgreement(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformValue<string> Offer
     {
-        get => GetArgument<TerraformValue<string>>("offer");
+        get => GetRequiredArgument<TerraformValue<string>>("offer");
         set => SetArgument("offer", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermMarketplaceAgreement(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformValue<string> Plan
     {
-        get => GetArgument<TerraformValue<string>>("plan");
+        get => GetRequiredArgument<TerraformValue<string>>("plan");
         set => SetArgument("plan", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermMarketplaceAgreement(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 

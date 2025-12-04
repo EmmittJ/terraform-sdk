@@ -19,7 +19,7 @@ public class AwsApigatewayv2RouteRequestParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestParameterKey is required")]
     public required TerraformValue<string> RequestParameterKey
     {
-        get => GetArgument<TerraformValue<string>>("request_parameter_key");
+        get => GetRequiredArgument<TerraformValue<string>>("request_parameter_key");
         set => SetArgument("request_parameter_key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsApigatewayv2RouteRequestParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required");
+        get => GetRequiredArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -48,7 +48,7 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => GetArgument<TerraformValue<string>>("api_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -91,9 +91,9 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,9 +118,9 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteKey is required")]
     public required TerraformValue<string> RouteKey
     {
-        get => GetArgument<TerraformValue<string>>("route_key");
+        get => GetRequiredArgument<TerraformValue<string>>("route_key");
         set => SetArgument("route_key", value);
     }
 

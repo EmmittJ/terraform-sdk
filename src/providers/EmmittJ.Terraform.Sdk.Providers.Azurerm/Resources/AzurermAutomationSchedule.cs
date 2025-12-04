@@ -19,7 +19,7 @@ public class AzurermAutomationScheduleMonthlyOccurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => GetArgument<TerraformValue<string>>("day");
+        get => GetRequiredArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermAutomationScheduleMonthlyOccurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Occurrence is required")]
     public required TerraformValue<double> Occurrence
     {
-        get => GetArgument<TerraformValue<double>>("occurrence");
+        get => GetRequiredArgument<TerraformValue<double>>("occurrence");
         set => SetArgument("occurrence", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AzurermAutomationSchedule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformValue<string> AutomationAccountName
     {
-        get => GetArgument<TerraformValue<string>>("automation_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("automation_account_name");
         set => SetArgument("automation_account_name", value);
     }
 
@@ -114,9 +114,9 @@ public partial class AzurermAutomationSchedule(string name) : TerraformResource(
     /// <summary>
     /// The expiry_time attribute.
     /// </summary>
-    public TerraformValue<string>? ExpiryTime
+    public TerraformValue<string> ExpiryTime
     {
-        get => GetArgument<TerraformValue<string>>("expiry_time");
+        get => GetArgument<TerraformValue<string>>("expiry_time") ?? AsReference("expiry_time");
         set => SetArgument("expiry_time", value);
     }
 
@@ -126,25 +126,25 @@ public partial class AzurermAutomationSchedule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    public TerraformValue<double>? Interval
+    public TerraformValue<double> Interval
     {
-        get => GetArgument<TerraformValue<double>>("interval");
+        get => GetArgument<TerraformValue<double>>("interval") ?? AsReference("interval");
         set => SetArgument("interval", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermAutomationSchedule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -173,16 +173,16 @@ public partial class AzurermAutomationSchedule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformValue<string>? StartTime
+    public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
         set => SetArgument("start_time", value);
     }
 

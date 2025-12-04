@@ -20,7 +20,7 @@ public class GoogleContainerAnalysisOccurrenceAttestationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SerializedPayload is required")]
     public required TerraformValue<string> SerializedPayload
     {
-        get => GetArgument<TerraformValue<string>>("serialized_payload");
+        get => GetRequiredArgument<TerraformValue<string>>("serialized_payload");
         set => SetArgument("serialized_payload", value);
     }
 
@@ -65,7 +65,7 @@ public class GoogleContainerAnalysisOccurrenceAttestationBlockSignaturesBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKeyId is required")]
     public required TerraformValue<string> PublicKeyId
     {
-        get => GetArgument<TerraformValue<string>>("public_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("public_key_id");
         set => SetArgument("public_key_id", value);
     }
 
@@ -137,9 +137,9 @@ public partial class GoogleContainerAnalysisOccurrence(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -151,16 +151,16 @@ public partial class GoogleContainerAnalysisOccurrence(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteName is required")]
     public required TerraformValue<string> NoteName
     {
-        get => GetArgument<TerraformValue<string>>("note_name");
+        get => GetRequiredArgument<TerraformValue<string>>("note_name");
         set => SetArgument("note_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -181,7 +181,7 @@ public partial class GoogleContainerAnalysisOccurrence(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceUri is required")]
     public required TerraformValue<string> ResourceUri
     {
-        get => GetArgument<TerraformValue<string>>("resource_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_uri");
         set => SetArgument("resource_uri", value);
     }
 

@@ -37,7 +37,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureFilterBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -182,9 +182,9 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -231,7 +231,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherId is required")]
     public required TerraformValue<string> NetworkWatcherId
     {
-        get => GetArgument<TerraformValue<string>>("network_watcher_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_watcher_id");
         set => SetArgument("network_watcher_id", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineScaleSetId is required")]
     public required TerraformValue<string> VirtualMachineScaleSetId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_scale_set_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_scale_set_id");
         set => SetArgument("virtual_machine_scale_set_id", value);
     }
 

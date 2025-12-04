@@ -19,7 +19,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerRoleName is required")]
     public required TerraformValue<string> LedgerRoleName
     {
-        get => GetArgument<TerraformValue<string>>("ledger_role_name");
+        get => GetRequiredArgument<TerraformValue<string>>("ledger_role_name");
         set => SetArgument("ledger_role_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerRoleName is required")]
     public required TerraformValue<string> LedgerRoleName
     {
-        get => GetArgument<TerraformValue<string>>("ledger_role_name");
+        get => GetRequiredArgument<TerraformValue<string>>("ledger_role_name");
         set => SetArgument("ledger_role_name", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PemPublicKey is required")]
     public required TerraformValue<string> PemPublicKey
     {
-        get => GetArgument<TerraformValue<string>>("pem_public_key");
+        get => GetRequiredArgument<TerraformValue<string>>("pem_public_key");
         set => SetArgument("pem_public_key", value);
     }
 
@@ -139,9 +139,9 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerType is required")]
     public required TerraformValue<string> LedgerType
     {
-        get => GetArgument<TerraformValue<string>>("ledger_type");
+        get => GetRequiredArgument<TerraformValue<string>>("ledger_type");
         set => SetArgument("ledger_type", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

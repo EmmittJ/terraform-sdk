@@ -55,7 +55,7 @@ public partial class AwsBedrockagentAgentAlias(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAliasName is required")]
     public required TerraformValue<string> AgentAliasName
     {
-        get => GetArgument<TerraformValue<string>>("agent_alias_name");
+        get => GetRequiredArgument<TerraformValue<string>>("agent_alias_name");
         set => SetArgument("agent_alias_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsBedrockagentAgentAlias(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformValue<string> AgentId
     {
-        get => GetArgument<TerraformValue<string>>("agent_id");
+        get => GetRequiredArgument<TerraformValue<string>>("agent_id");
         set => SetArgument("agent_id", value);
     }
 
@@ -81,18 +81,18 @@ public partial class AwsBedrockagentAgentAlias(string name) : TerraformResource(
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The routing_configuration attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? RoutingConfiguration
+    public TerraformList<TerraformMap<object>> RoutingConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("routing_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("routing_configuration") ?? AsReference("routing_configuration");
         set => SetArgument("routing_configuration", value);
     }
 

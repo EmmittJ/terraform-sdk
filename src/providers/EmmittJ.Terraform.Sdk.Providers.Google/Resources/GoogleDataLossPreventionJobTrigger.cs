@@ -174,7 +174,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockDeiden
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudStorageOutput is required")]
     public required TerraformValue<string> CloudStorageOutput
     {
-        get => GetArgument<TerraformValue<string>>("cloud_storage_output");
+        get => GetRequiredArgument<TerraformValue<string>>("cloud_storage_output");
         set => SetArgument("cloud_storage_output", value);
     }
 
@@ -296,7 +296,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockDeiden
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -306,7 +306,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockDeiden
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -353,7 +353,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockPubSub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => GetArgument<TerraformValue<string>>("topic");
+        get => GetRequiredArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -504,7 +504,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockSaveFi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -527,7 +527,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockSaveFi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -537,7 +537,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockSaveFi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -775,7 +775,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -823,7 +823,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -865,7 +865,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -898,7 +898,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -921,7 +921,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -951,7 +951,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -988,7 +988,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1030,7 +1030,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1126,7 +1126,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1168,7 +1168,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1226,7 +1226,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1268,7 +1268,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1324,7 +1324,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingType is required")]
     public required TerraformValue<string> MatchingType
     {
-        get => GetArgument<TerraformValue<string>>("matching_type");
+        get => GetRequiredArgument<TerraformValue<string>>("matching_type");
         set => SetArgument("matching_type", value);
     }
 
@@ -1420,7 +1420,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1590,7 +1590,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1632,7 +1632,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1665,7 +1665,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -1980,7 +1980,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2003,7 +2003,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2026,7 +2026,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2049,7 +2049,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -2059,7 +2059,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -2069,7 +2069,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => GetArgument<TerraformValue<string>>("table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -2206,7 +2206,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -2290,7 +2290,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2322,7 +2322,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -2432,7 +2432,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2515,7 +2515,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2665,9 +2665,9 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2678,7 +2678,7 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -2696,9 +2696,9 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+.
     /// The maximum length is 100 characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformValue<string>? TriggerId
+    public TerraformValue<string> TriggerId
     {
-        get => GetArgument<TerraformValue<string>>("trigger_id");
+        get => GetArgument<TerraformValue<string>>("trigger_id") ?? AsReference("trigger_id");
         set => SetArgument("trigger_id", value);
     }
 

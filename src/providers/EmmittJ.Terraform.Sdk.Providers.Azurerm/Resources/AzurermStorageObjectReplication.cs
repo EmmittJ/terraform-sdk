@@ -28,7 +28,7 @@ public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationContainerName is required")]
     public required TerraformValue<string> DestinationContainerName
     {
-        get => GetArgument<TerraformValue<string>>("destination_container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_container_name");
         set => SetArgument("destination_container_name", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceContainerName is required")]
     public required TerraformValue<string> SourceContainerName
     {
-        get => GetArgument<TerraformValue<string>>("source_container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_container_name");
         set => SetArgument("source_container_name", value);
     }
 
@@ -122,16 +122,16 @@ public partial class AzurermStorageObjectReplication(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationStorageAccountId is required")]
     public required TerraformValue<string> DestinationStorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("destination_storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_storage_account_id");
         set => SetArgument("destination_storage_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermStorageObjectReplication(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceStorageAccountId is required")]
     public required TerraformValue<string> SourceStorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("source_storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_storage_account_id");
         set => SetArgument("source_storage_account_id", value);
     }
 

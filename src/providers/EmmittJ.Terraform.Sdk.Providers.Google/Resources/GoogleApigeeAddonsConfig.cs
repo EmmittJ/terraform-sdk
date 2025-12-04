@@ -238,9 +238,9 @@ public partial class GoogleApigeeAddonsConfig(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -250,7 +250,7 @@ public partial class GoogleApigeeAddonsConfig(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Org is required")]
     public required TerraformValue<string> Org
     {
-        get => GetArgument<TerraformValue<string>>("org");
+        get => GetRequiredArgument<TerraformValue<string>>("org");
         set => SetArgument("org", value);
     }
 

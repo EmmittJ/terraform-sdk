@@ -55,16 +55,16 @@ public partial class AwsChatbotTeamsChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelId is required")]
     public required TerraformValue<string> ChannelId
     {
-        get => GetArgument<TerraformValue<string>>("channel_id");
+        get => GetRequiredArgument<TerraformValue<string>>("channel_id");
         set => SetArgument("channel_id", value);
     }
 
     /// <summary>
     /// The channel_name attribute.
     /// </summary>
-    public TerraformValue<string>? ChannelName
+    public TerraformValue<string> ChannelName
     {
-        get => GetArgument<TerraformValue<string>>("channel_name");
+        get => GetArgument<TerraformValue<string>>("channel_name") ?? AsReference("channel_name");
         set => SetArgument("channel_name", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsChatbotTeamsChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationName is required")]
     public required TerraformValue<string> ConfigurationName
     {
-        get => GetArgument<TerraformValue<string>>("configuration_name");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_name");
         set => SetArgument("configuration_name", value);
     }
 
     /// <summary>
     /// The guardrail_policy_arns attribute.
     /// </summary>
-    public TerraformList<string>? GuardrailPolicyArns
+    public TerraformList<string> GuardrailPolicyArns
     {
-        get => GetArgument<TerraformList<string>>("guardrail_policy_arns");
+        get => GetArgument<TerraformList<string>>("guardrail_policy_arns") ?? AsReference("guardrail_policy_arns");
         set => SetArgument("guardrail_policy_arns", value);
     }
 
@@ -93,34 +93,34 @@ public partial class AwsChatbotTeamsChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformValue<string> IamRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("iam_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformValue<string>? LoggingLevel
+    public TerraformValue<string> LoggingLevel
     {
-        get => GetArgument<TerraformValue<string>>("logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level") ?? AsReference("logging_level");
         set => SetArgument("logging_level", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The sns_topic_arns attribute.
     /// </summary>
-    public TerraformSet<string>? SnsTopicArns
+    public TerraformSet<string> SnsTopicArns
     {
-        get => GetArgument<TerraformSet<string>>("sns_topic_arns");
+        get => GetArgument<TerraformSet<string>>("sns_topic_arns") ?? AsReference("sns_topic_arns");
         set => SetArgument("sns_topic_arns", value);
     }
 
@@ -139,16 +139,16 @@ public partial class AwsChatbotTeamsChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TeamId is required")]
     public required TerraformValue<string> TeamId
     {
-        get => GetArgument<TerraformValue<string>>("team_id");
+        get => GetRequiredArgument<TerraformValue<string>>("team_id");
         set => SetArgument("team_id", value);
     }
 
     /// <summary>
     /// The team_name attribute.
     /// </summary>
-    public TerraformValue<string>? TeamName
+    public TerraformValue<string> TeamName
     {
-        get => GetArgument<TerraformValue<string>>("team_name");
+        get => GetArgument<TerraformValue<string>>("team_name") ?? AsReference("team_name");
         set => SetArgument("team_name", value);
     }
 
@@ -158,16 +158,16 @@ public partial class AwsChatbotTeamsChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
     /// <summary>
     /// The user_authorization_required attribute.
     /// </summary>
-    public TerraformValue<bool>? UserAuthorizationRequired
+    public TerraformValue<bool> UserAuthorizationRequired
     {
-        get => GetArgument<TerraformValue<bool>>("user_authorization_required");
+        get => GetArgument<TerraformValue<bool>>("user_authorization_required") ?? AsReference("user_authorization_required");
         set => SetArgument("user_authorization_required", value);
     }
 

@@ -45,7 +45,7 @@ public class GoogleStorageBatchOperationsJobBucketListBlockBucketsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleStorageBatchOperationsJobDeleteObjectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermanentObjectDeletionEnabled is required")]
     public required TerraformValue<bool> PermanentObjectDeletionEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("permanent_object_deletion_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("permanent_object_deletion_enabled");
         set => SetArgument("permanent_object_deletion_enabled", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleStorageBatchOperationsJobRewriteObjectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformValue<string> KmsKey
     {
-        get => GetArgument<TerraformValue<string>>("kms_key");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -332,9 +332,9 @@ public partial class GoogleStorageBatchOperationsJob(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -350,9 +350,9 @@ public partial class GoogleStorageBatchOperationsJob(string name) : TerraformRes
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -39,9 +39,9 @@ public class AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlo
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformValue<string>? Action
+    public TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetArgument<TerraformValue<string>>("action") ?? AsReference("action");
         set => SetArgument("action", value);
     }
 
@@ -51,16 +51,16 @@ public class AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The grace_period attribute.
     /// </summary>
-    public TerraformValue<string>? GracePeriod
+    public TerraformValue<string> GracePeriod
     {
-        get => GetArgument<TerraformValue<string>>("grace_period");
+        get => GetArgument<TerraformValue<string>>("grace_period") ?? AsReference("grace_period");
         set => SetArgument("grace_period", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
     public required TerraformValue<string> Caching
     {
-        get => GetArgument<TerraformValue<string>>("caching");
+        get => GetRequiredArgument<TerraformValue<string>>("caching");
         set => SetArgument("caching", value);
     }
 
@@ -132,18 +132,18 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformB
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformValue<double>? DiskSizeGb
+    public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
     /// <summary>
     /// The lun attribute.
     /// </summary>
-    public TerraformValue<double>? Lun
+    public TerraformValue<double> Lun
     {
-        get => GetArgument<TerraformValue<double>>("lun");
+        get => GetArgument<TerraformValue<double>>("lun") ?? AsReference("lun");
         set => SetArgument("lun", value);
     }
 
@@ -153,25 +153,25 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
     public required TerraformValue<string> StorageAccountType
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_type");
         set => SetArgument("storage_account_type", value);
     }
 
     /// <summary>
     /// The ultra_ssd_disk_iops_read_write attribute.
     /// </summary>
-    public TerraformValue<double>? UltraSsdDiskIopsReadWrite
+    public TerraformValue<double> UltraSsdDiskIopsReadWrite
     {
-        get => GetArgument<TerraformValue<double>>("ultra_ssd_disk_iops_read_write");
+        get => GetArgument<TerraformValue<double>>("ultra_ssd_disk_iops_read_write") ?? AsReference("ultra_ssd_disk_iops_read_write");
         set => SetArgument("ultra_ssd_disk_iops_read_write", value);
     }
 
     /// <summary>
     /// The ultra_ssd_disk_mbps_read_write attribute.
     /// </summary>
-    public TerraformValue<double>? UltraSsdDiskMbpsReadWrite
+    public TerraformValue<double> UltraSsdDiskMbpsReadWrite
     {
-        get => GetArgument<TerraformValue<double>>("ultra_ssd_disk_mbps_read_write");
+        get => GetArgument<TerraformValue<double>>("ultra_ssd_disk_mbps_read_write") ?? AsReference("ultra_ssd_disk_mbps_read_write");
         set => SetArgument("ultra_ssd_disk_mbps_read_write", value);
     }
 
@@ -240,7 +240,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -259,7 +259,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -278,7 +278,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -288,7 +288,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeHandlerVersion is required")]
     public required TerraformValue<string> TypeHandlerVersion
     {
-        get => GetArgument<TerraformValue<string>>("type_handler_version");
+        get => GetRequiredArgument<TerraformValue<string>>("type_handler_version");
         set => SetArgument("type_handler_version", value);
     }
 
@@ -321,7 +321,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlockProtectedSet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUrl is required")]
     public required TerraformValue<string> SecretUrl
     {
-        get => GetArgument<TerraformValue<string>>("secret_url");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_url");
         set => SetArgument("secret_url", value);
     }
 
@@ -331,7 +331,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlockProtectedSet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformValue<string> SourceVaultId
     {
-        get => GetArgument<TerraformValue<string>>("source_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_vault_id");
         set => SetArgument("source_vault_id", value);
     }
 
@@ -355,7 +355,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetIdentityBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public required TerraformSet<string> IdentityIds
     {
-        get => GetArgument<TerraformSet<string>>("identity_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -365,7 +365,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetIdentityBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -434,7 +434,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -514,7 +514,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlockIpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -579,9 +579,9 @@ public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlockIpCon
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformValue<double>? IdleTimeoutInMinutes
+    public TerraformValue<double> IdleTimeoutInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("idle_timeout_in_minutes");
+        get => GetArgument<TerraformValue<double>>("idle_timeout_in_minutes") ?? AsReference("idle_timeout_in_minutes");
         set => SetArgument("idle_timeout_in_minutes", value);
     }
 
@@ -591,7 +591,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlockIpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -650,7 +650,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlockIpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tag is required")]
     public required TerraformValue<string> Tag
     {
-        get => GetArgument<TerraformValue<string>>("tag");
+        get => GetRequiredArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -660,7 +660,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlockIpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -684,7 +684,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
     public required TerraformValue<string> Caching
     {
-        get => GetArgument<TerraformValue<string>>("caching");
+        get => GetRequiredArgument<TerraformValue<string>>("caching");
         set => SetArgument("caching", value);
     }
 
@@ -700,9 +700,9 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock : TerraformBlo
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformValue<double>? DiskSizeGb
+    public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -712,7 +712,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
     public required TerraformValue<string> StorageAccountType
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_type");
         set => SetArgument("storage_account_type", value);
     }
 
@@ -754,7 +754,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlockDiffDiskSetting
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Option is required")]
     public required TerraformValue<string> Option
     {
-        get => GetArgument<TerraformValue<string>>("option");
+        get => GetRequiredArgument<TerraformValue<string>>("option");
         set => SetArgument("option", value);
     }
 
@@ -838,16 +838,16 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockLinuxConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformValue<string> AdminUsername
     {
-        get => GetArgument<TerraformValue<string>>("admin_username");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_username");
         set => SetArgument("admin_username", value);
     }
 
     /// <summary>
     /// The computer_name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? ComputerNamePrefix
+    public TerraformValue<string> ComputerNamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("computer_name_prefix");
+        get => GetArgument<TerraformValue<string>>("computer_name_prefix") ?? AsReference("computer_name_prefix");
         set => SetArgument("computer_name_prefix", value);
     }
 
@@ -924,7 +924,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockLinuxConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformValue<string> PublicKey
     {
-        get => GetArgument<TerraformValue<string>>("public_key");
+        get => GetRequiredArgument<TerraformValue<string>>("public_key");
         set => SetArgument("public_key", value);
     }
 
@@ -934,7 +934,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockLinuxConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -957,7 +957,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockLinuxConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -992,7 +992,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockLinuxConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -1015,7 +1015,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockWindowsConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
     public required TerraformValue<string> AdminPassword
     {
-        get => GetArgument<TerraformValue<string>>("admin_password");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_password");
         set => SetArgument("admin_password", value);
     }
 
@@ -1025,16 +1025,16 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockWindowsConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformValue<string> AdminUsername
     {
-        get => GetArgument<TerraformValue<string>>("admin_username");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_username");
         set => SetArgument("admin_username", value);
     }
 
     /// <summary>
     /// The computer_name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? ComputerNamePrefix
+    public TerraformValue<string> ComputerNamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("computer_name_prefix");
+        get => GetArgument<TerraformValue<string>>("computer_name_prefix") ?? AsReference("computer_name_prefix");
         set => SetArgument("computer_name_prefix", value);
     }
 
@@ -1138,7 +1138,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockWindowsConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -1148,7 +1148,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockWindowsConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Setting is required")]
     public required TerraformValue<string> Setting
     {
-        get => GetArgument<TerraformValue<string>>("setting");
+        get => GetRequiredArgument<TerraformValue<string>>("setting");
         set => SetArgument("setting", value);
     }
 
@@ -1171,7 +1171,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockWindowsConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -1206,7 +1206,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockWindowsConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Store is required")]
     public required TerraformValue<string> Store
     {
-        get => GetArgument<TerraformValue<string>>("store");
+        get => GetRequiredArgument<TerraformValue<string>>("store");
         set => SetArgument("store", value);
     }
 
@@ -1216,7 +1216,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockWindowsConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -1248,7 +1248,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlockWindowsConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -1272,7 +1272,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1282,7 +1282,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformValue<string> Product
     {
-        get => GetArgument<TerraformValue<string>>("product");
+        get => GetRequiredArgument<TerraformValue<string>>("product");
         set => SetArgument("product", value);
     }
 
@@ -1292,7 +1292,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -1357,7 +1357,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxBatchInstancePercent is required")]
     public required TerraformValue<double> MaxBatchInstancePercent
     {
-        get => GetArgument<TerraformValue<double>>("max_batch_instance_percent");
+        get => GetRequiredArgument<TerraformValue<double>>("max_batch_instance_percent");
         set => SetArgument("max_batch_instance_percent", value);
     }
 
@@ -1367,7 +1367,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyInstancePercent is required")]
     public required TerraformValue<double> MaxUnhealthyInstancePercent
     {
-        get => GetArgument<TerraformValue<double>>("max_unhealthy_instance_percent");
+        get => GetRequiredArgument<TerraformValue<double>>("max_unhealthy_instance_percent");
         set => SetArgument("max_unhealthy_instance_percent", value);
     }
 
@@ -1377,7 +1377,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyUpgradedInstancePercent is required")]
     public required TerraformValue<double> MaxUnhealthyUpgradedInstancePercent
     {
-        get => GetArgument<TerraformValue<double>>("max_unhealthy_upgraded_instance_percent");
+        get => GetRequiredArgument<TerraformValue<double>>("max_unhealthy_upgraded_instance_percent");
         set => SetArgument("max_unhealthy_upgraded_instance_percent", value);
     }
 
@@ -1396,7 +1396,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PauseTimeBetweenBatches is required")]
     public required TerraformValue<string> PauseTimeBetweenBatches
     {
-        get => GetArgument<TerraformValue<string>>("pause_time_between_batches");
+        get => GetRequiredArgument<TerraformValue<string>>("pause_time_between_batches");
         set => SetArgument("pause_time_between_batches", value);
     }
 
@@ -1429,7 +1429,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationStrategy is required")]
     public required TerraformValue<string> AllocationStrategy
     {
-        get => GetArgument<TerraformValue<string>>("allocation_strategy");
+        get => GetRequiredArgument<TerraformValue<string>>("allocation_strategy");
         set => SetArgument("allocation_strategy", value);
     }
 
@@ -1439,7 +1439,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSizes is required")]
     public required TerraformSet<string> VmSizes
     {
-        get => GetArgument<TerraformSet<string>>("vm_sizes");
+        get => GetRequiredArgument<TerraformSet<string>>("vm_sizes");
         set => SetArgument("vm_sizes", value);
     }
 
@@ -1463,7 +1463,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformValue<string> Offer
     {
-        get => GetArgument<TerraformValue<string>>("offer");
+        get => GetRequiredArgument<TerraformValue<string>>("offer");
         set => SetArgument("offer", value);
     }
 
@@ -1473,7 +1473,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -1483,7 +1483,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => GetArgument<TerraformValue<string>>("sku");
+        get => GetRequiredArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -1493,7 +1493,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -1517,7 +1517,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1637,18 +1637,18 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
-    public TerraformValue<double>? Instances
+    public TerraformValue<double> Instances
     {
-        get => GetArgument<TerraformValue<double>>("instances");
+        get => GetArgument<TerraformValue<double>>("instances") ?? AsReference("instances");
         set => SetArgument("instances", value);
     }
 
@@ -1667,7 +1667,7 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1686,7 +1686,7 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1705,7 +1705,7 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformFaultDomainCount is required")]
     public required TerraformValue<double> PlatformFaultDomainCount
     {
-        get => GetArgument<TerraformValue<double>>("platform_fault_domain_count");
+        get => GetRequiredArgument<TerraformValue<double>>("platform_fault_domain_count");
         set => SetArgument("platform_fault_domain_count", value);
     }
 
@@ -1733,16 +1733,16 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The single_placement_group attribute.
     /// </summary>
-    public TerraformValue<bool>? SinglePlacementGroup
+    public TerraformValue<bool> SinglePlacementGroup
     {
-        get => GetArgument<TerraformValue<bool>>("single_placement_group");
+        get => GetArgument<TerraformValue<bool>>("single_placement_group") ?? AsReference("single_placement_group");
         set => SetArgument("single_placement_group", value);
     }
 

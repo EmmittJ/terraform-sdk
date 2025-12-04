@@ -55,7 +55,7 @@ public partial class GoogleApigeeApi(string name) : TerraformResource("google_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigBundle is required")]
     public required TerraformValue<string> ConfigBundle
     {
-        get => GetArgument<TerraformValue<string>>("config_bundle");
+        get => GetRequiredArgument<TerraformValue<string>>("config_bundle");
         set => SetArgument("config_bundle", value);
     }
 
@@ -71,9 +71,9 @@ public partial class GoogleApigeeApi(string name) : TerraformResource("google_ap
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleApigeeApi(string name) : TerraformResource("google_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleApigeeApi(string name) : TerraformResource("google_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 

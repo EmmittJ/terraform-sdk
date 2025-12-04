@@ -37,7 +37,7 @@ public class AzurermSignalrServiceNetworkAclPrivateEndpointBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -138,16 +138,16 @@ public partial class AzurermSignalrServiceNetworkAcl(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformValue<string> DefaultAction
     {
-        get => GetArgument<TerraformValue<string>>("default_action");
+        get => GetRequiredArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermSignalrServiceNetworkAcl(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     public required TerraformValue<string> SignalrServiceId
     {
-        get => GetArgument<TerraformValue<string>>("signalr_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("signalr_service_id");
         set => SetArgument("signalr_service_id", value);
     }
 

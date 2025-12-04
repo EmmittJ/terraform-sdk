@@ -55,16 +55,16 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteePrincipal is required")]
     public required TerraformValue<string> GranteePrincipal
     {
-        get => GetArgument<TerraformValue<string>>("grantee_principal");
+        get => GetRequiredArgument<TerraformValue<string>>("grantee_principal");
         set => SetArgument("grantee_principal", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -93,16 +93,16 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operations is required")]
     public required TerraformSet<string> Operations
     {
-        get => GetArgument<TerraformSet<string>>("operations");
+        get => GetRequiredArgument<TerraformSet<string>>("operations");
         set => SetArgument("operations", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsRoute53RecordAliasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluateTargetHealth is required")]
     public required TerraformValue<bool> EvaluateTargetHealth
     {
-        get => GetArgument<TerraformValue<bool>>("evaluate_target_health");
+        get => GetRequiredArgument<TerraformValue<bool>>("evaluate_target_health");
         set => SetArgument("evaluate_target_health", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsRoute53RecordAliasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsRoute53RecordAliasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformValue<string> ZoneId
     {
-        get => GetArgument<TerraformValue<string>>("zone_id");
+        get => GetRequiredArgument<TerraformValue<string>>("zone_id");
         set => SetArgument("zone_id", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsRoute53RecordCidrRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => GetArgument<TerraformValue<string>>("collection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsRoute53RecordCidrRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationName is required")]
     public required TerraformValue<string> LocationName
     {
-        get => GetArgument<TerraformValue<string>>("location_name");
+        get => GetRequiredArgument<TerraformValue<string>>("location_name");
         set => SetArgument("location_name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsRoute53RecordFailoverRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -211,7 +211,7 @@ public class AwsRoute53RecordGeoproximityRoutingPolicyBlockCoordinatesBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Latitude is required")]
     public required TerraformValue<string> Latitude
     {
-        get => GetArgument<TerraformValue<string>>("latitude");
+        get => GetRequiredArgument<TerraformValue<string>>("latitude");
         set => SetArgument("latitude", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsRoute53RecordGeoproximityRoutingPolicyBlockCoordinatesBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Longitude is required")]
     public required TerraformValue<string> Longitude
     {
-        get => GetArgument<TerraformValue<string>>("longitude");
+        get => GetRequiredArgument<TerraformValue<string>>("longitude");
         set => SetArgument("longitude", value);
     }
 
@@ -245,7 +245,7 @@ public class AwsRoute53RecordLatencyRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsRoute53RecordWeightedRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => GetArgument<TerraformValue<double>>("weight");
+        get => GetRequiredArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -326,9 +326,9 @@ public partial class AwsRoute53Record(string name) : TerraformResource("aws_rout
     /// <summary>
     /// The allow_overwrite attribute.
     /// </summary>
-    public TerraformValue<bool>? AllowOverwrite
+    public TerraformValue<bool> AllowOverwrite
     {
-        get => GetArgument<TerraformValue<bool>>("allow_overwrite");
+        get => GetArgument<TerraformValue<bool>>("allow_overwrite") ?? AsReference("allow_overwrite");
         set => SetArgument("allow_overwrite", value);
     }
 
@@ -344,9 +344,9 @@ public partial class AwsRoute53Record(string name) : TerraformResource("aws_rout
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -365,7 +365,7 @@ public partial class AwsRoute53Record(string name) : TerraformResource("aws_rout
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -402,7 +402,7 @@ public partial class AwsRoute53Record(string name) : TerraformResource("aws_rout
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -412,7 +412,7 @@ public partial class AwsRoute53Record(string name) : TerraformResource("aws_rout
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformValue<string> ZoneId
     {
-        get => GetArgument<TerraformValue<string>>("zone_id");
+        get => GetRequiredArgument<TerraformValue<string>>("zone_id");
         set => SetArgument("zone_id", value);
     }
 

@@ -14,7 +14,7 @@ public partial class AwsBackupVaultNotifications(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultEvents is required")]
     public required TerraformSet<string> BackupVaultEvents
     {
-        get => GetArgument<TerraformSet<string>>("backup_vault_events");
+        get => GetRequiredArgument<TerraformSet<string>>("backup_vault_events");
         set => SetArgument("backup_vault_events", value);
     }
 
@@ -24,25 +24,25 @@ public partial class AwsBackupVaultNotifications(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultName is required")]
     public required TerraformValue<string> BackupVaultName
     {
-        get => GetArgument<TerraformValue<string>>("backup_vault_name");
+        get => GetRequiredArgument<TerraformValue<string>>("backup_vault_name");
         set => SetArgument("backup_vault_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsBackupVaultNotifications(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopicArn is required")]
     public required TerraformValue<string> SnsTopicArn
     {
-        get => GetArgument<TerraformValue<string>>("sns_topic_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("sns_topic_arn");
         set => SetArgument("sns_topic_arn", value);
     }
 

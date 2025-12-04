@@ -67,16 +67,16 @@ public partial class GoogleNetworkSecurityMirroringDeployment(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRule is required")]
     public required TerraformValue<string> ForwardingRule
     {
-        get => GetArgument<TerraformValue<string>>("forwarding_rule");
+        get => GetRequiredArgument<TerraformValue<string>>("forwarding_rule");
         set => SetArgument("forwarding_rule", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -98,7 +98,7 @@ public partial class GoogleNetworkSecurityMirroringDeployment(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleNetworkSecurityMirroringDeployment(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringDeploymentGroup is required")]
     public required TerraformValue<string> MirroringDeploymentGroup
     {
-        get => GetArgument<TerraformValue<string>>("mirroring_deployment_group");
+        get => GetRequiredArgument<TerraformValue<string>>("mirroring_deployment_group");
         set => SetArgument("mirroring_deployment_group", value);
     }
 
@@ -121,16 +121,16 @@ public partial class GoogleNetworkSecurityMirroringDeployment(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringDeploymentId is required")]
     public required TerraformValue<string> MirroringDeploymentId
     {
-        get => GetArgument<TerraformValue<string>>("mirroring_deployment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("mirroring_deployment_id");
         set => SetArgument("mirroring_deployment_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

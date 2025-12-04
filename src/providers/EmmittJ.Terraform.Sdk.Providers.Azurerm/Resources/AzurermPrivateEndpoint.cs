@@ -16,9 +16,9 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     /// <summary>
     /// The member_name attribute.
     /// </summary>
-    public TerraformValue<string>? MemberName
+    public TerraformValue<string> MemberName
     {
-        get => GetArgument<TerraformValue<string>>("member_name");
+        get => GetArgument<TerraformValue<string>>("member_name") ?? AsReference("member_name");
         set => SetArgument("member_name", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddress is required")]
     public required TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsManualConnection is required")]
     public required TerraformValue<bool> IsManualConnection
     {
-        get => GetArgument<TerraformValue<bool>>("is_manual_connection");
+        get => GetRequiredArgument<TerraformValue<bool>>("is_manual_connection");
         set => SetArgument("is_manual_connection", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -238,9 +238,9 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 

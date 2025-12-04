@@ -14,16 +14,16 @@ public partial class AwsIamSecurityTokenServicePreferences(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalEndpointTokenVersion is required")]
     public required TerraformValue<string> GlobalEndpointTokenVersion
     {
-        get => GetArgument<TerraformValue<string>>("global_endpoint_token_version");
+        get => GetRequiredArgument<TerraformValue<string>>("global_endpoint_token_version");
         set => SetArgument("global_endpoint_token_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

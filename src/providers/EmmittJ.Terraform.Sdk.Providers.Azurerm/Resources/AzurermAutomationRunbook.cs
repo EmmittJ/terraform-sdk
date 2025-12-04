@@ -81,7 +81,7 @@ public class AzurermAutomationRunbookDraftBlockContentLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermAutomationRunbookDraftBlockContentLinkBlockHashBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformValue<string> Algorithm
     {
-        get => GetArgument<TerraformValue<string>>("algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("algorithm");
         set => SetArgument("algorithm", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermAutomationRunbookDraftBlockContentLinkBlockHashBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -165,7 +165,7 @@ public class AzurermAutomationRunbookDraftBlockParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -193,7 +193,7 @@ public class AzurermAutomationRunbookDraftBlockParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermAutomationRunbookPublishContentLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -259,7 +259,7 @@ public class AzurermAutomationRunbookPublishContentLinkBlockHashBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformValue<string> Algorithm
     {
-        get => GetArgument<TerraformValue<string>>("algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("algorithm");
         set => SetArgument("algorithm", value);
     }
 
@@ -269,7 +269,7 @@ public class AzurermAutomationRunbookPublishContentLinkBlockHashBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -338,16 +338,16 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformValue<string> AutomationAccountName
     {
-        get => GetArgument<TerraformValue<string>>("automation_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("automation_account_name");
         set => SetArgument("automation_account_name", value);
     }
 
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformValue<string>? Content
+    public TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetArgument<TerraformValue<string>>("content") ?? AsReference("content");
         set => SetArgument("content", value);
     }
 
@@ -363,18 +363,18 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The job_schedule attribute.
     /// </summary>
-    public TerraformSet<TerraformMap<object>>? JobSchedule
+    public TerraformSet<TerraformMap<object>> JobSchedule
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("job_schedule");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("job_schedule") ?? AsReference("job_schedule");
         set => SetArgument("job_schedule", value);
     }
 
@@ -384,7 +384,7 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -403,7 +403,7 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogProgress is required")]
     public required TerraformValue<bool> LogProgress
     {
-        get => GetArgument<TerraformValue<bool>>("log_progress");
+        get => GetRequiredArgument<TerraformValue<bool>>("log_progress");
         set => SetArgument("log_progress", value);
     }
 
@@ -413,7 +413,7 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogVerbose is required")]
     public required TerraformValue<bool> LogVerbose
     {
-        get => GetArgument<TerraformValue<bool>>("log_verbose");
+        get => GetRequiredArgument<TerraformValue<bool>>("log_verbose");
         set => SetArgument("log_verbose", value);
     }
 
@@ -423,7 +423,7 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -433,7 +433,7 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -443,7 +443,7 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookType is required")]
     public required TerraformValue<string> RunbookType
     {
-        get => GetArgument<TerraformValue<string>>("runbook_type");
+        get => GetRequiredArgument<TerraformValue<string>>("runbook_type");
         set => SetArgument("runbook_type", value);
     }
 

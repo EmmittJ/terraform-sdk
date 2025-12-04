@@ -61,9 +61,9 @@ public partial class GoogleEndpointsService(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,9 +79,9 @@ public partial class GoogleEndpointsService(string name) : TerraformResource("go
     /// <summary>
     /// The project ID that the service belongs to. If not provided, provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleEndpointsService(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 

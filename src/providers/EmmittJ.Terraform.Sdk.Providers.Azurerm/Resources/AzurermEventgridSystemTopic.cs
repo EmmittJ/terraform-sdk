@@ -40,7 +40,7 @@ public class AzurermEventgridSystemTopicIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -106,9 +106,9 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -146,18 +146,18 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     /// The source_arm_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? SourceArmResourceId
+    public TerraformValue<string> SourceArmResourceId
     {
-        get => GetArgument<TerraformValue<string>>("source_arm_resource_id");
+        get => GetArgument<TerraformValue<string>>("source_arm_resource_id") ?? AsReference("source_arm_resource_id");
         set => SetArgument("source_arm_resource_id", value);
     }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    public TerraformValue<string>? SourceResourceId
+    public TerraformValue<string> SourceResourceId
     {
-        get => GetArgument<TerraformValue<string>>("source_resource_id");
+        get => GetArgument<TerraformValue<string>>("source_resource_id") ?? AsReference("source_resource_id");
         set => SetArgument("source_resource_id", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicType is required")]
     public required TerraformValue<string> TopicType
     {
-        get => GetArgument<TerraformValue<string>>("topic_type");
+        get => GetRequiredArgument<TerraformValue<string>>("topic_type");
         set => SetArgument("topic_type", value);
     }
 

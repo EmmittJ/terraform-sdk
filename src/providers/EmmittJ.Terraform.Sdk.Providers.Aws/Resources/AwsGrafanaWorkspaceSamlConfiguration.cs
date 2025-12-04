@@ -71,9 +71,9 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// <summary>
     /// The email_assertion attribute.
     /// </summary>
-    public TerraformValue<string>? EmailAssertion
+    public TerraformValue<string> EmailAssertion
     {
-        get => GetArgument<TerraformValue<string>>("email_assertion");
+        get => GetArgument<TerraformValue<string>>("email_assertion") ?? AsReference("email_assertion");
         set => SetArgument("email_assertion", value);
     }
 
@@ -89,9 +89,9 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -116,27 +116,27 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// <summary>
     /// The login_assertion attribute.
     /// </summary>
-    public TerraformValue<string>? LoginAssertion
+    public TerraformValue<string> LoginAssertion
     {
-        get => GetArgument<TerraformValue<string>>("login_assertion");
+        get => GetArgument<TerraformValue<string>>("login_assertion") ?? AsReference("login_assertion");
         set => SetArgument("login_assertion", value);
     }
 
     /// <summary>
     /// The login_validity_duration attribute.
     /// </summary>
-    public TerraformValue<double>? LoginValidityDuration
+    public TerraformValue<double> LoginValidityDuration
     {
-        get => GetArgument<TerraformValue<double>>("login_validity_duration");
+        get => GetArgument<TerraformValue<double>>("login_validity_duration") ?? AsReference("login_validity_duration");
         set => SetArgument("login_validity_duration", value);
     }
 
     /// <summary>
     /// The name_assertion attribute.
     /// </summary>
-    public TerraformValue<string>? NameAssertion
+    public TerraformValue<string> NameAssertion
     {
-        get => GetArgument<TerraformValue<string>>("name_assertion");
+        get => GetArgument<TerraformValue<string>>("name_assertion") ?? AsReference("name_assertion");
         set => SetArgument("name_assertion", value);
     }
 
@@ -152,9 +152,9 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

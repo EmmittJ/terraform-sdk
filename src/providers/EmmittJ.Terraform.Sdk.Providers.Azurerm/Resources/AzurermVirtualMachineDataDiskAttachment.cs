@@ -64,7 +64,7 @@ public partial class AzurermVirtualMachineDataDiskAttachment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
     public required TerraformValue<string> Caching
     {
-        get => GetArgument<TerraformValue<string>>("caching");
+        get => GetRequiredArgument<TerraformValue<string>>("caching");
         set => SetArgument("caching", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AzurermVirtualMachineDataDiskAttachment(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermVirtualMachineDataDiskAttachment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformValue<double> Lun
     {
-        get => GetArgument<TerraformValue<double>>("lun");
+        get => GetRequiredArgument<TerraformValue<double>>("lun");
         set => SetArgument("lun", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermVirtualMachineDataDiskAttachment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedDiskId is required")]
     public required TerraformValue<string> ManagedDiskId
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_disk_id");
         set => SetArgument("managed_disk_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermVirtualMachineDataDiskAttachment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 

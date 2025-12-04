@@ -19,7 +19,7 @@ public class AzurermContainerRegistryTaskAgentSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu");
+        get => GetRequiredArgument<TerraformValue<double>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContextAccessToken is required")]
     public required TerraformValue<string> ContextAccessToken
     {
-        get => GetArgument<TerraformValue<string>>("context_access_token");
+        get => GetRequiredArgument<TerraformValue<string>>("context_access_token");
         set => SetArgument("context_access_token", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContextPath is required")]
     public required TerraformValue<string> ContextPath
     {
-        get => GetArgument<TerraformValue<string>>("context_path");
+        get => GetRequiredArgument<TerraformValue<string>>("context_path");
         set => SetArgument("context_path", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DockerfilePath is required")]
     public required TerraformValue<string> DockerfilePath
     {
-        get => GetArgument<TerraformValue<string>>("dockerfile_path");
+        get => GetRequiredArgument<TerraformValue<string>>("dockerfile_path");
         set => SetArgument("dockerfile_path", value);
     }
 
@@ -229,7 +229,7 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskContent is required")]
     public required TerraformValue<string> TaskContent
     {
-        get => GetArgument<TerraformValue<string>>("task_content");
+        get => GetRequiredArgument<TerraformValue<string>>("task_content");
         set => SetArgument("task_content", value);
     }
 
@@ -298,7 +298,7 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskFilePath is required")]
     public required TerraformValue<string> TaskFilePath
     {
-        get => GetArgument<TerraformValue<string>>("task_file_path");
+        get => GetRequiredArgument<TerraformValue<string>>("task_file_path");
         set => SetArgument("task_file_path", value);
     }
 
@@ -361,7 +361,7 @@ public class AzurermContainerRegistryTaskIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -394,7 +394,7 @@ public class AzurermContainerRegistryTaskPlatformBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Os is required")]
     public required TerraformValue<string> Os
     {
-        get => GetArgument<TerraformValue<string>>("os");
+        get => GetRequiredArgument<TerraformValue<string>>("os");
         set => SetArgument("os", value);
     }
 
@@ -468,7 +468,7 @@ public class AzurermContainerRegistryTaskRegistryCredentialBlockCustomBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginServer is required")]
     public required TerraformValue<string> LoginServer
     {
-        get => GetArgument<TerraformValue<string>>("login_server");
+        get => GetRequiredArgument<TerraformValue<string>>("login_server");
         set => SetArgument("login_server", value);
     }
 
@@ -509,7 +509,7 @@ public class AzurermContainerRegistryTaskRegistryCredentialBlockSourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginMode is required")]
     public required TerraformValue<string> LoginMode
     {
-        get => GetArgument<TerraformValue<string>>("login_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("login_mode");
         set => SetArgument("login_mode", value);
     }
 
@@ -561,7 +561,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -571,7 +571,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => GetArgument<TerraformValue<string>>("repository_url");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
@@ -581,7 +581,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformValue<string> SourceType
     {
-        get => GetArgument<TerraformValue<string>>("source_type");
+        get => GetRequiredArgument<TerraformValue<string>>("source_type");
         set => SetArgument("source_type", value);
     }
 
@@ -641,7 +641,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlockAuthenticationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformValue<string> Token
     {
-        get => GetArgument<TerraformValue<string>>("token");
+        get => GetRequiredArgument<TerraformValue<string>>("token");
         set => SetArgument("token", value);
     }
 
@@ -651,7 +651,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlockAuthenticationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenType is required")]
     public required TerraformValue<string> TokenType
     {
-        get => GetArgument<TerraformValue<string>>("token_type");
+        get => GetRequiredArgument<TerraformValue<string>>("token_type");
         set => SetArgument("token_type", value);
     }
 
@@ -734,7 +734,7 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -744,7 +744,7 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => GetArgument<TerraformValue<string>>("schedule");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -772,7 +772,7 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformValue<string> ContainerRegistryId
     {
-        get => GetArgument<TerraformValue<string>>("container_registry_id");
+        get => GetRequiredArgument<TerraformValue<string>>("container_registry_id");
         set => SetArgument("container_registry_id", value);
     }
 
@@ -788,9 +788,9 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -818,7 +818,7 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

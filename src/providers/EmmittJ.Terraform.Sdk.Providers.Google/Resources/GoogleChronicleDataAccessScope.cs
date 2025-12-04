@@ -80,7 +80,7 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlockIngestion
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionLabelKey is required")]
     public required TerraformValue<string> IngestionLabelKey
     {
-        get => GetArgument<TerraformValue<string>>("ingestion_label_key");
+        get => GetRequiredArgument<TerraformValue<string>>("ingestion_label_key");
         set => SetArgument("ingestion_label_key", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlockIngestionL
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionLabelKey is required")]
     public required TerraformValue<string> IngestionLabelKey
     {
-        get => GetArgument<TerraformValue<string>>("ingestion_label_key");
+        get => GetRequiredArgument<TerraformValue<string>>("ingestion_label_key");
         set => SetArgument("ingestion_label_key", value);
     }
 
@@ -265,7 +265,7 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessScopeId is required")]
     public required TerraformValue<string> DataAccessScopeId
     {
-        get => GetArgument<TerraformValue<string>>("data_access_scope_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_access_scope_id");
         set => SetArgument("data_access_scope_id", value);
     }
 
@@ -281,9 +281,9 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -293,7 +293,7 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -303,16 +303,16 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

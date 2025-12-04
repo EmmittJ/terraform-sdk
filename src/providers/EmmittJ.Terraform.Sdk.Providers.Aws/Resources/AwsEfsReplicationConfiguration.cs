@@ -25,9 +25,9 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformValue<string>? FileSystemId
+    public TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id") ?? AsReference("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -43,9 +43,9 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -99,18 +99,18 @@ public partial class AwsEfsReplicationConfiguration(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AwsEfsReplicationConfiguration(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileSystemId is required")]
     public required TerraformValue<string> SourceFileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("source_file_system_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_file_system_id");
         set => SetArgument("source_file_system_id", value);
     }
 

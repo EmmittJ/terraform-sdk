@@ -64,7 +64,7 @@ public partial class AzurermExpressRouteCircuitConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixIpv4 is required")]
     public required TerraformValue<string> AddressPrefixIpv4
     {
-        get => GetArgument<TerraformValue<string>>("address_prefix_ipv4");
+        get => GetRequiredArgument<TerraformValue<string>>("address_prefix_ipv4");
         set => SetArgument("address_prefix_ipv4", value);
     }
 
@@ -89,9 +89,9 @@ public partial class AzurermExpressRouteCircuitConnection(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermExpressRouteCircuitConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermExpressRouteCircuitConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerPeeringId is required")]
     public required TerraformValue<string> PeerPeeringId
     {
-        get => GetArgument<TerraformValue<string>>("peer_peering_id");
+        get => GetRequiredArgument<TerraformValue<string>>("peer_peering_id");
         set => SetArgument("peer_peering_id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermExpressRouteCircuitConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringId is required")]
     public required TerraformValue<string> PeeringId
     {
-        get => GetArgument<TerraformValue<string>>("peering_id");
+        get => GetRequiredArgument<TerraformValue<string>>("peering_id");
         set => SetArgument("peering_id", value);
     }
 

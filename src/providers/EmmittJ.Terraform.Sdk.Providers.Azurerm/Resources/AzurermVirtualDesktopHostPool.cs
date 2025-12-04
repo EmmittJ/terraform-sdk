@@ -69,7 +69,7 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlockScheduleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => GetArgument<TerraformValue<string>>("day_of_week");
+        get => GetRequiredArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlockScheduleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformValue<double> HourOfDay
     {
-        get => GetArgument<TerraformValue<double>>("hour_of_day");
+        get => GetRequiredArgument<TerraformValue<double>>("hour_of_day");
         set => SetArgument("hour_of_day", value);
     }
 
@@ -172,9 +172,9 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerType is required")]
     public required TerraformValue<string> LoadBalancerType
     {
-        get => GetArgument<TerraformValue<string>>("load_balancer_type");
+        get => GetRequiredArgument<TerraformValue<string>>("load_balancer_type");
         set => SetArgument("load_balancer_type", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -278,7 +278,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

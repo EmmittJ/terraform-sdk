@@ -100,7 +100,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockDepl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformMap<string> ValuesAttribute
     {
-        get => GetArgument<TerraformMap<string>>("values");
+        get => GetRequiredArgument<TerraformMap<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percentage is required")]
     public required TerraformValue<double> Percentage
     {
-        get => GetArgument<TerraformValue<double>>("percentage");
+        get => GetRequiredArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -330,7 +330,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhaseId is required")]
     public required TerraformValue<string> PhaseId
     {
-        get => GetArgument<TerraformValue<string>>("phase_id");
+        get => GetRequiredArgument<TerraformValue<string>>("phase_id");
         set => SetArgument("phase_id", value);
     }
 
@@ -550,7 +550,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Deployment is required")]
     public required TerraformValue<string> Deployment
     {
-        get => GetArgument<TerraformValue<string>>("deployment");
+        get => GetRequiredArgument<TerraformValue<string>>("deployment");
         set => SetArgument("deployment", value);
     }
 
@@ -560,7 +560,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpRoute is required")]
     public required TerraformValue<string> HttpRoute
     {
-        get => GetArgument<TerraformValue<string>>("http_route");
+        get => GetRequiredArgument<TerraformValue<string>>("http_route");
         set => SetArgument("http_route", value);
     }
 
@@ -588,7 +588,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -662,7 +662,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Deployment is required")]
     public required TerraformValue<string> Deployment
     {
-        get => GetArgument<TerraformValue<string>>("deployment");
+        get => GetRequiredArgument<TerraformValue<string>>("deployment");
         set => SetArgument("deployment", value);
     }
 
@@ -690,7 +690,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -854,9 +854,9 @@ public partial class GoogleClouddeployDeliveryPipeline(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -878,7 +878,7 @@ public partial class GoogleClouddeployDeliveryPipeline(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -888,16 +888,16 @@ public partial class GoogleClouddeployDeliveryPipeline(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -34,27 +34,27 @@ public partial class AzureadServicePrincipalsDataSource(string name) : Terraform
     /// <summary>
     /// The client IDs of the applications associated with the service principals
     /// </summary>
-    public TerraformList<string>? ClientIds
+    public TerraformList<string> ClientIds
     {
-        get => GetArgument<TerraformList<string>>("client_ids");
+        get => GetArgument<TerraformList<string>>("client_ids") ?? AsReference("client_ids");
         set => SetArgument("client_ids", value);
     }
 
     /// <summary>
     /// The display names of the applications associated with the service principals
     /// </summary>
-    public TerraformList<string>? DisplayNames
+    public TerraformList<string> DisplayNames
     {
-        get => GetArgument<TerraformList<string>>("display_names");
+        get => GetArgument<TerraformList<string>>("display_names") ?? AsReference("display_names");
         set => SetArgument("display_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -70,9 +70,9 @@ public partial class AzureadServicePrincipalsDataSource(string name) : Terraform
     /// <summary>
     /// The object IDs of the service principals
     /// </summary>
-    public TerraformList<string>? ObjectIds
+    public TerraformList<string> ObjectIds
     {
-        get => GetArgument<TerraformList<string>>("object_ids");
+        get => GetArgument<TerraformList<string>>("object_ids") ?? AsReference("object_ids");
         set => SetArgument("object_ids", value);
     }
 

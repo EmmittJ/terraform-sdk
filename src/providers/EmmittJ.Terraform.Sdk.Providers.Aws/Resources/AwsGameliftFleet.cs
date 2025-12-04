@@ -42,7 +42,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => GetArgument<TerraformValue<double>>("from_port");
+        get => GetRequiredArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
     public required TerraformValue<string> IpRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_range");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_range");
         set => SetArgument("ip_range", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => GetArgument<TerraformValue<double>>("to_port");
+        get => GetRequiredArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsGameliftFleetRuntimeConfigurationBlockServerProcessBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConcurrentExecutions is required")]
     public required TerraformValue<double> ConcurrentExecutions
     {
-        get => GetArgument<TerraformValue<double>>("concurrent_executions");
+        get => GetRequiredArgument<TerraformValue<double>>("concurrent_executions");
         set => SetArgument("concurrent_executions", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsGameliftFleetRuntimeConfigurationBlockServerProcessBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LaunchPath is required")]
     public required TerraformValue<string> LaunchPath
     {
-        get => GetArgument<TerraformValue<string>>("launch_path");
+        get => GetRequiredArgument<TerraformValue<string>>("launch_path");
         set => SetArgument("launch_path", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2InstanceType is required")]
     public required TerraformValue<string> Ec2InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("ec2_instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("ec2_instance_type");
         set => SetArgument("ec2_instance_type", value);
     }
 
@@ -273,9 +273,9 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -291,9 +291,9 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// <summary>
     /// The metric_groups attribute.
     /// </summary>
-    public TerraformList<string>? MetricGroups
+    public TerraformList<string> MetricGroups
     {
-        get => GetArgument<TerraformList<string>>("metric_groups");
+        get => GetArgument<TerraformList<string>>("metric_groups") ?? AsReference("metric_groups");
         set => SetArgument("metric_groups", value);
     }
 
@@ -303,7 +303,7 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -319,9 +319,9 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -346,9 +346,9 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

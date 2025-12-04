@@ -14,7 +14,7 @@ public partial class GoogleArtifactRegistryMavenArtifactDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactId is required")]
     public required TerraformValue<string> ArtifactId
     {
-        get => GetArgument<TerraformValue<string>>("artifact_id");
+        get => GetRequiredArgument<TerraformValue<string>>("artifact_id");
         set => SetArgument("artifact_id", value);
     }
 
@@ -24,16 +24,16 @@ public partial class GoogleArtifactRegistryMavenArtifactDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformValue<string> GroupId
     {
-        get => GetArgument<TerraformValue<string>>("group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleArtifactRegistryMavenArtifactDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -62,7 +62,7 @@ public partial class GoogleArtifactRegistryMavenArtifactDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => GetArgument<TerraformValue<string>>("repository_id");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 

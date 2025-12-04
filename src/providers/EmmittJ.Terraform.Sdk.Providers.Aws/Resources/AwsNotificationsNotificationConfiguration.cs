@@ -11,9 +11,9 @@ public partial class AwsNotificationsNotificationConfiguration(string name) : Te
     /// <summary>
     /// The aggregation_duration attribute.
     /// </summary>
-    public TerraformValue<string>? AggregationDuration
+    public TerraformValue<string> AggregationDuration
     {
-        get => GetArgument<TerraformValue<string>>("aggregation_duration");
+        get => GetArgument<TerraformValue<string>>("aggregation_duration") ?? AsReference("aggregation_duration");
         set => SetArgument("aggregation_duration", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsNotificationsNotificationConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsNotificationsNotificationConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

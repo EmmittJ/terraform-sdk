@@ -16,9 +16,9 @@ public class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock : TerraformBlo
     /// <summary>
     /// The max_throughput attribute.
     /// </summary>
-    public TerraformValue<double>? MaxThroughput
+    public TerraformValue<double> MaxThroughput
     {
-        get => GetArgument<TerraformValue<double>>("max_throughput");
+        get => GetArgument<TerraformValue<double>>("max_throughput") ?? AsReference("max_throughput");
         set => SetArgument("max_throughput", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -155,9 +155,9 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -193,9 +193,9 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 

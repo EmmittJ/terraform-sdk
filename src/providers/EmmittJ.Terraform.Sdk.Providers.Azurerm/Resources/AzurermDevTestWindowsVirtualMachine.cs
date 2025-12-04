@@ -19,7 +19,7 @@ public class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformValue<string> Offer
     {
-        get => GetArgument<TerraformValue<string>>("offer");
+        get => GetRequiredArgument<TerraformValue<string>>("offer");
         set => SetArgument("offer", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => GetArgument<TerraformValue<string>>("sku");
+        get => GetRequiredArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermDevTestWindowsVirtualMachineInboundNatRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
     public required TerraformValue<double> BackendPort
     {
-        get => GetArgument<TerraformValue<double>>("backend_port");
+        get => GetRequiredArgument<TerraformValue<double>>("backend_port");
         set => SetArgument("backend_port", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermDevTestWindowsVirtualMachineInboundNatRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -173,9 +173,9 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformValue<string> LabName
     {
-        get => GetArgument<TerraformValue<string>>("lab_name");
+        get => GetRequiredArgument<TerraformValue<string>>("lab_name");
         set => SetArgument("lab_name", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabSubnetName is required")]
     public required TerraformValue<string> LabSubnetName
     {
-        get => GetArgument<TerraformValue<string>>("lab_subnet_name");
+        get => GetRequiredArgument<TerraformValue<string>>("lab_subnet_name");
         set => SetArgument("lab_subnet_name", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabVirtualNetworkId is required")]
     public required TerraformValue<string> LabVirtualNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("lab_virtual_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("lab_virtual_network_id");
         set => SetArgument("lab_virtual_network_id", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -254,7 +254,7 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -264,7 +264,7 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<string> Size
     {
-        get => GetArgument<TerraformValue<string>>("size");
+        get => GetRequiredArgument<TerraformValue<string>>("size");
         set => SetArgument("size", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     public required TerraformValue<string> StorageType
     {
-        get => GetArgument<TerraformValue<string>>("storage_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -293,7 +293,7 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

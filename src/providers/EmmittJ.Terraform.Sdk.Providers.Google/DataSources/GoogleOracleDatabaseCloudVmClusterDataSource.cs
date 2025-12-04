@@ -17,16 +17,16 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     public required TerraformValue<string> CloudVmClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cloud_vm_cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cloud_vm_cluster_id");
         set => SetArgument("cloud_vm_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -36,7 +36,7 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 

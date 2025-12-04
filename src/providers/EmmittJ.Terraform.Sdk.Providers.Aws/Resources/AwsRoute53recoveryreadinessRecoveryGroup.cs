@@ -43,9 +43,9 @@ public partial class AwsRoute53recoveryreadinessRecoveryGroup(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsRoute53recoveryreadinessRecoveryGroup(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryGroupName is required")]
     public required TerraformValue<string> RecoveryGroupName
     {
-        get => GetArgument<TerraformValue<string>>("recovery_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_group_name");
         set => SetArgument("recovery_group_name", value);
     }
 
@@ -71,9 +71,9 @@ public partial class AwsRoute53recoveryreadinessRecoveryGroup(string name) : Ter
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -46,7 +46,7 @@ public class GoogleContainerAnalysisNoteAttestationAuthorityBlockHintBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanReadableName is required")]
     public required TerraformValue<string> HumanReadableName
     {
-        get => GetArgument<TerraformValue<string>>("human_readable_name");
+        get => GetRequiredArgument<TerraformValue<string>>("human_readable_name");
         set => SetArgument("human_readable_name", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleContainerAnalysisNoteRelatedUrlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -145,9 +145,9 @@ public partial class GoogleContainerAnalysisNote(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -166,16 +166,16 @@ public partial class GoogleContainerAnalysisNote(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

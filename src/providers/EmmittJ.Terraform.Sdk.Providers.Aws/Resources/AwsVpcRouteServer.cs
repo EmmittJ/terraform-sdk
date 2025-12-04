@@ -55,16 +55,16 @@ public partial class AwsVpcRouteServer(string name) : TerraformResource("aws_vpc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AmazonSideAsn is required")]
     public required TerraformValue<double> AmazonSideAsn
     {
-        get => GetArgument<TerraformValue<double>>("amazon_side_asn");
+        get => GetRequiredArgument<TerraformValue<double>>("amazon_side_asn");
         set => SetArgument("amazon_side_asn", value);
     }
 
     /// <summary>
     /// The persist_routes attribute.
     /// </summary>
-    public TerraformValue<string>? PersistRoutes
+    public TerraformValue<string> PersistRoutes
     {
-        get => GetArgument<TerraformValue<string>>("persist_routes");
+        get => GetArgument<TerraformValue<string>>("persist_routes") ?? AsReference("persist_routes");
         set => SetArgument("persist_routes", value);
     }
 
@@ -80,18 +80,18 @@ public partial class AwsVpcRouteServer(string name) : TerraformResource("aws_vpc
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The sns_notifications_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? SnsNotificationsEnabled
+    public TerraformValue<bool> SnsNotificationsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("sns_notifications_enabled");
+        get => GetArgument<TerraformValue<bool>>("sns_notifications_enabled") ?? AsReference("sns_notifications_enabled");
         set => SetArgument("sns_notifications_enabled", value);
     }
 

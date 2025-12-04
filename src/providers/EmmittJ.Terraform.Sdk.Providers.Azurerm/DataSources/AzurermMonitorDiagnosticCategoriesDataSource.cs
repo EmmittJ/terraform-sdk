@@ -34,9 +34,9 @@ public partial class AzurermMonitorDiagnosticCategoriesDataSource(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMonitorDiagnosticCategoriesDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => GetArgument<TerraformValue<string>>("resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 

@@ -14,7 +14,7 @@ public partial class AwsStoragegatewayStoredIscsiVolume(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
     public required TerraformValue<string> DiskId
     {
-        get => GetArgument<TerraformValue<string>>("disk_id");
+        get => GetRequiredArgument<TerraformValue<string>>("disk_id");
         set => SetArgument("disk_id", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsStoragegatewayStoredIscsiVolume(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     public required TerraformValue<string> GatewayArn
     {
-        get => GetArgument<TerraformValue<string>>("gateway_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("gateway_arn");
         set => SetArgument("gateway_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsStoragegatewayStoredIscsiVolume(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformValue<string> NetworkInterfaceId
     {
-        get => GetArgument<TerraformValue<string>>("network_interface_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
@@ -71,16 +71,16 @@ public partial class AwsStoragegatewayStoredIscsiVolume(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreserveExistingData is required")]
     public required TerraformValue<bool> PreserveExistingData
     {
-        get => GetArgument<TerraformValue<bool>>("preserve_existing_data");
+        get => GetRequiredArgument<TerraformValue<bool>>("preserve_existing_data");
         set => SetArgument("preserve_existing_data", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -105,9 +105,9 @@ public partial class AwsStoragegatewayStoredIscsiVolume(string name) : Terraform
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsStoragegatewayStoredIscsiVolume(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
     public required TerraformValue<string> TargetName
     {
-        get => GetArgument<TerraformValue<string>>("target_name");
+        get => GetRequiredArgument<TerraformValue<string>>("target_name");
         set => SetArgument("target_name", value);
     }
 

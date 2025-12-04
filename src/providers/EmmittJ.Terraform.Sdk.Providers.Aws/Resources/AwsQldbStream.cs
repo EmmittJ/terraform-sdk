@@ -28,7 +28,7 @@ public class AwsQldbStreamKinesisConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformValue<string> StreamArn
     {
-        get => GetArgument<TerraformValue<string>>("stream_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_arn");
         set => SetArgument("stream_arn", value);
     }
 
@@ -85,9 +85,9 @@ public partial class AwsQldbStream(string name) : TerraformResource("aws_qldb_st
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsQldbStream(string name) : TerraformResource("aws_qldb_st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InclusiveStartTime is required")]
     public required TerraformValue<string> InclusiveStartTime
     {
-        get => GetArgument<TerraformValue<string>>("inclusive_start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("inclusive_start_time");
         set => SetArgument("inclusive_start_time", value);
     }
 
@@ -107,16 +107,16 @@ public partial class AwsQldbStream(string name) : TerraformResource("aws_qldb_st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerName is required")]
     public required TerraformValue<string> LedgerName
     {
-        get => GetArgument<TerraformValue<string>>("ledger_name");
+        get => GetRequiredArgument<TerraformValue<string>>("ledger_name");
         set => SetArgument("ledger_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsQldbStream(string name) : TerraformResource("aws_qldb_st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsQldbStream(string name) : TerraformResource("aws_qldb_st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformValue<string> StreamName
     {
-        get => GetArgument<TerraformValue<string>>("stream_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_name");
         set => SetArgument("stream_name", value);
     }
 
@@ -152,9 +152,9 @@ public partial class AwsQldbStream(string name) : TerraformResource("aws_qldb_st
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

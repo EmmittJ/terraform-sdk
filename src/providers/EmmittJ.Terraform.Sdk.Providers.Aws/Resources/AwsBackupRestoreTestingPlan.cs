@@ -19,16 +19,16 @@ public class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformValue<string> Algorithm
     {
-        get => GetArgument<TerraformValue<string>>("algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("algorithm");
         set => SetArgument("algorithm", value);
     }
 
     /// <summary>
     /// The exclude_vaults attribute.
     /// </summary>
-    public TerraformSet<string>? ExcludeVaults
+    public TerraformSet<string> ExcludeVaults
     {
-        get => GetArgument<TerraformSet<string>>("exclude_vaults");
+        get => GetArgument<TerraformSet<string>>("exclude_vaults") ?? AsReference("exclude_vaults");
         set => SetArgument("exclude_vaults", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludeVaults is required")]
     public required TerraformSet<string> IncludeVaults
     {
-        get => GetArgument<TerraformSet<string>>("include_vaults");
+        get => GetRequiredArgument<TerraformSet<string>>("include_vaults");
         set => SetArgument("include_vaults", value);
     }
 
@@ -48,16 +48,16 @@ public class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryPointTypes is required")]
     public required TerraformSet<string> RecoveryPointTypes
     {
-        get => GetArgument<TerraformSet<string>>("recovery_point_types");
+        get => GetRequiredArgument<TerraformSet<string>>("recovery_point_types");
         set => SetArgument("recovery_point_types", value);
     }
 
     /// <summary>
     /// The selection_window_days attribute.
     /// </summary>
-    public TerraformValue<double>? SelectionWindowDays
+    public TerraformValue<double> SelectionWindowDays
     {
-        get => GetArgument<TerraformValue<double>>("selection_window_days");
+        get => GetArgument<TerraformValue<double>>("selection_window_days") ?? AsReference("selection_window_days");
         set => SetArgument("selection_window_days", value);
     }
 
@@ -76,16 +76,16 @@ public partial class AwsBackupRestoreTestingPlan(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -95,25 +95,25 @@ public partial class AwsBackupRestoreTestingPlan(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformValue<string> ScheduleExpression
     {
-        get => GetArgument<TerraformValue<string>>("schedule_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
     /// <summary>
     /// The schedule_expression_timezone attribute.
     /// </summary>
-    public TerraformValue<string>? ScheduleExpressionTimezone
+    public TerraformValue<string> ScheduleExpressionTimezone
     {
-        get => GetArgument<TerraformValue<string>>("schedule_expression_timezone");
+        get => GetArgument<TerraformValue<string>>("schedule_expression_timezone") ?? AsReference("schedule_expression_timezone");
         set => SetArgument("schedule_expression_timezone", value);
     }
 
     /// <summary>
     /// The start_window_hours attribute.
     /// </summary>
-    public TerraformValue<double>? StartWindowHours
+    public TerraformValue<double> StartWindowHours
     {
-        get => GetArgument<TerraformValue<double>>("start_window_hours");
+        get => GetArgument<TerraformValue<double>>("start_window_hours") ?? AsReference("start_window_hours");
         set => SetArgument("start_window_hours", value);
     }
 

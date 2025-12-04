@@ -25,18 +25,18 @@ public class AwsGlueJobCommandBlock : TerraformBlock
     /// <summary>
     /// The python_version attribute.
     /// </summary>
-    public TerraformValue<string>? PythonVersion
+    public TerraformValue<string> PythonVersion
     {
-        get => GetArgument<TerraformValue<string>>("python_version");
+        get => GetArgument<TerraformValue<string>>("python_version") ?? AsReference("python_version");
         set => SetArgument("python_version", value);
     }
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
-    public TerraformValue<string>? Runtime
+    public TerraformValue<string> Runtime
     {
-        get => GetArgument<TerraformValue<string>>("runtime");
+        get => GetArgument<TerraformValue<string>>("runtime") ?? AsReference("runtime");
         set => SetArgument("runtime", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsGlueJobCommandBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptLocation is required")]
     public required TerraformValue<string> ScriptLocation
     {
-        get => GetArgument<TerraformValue<string>>("script_location");
+        get => GetRequiredArgument<TerraformValue<string>>("script_location");
         set => SetArgument("script_location", value);
     }
 
@@ -230,27 +230,27 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// <summary>
     /// The glue_version attribute.
     /// </summary>
-    public TerraformValue<string>? GlueVersion
+    public TerraformValue<string> GlueVersion
     {
-        get => GetArgument<TerraformValue<string>>("glue_version");
+        get => GetArgument<TerraformValue<string>>("glue_version") ?? AsReference("glue_version");
         set => SetArgument("glue_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The job_mode attribute.
     /// </summary>
-    public TerraformValue<string>? JobMode
+    public TerraformValue<string> JobMode
     {
-        get => GetArgument<TerraformValue<string>>("job_mode");
+        get => GetArgument<TerraformValue<string>>("job_mode") ?? AsReference("job_mode");
         set => SetArgument("job_mode", value);
     }
 
@@ -275,9 +275,9 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public TerraformValue<double>? MaxCapacity
+    public TerraformValue<double> MaxCapacity
     {
-        get => GetArgument<TerraformValue<double>>("max_capacity");
+        get => GetArgument<TerraformValue<double>>("max_capacity") ?? AsReference("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -296,7 +296,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -312,18 +312,18 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// <summary>
     /// The number_of_workers attribute.
     /// </summary>
-    public TerraformValue<double>? NumberOfWorkers
+    public TerraformValue<double> NumberOfWorkers
     {
-        get => GetArgument<TerraformValue<double>>("number_of_workers");
+        get => GetArgument<TerraformValue<double>>("number_of_workers") ?? AsReference("number_of_workers");
         set => SetArgument("number_of_workers", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -333,7 +333,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -358,27 +358,27 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformValue<double>? Timeout
+    public TerraformValue<double> Timeout
     {
-        get => GetArgument<TerraformValue<double>>("timeout");
+        get => GetArgument<TerraformValue<double>>("timeout") ?? AsReference("timeout");
         set => SetArgument("timeout", value);
     }
 
     /// <summary>
     /// The worker_type attribute.
     /// </summary>
-    public TerraformValue<string>? WorkerType
+    public TerraformValue<string> WorkerType
     {
-        get => GetArgument<TerraformValue<string>>("worker_type");
+        get => GetArgument<TerraformValue<string>>("worker_type") ?? AsReference("worker_type");
         set => SetArgument("worker_type", value);
     }
 

@@ -72,7 +72,7 @@ public class GoogleClouddeployAutomationRulesBlockAdvanceRolloutRuleBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleClouddeployAutomationRulesBlockPromoteReleaseRuleBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -163,7 +163,7 @@ public class GoogleClouddeployAutomationRulesBlockRepairRolloutRuleBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -246,7 +246,7 @@ public class GoogleClouddeployAutomationRulesBlockRepairRolloutRuleBlockRepairPh
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attempts is required")]
     public required TerraformValue<string> Attempts
     {
-        get => GetArgument<TerraformValue<string>>("attempts");
+        get => GetRequiredArgument<TerraformValue<string>>("attempts");
         set => SetArgument("attempts", value);
     }
 
@@ -338,7 +338,7 @@ public class GoogleClouddeployAutomationRulesBlockTimedPromoteReleaseRuleBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -348,7 +348,7 @@ public class GoogleClouddeployAutomationRulesBlockTimedPromoteReleaseRuleBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => GetArgument<TerraformValue<string>>("schedule");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -358,7 +358,7 @@ public class GoogleClouddeployAutomationRulesBlockTimedPromoteReleaseRuleBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -413,9 +413,9 @@ public class GoogleClouddeployAutomationSelectorBlockTargetsBlock : TerraformBlo
     /// <summary>
     /// Target labels.
     /// </summary>
-    public TerraformMap<string>? Labels
+    public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -487,7 +487,7 @@ public partial class GoogleClouddeployAutomation(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryPipeline is required")]
     public required TerraformValue<string> DeliveryPipeline
     {
-        get => GetArgument<TerraformValue<string>>("delivery_pipeline");
+        get => GetRequiredArgument<TerraformValue<string>>("delivery_pipeline");
         set => SetArgument("delivery_pipeline", value);
     }
 
@@ -503,9 +503,9 @@ public partial class GoogleClouddeployAutomation(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -527,7 +527,7 @@ public partial class GoogleClouddeployAutomation(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -537,16 +537,16 @@ public partial class GoogleClouddeployAutomation(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -556,7 +556,7 @@ public partial class GoogleClouddeployAutomation(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetRequiredArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 

@@ -61,9 +61,9 @@ public partial class AzurermKeyVaultManagedStorageAccountSasTokenDefinition(stri
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermKeyVaultManagedStorageAccountSasTokenDefinition(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedStorageAccountId is required")]
     public required TerraformValue<string> ManagedStorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("managed_storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_storage_account_id");
         set => SetArgument("managed_storage_account_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermKeyVaultManagedStorageAccountSasTokenDefinition(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermKeyVaultManagedStorageAccountSasTokenDefinition(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasTemplateUri is required")]
     public required TerraformValue<string> SasTemplateUri
     {
-        get => GetArgument<TerraformValue<string>>("sas_template_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("sas_template_uri");
         set => SetArgument("sas_template_uri", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermKeyVaultManagedStorageAccountSasTokenDefinition(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasType is required")]
     public required TerraformValue<string> SasType
     {
-        get => GetArgument<TerraformValue<string>>("sas_type");
+        get => GetRequiredArgument<TerraformValue<string>>("sas_type");
         set => SetArgument("sas_type", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermKeyVaultManagedStorageAccountSasTokenDefinition(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidityPeriod is required")]
     public required TerraformValue<string> ValidityPeriod
     {
-        get => GetArgument<TerraformValue<string>>("validity_period");
+        get => GetRequiredArgument<TerraformValue<string>>("validity_period");
         set => SetArgument("validity_period", value);
     }
 

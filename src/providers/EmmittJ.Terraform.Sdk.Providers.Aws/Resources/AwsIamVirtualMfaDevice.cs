@@ -11,9 +11,9 @@ public partial class AwsIamVirtualMfaDevice(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -38,9 +38,9 @@ public partial class AwsIamVirtualMfaDevice(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsIamVirtualMfaDevice(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMfaDeviceName is required")]
     public required TerraformValue<string> VirtualMfaDeviceName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_mfa_device_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_mfa_device_name");
         set => SetArgument("virtual_mfa_device_name", value);
     }
 

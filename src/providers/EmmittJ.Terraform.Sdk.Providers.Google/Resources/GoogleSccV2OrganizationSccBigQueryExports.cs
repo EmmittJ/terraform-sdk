@@ -56,7 +56,7 @@ public partial class GoogleSccV2OrganizationSccBigQueryExports(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     public required TerraformValue<string> BigQueryExportId
     {
-        get => GetArgument<TerraformValue<string>>("big_query_export_id");
+        get => GetRequiredArgument<TerraformValue<string>>("big_query_export_id");
         set => SetArgument("big_query_export_id", value);
     }
 
@@ -116,9 +116,9 @@ public partial class GoogleSccV2OrganizationSccBigQueryExports(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -149,7 +149,7 @@ public partial class GoogleSccV2OrganizationSccBigQueryExports(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => GetArgument<TerraformValue<string>>("organization");
+        get => GetRequiredArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 

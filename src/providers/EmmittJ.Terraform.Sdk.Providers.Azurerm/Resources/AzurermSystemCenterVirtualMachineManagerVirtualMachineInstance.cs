@@ -164,7 +164,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetwo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -360,16 +360,16 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     public required TerraformValue<string> CustomLocationId
     {
-        get => GetArgument<TerraformValue<string>>("custom_location_id");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_location_id");
         set => SetArgument("custom_location_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -379,7 +379,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopedResourceId is required")]
     public required TerraformValue<string> ScopedResourceId
     {
-        get => GetArgument<TerraformValue<string>>("scoped_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("scoped_resource_id");
         set => SetArgument("scoped_resource_id", value);
     }
 

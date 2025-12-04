@@ -55,7 +55,7 @@ public partial class AwsRdsExportTask(string name) : TerraformResource("aws_rds_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportTaskIdentifier is required")]
     public required TerraformValue<string> ExportTaskIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("export_task_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("export_task_identifier");
         set => SetArgument("export_task_identifier", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsRdsExportTask(string name) : TerraformResource("aws_rds_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformValue<string> IamRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("iam_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AwsRdsExportTask(string name) : TerraformResource("aws_rds_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -94,16 +94,16 @@ public partial class AwsRdsExportTask(string name) : TerraformResource("aws_rds_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? S3Prefix
+    public TerraformValue<string> S3Prefix
     {
-        get => GetArgument<TerraformValue<string>>("s3_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_prefix") ?? AsReference("s3_prefix");
         set => SetArgument("s3_prefix", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsRdsExportTask(string name) : TerraformResource("aws_rds_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformValue<string> SourceArn
     {
-        get => GetArgument<TerraformValue<string>>("source_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("source_arn");
         set => SetArgument("source_arn", value);
     }
 

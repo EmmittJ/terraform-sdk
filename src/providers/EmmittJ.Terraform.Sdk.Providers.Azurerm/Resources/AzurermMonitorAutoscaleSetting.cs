@@ -100,7 +100,7 @@ public class AzurermMonitorAutoscaleSettingNotificationBlockWebhookBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
     public required TerraformValue<string> ServiceUri
     {
-        get => GetArgument<TerraformValue<string>>("service_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("service_uri");
         set => SetArgument("service_uri", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermMonitorAutoscaleSettingPredictiveBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleMode is required")]
     public required TerraformValue<string> ScaleMode
     {
-        get => GetArgument<TerraformValue<string>>("scale_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("scale_mode");
         set => SetArgument("scale_mode", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockCapacityBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAttribute is required")]
     public required TerraformValue<double> DefaultAttribute
     {
-        get => GetArgument<TerraformValue<double>>("default");
+        get => GetRequiredArgument<TerraformValue<double>>("default");
         set => SetArgument("default", value);
     }
 
@@ -233,7 +233,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockCapacityBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Maximum is required")]
     public required TerraformValue<double> Maximum
     {
-        get => GetArgument<TerraformValue<double>>("maximum");
+        get => GetRequiredArgument<TerraformValue<double>>("maximum");
         set => SetArgument("maximum", value);
     }
 
@@ -243,7 +243,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockCapacityBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minimum is required")]
     public required TerraformValue<double> Minimum
     {
-        get => GetArgument<TerraformValue<double>>("minimum");
+        get => GetRequiredArgument<TerraformValue<double>>("minimum");
         set => SetArgument("minimum", value);
     }
 
@@ -266,7 +266,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockFixedDateBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<string> End
     {
-        get => GetArgument<TerraformValue<string>>("end");
+        get => GetRequiredArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -276,7 +276,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockFixedDateBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<string> Start
     {
-        get => GetArgument<TerraformValue<string>>("start");
+        get => GetRequiredArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -408,7 +408,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockMetricTriggerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => GetArgument<TerraformValue<string>>("metric_name");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -427,7 +427,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockMetricTriggerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricResourceId is required")]
     public required TerraformValue<string> MetricResourceId
     {
-        get => GetArgument<TerraformValue<string>>("metric_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_resource_id");
         set => SetArgument("metric_resource_id", value);
     }
 
@@ -437,7 +437,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockMetricTriggerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -447,7 +447,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockMetricTriggerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Statistic is required")]
     public required TerraformValue<string> Statistic
     {
-        get => GetArgument<TerraformValue<string>>("statistic");
+        get => GetRequiredArgument<TerraformValue<string>>("statistic");
         set => SetArgument("statistic", value);
     }
 
@@ -457,7 +457,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockMetricTriggerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => GetArgument<TerraformValue<double>>("threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -467,7 +467,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockMetricTriggerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeAggregation is required")]
     public required TerraformValue<string> TimeAggregation
     {
-        get => GetArgument<TerraformValue<string>>("time_aggregation");
+        get => GetRequiredArgument<TerraformValue<string>>("time_aggregation");
         set => SetArgument("time_aggregation", value);
     }
 
@@ -477,7 +477,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockMetricTriggerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeGrain is required")]
     public required TerraformValue<string> TimeGrain
     {
-        get => GetArgument<TerraformValue<string>>("time_grain");
+        get => GetRequiredArgument<TerraformValue<string>>("time_grain");
         set => SetArgument("time_grain", value);
     }
 
@@ -487,7 +487,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockMetricTriggerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeWindow is required")]
     public required TerraformValue<string> TimeWindow
     {
-        get => GetArgument<TerraformValue<string>>("time_window");
+        get => GetRequiredArgument<TerraformValue<string>>("time_window");
         set => SetArgument("time_window", value);
     }
 
@@ -519,7 +519,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockMetricTriggerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -529,7 +529,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockMetricTriggerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -562,7 +562,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockScaleActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cooldown is required")]
     public required TerraformValue<string> Cooldown
     {
-        get => GetArgument<TerraformValue<string>>("cooldown");
+        get => GetRequiredArgument<TerraformValue<string>>("cooldown");
         set => SetArgument("cooldown", value);
     }
 
@@ -572,7 +572,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockScaleActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => GetArgument<TerraformValue<string>>("direction");
+        get => GetRequiredArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
@@ -582,7 +582,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockScaleActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -592,7 +592,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlockRuleBlockScaleActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -667,9 +667,9 @@ public partial class AzurermMonitorAutoscaleSetting(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -679,7 +679,7 @@ public partial class AzurermMonitorAutoscaleSetting(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -689,7 +689,7 @@ public partial class AzurermMonitorAutoscaleSetting(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -699,7 +699,7 @@ public partial class AzurermMonitorAutoscaleSetting(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -718,7 +718,7 @@ public partial class AzurermMonitorAutoscaleSetting(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformValue<string> TargetResourceId
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 

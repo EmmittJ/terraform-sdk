@@ -19,7 +19,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthMhz is required")]
     public required TerraformValue<double> BandwidthMhz
     {
-        get => GetArgument<TerraformValue<double>>("bandwidth_mhz");
+        get => GetRequiredArgument<TerraformValue<double>>("bandwidth_mhz");
         set => SetArgument("bandwidth_mhz", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CenterFrequencyMhz is required")]
     public required TerraformValue<double> CenterFrequencyMhz
     {
-        get => GetArgument<TerraformValue<double>>("center_frequency_mhz");
+        get => GetRequiredArgument<TerraformValue<double>>("center_frequency_mhz");
         set => SetArgument("center_frequency_mhz", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => GetArgument<TerraformValue<string>>("direction");
+        get => GetRequiredArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Polarization is required")]
     public required TerraformValue<string> Polarization
     {
-        get => GetArgument<TerraformValue<string>>("polarization");
+        get => GetRequiredArgument<TerraformValue<string>>("polarization");
         set => SetArgument("polarization", value);
     }
 
@@ -126,9 +126,9 @@ public partial class AzurermOrbitalSpacecraft(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermOrbitalSpacecraft(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermOrbitalSpacecraft(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AzurermOrbitalSpacecraft(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoradId is required")]
     public required TerraformValue<string> NoradId
     {
-        get => GetArgument<TerraformValue<string>>("norad_id");
+        get => GetRequiredArgument<TerraformValue<string>>("norad_id");
         set => SetArgument("norad_id", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermOrbitalSpacecraft(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzurermOrbitalSpacecraft(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TitleLine is required")]
     public required TerraformValue<string> TitleLine
     {
-        get => GetArgument<TerraformValue<string>>("title_line");
+        get => GetRequiredArgument<TerraformValue<string>>("title_line");
         set => SetArgument("title_line", value);
     }
 

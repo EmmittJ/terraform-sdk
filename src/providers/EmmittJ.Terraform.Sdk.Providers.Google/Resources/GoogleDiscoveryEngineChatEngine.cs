@@ -76,7 +76,7 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlockAgentCreationCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLanguageCode is required")]
     public required TerraformValue<string> DefaultLanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("default_language_code");
+        get => GetRequiredArgument<TerraformValue<string>>("default_language_code");
         set => SetArgument("default_language_code", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlockAgentCreationCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -178,7 +178,7 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => GetArgument<TerraformValue<string>>("collection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
@@ -198,7 +198,7 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -208,16 +208,16 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformValue<string> EngineId
     {
-        get => GetArgument<TerraformValue<string>>("engine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_id");
         set => SetArgument("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -236,16 +236,16 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

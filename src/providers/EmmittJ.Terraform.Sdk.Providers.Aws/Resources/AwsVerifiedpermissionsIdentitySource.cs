@@ -47,9 +47,9 @@ public class AwsVerifiedpermissionsIdentitySourceConfigurationBlockCognitoUserPo
     /// <summary>
     /// The client_ids attribute.
     /// </summary>
-    public TerraformList<string>? ClientIds
+    public TerraformList<string> ClientIds
     {
-        get => GetArgument<TerraformList<string>>("client_ids");
+        get => GetArgument<TerraformList<string>>("client_ids") ?? AsReference("client_ids");
         set => SetArgument("client_ids", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsVerifiedpermissionsIdentitySourceConfigurationBlockCognitoUserPo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolArn is required")]
     public required TerraformValue<string> UserPoolArn
     {
-        get => GetArgument<TerraformValue<string>>("user_pool_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("user_pool_arn");
         set => SetArgument("user_pool_arn", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsVerifiedpermissionsIdentitySourceConfigurationBlockCognitoUserPo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupEntityType is required")]
     public required TerraformValue<string> GroupEntityType
     {
-        get => GetArgument<TerraformValue<string>>("group_entity_type");
+        get => GetRequiredArgument<TerraformValue<string>>("group_entity_type");
         set => SetArgument("group_entity_type", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsVerifiedpermissionsIdentitySourceConfigurationBlockOpenIdConnect
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => GetArgument<TerraformValue<string>>("issuer");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsVerifiedpermissionsIdentitySourceConfigurationBlockOpenIdConnect
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupClaim is required")]
     public required TerraformValue<string> GroupClaim
     {
-        get => GetArgument<TerraformValue<string>>("group_claim");
+        get => GetRequiredArgument<TerraformValue<string>>("group_claim");
         set => SetArgument("group_claim", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsVerifiedpermissionsIdentitySourceConfigurationBlockOpenIdConnect
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupEntityType is required")]
     public required TerraformValue<string> GroupEntityType
     {
-        get => GetArgument<TerraformValue<string>>("group_entity_type");
+        get => GetRequiredArgument<TerraformValue<string>>("group_entity_type");
         set => SetArgument("group_entity_type", value);
     }
 
@@ -286,25 +286,25 @@ public partial class AwsVerifiedpermissionsIdentitySource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
     public required TerraformValue<string> PolicyStoreId
     {
-        get => GetArgument<TerraformValue<string>>("policy_store_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_store_id");
         set => SetArgument("policy_store_id", value);
     }
 
     /// <summary>
     /// The principal_entity_type attribute.
     /// </summary>
-    public TerraformValue<string>? PrincipalEntityType
+    public TerraformValue<string> PrincipalEntityType
     {
-        get => GetArgument<TerraformValue<string>>("principal_entity_type");
+        get => GetArgument<TerraformValue<string>>("principal_entity_type") ?? AsReference("principal_entity_type");
         set => SetArgument("principal_entity_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

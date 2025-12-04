@@ -14,16 +14,16 @@ public partial class GoogleStorageObjectAcl(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleStorageObjectAcl(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -49,9 +49,9 @@ public partial class GoogleStorageObjectAcl(string name) : TerraformResource("go
     /// <summary>
     /// The role_entity attribute.
     /// </summary>
-    public TerraformSet<string>? RoleEntity
+    public TerraformSet<string> RoleEntity
     {
-        get => GetArgument<TerraformSet<string>>("role_entity");
+        get => GetArgument<TerraformSet<string>>("role_entity") ?? AsReference("role_entity");
         set => SetArgument("role_entity", value);
     }
 

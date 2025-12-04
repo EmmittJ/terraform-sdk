@@ -16,9 +16,9 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     /// <summary>
     /// The azuread_authentication_only attribute.
     /// </summary>
-    public TerraformValue<bool>? AzureadAuthenticationOnly
+    public TerraformValue<bool> AzureadAuthenticationOnly
     {
-        get => GetArgument<TerraformValue<bool>>("azuread_authentication_only");
+        get => GetArgument<TerraformValue<bool>>("azuread_authentication_only") ?? AsReference("azuread_authentication_only");
         set => SetArgument("azuread_authentication_only", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginUsername is required")]
     public required TerraformValue<string> LoginUsername
     {
-        get => GetArgument<TerraformValue<string>>("login_username");
+        get => GetRequiredArgument<TerraformValue<string>>("login_username");
         set => SetArgument("login_username", value);
     }
 
@@ -38,16 +38,16 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string>? TenantId
+    public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermMssqlServerIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -158,9 +158,9 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
-    public TerraformValue<string>? AdministratorLogin
+    public TerraformValue<string> AdministratorLogin
     {
-        get => GetArgument<TerraformValue<string>>("administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login") ?? AsReference("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -212,9 +212,9 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -259,9 +259,9 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// <summary>
     /// The primary_user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformValue<string>? PrimaryUserAssignedIdentityId
+    public TerraformValue<string> PrimaryUserAssignedIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("primary_user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("primary_user_assigned_identity_id") ?? AsReference("primary_user_assigned_identity_id");
         set => SetArgument("primary_user_assigned_identity_id", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -308,7 +308,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

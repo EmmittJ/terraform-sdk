@@ -19,7 +19,7 @@ public class AzurermVirtualMachineAdditionalCapabilitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UltraSsdEnabled is required")]
     public required TerraformValue<bool> UltraSsdEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("ultra_ssd_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("ultra_ssd_enabled");
         set => SetArgument("ultra_ssd_enabled", value);
     }
 
@@ -43,7 +43,7 @@ public class AzurermVirtualMachineBootDiagnosticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermVirtualMachineBootDiagnosticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUri is required")]
     public required TerraformValue<string> StorageUri
     {
-        get => GetArgument<TerraformValue<string>>("storage_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_uri");
         set => SetArgument("storage_uri", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermVirtualMachineIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermVirtualMachineOsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformValue<string> AdminUsername
     {
-        get => GetArgument<TerraformValue<string>>("admin_username");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_username");
         set => SetArgument("admin_username", value);
     }
 
@@ -141,16 +141,16 @@ public class AzurermVirtualMachineOsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputerName is required")]
     public required TerraformValue<string> ComputerName
     {
-        get => GetArgument<TerraformValue<string>>("computer_name");
+        get => GetRequiredArgument<TerraformValue<string>>("computer_name");
         set => SetArgument("computer_name", value);
     }
 
     /// <summary>
     /// The custom_data attribute.
     /// </summary>
-    public TerraformValue<string>? CustomData
+    public TerraformValue<string> CustomData
     {
-        get => GetArgument<TerraformValue<string>>("custom_data");
+        get => GetArgument<TerraformValue<string>>("custom_data") ?? AsReference("custom_data");
         set => SetArgument("custom_data", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermVirtualMachineOsProfileLinuxConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisablePasswordAuthentication is required")]
     public required TerraformValue<bool> DisablePasswordAuthentication
     {
-        get => GetArgument<TerraformValue<bool>>("disable_password_authentication");
+        get => GetRequiredArgument<TerraformValue<bool>>("disable_password_authentication");
         set => SetArgument("disable_password_authentication", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermVirtualMachineOsProfileLinuxConfigBlockSshKeysBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyData is required")]
     public required TerraformValue<string> KeyData
     {
-        get => GetArgument<TerraformValue<string>>("key_data");
+        get => GetRequiredArgument<TerraformValue<string>>("key_data");
         set => SetArgument("key_data", value);
     }
 
@@ -216,7 +216,7 @@ public class AzurermVirtualMachineOsProfileLinuxConfigBlockSshKeysBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -240,7 +240,7 @@ public class AzurermVirtualMachineOsProfileSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformValue<string> SourceVaultId
     {
-        get => GetArgument<TerraformValue<string>>("source_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_vault_id");
         set => SetArgument("source_vault_id", value);
     }
 
@@ -281,7 +281,7 @@ public class AzurermVirtualMachineOsProfileSecretsBlockVaultCertificatesBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateUrl is required")]
     public required TerraformValue<string> CertificateUrl
     {
-        get => GetArgument<TerraformValue<string>>("certificate_url");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_url");
         set => SetArgument("certificate_url", value);
     }
 
@@ -363,7 +363,7 @@ public class AzurermVirtualMachineOsProfileWindowsConfigBlockAdditionalUnattendC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Component is required")]
     public required TerraformValue<string> Component
     {
-        get => GetArgument<TerraformValue<string>>("component");
+        get => GetRequiredArgument<TerraformValue<string>>("component");
         set => SetArgument("component", value);
     }
 
@@ -373,7 +373,7 @@ public class AzurermVirtualMachineOsProfileWindowsConfigBlockAdditionalUnattendC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -383,7 +383,7 @@ public class AzurermVirtualMachineOsProfileWindowsConfigBlockAdditionalUnattendC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pass is required")]
     public required TerraformValue<string> Pass
     {
-        get => GetArgument<TerraformValue<string>>("pass");
+        get => GetRequiredArgument<TerraformValue<string>>("pass");
         set => SetArgument("pass", value);
     }
 
@@ -393,7 +393,7 @@ public class AzurermVirtualMachineOsProfileWindowsConfigBlockAdditionalUnattendC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SettingName is required")]
     public required TerraformValue<string> SettingName
     {
-        get => GetArgument<TerraformValue<string>>("setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("setting_name");
         set => SetArgument("setting_name", value);
     }
 
@@ -425,7 +425,7 @@ public class AzurermVirtualMachineOsProfileWindowsConfigBlockWinrmBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -449,7 +449,7 @@ public class AzurermVirtualMachinePlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -459,7 +459,7 @@ public class AzurermVirtualMachinePlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformValue<string> Product
     {
-        get => GetArgument<TerraformValue<string>>("product");
+        get => GetRequiredArgument<TerraformValue<string>>("product");
         set => SetArgument("product", value);
     }
 
@@ -469,7 +469,7 @@ public class AzurermVirtualMachinePlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -490,9 +490,9 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     /// <summary>
     /// The caching attribute.
     /// </summary>
-    public TerraformValue<string>? Caching
+    public TerraformValue<string> Caching
     {
-        get => GetArgument<TerraformValue<string>>("caching");
+        get => GetArgument<TerraformValue<string>>("caching") ?? AsReference("caching");
         set => SetArgument("caching", value);
     }
 
@@ -502,16 +502,16 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformValue<string> CreateOption
     {
-        get => GetArgument<TerraformValue<string>>("create_option");
+        get => GetRequiredArgument<TerraformValue<string>>("create_option");
         set => SetArgument("create_option", value);
     }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformValue<double>? DiskSizeGb
+    public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -521,25 +521,25 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformValue<double> Lun
     {
-        get => GetArgument<TerraformValue<double>>("lun");
+        get => GetRequiredArgument<TerraformValue<double>>("lun");
         set => SetArgument("lun", value);
     }
 
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
-    public TerraformValue<string>? ManagedDiskId
+    public TerraformValue<string> ManagedDiskId
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_id");
+        get => GetArgument<TerraformValue<string>>("managed_disk_id") ?? AsReference("managed_disk_id");
         set => SetArgument("managed_disk_id", value);
     }
 
     /// <summary>
     /// The managed_disk_type attribute.
     /// </summary>
-    public TerraformValue<string>? ManagedDiskType
+    public TerraformValue<string> ManagedDiskType
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_type");
+        get => GetArgument<TerraformValue<string>>("managed_disk_type") ?? AsReference("managed_disk_type");
         set => SetArgument("managed_disk_type", value);
     }
 
@@ -549,7 +549,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -624,9 +624,9 @@ public class AzurermVirtualMachineStorageImageReferenceBlock : TerraformBlock
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string>? Version
+    public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 
@@ -647,9 +647,9 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The caching attribute.
     /// </summary>
-    public TerraformValue<string>? Caching
+    public TerraformValue<string> Caching
     {
-        get => GetArgument<TerraformValue<string>>("caching");
+        get => GetArgument<TerraformValue<string>>("caching") ?? AsReference("caching");
         set => SetArgument("caching", value);
     }
 
@@ -659,16 +659,16 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformValue<string> CreateOption
     {
-        get => GetArgument<TerraformValue<string>>("create_option");
+        get => GetRequiredArgument<TerraformValue<string>>("create_option");
         set => SetArgument("create_option", value);
     }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformValue<double>? DiskSizeGb
+    public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -684,18 +684,18 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
-    public TerraformValue<string>? ManagedDiskId
+    public TerraformValue<string> ManagedDiskId
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_id");
+        get => GetArgument<TerraformValue<string>>("managed_disk_id") ?? AsReference("managed_disk_id");
         set => SetArgument("managed_disk_id", value);
     }
 
     /// <summary>
     /// The managed_disk_type attribute.
     /// </summary>
-    public TerraformValue<string>? ManagedDiskType
+    public TerraformValue<string> ManagedDiskType
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_type");
+        get => GetArgument<TerraformValue<string>>("managed_disk_type") ?? AsReference("managed_disk_type");
         set => SetArgument("managed_disk_type", value);
     }
 
@@ -705,16 +705,16 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
-    public TerraformValue<string>? OsType
+    public TerraformValue<string> OsType
     {
-        get => GetArgument<TerraformValue<string>>("os_type");
+        get => GetArgument<TerraformValue<string>>("os_type") ?? AsReference("os_type");
         set => SetArgument("os_type", value);
     }
 
@@ -798,9 +798,9 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// <summary>
     /// The availability_set_id attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilitySetId
+    public TerraformValue<string> AvailabilitySetId
     {
-        get => GetArgument<TerraformValue<string>>("availability_set_id");
+        get => GetArgument<TerraformValue<string>>("availability_set_id") ?? AsReference("availability_set_id");
         set => SetArgument("availability_set_id", value);
     }
 
@@ -825,18 +825,18 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformValue<string>? LicenseType
+    public TerraformValue<string> LicenseType
     {
-        get => GetArgument<TerraformValue<string>>("license_type");
+        get => GetArgument<TerraformValue<string>>("license_type") ?? AsReference("license_type");
         set => SetArgument("license_type", value);
     }
 
@@ -846,7 +846,7 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -856,7 +856,7 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -894,7 +894,7 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -913,7 +913,7 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformValue<string> VmSize
     {
-        get => GetArgument<TerraformValue<string>>("vm_size");
+        get => GetRequiredArgument<TerraformValue<string>>("vm_size");
         set => SetArgument("vm_size", value);
     }
 

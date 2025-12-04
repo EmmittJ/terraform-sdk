@@ -48,9 +48,9 @@ public class GoogleComputeReservationReservationSharingPolicyBlock : TerraformBl
     /// <summary>
     /// Sharing config for all Google Cloud services. Possible values: [&amp;quot;ALLOW_ALL&amp;quot;, &amp;quot;DISALLOW_ALL&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? ServiceShareType
+    public TerraformValue<string> ServiceShareType
     {
-        get => GetArgument<TerraformValue<string>>("service_share_type");
+        get => GetArgument<TerraformValue<string>>("service_share_type") ?? AsReference("service_share_type");
         set => SetArgument("service_share_type", value);
     }
 
@@ -71,9 +71,9 @@ public class GoogleComputeReservationShareSettingsBlock : TerraformBlock
     /// <summary>
     /// Type of sharing for this shared-reservation Possible values: [&amp;quot;LOCAL&amp;quot;, &amp;quot;SPECIFIC_PROJECTS&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? ShareType
+    public TerraformValue<string> ShareType
     {
-        get => GetArgument<TerraformValue<string>>("share_type");
+        get => GetArgument<TerraformValue<string>>("share_type") ?? AsReference("share_type");
         set => SetArgument("share_type", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleComputeReservationShareSettingsBlockProjectMapBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleComputeReservationSpecificReservationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetRequiredArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -187,7 +187,7 @@ public class GoogleComputeReservationSpecificReservationBlockInstancePropertiesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
     public required TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type");
+        get => GetRequiredArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -197,9 +197,9 @@ public class GoogleComputeReservationSpecificReservationBlockInstancePropertiesB
     /// the CPU platform availability reference](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform#availablezones)
     /// for information on available CPU platforms.
     /// </summary>
-    public TerraformValue<string>? MinCpuPlatform
+    public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -241,7 +241,7 @@ public class GoogleComputeReservationSpecificReservationBlockInstancePropertiesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorCount is required")]
     public required TerraformValue<double> AcceleratorCount
     {
-        get => GetArgument<TerraformValue<double>>("accelerator_count");
+        get => GetRequiredArgument<TerraformValue<double>>("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -255,7 +255,7 @@ public class GoogleComputeReservationSpecificReservationBlockInstancePropertiesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorType is required")]
     public required TerraformValue<string> AcceleratorType
     {
-        get => GetArgument<TerraformValue<string>>("accelerator_type");
+        get => GetRequiredArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -278,7 +278,7 @@ public class GoogleComputeReservationSpecificReservationBlockInstancePropertiesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
     public required TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -345,9 +345,9 @@ public partial class GoogleComputeReservation(string name) : TerraformResource("
     /// Absolute time in future when the reservation will be auto-deleted by Compute Engine. Timestamp is represented in RFC3339 text format.
     /// Cannot be used with delete_after_duration.
     /// </summary>
-    public TerraformValue<string>? DeleteAtTime
+    public TerraformValue<string> DeleteAtTime
     {
-        get => GetArgument<TerraformValue<string>>("delete_at_time");
+        get => GetArgument<TerraformValue<string>>("delete_at_time") ?? AsReference("delete_at_time");
         set => SetArgument("delete_at_time", value);
     }
 
@@ -363,9 +363,9 @@ public partial class GoogleComputeReservation(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -381,16 +381,16 @@ public partial class GoogleComputeReservation(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -411,7 +411,7 @@ public partial class GoogleComputeReservation(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetRequiredArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 

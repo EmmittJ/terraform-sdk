@@ -61,9 +61,9 @@ public partial class GoogleBigtableLogicalView(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,16 +82,16 @@ public partial class GoogleBigtableLogicalView(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicalViewId is required")]
     public required TerraformValue<string> LogicalViewId
     {
-        get => GetArgument<TerraformValue<string>>("logical_view_id");
+        get => GetRequiredArgument<TerraformValue<string>>("logical_view_id");
         set => SetArgument("logical_view_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -101,7 +101,7 @@ public partial class GoogleBigtableLogicalView(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => GetArgument<TerraformValue<string>>("query");
+        get => GetRequiredArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 

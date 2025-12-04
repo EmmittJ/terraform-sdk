@@ -65,7 +65,7 @@ public partial class AzurermAppServiceActiveSlot(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     public required TerraformValue<string> AppServiceName
     {
-        get => GetArgument<TerraformValue<string>>("app_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_service_name");
         set => SetArgument("app_service_name", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AzurermAppServiceActiveSlot(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceSlotName is required")]
     public required TerraformValue<string> AppServiceSlotName
     {
-        get => GetArgument<TerraformValue<string>>("app_service_slot_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_service_slot_name");
         set => SetArgument("app_service_slot_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermAppServiceActiveSlot(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

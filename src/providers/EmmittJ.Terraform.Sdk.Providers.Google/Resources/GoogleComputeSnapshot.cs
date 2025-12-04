@@ -188,9 +188,9 @@ public partial class GoogleComputeSnapshot(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -218,16 +218,16 @@ public partial class GoogleComputeSnapshot(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -237,25 +237,25 @@ public partial class GoogleComputeSnapshot(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDisk is required")]
     public required TerraformValue<string> SourceDisk
     {
-        get => GetArgument<TerraformValue<string>>("source_disk");
+        get => GetRequiredArgument<TerraformValue<string>>("source_disk");
         set => SetArgument("source_disk", value);
     }
 
     /// <summary>
     /// Cloud Storage bucket storage location of the snapshot (regional or multi-regional).
     /// </summary>
-    public TerraformList<string>? StorageLocations
+    public TerraformList<string> StorageLocations
     {
-        get => GetArgument<TerraformList<string>>("storage_locations");
+        get => GetArgument<TerraformList<string>>("storage_locations") ?? AsReference("storage_locations");
         set => SetArgument("storage_locations", value);
     }
 
     /// <summary>
     /// A reference to the zone where the disk is hosted.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

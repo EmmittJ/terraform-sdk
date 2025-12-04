@@ -11,9 +11,9 @@ public partial class AwsNetworkmonitorMonitor(string name) : TerraformResource("
     /// <summary>
     /// The aggregation_period attribute.
     /// </summary>
-    public TerraformValue<double>? AggregationPeriod
+    public TerraformValue<double> AggregationPeriod
     {
-        get => GetArgument<TerraformValue<double>>("aggregation_period");
+        get => GetArgument<TerraformValue<double>>("aggregation_period") ?? AsReference("aggregation_period");
         set => SetArgument("aggregation_period", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsNetworkmonitorMonitor(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
     public required TerraformValue<string> MonitorName
     {
-        get => GetArgument<TerraformValue<string>>("monitor_name");
+        get => GetRequiredArgument<TerraformValue<string>>("monitor_name");
         set => SetArgument("monitor_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

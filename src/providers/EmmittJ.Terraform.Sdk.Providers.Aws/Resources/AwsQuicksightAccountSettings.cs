@@ -43,27 +43,27 @@ public partial class AwsQuicksightAccountSettings(string name) : TerraformResour
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
     /// <summary>
     /// The default_namespace attribute.
     /// </summary>
-    public TerraformValue<string>? DefaultNamespace
+    public TerraformValue<string> DefaultNamespace
     {
-        get => GetArgument<TerraformValue<string>>("default_namespace");
+        get => GetArgument<TerraformValue<string>>("default_namespace") ?? AsReference("default_namespace");
         set => SetArgument("default_namespace", value);
     }
 
     /// <summary>
     /// The termination_protection_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? TerminationProtectionEnabled
+    public TerraformValue<bool> TerminationProtectionEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("termination_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("termination_protection_enabled") ?? AsReference("termination_protection_enabled");
         set => SetArgument("termination_protection_enabled", value);
     }
 

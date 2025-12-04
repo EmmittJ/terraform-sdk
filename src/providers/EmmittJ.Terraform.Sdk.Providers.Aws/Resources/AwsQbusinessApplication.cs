@@ -19,7 +19,7 @@ public class AwsQbusinessApplicationAttachmentsConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentsControlMode is required")]
     public required TerraformValue<string> AttachmentsControlMode
     {
-        get => GetArgument<TerraformValue<string>>("attachments_control_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("attachments_control_mode");
         set => SetArgument("attachments_control_mode", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsQbusinessApplicationEncryptionConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsQbusinessApplication(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsQbusinessApplication(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamServiceRoleArn is required")]
     public required TerraformValue<string> IamServiceRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("iam_service_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("iam_service_role_arn");
         set => SetArgument("iam_service_role_arn", value);
     }
 
@@ -132,16 +132,16 @@ public partial class AwsQbusinessApplication(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityCenterInstanceArn is required")]
     public required TerraformValue<string> IdentityCenterInstanceArn
     {
-        get => GetArgument<TerraformValue<string>>("identity_center_instance_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_center_instance_arn");
         set => SetArgument("identity_center_instance_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

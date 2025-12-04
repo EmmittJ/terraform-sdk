@@ -43,9 +43,9 @@ public partial class GoogleAccessContextManagerIngressPolicy(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleAccessContextManagerIngressPolicy(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngressPolicyName is required")]
     public required TerraformValue<string> IngressPolicyName
     {
-        get => GetArgument<TerraformValue<string>>("ingress_policy_name");
+        get => GetRequiredArgument<TerraformValue<string>>("ingress_policy_name");
         set => SetArgument("ingress_policy_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleAccessContextManagerIngressPolicy(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => GetArgument<TerraformValue<string>>("resource");
+        get => GetRequiredArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 

@@ -28,7 +28,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProvider is required")]
     public required TerraformValue<string> IdentityProvider
     {
-        get => GetArgument<TerraformValue<string>>("identity_provider");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_provider");
         set => SetArgument("identity_provider", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlockMappingRuleBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Claim is required")]
     public required TerraformValue<string> Claim
     {
-        get => GetArgument<TerraformValue<string>>("claim");
+        get => GetRequiredArgument<TerraformValue<string>>("claim");
         set => SetArgument("claim", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlockMappingRuleBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchType is required")]
     public required TerraformValue<string> MatchType
     {
-        get => GetArgument<TerraformValue<string>>("match_type");
+        get => GetRequiredArgument<TerraformValue<string>>("match_type");
         set => SetArgument("match_type", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlockMappingRuleBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlockMappingRuleBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -117,9 +117,9 @@ public partial class AwsCognitoIdentityPoolRolesAttachment(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -129,16 +129,16 @@ public partial class AwsCognitoIdentityPoolRolesAttachment(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformValue<string> IdentityPoolId
     {
-        get => GetArgument<TerraformValue<string>>("identity_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_pool_id");
         set => SetArgument("identity_pool_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsCognitoIdentityPoolRolesAttachment(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     public required TerraformMap<string> Roles
     {
-        get => GetArgument<TerraformMap<string>>("roles");
+        get => GetRequiredArgument<TerraformMap<string>>("roles");
         set => SetArgument("roles", value);
     }
 

@@ -64,7 +64,7 @@ public partial class AzurermKustoEventhubDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermKustoEventhubDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerGroup is required")]
     public required TerraformValue<string> ConsumerGroup
     {
-        get => GetArgument<TerraformValue<string>>("consumer_group");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_group");
         set => SetArgument("consumer_group", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermKustoEventhubDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -118,9 +118,9 @@ public partial class AzurermKustoEventhubDataConnection(string name) : Terraform
     /// <summary>
     /// The event_system_properties attribute.
     /// </summary>
-    public TerraformList<string>? EventSystemProperties
+    public TerraformList<string> EventSystemProperties
     {
-        get => GetArgument<TerraformList<string>>("event_system_properties");
+        get => GetArgument<TerraformList<string>>("event_system_properties") ?? AsReference("event_system_properties");
         set => SetArgument("event_system_properties", value);
     }
 
@@ -130,16 +130,16 @@ public partial class AzurermKustoEventhubDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubId is required")]
     public required TerraformValue<string> EventhubId
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_id");
         set => SetArgument("eventhub_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AzurermKustoEventhubDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermKustoEventhubDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzurermKustoEventhubDataConnection(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

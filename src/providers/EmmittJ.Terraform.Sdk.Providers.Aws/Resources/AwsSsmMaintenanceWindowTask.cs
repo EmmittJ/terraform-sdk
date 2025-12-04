@@ -19,7 +19,7 @@ public class AwsSsmMaintenanceWindowTaskTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockAutomationP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -321,9 +321,9 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// <summary>
     /// The cloudwatch_log_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? CloudwatchLogGroupName
+    public TerraformValue<string> CloudwatchLogGroupName
     {
-        get => GetArgument<TerraformValue<string>>("cloudwatch_log_group_name");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_log_group_name") ?? AsReference("cloudwatch_log_group_name");
         set => SetArgument("cloudwatch_log_group_name", value);
     }
 
@@ -395,7 +395,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -470,27 +470,27 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    public TerraformValue<string>? MaxConcurrency
+    public TerraformValue<string> MaxConcurrency
     {
-        get => GetArgument<TerraformValue<string>>("max_concurrency");
+        get => GetArgument<TerraformValue<string>>("max_concurrency") ?? AsReference("max_concurrency");
         set => SetArgument("max_concurrency", value);
     }
 
     /// <summary>
     /// The max_errors attribute.
     /// </summary>
-    public TerraformValue<string>? MaxErrors
+    public TerraformValue<string> MaxErrors
     {
-        get => GetArgument<TerraformValue<string>>("max_errors");
+        get => GetArgument<TerraformValue<string>>("max_errors") ?? AsReference("max_errors");
         set => SetArgument("max_errors", value);
     }
 
@@ -515,18 +515,18 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The service_role_arn attribute.
     /// </summary>
-    public TerraformValue<string>? ServiceRoleArn
+    public TerraformValue<string> ServiceRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("service_role_arn");
+        get => GetArgument<TerraformValue<string>>("service_role_arn") ?? AsReference("service_role_arn");
         set => SetArgument("service_role_arn", value);
     }
 
@@ -536,7 +536,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskArn is required")]
     public required TerraformValue<string> TaskArn
     {
-        get => GetArgument<TerraformValue<string>>("task_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("task_arn");
         set => SetArgument("task_arn", value);
     }
 
@@ -546,7 +546,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
     public required TerraformValue<string> TaskType
     {
-        get => GetArgument<TerraformValue<string>>("task_type");
+        get => GetRequiredArgument<TerraformValue<string>>("task_type");
         set => SetArgument("task_type", value);
     }
 
@@ -556,7 +556,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WindowId is required")]
     public required TerraformValue<string> WindowId
     {
-        get => GetArgument<TerraformValue<string>>("window_id");
+        get => GetRequiredArgument<TerraformValue<string>>("window_id");
         set => SetArgument("window_id", value);
     }
 

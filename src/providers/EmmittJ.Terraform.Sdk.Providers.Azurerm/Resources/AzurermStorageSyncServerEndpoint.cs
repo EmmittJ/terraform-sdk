@@ -70,9 +70,9 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegisteredServerId is required")]
     public required TerraformValue<string> RegisteredServerId
     {
-        get => GetArgument<TerraformValue<string>>("registered_server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("registered_server_id");
         set => SetArgument("registered_server_id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerLocalPath is required")]
     public required TerraformValue<string> ServerLocalPath
     {
-        get => GetArgument<TerraformValue<string>>("server_local_path");
+        get => GetRequiredArgument<TerraformValue<string>>("server_local_path");
         set => SetArgument("server_local_path", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncGroupId is required")]
     public required TerraformValue<string> StorageSyncGroupId
     {
-        get => GetArgument<TerraformValue<string>>("storage_sync_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_sync_group_id");
         set => SetArgument("storage_sync_group_id", value);
     }
 

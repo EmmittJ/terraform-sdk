@@ -14,16 +14,16 @@ public partial class AwsIamUserSshKey(string name) : TerraformResource("aws_iam_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
     public required TerraformValue<string> Encoding
     {
-        get => GetArgument<TerraformValue<string>>("encoding");
+        get => GetRequiredArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsIamUserSshKey(string name) : TerraformResource("aws_iam_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformValue<string> PublicKey
     {
-        get => GetArgument<TerraformValue<string>>("public_key");
+        get => GetRequiredArgument<TerraformValue<string>>("public_key");
         set => SetArgument("public_key", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string>? Status
+    public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
         set => SetArgument("status", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsIamUserSshKey(string name) : TerraformResource("aws_iam_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

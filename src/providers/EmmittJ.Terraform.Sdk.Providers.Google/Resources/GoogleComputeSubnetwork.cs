@@ -119,9 +119,9 @@ public class GoogleComputeSubnetworkSecondaryIpRangeBlock : TerraformBlock
     /// secondary IP ranges within a network. Only IPv4 is supported.
     /// Field is optional when &#39;reserved_internal_range&#39; is defined, otherwise required.
     /// </summary>
-    public TerraformValue<string>? IpCidrRange
+    public TerraformValue<string> IpCidrRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_cidr_range");
+        get => GetArgument<TerraformValue<string>>("ip_cidr_range") ?? AsReference("ip_cidr_range");
         set => SetArgument("ip_cidr_range", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleComputeSubnetworkSecondaryIpRangeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeName is required")]
     public required TerraformValue<string> RangeName
     {
-        get => GetArgument<TerraformValue<string>>("range_name");
+        get => GetRequiredArgument<TerraformValue<string>>("range_name");
         set => SetArgument("range_name", value);
     }
 
@@ -212,18 +212,18 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// <summary>
     /// The range of external IPv6 addresses that are owned by this subnetwork.
     /// </summary>
-    public TerraformValue<string>? ExternalIpv6Prefix
+    public TerraformValue<string> ExternalIpv6Prefix
     {
-        get => GetArgument<TerraformValue<string>>("external_ipv6_prefix");
+        get => GetArgument<TerraformValue<string>>("external_ipv6_prefix") ?? AsReference("external_ipv6_prefix");
         set => SetArgument("external_ipv6_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -234,9 +234,9 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// non-overlapping within a network. Only IPv4 is supported.
     /// Field is optional when &#39;reserved_internal_range&#39; is defined, otherwise required.
     /// </summary>
-    public TerraformValue<string>? IpCidrRange
+    public TerraformValue<string> IpCidrRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_cidr_range");
+        get => GetArgument<TerraformValue<string>>("ip_cidr_range") ?? AsReference("ip_cidr_range");
         set => SetArgument("ip_cidr_range", value);
     }
 
@@ -280,7 +280,7 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -291,7 +291,7 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -299,27 +299,27 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// When enabled, VMs in this subnetwork without external IP addresses can
     /// access Google APIs and services by using Private Google Access.
     /// </summary>
-    public TerraformValue<bool>? PrivateIpGoogleAccess
+    public TerraformValue<bool> PrivateIpGoogleAccess
     {
-        get => GetArgument<TerraformValue<bool>>("private_ip_google_access");
+        get => GetArgument<TerraformValue<bool>>("private_ip_google_access") ?? AsReference("private_ip_google_access");
         set => SetArgument("private_ip_google_access", value);
     }
 
     /// <summary>
     /// The private IPv6 google access type for the VMs in this subnet.
     /// </summary>
-    public TerraformValue<string>? PrivateIpv6GoogleAccess
+    public TerraformValue<string> PrivateIpv6GoogleAccess
     {
-        get => GetArgument<TerraformValue<string>>("private_ipv6_google_access");
+        get => GetArgument<TerraformValue<string>>("private_ipv6_google_access") ?? AsReference("private_ipv6_google_access");
         set => SetArgument("private_ipv6_google_access", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -333,18 +333,18 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// Note that &#39;REGIONAL_MANAGED_PROXY&#39; is the preferred setting for all regional Envoy load balancers.
     /// If unspecified, the purpose defaults to &#39;PRIVATE&#39;.
     /// </summary>
-    public TerraformValue<string>? Purpose
+    public TerraformValue<string> Purpose
     {
-        get => GetArgument<TerraformValue<string>>("purpose");
+        get => GetArgument<TerraformValue<string>>("purpose") ?? AsReference("purpose");
         set => SetArgument("purpose", value);
     }
 
     /// <summary>
     /// The GCP region for this subnetwork.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -389,9 +389,9 @@ public partial class GoogleComputeSubnetwork(string name) : TerraformResource("g
     /// The stack type for this subnet to identify whether the IPv6 feature is enabled or not.
     /// If not specified IPV4_ONLY will be used. Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;IPV4_IPV6&amp;quot;, &amp;quot;IPV6_ONLY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? StackType
+    public TerraformValue<string> StackType
     {
-        get => GetArgument<TerraformValue<string>>("stack_type");
+        get => GetArgument<TerraformValue<string>>("stack_type") ?? AsReference("stack_type");
         set => SetArgument("stack_type", value);
     }
 

@@ -70,9 +70,9 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformValue<string> ProviderId
     {
-        get => GetArgument<TerraformValue<string>>("provider_id");
+        get => GetRequiredArgument<TerraformValue<string>>("provider_id");
         set => SetArgument("provider_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScimTenantId is required")]
     public required TerraformValue<string> ScimTenantId
     {
-        get => GetArgument<TerraformValue<string>>("scim_tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("scim_tenant_id");
         set => SetArgument("scim_tenant_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformValue<string> WorkforcePoolId
     {
-        get => GetArgument<TerraformValue<string>>("workforce_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workforce_pool_id");
         set => SetArgument("workforce_pool_id", value);
     }
 

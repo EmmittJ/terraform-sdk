@@ -37,7 +37,7 @@ public class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsGlueMlTransformParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransformType is required")]
     public required TerraformValue<string> TransformType
     {
-        get => GetArgument<TerraformValue<string>>("transform_type");
+        get => GetRequiredArgument<TerraformValue<string>>("transform_type");
         set => SetArgument("transform_type", value);
     }
 
@@ -158,27 +158,27 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// <summary>
     /// The glue_version attribute.
     /// </summary>
-    public TerraformValue<string>? GlueVersion
+    public TerraformValue<string> GlueVersion
     {
-        get => GetArgument<TerraformValue<string>>("glue_version");
+        get => GetArgument<TerraformValue<string>>("glue_version") ?? AsReference("glue_version");
         set => SetArgument("glue_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public TerraformValue<double>? MaxCapacity
+    public TerraformValue<double> MaxCapacity
     {
-        get => GetArgument<TerraformValue<double>>("max_capacity");
+        get => GetArgument<TerraformValue<double>>("max_capacity") ?? AsReference("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -213,9 +213,9 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -241,9 +241,9 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

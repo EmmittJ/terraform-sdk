@@ -21,7 +21,7 @@ public class GoogleRedisClusterAutomatedBackupConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     public required TerraformValue<string> Retention
     {
-        get => GetArgument<TerraformValue<string>>("retention");
+        get => GetRequiredArgument<TerraformValue<string>>("retention");
         set => SetArgument("retention", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleRedisClusterAutomatedBackupConfigBlockFixedFrequencyScheduleB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hours is required")]
     public required TerraformValue<double> Hours
     {
-        get => GetArgument<TerraformValue<double>>("hours");
+        get => GetRequiredArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -226,7 +226,7 @@ public class GoogleRedisClusterGcsSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     public required TerraformSet<string> Uris
     {
-        get => GetArgument<TerraformSet<string>>("uris");
+        get => GetRequiredArgument<TerraformSet<string>>("uris");
         set => SetArgument("uris", value);
     }
 
@@ -297,7 +297,7 @@ public class GoogleRedisClusterMaintenancePolicyBlockWeeklyMaintenanceWindowBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => GetArgument<TerraformValue<string>>("day");
+        get => GetRequiredArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -394,7 +394,7 @@ public class GoogleRedisClusterManagedBackupSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
     public required TerraformValue<string> Backup
     {
-        get => GetArgument<TerraformValue<string>>("backup");
+        get => GetRequiredArgument<TerraformValue<string>>("backup");
         set => SetArgument("backup", value);
     }
 
@@ -419,9 +419,9 @@ public class GoogleRedisClusterPersistenceConfigBlock : TerraformBlock
     /// - RDB: RDB based Persistence is enabled.
     /// - AOF: AOF based Persistence is enabled. Possible values: [&amp;quot;PERSISTENCE_MODE_UNSPECIFIED&amp;quot;, &amp;quot;DISABLED&amp;quot;, &amp;quot;RDB&amp;quot;, &amp;quot;AOF&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Mode
+    public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -465,9 +465,9 @@ public class GoogleRedisClusterPersistenceConfigBlockAofConfigBlock : TerraformB
     /// - EVERYSEC - Call fsync() once per second in a background thread. A balance between performance and durability.
     /// - ALWAYS - Call fsync() for earch write command. Possible values: [&amp;quot;APPEND_FSYNC_UNSPECIFIED&amp;quot;, &amp;quot;NO&amp;quot;, &amp;quot;EVERYSEC&amp;quot;, &amp;quot;ALWAYS&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? AppendFsync
+    public TerraformValue<string> AppendFsync
     {
-        get => GetArgument<TerraformValue<string>>("append_fsync");
+        get => GetArgument<TerraformValue<string>>("append_fsync") ?? AsReference("append_fsync");
         set => SetArgument("append_fsync", value);
     }
 
@@ -492,9 +492,9 @@ public class GoogleRedisClusterPersistenceConfigBlockRdbConfigBlock : TerraformB
     /// - TWELVE_HOURS:	Snapshot every 12 hours.
     /// - TWENTY_FOUR_HOURS:	Snapshot every 24 hours. Possible values: [&amp;quot;SNAPSHOT_PERIOD_UNSPECIFIED&amp;quot;, &amp;quot;ONE_HOUR&amp;quot;, &amp;quot;SIX_HOURS&amp;quot;, &amp;quot;TWELVE_HOURS&amp;quot;, &amp;quot;TWENTY_FOUR_HOURS&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? RdbSnapshotPeriod
+    public TerraformValue<string> RdbSnapshotPeriod
     {
-        get => GetArgument<TerraformValue<string>>("rdb_snapshot_period");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_period") ?? AsReference("rdb_snapshot_period");
         set => SetArgument("rdb_snapshot_period", value);
     }
 
@@ -503,9 +503,9 @@ public class GoogleRedisClusterPersistenceConfigBlockRdbConfigBlock : TerraformB
     /// future snapshots will be aligned.
     /// If not provided, the current time will be used.
     /// </summary>
-    public TerraformValue<string>? RdbSnapshotStartTime
+    public TerraformValue<string> RdbSnapshotStartTime
     {
-        get => GetArgument<TerraformValue<string>>("rdb_snapshot_start_time");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_start_time") ?? AsReference("rdb_snapshot_start_time");
         set => SetArgument("rdb_snapshot_start_time", value);
     }
 
@@ -531,7 +531,7 @@ public class GoogleRedisClusterPscConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -594,9 +594,9 @@ public class GoogleRedisClusterZoneDistributionConfigBlock : TerraformBlock
     /// Immutable. The mode for zone distribution for Memorystore Redis cluster.
     /// If not provided, MULTI_ZONE will be used as default Possible values: [&amp;quot;MULTI_ZONE&amp;quot;, &amp;quot;SINGLE_ZONE&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Mode
+    public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -641,9 +641,9 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -670,9 +670,9 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// Unique name of the resource in this scope including project and location using the form:
     /// projects/{projectId}/locations/{locationId}/clusters/{clusterId}
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -680,18 +680,18 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// The nodeType for the Redis cluster.
     /// If not provided, REDIS_HIGHMEM_MEDIUM will be used as default Possible values: [&amp;quot;REDIS_SHARED_CORE_NANO&amp;quot;, &amp;quot;REDIS_HIGHMEM_MEDIUM&amp;quot;, &amp;quot;REDIS_HIGHMEM_XLARGE&amp;quot;, &amp;quot;REDIS_STANDARD_SMALL&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? NodeType
+    public TerraformValue<string> NodeType
     {
-        get => GetArgument<TerraformValue<string>>("node_type");
+        get => GetArgument<TerraformValue<string>>("node_type") ?? AsReference("node_type");
         set => SetArgument("node_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -709,9 +709,9 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     /// <summary>
     /// The name of the region of the Redis cluster.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -730,7 +730,7 @@ public partial class GoogleRedisCluster(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
     public required TerraformValue<double> ShardCount
     {
-        get => GetArgument<TerraformValue<double>>("shard_count");
+        get => GetRequiredArgument<TerraformValue<double>>("shard_count");
         set => SetArgument("shard_count", value);
     }
 

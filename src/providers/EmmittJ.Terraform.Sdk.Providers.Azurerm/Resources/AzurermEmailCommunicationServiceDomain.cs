@@ -64,7 +64,7 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainManagement is required")]
     public required TerraformValue<string> DomainManagement
     {
-        get => GetArgument<TerraformValue<string>>("domain_management");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_management");
         set => SetArgument("domain_management", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceId is required")]
     public required TerraformValue<string> EmailServiceId
     {
-        get => GetArgument<TerraformValue<string>>("email_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("email_service_id");
         set => SetArgument("email_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

@@ -14,7 +14,7 @@ public partial class AwsAppfabricIngestion(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
     public required TerraformValue<string> App
     {
-        get => GetArgument<TerraformValue<string>>("app");
+        get => GetRequiredArgument<TerraformValue<string>>("app");
         set => SetArgument("app", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsAppfabricIngestion(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformValue<string> AppBundleArn
     {
-        get => GetArgument<TerraformValue<string>>("app_bundle_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("app_bundle_arn");
         set => SetArgument("app_bundle_arn", value);
     }
 
@@ -34,16 +34,16 @@ public partial class AwsAppfabricIngestion(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionType is required")]
     public required TerraformValue<string> IngestionType
     {
-        get => GetArgument<TerraformValue<string>>("ingestion_type");
+        get => GetRequiredArgument<TerraformValue<string>>("ingestion_type");
         set => SetArgument("ingestion_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -62,7 +62,7 @@ public partial class AwsAppfabricIngestion(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

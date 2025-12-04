@@ -16,9 +16,9 @@ public class AwsVpcEndpointDnsOptionsBlock : TerraformBlock
     /// <summary>
     /// The dns_record_ip_type attribute.
     /// </summary>
-    public TerraformValue<string>? DnsRecordIpType
+    public TerraformValue<string> DnsRecordIpType
     {
-        get => GetArgument<TerraformValue<string>>("dns_record_ip_type");
+        get => GetArgument<TerraformValue<string>>("dns_record_ip_type") ?? AsReference("dns_record_ip_type");
         set => SetArgument("dns_record_ip_type", value);
     }
 
@@ -134,45 +134,45 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string>? IpAddressType
+    public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformValue<string>? Policy
+    public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// The private_dns_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? PrivateDnsEnabled
+    public TerraformValue<bool> PrivateDnsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("private_dns_enabled");
+        get => GetArgument<TerraformValue<bool>>("private_dns_enabled") ?? AsReference("private_dns_enabled");
         set => SetArgument("private_dns_enabled", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -188,18 +188,18 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public TerraformSet<string>? RouteTableIds
+    public TerraformSet<string> RouteTableIds
     {
-        get => GetArgument<TerraformSet<string>>("route_table_ids");
+        get => GetArgument<TerraformSet<string>>("route_table_ids") ?? AsReference("route_table_ids");
         set => SetArgument("route_table_ids", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroupIds
+    public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -224,18 +224,18 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// <summary>
     /// The service_region attribute.
     /// </summary>
-    public TerraformValue<string>? ServiceRegion
+    public TerraformValue<string> ServiceRegion
     {
-        get => GetArgument<TerraformValue<string>>("service_region");
+        get => GetArgument<TerraformValue<string>>("service_region") ?? AsReference("service_region");
         set => SetArgument("service_region", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SubnetIds
+    public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -251,9 +251,9 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -272,7 +272,7 @@ public partial class AwsVpcEndpoint(string name) : TerraformResource("aws_vpc_en
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 

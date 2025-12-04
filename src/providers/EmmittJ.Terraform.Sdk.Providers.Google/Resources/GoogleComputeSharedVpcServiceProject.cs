@@ -56,16 +56,16 @@ public partial class GoogleComputeSharedVpcServiceProject(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProject is required")]
     public required TerraformValue<string> HostProject
     {
-        get => GetArgument<TerraformValue<string>>("host_project");
+        get => GetRequiredArgument<TerraformValue<string>>("host_project");
         set => SetArgument("host_project", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleComputeSharedVpcServiceProject(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProject is required")]
     public required TerraformValue<string> ServiceProject
     {
-        get => GetArgument<TerraformValue<string>>("service_project");
+        get => GetRequiredArgument<TerraformValue<string>>("service_project");
         set => SetArgument("service_project", value);
     }
 

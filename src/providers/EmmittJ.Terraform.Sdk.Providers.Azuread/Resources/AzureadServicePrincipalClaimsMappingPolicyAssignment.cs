@@ -55,16 +55,16 @@ public partial class AzureadServicePrincipalClaimsMappingPolicyAssignment(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClaimsMappingPolicyId is required")]
     public required TerraformValue<string> ClaimsMappingPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("claims_mapping_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("claims_mapping_policy_id");
         set => SetArgument("claims_mapping_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadServicePrincipalClaimsMappingPolicyAssignment(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformValue<string> ServicePrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("service_principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("service_principal_id");
         set => SetArgument("service_principal_id", value);
     }
 

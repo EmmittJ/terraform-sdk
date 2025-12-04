@@ -25,9 +25,9 @@ public class AwsEcrRepositoryEncryptionConfigurationBlock : TerraformBlock
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKey
+    public TerraformValue<string> KmsKey
     {
-        get => GetArgument<TerraformValue<string>>("kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key") ?? AsReference("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsEcrRepositoryImageScanningConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanOnPush is required")]
     public required TerraformValue<bool> ScanOnPush
     {
-        get => GetArgument<TerraformValue<bool>>("scan_on_push");
+        get => GetRequiredArgument<TerraformValue<bool>>("scan_on_push");
         set => SetArgument("scan_on_push", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformValue<string> FilterType
     {
-        get => GetArgument<TerraformValue<string>>("filter_type");
+        get => GetRequiredArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -133,9 +133,9 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -154,16 +154,16 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -179,9 +179,9 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

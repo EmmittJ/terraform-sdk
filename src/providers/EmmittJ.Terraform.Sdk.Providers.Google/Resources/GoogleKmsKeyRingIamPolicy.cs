@@ -11,9 +11,9 @@ public partial class GoogleKmsKeyRingIamPolicy(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleKmsKeyRingIamPolicy(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRingId is required")]
     public required TerraformValue<string> KeyRingId
     {
-        get => GetArgument<TerraformValue<string>>("key_ring_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_ring_id");
         set => SetArgument("key_ring_id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleKmsKeyRingIamPolicy(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => GetArgument<TerraformValue<string>>("policy_data");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 

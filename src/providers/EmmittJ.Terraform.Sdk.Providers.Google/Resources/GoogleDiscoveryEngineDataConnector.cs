@@ -127,7 +127,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionDisplayName is required")]
     public required TerraformValue<string> CollectionDisplayName
     {
-        get => GetArgument<TerraformValue<string>>("collection_display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("collection_display_name");
         set => SetArgument("collection_display_name", value);
     }
 
@@ -143,7 +143,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => GetArgument<TerraformValue<string>>("collection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
@@ -165,16 +165,16 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     public required TerraformValue<string> DataSource
     {
-        get => GetArgument<TerraformValue<string>>("data_source");
+        get => GetRequiredArgument<TerraformValue<string>>("data_source");
         set => SetArgument("data_source", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -230,7 +230,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -246,9 +246,9 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -262,7 +262,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshInterval is required")]
     public required TerraformValue<string> RefreshInterval
     {
-        get => GetArgument<TerraformValue<string>>("refresh_interval");
+        get => GetRequiredArgument<TerraformValue<string>>("refresh_interval");
         set => SetArgument("refresh_interval", value);
     }
 

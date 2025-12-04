@@ -14,16 +14,16 @@ public partial class AwsAutoscalingLifecycleHook(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformValue<string> AutoscalingGroupName
     {
-        get => GetArgument<TerraformValue<string>>("autoscaling_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("autoscaling_group_name");
         set => SetArgument("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The default_result attribute.
     /// </summary>
-    public TerraformValue<string>? DefaultResult
+    public TerraformValue<string> DefaultResult
     {
-        get => GetArgument<TerraformValue<string>>("default_result");
+        get => GetArgument<TerraformValue<string>>("default_result") ?? AsReference("default_result");
         set => SetArgument("default_result", value);
     }
 
@@ -39,9 +39,9 @@ public partial class AwsAutoscalingLifecycleHook(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsAutoscalingLifecycleHook(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LifecycleTransition is required")]
     public required TerraformValue<string> LifecycleTransition
     {
-        get => GetArgument<TerraformValue<string>>("lifecycle_transition");
+        get => GetRequiredArgument<TerraformValue<string>>("lifecycle_transition");
         set => SetArgument("lifecycle_transition", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsAutoscalingLifecycleHook(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -86,9 +86,9 @@ public partial class AwsAutoscalingLifecycleHook(string name) : TerraformResourc
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

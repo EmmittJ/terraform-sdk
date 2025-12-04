@@ -64,7 +64,7 @@ public partial class AzurermDataFactoryCustomerManagedKey(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerManagedKeyId is required")]
     public required TerraformValue<string> CustomerManagedKeyId
     {
-        get => GetArgument<TerraformValue<string>>("customer_managed_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("customer_managed_key_id");
         set => SetArgument("customer_managed_key_id", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermDataFactoryCustomerManagedKey(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

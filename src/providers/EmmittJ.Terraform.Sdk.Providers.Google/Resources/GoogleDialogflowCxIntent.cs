@@ -20,7 +20,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     public required TerraformValue<string> EntityType
     {
-        get => GetArgument<TerraformValue<string>>("entity_type");
+        get => GetRequiredArgument<TerraformValue<string>>("entity_type");
         set => SetArgument("entity_type", value);
     }
 
@@ -30,7 +30,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -163,7 +163,7 @@ public class GoogleDialogflowCxIntentTrainingPhrasesBlockPartsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => GetArgument<TerraformValue<string>>("text");
+        get => GetRequiredArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -191,16 +191,16 @@ public partial class GoogleDialogflowCxIntent(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

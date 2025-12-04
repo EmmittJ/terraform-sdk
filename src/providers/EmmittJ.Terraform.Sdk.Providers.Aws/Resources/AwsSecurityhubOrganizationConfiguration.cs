@@ -19,7 +19,7 @@ public class AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationType is required")]
     public required TerraformValue<string> ConfigurationType
     {
-        get => GetArgument<TerraformValue<string>>("configuration_type");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_type");
         set => SetArgument("configuration_type", value);
     }
 
@@ -79,34 +79,34 @@ public partial class AwsSecurityhubOrganizationConfiguration(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
     public required TerraformValue<bool> AutoEnable
     {
-        get => GetArgument<TerraformValue<bool>>("auto_enable");
+        get => GetRequiredArgument<TerraformValue<bool>>("auto_enable");
         set => SetArgument("auto_enable", value);
     }
 
     /// <summary>
     /// The auto_enable_standards attribute.
     /// </summary>
-    public TerraformValue<string>? AutoEnableStandards
+    public TerraformValue<string> AutoEnableStandards
     {
-        get => GetArgument<TerraformValue<string>>("auto_enable_standards");
+        get => GetArgument<TerraformValue<string>>("auto_enable_standards") ?? AsReference("auto_enable_standards");
         set => SetArgument("auto_enable_standards", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

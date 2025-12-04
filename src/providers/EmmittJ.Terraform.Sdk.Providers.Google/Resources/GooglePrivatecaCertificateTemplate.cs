@@ -19,7 +19,7 @@ public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectAltNamesPassthrough is required")]
     public required TerraformValue<bool> AllowSubjectAltNamesPassthrough
     {
-        get => GetArgument<TerraformValue<bool>>("allow_subject_alt_names_passthrough");
+        get => GetRequiredArgument<TerraformValue<bool>>("allow_subject_alt_names_passthrough");
         set => SetArgument("allow_subject_alt_names_passthrough", value);
     }
 
@@ -29,7 +29,7 @@ public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectPassthrough is required")]
     public required TerraformValue<bool> AllowSubjectPassthrough
     {
-        get => GetArgument<TerraformValue<bool>>("allow_subject_passthrough");
+        get => GetRequiredArgument<TerraformValue<bool>>("allow_subject_passthrough");
         set => SetArgument("allow_subject_passthrough", value);
     }
 
@@ -246,7 +246,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockAdditionalEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -585,7 +585,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockNameConstrai
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Critical is required")]
     public required TerraformValue<bool> Critical
     {
-        get => GetArgument<TerraformValue<bool>>("critical");
+        get => GetRequiredArgument<TerraformValue<bool>>("critical");
         set => SetArgument("critical", value);
     }
 
@@ -770,9 +770,9 @@ public partial class GooglePrivatecaCertificateTemplate(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -794,7 +794,7 @@ public partial class GooglePrivatecaCertificateTemplate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -813,16 +813,16 @@ public partial class GooglePrivatecaCertificateTemplate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

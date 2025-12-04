@@ -19,7 +19,7 @@ public class AzurermDataFactoryCustomDatasetLinkedServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermDataFactoryCustomDataset(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -140,9 +140,9 @@ public partial class AzurermDataFactoryCustomDataset(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermDataFactoryCustomDataset(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AzurermDataFactoryCustomDataset(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzurermDataFactoryCustomDataset(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypePropertiesJson is required")]
     public required TerraformValue<string> TypePropertiesJson
     {
-        get => GetArgument<TerraformValue<string>>("type_properties_json");
+        get => GetRequiredArgument<TerraformValue<string>>("type_properties_json");
         set => SetArgument("type_properties_json", value);
     }
 

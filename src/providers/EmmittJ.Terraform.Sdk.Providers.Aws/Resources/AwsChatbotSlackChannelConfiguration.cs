@@ -55,16 +55,16 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationName is required")]
     public required TerraformValue<string> ConfigurationName
     {
-        get => GetArgument<TerraformValue<string>>("configuration_name");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_name");
         set => SetArgument("configuration_name", value);
     }
 
     /// <summary>
     /// The guardrail_policy_arns attribute.
     /// </summary>
-    public TerraformList<string>? GuardrailPolicyArns
+    public TerraformList<string> GuardrailPolicyArns
     {
-        get => GetArgument<TerraformList<string>>("guardrail_policy_arns");
+        get => GetArgument<TerraformList<string>>("guardrail_policy_arns") ?? AsReference("guardrail_policy_arns");
         set => SetArgument("guardrail_policy_arns", value);
     }
 
@@ -74,25 +74,25 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformValue<string> IamRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("iam_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformValue<string>? LoggingLevel
+    public TerraformValue<string> LoggingLevel
     {
-        get => GetArgument<TerraformValue<string>>("logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level") ?? AsReference("logging_level");
         set => SetArgument("logging_level", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackChannelId is required")]
     public required TerraformValue<string> SlackChannelId
     {
-        get => GetArgument<TerraformValue<string>>("slack_channel_id");
+        get => GetRequiredArgument<TerraformValue<string>>("slack_channel_id");
         set => SetArgument("slack_channel_id", value);
     }
 
@@ -112,16 +112,16 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackTeamId is required")]
     public required TerraformValue<string> SlackTeamId
     {
-        get => GetArgument<TerraformValue<string>>("slack_team_id");
+        get => GetRequiredArgument<TerraformValue<string>>("slack_team_id");
         set => SetArgument("slack_team_id", value);
     }
 
     /// <summary>
     /// The sns_topic_arns attribute.
     /// </summary>
-    public TerraformSet<string>? SnsTopicArns
+    public TerraformSet<string> SnsTopicArns
     {
-        get => GetArgument<TerraformSet<string>>("sns_topic_arns");
+        get => GetArgument<TerraformSet<string>>("sns_topic_arns") ?? AsReference("sns_topic_arns");
         set => SetArgument("sns_topic_arns", value);
     }
 
@@ -137,9 +137,9 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     /// <summary>
     /// The user_authorization_required attribute.
     /// </summary>
-    public TerraformValue<bool>? UserAuthorizationRequired
+    public TerraformValue<bool> UserAuthorizationRequired
     {
-        get => GetArgument<TerraformValue<bool>>("user_authorization_required");
+        get => GetArgument<TerraformValue<bool>>("user_authorization_required") ?? AsReference("user_authorization_required");
         set => SetArgument("user_authorization_required", value);
     }
 

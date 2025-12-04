@@ -61,9 +61,9 @@ public partial class AzurermSignalrSharedPrivateLinkResource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermSignalrSharedPrivateLinkResource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSignalrSharedPrivateLinkResource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     public required TerraformValue<string> SignalrServiceId
     {
-        get => GetArgument<TerraformValue<string>>("signalr_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("signalr_service_id");
         set => SetArgument("signalr_service_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermSignalrSharedPrivateLinkResource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubResourceName is required")]
     public required TerraformValue<string> SubResourceName
     {
-        get => GetArgument<TerraformValue<string>>("sub_resource_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sub_resource_name");
         set => SetArgument("sub_resource_name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermSignalrSharedPrivateLinkResource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformValue<string> TargetResourceId
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 

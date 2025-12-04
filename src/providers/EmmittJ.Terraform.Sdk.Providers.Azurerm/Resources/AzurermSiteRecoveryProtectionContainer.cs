@@ -52,9 +52,9 @@ public partial class AzurermSiteRecoveryProtectionContainer(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSiteRecoveryProtectionContainer(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSiteRecoveryProtectionContainer(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryFabricName is required")]
     public required TerraformValue<string> RecoveryFabricName
     {
-        get => GetArgument<TerraformValue<string>>("recovery_fabric_name");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_fabric_name");
         set => SetArgument("recovery_fabric_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermSiteRecoveryProtectionContainer(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformValue<string> RecoveryVaultName
     {
-        get => GetArgument<TerraformValue<string>>("recovery_vault_name");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_vault_name");
         set => SetArgument("recovery_vault_name", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermSiteRecoveryProtectionContainer(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

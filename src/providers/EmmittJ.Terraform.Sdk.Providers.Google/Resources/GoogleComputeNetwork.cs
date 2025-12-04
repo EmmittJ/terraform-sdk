@@ -92,27 +92,27 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// Enables/disables the comparison of MED across routes with different Neighbor ASNs.
     /// This value can only be set if the --bgp-best-path-selection-mode is STANDARD
     /// </summary>
-    public TerraformValue<bool>? BgpAlwaysCompareMed
+    public TerraformValue<bool> BgpAlwaysCompareMed
     {
-        get => GetArgument<TerraformValue<bool>>("bgp_always_compare_med");
+        get => GetArgument<TerraformValue<bool>>("bgp_always_compare_med") ?? AsReference("bgp_always_compare_med");
         set => SetArgument("bgp_always_compare_med", value);
     }
 
     /// <summary>
     /// The BGP best selection algorithm to be employed. MODE can be LEGACY or STANDARD. Possible values: [&amp;quot;LEGACY&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? BgpBestPathSelectionMode
+    public TerraformValue<string> BgpBestPathSelectionMode
     {
-        get => GetArgument<TerraformValue<string>>("bgp_best_path_selection_mode");
+        get => GetArgument<TerraformValue<string>>("bgp_best_path_selection_mode") ?? AsReference("bgp_best_path_selection_mode");
         set => SetArgument("bgp_best_path_selection_mode", value);
     }
 
     /// <summary>
     /// Choice of the behavior of inter-regional cost and MED in the BPS algorithm. Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;ADD_COST_TO_MED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? BgpInterRegionCost
+    public TerraformValue<string> BgpInterRegionCost
     {
-        get => GetArgument<TerraformValue<string>>("bgp_inter_region_cost");
+        get => GetArgument<TerraformValue<string>>("bgp_inter_region_cost") ?? AsReference("bgp_inter_region_cost");
         set => SetArgument("bgp_inter_region_cost", value);
     }
 
@@ -149,9 +149,9 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -162,9 +162,9 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// fail if the speficied /48 is already in used by another resource.
     /// If the field is not speficied, then a /48 range will be randomly allocated from fd20::/20 and returned via this field.
     /// </summary>
-    public TerraformValue<string>? InternalIpv6Range
+    public TerraformValue<string> InternalIpv6Range
     {
-        get => GetArgument<TerraformValue<string>>("internal_ipv6_range");
+        get => GetArgument<TerraformValue<string>>("internal_ipv6_range") ?? AsReference("internal_ipv6_range");
         set => SetArgument("internal_ipv6_range", value);
     }
 
@@ -175,9 +175,9 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// with an ICMP &#39;Fragmentation-Needed&#39; message if the packets are routed to the Internet or other VPCs
     /// with varying MTUs.
     /// </summary>
-    public TerraformValue<double>? Mtu
+    public TerraformValue<double> Mtu
     {
-        get => GetArgument<TerraformValue<double>>("mtu");
+        get => GetArgument<TerraformValue<double>>("mtu") ?? AsReference("mtu");
         set => SetArgument("mtu", value);
     }
 
@@ -193,7 +193,7 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -222,9 +222,9 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -235,9 +235,9 @@ public partial class GoogleComputeNetwork(string name) : TerraformResource("goog
     /// this network&#39;s cloud routers will advertise routes with all
     /// subnetworks of this network, across regions. Possible values: [&amp;quot;REGIONAL&amp;quot;, &amp;quot;GLOBAL&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? RoutingMode
+    public TerraformValue<string> RoutingMode
     {
-        get => GetArgument<TerraformValue<string>>("routing_mode");
+        get => GetArgument<TerraformValue<string>>("routing_mode") ?? AsReference("routing_mode");
         set => SetArgument("routing_mode", value);
     }
 

@@ -55,16 +55,16 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsVerificationIp is required")]
     public required TerraformValue<string> DnsVerificationIp
     {
-        get => GetArgument<TerraformValue<string>>("dns_verification_ip");
+        get => GetRequiredArgument<TerraformValue<string>>("dns_verification_ip");
         set => SetArgument("dns_verification_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     public required TerraformValue<string> IpCidrRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_cidr_range");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_cidr_range");
         set => SetArgument("ip_cidr_range", value);
     }
 
@@ -89,7 +89,7 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,9 +110,9 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

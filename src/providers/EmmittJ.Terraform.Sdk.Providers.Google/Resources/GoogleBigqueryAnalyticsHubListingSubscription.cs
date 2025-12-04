@@ -48,7 +48,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -145,16 +145,16 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     public required TerraformValue<string> DataExchangeId
     {
-        get => GetArgument<TerraformValue<string>>("data_exchange_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_exchange_id");
         set => SetArgument("data_exchange_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
     public required TerraformValue<string> ListingId
     {
-        get => GetArgument<TerraformValue<string>>("listing_id");
+        get => GetRequiredArgument<TerraformValue<string>>("listing_id");
         set => SetArgument("listing_id", value);
     }
 
@@ -174,16 +174,16 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

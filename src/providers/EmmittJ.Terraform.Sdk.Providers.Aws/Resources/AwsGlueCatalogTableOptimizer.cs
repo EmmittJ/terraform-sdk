@@ -19,7 +19,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -107,9 +107,9 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlockOrphanFileDeletionCon
     /// <summary>
     /// The run_rate_in_hours attribute.
     /// </summary>
-    public TerraformValue<double>? RunRateInHours
+    public TerraformValue<double> RunRateInHours
     {
-        get => GetArgument<TerraformValue<double>>("run_rate_in_hours");
+        get => GetArgument<TerraformValue<double>>("run_rate_in_hours") ?? AsReference("run_rate_in_hours");
         set => SetArgument("run_rate_in_hours", value);
     }
 
@@ -169,9 +169,9 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlockRetentionConfiguratio
     /// <summary>
     /// The run_rate_in_hours attribute.
     /// </summary>
-    public TerraformValue<double>? RunRateInHours
+    public TerraformValue<double> RunRateInHours
     {
-        get => GetArgument<TerraformValue<double>>("run_rate_in_hours");
+        get => GetArgument<TerraformValue<double>>("run_rate_in_hours") ?? AsReference("run_rate_in_hours");
         set => SetArgument("run_rate_in_hours", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsGlueCatalogTableOptimizer(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id");
+        get => GetRequiredArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -209,16 +209,16 @@ public partial class AwsGlueCatalogTableOptimizer(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -228,7 +228,7 @@ public partial class AwsGlueCatalogTableOptimizer(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AwsGlueCatalogTableOptimizer(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

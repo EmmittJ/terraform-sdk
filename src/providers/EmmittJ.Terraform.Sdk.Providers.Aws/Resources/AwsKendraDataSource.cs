@@ -65,7 +65,7 @@ public class AwsKendraDataSourceConfigurationBlockS3ConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsKendraDataSourceConfigurationBlockTemplateConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
     public required TerraformValue<string> Template
     {
-        get => GetArgument<TerraformValue<string>>("template");
+        get => GetRequiredArgument<TerraformValue<string>>("template");
         set => SetArgument("template", value);
     }
 
@@ -326,7 +326,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockAu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Credentials is required")]
     public required TerraformValue<string> Credentials
     {
-        get => GetArgument<TerraformValue<string>>("credentials");
+        get => GetRequiredArgument<TerraformValue<string>>("credentials");
         set => SetArgument("credentials", value);
     }
 
@@ -336,7 +336,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockAu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -346,7 +346,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockAu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -378,7 +378,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockPr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -388,7 +388,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockPr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -444,7 +444,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockUr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeedUrls is required")]
     public required TerraformSet<string> SeedUrls
     {
-        get => GetArgument<TerraformSet<string>>("seed_urls");
+        get => GetRequiredArgument<TerraformSet<string>>("seed_urls");
         set => SetArgument("seed_urls", value);
     }
 
@@ -476,7 +476,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockUr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteMaps is required")]
     public required TerraformSet<string> SiteMaps
     {
-        get => GetArgument<TerraformSet<string>>("site_maps");
+        get => GetRequiredArgument<TerraformSet<string>>("site_maps");
         set => SetArgument("site_maps", value);
     }
 
@@ -594,7 +594,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionDocumentAttributeKey is required")]
     public required TerraformValue<string> ConditionDocumentAttributeKey
     {
-        get => GetArgument<TerraformValue<string>>("condition_document_attribute_key");
+        get => GetRequiredArgument<TerraformValue<string>>("condition_document_attribute_key");
         set => SetArgument("condition_document_attribute_key", value);
     }
 
@@ -604,7 +604,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -776,7 +776,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => GetArgument<TerraformValue<string>>("lambda_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -786,7 +786,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -819,7 +819,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionDocumentAttributeKey is required")]
     public required TerraformValue<string> ConditionDocumentAttributeKey
     {
-        get => GetArgument<TerraformValue<string>>("condition_document_attribute_key");
+        get => GetRequiredArgument<TerraformValue<string>>("condition_document_attribute_key");
         set => SetArgument("condition_document_attribute_key", value);
     }
 
@@ -829,7 +829,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -911,7 +911,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => GetArgument<TerraformValue<string>>("lambda_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -921,7 +921,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -954,7 +954,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionDocumentAttributeKey is required")]
     public required TerraformValue<string> ConditionDocumentAttributeKey
     {
-        get => GetArgument<TerraformValue<string>>("condition_document_attribute_key");
+        get => GetRequiredArgument<TerraformValue<string>>("condition_document_attribute_key");
         set => SetArgument("condition_document_attribute_key", value);
     }
 
@@ -964,7 +964,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1089,9 +1089,9 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1101,16 +1101,16 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
     public required TerraformValue<string> IndexId
     {
-        get => GetArgument<TerraformValue<string>>("index_id");
+        get => GetRequiredArgument<TerraformValue<string>>("index_id");
         set => SetArgument("index_id", value);
     }
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public TerraformValue<string>? LanguageCode
+    public TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetArgument<TerraformValue<string>>("language_code") ?? AsReference("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -1120,16 +1120,16 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1163,9 +1163,9 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1175,7 +1175,7 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

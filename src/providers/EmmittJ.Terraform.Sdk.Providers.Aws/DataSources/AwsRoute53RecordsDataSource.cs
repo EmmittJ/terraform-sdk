@@ -23,7 +23,7 @@ public partial class AwsRoute53RecordsDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformValue<string> ZoneId
     {
-        get => GetArgument<TerraformValue<string>>("zone_id");
+        get => GetRequiredArgument<TerraformValue<string>>("zone_id");
         set => SetArgument("zone_id", value);
     }
 

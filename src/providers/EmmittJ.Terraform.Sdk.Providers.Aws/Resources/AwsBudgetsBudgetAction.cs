@@ -19,7 +19,7 @@ public class AwsBudgetsBudgetActionActionThresholdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionThresholdType is required")]
     public required TerraformValue<string> ActionThresholdType
     {
-        get => GetArgument<TerraformValue<string>>("action_threshold_type");
+        get => GetRequiredArgument<TerraformValue<string>>("action_threshold_type");
         set => SetArgument("action_threshold_type", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsBudgetsBudgetActionActionThresholdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionThresholdValue is required")]
     public required TerraformValue<double> ActionThresholdValue
     {
-        get => GetArgument<TerraformValue<double>>("action_threshold_value");
+        get => GetRequiredArgument<TerraformValue<double>>("action_threshold_value");
         set => SetArgument("action_threshold_value", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsBudgetsBudgetActionDefinitionBlockIamActionDefinitionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformValue<string> PolicyArn
     {
-        get => GetArgument<TerraformValue<string>>("policy_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_arn");
         set => SetArgument("policy_arn", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsBudgetsBudgetActionDefinitionBlockScpActionDefinitionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformValue<string> PolicyId
     {
-        get => GetArgument<TerraformValue<string>>("policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_id");
         set => SetArgument("policy_id", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsBudgetsBudgetActionDefinitionBlockScpActionDefinitionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIds is required")]
     public required TerraformSet<string> TargetIds
     {
-        get => GetArgument<TerraformSet<string>>("target_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("target_ids");
         set => SetArgument("target_ids", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsBudgetsBudgetActionDefinitionBlockSsmActionDefinitionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionSubType is required")]
     public required TerraformValue<string> ActionSubType
     {
-        get => GetArgument<TerraformValue<string>>("action_sub_type");
+        get => GetRequiredArgument<TerraformValue<string>>("action_sub_type");
         set => SetArgument("action_sub_type", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsBudgetsBudgetActionDefinitionBlockSsmActionDefinitionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceIds is required")]
     public required TerraformSet<string> InstanceIds
     {
-        get => GetArgument<TerraformSet<string>>("instance_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("instance_ids");
         set => SetArgument("instance_ids", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsBudgetsBudgetActionDefinitionBlockSsmActionDefinitionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -223,7 +223,7 @@ public class AwsBudgetsBudgetActionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformValue<string> Address
     {
-        get => GetArgument<TerraformValue<string>>("address");
+        get => GetRequiredArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -233,7 +233,7 @@ public class AwsBudgetsBudgetActionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionType is required")]
     public required TerraformValue<string> SubscriptionType
     {
-        get => GetArgument<TerraformValue<string>>("subscription_type");
+        get => GetRequiredArgument<TerraformValue<string>>("subscription_type");
         set => SetArgument("subscription_type", value);
     }
 
@@ -290,9 +290,9 @@ public partial class AwsBudgetsBudgetAction(string name) : TerraformResource("aw
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AccountId
+    public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -302,7 +302,7 @@ public partial class AwsBudgetsBudgetAction(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
     public required TerraformValue<string> ActionType
     {
-        get => GetArgument<TerraformValue<string>>("action_type");
+        get => GetRequiredArgument<TerraformValue<string>>("action_type");
         set => SetArgument("action_type", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AwsBudgetsBudgetAction(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApprovalModel is required")]
     public required TerraformValue<string> ApprovalModel
     {
-        get => GetArgument<TerraformValue<string>>("approval_model");
+        get => GetRequiredArgument<TerraformValue<string>>("approval_model");
         set => SetArgument("approval_model", value);
     }
 
@@ -322,7 +322,7 @@ public partial class AwsBudgetsBudgetAction(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetName is required")]
     public required TerraformValue<string> BudgetName
     {
-        get => GetArgument<TerraformValue<string>>("budget_name");
+        get => GetRequiredArgument<TerraformValue<string>>("budget_name");
         set => SetArgument("budget_name", value);
     }
 
@@ -332,16 +332,16 @@ public partial class AwsBudgetsBudgetAction(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("execution_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -351,7 +351,7 @@ public partial class AwsBudgetsBudgetAction(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformValue<string> NotificationType
     {
-        get => GetArgument<TerraformValue<string>>("notification_type");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_type");
         set => SetArgument("notification_type", value);
     }
 
@@ -367,9 +367,9 @@ public partial class AwsBudgetsBudgetAction(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

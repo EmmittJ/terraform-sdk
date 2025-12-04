@@ -45,7 +45,7 @@ public class GoogleBigqueryConnectionAwsBlockAccessRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleId is required")]
     public required TerraformValue<string> IamRoleId
     {
-        get => GetArgument<TerraformValue<string>>("iam_role_id");
+        get => GetRequiredArgument<TerraformValue<string>>("iam_role_id");
         set => SetArgument("iam_role_id", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerTenantId is required")]
     public required TerraformValue<string> CustomerTenantId
     {
-        get => GetArgument<TerraformValue<string>>("customer_tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("customer_tenant_id");
         set => SetArgument("customer_tenant_id", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -238,7 +238,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -254,7 +254,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -290,7 +290,7 @@ public class GoogleBigqueryConnectionCloudSqlBlockCredentialBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -300,7 +300,7 @@ public class GoogleBigqueryConnectionCloudSqlBlockCredentialBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -441,9 +441,9 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// <summary>
     /// Optional connection id that should be assigned to the created connection.
     /// </summary>
-    public TerraformValue<string>? ConnectionId
+    public TerraformValue<string> ConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("connection_id");
+        get => GetArgument<TerraformValue<string>>("connection_id") ?? AsReference("connection_id");
         set => SetArgument("connection_id", value);
     }
 
@@ -468,9 +468,9 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -503,9 +503,9 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

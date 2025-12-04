@@ -28,7 +28,7 @@ public class AzurermStorageDataLakeGen2PathAceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformValue<string> Permissions
     {
-        get => GetArgument<TerraformValue<string>>("permissions");
+        get => GetRequiredArgument<TerraformValue<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermStorageDataLakeGen2PathAceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -116,34 +116,34 @@ public partial class AzurermStorageDataLakeGen2Path(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilesystemName is required")]
     public required TerraformValue<string> FilesystemName
     {
-        get => GetArgument<TerraformValue<string>>("filesystem_name");
+        get => GetRequiredArgument<TerraformValue<string>>("filesystem_name");
         set => SetArgument("filesystem_name", value);
     }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public TerraformValue<string>? Group
+    public TerraformValue<string> Group
     {
-        get => GetArgument<TerraformValue<string>>("group");
+        get => GetArgument<TerraformValue<string>>("group") ?? AsReference("group");
         set => SetArgument("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformValue<string>? Owner
+    public TerraformValue<string> Owner
     {
-        get => GetArgument<TerraformValue<string>>("owner");
+        get => GetArgument<TerraformValue<string>>("owner") ?? AsReference("owner");
         set => SetArgument("owner", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AzurermStorageDataLakeGen2Path(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermStorageDataLakeGen2Path(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => GetArgument<TerraformValue<string>>("resource");
+        get => GetRequiredArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AzurermStorageDataLakeGen2Path(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

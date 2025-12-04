@@ -19,7 +19,7 @@ public class AwsEc2LocalGatewayRouteTableDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEc2LocalGatewayRouteTableDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => GetArgument<TerraformSet<string>>("values");
+        get => GetRequiredArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -68,63 +68,63 @@ public partial class AwsEc2LocalGatewayRouteTableDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The local_gateway_id attribute.
     /// </summary>
-    public TerraformValue<string>? LocalGatewayId
+    public TerraformValue<string> LocalGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("local_gateway_id");
+        get => GetArgument<TerraformValue<string>>("local_gateway_id") ?? AsReference("local_gateway_id");
         set => SetArgument("local_gateway_id", value);
     }
 
     /// <summary>
     /// The local_gateway_route_table_id attribute.
     /// </summary>
-    public TerraformValue<string>? LocalGatewayRouteTableId
+    public TerraformValue<string> LocalGatewayRouteTableId
     {
-        get => GetArgument<TerraformValue<string>>("local_gateway_route_table_id");
+        get => GetArgument<TerraformValue<string>>("local_gateway_route_table_id") ?? AsReference("local_gateway_route_table_id");
         set => SetArgument("local_gateway_route_table_id", value);
     }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    public TerraformValue<string>? OutpostArn
+    public TerraformValue<string> OutpostArn
     {
-        get => GetArgument<TerraformValue<string>>("outpost_arn");
+        get => GetArgument<TerraformValue<string>>("outpost_arn") ?? AsReference("outpost_arn");
         set => SetArgument("outpost_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string>? State
+    public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
         set => SetArgument("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string>? Tags
+    public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 

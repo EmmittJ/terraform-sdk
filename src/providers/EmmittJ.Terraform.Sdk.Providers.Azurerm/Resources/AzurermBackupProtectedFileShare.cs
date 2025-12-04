@@ -64,16 +64,16 @@ public partial class AzurermBackupProtectedFileShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     public required TerraformValue<string> BackupPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("backup_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("backup_policy_id");
         set => SetArgument("backup_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermBackupProtectedFileShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformValue<string> RecoveryVaultName
     {
-        get => GetArgument<TerraformValue<string>>("recovery_vault_name");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_vault_name");
         set => SetArgument("recovery_vault_name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermBackupProtectedFileShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermBackupProtectedFileShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShareName is required")]
     public required TerraformValue<string> SourceFileShareName
     {
-        get => GetArgument<TerraformValue<string>>("source_file_share_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_file_share_name");
         set => SetArgument("source_file_share_name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermBackupProtectedFileShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceStorageAccountId is required")]
     public required TerraformValue<string> SourceStorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("source_storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_storage_account_id");
         set => SetArgument("source_storage_account_id", value);
     }
 

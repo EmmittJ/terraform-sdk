@@ -19,7 +19,7 @@ public class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreCount is required")]
     public required TerraformValue<double> CoreCount
     {
-        get => GetArgument<TerraformValue<double>>("core_count");
+        get => GetRequiredArgument<TerraformValue<double>>("core_count");
         set => SetArgument("core_count", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleNotebooksInstanceContainerImageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => GetArgument<TerraformValue<string>>("repository");
+        get => GetRequiredArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleNotebooksInstanceReservationAffinityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumeReservationType is required")]
     public required TerraformValue<string> ConsumeReservationType
     {
-        get => GetArgument<TerraformValue<string>>("consume_reservation_type");
+        get => GetRequiredArgument<TerraformValue<string>>("consume_reservation_type");
         set => SetArgument("consume_reservation_type", value);
     }
 
@@ -237,7 +237,7 @@ public class GoogleNotebooksInstanceVmImageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -274,9 +274,9 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// <summary>
     /// Instance creation time
     /// </summary>
-    public TerraformValue<string>? CreateTime
+    public TerraformValue<string> CreateTime
     {
-        get => GetArgument<TerraformValue<string>>("create_time");
+        get => GetArgument<TerraformValue<string>>("create_time") ?? AsReference("create_time");
         set => SetArgument("create_time", value);
     }
 
@@ -323,18 +323,18 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// <summary>
     /// Disk encryption method used on the boot and data disks, defaults to GMEK. Possible values: [&amp;quot;DISK_ENCRYPTION_UNSPECIFIED&amp;quot;, &amp;quot;GMEK&amp;quot;, &amp;quot;CMEK&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? DiskEncryption
+    public TerraformValue<string> DiskEncryption
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption");
+        get => GetArgument<TerraformValue<string>>("disk_encryption") ?? AsReference("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -392,7 +392,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -402,7 +402,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
     public required TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type");
+        get => GetRequiredArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -422,7 +422,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -430,9 +430,9 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// The name of the VPC that this instance is in.
     /// Format: projects/{project_id}/global/networks/{network_id}
     /// </summary>
-    public TerraformValue<string>? Network
+    public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
         set => SetArgument("network", value);
     }
 
@@ -486,9 +486,9 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -499,9 +499,9 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// permission to use the instance. If not specified,
     /// the Compute Engine default service account is used.
     /// </summary>
-    public TerraformValue<string>? ServiceAccount
+    public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -511,9 +511,9 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// - https://www.googleapis.com/auth/cloud-platform
     /// - https://www.googleapis.com/auth/userinfo.email
     /// </summary>
-    public TerraformList<string>? ServiceAccountScopes
+    public TerraformList<string> ServiceAccountScopes
     {
-        get => GetArgument<TerraformList<string>>("service_account_scopes");
+        get => GetArgument<TerraformList<string>>("service_account_scopes") ?? AsReference("service_account_scopes");
         set => SetArgument("service_account_scopes", value);
     }
 
@@ -521,27 +521,27 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// The name of the subnet that this instance is in.
     /// Format: projects/{project_id}/regions/{region}/subnetworks/{subnetwork_id}
     /// </summary>
-    public TerraformValue<string>? Subnet
+    public TerraformValue<string> Subnet
     {
-        get => GetArgument<TerraformValue<string>>("subnet");
+        get => GetArgument<TerraformValue<string>>("subnet") ?? AsReference("subnet");
         set => SetArgument("subnet", value);
     }
 
     /// <summary>
     /// The Compute Engine tags to add to instance.
     /// </summary>
-    public TerraformList<string>? Tags
+    public TerraformList<string> Tags
     {
-        get => GetArgument<TerraformList<string>>("tags");
+        get => GetArgument<TerraformList<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// Instance update time.
     /// </summary>
-    public TerraformValue<string>? UpdateTime
+    public TerraformValue<string> UpdateTime
     {
-        get => GetArgument<TerraformValue<string>>("update_time");
+        get => GetArgument<TerraformValue<string>>("update_time") ?? AsReference("update_time");
         set => SetArgument("update_time", value);
     }
 

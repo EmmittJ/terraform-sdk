@@ -11,9 +11,9 @@ public partial class AwsMqConfiguration(string name) : TerraformResource("aws_mq
     /// <summary>
     /// The authentication_strategy attribute.
     /// </summary>
-    public TerraformValue<string>? AuthenticationStrategy
+    public TerraformValue<string> AuthenticationStrategy
     {
-        get => GetArgument<TerraformValue<string>>("authentication_strategy");
+        get => GetArgument<TerraformValue<string>>("authentication_strategy") ?? AsReference("authentication_strategy");
         set => SetArgument("authentication_strategy", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsMqConfiguration(string name) : TerraformResource("aws_mq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
     public required TerraformValue<string> Data
     {
-        get => GetArgument<TerraformValue<string>>("data");
+        get => GetRequiredArgument<TerraformValue<string>>("data");
         set => SetArgument("data", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsMqConfiguration(string name) : TerraformResource("aws_mq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
     public required TerraformValue<string> EngineType
     {
-        get => GetArgument<TerraformValue<string>>("engine_type");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_type");
         set => SetArgument("engine_type", value);
     }
 
@@ -52,16 +52,16 @@ public partial class AwsMqConfiguration(string name) : TerraformResource("aws_mq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
     public required TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -71,16 +71,16 @@ public partial class AwsMqConfiguration(string name) : TerraformResource("aws_mq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -96,9 +96,9 @@ public partial class AwsMqConfiguration(string name) : TerraformResource("aws_mq
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

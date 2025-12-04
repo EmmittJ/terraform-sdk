@@ -64,16 +64,16 @@ public partial class AzurermRoute(string name) : TerraformResource("azurerm_rout
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
     public required TerraformValue<string> AddressPrefix
     {
-        get => GetArgument<TerraformValue<string>>("address_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("address_prefix");
         set => SetArgument("address_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermRoute(string name) : TerraformResource("azurerm_rout
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermRoute(string name) : TerraformResource("azurerm_rout
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHopType is required")]
     public required TerraformValue<string> NextHopType
     {
-        get => GetArgument<TerraformValue<string>>("next_hop_type");
+        get => GetRequiredArgument<TerraformValue<string>>("next_hop_type");
         set => SetArgument("next_hop_type", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermRoute(string name) : TerraformResource("azurerm_rout
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermRoute(string name) : TerraformResource("azurerm_rout
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableName is required")]
     public required TerraformValue<string> RouteTableName
     {
-        get => GetArgument<TerraformValue<string>>("route_table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("route_table_name");
         set => SetArgument("route_table_name", value);
     }
 

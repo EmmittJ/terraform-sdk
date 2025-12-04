@@ -61,9 +61,9 @@ public partial class AzurermStreamAnalyticsJobSchedule(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermStreamAnalyticsJobSchedule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartMode is required")]
     public required TerraformValue<string> StartMode
     {
-        get => GetArgument<TerraformValue<string>>("start_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("start_mode");
         set => SetArgument("start_mode", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformValue<string>? StartTime
+    public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermStreamAnalyticsJobSchedule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformValue<string> StreamAnalyticsJobId
     {
-        get => GetArgument<TerraformValue<string>>("stream_analytics_job_id");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_analytics_job_id");
         set => SetArgument("stream_analytics_job_id", value);
     }
 

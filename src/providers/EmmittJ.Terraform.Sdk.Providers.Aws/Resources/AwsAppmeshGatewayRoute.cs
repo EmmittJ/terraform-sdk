@@ -171,7 +171,7 @@ public class AwsAppmeshGatewayRouteSpecBlockGrpcRouteBlockActionBlockTargetBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualServiceName is required")]
     public required TerraformValue<string> VirtualServiceName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_service_name");
         set => SetArgument("virtual_service_name", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsAppmeshGatewayRouteSpecBlockGrpcRouteBlockMatchBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -344,7 +344,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttp2RouteBlockActionBlockRewriteBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultTargetHostname is required")]
     public required TerraformValue<string> DefaultTargetHostname
     {
-        get => GetArgument<TerraformValue<string>>("default_target_hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("default_target_hostname");
         set => SetArgument("default_target_hostname", value);
     }
 
@@ -367,7 +367,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttp2RouteBlockActionBlockRewriteBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exact is required")]
     public required TerraformValue<string> Exact
     {
-        get => GetArgument<TerraformValue<string>>("exact");
+        get => GetRequiredArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttp2RouteBlockActionBlockTargetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualServiceName is required")]
     public required TerraformValue<string> VirtualServiceName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_service_name");
         set => SetArgument("virtual_service_name", value);
     }
 
@@ -559,7 +559,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttp2RouteBlockMatchBlockHeaderBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -651,7 +651,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttp2RouteBlockMatchBlockHeaderBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<double> End
     {
-        get => GetArgument<TerraformValue<double>>("end");
+        get => GetRequiredArgument<TerraformValue<double>>("end");
         set => SetArgument("end", value);
     }
 
@@ -661,7 +661,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttp2RouteBlockMatchBlockHeaderBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<double> Start
     {
-        get => GetArgument<TerraformValue<double>>("start");
+        get => GetRequiredArgument<TerraformValue<double>>("start");
         set => SetArgument("start", value);
     }
 
@@ -746,7 +746,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttp2RouteBlockMatchBlockQueryParame
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -919,7 +919,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttpRouteBlockActionBlockRewriteBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultTargetHostname is required")]
     public required TerraformValue<string> DefaultTargetHostname
     {
-        get => GetArgument<TerraformValue<string>>("default_target_hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("default_target_hostname");
         set => SetArgument("default_target_hostname", value);
     }
 
@@ -942,7 +942,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttpRouteBlockActionBlockRewriteBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exact is required")]
     public required TerraformValue<string> Exact
     {
-        get => GetArgument<TerraformValue<string>>("exact");
+        get => GetRequiredArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -1031,7 +1031,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttpRouteBlockActionBlockTargetBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualServiceName is required")]
     public required TerraformValue<string> VirtualServiceName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_service_name");
         set => SetArgument("virtual_service_name", value);
     }
 
@@ -1134,7 +1134,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttpRouteBlockMatchBlockHeaderBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1226,7 +1226,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttpRouteBlockMatchBlockHeaderBlockM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<double> End
     {
-        get => GetArgument<TerraformValue<double>>("end");
+        get => GetRequiredArgument<TerraformValue<double>>("end");
         set => SetArgument("end", value);
     }
 
@@ -1236,7 +1236,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttpRouteBlockMatchBlockHeaderBlockM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<double> Start
     {
-        get => GetArgument<TerraformValue<double>>("start");
+        get => GetRequiredArgument<TerraformValue<double>>("start");
         set => SetArgument("start", value);
     }
 
@@ -1321,7 +1321,7 @@ public class AwsAppmeshGatewayRouteSpecBlockHttpRouteBlockMatchBlockQueryParamet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1369,9 +1369,9 @@ public partial class AwsAppmeshGatewayRoute(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1381,16 +1381,16 @@ public partial class AwsAppmeshGatewayRoute(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshName is required")]
     public required TerraformValue<string> MeshName
     {
-        get => GetArgument<TerraformValue<string>>("mesh_name");
+        get => GetRequiredArgument<TerraformValue<string>>("mesh_name");
         set => SetArgument("mesh_name", value);
     }
 
     /// <summary>
     /// The mesh_owner attribute.
     /// </summary>
-    public TerraformValue<string>? MeshOwner
+    public TerraformValue<string> MeshOwner
     {
-        get => GetArgument<TerraformValue<string>>("mesh_owner");
+        get => GetArgument<TerraformValue<string>>("mesh_owner") ?? AsReference("mesh_owner");
         set => SetArgument("mesh_owner", value);
     }
 
@@ -1400,16 +1400,16 @@ public partial class AwsAppmeshGatewayRoute(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1425,9 +1425,9 @@ public partial class AwsAppmeshGatewayRoute(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1437,7 +1437,7 @@ public partial class AwsAppmeshGatewayRoute(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualGatewayName is required")]
     public required TerraformValue<string> VirtualGatewayName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_gateway_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_gateway_name");
         set => SetArgument("virtual_gateway_name", value);
     }
 

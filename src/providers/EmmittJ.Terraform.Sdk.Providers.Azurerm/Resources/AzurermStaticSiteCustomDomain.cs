@@ -56,16 +56,16 @@ public partial class AzurermStaticSiteCustomDomain(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AzurermStaticSiteCustomDomain(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticSiteId is required")]
     public required TerraformValue<string> StaticSiteId
     {
-        get => GetArgument<TerraformValue<string>>("static_site_id");
+        get => GetRequiredArgument<TerraformValue<string>>("static_site_id");
         set => SetArgument("static_site_id", value);
     }
 

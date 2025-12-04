@@ -19,7 +19,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => GetArgument<TerraformValue<string>>("category");
+        get => GetRequiredArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -131,9 +131,9 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateData is required")]
     public required TerraformValue<string> TemplateData
     {
-        get => GetArgument<TerraformValue<string>>("template_data");
+        get => GetRequiredArgument<TerraformValue<string>>("template_data");
         set => SetArgument("template_data", value);
     }
 

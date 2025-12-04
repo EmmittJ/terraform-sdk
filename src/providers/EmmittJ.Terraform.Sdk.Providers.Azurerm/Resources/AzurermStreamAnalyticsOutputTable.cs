@@ -64,7 +64,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchSize is required")]
     public required TerraformValue<double> BatchSize
     {
-        get => GetArgument<TerraformValue<double>>("batch_size");
+        get => GetRequiredArgument<TerraformValue<double>>("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     public required TerraformValue<string> PartitionKey
     {
-        get => GetArgument<TerraformValue<string>>("partition_key");
+        get => GetRequiredArgument<TerraformValue<string>>("partition_key");
         set => SetArgument("partition_key", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
     public required TerraformValue<string> RowKey
     {
-        get => GetArgument<TerraformValue<string>>("row_key");
+        get => GetRequiredArgument<TerraformValue<string>>("row_key");
         set => SetArgument("row_key", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformValue<string> StorageAccountKey
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_key");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_key");
         set => SetArgument("storage_account_key", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformValue<string> StorageAccountName
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
-        get => GetArgument<TerraformValue<string>>("stream_analytics_job_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_analytics_job_name");
         set => SetArgument("stream_analytics_job_name", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 

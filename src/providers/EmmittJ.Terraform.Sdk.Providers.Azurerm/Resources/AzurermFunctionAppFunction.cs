@@ -19,7 +19,7 @@ public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigJson is required")]
     public required TerraformValue<string> ConfigJson
     {
-        get => GetArgument<TerraformValue<string>>("config_json");
+        get => GetRequiredArgument<TerraformValue<string>>("config_json");
         set => SetArgument("config_json", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformValue<string> FunctionAppId
     {
-        get => GetArgument<TerraformValue<string>>("function_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("function_app_id");
         set => SetArgument("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

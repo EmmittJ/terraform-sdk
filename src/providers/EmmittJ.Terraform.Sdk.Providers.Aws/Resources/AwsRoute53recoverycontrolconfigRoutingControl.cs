@@ -14,25 +14,25 @@ public partial class AwsRoute53recoverycontrolconfigRoutingControl(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
     public required TerraformValue<string> ClusterArn
     {
-        get => GetArgument<TerraformValue<string>>("cluster_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_arn");
         set => SetArgument("cluster_arn", value);
     }
 
     /// <summary>
     /// The control_panel_arn attribute.
     /// </summary>
-    public TerraformValue<string>? ControlPanelArn
+    public TerraformValue<string> ControlPanelArn
     {
-        get => GetArgument<TerraformValue<string>>("control_panel_arn");
+        get => GetArgument<TerraformValue<string>>("control_panel_arn") ?? AsReference("control_panel_arn");
         set => SetArgument("control_panel_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsRoute53recoverycontrolconfigRoutingControl(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

@@ -20,7 +20,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
     public required TerraformValue<string> IpProtocol
     {
-        get => GetArgument<TerraformValue<string>>("ip_protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_protocol");
         set => SetArgument("ip_protocol", value);
     }
 
@@ -444,9 +444,9 @@ public partial class GoogleComputeRegionNetworkFirewallPolicyWithRules(string na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -461,7 +461,7 @@ public partial class GoogleComputeRegionNetworkFirewallPolicyWithRules(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -470,27 +470,27 @@ public partial class GoogleComputeRegionNetworkFirewallPolicyWithRules(string na
     /// A policy can be associated with a network only if the network has the matching policyType in its network profile.
     /// Different policy types may support some of the Firewall Rules features. Possible values: [&amp;quot;VPC_POLICY&amp;quot;, &amp;quot;RDMA_ROCE_POLICY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? PolicyType
+    public TerraformValue<string> PolicyType
     {
-        get => GetArgument<TerraformValue<string>>("policy_type");
+        get => GetArgument<TerraformValue<string>>("policy_type") ?? AsReference("policy_type");
         set => SetArgument("policy_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region of this resource.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

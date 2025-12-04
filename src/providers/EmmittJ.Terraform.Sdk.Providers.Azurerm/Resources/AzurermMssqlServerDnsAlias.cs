@@ -52,9 +52,9 @@ public partial class AzurermMssqlServerDnsAlias(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermMssqlServerDnsAlias(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MssqlServerId is required")]
     public required TerraformValue<string> MssqlServerId
     {
-        get => GetArgument<TerraformValue<string>>("mssql_server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("mssql_server_id");
         set => SetArgument("mssql_server_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermMssqlServerDnsAlias(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

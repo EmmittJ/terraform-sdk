@@ -61,9 +61,9 @@ public partial class GoogleEdgenetworkNetwork(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleEdgenetworkNetwork(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -105,16 +105,16 @@ public partial class GoogleEdgenetworkNetwork(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkId is required")]
     public required TerraformValue<string> NetworkId
     {
-        get => GetArgument<TerraformValue<string>>("network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_id");
         set => SetArgument("network_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -124,7 +124,7 @@ public partial class GoogleEdgenetworkNetwork(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetRequiredArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 

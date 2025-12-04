@@ -106,7 +106,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendBlockVirtualServiceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualServiceName is required")]
     public required TerraformValue<string> VirtualServiceName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_service_name");
         set => SetArgument("virtual_service_name", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendBlockVirtualServiceBlockClient
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateChain is required")]
     public required TerraformValue<string> CertificateChain
     {
-        get => GetArgument<TerraformValue<string>>("certificate_chain");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_chain");
         set => SetArgument("certificate_chain", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendBlockVirtualServiceBlockClient
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformValue<string> PrivateKey
     {
-        get => GetArgument<TerraformValue<string>>("private_key");
+        get => GetRequiredArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
@@ -282,7 +282,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendBlockVirtualServiceBlockClient
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -367,7 +367,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendBlockVirtualServiceBlockClient
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exact is required")]
     public required TerraformSet<string> Exact
     {
-        get => GetArgument<TerraformSet<string>>("exact");
+        get => GetRequiredArgument<TerraformSet<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -433,7 +433,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendBlockVirtualServiceBlockClient
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArns is required")]
     public required TerraformSet<string> CertificateAuthorityArns
     {
-        get => GetArgument<TerraformSet<string>>("certificate_authority_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("certificate_authority_arns");
         set => SetArgument("certificate_authority_arns", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendBlockVirtualServiceBlockClient
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateChain is required")]
     public required TerraformValue<string> CertificateChain
     {
-        get => GetArgument<TerraformValue<string>>("certificate_chain");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_chain");
         set => SetArgument("certificate_chain", value);
     }
 
@@ -479,7 +479,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendBlockVirtualServiceBlockClient
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -635,7 +635,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendDefaultsBlockClientPolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateChain is required")]
     public required TerraformValue<string> CertificateChain
     {
-        get => GetArgument<TerraformValue<string>>("certificate_chain");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_chain");
         set => SetArgument("certificate_chain", value);
     }
 
@@ -645,7 +645,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendDefaultsBlockClientPolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformValue<string> PrivateKey
     {
-        get => GetArgument<TerraformValue<string>>("private_key");
+        get => GetRequiredArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
@@ -668,7 +668,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendDefaultsBlockClientPolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -753,7 +753,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendDefaultsBlockClientPolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exact is required")]
     public required TerraformSet<string> Exact
     {
-        get => GetArgument<TerraformSet<string>>("exact");
+        get => GetRequiredArgument<TerraformSet<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -819,7 +819,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendDefaultsBlockClientPolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArns is required")]
     public required TerraformSet<string> CertificateAuthorityArns
     {
-        get => GetArgument<TerraformSet<string>>("certificate_authority_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("certificate_authority_arns");
         set => SetArgument("certificate_authority_arns", value);
     }
 
@@ -842,7 +842,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendDefaultsBlockClientPolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateChain is required")]
     public required TerraformValue<string> CertificateChain
     {
-        get => GetArgument<TerraformValue<string>>("certificate_chain");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_chain");
         set => SetArgument("certificate_chain", value);
     }
 
@@ -865,7 +865,7 @@ public class AwsAppmeshVirtualNodeSpecBlockBackendDefaultsBlockClientPolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -1014,7 +1014,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockConnectionPoolBlockGrpcB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRequests is required")]
     public required TerraformValue<double> MaxRequests
     {
-        get => GetArgument<TerraformValue<double>>("max_requests");
+        get => GetRequiredArgument<TerraformValue<double>>("max_requests");
         set => SetArgument("max_requests", value);
     }
 
@@ -1037,7 +1037,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockConnectionPoolBlockHttpB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxConnections is required")]
     public required TerraformValue<double> MaxConnections
     {
-        get => GetArgument<TerraformValue<double>>("max_connections");
+        get => GetRequiredArgument<TerraformValue<double>>("max_connections");
         set => SetArgument("max_connections", value);
     }
 
@@ -1069,7 +1069,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockConnectionPoolBlockHttp2
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRequests is required")]
     public required TerraformValue<double> MaxRequests
     {
-        get => GetArgument<TerraformValue<double>>("max_requests");
+        get => GetRequiredArgument<TerraformValue<double>>("max_requests");
         set => SetArgument("max_requests", value);
     }
 
@@ -1092,7 +1092,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockConnectionPoolBlockTcpBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxConnections is required")]
     public required TerraformValue<double> MaxConnections
     {
-        get => GetArgument<TerraformValue<double>>("max_connections");
+        get => GetRequiredArgument<TerraformValue<double>>("max_connections");
         set => SetArgument("max_connections", value);
     }
 
@@ -1115,7 +1115,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockHealthCheckBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthyThreshold is required")]
     public required TerraformValue<double> HealthyThreshold
     {
-        get => GetArgument<TerraformValue<double>>("healthy_threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("healthy_threshold");
         set => SetArgument("healthy_threshold", value);
     }
 
@@ -1125,7 +1125,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockHealthCheckBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalMillis is required")]
     public required TerraformValue<double> IntervalMillis
     {
-        get => GetArgument<TerraformValue<double>>("interval_millis");
+        get => GetRequiredArgument<TerraformValue<double>>("interval_millis");
         set => SetArgument("interval_millis", value);
     }
 
@@ -1141,9 +1141,9 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockHealthCheckBlock : Terra
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1153,7 +1153,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockHealthCheckBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -1163,7 +1163,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockHealthCheckBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeoutMillis is required")]
     public required TerraformValue<double> TimeoutMillis
     {
-        get => GetArgument<TerraformValue<double>>("timeout_millis");
+        get => GetRequiredArgument<TerraformValue<double>>("timeout_millis");
         set => SetArgument("timeout_millis", value);
     }
 
@@ -1173,7 +1173,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockHealthCheckBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnhealthyThreshold is required")]
     public required TerraformValue<double> UnhealthyThreshold
     {
-        get => GetArgument<TerraformValue<double>>("unhealthy_threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("unhealthy_threshold");
         set => SetArgument("unhealthy_threshold", value);
     }
 
@@ -1196,7 +1196,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockOutlierDetectionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxEjectionPercent is required")]
     public required TerraformValue<double> MaxEjectionPercent
     {
-        get => GetArgument<TerraformValue<double>>("max_ejection_percent");
+        get => GetRequiredArgument<TerraformValue<double>>("max_ejection_percent");
         set => SetArgument("max_ejection_percent", value);
     }
 
@@ -1206,7 +1206,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockOutlierDetectionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxServerErrors is required")]
     public required TerraformValue<double> MaxServerErrors
     {
-        get => GetArgument<TerraformValue<double>>("max_server_errors");
+        get => GetRequiredArgument<TerraformValue<double>>("max_server_errors");
         set => SetArgument("max_server_errors", value);
     }
 
@@ -1255,7 +1255,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockOutlierDetectionBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1265,7 +1265,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockOutlierDetectionBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1288,7 +1288,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockOutlierDetectionBlockInt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1298,7 +1298,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockOutlierDetectionBlockInt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1321,7 +1321,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockPortMappingBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1331,7 +1331,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockPortMappingBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -1440,7 +1440,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockGrpcBlockIdl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1450,7 +1450,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockGrpcBlockIdl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1473,7 +1473,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockGrpcBlockPer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1483,7 +1483,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockGrpcBlockPer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1539,7 +1539,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockHttpBlockIdl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1549,7 +1549,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockHttpBlockIdl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1572,7 +1572,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockHttpBlockPer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1582,7 +1582,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockHttpBlockPer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1638,7 +1638,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockHttp2BlockId
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1648,7 +1648,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockHttp2BlockId
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1671,7 +1671,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockHttp2BlockPe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1681,7 +1681,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockHttp2BlockPe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1727,7 +1727,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockTcpBlockIdle
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1737,7 +1737,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTimeoutBlockTcpBlockIdle
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1760,7 +1760,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTlsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -1849,7 +1849,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTlsBlockCertificateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
     public required TerraformValue<string> CertificateArn
     {
-        get => GetArgument<TerraformValue<string>>("certificate_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_arn");
         set => SetArgument("certificate_arn", value);
     }
 
@@ -1872,7 +1872,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTlsBlockCertificateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateChain is required")]
     public required TerraformValue<string> CertificateChain
     {
-        get => GetArgument<TerraformValue<string>>("certificate_chain");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_chain");
         set => SetArgument("certificate_chain", value);
     }
 
@@ -1882,7 +1882,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTlsBlockCertificateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformValue<string> PrivateKey
     {
-        get => GetArgument<TerraformValue<string>>("private_key");
+        get => GetRequiredArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
@@ -1905,7 +1905,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTlsBlockCertificateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -1990,7 +1990,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTlsBlockValidationBlockS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exact is required")]
     public required TerraformSet<string> Exact
     {
-        get => GetArgument<TerraformSet<string>>("exact");
+        get => GetRequiredArgument<TerraformSet<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -2046,7 +2046,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTlsBlockValidationBlockT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateChain is required")]
     public required TerraformValue<string> CertificateChain
     {
-        get => GetArgument<TerraformValue<string>>("certificate_chain");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_chain");
         set => SetArgument("certificate_chain", value);
     }
 
@@ -2069,7 +2069,7 @@ public class AwsAppmeshVirtualNodeSpecBlockListenerBlockTlsBlockValidationBlockT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -2138,7 +2138,7 @@ public class AwsAppmeshVirtualNodeSpecBlockLoggingBlockAccessLogBlockFileBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -2202,7 +2202,7 @@ public class AwsAppmeshVirtualNodeSpecBlockLoggingBlockAccessLogBlockFileBlockFo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -2212,7 +2212,7 @@ public class AwsAppmeshVirtualNodeSpecBlockLoggingBlockAccessLogBlockFileBlockFo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2277,7 +2277,7 @@ public class AwsAppmeshVirtualNodeSpecBlockServiceDiscoveryBlockAwsCloudMapBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformValue<string> NamespaceName
     {
-        get => GetArgument<TerraformValue<string>>("namespace_name");
+        get => GetRequiredArgument<TerraformValue<string>>("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
@@ -2287,7 +2287,7 @@ public class AwsAppmeshVirtualNodeSpecBlockServiceDiscoveryBlockAwsCloudMapBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -2310,7 +2310,7 @@ public class AwsAppmeshVirtualNodeSpecBlockServiceDiscoveryBlockDnsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -2344,9 +2344,9 @@ public partial class AwsAppmeshVirtualNode(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2356,16 +2356,16 @@ public partial class AwsAppmeshVirtualNode(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshName is required")]
     public required TerraformValue<string> MeshName
     {
-        get => GetArgument<TerraformValue<string>>("mesh_name");
+        get => GetRequiredArgument<TerraformValue<string>>("mesh_name");
         set => SetArgument("mesh_name", value);
     }
 
     /// <summary>
     /// The mesh_owner attribute.
     /// </summary>
-    public TerraformValue<string>? MeshOwner
+    public TerraformValue<string> MeshOwner
     {
-        get => GetArgument<TerraformValue<string>>("mesh_owner");
+        get => GetArgument<TerraformValue<string>>("mesh_owner") ?? AsReference("mesh_owner");
         set => SetArgument("mesh_owner", value);
     }
 
@@ -2375,16 +2375,16 @@ public partial class AwsAppmeshVirtualNode(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -2400,9 +2400,9 @@ public partial class AwsAppmeshVirtualNode(string name) : TerraformResource("aws
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

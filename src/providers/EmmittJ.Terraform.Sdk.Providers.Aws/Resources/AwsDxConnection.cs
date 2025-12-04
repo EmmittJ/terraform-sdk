@@ -14,25 +14,25 @@ public partial class AwsDxConnection(string name) : TerraformResource("aws_dx_co
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bandwidth is required")]
     public required TerraformValue<string> Bandwidth
     {
-        get => GetArgument<TerraformValue<string>>("bandwidth");
+        get => GetRequiredArgument<TerraformValue<string>>("bandwidth");
         set => SetArgument("bandwidth", value);
     }
 
     /// <summary>
     /// The encryption_mode attribute.
     /// </summary>
-    public TerraformValue<string>? EncryptionMode
+    public TerraformValue<string> EncryptionMode
     {
-        get => GetArgument<TerraformValue<string>>("encryption_mode");
+        get => GetArgument<TerraformValue<string>>("encryption_mode") ?? AsReference("encryption_mode");
         set => SetArgument("encryption_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsDxConnection(string name) : TerraformResource("aws_dx_co
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -52,25 +52,25 @@ public partial class AwsDxConnection(string name) : TerraformResource("aws_dx_co
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformValue<string>? ProviderName
+    public TerraformValue<string> ProviderName
     {
-        get => GetArgument<TerraformValue<string>>("provider_name");
+        get => GetArgument<TerraformValue<string>>("provider_name") ?? AsReference("provider_name");
         set => SetArgument("provider_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -104,9 +104,9 @@ public partial class AwsDxConnection(string name) : TerraformResource("aws_dx_co
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

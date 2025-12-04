@@ -46,16 +46,16 @@ public partial class AwsDxBgpPeer(string name) : TerraformResource("aws_dx_bgp_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformValue<string> AddressFamily
     {
-        get => GetArgument<TerraformValue<string>>("address_family");
+        get => GetRequiredArgument<TerraformValue<string>>("address_family");
         set => SetArgument("address_family", value);
     }
 
     /// <summary>
     /// The amazon_address attribute.
     /// </summary>
-    public TerraformValue<string>? AmazonAddress
+    public TerraformValue<string> AmazonAddress
     {
-        get => GetArgument<TerraformValue<string>>("amazon_address");
+        get => GetArgument<TerraformValue<string>>("amazon_address") ?? AsReference("amazon_address");
         set => SetArgument("amazon_address", value);
     }
 
@@ -65,43 +65,43 @@ public partial class AwsDxBgpPeer(string name) : TerraformResource("aws_dx_bgp_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
     public required TerraformValue<double> BgpAsn
     {
-        get => GetArgument<TerraformValue<double>>("bgp_asn");
+        get => GetRequiredArgument<TerraformValue<double>>("bgp_asn");
         set => SetArgument("bgp_asn", value);
     }
 
     /// <summary>
     /// The bgp_auth_key attribute.
     /// </summary>
-    public TerraformValue<string>? BgpAuthKey
+    public TerraformValue<string> BgpAuthKey
     {
-        get => GetArgument<TerraformValue<string>>("bgp_auth_key");
+        get => GetArgument<TerraformValue<string>>("bgp_auth_key") ?? AsReference("bgp_auth_key");
         set => SetArgument("bgp_auth_key", value);
     }
 
     /// <summary>
     /// The customer_address attribute.
     /// </summary>
-    public TerraformValue<string>? CustomerAddress
+    public TerraformValue<string> CustomerAddress
     {
-        get => GetArgument<TerraformValue<string>>("customer_address");
+        get => GetArgument<TerraformValue<string>>("customer_address") ?? AsReference("customer_address");
         set => SetArgument("customer_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsDxBgpPeer(string name) : TerraformResource("aws_dx_bgp_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualInterfaceId is required")]
     public required TerraformValue<string> VirtualInterfaceId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_interface_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_interface_id");
         set => SetArgument("virtual_interface_id", value);
     }
 

@@ -32,7 +32,7 @@ public class GoogleSccManagementOrganizationSecurityHealthAnalyticsCustomModuleC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Recommendation is required")]
     public required TerraformValue<string> Recommendation
     {
-        get => GetArgument<TerraformValue<string>>("recommendation");
+        get => GetRequiredArgument<TerraformValue<string>>("recommendation");
         set => SetArgument("recommendation", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleSccManagementOrganizationSecurityHealthAnalyticsCustomModuleC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformValue<string> Severity
     {
-        get => GetArgument<TerraformValue<string>>("severity");
+        get => GetRequiredArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleSccManagementOrganizationSecurityHealthAnalyticsCustomModuleC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -218,7 +218,7 @@ public class GoogleSccManagementOrganizationSecurityHealthAnalyticsCustomModuleC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -340,9 +340,9 @@ public partial class GoogleSccManagementOrganizationSecurityHealthAnalyticsCusto
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -361,7 +361,7 @@ public partial class GoogleSccManagementOrganizationSecurityHealthAnalyticsCusto
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => GetArgument<TerraformValue<string>>("organization");
+        get => GetRequiredArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 

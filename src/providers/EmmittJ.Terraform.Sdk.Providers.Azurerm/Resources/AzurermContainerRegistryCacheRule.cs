@@ -64,7 +64,7 @@ public partial class AzurermContainerRegistryCacheRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformValue<string> ContainerRegistryId
     {
-        get => GetArgument<TerraformValue<string>>("container_registry_id");
+        get => GetRequiredArgument<TerraformValue<string>>("container_registry_id");
         set => SetArgument("container_registry_id", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AzurermContainerRegistryCacheRule(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermContainerRegistryCacheRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermContainerRegistryCacheRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRepo is required")]
     public required TerraformValue<string> SourceRepo
     {
-        get => GetArgument<TerraformValue<string>>("source_repo");
+        get => GetRequiredArgument<TerraformValue<string>>("source_repo");
         set => SetArgument("source_repo", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermContainerRegistryCacheRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRepo is required")]
     public required TerraformValue<string> TargetRepo
     {
-        get => GetArgument<TerraformValue<string>>("target_repo");
+        get => GetRequiredArgument<TerraformValue<string>>("target_repo");
         set => SetArgument("target_repo", value);
     }
 

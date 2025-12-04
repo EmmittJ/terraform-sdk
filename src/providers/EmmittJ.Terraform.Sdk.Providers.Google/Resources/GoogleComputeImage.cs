@@ -19,7 +19,7 @@ public class GoogleComputeImageGuestOsFeaturesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleComputeImageRawDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockDbsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -232,7 +232,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockDbxsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockKeksBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -300,7 +300,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockPkBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -553,9 +553,9 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// <summary>
     /// Size of the image when restored onto a persistent disk (in GB).
     /// </summary>
-    public TerraformValue<double>? DiskSizeGb
+    public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -575,9 +575,9 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -596,9 +596,9 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    public TerraformList<string>? Licenses
+    public TerraformList<string> Licenses
     {
-        get => GetArgument<TerraformList<string>>("licenses");
+        get => GetArgument<TerraformList<string>>("licenses") ?? AsReference("licenses");
         set => SetArgument("licenses", value);
     }
 
@@ -614,16 +614,16 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -675,9 +675,9 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// (regional or multi-regional).
     /// Reference link: https://cloud.google.com/compute/docs/reference/rest/v1/images
     /// </summary>
-    public TerraformList<string>? StorageLocations
+    public TerraformList<string> StorageLocations
     {
-        get => GetArgument<TerraformList<string>>("storage_locations");
+        get => GetArgument<TerraformList<string>>("storage_locations") ?? AsReference("storage_locations");
         set => SetArgument("storage_locations", value);
     }
 

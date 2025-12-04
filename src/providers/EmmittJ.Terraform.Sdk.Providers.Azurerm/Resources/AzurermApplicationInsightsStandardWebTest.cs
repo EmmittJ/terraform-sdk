@@ -55,7 +55,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlockHeaderBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlockHeaderBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlockConten
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentMatch is required")]
     public required TerraformValue<string> ContentMatch
     {
-        get => GetArgument<TerraformValue<string>>("content_match");
+        get => GetRequiredArgument<TerraformValue<string>>("content_match");
         set => SetArgument("content_match", value);
     }
 
@@ -258,7 +258,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformValue<string> ApplicationInsightsId
     {
-        get => GetArgument<TerraformValue<string>>("application_insights_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_insights_id");
         set => SetArgument("application_insights_id", value);
     }
 
@@ -302,9 +302,9 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -314,7 +314,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -324,7 +324,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -334,7 +334,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

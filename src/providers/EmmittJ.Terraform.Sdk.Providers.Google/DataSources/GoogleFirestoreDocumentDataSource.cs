@@ -14,7 +14,7 @@ public partial class GoogleFirestoreDocumentDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformValue<string> Collection
     {
-        get => GetArgument<TerraformValue<string>>("collection");
+        get => GetRequiredArgument<TerraformValue<string>>("collection");
         set => SetArgument("collection", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleFirestoreDocumentDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -34,16 +34,16 @@ public partial class GoogleFirestoreDocumentDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentId is required")]
     public required TerraformValue<string> DocumentId
     {
-        get => GetArgument<TerraformValue<string>>("document_id");
+        get => GetRequiredArgument<TerraformValue<string>>("document_id");
         set => SetArgument("document_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

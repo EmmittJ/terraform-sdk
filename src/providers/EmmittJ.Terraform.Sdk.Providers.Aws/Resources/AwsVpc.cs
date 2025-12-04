@@ -20,18 +20,18 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformValue<string>? CidrBlock
+    public TerraformValue<string> CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block") ?? AsReference("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
     /// <summary>
     /// The enable_dns_hostnames attribute.
     /// </summary>
-    public TerraformValue<bool>? EnableDnsHostnames
+    public TerraformValue<bool> EnableDnsHostnames
     {
-        get => GetArgument<TerraformValue<bool>>("enable_dns_hostnames");
+        get => GetArgument<TerraformValue<bool>>("enable_dns_hostnames") ?? AsReference("enable_dns_hostnames");
         set => SetArgument("enable_dns_hostnames", value);
     }
 
@@ -47,18 +47,18 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// <summary>
     /// The enable_network_address_usage_metrics attribute.
     /// </summary>
-    public TerraformValue<bool>? EnableNetworkAddressUsageMetrics
+    public TerraformValue<bool> EnableNetworkAddressUsageMetrics
     {
-        get => GetArgument<TerraformValue<bool>>("enable_network_address_usage_metrics");
+        get => GetArgument<TerraformValue<bool>>("enable_network_address_usage_metrics") ?? AsReference("enable_network_address_usage_metrics");
         set => SetArgument("enable_network_address_usage_metrics", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,18 +92,18 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformValue<string>? Ipv6CidrBlock
+    public TerraformValue<string> Ipv6CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block");
+        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block") ?? AsReference("ipv6_cidr_block");
         set => SetArgument("ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The ipv6_cidr_block_network_border_group attribute.
     /// </summary>
-    public TerraformValue<string>? Ipv6CidrBlockNetworkBorderGroup
+    public TerraformValue<string> Ipv6CidrBlockNetworkBorderGroup
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block_network_border_group");
+        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block_network_border_group") ?? AsReference("ipv6_cidr_block_network_border_group");
         set => SetArgument("ipv6_cidr_block_network_border_group", value);
     }
 
@@ -128,9 +128,9 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -146,9 +146,9 @@ public partial class AwsVpc(string name) : TerraformResource("aws_vpc", name)
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

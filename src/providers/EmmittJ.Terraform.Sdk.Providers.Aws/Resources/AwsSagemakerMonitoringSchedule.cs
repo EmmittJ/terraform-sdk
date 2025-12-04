@@ -19,7 +19,7 @@ public class AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitoringJobDefinitionName is required")]
     public required TerraformValue<string> MonitoringJobDefinitionName
     {
-        get => GetArgument<TerraformValue<string>>("monitoring_job_definition_name");
+        get => GetRequiredArgument<TerraformValue<string>>("monitoring_job_definition_name");
         set => SetArgument("monitoring_job_definition_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitoringType is required")]
     public required TerraformValue<string> MonitoringType
     {
-        get => GetArgument<TerraformValue<string>>("monitoring_type");
+        get => GetRequiredArgument<TerraformValue<string>>("monitoring_type");
         set => SetArgument("monitoring_type", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlockSchedule
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformValue<string> ScheduleExpression
     {
-        get => GetArgument<TerraformValue<string>>("schedule_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
@@ -78,27 +78,27 @@ public partial class AwsSagemakerMonitoringSchedule(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -114,9 +114,9 @@ public partial class AwsSagemakerMonitoringSchedule(string name) : TerraformReso
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

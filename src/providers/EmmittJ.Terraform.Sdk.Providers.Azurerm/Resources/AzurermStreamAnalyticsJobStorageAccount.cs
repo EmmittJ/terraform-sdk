@@ -64,16 +64,16 @@ public partial class AzurermStreamAnalyticsJobStorageAccount(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMode is required")]
     public required TerraformValue<string> AuthenticationMode
     {
-        get => GetArgument<TerraformValue<string>>("authentication_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("authentication_mode");
         set => SetArgument("authentication_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermStreamAnalyticsJobStorageAccount(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformValue<string> StorageAccountName
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermStreamAnalyticsJobStorageAccount(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformValue<string> StreamAnalyticsJobId
     {
-        get => GetArgument<TerraformValue<string>>("stream_analytics_job_id");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_analytics_job_id");
         set => SetArgument("stream_analytics_job_id", value);
     }
 

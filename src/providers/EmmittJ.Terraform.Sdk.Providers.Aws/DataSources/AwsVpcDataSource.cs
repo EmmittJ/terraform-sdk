@@ -19,7 +19,7 @@ public class AwsVpcDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsVpcDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => GetArgument<TerraformSet<string>>("values");
+        get => GetRequiredArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -68,63 +68,63 @@ public partial class AwsVpcDataSource(string name) : TerraformDataSource("aws_vp
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformValue<string>? CidrBlock
+    public TerraformValue<string> CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block") ?? AsReference("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
     /// <summary>
     /// The default attribute.
     /// </summary>
-    public TerraformValue<bool>? DefaultAttribute
+    public TerraformValue<bool> DefaultAttribute
     {
-        get => GetArgument<TerraformValue<bool>>("default");
+        get => GetArgument<TerraformValue<bool>>("default") ?? AsReference("default");
         set => SetArgument("default", value);
     }
 
     /// <summary>
     /// The dhcp_options_id attribute.
     /// </summary>
-    public TerraformValue<string>? DhcpOptionsId
+    public TerraformValue<string> DhcpOptionsId
     {
-        get => GetArgument<TerraformValue<string>>("dhcp_options_id");
+        get => GetArgument<TerraformValue<string>>("dhcp_options_id") ?? AsReference("dhcp_options_id");
         set => SetArgument("dhcp_options_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string>? State
+    public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
         set => SetArgument("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string>? Tags
+    public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 

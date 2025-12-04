@@ -11,9 +11,9 @@ public partial class GoogleComputeStoragePoolTypesDataSource(string name) : Terr
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleComputeStoragePoolTypesDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
     public required TerraformValue<string> StoragePoolType
     {
-        get => GetArgument<TerraformValue<string>>("storage_pool_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_pool_type");
         set => SetArgument("storage_pool_type", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleComputeStoragePoolTypesDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetRequiredArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 

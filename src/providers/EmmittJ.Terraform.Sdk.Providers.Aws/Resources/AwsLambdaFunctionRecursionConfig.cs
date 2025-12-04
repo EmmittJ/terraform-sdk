@@ -14,7 +14,7 @@ public partial class AwsLambdaFunctionRecursionConfig(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => GetArgument<TerraformValue<string>>("function_name");
+        get => GetRequiredArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsLambdaFunctionRecursionConfig(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecursiveLoop is required")]
     public required TerraformValue<string> RecursiveLoop
     {
-        get => GetArgument<TerraformValue<string>>("recursive_loop");
+        get => GetRequiredArgument<TerraformValue<string>>("recursive_loop");
         set => SetArgument("recursive_loop", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

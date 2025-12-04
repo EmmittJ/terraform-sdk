@@ -19,7 +19,7 @@ public class AwsGrafanaWorkspaceNetworkAccessControlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrefixListIds is required")]
     public required TerraformSet<string> PrefixListIds
     {
-        get => GetArgument<TerraformSet<string>>("prefix_list_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("prefix_list_ids");
         set => SetArgument("prefix_list_ids", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsGrafanaWorkspaceNetworkAccessControlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpceIds is required")]
     public required TerraformSet<string> VpceIds
     {
-        get => GetArgument<TerraformSet<string>>("vpce_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("vpce_ids");
         set => SetArgument("vpce_ids", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsGrafanaWorkspaceVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsGrafanaWorkspaceVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountAccessType is required")]
     public required TerraformValue<string> AccountAccessType
     {
-        get => GetArgument<TerraformValue<string>>("account_access_type");
+        get => GetRequiredArgument<TerraformValue<string>>("account_access_type");
         set => SetArgument("account_access_type", value);
     }
 
@@ -131,9 +131,9 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// <summary>
     /// The configuration attribute.
     /// </summary>
-    public TerraformValue<string>? Configuration
+    public TerraformValue<string> Configuration
     {
-        get => GetArgument<TerraformValue<string>>("configuration");
+        get => GetArgument<TerraformValue<string>>("configuration") ?? AsReference("configuration");
         set => SetArgument("configuration", value);
     }
 
@@ -158,27 +158,27 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// <summary>
     /// The grafana_version attribute.
     /// </summary>
-    public TerraformValue<string>? GrafanaVersion
+    public TerraformValue<string> GrafanaVersion
     {
-        get => GetArgument<TerraformValue<string>>("grafana_version");
+        get => GetArgument<TerraformValue<string>>("grafana_version") ?? AsReference("grafana_version");
         set => SetArgument("grafana_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -215,16 +215,16 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionType is required")]
     public required TerraformValue<string> PermissionType
     {
-        get => GetArgument<TerraformValue<string>>("permission_type");
+        get => GetRequiredArgument<TerraformValue<string>>("permission_type");
         set => SetArgument("permission_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -258,9 +258,9 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

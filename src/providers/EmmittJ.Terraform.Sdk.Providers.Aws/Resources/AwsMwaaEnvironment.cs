@@ -85,18 +85,18 @@ public class AwsMwaaEnvironmentLoggingConfigurationBlockDagProcessingLogsBlock :
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
-    public TerraformValue<string>? LogLevel
+    public TerraformValue<string> LogLevel
     {
-        get => GetArgument<TerraformValue<string>>("log_level");
+        get => GetArgument<TerraformValue<string>>("log_level") ?? AsReference("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -122,18 +122,18 @@ public class AwsMwaaEnvironmentLoggingConfigurationBlockSchedulerLogsBlock : Ter
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
-    public TerraformValue<string>? LogLevel
+    public TerraformValue<string> LogLevel
     {
-        get => GetArgument<TerraformValue<string>>("log_level");
+        get => GetArgument<TerraformValue<string>>("log_level") ?? AsReference("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -159,18 +159,18 @@ public class AwsMwaaEnvironmentLoggingConfigurationBlockTaskLogsBlock : Terrafor
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
-    public TerraformValue<string>? LogLevel
+    public TerraformValue<string> LogLevel
     {
-        get => GetArgument<TerraformValue<string>>("log_level");
+        get => GetArgument<TerraformValue<string>>("log_level") ?? AsReference("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -196,18 +196,18 @@ public class AwsMwaaEnvironmentLoggingConfigurationBlockWebserverLogsBlock : Ter
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
-    public TerraformValue<string>? LogLevel
+    public TerraformValue<string> LogLevel
     {
-        get => GetArgument<TerraformValue<string>>("log_level");
+        get => GetArgument<TerraformValue<string>>("log_level") ?? AsReference("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -233,18 +233,18 @@ public class AwsMwaaEnvironmentLoggingConfigurationBlockWorkerLogsBlock : Terraf
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
-    public TerraformValue<string>? LogLevel
+    public TerraformValue<string> LogLevel
     {
-        get => GetArgument<TerraformValue<string>>("log_level");
+        get => GetArgument<TerraformValue<string>>("log_level") ?? AsReference("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsMwaaEnvironmentNetworkConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -278,7 +278,7 @@ public class AwsMwaaEnvironmentNetworkConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -344,9 +344,9 @@ public partial class AwsMwaaEnvironment(string name) : TerraformResource("aws_mw
     /// <summary>
     /// The airflow_version attribute.
     /// </summary>
-    public TerraformValue<string>? AirflowVersion
+    public TerraformValue<string> AirflowVersion
     {
-        get => GetArgument<TerraformValue<string>>("airflow_version");
+        get => GetArgument<TerraformValue<string>>("airflow_version") ?? AsReference("airflow_version");
         set => SetArgument("airflow_version", value);
     }
 
@@ -356,25 +356,25 @@ public partial class AwsMwaaEnvironment(string name) : TerraformResource("aws_mw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DagS3Path is required")]
     public required TerraformValue<string> DagS3Path
     {
-        get => GetArgument<TerraformValue<string>>("dag_s3_path");
+        get => GetRequiredArgument<TerraformValue<string>>("dag_s3_path");
         set => SetArgument("dag_s3_path", value);
     }
 
     /// <summary>
     /// The endpoint_management attribute.
     /// </summary>
-    public TerraformValue<string>? EndpointManagement
+    public TerraformValue<string> EndpointManagement
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_management");
+        get => GetArgument<TerraformValue<string>>("endpoint_management") ?? AsReference("endpoint_management");
         set => SetArgument("endpoint_management", value);
     }
 
     /// <summary>
     /// The environment_class attribute.
     /// </summary>
-    public TerraformValue<string>? EnvironmentClass
+    public TerraformValue<string> EnvironmentClass
     {
-        get => GetArgument<TerraformValue<string>>("environment_class");
+        get => GetArgument<TerraformValue<string>>("environment_class") ?? AsReference("environment_class");
         set => SetArgument("environment_class", value);
     }
 
@@ -384,16 +384,16 @@ public partial class AwsMwaaEnvironment(string name) : TerraformResource("aws_mw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("execution_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -409,36 +409,36 @@ public partial class AwsMwaaEnvironment(string name) : TerraformResource("aws_mw
     /// <summary>
     /// The max_webservers attribute.
     /// </summary>
-    public TerraformValue<double>? MaxWebservers
+    public TerraformValue<double> MaxWebservers
     {
-        get => GetArgument<TerraformValue<double>>("max_webservers");
+        get => GetArgument<TerraformValue<double>>("max_webservers") ?? AsReference("max_webservers");
         set => SetArgument("max_webservers", value);
     }
 
     /// <summary>
     /// The max_workers attribute.
     /// </summary>
-    public TerraformValue<double>? MaxWorkers
+    public TerraformValue<double> MaxWorkers
     {
-        get => GetArgument<TerraformValue<double>>("max_workers");
+        get => GetArgument<TerraformValue<double>>("max_workers") ?? AsReference("max_workers");
         set => SetArgument("max_workers", value);
     }
 
     /// <summary>
     /// The min_webservers attribute.
     /// </summary>
-    public TerraformValue<double>? MinWebservers
+    public TerraformValue<double> MinWebservers
     {
-        get => GetArgument<TerraformValue<double>>("min_webservers");
+        get => GetArgument<TerraformValue<double>>("min_webservers") ?? AsReference("min_webservers");
         set => SetArgument("min_webservers", value);
     }
 
     /// <summary>
     /// The min_workers attribute.
     /// </summary>
-    public TerraformValue<double>? MinWorkers
+    public TerraformValue<double> MinWorkers
     {
-        get => GetArgument<TerraformValue<double>>("min_workers");
+        get => GetArgument<TerraformValue<double>>("min_workers") ?? AsReference("min_workers");
         set => SetArgument("min_workers", value);
     }
 
@@ -448,16 +448,16 @@ public partial class AwsMwaaEnvironment(string name) : TerraformResource("aws_mw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The plugins_s3_object_version attribute.
     /// </summary>
-    public TerraformValue<string>? PluginsS3ObjectVersion
+    public TerraformValue<string> PluginsS3ObjectVersion
     {
-        get => GetArgument<TerraformValue<string>>("plugins_s3_object_version");
+        get => GetArgument<TerraformValue<string>>("plugins_s3_object_version") ?? AsReference("plugins_s3_object_version");
         set => SetArgument("plugins_s3_object_version", value);
     }
 
@@ -473,18 +473,18 @@ public partial class AwsMwaaEnvironment(string name) : TerraformResource("aws_mw
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The requirements_s3_object_version attribute.
     /// </summary>
-    public TerraformValue<string>? RequirementsS3ObjectVersion
+    public TerraformValue<string> RequirementsS3ObjectVersion
     {
-        get => GetArgument<TerraformValue<string>>("requirements_s3_object_version");
+        get => GetArgument<TerraformValue<string>>("requirements_s3_object_version") ?? AsReference("requirements_s3_object_version");
         set => SetArgument("requirements_s3_object_version", value);
     }
 
@@ -500,9 +500,9 @@ public partial class AwsMwaaEnvironment(string name) : TerraformResource("aws_mw
     /// <summary>
     /// The schedulers attribute.
     /// </summary>
-    public TerraformValue<double>? Schedulers
+    public TerraformValue<double> Schedulers
     {
-        get => GetArgument<TerraformValue<double>>("schedulers");
+        get => GetArgument<TerraformValue<double>>("schedulers") ?? AsReference("schedulers");
         set => SetArgument("schedulers", value);
     }
 
@@ -512,16 +512,16 @@ public partial class AwsMwaaEnvironment(string name) : TerraformResource("aws_mw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceBucketArn is required")]
     public required TerraformValue<string> SourceBucketArn
     {
-        get => GetArgument<TerraformValue<string>>("source_bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("source_bucket_arn");
         set => SetArgument("source_bucket_arn", value);
     }
 
     /// <summary>
     /// The startup_script_s3_object_version attribute.
     /// </summary>
-    public TerraformValue<string>? StartupScriptS3ObjectVersion
+    public TerraformValue<string> StartupScriptS3ObjectVersion
     {
-        get => GetArgument<TerraformValue<string>>("startup_script_s3_object_version");
+        get => GetArgument<TerraformValue<string>>("startup_script_s3_object_version") ?? AsReference("startup_script_s3_object_version");
         set => SetArgument("startup_script_s3_object_version", value);
     }
 
@@ -546,36 +546,36 @@ public partial class AwsMwaaEnvironment(string name) : TerraformResource("aws_mw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The webserver_access_mode attribute.
     /// </summary>
-    public TerraformValue<string>? WebserverAccessMode
+    public TerraformValue<string> WebserverAccessMode
     {
-        get => GetArgument<TerraformValue<string>>("webserver_access_mode");
+        get => GetArgument<TerraformValue<string>>("webserver_access_mode") ?? AsReference("webserver_access_mode");
         set => SetArgument("webserver_access_mode", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_window_start attribute.
     /// </summary>
-    public TerraformValue<string>? WeeklyMaintenanceWindowStart
+    public TerraformValue<string> WeeklyMaintenanceWindowStart
     {
-        get => GetArgument<TerraformValue<string>>("weekly_maintenance_window_start");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_window_start") ?? AsReference("weekly_maintenance_window_start");
         set => SetArgument("weekly_maintenance_window_start", value);
     }
 
     /// <summary>
     /// The worker_replacement_strategy attribute.
     /// </summary>
-    public TerraformValue<string>? WorkerReplacementStrategy
+    public TerraformValue<string> WorkerReplacementStrategy
     {
-        get => GetArgument<TerraformValue<string>>("worker_replacement_strategy");
+        get => GetArgument<TerraformValue<string>>("worker_replacement_strategy") ?? AsReference("worker_replacement_strategy");
         set => SetArgument("worker_replacement_strategy", value);
     }
 

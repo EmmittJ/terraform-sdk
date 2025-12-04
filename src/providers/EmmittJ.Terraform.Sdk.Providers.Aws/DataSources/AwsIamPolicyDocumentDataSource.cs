@@ -113,7 +113,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockConditionBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Test is required")]
     public required TerraformValue<string> Test
     {
-        get => GetArgument<TerraformValue<string>>("test");
+        get => GetRequiredArgument<TerraformValue<string>>("test");
         set => SetArgument("test", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockConditionBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Variable is required")]
     public required TerraformValue<string> Variable
     {
-        get => GetArgument<TerraformValue<string>>("variable");
+        get => GetRequiredArgument<TerraformValue<string>>("variable");
         set => SetArgument("variable", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockNotPrincipalsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifiers is required")]
     public required TerraformSet<string> Identifiers
     {
-        get => GetArgument<TerraformSet<string>>("identifiers");
+        get => GetRequiredArgument<TerraformSet<string>>("identifiers");
         set => SetArgument("identifiers", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockNotPrincipalsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockPrincipalsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifiers is required")]
     public required TerraformSet<string> Identifiers
     {
-        get => GetArgument<TerraformSet<string>>("identifiers");
+        get => GetRequiredArgument<TerraformSet<string>>("identifiers");
         set => SetArgument("identifiers", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockPrincipalsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -215,9 +215,9 @@ public partial class AwsIamPolicyDocumentDataSource(string name) : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

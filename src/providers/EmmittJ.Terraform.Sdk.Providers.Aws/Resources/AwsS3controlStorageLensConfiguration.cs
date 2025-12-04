@@ -19,7 +19,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -498,7 +498,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -554,7 +554,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -577,7 +577,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -597,7 +597,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetRequiredArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -607,7 +607,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputSchemaVersion is required")]
     public required TerraformValue<string> OutputSchemaVersion
     {
-        get => GetArgument<TerraformValue<string>>("output_schema_version");
+        get => GetRequiredArgument<TerraformValue<string>>("output_schema_version");
         set => SetArgument("output_schema_version", value);
     }
 
@@ -681,7 +681,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -772,9 +772,9 @@ public partial class AwsS3controlStorageLensConfiguration(string name) : Terrafo
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AccountId
+    public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -784,25 +784,25 @@ public partial class AwsS3controlStorageLensConfiguration(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     public required TerraformValue<string> ConfigId
     {
-        get => GetArgument<TerraformValue<string>>("config_id");
+        get => GetRequiredArgument<TerraformValue<string>>("config_id");
         set => SetArgument("config_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -818,9 +818,9 @@ public partial class AwsS3controlStorageLensConfiguration(string name) : Terrafo
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

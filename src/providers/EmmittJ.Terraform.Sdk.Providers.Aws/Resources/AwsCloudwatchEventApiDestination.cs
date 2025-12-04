@@ -14,7 +14,7 @@ public partial class AwsCloudwatchEventApiDestination(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionArn is required")]
     public required TerraformValue<string> ConnectionArn
     {
-        get => GetArgument<TerraformValue<string>>("connection_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_arn");
         set => SetArgument("connection_arn", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsCloudwatchEventApiDestination(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformValue<string> HttpMethod
     {
-        get => GetArgument<TerraformValue<string>>("http_method");
+        get => GetRequiredArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsCloudwatchEventApiDestination(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InvocationEndpoint is required")]
     public required TerraformValue<string> InvocationEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("invocation_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("invocation_endpoint");
         set => SetArgument("invocation_endpoint", value);
     }
 
@@ -71,16 +71,16 @@ public partial class AwsCloudwatchEventApiDestination(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

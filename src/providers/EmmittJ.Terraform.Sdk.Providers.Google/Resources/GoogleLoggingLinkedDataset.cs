@@ -69,7 +69,7 @@ public partial class GoogleLoggingLinkedDataset(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -85,9 +85,9 @@ public partial class GoogleLoggingLinkedDataset(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,25 +97,25 @@ public partial class GoogleLoggingLinkedDataset(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkId is required")]
     public required TerraformValue<string> LinkId
     {
-        get => GetArgument<TerraformValue<string>>("link_id");
+        get => GetRequiredArgument<TerraformValue<string>>("link_id");
         set => SetArgument("link_id", value);
     }
 
     /// <summary>
     /// The location of the linked dataset.
     /// </summary>
-    public TerraformValue<string>? Location
+    public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The parent of the linked dataset.
     /// </summary>
-    public TerraformValue<string>? Parent
+    public TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetArgument<TerraformValue<string>>("parent") ?? AsReference("parent");
         set => SetArgument("parent", value);
     }
 

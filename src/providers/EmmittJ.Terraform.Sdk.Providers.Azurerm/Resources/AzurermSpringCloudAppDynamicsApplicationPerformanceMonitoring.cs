@@ -64,7 +64,7 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountAccessKey is required")]
     public required TerraformValue<string> AgentAccountAccessKey
     {
-        get => GetArgument<TerraformValue<string>>("agent_account_access_key");
+        get => GetRequiredArgument<TerraformValue<string>>("agent_account_access_key");
         set => SetArgument("agent_account_access_key", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountName is required")]
     public required TerraformValue<string> AgentAccountName
     {
-        get => GetArgument<TerraformValue<string>>("agent_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("agent_account_name");
         set => SetArgument("agent_account_name", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControllerHostName is required")]
     public required TerraformValue<string> ControllerHostName
     {
-        get => GetArgument<TerraformValue<string>>("controller_host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("controller_host_name");
         set => SetArgument("controller_host_name", value);
     }
 
@@ -154,9 +154,9 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformValue<string> SpringCloudServiceId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_service_id");
         set => SetArgument("spring_cloud_service_id", value);
     }
 

@@ -45,7 +45,7 @@ public class AwsFsxOpenzfsVolumeNfsExportsBlockClientConfigurationsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Clients is required")]
     public required TerraformValue<string> Clients
     {
-        get => GetArgument<TerraformValue<string>>("clients");
+        get => GetRequiredArgument<TerraformValue<string>>("clients");
         set => SetArgument("clients", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyStrategy is required")]
     public required TerraformValue<string> CopyStrategy
     {
-        get => GetArgument<TerraformValue<string>>("copy_strategy");
+        get => GetRequiredArgument<TerraformValue<string>>("copy_strategy");
         set => SetArgument("copy_strategy", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotArn is required")]
     public required TerraformValue<string> SnapshotArn
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("snapshot_arn");
         set => SetArgument("snapshot_arn", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<double> Id
     {
-        get => GetArgument<TerraformValue<double>>("id");
+        get => GetRequiredArgument<TerraformValue<double>>("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityQuotaGib is required")]
     public required TerraformValue<double> StorageCapacityQuotaGib
     {
-        get => GetArgument<TerraformValue<double>>("storage_capacity_quota_gib");
+        get => GetRequiredArgument<TerraformValue<double>>("storage_capacity_quota_gib");
         set => SetArgument("storage_capacity_quota_gib", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -217,9 +217,9 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -239,16 +239,16 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentVolumeId is required")]
     public required TerraformValue<string> ParentVolumeId
     {
-        get => GetArgument<TerraformValue<string>>("parent_volume_id");
+        get => GetRequiredArgument<TerraformValue<string>>("parent_volume_id");
         set => SetArgument("parent_volume_id", value);
     }
 
     /// <summary>
     /// The read_only attribute.
     /// </summary>
-    public TerraformValue<bool>? ReadOnlyAttribute
+    public TerraformValue<bool> ReadOnlyAttribute
     {
-        get => GetArgument<TerraformValue<bool>>("read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only") ?? AsReference("read_only");
         set => SetArgument("read_only", value);
     }
 
@@ -264,27 +264,27 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The storage_capacity_quota_gib attribute.
     /// </summary>
-    public TerraformValue<double>? StorageCapacityQuotaGib
+    public TerraformValue<double> StorageCapacityQuotaGib
     {
-        get => GetArgument<TerraformValue<double>>("storage_capacity_quota_gib");
+        get => GetArgument<TerraformValue<double>>("storage_capacity_quota_gib") ?? AsReference("storage_capacity_quota_gib");
         set => SetArgument("storage_capacity_quota_gib", value);
     }
 
     /// <summary>
     /// The storage_capacity_reservation_gib attribute.
     /// </summary>
-    public TerraformValue<double>? StorageCapacityReservationGib
+    public TerraformValue<double> StorageCapacityReservationGib
     {
-        get => GetArgument<TerraformValue<double>>("storage_capacity_reservation_gib");
+        get => GetArgument<TerraformValue<double>>("storage_capacity_reservation_gib") ?? AsReference("storage_capacity_reservation_gib");
         set => SetArgument("storage_capacity_reservation_gib", value);
     }
 
@@ -300,9 +300,9 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

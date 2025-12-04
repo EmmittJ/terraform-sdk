@@ -87,7 +87,7 @@ public class AzurermDataFactoryDatasetParquetAzureBlobStorageLocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     public required TerraformValue<string> Container
     {
-        get => GetArgument<TerraformValue<string>>("container");
+        get => GetRequiredArgument<TerraformValue<string>>("container");
         set => SetArgument("container", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermDataFactoryDatasetParquetHttpServerLocationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     public required TerraformValue<string> Filename
     {
-        get => GetArgument<TerraformValue<string>>("filename");
+        get => GetRequiredArgument<TerraformValue<string>>("filename");
         set => SetArgument("filename", value);
     }
 
@@ -193,7 +193,7 @@ public class AzurermDataFactoryDatasetParquetHttpServerLocationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUrl is required")]
     public required TerraformValue<string> RelativeUrl
     {
-        get => GetArgument<TerraformValue<string>>("relative_url");
+        get => GetRequiredArgument<TerraformValue<string>>("relative_url");
         set => SetArgument("relative_url", value);
     }
 
@@ -226,7 +226,7 @@ public class AzurermDataFactoryDatasetParquetSchemaColumnBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -340,7 +340,7 @@ public partial class AzurermDataFactoryDatasetParquet(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -365,9 +365,9 @@ public partial class AzurermDataFactoryDatasetParquet(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -377,7 +377,7 @@ public partial class AzurermDataFactoryDatasetParquet(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => GetArgument<TerraformValue<string>>("linked_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -387,7 +387,7 @@ public partial class AzurermDataFactoryDatasetParquet(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

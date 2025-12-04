@@ -11,9 +11,9 @@ public partial class GoogleServiceAccountIamPolicy(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleServiceAccountIamPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => GetArgument<TerraformValue<string>>("policy_data");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleServiceAccountIamPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
     public required TerraformValue<string> ServiceAccountId
     {
-        get => GetArgument<TerraformValue<string>>("service_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("service_account_id");
         set => SetArgument("service_account_id", value);
     }
 

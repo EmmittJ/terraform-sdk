@@ -14,16 +14,16 @@ public partial class AwsAutoscalingNotification(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupNames is required")]
     public required TerraformSet<string> GroupNames
     {
-        get => GetArgument<TerraformSet<string>>("group_names");
+        get => GetRequiredArgument<TerraformSet<string>>("group_names");
         set => SetArgument("group_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsAutoscalingNotification(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notifications is required")]
     public required TerraformSet<string> Notifications
     {
-        get => GetArgument<TerraformSet<string>>("notifications");
+        get => GetRequiredArgument<TerraformSet<string>>("notifications");
         set => SetArgument("notifications", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsAutoscalingNotification(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformValue<string> TopicArn
     {
-        get => GetArgument<TerraformValue<string>>("topic_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 

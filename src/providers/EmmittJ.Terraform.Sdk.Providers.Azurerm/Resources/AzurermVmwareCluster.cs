@@ -64,16 +64,16 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterNodeCount is required")]
     public required TerraformValue<double> ClusterNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("cluster_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("cluster_node_count");
         set => SetArgument("cluster_node_count", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareCloudId is required")]
     public required TerraformValue<string> VmwareCloudId
     {
-        get => GetArgument<TerraformValue<string>>("vmware_cloud_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vmware_cloud_id");
         set => SetArgument("vmware_cloud_id", value);
     }
 

@@ -31,7 +31,7 @@ public class AzurermPostgresqlServerIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -175,9 +175,9 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
-    public TerraformValue<string>? AdministratorLogin
+    public TerraformValue<string> AdministratorLogin
     {
-        get => GetArgument<TerraformValue<string>>("administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login") ?? AsReference("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -220,9 +220,9 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     /// <summary>
     /// The backup_retention_days attribute.
     /// </summary>
-    public TerraformValue<double>? BackupRetentionDays
+    public TerraformValue<double> BackupRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("backup_retention_days");
+        get => GetArgument<TerraformValue<double>>("backup_retention_days") ?? AsReference("backup_retention_days");
         set => SetArgument("backup_retention_days", value);
     }
 
@@ -256,9 +256,9 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -277,7 +277,7 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -287,7 +287,7 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -306,7 +306,7 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -325,7 +325,7 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -335,7 +335,7 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslEnforcementEnabled is required")]
     public required TerraformValue<bool> SslEnforcementEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("ssl_enforcement_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("ssl_enforcement_enabled");
         set => SetArgument("ssl_enforcement_enabled", value);
     }
 
@@ -351,9 +351,9 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     /// <summary>
     /// The storage_mb attribute.
     /// </summary>
-    public TerraformValue<double>? StorageMb
+    public TerraformValue<double> StorageMb
     {
-        get => GetArgument<TerraformValue<double>>("storage_mb");
+        get => GetArgument<TerraformValue<double>>("storage_mb") ?? AsReference("storage_mb");
         set => SetArgument("storage_mb", value);
     }
 
@@ -372,7 +372,7 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

@@ -61,9 +61,9 @@ public partial class AzurermSpringCloudAppRedisAssociation(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermSpringCloudAppRedisAssociation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSpringCloudAppRedisAssociation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisAccessKey is required")]
     public required TerraformValue<string> RedisAccessKey
     {
-        get => GetArgument<TerraformValue<string>>("redis_access_key");
+        get => GetRequiredArgument<TerraformValue<string>>("redis_access_key");
         set => SetArgument("redis_access_key", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermSpringCloudAppRedisAssociation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheId is required")]
     public required TerraformValue<string> RedisCacheId
     {
-        get => GetArgument<TerraformValue<string>>("redis_cache_id");
+        get => GetRequiredArgument<TerraformValue<string>>("redis_cache_id");
         set => SetArgument("redis_cache_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermSpringCloudAppRedisAssociation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformValue<string> SpringCloudAppId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_app_id");
         set => SetArgument("spring_cloud_app_id", value);
     }
 

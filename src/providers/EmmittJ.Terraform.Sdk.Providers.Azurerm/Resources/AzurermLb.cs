@@ -16,9 +16,9 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// <summary>
     /// The gateway_load_balancer_frontend_ip_configuration_id attribute.
     /// </summary>
-    public TerraformValue<string>? GatewayLoadBalancerFrontendIpConfigurationId
+    public TerraformValue<string> GatewayLoadBalancerFrontendIpConfigurationId
     {
-        get => GetArgument<TerraformValue<string>>("gateway_load_balancer_frontend_ip_configuration_id");
+        get => GetArgument<TerraformValue<string>>("gateway_load_balancer_frontend_ip_configuration_id") ?? AsReference("gateway_load_balancer_frontend_ip_configuration_id");
         set => SetArgument("gateway_load_balancer_frontend_ip_configuration_id", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -59,27 +59,27 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateIpAddress
+    public TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? AsReference("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
     /// <summary>
     /// The private_ip_address_allocation attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateIpAddressAllocation
+    public TerraformValue<string> PrivateIpAddressAllocation
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address_allocation");
+        get => GetArgument<TerraformValue<string>>("private_ip_address_allocation") ?? AsReference("private_ip_address_allocation");
         set => SetArgument("private_ip_address_allocation", value);
     }
 
     /// <summary>
     /// The private_ip_address_version attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateIpAddressVersion
+    public TerraformValue<string> PrivateIpAddressVersion
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address_version");
+        get => GetArgument<TerraformValue<string>>("private_ip_address_version") ?? AsReference("private_ip_address_version");
         set => SetArgument("private_ip_address_version", value);
     }
 
@@ -95,9 +95,9 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// <summary>
     /// The public_ip_prefix_id attribute.
     /// </summary>
-    public TerraformValue<string>? PublicIpPrefixId
+    public TerraformValue<string> PublicIpPrefixId
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_prefix_id");
+        get => GetArgument<TerraformValue<string>>("public_ip_prefix_id") ?? AsReference("public_ip_prefix_id");
         set => SetArgument("public_ip_prefix_id", value);
     }
 
@@ -190,9 +190,9 @@ public partial class AzurermLb(string name) : TerraformResource("azurerm_lb", na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AzurermLb(string name) : TerraformResource("azurerm_lb", na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -212,16 +212,16 @@ public partial class AzurermLb(string name) : TerraformResource("azurerm_lb", na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
-    public TerraformValue<string>? PublicIpAddressId
+    public TerraformValue<string> PublicIpAddressId
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_address_id");
+        get => GetArgument<TerraformValue<string>>("public_ip_address_id") ?? AsReference("public_ip_address_id");
         set => SetArgument("public_ip_address_id", value);
     }
 
@@ -231,7 +231,7 @@ public partial class AzurermLb(string name) : TerraformResource("azurerm_lb", na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -256,9 +256,9 @@ public partial class AzurermLb(string name) : TerraformResource("azurerm_lb", na
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformValue<string>? SubnetId
+    public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 

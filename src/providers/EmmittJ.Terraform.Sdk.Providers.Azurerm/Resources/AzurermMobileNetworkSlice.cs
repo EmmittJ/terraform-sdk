@@ -31,7 +31,7 @@ public class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInfor
     [Obsolete("This property is deprecated.")]
     public required TerraformValue<double> SliceServiceType
     {
-        get => GetArgument<TerraformValue<double>>("slice_service_type");
+        get => GetRequiredArgument<TerraformValue<double>>("slice_service_type");
         set => SetArgument("slice_service_type", value);
     }
 
@@ -106,9 +106,9 @@ public partial class AzurermMobileNetworkSlice(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermMobileNetworkSlice(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermMobileNetworkSlice(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     public required TerraformValue<string> MobileNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("mobile_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("mobile_network_id");
         set => SetArgument("mobile_network_id", value);
     }
 
@@ -138,25 +138,25 @@ public partial class AzurermMobileNetworkSlice(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The slice_differentiator attribute.
     /// </summary>
-    public TerraformValue<string>? SliceDifferentiator
+    public TerraformValue<string> SliceDifferentiator
     {
-        get => GetArgument<TerraformValue<string>>("slice_differentiator");
+        get => GetArgument<TerraformValue<string>>("slice_differentiator") ?? AsReference("slice_differentiator");
         set => SetArgument("slice_differentiator", value);
     }
 
     /// <summary>
     /// The slice_service_type attribute.
     /// </summary>
-    public TerraformValue<double>? SliceServiceType
+    public TerraformValue<double> SliceServiceType
     {
-        get => GetArgument<TerraformValue<double>>("slice_service_type");
+        get => GetArgument<TerraformValue<double>>("slice_service_type") ?? AsReference("slice_service_type");
         set => SetArgument("slice_service_type", value);
     }
 

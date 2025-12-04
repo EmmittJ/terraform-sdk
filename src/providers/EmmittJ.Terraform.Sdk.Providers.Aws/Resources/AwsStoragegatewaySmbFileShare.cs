@@ -138,9 +138,9 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// <summary>
     /// The file_share_name attribute.
     /// </summary>
-    public TerraformValue<string>? FileShareName
+    public TerraformValue<string> FileShareName
     {
-        get => GetArgument<TerraformValue<string>>("file_share_name");
+        get => GetArgument<TerraformValue<string>>("file_share_name") ?? AsReference("file_share_name");
         set => SetArgument("file_share_name", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     public required TerraformValue<string> GatewayArn
     {
-        get => GetArgument<TerraformValue<string>>("gateway_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("gateway_arn");
         set => SetArgument("gateway_arn", value);
     }
 
@@ -166,9 +166,9 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationArn is required")]
     public required TerraformValue<string> LocationArn
     {
-        get => GetArgument<TerraformValue<string>>("location_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("location_arn");
         set => SetArgument("location_arn", value);
     }
 
@@ -230,9 +230,9 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// <summary>
     /// The oplocks_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? OplocksEnabled
+    public TerraformValue<bool> OplocksEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("oplocks_enabled");
+        get => GetArgument<TerraformValue<bool>>("oplocks_enabled") ?? AsReference("oplocks_enabled");
         set => SetArgument("oplocks_enabled", value);
     }
 
@@ -248,9 +248,9 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -269,7 +269,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -294,9 +294,9 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

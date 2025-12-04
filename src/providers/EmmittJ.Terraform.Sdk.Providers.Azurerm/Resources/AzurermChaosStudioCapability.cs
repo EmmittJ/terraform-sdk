@@ -55,7 +55,7 @@ public partial class AzurermChaosStudioCapability(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityType is required")]
     public required TerraformValue<string> CapabilityType
     {
-        get => GetArgument<TerraformValue<string>>("capability_type");
+        get => GetRequiredArgument<TerraformValue<string>>("capability_type");
         set => SetArgument("capability_type", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermChaosStudioCapability(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChaosStudioTargetId is required")]
     public required TerraformValue<string> ChaosStudioTargetId
     {
-        get => GetArgument<TerraformValue<string>>("chaos_studio_target_id");
+        get => GetRequiredArgument<TerraformValue<string>>("chaos_studio_target_id");
         set => SetArgument("chaos_studio_target_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

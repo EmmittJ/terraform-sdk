@@ -19,7 +19,7 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationMode is required")]
     public required TerraformValue<string> ApplicationMode
     {
-        get => GetArgument<TerraformValue<string>>("application_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("application_mode");
         set => SetArgument("application_mode", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     public required TerraformValue<string> BundleId
     {
-        get => GetArgument<TerraformValue<string>>("bundle_id");
+        get => GetRequiredArgument<TerraformValue<string>>("bundle_id");
         set => SetArgument("bundle_id", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TeamId is required")]
     public required TerraformValue<string> TeamId
     {
-        get => GetArgument<TerraformValue<string>>("team_id");
+        get => GetRequiredArgument<TerraformValue<string>>("team_id");
         set => SetArgument("team_id", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformValue<string> Token
     {
-        get => GetArgument<TerraformValue<string>>("token");
+        get => GetRequiredArgument<TerraformValue<string>>("token");
         set => SetArgument("token", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermNotificationHubBrowserCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformValue<string> Subject
     {
-        get => GetArgument<TerraformValue<string>>("subject");
+        get => GetRequiredArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermNotificationHubBrowserCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VapidPrivateKey is required")]
     public required TerraformValue<string> VapidPrivateKey
     {
-        get => GetArgument<TerraformValue<string>>("vapid_private_key");
+        get => GetRequiredArgument<TerraformValue<string>>("vapid_private_key");
         set => SetArgument("vapid_private_key", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermNotificationHubBrowserCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VapidPublicKey is required")]
     public required TerraformValue<string> VapidPublicKey
     {
-        get => GetArgument<TerraformValue<string>>("vapid_public_key");
+        get => GetRequiredArgument<TerraformValue<string>>("vapid_public_key");
         set => SetArgument("vapid_public_key", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermNotificationHubGcmCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformValue<string> ApiKey
     {
-        get => GetArgument<TerraformValue<string>>("api_key");
+        get => GetRequiredArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -193,9 +193,9 @@ public partial class AzurermNotificationHub(string name) : TerraformResource("az
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzurermNotificationHub(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AzurermNotificationHub(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AzurermNotificationHub(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformValue<string> NamespaceName
     {
-        get => GetArgument<TerraformValue<string>>("namespace_name");
+        get => GetRequiredArgument<TerraformValue<string>>("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
@@ -235,7 +235,7 @@ public partial class AzurermNotificationHub(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

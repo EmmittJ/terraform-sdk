@@ -19,7 +19,7 @@ public class AwsAthenaDatabaseAclConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3AclOption is required")]
     public required TerraformValue<string> S3AclOption
     {
-        get => GetArgument<TerraformValue<string>>("s3_acl_option");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_acl_option");
         set => SetArgument("s3_acl_option", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsAthenaDatabaseEncryptionConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionOption is required")]
     public required TerraformValue<string> EncryptionOption
     {
-        get => GetArgument<TerraformValue<string>>("encryption_option");
+        get => GetRequiredArgument<TerraformValue<string>>("encryption_option");
         set => SetArgument("encryption_option", value);
     }
 
@@ -104,9 +104,9 @@ public partial class AwsAthenaDatabase(string name) : TerraformResource("aws_ath
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsAthenaDatabase(string name) : TerraformResource("aws_ath
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -132,9 +132,9 @@ public partial class AwsAthenaDatabase(string name) : TerraformResource("aws_ath
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -24,7 +24,7 @@ public class GoogleLoggingFolderBucketConfigCmekSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleLoggingFolderBucketConfigIndexConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldPath is required")]
     public required TerraformValue<string> FieldPath
     {
-        get => GetArgument<TerraformValue<string>>("field_path");
+        get => GetRequiredArgument<TerraformValue<string>>("field_path");
         set => SetArgument("field_path", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleLoggingFolderBucketConfigIndexConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -104,16 +104,16 @@ public partial class GoogleLoggingFolderBucketConfig(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketId is required")]
     public required TerraformValue<string> BucketId
     {
-        get => GetArgument<TerraformValue<string>>("bucket_id");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_id");
         set => SetArgument("bucket_id", value);
     }
 
     /// <summary>
     /// An optional description for this bucket.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
@@ -123,16 +123,16 @@ public partial class GoogleLoggingFolderBucketConfig(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformValue<string> Folder
     {
-        get => GetArgument<TerraformValue<string>>("folder");
+        get => GetRequiredArgument<TerraformValue<string>>("folder");
         set => SetArgument("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -142,7 +142,7 @@ public partial class GoogleLoggingFolderBucketConfig(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 

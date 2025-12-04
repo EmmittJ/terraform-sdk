@@ -42,7 +42,7 @@ public class GoogleApigeeEnvironmentClientIpResolutionConfigBlockHeaderIndexAlgo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpHeaderIndex is required")]
     public required TerraformValue<double> IpHeaderIndex
     {
-        get => GetArgument<TerraformValue<double>>("ip_header_index");
+        get => GetRequiredArgument<TerraformValue<double>>("ip_header_index");
         set => SetArgument("ip_header_index", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleApigeeEnvironmentClientIpResolutionConfigBlockHeaderIndexAlgo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpHeaderName is required")]
     public required TerraformValue<string> IpHeaderName
     {
-        get => GetArgument<TerraformValue<string>>("ip_header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_header_name");
         set => SetArgument("ip_header_name", value);
     }
 
@@ -207,9 +207,9 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// Optional. API Proxy type supported by the environment. The type can be set when creating
     /// the Environment and cannot be changed. Possible values: [&amp;quot;API_PROXY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;PROGRAMMABLE&amp;quot;, &amp;quot;CONFIGURABLE&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? ApiProxyType
+    public TerraformValue<string> ApiProxyType
     {
-        get => GetArgument<TerraformValue<string>>("api_proxy_type");
+        get => GetArgument<TerraformValue<string>>("api_proxy_type") ?? AsReference("api_proxy_type");
         set => SetArgument("api_proxy_type", value);
     }
 
@@ -222,9 +222,9 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// Creating, updating, or deleting resource files;
     /// Creating, updating, or deleting target servers. Possible values: [&amp;quot;DEPLOYMENT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;PROXY&amp;quot;, &amp;quot;ARCHIVE&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? DeploymentType
+    public TerraformValue<string> DeploymentType
     {
-        get => GetArgument<TerraformValue<string>>("deployment_type");
+        get => GetArgument<TerraformValue<string>>("deployment_type") ?? AsReference("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -258,9 +258,9 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -270,7 +270,7 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -281,7 +281,7 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -291,9 +291,9 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// to understand about each of these types in details.
     /// An Apigee org can support heterogeneous Environments. Possible values: [&amp;quot;ENVIRONMENT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;BASE&amp;quot;, &amp;quot;INTERMEDIATE&amp;quot;, &amp;quot;COMPREHENSIVE&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 

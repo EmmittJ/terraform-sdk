@@ -14,7 +14,7 @@ public partial class GoogleStorageBucketAcl(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -30,9 +30,9 @@ public partial class GoogleStorageBucketAcl(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -48,9 +48,9 @@ public partial class GoogleStorageBucketAcl(string name) : TerraformResource("go
     /// <summary>
     /// List of role/entity pairs in the form ROLE:entity. See GCS Bucket ACL documentation  for more details. Must be set if predefined_acl is not.
     /// </summary>
-    public TerraformList<string>? RoleEntity
+    public TerraformList<string> RoleEntity
     {
-        get => GetArgument<TerraformList<string>>("role_entity");
+        get => GetArgument<TerraformList<string>>("role_entity") ?? AsReference("role_entity");
         set => SetArgument("role_entity", value);
     }
 

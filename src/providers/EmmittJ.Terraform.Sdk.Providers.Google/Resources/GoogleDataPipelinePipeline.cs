@@ -132,7 +132,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -196,7 +196,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformValue<string> JobName
     {
-        get => GetArgument<TerraformValue<string>>("job_name");
+        get => GetRequiredArgument<TerraformValue<string>>("job_name");
         set => SetArgument("job_name", value);
     }
 
@@ -447,7 +447,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -489,7 +489,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformValue<string> JobName
     {
-        get => GetArgument<TerraformValue<string>>("job_name");
+        get => GetRequiredArgument<TerraformValue<string>>("job_name");
         set => SetArgument("job_name", value);
     }
 
@@ -623,9 +623,9 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// <summary>
     /// Network to which VMs will be assigned. If empty or unspecified, the service will use the network &amp;quot;default&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? Network
+    public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
         set => SetArgument("network", value);
     }
 
@@ -713,9 +713,9 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -728,7 +728,7 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -745,9 +745,9 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -763,9 +763,9 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     /// <summary>
     /// Optional. A service account email to be used with the Cloud Scheduler job. If not specified, the default compute engine service account will be used.
     /// </summary>
-    public TerraformValue<string>? SchedulerServiceAccountEmail
+    public TerraformValue<string> SchedulerServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("scheduler_service_account_email");
+        get => GetArgument<TerraformValue<string>>("scheduler_service_account_email") ?? AsReference("scheduler_service_account_email");
         set => SetArgument("scheduler_service_account_email", value);
     }
 
@@ -776,7 +776,7 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetRequiredArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -787,7 +787,7 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

@@ -28,7 +28,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockContainerD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => GetArgument<TerraformValue<string>>("repository_name");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -281,7 +281,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockContainerD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -304,7 +304,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockFastLaunch
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -314,7 +314,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockFastLaunch
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -446,7 +446,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockLaunchTemp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LaunchTemplateId is required")]
     public required TerraformValue<string> LaunchTemplateId
     {
-        get => GetArgument<TerraformValue<string>>("launch_template_id");
+        get => GetRequiredArgument<TerraformValue<string>>("launch_template_id");
         set => SetArgument("launch_template_id", value);
     }
 
@@ -469,7 +469,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockS3ExportCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskImageFormat is required")]
     public required TerraformValue<string> DiskImageFormat
     {
-        get => GetArgument<TerraformValue<string>>("disk_image_format");
+        get => GetRequiredArgument<TerraformValue<string>>("disk_image_format");
         set => SetArgument("disk_image_format", value);
     }
 
@@ -479,7 +479,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockS3ExportCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformValue<string> RoleName
     {
-        get => GetArgument<TerraformValue<string>>("role_name");
+        get => GetRequiredArgument<TerraformValue<string>>("role_name");
         set => SetArgument("role_name", value);
     }
 
@@ -489,7 +489,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockS3ExportCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -539,7 +539,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockSsmParamet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -564,9 +564,9 @@ public partial class AwsImagebuilderDistributionConfiguration(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -576,16 +576,16 @@ public partial class AwsImagebuilderDistributionConfiguration(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -601,9 +601,9 @@ public partial class AwsImagebuilderDistributionConfiguration(string name) : Ter
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

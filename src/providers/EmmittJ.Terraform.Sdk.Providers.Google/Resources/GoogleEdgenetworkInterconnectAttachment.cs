@@ -61,9 +61,9 @@ public partial class GoogleEdgenetworkInterconnectAttachment(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleEdgenetworkInterconnectAttachment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interconnect is required")]
     public required TerraformValue<string> Interconnect
     {
-        get => GetArgument<TerraformValue<string>>("interconnect");
+        get => GetRequiredArgument<TerraformValue<string>>("interconnect");
         set => SetArgument("interconnect", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleEdgenetworkInterconnectAttachment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectAttachmentId is required")]
     public required TerraformValue<string> InterconnectAttachmentId
     {
-        get => GetArgument<TerraformValue<string>>("interconnect_attachment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("interconnect_attachment_id");
         set => SetArgument("interconnect_attachment_id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleEdgenetworkInterconnectAttachment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -126,16 +126,16 @@ public partial class GoogleEdgenetworkInterconnectAttachment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -145,7 +145,7 @@ public partial class GoogleEdgenetworkInterconnectAttachment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VlanId is required")]
     public required TerraformValue<double> VlanId
     {
-        get => GetArgument<TerraformValue<double>>("vlan_id");
+        get => GetRequiredArgument<TerraformValue<double>>("vlan_id");
         set => SetArgument("vlan_id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleEdgenetworkInterconnectAttachment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetRequiredArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 

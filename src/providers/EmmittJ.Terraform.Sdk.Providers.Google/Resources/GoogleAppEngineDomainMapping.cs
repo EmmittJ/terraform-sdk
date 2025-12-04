@@ -21,9 +21,9 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlock
     /// authorized to administer the &#39;AuthorizedCertificate&#39; resource to manually map it to a DomainMapping resource.
     /// Example: 12345.
     /// </summary>
-    public TerraformValue<string>? CertificateId
+    public TerraformValue<string> CertificateId
     {
-        get => GetArgument<TerraformValue<string>>("certificate_id");
+        get => GetArgument<TerraformValue<string>>("certificate_id") ?? AsReference("certificate_id");
         set => SetArgument("certificate_id", value);
     }
 
@@ -44,7 +44,7 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslManagementType is required")]
     public required TerraformValue<string> SslManagementType
     {
-        get => GetArgument<TerraformValue<string>>("ssl_management_type");
+        get => GetRequiredArgument<TerraformValue<string>>("ssl_management_type");
         set => SetArgument("ssl_management_type", value);
     }
 
@@ -104,16 +104,16 @@ public partial class GoogleAppEngineDomainMapping(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,9 +130,9 @@ public partial class GoogleAppEngineDomainMapping(string name) : TerraformResour
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

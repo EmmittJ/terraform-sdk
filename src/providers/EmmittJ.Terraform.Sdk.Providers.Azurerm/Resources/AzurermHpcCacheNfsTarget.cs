@@ -28,7 +28,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespacePath is required")]
     public required TerraformValue<string> NamespacePath
     {
-        get => GetArgument<TerraformValue<string>>("namespace_path");
+        get => GetRequiredArgument<TerraformValue<string>>("namespace_path");
         set => SetArgument("namespace_path", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NfsExport is required")]
     public required TerraformValue<string> NfsExport
     {
-        get => GetArgument<TerraformValue<string>>("nfs_export");
+        get => GetRequiredArgument<TerraformValue<string>>("nfs_export");
         set => SetArgument("nfs_export", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheName is required")]
     public required TerraformValue<string> CacheName
     {
-        get => GetArgument<TerraformValue<string>>("cache_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cache_name");
         set => SetArgument("cache_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetHostName is required")]
     public required TerraformValue<string> TargetHostName
     {
-        get => GetArgument<TerraformValue<string>>("target_host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("target_host_name");
         set => SetArgument("target_host_name", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsageModel is required")]
     public required TerraformValue<string> UsageModel
     {
-        get => GetArgument<TerraformValue<string>>("usage_model");
+        get => GetRequiredArgument<TerraformValue<string>>("usage_model");
         set => SetArgument("usage_model", value);
     }
 

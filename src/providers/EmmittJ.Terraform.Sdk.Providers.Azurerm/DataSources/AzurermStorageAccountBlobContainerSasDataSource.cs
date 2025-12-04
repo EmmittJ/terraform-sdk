@@ -19,7 +19,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddAttribute is required")]
     public required TerraformValue<bool> AddAttribute
     {
-        get => GetArgument<TerraformValue<bool>>("add");
+        get => GetRequiredArgument<TerraformValue<bool>>("add");
         set => SetArgument("add", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Create is required")]
     public required TerraformValue<bool> Create
     {
-        get => GetArgument<TerraformValue<bool>>("create");
+        get => GetRequiredArgument<TerraformValue<bool>>("create");
         set => SetArgument("create", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
     public required TerraformValue<bool> Delete
     {
-        get => GetArgument<TerraformValue<bool>>("delete");
+        get => GetRequiredArgument<TerraformValue<bool>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "List is required")]
     public required TerraformValue<bool> List
     {
-        get => GetArgument<TerraformValue<bool>>("list");
+        get => GetRequiredArgument<TerraformValue<bool>>("list");
         set => SetArgument("list", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
     public required TerraformValue<bool> Read
     {
-        get => GetArgument<TerraformValue<bool>>("read");
+        get => GetRequiredArgument<TerraformValue<bool>>("read");
         set => SetArgument("read", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
     public required TerraformValue<bool> Write
     {
-        get => GetArgument<TerraformValue<bool>>("write");
+        get => GetRequiredArgument<TerraformValue<bool>>("write");
         set => SetArgument("write", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermStorageAccountBlobContainerSasDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformValue<string> ConnectionString
     {
-        get => GetArgument<TerraformValue<string>>("connection_string");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermStorageAccountBlobContainerSasDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermStorageAccountBlobContainerSasDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
     public required TerraformValue<string> Expiry
     {
-        get => GetArgument<TerraformValue<string>>("expiry");
+        get => GetRequiredArgument<TerraformValue<string>>("expiry");
         set => SetArgument("expiry", value);
     }
 
@@ -192,9 +192,9 @@ public partial class AzurermStorageAccountBlobContainerSasDataSource(string name
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AzurermStorageAccountBlobContainerSasDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<string> Start
     {
-        get => GetArgument<TerraformValue<string>>("start");
+        get => GetRequiredArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 

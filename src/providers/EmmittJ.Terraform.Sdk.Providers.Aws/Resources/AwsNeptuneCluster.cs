@@ -84,27 +84,27 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// <summary>
     /// The allow_major_version_upgrade attribute.
     /// </summary>
-    public TerraformValue<bool>? AllowMajorVersionUpgrade
+    public TerraformValue<bool> AllowMajorVersionUpgrade
     {
-        get => GetArgument<TerraformValue<bool>>("allow_major_version_upgrade");
+        get => GetArgument<TerraformValue<bool>>("allow_major_version_upgrade") ?? AsReference("allow_major_version_upgrade");
         set => SetArgument("allow_major_version_upgrade", value);
     }
 
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformValue<bool>? ApplyImmediately
+    public TerraformValue<bool> ApplyImmediately
     {
-        get => GetArgument<TerraformValue<bool>>("apply_immediately");
+        get => GetArgument<TerraformValue<bool>>("apply_immediately") ?? AsReference("apply_immediately");
         set => SetArgument("apply_immediately", value);
     }
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformSet<string>? AvailabilityZones
+    public TerraformSet<string> AvailabilityZones
     {
-        get => GetArgument<TerraformSet<string>>("availability_zones");
+        get => GetArgument<TerraformSet<string>>("availability_zones") ?? AsReference("availability_zones");
         set => SetArgument("availability_zones", value);
     }
 
@@ -120,18 +120,18 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformValue<string>? ClusterIdentifier
+    public TerraformValue<string> ClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier") ?? AsReference("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
     /// <summary>
     /// The cluster_identifier_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? ClusterIdentifierPrefix
+    public TerraformValue<string> ClusterIdentifierPrefix
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier_prefix");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier_prefix") ?? AsReference("cluster_identifier_prefix");
         set => SetArgument("cluster_identifier_prefix", value);
     }
 
@@ -174,9 +174,9 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string>? EngineVersion
+    public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -219,27 +219,27 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyArn
+    public TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? AsReference("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
     /// <summary>
     /// The neptune_cluster_parameter_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? NeptuneClusterParameterGroupName
+    public TerraformValue<string> NeptuneClusterParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("neptune_cluster_parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("neptune_cluster_parameter_group_name") ?? AsReference("neptune_cluster_parameter_group_name");
         set => SetArgument("neptune_cluster_parameter_group_name", value);
     }
 
@@ -255,9 +255,9 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// <summary>
     /// The neptune_subnet_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? NeptuneSubnetGroupName
+    public TerraformValue<string> NeptuneSubnetGroupName
     {
-        get => GetArgument<TerraformValue<string>>("neptune_subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("neptune_subnet_group_name") ?? AsReference("neptune_subnet_group_name");
         set => SetArgument("neptune_subnet_group_name", value);
     }
 
@@ -273,27 +273,27 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredBackupWindow
+    public TerraformValue<string> PreferredBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_backup_window");
+        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? AsReference("preferred_backup_window");
         set => SetArgument("preferred_backup_window", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredMaintenanceWindow
+    public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -336,9 +336,9 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformValue<string>? StorageType
+    public TerraformValue<string> StorageType
     {
-        get => GetArgument<TerraformValue<string>>("storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type") ?? AsReference("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -354,18 +354,18 @@ public partial class AwsNeptuneCluster(string name) : TerraformResource("aws_nep
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? VpcSecurityGroupIds
+    public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 

@@ -55,16 +55,16 @@ public partial class GoogleResourceManagerCapability(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityName is required")]
     public required TerraformValue<string> CapabilityName
     {
-        get => GetArgument<TerraformValue<string>>("capability_name");
+        get => GetRequiredArgument<TerraformValue<string>>("capability_name");
         set => SetArgument("capability_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleResourceManagerCapability(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleResourceManagerCapability(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<bool> Value
     {
-        get => GetArgument<TerraformValue<bool>>("value");
+        get => GetRequiredArgument<TerraformValue<bool>>("value");
         set => SetArgument("value", value);
     }
 

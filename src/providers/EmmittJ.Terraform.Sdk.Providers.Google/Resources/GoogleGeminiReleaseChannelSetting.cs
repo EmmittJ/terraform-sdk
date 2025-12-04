@@ -52,9 +52,9 @@ public partial class GoogleGeminiReleaseChannelSetting(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -76,16 +76,16 @@ public partial class GoogleGeminiReleaseChannelSetting(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -107,7 +107,7 @@ public partial class GoogleGeminiReleaseChannelSetting(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseChannelSettingId is required")]
     public required TerraformValue<string> ReleaseChannelSettingId
     {
-        get => GetArgument<TerraformValue<string>>("release_channel_setting_id");
+        get => GetRequiredArgument<TerraformValue<string>>("release_channel_setting_id");
         set => SetArgument("release_channel_setting_id", value);
     }
 

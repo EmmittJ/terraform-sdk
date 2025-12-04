@@ -64,7 +64,7 @@ public partial class AzurermSynapseWorkspaceKey(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => GetArgument<TerraformValue<bool>>("active");
+        get => GetRequiredArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSynapseWorkspaceKey(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerManagedKeyName is required")]
     public required TerraformValue<string> CustomerManagedKeyName
     {
-        get => GetArgument<TerraformValue<string>>("customer_managed_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("customer_managed_key_name");
         set => SetArgument("customer_managed_key_name", value);
     }
 
@@ -90,9 +90,9 @@ public partial class AzurermSynapseWorkspaceKey(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermSynapseWorkspaceKey(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("synapse_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("synapse_workspace_id");
         set => SetArgument("synapse_workspace_id", value);
     }
 

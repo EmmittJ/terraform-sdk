@@ -64,7 +64,7 @@ public partial class AzurermBotChannelDirectLineSpeech(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformValue<string> BotName
     {
-        get => GetArgument<TerraformValue<string>>("bot_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bot_name");
         set => SetArgument("bot_name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermBotChannelDirectLineSpeech(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveServiceAccessKey is required")]
     public required TerraformValue<string> CognitiveServiceAccessKey
     {
-        get => GetArgument<TerraformValue<string>>("cognitive_service_access_key");
+        get => GetRequiredArgument<TerraformValue<string>>("cognitive_service_access_key");
         set => SetArgument("cognitive_service_access_key", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermBotChannelDirectLineSpeech(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveServiceLocation is required")]
     public required TerraformValue<string> CognitiveServiceLocation
     {
-        get => GetArgument<TerraformValue<string>>("cognitive_service_location");
+        get => GetRequiredArgument<TerraformValue<string>>("cognitive_service_location");
         set => SetArgument("cognitive_service_location", value);
     }
 
@@ -118,9 +118,9 @@ public partial class AzurermBotChannelDirectLineSpeech(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermBotChannelDirectLineSpeech(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermBotChannelDirectLineSpeech(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

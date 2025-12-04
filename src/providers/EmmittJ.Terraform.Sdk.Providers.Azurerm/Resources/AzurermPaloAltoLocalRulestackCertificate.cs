@@ -79,9 +79,9 @@ public partial class AzurermPaloAltoLocalRulestackCertificate(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermPaloAltoLocalRulestackCertificate(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermPaloAltoLocalRulestackCertificate(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
     public required TerraformValue<string> RulestackId
     {
-        get => GetArgument<TerraformValue<string>>("rulestack_id");
+        get => GetRequiredArgument<TerraformValue<string>>("rulestack_id");
         set => SetArgument("rulestack_id", value);
     }
 

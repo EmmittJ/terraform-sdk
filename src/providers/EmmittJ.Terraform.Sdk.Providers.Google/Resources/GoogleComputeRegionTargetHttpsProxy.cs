@@ -85,9 +85,9 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -103,16 +103,16 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -120,9 +120,9 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     /// The Region in which the created target https proxy should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -177,7 +177,7 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlMap is required")]
     public required TerraformValue<string> UrlMap
     {
-        get => GetArgument<TerraformValue<string>>("url_map");
+        get => GetRequiredArgument<TerraformValue<string>>("url_map");
         set => SetArgument("url_map", value);
     }
 

@@ -34,9 +34,9 @@ public class AwsSagemakerAppResourceSpecBlock : TerraformBlock
     /// <summary>
     /// The sagemaker_image_arn attribute.
     /// </summary>
-    public TerraformValue<string>? SagemakerImageArn
+    public TerraformValue<string> SagemakerImageArn
     {
-        get => GetArgument<TerraformValue<string>>("sagemaker_image_arn");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_arn") ?? AsReference("sagemaker_image_arn");
         set => SetArgument("sagemaker_image_arn", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsSagemakerApp(string name) : TerraformResource("aws_sagem
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     public required TerraformValue<string> AppName
     {
-        get => GetArgument<TerraformValue<string>>("app_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_name");
         set => SetArgument("app_name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsSagemakerApp(string name) : TerraformResource("aws_sagem
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppType is required")]
     public required TerraformValue<string> AppType
     {
-        get => GetArgument<TerraformValue<string>>("app_type");
+        get => GetRequiredArgument<TerraformValue<string>>("app_type");
         set => SetArgument("app_type", value);
     }
 
@@ -93,25 +93,25 @@ public partial class AwsSagemakerApp(string name) : TerraformResource("aws_sagem
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformValue<string> DomainId
     {
-        get => GetArgument<TerraformValue<string>>("domain_id");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_id");
         set => SetArgument("domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -136,9 +136,9 @@ public partial class AwsSagemakerApp(string name) : TerraformResource("aws_sagem
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultBehavior is required")]
     public required TerraformValue<string> DefaultBehavior
     {
-        get => GetArgument<TerraformValue<string>>("default_behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("default_behavior");
         set => SetArgument("default_behavior", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlockFilterBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformValue<string> Behavior
     {
-        get => GetArgument<TerraformValue<string>>("behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("behavior");
         set => SetArgument("behavior", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlockFilterBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Requirement is required")]
     public required TerraformValue<string> Requirement
     {
-        get => GetArgument<TerraformValue<string>>("requirement");
+        get => GetRequiredArgument<TerraformValue<string>>("requirement");
         set => SetArgument("requirement", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlockFilterBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlockFilterBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelName is required")]
     public required TerraformValue<string> LabelName
     {
-        get => GetArgument<TerraformValue<string>>("label_name");
+        get => GetRequiredArgument<TerraformValue<string>>("label_name");
         set => SetArgument("label_name", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlockSingleHeaderBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -287,9 +287,9 @@ public partial class AwsWafv2WebAclLoggingConfiguration(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -299,16 +299,16 @@ public partial class AwsWafv2WebAclLoggingConfiguration(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDestinationConfigs is required")]
     public required TerraformSet<string> LogDestinationConfigs
     {
-        get => GetArgument<TerraformSet<string>>("log_destination_configs");
+        get => GetRequiredArgument<TerraformSet<string>>("log_destination_configs");
         set => SetArgument("log_destination_configs", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -318,7 +318,7 @@ public partial class AwsWafv2WebAclLoggingConfiguration(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 

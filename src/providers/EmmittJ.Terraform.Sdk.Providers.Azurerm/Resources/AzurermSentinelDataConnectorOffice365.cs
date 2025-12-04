@@ -70,9 +70,9 @@ public partial class AzurermSentinelDataConnectorOffice365(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermSentinelDataConnectorOffice365(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSentinelDataConnectorOffice365(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -117,9 +117,9 @@ public partial class AzurermSentinelDataConnectorOffice365(string name) : Terraf
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string>? TenantId
+    public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

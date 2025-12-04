@@ -19,7 +19,7 @@ public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptedPrivateKey is required")]
     public required TerraformValue<string> EncryptedPrivateKey
     {
-        get => GetArgument<TerraformValue<string>>("encrypted_private_key");
+        get => GetRequiredArgument<TerraformValue<string>>("encrypted_private_key");
         set => SetArgument("encrypted_private_key", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslCertificate is required")]
     public required TerraformValue<string> SslCertificate
     {
-        get => GetArgument<TerraformValue<string>>("ssl_certificate");
+        get => GetRequiredArgument<TerraformValue<string>>("ssl_certificate");
         set => SetArgument("ssl_certificate", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialType is required")]
     public required TerraformValue<string> CredentialType
     {
-        get => GetArgument<TerraformValue<string>>("credential_type");
+        get => GetRequiredArgument<TerraformValue<string>>("credential_type");
         set => SetArgument("credential_type", value);
     }
 
@@ -657,7 +657,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -675,9 +675,9 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -687,7 +687,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -705,9 +705,9 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

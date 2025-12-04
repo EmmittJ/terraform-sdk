@@ -67,7 +67,7 @@ public class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReturnConnectionPasswordEncrypted is required")]
     public required TerraformValue<bool> ReturnConnectionPasswordEncrypted
     {
-        get => GetArgument<TerraformValue<bool>>("return_connection_password_encrypted");
+        get => GetRequiredArgument<TerraformValue<bool>>("return_connection_password_encrypted");
         set => SetArgument("return_connection_password_encrypted", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogEncryptionMode is required")]
     public required TerraformValue<string> CatalogEncryptionMode
     {
-        get => GetArgument<TerraformValue<string>>("catalog_encryption_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("catalog_encryption_mode");
         set => SetArgument("catalog_encryption_mode", value);
     }
 
@@ -124,27 +124,27 @@ public partial class AwsGlueDataCatalogEncryptionSettings(string name) : Terrafo
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string>? CatalogId
+    public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

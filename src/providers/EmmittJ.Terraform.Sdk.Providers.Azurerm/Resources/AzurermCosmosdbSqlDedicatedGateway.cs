@@ -64,16 +64,16 @@ public partial class AzurermCosmosdbSqlDedicatedGateway(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountId is required")]
     public required TerraformValue<string> CosmosdbAccountId
     {
-        get => GetArgument<TerraformValue<string>>("cosmosdb_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cosmosdb_account_id");
         set => SetArgument("cosmosdb_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermCosmosdbSqlDedicatedGateway(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformValue<double> InstanceCount
     {
-        get => GetArgument<TerraformValue<double>>("instance_count");
+        get => GetRequiredArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermCosmosdbSqlDedicatedGateway(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceSize is required")]
     public required TerraformValue<string> InstanceSize
     {
-        get => GetArgument<TerraformValue<string>>("instance_size");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_size");
         set => SetArgument("instance_size", value);
     }
 

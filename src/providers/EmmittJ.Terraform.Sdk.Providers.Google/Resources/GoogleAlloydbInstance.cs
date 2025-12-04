@@ -48,9 +48,9 @@ public class GoogleAlloydbInstanceClientConnectionConfigBlockSslConfigBlock : Te
     /// <summary>
     /// SSL mode. Specifies client-server SSL/TLS connection behavior. Possible values: [&amp;quot;ENCRYPTED_ONLY&amp;quot;, &amp;quot;ALLOW_UNENCRYPTED_AND_ENCRYPTED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? SslMode
+    public TerraformValue<string> SslMode
     {
-        get => GetArgument<TerraformValue<string>>("ssl_mode");
+        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? AsReference("ssl_mode");
         set => SetArgument("ssl_mode", value);
     }
 
@@ -71,9 +71,9 @@ public class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlock
     /// <summary>
     /// The number of CPU&#39;s in the VM instance.
     /// </summary>
-    public TerraformValue<double>? CpuCount
+    public TerraformValue<double> CpuCount
     {
-        get => GetArgument<TerraformValue<double>>("cpu_count");
+        get => GetArgument<TerraformValue<double>>("cpu_count") ?? AsReference("cpu_count");
         set => SetArgument("cpu_count", value);
     }
 
@@ -82,9 +82,9 @@ public class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlock
     /// E.g. &amp;quot;n2-highmem-4&amp;quot;, &amp;quot;n2-highmem-8&amp;quot;, &amp;quot;c4a-highmem-4-lssd&amp;quot;.
     /// &#39;cpu_count&#39; must match the number of vCPUs in the machine type.
     /// </summary>
-    public TerraformValue<string>? MachineType
+    public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -433,9 +433,9 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// etc.). Please refer to the API documentation for more details.
     /// Possible values are: &#39;ACTIVATION_POLICY_UNSPECIFIED&#39;, &#39;ALWAYS&#39;, &#39;NEVER&#39;.&#39; Possible values: [&amp;quot;ACTIVATION_POLICY_UNSPECIFIED&amp;quot;, &amp;quot;ALWAYS&amp;quot;, &amp;quot;NEVER&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? ActivationPolicy
+    public TerraformValue<string> ActivationPolicy
     {
-        get => GetArgument<TerraformValue<string>>("activation_policy");
+        get => GetArgument<TerraformValue<string>>("activation_policy") ?? AsReference("activation_policy");
         set => SetArgument("activation_policy", value);
     }
 
@@ -459,9 +459,9 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// can have regional availability (nodes are present in 2 or more zones in a region).
     /// Possible values are: &#39;AVAILABILITY_TYPE_UNSPECIFIED&#39;, &#39;ZONAL&#39;, &#39;REGIONAL&#39;.&#39; Possible values: [&amp;quot;AVAILABILITY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;ZONAL&amp;quot;, &amp;quot;REGIONAL&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? AvailabilityType
+    public TerraformValue<string> AvailabilityType
     {
-        get => GetArgument<TerraformValue<string>>("availability_type");
+        get => GetArgument<TerraformValue<string>>("availability_type") ?? AsReference("availability_type");
         set => SetArgument("availability_type", value);
     }
 
@@ -472,16 +472,16 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
     /// </summary>
-    public TerraformMap<string>? DatabaseFlags
+    public TerraformMap<string> DatabaseFlags
     {
-        get => GetArgument<TerraformMap<string>>("database_flags");
+        get => GetArgument<TerraformMap<string>>("database_flags") ?? AsReference("database_flags");
         set => SetArgument("database_flags", value);
     }
 
@@ -506,9 +506,9 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -518,7 +518,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -534,7 +534,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 

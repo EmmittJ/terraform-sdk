@@ -11,9 +11,9 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     /// <summary>
     /// The access_type attribute.
     /// </summary>
-    public TerraformValue<string>? AccessType
+    public TerraformValue<string> AccessType
     {
-        get => GetArgument<TerraformValue<string>>("access_type");
+        get => GetArgument<TerraformValue<string>>("access_type") ?? AsReference("access_type");
         set => SetArgument("access_type", value);
     }
 
@@ -29,9 +29,9 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutpostId is required")]
     public required TerraformValue<string> OutpostId
     {
-        get => GetArgument<TerraformValue<string>>("outpost_id");
+        get => GetRequiredArgument<TerraformValue<string>>("outpost_id");
         set => SetArgument("outpost_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     public required TerraformValue<string> SecurityGroupId
     {
-        get => GetArgument<TerraformValue<string>>("security_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("security_group_id");
         set => SetArgument("security_group_id", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 

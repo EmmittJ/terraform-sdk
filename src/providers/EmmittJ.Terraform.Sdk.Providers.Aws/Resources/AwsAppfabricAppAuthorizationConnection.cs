@@ -19,7 +19,7 @@ public class AwsAppfabricAppAuthorizationConnectionAuthRequestBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformValue<string> Code
     {
-        get => GetArgument<TerraformValue<string>>("code");
+        get => GetRequiredArgument<TerraformValue<string>>("code");
         set => SetArgument("code", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsAppfabricAppAuthorizationConnectionAuthRequestBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUri is required")]
     public required TerraformValue<string> RedirectUri
     {
-        get => GetArgument<TerraformValue<string>>("redirect_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("redirect_uri");
         set => SetArgument("redirect_uri", value);
     }
 
@@ -71,7 +71,7 @@ public partial class AwsAppfabricAppAuthorizationConnection(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppAuthorizationArn is required")]
     public required TerraformValue<string> AppAuthorizationArn
     {
-        get => GetArgument<TerraformValue<string>>("app_authorization_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("app_authorization_arn");
         set => SetArgument("app_authorization_arn", value);
     }
 
@@ -81,16 +81,16 @@ public partial class AwsAppfabricAppAuthorizationConnection(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformValue<string> AppBundleArn
     {
-        get => GetArgument<TerraformValue<string>>("app_bundle_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("app_bundle_arn");
         set => SetArgument("app_bundle_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

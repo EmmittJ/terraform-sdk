@@ -11,9 +11,9 @@ public partial class AwsEcrRepositoryCreationTemplateDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsEcrRepositoryCreationTemplateDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public TerraformMap<string>? ResourceTags
+    public TerraformMap<string> ResourceTags
     {
-        get => GetArgument<TerraformMap<string>>("resource_tags");
+        get => GetArgument<TerraformMap<string>>("resource_tags") ?? AsReference("resource_tags");
         set => SetArgument("resource_tags", value);
     }
 

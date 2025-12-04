@@ -52,9 +52,9 @@ public partial class AzurermRecoveryServicesVaultResourceGuardAssociation(string
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermRecoveryServicesVaultResourceGuardAssociation(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGuardId is required")]
     public required TerraformValue<string> ResourceGuardId
     {
-        get => GetArgument<TerraformValue<string>>("resource_guard_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_guard_id");
         set => SetArgument("resource_guard_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermRecoveryServicesVaultResourceGuardAssociation(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     public required TerraformValue<string> VaultId
     {
-        get => GetArgument<TerraformValue<string>>("vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vault_id");
         set => SetArgument("vault_id", value);
     }
 

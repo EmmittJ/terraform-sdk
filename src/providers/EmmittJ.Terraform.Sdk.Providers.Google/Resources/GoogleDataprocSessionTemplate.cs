@@ -80,9 +80,9 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlockExecutionConfigB
     /// <summary>
     /// Service account that used to execute workload.
     /// </summary>
-    public TerraformValue<string>? ServiceAccount
+    public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -118,9 +118,9 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlockExecutionConfigB
     /// the conditions are treated as OR conditions: the workload will be terminated when it has been idle for idleTtl or
     /// when ttl has been exceeded, whichever occurs first.
     /// </summary>
-    public TerraformValue<string>? Ttl
+    public TerraformValue<string> Ttl
     {
-        get => GetArgument<TerraformValue<string>>("ttl");
+        get => GetArgument<TerraformValue<string>>("ttl") ?? AsReference("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -356,9 +356,9 @@ public partial class GoogleDataprocSessionTemplate(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -391,16 +391,16 @@ public partial class GoogleDataprocSessionTemplate(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

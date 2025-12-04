@@ -43,9 +43,9 @@ public partial class AwsCloudhsmV2Hsm(string name) : TerraformResource("aws_clou
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZone
+    public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -55,43 +55,43 @@ public partial class AwsCloudhsmV2Hsm(string name) : TerraformResource("aws_clou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformValue<string>? IpAddress
+    public TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address") ?? AsReference("ip_address");
         set => SetArgument("ip_address", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformValue<string>? SubnetId
+    public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 

@@ -37,16 +37,16 @@ public partial class AzurermExpressRouteCircuitPeeringDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitName is required")]
     public required TerraformValue<string> ExpressRouteCircuitName
     {
-        get => GetArgument<TerraformValue<string>>("express_route_circuit_name");
+        get => GetRequiredArgument<TerraformValue<string>>("express_route_circuit_name");
         set => SetArgument("express_route_circuit_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermExpressRouteCircuitPeeringDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringType is required")]
     public required TerraformValue<string> PeeringType
     {
-        get => GetArgument<TerraformValue<string>>("peering_type");
+        get => GetRequiredArgument<TerraformValue<string>>("peering_type");
         set => SetArgument("peering_type", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermExpressRouteCircuitPeeringDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

@@ -55,7 +55,7 @@ public partial class AzurermApiManagementNotificationRecipientEmail(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformValue<string> ApiManagementId
     {
-        get => GetArgument<TerraformValue<string>>("api_management_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_management_id");
         set => SetArgument("api_management_id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermApiManagementNotificationRecipientEmail(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermApiManagementNotificationRecipientEmail(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformValue<string> NotificationType
     {
-        get => GetArgument<TerraformValue<string>>("notification_type");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_type");
         set => SetArgument("notification_type", value);
     }
 

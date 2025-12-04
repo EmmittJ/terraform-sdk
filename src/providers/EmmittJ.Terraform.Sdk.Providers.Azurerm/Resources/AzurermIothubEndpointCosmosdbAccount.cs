@@ -73,7 +73,7 @@ public partial class AzurermIothubEndpointCosmosdbAccount(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermIothubEndpointCosmosdbAccount(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -93,16 +93,16 @@ public partial class AzurermIothubEndpointCosmosdbAccount(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointUri is required")]
     public required TerraformValue<string> EndpointUri
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_uri");
         set => SetArgument("endpoint_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermIothubEndpointCosmosdbAccount(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformValue<string> IothubId
     {
-        get => GetArgument<TerraformValue<string>>("iothub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("iothub_id");
         set => SetArgument("iothub_id", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermIothubEndpointCosmosdbAccount(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermIothubEndpointCosmosdbAccount(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -184,9 +184,9 @@ public partial class AzurermIothubEndpointCosmosdbAccount(string name) : Terrafo
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformValue<string>? SubscriptionId
+    public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 

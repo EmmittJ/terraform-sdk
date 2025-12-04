@@ -73,25 +73,25 @@ public partial class AzurermKustoScript(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformValue<string> DatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("database_id");
         set => SetArgument("database_id", value);
     }
 
     /// <summary>
     /// The force_an_update_when_value_changed attribute.
     /// </summary>
-    public TerraformValue<string>? ForceAnUpdateWhenValueChanged
+    public TerraformValue<string> ForceAnUpdateWhenValueChanged
     {
-        get => GetArgument<TerraformValue<string>>("force_an_update_when_value_changed");
+        get => GetArgument<TerraformValue<string>>("force_an_update_when_value_changed") ?? AsReference("force_an_update_when_value_changed");
         set => SetArgument("force_an_update_when_value_changed", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermKustoScript(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

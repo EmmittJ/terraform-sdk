@@ -70,9 +70,9 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
@@ -88,9 +88,9 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -115,36 +115,36 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// <summary>
     /// The multi_region attribute.
     /// </summary>
-    public TerraformValue<bool>? MultiRegion
+    public TerraformValue<bool> MultiRegion
     {
-        get => GetArgument<TerraformValue<bool>>("multi_region");
+        get => GetArgument<TerraformValue<bool>>("multi_region") ?? AsReference("multi_region");
         set => SetArgument("multi_region", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformValue<string>? Policy
+    public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The rotation_period_in_days attribute.
     /// </summary>
-    public TerraformValue<double>? RotationPeriodInDays
+    public TerraformValue<double> RotationPeriodInDays
     {
-        get => GetArgument<TerraformValue<double>>("rotation_period_in_days");
+        get => GetArgument<TerraformValue<double>>("rotation_period_in_days") ?? AsReference("rotation_period_in_days");
         set => SetArgument("rotation_period_in_days", value);
     }
 
@@ -160,9 +160,9 @@ public partial class AwsKmsKey(string name) : TerraformResource("aws_kms_key", n
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsBackupPlanAdvancedBackupSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupOptions is required")]
     public required TerraformMap<string> BackupOptions
     {
-        get => GetArgument<TerraformMap<string>>("backup_options");
+        get => GetRequiredArgument<TerraformMap<string>>("backup_options");
         set => SetArgument("backup_options", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsBackupPlanAdvancedBackupSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => GetArgument<TerraformValue<string>>("resource_type");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformValue<string> RuleName
     {
-        get => GetArgument<TerraformValue<string>>("rule_name");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVaultName is required")]
     public required TerraformValue<string> TargetVaultName
     {
-        get => GetArgument<TerraformValue<string>>("target_vault_name");
+        get => GetRequiredArgument<TerraformValue<string>>("target_vault_name");
         set => SetArgument("target_vault_name", value);
     }
 
@@ -159,7 +159,7 @@ public class AwsBackupPlanRuleBlockCopyActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationVaultArn is required")]
     public required TerraformValue<string> DestinationVaultArn
     {
-        get => GetArgument<TerraformValue<string>>("destination_vault_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_vault_arn");
         set => SetArgument("destination_vault_arn", value);
     }
 
@@ -207,9 +207,9 @@ public class AwsBackupPlanRuleBlockCopyActionBlockLifecycleAttributeBlock : Terr
     /// <summary>
     /// The opt_in_to_archive_for_supported_resources attribute.
     /// </summary>
-    public TerraformValue<bool>? OptInToArchiveForSupportedResources
+    public TerraformValue<bool> OptInToArchiveForSupportedResources
     {
-        get => GetArgument<TerraformValue<bool>>("opt_in_to_archive_for_supported_resources");
+        get => GetArgument<TerraformValue<bool>>("opt_in_to_archive_for_supported_resources") ?? AsReference("opt_in_to_archive_for_supported_resources");
         set => SetArgument("opt_in_to_archive_for_supported_resources", value);
     }
 
@@ -247,9 +247,9 @@ public class AwsBackupPlanRuleBlockLifecycleAttributeBlock : TerraformBlock
     /// <summary>
     /// The opt_in_to_archive_for_supported_resources attribute.
     /// </summary>
-    public TerraformValue<bool>? OptInToArchiveForSupportedResources
+    public TerraformValue<bool> OptInToArchiveForSupportedResources
     {
-        get => GetArgument<TerraformValue<bool>>("opt_in_to_archive_for_supported_resources");
+        get => GetArgument<TerraformValue<bool>>("opt_in_to_archive_for_supported_resources") ?? AsReference("opt_in_to_archive_for_supported_resources");
         set => SetArgument("opt_in_to_archive_for_supported_resources", value);
     }
 
@@ -265,9 +265,9 @@ public partial class AwsBackupPlan(string name) : TerraformResource("aws_backup_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -277,16 +277,16 @@ public partial class AwsBackupPlan(string name) : TerraformResource("aws_backup_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -302,9 +302,9 @@ public partial class AwsBackupPlan(string name) : TerraformResource("aws_backup_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

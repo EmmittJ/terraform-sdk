@@ -73,16 +73,16 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignment(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationVersionId is required")]
     public required TerraformValue<string> GalleryApplicationVersionId
     {
-        get => GetArgument<TerraformValue<string>>("gallery_application_version_id");
+        get => GetRequiredArgument<TerraformValue<string>>("gallery_application_version_id");
         set => SetArgument("gallery_application_version_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignment(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 

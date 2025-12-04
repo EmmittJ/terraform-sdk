@@ -55,7 +55,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
     public required TerraformValue<string> AdminPassword
     {
-        get => GetArgument<TerraformValue<string>>("admin_password");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_password");
         set => SetArgument("admin_password", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingEnabled is required")]
     public required TerraformValue<bool> AutoScalingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("auto_scaling_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("auto_scaling_enabled");
         set => SetArgument("auto_scaling_enabled", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingForStorageEnabled is required")]
     public required TerraformValue<bool> AutoScalingForStorageEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("auto_scaling_for_storage_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("auto_scaling_for_storage_enabled");
         set => SetArgument("auto_scaling_for_storage_enabled", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRetentionPeriodInDays is required")]
     public required TerraformValue<double> BackupRetentionPeriodInDays
     {
-        get => GetArgument<TerraformValue<double>>("backup_retention_period_in_days");
+        get => GetRequiredArgument<TerraformValue<double>>("backup_retention_period_in_days");
         set => SetArgument("backup_retention_period_in_days", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CharacterSet is required")]
     public required TerraformValue<string> CharacterSet
     {
-        get => GetArgument<TerraformValue<string>>("character_set");
+        get => GetRequiredArgument<TerraformValue<string>>("character_set");
         set => SetArgument("character_set", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloneType is required")]
     public required TerraformValue<string> CloneType
     {
-        get => GetArgument<TerraformValue<string>>("clone_type");
+        get => GetRequiredArgument<TerraformValue<string>>("clone_type");
         set => SetArgument("clone_type", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
     public required TerraformValue<double> ComputeCount
     {
-        get => GetArgument<TerraformValue<double>>("compute_count");
+        get => GetRequiredArgument<TerraformValue<double>>("compute_count");
         set => SetArgument("compute_count", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeModel is required")]
     public required TerraformValue<string> ComputeModel
     {
-        get => GetArgument<TerraformValue<string>>("compute_model");
+        get => GetRequiredArgument<TerraformValue<string>>("compute_model");
         set => SetArgument("compute_model", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStorageSizeInTb is required")]
     public required TerraformValue<double> DataStorageSizeInTb
     {
-        get => GetArgument<TerraformValue<double>>("data_storage_size_in_tb");
+        get => GetRequiredArgument<TerraformValue<double>>("data_storage_size_in_tb");
         set => SetArgument("data_storage_size_in_tb", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseVersion is required")]
     public required TerraformValue<string> DatabaseVersion
     {
-        get => GetArgument<TerraformValue<string>>("database_version");
+        get => GetRequiredArgument<TerraformValue<string>>("database_version");
         set => SetArgument("database_version", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseWorkload is required")]
     public required TerraformValue<string> DatabaseWorkload
     {
-        get => GetArgument<TerraformValue<string>>("database_workload");
+        get => GetRequiredArgument<TerraformValue<string>>("database_workload");
         set => SetArgument("database_workload", value);
     }
 
@@ -183,16 +183,16 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
     public required TerraformValue<string> LicenseModel
     {
-        get => GetArgument<TerraformValue<string>>("license_model");
+        get => GetRequiredArgument<TerraformValue<string>>("license_model");
         set => SetArgument("license_model", value);
     }
 
@@ -212,7 +212,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -222,7 +222,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MtlsConnectionRequired is required")]
     public required TerraformValue<bool> MtlsConnectionRequired
     {
-        get => GetArgument<TerraformValue<bool>>("mtls_connection_required");
+        get => GetRequiredArgument<TerraformValue<bool>>("mtls_connection_required");
         set => SetArgument("mtls_connection_required", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NationalCharacterSet is required")]
     public required TerraformValue<string> NationalCharacterSet
     {
-        get => GetArgument<TerraformValue<string>>("national_character_set");
+        get => GetRequiredArgument<TerraformValue<string>>("national_character_set");
         set => SetArgument("national_character_set", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AzurermOracleAutonomousDatabaseCloneFromDatabase(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceAutonomousDatabaseId is required")]
     public required TerraformValue<string> SourceAutonomousDatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("source_autonomous_database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_autonomous_database_id");
         set => SetArgument("source_autonomous_database_id", value);
     }
 

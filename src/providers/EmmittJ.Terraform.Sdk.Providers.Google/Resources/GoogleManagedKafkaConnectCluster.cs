@@ -19,7 +19,7 @@ public class GoogleManagedKafkaConnectClusterCapacityConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryBytes is required")]
     public required TerraformValue<string> MemoryBytes
     {
-        get => GetArgument<TerraformValue<string>>("memory_bytes");
+        get => GetRequiredArgument<TerraformValue<string>>("memory_bytes");
         set => SetArgument("memory_bytes", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleManagedKafkaConnectClusterCapacityConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VcpuCount is required")]
     public required TerraformValue<string> VcpuCount
     {
-        get => GetArgument<TerraformValue<string>>("vcpu_count");
+        get => GetRequiredArgument<TerraformValue<string>>("vcpu_count");
         set => SetArgument("vcpu_count", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleManagedKafkaConnectClusterGcpConfigBlockAccessConfigBlockNetw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimarySubnet is required")]
     public required TerraformValue<string> PrimarySubnet
     {
-        get => GetArgument<TerraformValue<string>>("primary_subnet");
+        get => GetRequiredArgument<TerraformValue<string>>("primary_subnet");
         set => SetArgument("primary_subnet", value);
     }
 
@@ -182,16 +182,16 @@ public partial class GoogleManagedKafkaConnectCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectClusterId is required")]
     public required TerraformValue<string> ConnectClusterId
     {
-        get => GetArgument<TerraformValue<string>>("connect_cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("connect_cluster_id");
         set => SetArgument("connect_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -201,7 +201,7 @@ public partial class GoogleManagedKafkaConnectCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaCluster is required")]
     public required TerraformValue<string> KafkaCluster
     {
-        get => GetArgument<TerraformValue<string>>("kafka_cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("kafka_cluster");
         set => SetArgument("kafka_cluster", value);
     }
 
@@ -223,16 +223,16 @@ public partial class GoogleManagedKafkaConnectCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

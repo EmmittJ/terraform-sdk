@@ -43,9 +43,9 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// <summary>
     /// The policy_language attribute.
     /// </summary>
-    public TerraformValue<string>? PolicyLanguage
+    public TerraformValue<string> PolicyLanguage
     {
-        get => GetArgument<TerraformValue<string>>("policy_language");
+        get => GetArgument<TerraformValue<string>>("policy_language") ?? AsReference("policy_language");
         set => SetArgument("policy_language", value);
     }
 
@@ -61,9 +61,9 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// <summary>
     /// The resource_locations attribute.
     /// </summary>
-    public TerraformList<string>? ResourceLocations
+    public TerraformList<string> ResourceLocations
     {
-        get => GetArgument<TerraformList<string>>("resource_locations");
+        get => GetArgument<TerraformList<string>>("resource_locations") ?? AsReference("resource_locations");
         set => SetArgument("resource_locations", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -208,7 +208,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockActionBlockCrossRegionCopyBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => GetArgument<TerraformValue<string>>("target");
+        get => GetRequiredArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockActionBlockCrossRegionCopyBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => GetArgument<TerraformValue<double>>("interval");
+        get => GetRequiredArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -295,7 +295,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockActionBlockCrossRegionCopyBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalUnit is required")]
     public required TerraformValue<string> IntervalUnit
     {
-        get => GetArgument<TerraformValue<string>>("interval_unit");
+        get => GetRequiredArgument<TerraformValue<string>>("interval_unit");
         set => SetArgument("interval_unit", value);
     }
 
@@ -318,7 +318,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockEventSourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -354,7 +354,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockEventSourceBlockParametersBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DescriptionRegex is required")]
     public required TerraformValue<string> DescriptionRegex
     {
-        get => GetArgument<TerraformValue<string>>("description_regex");
+        get => GetRequiredArgument<TerraformValue<string>>("description_regex");
         set => SetArgument("description_regex", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockEventSourceBlockParametersBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformValue<string> EventType
     {
-        get => GetArgument<TerraformValue<string>>("event_type");
+        get => GetRequiredArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -374,7 +374,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockEventSourceBlockParametersBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotOwner is required")]
     public required TerraformSet<string> SnapshotOwner
     {
-        get => GetArgument<TerraformSet<string>>("snapshot_owner");
+        get => GetRequiredArgument<TerraformSet<string>>("snapshot_owner");
         set => SetArgument("snapshot_owner", value);
     }
 
@@ -465,9 +465,9 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlock : TerraformBlo
     /// <summary>
     /// The copy_tags attribute.
     /// </summary>
-    public TerraformValue<bool>? CopyTags
+    public TerraformValue<bool> CopyTags
     {
-        get => GetArgument<TerraformValue<bool>>("copy_tags");
+        get => GetArgument<TerraformValue<bool>>("copy_tags") ?? AsReference("copy_tags");
         set => SetArgument("copy_tags", value);
     }
 
@@ -477,7 +477,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -701,27 +701,27 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCreateRuleBlock
     /// <summary>
     /// The interval_unit attribute.
     /// </summary>
-    public TerraformValue<string>? IntervalUnit
+    public TerraformValue<string> IntervalUnit
     {
-        get => GetArgument<TerraformValue<string>>("interval_unit");
+        get => GetArgument<TerraformValue<string>>("interval_unit") ?? AsReference("interval_unit");
         set => SetArgument("interval_unit", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformValue<string>? Location
+    public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The times attribute.
     /// </summary>
-    public TerraformList<string>? Times
+    public TerraformList<string> Times
     {
-        get => GetArgument<TerraformList<string>>("times");
+        get => GetArgument<TerraformList<string>>("times") ?? AsReference("times");
         set => SetArgument("times", value);
     }
 
@@ -751,9 +751,9 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCreateRuleBlock
     /// <summary>
     /// The execute_operation_on_script_failure attribute.
     /// </summary>
-    public TerraformValue<bool>? ExecuteOperationOnScriptFailure
+    public TerraformValue<bool> ExecuteOperationOnScriptFailure
     {
-        get => GetArgument<TerraformValue<bool>>("execute_operation_on_script_failure");
+        get => GetArgument<TerraformValue<bool>>("execute_operation_on_script_failure") ?? AsReference("execute_operation_on_script_failure");
         set => SetArgument("execute_operation_on_script_failure", value);
     }
 
@@ -763,34 +763,34 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCreateRuleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionHandler is required")]
     public required TerraformValue<string> ExecutionHandler
     {
-        get => GetArgument<TerraformValue<string>>("execution_handler");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_handler");
         set => SetArgument("execution_handler", value);
     }
 
     /// <summary>
     /// The execution_handler_service attribute.
     /// </summary>
-    public TerraformValue<string>? ExecutionHandlerService
+    public TerraformValue<string> ExecutionHandlerService
     {
-        get => GetArgument<TerraformValue<string>>("execution_handler_service");
+        get => GetArgument<TerraformValue<string>>("execution_handler_service") ?? AsReference("execution_handler_service");
         set => SetArgument("execution_handler_service", value);
     }
 
     /// <summary>
     /// The execution_timeout attribute.
     /// </summary>
-    public TerraformValue<double>? ExecutionTimeout
+    public TerraformValue<double> ExecutionTimeout
     {
-        get => GetArgument<TerraformValue<double>>("execution_timeout");
+        get => GetArgument<TerraformValue<double>>("execution_timeout") ?? AsReference("execution_timeout");
         set => SetArgument("execution_timeout", value);
     }
 
     /// <summary>
     /// The maximum_retry_count attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumRetryCount
+    public TerraformValue<double> MaximumRetryCount
     {
-        get => GetArgument<TerraformValue<double>>("maximum_retry_count");
+        get => GetArgument<TerraformValue<double>>("maximum_retry_count") ?? AsReference("maximum_retry_count");
         set => SetArgument("maximum_retry_count", value);
     }
 
@@ -828,9 +828,9 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCrossRegionCopy
     /// <summary>
     /// The copy_tags attribute.
     /// </summary>
-    public TerraformValue<bool>? CopyTags
+    public TerraformValue<bool> CopyTags
     {
-        get => GetArgument<TerraformValue<bool>>("copy_tags");
+        get => GetArgument<TerraformValue<bool>>("copy_tags") ?? AsReference("copy_tags");
         set => SetArgument("copy_tags", value);
     }
 
@@ -840,7 +840,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCrossRegionCopy
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encrypted is required")]
     public required TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted");
+        get => GetRequiredArgument<TerraformValue<bool>>("encrypted");
         set => SetArgument("encrypted", value);
     }
 
@@ -901,7 +901,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCrossRegionCopy
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => GetArgument<TerraformValue<double>>("interval");
+        get => GetRequiredArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -911,7 +911,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCrossRegionCopy
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalUnit is required")]
     public required TerraformValue<string> IntervalUnit
     {
-        get => GetArgument<TerraformValue<string>>("interval_unit");
+        get => GetRequiredArgument<TerraformValue<string>>("interval_unit");
         set => SetArgument("interval_unit", value);
     }
 
@@ -934,7 +934,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCrossRegionCopy
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => GetArgument<TerraformValue<double>>("interval");
+        get => GetRequiredArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -944,7 +944,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockCrossRegionCopy
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalUnit is required")]
     public required TerraformValue<string> IntervalUnit
     {
-        get => GetArgument<TerraformValue<string>>("interval_unit");
+        get => GetRequiredArgument<TerraformValue<string>>("interval_unit");
         set => SetArgument("interval_unit", value);
     }
 
@@ -1007,7 +1007,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockFastRestoreRule
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZones is required")]
     public required TerraformSet<string> AvailabilityZones
     {
-        get => GetArgument<TerraformSet<string>>("availability_zones");
+        get => GetRequiredArgument<TerraformSet<string>>("availability_zones");
         set => SetArgument("availability_zones", value);
     }
 
@@ -1097,7 +1097,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlockScheduleBlockShareRuleBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAccounts is required")]
     public required TerraformSet<string> TargetAccounts
     {
-        get => GetArgument<TerraformSet<string>>("target_accounts");
+        get => GetRequiredArgument<TerraformSet<string>>("target_accounts");
         set => SetArgument("target_accounts", value);
     }
 
@@ -1143,7 +1143,7 @@ public partial class AwsDlmLifecyclePolicy(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1153,25 +1153,25 @@ public partial class AwsDlmLifecyclePolicy(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("execution_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1196,9 +1196,9 @@ public partial class AwsDlmLifecyclePolicy(string name) : TerraformResource("aws
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

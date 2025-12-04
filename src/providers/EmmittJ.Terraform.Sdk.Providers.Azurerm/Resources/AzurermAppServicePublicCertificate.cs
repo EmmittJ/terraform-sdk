@@ -55,7 +55,7 @@ public partial class AzurermAppServicePublicCertificate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     public required TerraformValue<string> AppServiceName
     {
-        get => GetArgument<TerraformValue<string>>("app_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_service_name");
         set => SetArgument("app_service_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermAppServicePublicCertificate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Blob is required")]
     public required TerraformValue<string> Blob
     {
-        get => GetArgument<TerraformValue<string>>("blob");
+        get => GetRequiredArgument<TerraformValue<string>>("blob");
         set => SetArgument("blob", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AzurermAppServicePublicCertificate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateLocation is required")]
     public required TerraformValue<string> CertificateLocation
     {
-        get => GetArgument<TerraformValue<string>>("certificate_location");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_location");
         set => SetArgument("certificate_location", value);
     }
 
@@ -85,16 +85,16 @@ public partial class AzurermAppServicePublicCertificate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     public required TerraformValue<string> CertificateName
     {
-        get => GetArgument<TerraformValue<string>>("certificate_name");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_name");
         set => SetArgument("certificate_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermAppServicePublicCertificate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

@@ -61,9 +61,9 @@ public partial class AzurermDatabaseMigrationProject(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermDatabaseMigrationProject(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermDatabaseMigrationProject(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermDatabaseMigrationProject(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermDatabaseMigrationProject(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermDatabaseMigrationProject(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePlatform is required")]
     public required TerraformValue<string> SourcePlatform
     {
-        get => GetArgument<TerraformValue<string>>("source_platform");
+        get => GetRequiredArgument<TerraformValue<string>>("source_platform");
         set => SetArgument("source_platform", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermDatabaseMigrationProject(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPlatform is required")]
     public required TerraformValue<string> TargetPlatform
     {
-        get => GetArgument<TerraformValue<string>>("target_platform");
+        get => GetRequiredArgument<TerraformValue<string>>("target_platform");
         set => SetArgument("target_platform", value);
     }
 

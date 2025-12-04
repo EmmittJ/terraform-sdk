@@ -37,7 +37,7 @@ public partial class AzurermBillingMpaAccountScopeDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
     public required TerraformValue<string> BillingAccountName
     {
-        get => GetArgument<TerraformValue<string>>("billing_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("billing_account_name");
         set => SetArgument("billing_account_name", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AzurermBillingMpaAccountScopeDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerName is required")]
     public required TerraformValue<string> CustomerName
     {
-        get => GetArgument<TerraformValue<string>>("customer_name");
+        get => GetRequiredArgument<TerraformValue<string>>("customer_name");
         set => SetArgument("customer_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

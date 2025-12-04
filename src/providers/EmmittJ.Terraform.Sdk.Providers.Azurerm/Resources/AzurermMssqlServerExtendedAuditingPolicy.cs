@@ -61,9 +61,9 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// <summary>
     /// The audit_actions_and_groups attribute.
     /// </summary>
-    public TerraformList<string>? AuditActionsAndGroups
+    public TerraformList<string> AuditActionsAndGroups
     {
-        get => GetArgument<TerraformList<string>>("audit_actions_and_groups");
+        get => GetArgument<TerraformList<string>>("audit_actions_and_groups") ?? AsReference("audit_actions_and_groups");
         set => SetArgument("audit_actions_and_groups", value);
     }
 
@@ -79,9 +79,9 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => GetArgument<TerraformValue<string>>("server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 

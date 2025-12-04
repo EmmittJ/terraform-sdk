@@ -20,18 +20,18 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string>? Arn
+    public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The data_type attribute.
     /// </summary>
-    public TerraformValue<string>? DataType
+    public TerraformValue<string> DataType
     {
-        get => GetArgument<TerraformValue<string>>("data_type");
+        get => GetArgument<TerraformValue<string>>("data_type") ?? AsReference("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -47,27 +47,27 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The insecure_value attribute.
     /// </summary>
-    public TerraformValue<string>? InsecureValue
+    public TerraformValue<string> InsecureValue
     {
-        get => GetArgument<TerraformValue<string>>("insecure_value");
+        get => GetArgument<TerraformValue<string>>("insecure_value") ?? AsReference("insecure_value");
         set => SetArgument("insecure_value", value);
     }
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyId
+    public TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id");
+        get => GetArgument<TerraformValue<string>>("key_id") ?? AsReference("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,9 +93,9 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -111,18 +111,18 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformValue<string>? Tier
+    public TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier");
+        get => GetArgument<TerraformValue<string>>("tier") ?? AsReference("tier");
         set => SetArgument("tier", value);
     }
 
@@ -132,16 +132,16 @@ public partial class AwsSsmParameter(string name) : TerraformResource("aws_ssm_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformValue<string>? Value
+    public TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetArgument<TerraformValue<string>>("value") ?? AsReference("value");
         set => SetArgument("value", value);
     }
 

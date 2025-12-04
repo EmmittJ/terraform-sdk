@@ -19,7 +19,7 @@ public class GoogleComputeDiskAsyncPrimaryDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformValue<string> Disk
     {
-        get => GetArgument<TerraformValue<string>>("disk");
+        get => GetRequiredArgument<TerraformValue<string>>("disk");
         set => SetArgument("disk", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleComputeDiskGuestOsFeaturesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -303,9 +303,9 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     ///   * READ_ONLY_SINGLE: The AccessMode means the disk can be attached to multiple instances in RO mode.
     /// The AccessMode is only valid for Hyperdisk disk types.
     /// </summary>
-    public TerraformValue<string>? AccessMode
+    public TerraformValue<string> AccessMode
     {
-        get => GetArgument<TerraformValue<string>>("access_mode");
+        get => GetArgument<TerraformValue<string>>("access_mode") ?? AsReference("access_mode");
         set => SetArgument("access_mode", value);
     }
 
@@ -352,18 +352,18 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// Whether this disk is using confidential compute mode.
     /// Note: Only supported on hyperdisk skus, disk_encryption_key is required when setting to true
     /// </summary>
-    public TerraformValue<bool>? EnableConfidentialCompute
+    public TerraformValue<bool> EnableConfidentialCompute
     {
-        get => GetArgument<TerraformValue<bool>>("enable_confidential_compute");
+        get => GetArgument<TerraformValue<bool>>("enable_confidential_compute") ?? AsReference("enable_confidential_compute");
         set => SetArgument("enable_confidential_compute", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -400,9 +400,9 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    public TerraformList<string>? Licenses
+    public TerraformList<string> Licenses
     {
-        get => GetArgument<TerraformList<string>>("licenses");
+        get => GetArgument<TerraformList<string>>("licenses") ?? AsReference("licenses");
         set => SetArgument("licenses", value);
     }
 
@@ -418,7 +418,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -429,18 +429,18 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// If an unsupported value is requested, the error message will list
     /// the supported values for the caller&#39;s project.
     /// </summary>
-    public TerraformValue<double>? PhysicalBlockSizeBytes
+    public TerraformValue<double> PhysicalBlockSizeBytes
     {
-        get => GetArgument<TerraformValue<double>>("physical_block_size_bytes");
+        get => GetArgument<TerraformValue<double>>("physical_block_size_bytes") ?? AsReference("physical_block_size_bytes");
         set => SetArgument("physical_block_size_bytes", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -449,9 +449,9 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// Note: Updating currently is only supported by hyperdisk skus without the need to delete and recreate the disk, hyperdisk
     /// allows for an update of IOPS every 4 hours. To update your hyperdisk more frequently, you&#39;ll need to manually delete and recreate it
     /// </summary>
-    public TerraformValue<double>? ProvisionedIops
+    public TerraformValue<double> ProvisionedIops
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_iops");
+        get => GetArgument<TerraformValue<double>>("provisioned_iops") ?? AsReference("provisioned_iops");
         set => SetArgument("provisioned_iops", value);
     }
 
@@ -460,9 +460,9 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// Note: Updating currently is only supported by hyperdisk skus without the need to delete and recreate the disk, hyperdisk
     /// allows for an update of Throughput every 4 hours. To update your hyperdisk more frequently, you&#39;ll need to manually delete and recreate it
     /// </summary>
-    public TerraformValue<double>? ProvisionedThroughput
+    public TerraformValue<double> ProvisionedThroughput
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_throughput");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput") ?? AsReference("provisioned_throughput");
         set => SetArgument("provisioned_throughput", value);
     }
 
@@ -481,9 +481,9 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// You can add &#39;lifecycle.prevent_destroy&#39; in the config to prevent destroying
     /// and recreating.
     /// </summary>
-    public TerraformValue<double>? Size
+    public TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size");
+        get => GetArgument<TerraformValue<double>>("size") ?? AsReference("size");
         set => SetArgument("size", value);
     }
 
@@ -575,9 +575,9 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// <summary>
     /// A reference to the zone where the disk resides.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

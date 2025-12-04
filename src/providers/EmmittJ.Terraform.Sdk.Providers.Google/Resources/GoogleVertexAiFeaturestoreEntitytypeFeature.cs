@@ -64,16 +64,16 @@ public partial class GoogleVertexAiFeaturestoreEntitytypeFeature(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entitytype is required")]
     public required TerraformValue<string> Entitytype
     {
-        get => GetArgument<TerraformValue<string>>("entitytype");
+        get => GetRequiredArgument<TerraformValue<string>>("entitytype");
         set => SetArgument("entitytype", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class GoogleVertexAiFeaturestoreEntitytypeFeature(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformValue<string> ValueType
     {
-        get => GetArgument<TerraformValue<string>>("value_type");
+        get => GetRequiredArgument<TerraformValue<string>>("value_type");
         set => SetArgument("value_type", value);
     }
 

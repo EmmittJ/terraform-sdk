@@ -52,18 +52,18 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZone
+    public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZoneId
+    public TerraformValue<string> AvailabilityZoneId
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone_id");
+        get => GetArgument<TerraformValue<string>>("availability_zone_id") ?? AsReference("availability_zone_id");
         set => SetArgument("availability_zone_id", value);
     }
 
@@ -124,9 +124,9 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -178,18 +178,18 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// <summary>
     /// The private_dns_hostname_type_on_launch attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateDnsHostnameTypeOnLaunch
+    public TerraformValue<string> PrivateDnsHostnameTypeOnLaunch
     {
-        get => GetArgument<TerraformValue<string>>("private_dns_hostname_type_on_launch");
+        get => GetArgument<TerraformValue<string>>("private_dns_hostname_type_on_launch") ?? AsReference("private_dns_hostname_type_on_launch");
         set => SetArgument("private_dns_hostname_type_on_launch", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -205,9 +205,9 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -217,7 +217,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 

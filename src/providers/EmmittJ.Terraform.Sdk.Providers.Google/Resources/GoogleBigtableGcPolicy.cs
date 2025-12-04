@@ -17,18 +17,18 @@ public class GoogleBigtableGcPolicyMaxAgeBlock : TerraformBlock
     /// Number of days before applying GC policy.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<double>? Days
+    public TerraformValue<double> Days
     {
-        get => GetArgument<TerraformValue<double>>("days");
+        get => GetArgument<TerraformValue<double>>("days") ?? AsReference("days");
         set => SetArgument("days", value);
     }
 
     /// <summary>
     /// Duration before applying GC policy
     /// </summary>
-    public TerraformValue<string>? Duration
+    public TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetArgument<TerraformValue<string>>("duration") ?? AsReference("duration");
         set => SetArgument("duration", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleBigtableGcPolicyMaxVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Number is required")]
     public required TerraformValue<double> Number
     {
-        get => GetArgument<TerraformValue<double>>("number");
+        get => GetRequiredArgument<TerraformValue<double>>("number");
         set => SetArgument("number", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnFamily is required")]
     public required TerraformValue<string> ColumnFamily
     {
-        get => GetArgument<TerraformValue<string>>("column_family");
+        get => GetRequiredArgument<TerraformValue<string>>("column_family");
         set => SetArgument("column_family", value);
     }
 
@@ -130,9 +130,9 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -154,7 +154,7 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformValue<string> InstanceName
     {
-        get => GetArgument<TerraformValue<string>>("instance_name");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_name");
         set => SetArgument("instance_name", value);
     }
 
@@ -170,9 +170,9 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -182,7 +182,7 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 

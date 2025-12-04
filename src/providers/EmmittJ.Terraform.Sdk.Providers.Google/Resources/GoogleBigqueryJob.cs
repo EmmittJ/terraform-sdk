@@ -91,7 +91,7 @@ public class GoogleBigqueryJobCopyBlockDestinationEncryptionConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -117,18 +117,18 @@ public class GoogleBigqueryJobCopyBlockDestinationTableBlock : TerraformBlock
     /// <summary>
     /// The ID of the dataset containing this table.
     /// </summary>
-    public TerraformValue<string>? DatasetId
+    public TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id") ?? AsReference("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string>? ProjectId
+    public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleBigqueryJobCopyBlockDestinationTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => GetArgument<TerraformValue<string>>("table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -159,18 +159,18 @@ public class GoogleBigqueryJobCopyBlockSourceTablesBlock : TerraformBlock
     /// <summary>
     /// The ID of the dataset containing this table.
     /// </summary>
-    public TerraformValue<string>? DatasetId
+    public TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id") ?? AsReference("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string>? ProjectId
+    public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleBigqueryJobCopyBlockSourceTablesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => GetArgument<TerraformValue<string>>("table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -214,9 +214,9 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// The default value for tables is CSV. Tables with nested or repeated fields cannot be exported as CSV.
     /// The default value for models is SAVED_MODEL.
     /// </summary>
-    public TerraformValue<string>? DestinationFormat
+    public TerraformValue<string> DestinationFormat
     {
-        get => GetArgument<TerraformValue<string>>("destination_format");
+        get => GetArgument<TerraformValue<string>>("destination_format") ?? AsReference("destination_format");
         set => SetArgument("destination_format", value);
     }
 
@@ -234,9 +234,9 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// When extracting data in CSV format, this defines the delimiter to use between fields in the exported data.
     /// Default is &#39;,&#39;
     /// </summary>
-    public TerraformValue<string>? FieldDelimiter
+    public TerraformValue<string> FieldDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("field_delimiter");
+        get => GetArgument<TerraformValue<string>>("field_delimiter") ?? AsReference("field_delimiter");
         set => SetArgument("field_delimiter", value);
     }
 
@@ -297,7 +297,7 @@ public class GoogleBigqueryJobExtractBlockSourceModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -307,7 +307,7 @@ public class GoogleBigqueryJobExtractBlockSourceModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelId is required")]
     public required TerraformValue<string> ModelId
     {
-        get => GetArgument<TerraformValue<string>>("model_id");
+        get => GetRequiredArgument<TerraformValue<string>>("model_id");
         set => SetArgument("model_id", value);
     }
 
@@ -317,7 +317,7 @@ public class GoogleBigqueryJobExtractBlockSourceModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -337,18 +337,18 @@ public class GoogleBigqueryJobExtractBlockSourceTableBlock : TerraformBlock
     /// <summary>
     /// The ID of the dataset containing this table.
     /// </summary>
-    public TerraformValue<string>? DatasetId
+    public TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id") ?? AsReference("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string>? ProjectId
+    public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -359,7 +359,7 @@ public class GoogleBigqueryJobExtractBlockSourceTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => GetArgument<TerraformValue<string>>("table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -437,9 +437,9 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// data in its raw, binary state. BigQuery also supports the escape sequence &amp;quot;\t&amp;quot; to specify a tab separator.
     /// The default value is a comma (&#39;,&#39;).
     /// </summary>
-    public TerraformValue<string>? FieldDelimiter
+    public TerraformValue<string> FieldDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("field_delimiter");
+        get => GetArgument<TerraformValue<string>>("field_delimiter") ?? AsReference("field_delimiter");
         set => SetArgument("field_delimiter", value);
     }
 
@@ -507,9 +507,9 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// The default value is a double-quote (&#39;&amp;quot;&#39;). If your data does not contain quoted sections, set the property value to an empty string.
     /// If your data contains quoted newline characters, you must also set the allowQuotedNewlines property to true.
     /// </summary>
-    public TerraformValue<string>? Quote
+    public TerraformValue<string> Quote
     {
-        get => GetArgument<TerraformValue<string>>("quote");
+        get => GetArgument<TerraformValue<string>>("quote") ?? AsReference("quote");
         set => SetArgument("quote", value);
     }
 
@@ -647,7 +647,7 @@ public class GoogleBigqueryJobLoadBlockDestinationEncryptionConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -673,18 +673,18 @@ public class GoogleBigqueryJobLoadBlockDestinationTableBlock : TerraformBlock
     /// <summary>
     /// The ID of the dataset containing this table.
     /// </summary>
-    public TerraformValue<string>? DatasetId
+    public TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id") ?? AsReference("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string>? ProjectId
+    public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -695,7 +695,7 @@ public class GoogleBigqueryJobLoadBlockDestinationTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => GetArgument<TerraformValue<string>>("table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -770,7 +770,7 @@ public class GoogleBigqueryJobLoadBlockTimePartitioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -867,7 +867,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => GetArgument<TerraformValue<string>>("query");
+        get => GetRequiredArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -1003,7 +1003,7 @@ public class GoogleBigqueryJobQueryBlockConnectionPropertiesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1013,7 +1013,7 @@ public class GoogleBigqueryJobQueryBlockConnectionPropertiesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1037,16 +1037,16 @@ public class GoogleBigqueryJobQueryBlockDefaultDatasetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string>? ProjectId
+    public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1070,7 +1070,7 @@ public class GoogleBigqueryJobQueryBlockDestinationEncryptionConfigurationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -1096,18 +1096,18 @@ public class GoogleBigqueryJobQueryBlockDestinationTableBlock : TerraformBlock
     /// <summary>
     /// The ID of the dataset containing this table.
     /// </summary>
-    public TerraformValue<string>? DatasetId
+    public TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id") ?? AsReference("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string>? ProjectId
+    public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1118,7 +1118,7 @@ public class GoogleBigqueryJobQueryBlockDestinationTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => GetArgument<TerraformValue<string>>("table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -1248,9 +1248,9 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1260,7 +1260,7 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     public required TerraformValue<string> JobId
     {
-        get => GetArgument<TerraformValue<string>>("job_id");
+        get => GetRequiredArgument<TerraformValue<string>>("job_id");
         set => SetArgument("job_id", value);
     }
 
@@ -1298,9 +1298,9 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

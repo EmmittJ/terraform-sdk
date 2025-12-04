@@ -55,7 +55,7 @@ public class GoogleDnsPolicyAlternativeNameServerConfigBlockTargetNameServersBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ipv4Address is required")]
     public required TerraformValue<string> Ipv4Address
     {
-        get => GetArgument<TerraformValue<string>>("ipv4_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ipv4_address");
         set => SetArgument("ipv4_address", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleDnsPolicyNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => GetArgument<TerraformValue<string>>("network_url");
+        get => GetRequiredArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -218,9 +218,9 @@ public partial class GoogleDnsPolicy(string name) : TerraformResource("google_dn
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -230,16 +230,16 @@ public partial class GoogleDnsPolicy(string name) : TerraformResource("google_dn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

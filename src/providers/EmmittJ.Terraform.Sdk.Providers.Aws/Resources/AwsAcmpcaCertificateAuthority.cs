@@ -19,7 +19,7 @@ public class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     public required TerraformValue<string> KeyAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("key_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("key_algorithm");
         set => SetArgument("key_algorithm", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     public required TerraformValue<string> SigningAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("signing_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("signing_algorithm");
         set => SetArgument("signing_algorithm", value);
     }
 
@@ -262,9 +262,9 @@ public class AwsAcmpcaCertificateAuthorityRevocationConfigurationBlockCrlConfigu
     /// <summary>
     /// The s3_object_acl attribute.
     /// </summary>
-    public TerraformValue<string>? S3ObjectAcl
+    public TerraformValue<string> S3ObjectAcl
     {
-        get => GetArgument<TerraformValue<string>>("s3_object_acl");
+        get => GetArgument<TerraformValue<string>>("s3_object_acl") ?? AsReference("s3_object_acl");
         set => SetArgument("s3_object_acl", value);
     }
 
@@ -287,7 +287,7 @@ public class AwsAcmpcaCertificateAuthorityRevocationConfigurationBlockOcspConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -344,18 +344,18 @@ public partial class AwsAcmpcaCertificateAuthority(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The key_storage_security_standard attribute.
     /// </summary>
-    public TerraformValue<string>? KeyStorageSecurityStandard
+    public TerraformValue<string> KeyStorageSecurityStandard
     {
-        get => GetArgument<TerraformValue<string>>("key_storage_security_standard");
+        get => GetArgument<TerraformValue<string>>("key_storage_security_standard") ?? AsReference("key_storage_security_standard");
         set => SetArgument("key_storage_security_standard", value);
     }
 
@@ -371,9 +371,9 @@ public partial class AwsAcmpcaCertificateAuthority(string name) : TerraformResou
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -389,9 +389,9 @@ public partial class AwsAcmpcaCertificateAuthority(string name) : TerraformResou
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -407,9 +407,9 @@ public partial class AwsAcmpcaCertificateAuthority(string name) : TerraformResou
     /// <summary>
     /// The usage_mode attribute.
     /// </summary>
-    public TerraformValue<string>? UsageMode
+    public TerraformValue<string> UsageMode
     {
-        get => GetArgument<TerraformValue<string>>("usage_mode");
+        get => GetArgument<TerraformValue<string>>("usage_mode") ?? AsReference("usage_mode");
         set => SetArgument("usage_mode", value);
     }
 

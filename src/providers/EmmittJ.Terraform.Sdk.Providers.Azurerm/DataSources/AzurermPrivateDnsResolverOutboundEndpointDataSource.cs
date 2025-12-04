@@ -34,9 +34,9 @@ public partial class AzurermPrivateDnsResolverOutboundEndpointDataSource(string 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermPrivateDnsResolverOutboundEndpointDataSource(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermPrivateDnsResolverOutboundEndpointDataSource(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsResolverId is required")]
     public required TerraformValue<string> PrivateDnsResolverId
     {
-        get => GetArgument<TerraformValue<string>>("private_dns_resolver_id");
+        get => GetRequiredArgument<TerraformValue<string>>("private_dns_resolver_id");
         set => SetArgument("private_dns_resolver_id", value);
     }
 

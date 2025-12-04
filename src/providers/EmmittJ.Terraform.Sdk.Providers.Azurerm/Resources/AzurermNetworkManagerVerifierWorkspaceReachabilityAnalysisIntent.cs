@@ -128,16 +128,16 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceId is required")]
     public required TerraformValue<string> DestinationResourceId
     {
-        get => GetArgument<TerraformValue<string>>("destination_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_resource_id");
         set => SetArgument("destination_resource_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     public required TerraformValue<string> SourceResourceId
     {
-        get => GetArgument<TerraformValue<string>>("source_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_resource_id");
         set => SetArgument("source_resource_id", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifierWorkspaceId is required")]
     public required TerraformValue<string> VerifierWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("verifier_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("verifier_workspace_id");
         set => SetArgument("verifier_workspace_id", value);
     }
 

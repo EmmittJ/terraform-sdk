@@ -64,16 +64,16 @@ public partial class GoogleVertexAiFeatureGroupFeature(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureGroup is required")]
     public required TerraformValue<string> FeatureGroup
     {
-        get => GetArgument<TerraformValue<string>>("feature_group");
+        get => GetRequiredArgument<TerraformValue<string>>("feature_group");
         set => SetArgument("feature_group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -95,16 +95,16 @@ public partial class GoogleVertexAiFeatureGroupFeature(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -114,16 +114,16 @@ public partial class GoogleVertexAiFeatureGroupFeature(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The name of the BigQuery Table/View column hosting data for this version. If no value is provided, will use featureId.
     /// </summary>
-    public TerraformValue<string>? VersionColumnName
+    public TerraformValue<string> VersionColumnName
     {
-        get => GetArgument<TerraformValue<string>>("version_column_name");
+        get => GetArgument<TerraformValue<string>>("version_column_name") ?? AsReference("version_column_name");
         set => SetArgument("version_column_name", value);
     }
 

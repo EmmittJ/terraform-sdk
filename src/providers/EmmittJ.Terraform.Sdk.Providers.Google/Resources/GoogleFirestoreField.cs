@@ -142,7 +142,7 @@ public partial class GoogleFirestoreField(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformValue<string> Collection
     {
-        get => GetArgument<TerraformValue<string>>("collection");
+        get => GetRequiredArgument<TerraformValue<string>>("collection");
         set => SetArgument("collection", value);
     }
 
@@ -161,25 +161,25 @@ public partial class GoogleFirestoreField(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformValue<string> Field
     {
-        get => GetArgument<TerraformValue<string>>("field");
+        get => GetRequiredArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

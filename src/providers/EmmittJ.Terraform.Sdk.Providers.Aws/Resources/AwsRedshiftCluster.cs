@@ -71,9 +71,9 @@ public partial class AwsRedshiftCluster(string name) : TerraformResource("aws_re
     /// The aqua_configuration_status attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? AquaConfigurationStatus
+    public TerraformValue<string> AquaConfigurationStatus
     {
-        get => GetArgument<TerraformValue<string>>("aqua_configuration_status");
+        get => GetArgument<TerraformValue<string>>("aqua_configuration_status") ?? AsReference("aqua_configuration_status");
         set => SetArgument("aqua_configuration_status", value);
     }
 
@@ -89,9 +89,9 @@ public partial class AwsRedshiftCluster(string name) : TerraformResource("aws_re
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZone
+    public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -110,34 +110,34 @@ public partial class AwsRedshiftCluster(string name) : TerraformResource("aws_re
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
     /// <summary>
     /// The cluster_parameter_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? ClusterParameterGroupName
+    public TerraformValue<string> ClusterParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("cluster_parameter_group_name") ?? AsReference("cluster_parameter_group_name");
         set => SetArgument("cluster_parameter_group_name", value);
     }
 
     /// <summary>
     /// The cluster_subnet_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? ClusterSubnetGroupName
+    public TerraformValue<string> ClusterSubnetGroupName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("cluster_subnet_group_name") ?? AsReference("cluster_subnet_group_name");
         set => SetArgument("cluster_subnet_group_name", value);
     }
 
     /// <summary>
     /// The cluster_type attribute.
     /// </summary>
-    public TerraformValue<string>? ClusterType
+    public TerraformValue<string> ClusterType
     {
-        get => GetArgument<TerraformValue<string>>("cluster_type");
+        get => GetArgument<TerraformValue<string>>("cluster_type") ?? AsReference("cluster_type");
         set => SetArgument("cluster_type", value);
     }
 
@@ -153,18 +153,18 @@ public partial class AwsRedshiftCluster(string name) : TerraformResource("aws_re
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformValue<string>? DatabaseName
+    public TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetArgument<TerraformValue<string>>("database_name") ?? AsReference("database_name");
         set => SetArgument("database_name", value);
     }
 
     /// <summary>
     /// The default_iam_role_arn attribute.
     /// </summary>
-    public TerraformValue<string>? DefaultIamRoleArn
+    public TerraformValue<string> DefaultIamRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("default_iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("default_iam_role_arn") ?? AsReference("default_iam_role_arn");
         set => SetArgument("default_iam_role_arn", value);
     }
 
@@ -189,9 +189,9 @@ public partial class AwsRedshiftCluster(string name) : TerraformResource("aws_re
     /// <summary>
     /// The enhanced_vpc_routing attribute.
     /// </summary>
-    public TerraformValue<bool>? EnhancedVpcRouting
+    public TerraformValue<bool> EnhancedVpcRouting
     {
-        get => GetArgument<TerraformValue<bool>>("enhanced_vpc_routing");
+        get => GetArgument<TerraformValue<bool>>("enhanced_vpc_routing") ?? AsReference("enhanced_vpc_routing");
         set => SetArgument("enhanced_vpc_routing", value);
     }
 
@@ -207,27 +207,27 @@ public partial class AwsRedshiftCluster(string name) : TerraformResource("aws_re
     /// <summary>
     /// The iam_roles attribute.
     /// </summary>
-    public TerraformSet<string>? IamRoles
+    public TerraformSet<string> IamRoles
     {
-        get => GetArgument<TerraformSet<string>>("iam_roles");
+        get => GetArgument<TerraformSet<string>>("iam_roles") ?? AsReference("iam_roles");
         set => SetArgument("iam_roles", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -270,9 +270,9 @@ public partial class AwsRedshiftCluster(string name) : TerraformResource("aws_re
     /// <summary>
     /// The master_password_secret_kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? MasterPasswordSecretKmsKeyId
+    public TerraformValue<string> MasterPasswordSecretKmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("master_password_secret_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("master_password_secret_kms_key_id") ?? AsReference("master_password_secret_kms_key_id");
         set => SetArgument("master_password_secret_kms_key_id", value);
     }
 
@@ -318,7 +318,7 @@ public partial class AwsRedshiftCluster(string name) : TerraformResource("aws_re
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformValue<string> NodeType
     {
-        get => GetArgument<TerraformValue<string>>("node_type");
+        get => GetRequiredArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -352,9 +352,9 @@ public partial class AwsRedshiftCluster(string name) : TerraformResource("aws_re
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredMaintenanceWindow
+    public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
@@ -370,9 +370,9 @@ public partial class AwsRedshiftCluster(string name) : TerraformResource("aws_re
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -424,18 +424,18 @@ public partial class AwsRedshiftCluster(string name) : TerraformResource("aws_re
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? VpcSecurityGroupIds
+    public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 

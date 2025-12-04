@@ -16,9 +16,9 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     /// <summary>
     /// The column_names attribute.
     /// </summary>
-    public TerraformSet<string>? ColumnNames
+    public TerraformSet<string> ColumnNames
     {
-        get => GetArgument<TerraformSet<string>>("column_names");
+        get => GetArgument<TerraformSet<string>>("column_names") ?? AsReference("column_names");
         set => SetArgument("column_names", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableCatalogId is required")]
     public required TerraformValue<string> TableCatalogId
     {
-        get => GetArgument<TerraformValue<string>>("table_catalog_id");
+        get => GetRequiredArgument<TerraformValue<string>>("table_catalog_id");
         set => SetArgument("table_catalog_id", value);
     }
 
@@ -58,16 +58,16 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformValue<string>? VersionId
+    public TerraformValue<string> VersionId
     {
-        get => GetArgument<TerraformValue<string>>("version_id");
+        get => GetArgument<TerraformValue<string>>("version_id") ?? AsReference("version_id");
         set => SetArgument("version_id", value);
     }
 
@@ -127,9 +127,9 @@ public class AwsLakeformationDataCellsFilterTableDataBlockRowFilterBlock : Terra
     /// <summary>
     /// The filter_expression attribute.
     /// </summary>
-    public TerraformValue<string>? FilterExpression
+    public TerraformValue<string> FilterExpression
     {
-        get => GetArgument<TerraformValue<string>>("filter_expression");
+        get => GetArgument<TerraformValue<string>>("filter_expression") ?? AsReference("filter_expression");
         set => SetArgument("filter_expression", value);
     }
 
@@ -190,9 +190,9 @@ public partial class AwsLakeformationDataCellsFilter(string name) : TerraformRes
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

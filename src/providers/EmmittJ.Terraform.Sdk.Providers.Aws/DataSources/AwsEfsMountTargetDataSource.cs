@@ -20,36 +20,36 @@ public partial class AwsEfsMountTargetDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformValue<string>? FileSystemId
+    public TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id") ?? AsReference("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The mount_target_id attribute.
     /// </summary>
-    public TerraformValue<string>? MountTargetId
+    public TerraformValue<string> MountTargetId
     {
-        get => GetArgument<TerraformValue<string>>("mount_target_id");
+        get => GetArgument<TerraformValue<string>>("mount_target_id") ?? AsReference("mount_target_id");
         set => SetArgument("mount_target_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

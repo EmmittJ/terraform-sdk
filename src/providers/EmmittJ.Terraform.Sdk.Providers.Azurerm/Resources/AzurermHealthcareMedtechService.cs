@@ -40,7 +40,7 @@ public class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceMappingJson is required")]
     public required TerraformValue<string> DeviceMappingJson
     {
-        get => GetArgument<TerraformValue<string>>("device_mapping_json");
+        get => GetRequiredArgument<TerraformValue<string>>("device_mapping_json");
         set => SetArgument("device_mapping_json", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubConsumerGroupName is required")]
     public required TerraformValue<string> EventhubConsumerGroupName
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_consumer_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_consumer_group_name");
         set => SetArgument("eventhub_consumer_group_name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformValue<string> EventhubName
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_name");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_name");
         set => SetArgument("eventhub_name", value);
     }
 
@@ -139,16 +139,16 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceName is required")]
     public required TerraformValue<string> EventhubNamespaceName
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_namespace_name");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_namespace_name");
         set => SetArgument("eventhub_namespace_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

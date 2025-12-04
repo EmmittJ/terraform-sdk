@@ -50,7 +50,7 @@ public class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetRequiredArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetRequiredArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyAllowed is required")]
     public required TerraformValue<string> CopyAllowed
     {
-        get => GetArgument<TerraformValue<string>>("copy_allowed");
+        get => GetRequiredArgument<TerraformValue<string>>("copy_allowed");
         set => SetArgument("copy_allowed", value);
     }
 
@@ -203,9 +203,9 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     /// <summary>
     /// The deep_link_allowed attribute.
     /// </summary>
-    public TerraformValue<string>? DeepLinkAllowed
+    public TerraformValue<string> DeepLinkAllowed
     {
-        get => GetArgument<TerraformValue<string>>("deep_link_allowed");
+        get => GetArgument<TerraformValue<string>>("deep_link_allowed") ?? AsReference("deep_link_allowed");
         set => SetArgument("deep_link_allowed", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DownloadAllowed is required")]
     public required TerraformValue<string> DownloadAllowed
     {
-        get => GetArgument<TerraformValue<string>>("download_allowed");
+        get => GetRequiredArgument<TerraformValue<string>>("download_allowed");
         set => SetArgument("download_allowed", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasteAllowed is required")]
     public required TerraformValue<string> PasteAllowed
     {
-        get => GetArgument<TerraformValue<string>>("paste_allowed");
+        get => GetRequiredArgument<TerraformValue<string>>("paste_allowed");
         set => SetArgument("paste_allowed", value);
     }
 
@@ -253,16 +253,16 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrintAllowed is required")]
     public required TerraformValue<string> PrintAllowed
     {
-        get => GetArgument<TerraformValue<string>>("print_allowed");
+        get => GetRequiredArgument<TerraformValue<string>>("print_allowed");
         set => SetArgument("print_allowed", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -281,7 +281,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UploadAllowed is required")]
     public required TerraformValue<string> UploadAllowed
     {
-        get => GetArgument<TerraformValue<string>>("upload_allowed");
+        get => GetRequiredArgument<TerraformValue<string>>("upload_allowed");
         set => SetArgument("upload_allowed", value);
     }
 

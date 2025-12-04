@@ -52,9 +52,9 @@ public partial class AzurermVmwareExpressRouteAuthorization(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermVmwareExpressRouteAuthorization(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermVmwareExpressRouteAuthorization(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateCloudId is required")]
     public required TerraformValue<string> PrivateCloudId
     {
-        get => GetArgument<TerraformValue<string>>("private_cloud_id");
+        get => GetRequiredArgument<TerraformValue<string>>("private_cloud_id");
         set => SetArgument("private_cloud_id", value);
     }
 

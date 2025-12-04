@@ -73,16 +73,16 @@ public partial class AzurermDigitalTwinsEndpointServicebus(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformValue<string> DigitalTwinsId
     {
-        get => GetArgument<TerraformValue<string>>("digital_twins_id");
+        get => GetRequiredArgument<TerraformValue<string>>("digital_twins_id");
         set => SetArgument("digital_twins_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermDigitalTwinsEndpointServicebus(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermDigitalTwinsEndpointServicebus(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusPrimaryConnectionString is required")]
     public required TerraformValue<string> ServicebusPrimaryConnectionString
     {
-        get => GetArgument<TerraformValue<string>>("servicebus_primary_connection_string");
+        get => GetRequiredArgument<TerraformValue<string>>("servicebus_primary_connection_string");
         set => SetArgument("servicebus_primary_connection_string", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermDigitalTwinsEndpointServicebus(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusSecondaryConnectionString is required")]
     public required TerraformValue<string> ServicebusSecondaryConnectionString
     {
-        get => GetArgument<TerraformValue<string>>("servicebus_secondary_connection_string");
+        get => GetRequiredArgument<TerraformValue<string>>("servicebus_secondary_connection_string");
         set => SetArgument("servicebus_secondary_connection_string", value);
     }
 

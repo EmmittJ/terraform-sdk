@@ -37,7 +37,7 @@ public class AzurermStreamAnalyticsStreamInputIothubSerializationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AzurermStreamAnalyticsStreamInputIothub(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => GetArgument<TerraformValue<string>>("endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -116,16 +116,16 @@ public partial class AzurermStreamAnalyticsStreamInputIothub(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubConsumerGroupName is required")]
     public required TerraformValue<string> EventhubConsumerGroupName
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_consumer_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_consumer_group_name");
         set => SetArgument("eventhub_consumer_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermStreamAnalyticsStreamInputIothub(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubNamespace is required")]
     public required TerraformValue<string> IothubNamespace
     {
-        get => GetArgument<TerraformValue<string>>("iothub_namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("iothub_namespace");
         set => SetArgument("iothub_namespace", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermStreamAnalyticsStreamInputIothub(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermStreamAnalyticsStreamInputIothub(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermStreamAnalyticsStreamInputIothub(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedAccessPolicyKey is required")]
     public required TerraformValue<string> SharedAccessPolicyKey
     {
-        get => GetArgument<TerraformValue<string>>("shared_access_policy_key");
+        get => GetRequiredArgument<TerraformValue<string>>("shared_access_policy_key");
         set => SetArgument("shared_access_policy_key", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AzurermStreamAnalyticsStreamInputIothub(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedAccessPolicyName is required")]
     public required TerraformValue<string> SharedAccessPolicyName
     {
-        get => GetArgument<TerraformValue<string>>("shared_access_policy_name");
+        get => GetRequiredArgument<TerraformValue<string>>("shared_access_policy_name");
         set => SetArgument("shared_access_policy_name", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzurermStreamAnalyticsStreamInputIothub(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
-        get => GetArgument<TerraformValue<string>>("stream_analytics_job_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_analytics_job_name");
         set => SetArgument("stream_analytics_job_name", value);
     }
 

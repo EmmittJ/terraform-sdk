@@ -14,7 +14,7 @@ public partial class GoogleStorageNotification(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleStorageNotification(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
     public required TerraformValue<string> PayloadFormat
     {
-        get => GetArgument<TerraformValue<string>>("payload_format");
+        get => GetRequiredArgument<TerraformValue<string>>("payload_format");
         set => SetArgument("payload_format", value);
     }
 
@@ -61,7 +61,7 @@ public partial class GoogleStorageNotification(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => GetArgument<TerraformValue<string>>("topic");
+        get => GetRequiredArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 

@@ -19,7 +19,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => GetArgument<TerraformValue<string>>("linked_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => GetArgument<TerraformValue<string>>("linked_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermDataFactoryLinkedServiceSqlServer(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -175,9 +175,9 @@ public partial class AzurermDataFactoryLinkedServiceSqlServer(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AzurermDataFactoryLinkedServiceSqlServer(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

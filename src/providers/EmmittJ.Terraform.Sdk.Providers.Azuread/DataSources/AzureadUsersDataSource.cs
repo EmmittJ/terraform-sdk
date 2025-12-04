@@ -34,18 +34,18 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// <summary>
     /// The employee identifier assigned to the user by the organisation
     /// </summary>
-    public TerraformList<string>? EmployeeIds
+    public TerraformList<string> EmployeeIds
     {
-        get => GetArgument<TerraformList<string>>("employee_ids");
+        get => GetArgument<TerraformList<string>>("employee_ids") ?? AsReference("employee_ids");
         set => SetArgument("employee_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -61,27 +61,27 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// <summary>
     /// The email aliases of the users
     /// </summary>
-    public TerraformList<string>? MailNicknames
+    public TerraformList<string> MailNicknames
     {
-        get => GetArgument<TerraformList<string>>("mail_nicknames");
+        get => GetArgument<TerraformList<string>>("mail_nicknames") ?? AsReference("mail_nicknames");
         set => SetArgument("mail_nicknames", value);
     }
 
     /// <summary>
     /// The SMTP address of the users
     /// </summary>
-    public TerraformList<string>? Mails
+    public TerraformList<string> Mails
     {
-        get => GetArgument<TerraformList<string>>("mails");
+        get => GetArgument<TerraformList<string>>("mails") ?? AsReference("mails");
         set => SetArgument("mails", value);
     }
 
     /// <summary>
     /// The object IDs of the users
     /// </summary>
-    public TerraformList<string>? ObjectIds
+    public TerraformList<string> ObjectIds
     {
-        get => GetArgument<TerraformList<string>>("object_ids");
+        get => GetArgument<TerraformList<string>>("object_ids") ?? AsReference("object_ids");
         set => SetArgument("object_ids", value);
     }
 
@@ -97,9 +97,9 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// <summary>
     /// The user principal names (UPNs) of the users
     /// </summary>
-    public TerraformList<string>? UserPrincipalNames
+    public TerraformList<string> UserPrincipalNames
     {
-        get => GetArgument<TerraformList<string>>("user_principal_names");
+        get => GetArgument<TerraformList<string>>("user_principal_names") ?? AsReference("user_principal_names");
         set => SetArgument("user_principal_names", value);
     }
 

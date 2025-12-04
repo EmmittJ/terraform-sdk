@@ -19,7 +19,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpEntityId is required")]
     public required TerraformValue<string> IdpEntityId
     {
-        get => GetArgument<TerraformValue<string>>("idp_entity_id");
+        get => GetRequiredArgument<TerraformValue<string>>("idp_entity_id");
         set => SetArgument("idp_entity_id", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SsoUrl is required")]
     public required TerraformValue<string> SsoUrl
     {
-        get => GetArgument<TerraformValue<string>>("sso_url");
+        get => GetRequiredArgument<TerraformValue<string>>("sso_url");
         set => SetArgument("sso_url", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUri is required")]
     public required TerraformValue<string> CallbackUri
     {
-        get => GetArgument<TerraformValue<string>>("callback_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("callback_uri");
         set => SetArgument("callback_uri", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpEntityId is required")]
     public required TerraformValue<string> SpEntityId
     {
-        get => GetArgument<TerraformValue<string>>("sp_entity_id");
+        get => GetRequiredArgument<TerraformValue<string>>("sp_entity_id");
         set => SetArgument("sp_entity_id", value);
     }
 
@@ -172,7 +172,7 @@ public partial class GoogleIdentityPlatformTenantInboundSamlConfig(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -188,9 +188,9 @@ public partial class GoogleIdentityPlatformTenantInboundSamlConfig(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -202,16 +202,16 @@ public partial class GoogleIdentityPlatformTenantInboundSamlConfig(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -221,7 +221,7 @@ public partial class GoogleIdentityPlatformTenantInboundSamlConfig(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tenant is required")]
     public required TerraformValue<string> Tenant
     {
-        get => GetArgument<TerraformValue<string>>("tenant");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant");
         set => SetArgument("tenant", value);
     }
 

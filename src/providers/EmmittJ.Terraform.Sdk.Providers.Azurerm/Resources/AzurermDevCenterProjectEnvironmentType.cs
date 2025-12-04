@@ -40,7 +40,7 @@ public class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     public required TerraformSet<string> Roles
     {
-        get => GetArgument<TerraformSet<string>>("roles");
+        get => GetRequiredArgument<TerraformSet<string>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformValue<string> UserId
     {
-        get => GetArgument<TerraformValue<string>>("user_id");
+        get => GetRequiredArgument<TerraformValue<string>>("user_id");
         set => SetArgument("user_id", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentTargetId is required")]
     public required TerraformValue<string> DeploymentTargetId
     {
-        get => GetArgument<TerraformValue<string>>("deployment_target_id");
+        get => GetRequiredArgument<TerraformValue<string>>("deployment_target_id");
         set => SetArgument("deployment_target_id", value);
     }
 
@@ -162,16 +162,16 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     public required TerraformValue<string> DevCenterProjectId
     {
-        get => GetArgument<TerraformValue<string>>("dev_center_project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dev_center_project_id");
         set => SetArgument("dev_center_project_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

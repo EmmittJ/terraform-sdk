@@ -14,7 +14,7 @@ public partial class AwsOpensearchAuthorizeVpcEndpointAccess(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Account is required")]
     public required TerraformValue<string> Account
     {
-        get => GetArgument<TerraformValue<string>>("account");
+        get => GetRequiredArgument<TerraformValue<string>>("account");
         set => SetArgument("account", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsOpensearchAuthorizeVpcEndpointAccess(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

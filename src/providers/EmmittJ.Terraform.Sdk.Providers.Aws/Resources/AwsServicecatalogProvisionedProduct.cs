@@ -19,7 +19,7 @@ public class AwsServicecatalogProvisionedProductProvisioningParametersBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -180,9 +180,9 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -217,9 +217,9 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// <summary>
     /// The path_id attribute.
     /// </summary>
-    public TerraformValue<string>? PathId
+    public TerraformValue<string> PathId
     {
-        get => GetArgument<TerraformValue<string>>("path_id");
+        get => GetArgument<TerraformValue<string>>("path_id") ?? AsReference("path_id");
         set => SetArgument("path_id", value);
     }
 
@@ -235,9 +235,9 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public TerraformValue<string>? ProductId
+    public TerraformValue<string> ProductId
     {
-        get => GetArgument<TerraformValue<string>>("product_id");
+        get => GetArgument<TerraformValue<string>>("product_id") ?? AsReference("product_id");
         set => SetArgument("product_id", value);
     }
 
@@ -253,9 +253,9 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// <summary>
     /// The provisioning_artifact_id attribute.
     /// </summary>
-    public TerraformValue<string>? ProvisioningArtifactId
+    public TerraformValue<string> ProvisioningArtifactId
     {
-        get => GetArgument<TerraformValue<string>>("provisioning_artifact_id");
+        get => GetArgument<TerraformValue<string>>("provisioning_artifact_id") ?? AsReference("provisioning_artifact_id");
         set => SetArgument("provisioning_artifact_id", value);
     }
 
@@ -271,9 +271,9 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -298,9 +298,9 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

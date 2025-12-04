@@ -49,9 +49,9 @@ public class AwsFsxDataRepositoryAssociationS3BlockAutoExportPolicyBlock : Terra
     /// <summary>
     /// The events attribute.
     /// </summary>
-    public TerraformList<string>? Events
+    public TerraformList<string> Events
     {
-        get => GetArgument<TerraformList<string>>("events");
+        get => GetArgument<TerraformList<string>>("events") ?? AsReference("events");
         set => SetArgument("events", value);
     }
 
@@ -71,9 +71,9 @@ public class AwsFsxDataRepositoryAssociationS3BlockAutoImportPolicyBlock : Terra
     /// <summary>
     /// The events attribute.
     /// </summary>
-    public TerraformList<string>? Events
+    public TerraformList<string> Events
     {
-        get => GetArgument<TerraformList<string>>("events");
+        get => GetArgument<TerraformList<string>>("events") ?? AsReference("events");
         set => SetArgument("events", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsFsxDataRepositoryAssociation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRepositoryPath is required")]
     public required TerraformValue<string> DataRepositoryPath
     {
-        get => GetArgument<TerraformValue<string>>("data_repository_path");
+        get => GetRequiredArgument<TerraformValue<string>>("data_repository_path");
         set => SetArgument("data_repository_path", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AwsFsxDataRepositoryAssociation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -171,34 +171,34 @@ public partial class AwsFsxDataRepositoryAssociation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemPath is required")]
     public required TerraformValue<string> FileSystemPath
     {
-        get => GetArgument<TerraformValue<string>>("file_system_path");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_path");
         set => SetArgument("file_system_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The imported_file_chunk_size attribute.
     /// </summary>
-    public TerraformValue<double>? ImportedFileChunkSize
+    public TerraformValue<double> ImportedFileChunkSize
     {
-        get => GetArgument<TerraformValue<double>>("imported_file_chunk_size");
+        get => GetArgument<TerraformValue<double>>("imported_file_chunk_size") ?? AsReference("imported_file_chunk_size");
         set => SetArgument("imported_file_chunk_size", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -214,9 +214,9 @@ public partial class AwsFsxDataRepositoryAssociation(string name) : TerraformRes
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

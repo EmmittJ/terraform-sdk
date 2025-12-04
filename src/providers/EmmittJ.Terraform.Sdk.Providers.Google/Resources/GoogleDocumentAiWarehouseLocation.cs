@@ -46,7 +46,7 @@ public partial class GoogleDocumentAiWarehouseLocation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlMode is required")]
     public required TerraformValue<string> AccessControlMode
     {
-        get => GetArgument<TerraformValue<string>>("access_control_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("access_control_mode");
         set => SetArgument("access_control_mode", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleDocumentAiWarehouseLocation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseType is required")]
     public required TerraformValue<string> DatabaseType
     {
-        get => GetArgument<TerraformValue<string>>("database_type");
+        get => GetRequiredArgument<TerraformValue<string>>("database_type");
         set => SetArgument("database_type", value);
     }
 
@@ -72,9 +72,9 @@ public partial class GoogleDocumentAiWarehouseLocation(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,7 +97,7 @@ public partial class GoogleDocumentAiWarehouseLocation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -107,7 +107,7 @@ public partial class GoogleDocumentAiWarehouseLocation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectNumber is required")]
     public required TerraformValue<string> ProjectNumber
     {
-        get => GetArgument<TerraformValue<string>>("project_number");
+        get => GetRequiredArgument<TerraformValue<string>>("project_number");
         set => SetArgument("project_number", value);
     }
 

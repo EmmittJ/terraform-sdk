@@ -47,18 +47,18 @@ public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockDataStorageBlock 
     /// <summary>
     /// The maximum attribute.
     /// </summary>
-    public TerraformValue<double>? Maximum
+    public TerraformValue<double> Maximum
     {
-        get => GetArgument<TerraformValue<double>>("maximum");
+        get => GetArgument<TerraformValue<double>>("maximum") ?? AsReference("maximum");
         set => SetArgument("maximum", value);
     }
 
     /// <summary>
     /// The minimum attribute.
     /// </summary>
-    public TerraformValue<double>? Minimum
+    public TerraformValue<double> Minimum
     {
-        get => GetArgument<TerraformValue<double>>("minimum");
+        get => GetArgument<TerraformValue<double>>("minimum") ?? AsReference("minimum");
         set => SetArgument("minimum", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockDataStorageBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => GetArgument<TerraformValue<string>>("unit");
+        get => GetRequiredArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -88,18 +88,18 @@ public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockEcpuPerSecondBloc
     /// <summary>
     /// The maximum attribute.
     /// </summary>
-    public TerraformValue<double>? Maximum
+    public TerraformValue<double> Maximum
     {
-        get => GetArgument<TerraformValue<double>>("maximum");
+        get => GetArgument<TerraformValue<double>>("maximum") ?? AsReference("maximum");
         set => SetArgument("maximum", value);
     }
 
     /// <summary>
     /// The minimum attribute.
     /// </summary>
-    public TerraformValue<double>? Minimum
+    public TerraformValue<double> Minimum
     {
-        get => GetArgument<TerraformValue<double>>("minimum");
+        get => GetArgument<TerraformValue<double>>("minimum") ?? AsReference("minimum");
         set => SetArgument("minimum", value);
     }
 
@@ -156,18 +156,18 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// <summary>
     /// The daily_snapshot_time attribute.
     /// </summary>
-    public TerraformValue<string>? DailySnapshotTime
+    public TerraformValue<string> DailySnapshotTime
     {
-        get => GetArgument<TerraformValue<string>>("daily_snapshot_time");
+        get => GetArgument<TerraformValue<string>>("daily_snapshot_time") ?? AsReference("daily_snapshot_time");
         set => SetArgument("daily_snapshot_time", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformValue<string> Engine
     {
-        get => GetArgument<TerraformValue<string>>("engine");
+        get => GetRequiredArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
@@ -193,9 +193,9 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// <summary>
     /// The major_engine_version attribute.
     /// </summary>
-    public TerraformValue<string>? MajorEngineVersion
+    public TerraformValue<string> MajorEngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("major_engine_version");
+        get => GetArgument<TerraformValue<string>>("major_engine_version") ?? AsReference("major_engine_version");
         set => SetArgument("major_engine_version", value);
     }
 
@@ -205,25 +205,25 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroupIds
+    public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -239,18 +239,18 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
-    public TerraformValue<double>? SnapshotRetentionLimit
+    public TerraformValue<double> SnapshotRetentionLimit
     {
-        get => GetArgument<TerraformValue<double>>("snapshot_retention_limit");
+        get => GetArgument<TerraformValue<double>>("snapshot_retention_limit") ?? AsReference("snapshot_retention_limit");
         set => SetArgument("snapshot_retention_limit", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SubnetIds
+    public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 

@@ -89,7 +89,7 @@ public class AwsGuarddutyOrganizationConfigurationDatasourcesBlockKubernetesBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformValue<bool> Enable
     {
-        get => GetArgument<TerraformValue<bool>>("enable");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsGuarddutyOrganizationConfigurationDatasourcesBlockMalwareProtect
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
     public required TerraformValue<bool> AutoEnable
     {
-        get => GetArgument<TerraformValue<bool>>("auto_enable");
+        get => GetRequiredArgument<TerraformValue<bool>>("auto_enable");
         set => SetArgument("auto_enable", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsGuarddutyOrganizationConfigurationDatasourcesBlockS3LogsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
     public required TerraformValue<bool> AutoEnable
     {
-        get => GetArgument<TerraformValue<bool>>("auto_enable");
+        get => GetRequiredArgument<TerraformValue<bool>>("auto_enable");
         set => SetArgument("auto_enable", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AwsGuarddutyOrganizationConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnableOrganizationMembers is required")]
     public required TerraformValue<string> AutoEnableOrganizationMembers
     {
-        get => GetArgument<TerraformValue<string>>("auto_enable_organization_members");
+        get => GetRequiredArgument<TerraformValue<string>>("auto_enable_organization_members");
         set => SetArgument("auto_enable_organization_members", value);
     }
 
@@ -216,25 +216,25 @@ public partial class AwsGuarddutyOrganizationConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformValue<string> DetectorId
     {
-        get => GetArgument<TerraformValue<string>>("detector_id");
+        get => GetRequiredArgument<TerraformValue<string>>("detector_id");
         set => SetArgument("detector_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

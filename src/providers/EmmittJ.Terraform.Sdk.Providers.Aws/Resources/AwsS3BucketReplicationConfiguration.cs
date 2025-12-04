@@ -16,9 +16,9 @@ public class AwsS3BucketReplicationConfigurationRuleBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetRequiredArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockDeleteMarkerReplication
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetRequiredArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockDestinationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockDestinationBlockAccessC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
     public required TerraformValue<string> Owner
     {
-        get => GetArgument<TerraformValue<string>>("owner");
+        get => GetRequiredArgument<TerraformValue<string>>("owner");
         set => SetArgument("owner", value);
     }
 
@@ -250,7 +250,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockDestinationBlockEncrypt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicaKmsKeyId is required")]
     public required TerraformValue<string> ReplicaKmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("replica_kms_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("replica_kms_key_id");
         set => SetArgument("replica_kms_key_id", value);
     }
 
@@ -273,7 +273,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockDestinationBlockMetrics
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetRequiredArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockDestinationBlockMetrics
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minutes is required")]
     public required TerraformValue<double> Minutes
     {
-        get => GetArgument<TerraformValue<double>>("minutes");
+        get => GetRequiredArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -329,7 +329,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockDestinationBlockReplica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetRequiredArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -365,7 +365,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockDestinationBlockReplica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minutes is required")]
     public required TerraformValue<double> Minutes
     {
-        get => GetArgument<TerraformValue<double>>("minutes");
+        get => GetRequiredArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -388,7 +388,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockExistingObjectReplicati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetRequiredArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -484,7 +484,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockFilterBlockTagBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -494,7 +494,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockFilterBlockTagBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -550,7 +550,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockSourceSelectionCriteria
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetRequiredArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -573,7 +573,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlockSourceSelectionCriteria
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetRequiredArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -592,25 +592,25 @@ public partial class AwsS3BucketReplicationConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -620,7 +620,7 @@ public partial class AwsS3BucketReplicationConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => GetArgument<TerraformValue<string>>("role");
+        get => GetRequiredArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 

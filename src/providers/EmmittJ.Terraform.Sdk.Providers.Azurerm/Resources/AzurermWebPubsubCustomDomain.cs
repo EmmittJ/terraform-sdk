@@ -55,16 +55,16 @@ public partial class AzurermWebPubsubCustomDomain(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermWebPubsubCustomDomain(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermWebPubsubCustomDomain(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubCustomCertificateId is required")]
     public required TerraformValue<string> WebPubsubCustomCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("web_pubsub_custom_certificate_id");
+        get => GetRequiredArgument<TerraformValue<string>>("web_pubsub_custom_certificate_id");
         set => SetArgument("web_pubsub_custom_certificate_id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermWebPubsubCustomDomain(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformValue<string> WebPubsubId
     {
-        get => GetArgument<TerraformValue<string>>("web_pubsub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("web_pubsub_id");
         set => SetArgument("web_pubsub_id", value);
     }
 

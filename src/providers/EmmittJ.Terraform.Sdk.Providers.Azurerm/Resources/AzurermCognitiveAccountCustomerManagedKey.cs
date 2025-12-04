@@ -64,16 +64,16 @@ public partial class AzurermCognitiveAccountCustomerManagedKey(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
     public required TerraformValue<string> CognitiveAccountId
     {
-        get => GetArgument<TerraformValue<string>>("cognitive_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cognitive_account_id");
         set => SetArgument("cognitive_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermCognitiveAccountCustomerManagedKey(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformValue<string> KeyVaultKeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 

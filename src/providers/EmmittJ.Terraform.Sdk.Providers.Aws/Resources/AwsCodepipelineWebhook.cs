@@ -51,7 +51,7 @@ public class AwsCodepipelineWebhookFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JsonPath is required")]
     public required TerraformValue<string> JsonPath
     {
-        get => GetArgument<TerraformValue<string>>("json_path");
+        get => GetRequiredArgument<TerraformValue<string>>("json_path");
         set => SetArgument("json_path", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsCodepipelineWebhookFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchEquals is required")]
     public required TerraformValue<string> MatchEquals
     {
-        get => GetArgument<TerraformValue<string>>("match_equals");
+        get => GetRequiredArgument<TerraformValue<string>>("match_equals");
         set => SetArgument("match_equals", value);
     }
 
@@ -80,16 +80,16 @@ public partial class AwsCodepipelineWebhook(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     public required TerraformValue<string> Authentication
     {
-        get => GetArgument<TerraformValue<string>>("authentication");
+        get => GetRequiredArgument<TerraformValue<string>>("authentication");
         set => SetArgument("authentication", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AwsCodepipelineWebhook(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -124,9 +124,9 @@ public partial class AwsCodepipelineWebhook(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsCodepipelineWebhook(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAction is required")]
     public required TerraformValue<string> TargetAction
     {
-        get => GetArgument<TerraformValue<string>>("target_action");
+        get => GetRequiredArgument<TerraformValue<string>>("target_action");
         set => SetArgument("target_action", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsCodepipelineWebhook(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPipeline is required")]
     public required TerraformValue<string> TargetPipeline
     {
-        get => GetArgument<TerraformValue<string>>("target_pipeline");
+        get => GetRequiredArgument<TerraformValue<string>>("target_pipeline");
         set => SetArgument("target_pipeline", value);
     }
 

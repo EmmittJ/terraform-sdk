@@ -19,7 +19,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenContentTypeIsUnknown is required")]
     public required TerraformValue<bool> ForwardWhenContentTypeIsUnknown
     {
-        get => GetArgument<TerraformValue<bool>>("forward_when_content_type_is_unknown");
+        get => GetRequiredArgument<TerraformValue<bool>>("forward_when_content_type_is_unknown");
         set => SetArgument("forward_when_content_type_is_unknown", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetRequiredArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenQueryArgProfileIsUnknown is required")]
     public required TerraformValue<bool> ForwardWhenQueryArgProfileIsUnknown
     {
-        get => GetArgument<TerraformValue<bool>>("forward_when_query_arg_profile_is_unknown");
+        get => GetRequiredArgument<TerraformValue<bool>>("forward_when_query_arg_profile_is_unknown");
         set => SetArgument("forward_when_query_arg_profile_is_unknown", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlockQu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformValue<string> ProfileId
     {
-        get => GetArgument<TerraformValue<string>>("profile_id");
+        get => GetRequiredArgument<TerraformValue<string>>("profile_id");
         set => SetArgument("profile_id", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlockQu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryArg is required")]
     public required TerraformValue<string> QueryArg
     {
-        get => GetArgument<TerraformValue<string>>("query_arg");
+        get => GetRequiredArgument<TerraformValue<string>>("query_arg");
         set => SetArgument("query_arg", value);
     }
 
@@ -213,9 +213,9 @@ public partial class AwsCloudfrontFieldLevelEncryptionConfig(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

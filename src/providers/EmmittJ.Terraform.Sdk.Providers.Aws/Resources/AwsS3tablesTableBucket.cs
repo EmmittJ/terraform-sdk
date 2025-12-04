@@ -20,18 +20,18 @@ public partial class AwsS3tablesTableBucket(string name) : TerraformResource("aw
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformValue<bool>? ForceDestroy
+    public TerraformValue<bool> ForceDestroy
     {
-        get => GetArgument<TerraformValue<bool>>("force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy") ?? AsReference("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The maintenance_configuration attribute.
     /// </summary>
-    public TerraformMap<object>? MaintenanceConfiguration
+    public TerraformMap<object> MaintenanceConfiguration
     {
-        get => GetArgument<TerraformMap<object>>("maintenance_configuration");
+        get => GetArgument<TerraformMap<object>>("maintenance_configuration") ?? AsReference("maintenance_configuration");
         set => SetArgument("maintenance_configuration", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsS3tablesTableBucket(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

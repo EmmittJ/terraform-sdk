@@ -19,7 +19,7 @@ public class AzurermBotChannelFacebookPageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessToken is required")]
     public required TerraformValue<string> AccessToken
     {
-        get => GetArgument<TerraformValue<string>>("access_token");
+        get => GetRequiredArgument<TerraformValue<string>>("access_token");
         set => SetArgument("access_token", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermBotChannelFacebookPageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AzurermBotChannelFacebook(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformValue<string> BotName
     {
-        get => GetArgument<TerraformValue<string>>("bot_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bot_name");
         set => SetArgument("bot_name", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AzurermBotChannelFacebook(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FacebookApplicationId is required")]
     public required TerraformValue<string> FacebookApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("facebook_application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("facebook_application_id");
         set => SetArgument("facebook_application_id", value);
     }
 
@@ -118,16 +118,16 @@ public partial class AzurermBotChannelFacebook(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FacebookApplicationSecret is required")]
     public required TerraformValue<string> FacebookApplicationSecret
     {
-        get => GetArgument<TerraformValue<string>>("facebook_application_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("facebook_application_secret");
         set => SetArgument("facebook_application_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermBotChannelFacebook(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermBotChannelFacebook(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

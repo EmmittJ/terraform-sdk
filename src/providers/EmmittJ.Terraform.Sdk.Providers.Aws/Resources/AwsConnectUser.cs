@@ -96,7 +96,7 @@ public class AwsConnectUserPhoneConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneType is required")]
     public required TerraformValue<string> PhoneType
     {
-        get => GetArgument<TerraformValue<string>>("phone_type");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_type");
         set => SetArgument("phone_type", value);
     }
 
@@ -112,9 +112,9 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// <summary>
     /// The directory_user_id attribute.
     /// </summary>
-    public TerraformValue<string>? DirectoryUserId
+    public TerraformValue<string> DirectoryUserId
     {
-        get => GetArgument<TerraformValue<string>>("directory_user_id");
+        get => GetArgument<TerraformValue<string>>("directory_user_id") ?? AsReference("directory_user_id");
         set => SetArgument("directory_user_id", value);
     }
 
@@ -130,9 +130,9 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -168,9 +168,9 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingProfileId is required")]
     public required TerraformValue<string> RoutingProfileId
     {
-        get => GetArgument<TerraformValue<string>>("routing_profile_id");
+        get => GetRequiredArgument<TerraformValue<string>>("routing_profile_id");
         set => SetArgument("routing_profile_id", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityProfileIds is required")]
     public required TerraformSet<string> SecurityProfileIds
     {
-        get => GetArgument<TerraformSet<string>>("security_profile_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_profile_ids");
         set => SetArgument("security_profile_ids", value);
     }
 
@@ -206,9 +206,9 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

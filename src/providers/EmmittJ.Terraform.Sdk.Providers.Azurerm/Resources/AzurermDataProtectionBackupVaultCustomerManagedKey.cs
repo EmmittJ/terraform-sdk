@@ -64,16 +64,16 @@ public partial class AzurermDataProtectionBackupVaultCustomerManagedKey(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataProtectionBackupVaultId is required")]
     public required TerraformValue<string> DataProtectionBackupVaultId
     {
-        get => GetArgument<TerraformValue<string>>("data_protection_backup_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_protection_backup_vault_id");
         set => SetArgument("data_protection_backup_vault_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermDataProtectionBackupVaultCustomerManagedKey(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformValue<string> KeyVaultKeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 

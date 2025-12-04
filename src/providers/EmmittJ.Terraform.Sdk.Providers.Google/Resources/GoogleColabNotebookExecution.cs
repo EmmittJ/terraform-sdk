@@ -28,7 +28,7 @@ public class GoogleColabNotebookExecutionDataformRepositorySourceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataformRepositoryResourceName is required")]
     public required TerraformValue<string> DataformRepositoryResourceName
     {
-        get => GetArgument<TerraformValue<string>>("dataform_repository_resource_name");
+        get => GetRequiredArgument<TerraformValue<string>>("dataform_repository_resource_name");
         set => SetArgument("dataform_repository_resource_name", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleColabNotebookExecutionDirectNotebookSourceBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleColabNotebookExecutionGcsNotebookSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -136,7 +136,7 @@ public partial class GoogleColabNotebookExecution(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -164,16 +164,16 @@ public partial class GoogleColabNotebookExecution(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcsOutputUri is required")]
     public required TerraformValue<string> GcsOutputUri
     {
-        get => GetArgument<TerraformValue<string>>("gcs_output_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("gcs_output_uri");
         set => SetArgument("gcs_output_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -183,16 +183,16 @@ public partial class GoogleColabNotebookExecution(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// User specified ID for the Notebook Execution Job
     /// </summary>
-    public TerraformValue<string>? NotebookExecutionJobId
+    public TerraformValue<string> NotebookExecutionJobId
     {
-        get => GetArgument<TerraformValue<string>>("notebook_execution_job_id");
+        get => GetArgument<TerraformValue<string>>("notebook_execution_job_id") ?? AsReference("notebook_execution_job_id");
         set => SetArgument("notebook_execution_job_id", value);
     }
 
@@ -208,9 +208,9 @@ public partial class GoogleColabNotebookExecution(string name) : TerraformResour
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

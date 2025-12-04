@@ -100,7 +100,7 @@ public class GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlockOsCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformValue<string> OsType
     {
-        get => GetArgument<TerraformValue<string>>("os_type");
+        get => GetRequiredArgument<TerraformValue<string>>("os_type");
         set => SetArgument("os_type", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleAccessContextManagerAccessLevelConditionVpcNetworkSourcesBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -207,16 +207,16 @@ public partial class GoogleAccessContextManagerAccessLevelCondition(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessLevel is required")]
     public required TerraformValue<string> AccessLevel
     {
-        get => GetArgument<TerraformValue<string>>("access_level");
+        get => GetRequiredArgument<TerraformValue<string>>("access_level");
         set => SetArgument("access_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

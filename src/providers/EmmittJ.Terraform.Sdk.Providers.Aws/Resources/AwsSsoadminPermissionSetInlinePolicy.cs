@@ -43,9 +43,9 @@ public partial class AwsSsoadminPermissionSetInlinePolicy(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsSsoadminPermissionSetInlinePolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InlinePolicy is required")]
     public required TerraformValue<string> InlinePolicy
     {
-        get => GetArgument<TerraformValue<string>>("inline_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("inline_policy");
         set => SetArgument("inline_policy", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsSsoadminPermissionSetInlinePolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformValue<string> InstanceArn
     {
-        get => GetArgument<TerraformValue<string>>("instance_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_arn");
         set => SetArgument("instance_arn", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AwsSsoadminPermissionSetInlinePolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
     public required TerraformValue<string> PermissionSetArn
     {
-        get => GetArgument<TerraformValue<string>>("permission_set_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("permission_set_arn");
         set => SetArgument("permission_set_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

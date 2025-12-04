@@ -28,7 +28,7 @@ public class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -144,9 +144,9 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -165,16 +165,16 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
     public required TerraformValue<string> MetricKind
     {
-        get => GetArgument<TerraformValue<string>>("metric_kind");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_kind");
         set => SetArgument("metric_kind", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -184,7 +184,7 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -222,7 +222,7 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformValue<string> ValueType
     {
-        get => GetArgument<TerraformValue<string>>("value_type");
+        get => GetRequiredArgument<TerraformValue<string>>("value_type");
         set => SetArgument("value_type", value);
     }
 

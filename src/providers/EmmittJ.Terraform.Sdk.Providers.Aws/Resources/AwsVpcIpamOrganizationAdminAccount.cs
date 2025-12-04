@@ -14,16 +14,16 @@ public partial class AwsVpcIpamOrganizationAdminAccount(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedAdminAccountId is required")]
     public required TerraformValue<string> DelegatedAdminAccountId
     {
-        get => GetArgument<TerraformValue<string>>("delegated_admin_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("delegated_admin_account_id");
         set => SetArgument("delegated_admin_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

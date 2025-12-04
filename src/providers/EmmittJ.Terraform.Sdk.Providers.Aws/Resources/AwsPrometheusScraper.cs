@@ -41,7 +41,7 @@ public class AwsPrometheusScraperDestinationBlockAmpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceArn is required")]
     public required TerraformValue<string> WorkspaceArn
     {
-        get => GetArgument<TerraformValue<string>>("workspace_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_arn");
         set => SetArgument("workspace_arn", value);
     }
 
@@ -119,16 +119,16 @@ public class AwsPrometheusScraperSourceBlockEksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
     public required TerraformValue<string> ClusterArn
     {
-        get => GetArgument<TerraformValue<string>>("cluster_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_arn");
         set => SetArgument("cluster_arn", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroupIds
+    public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsPrometheusScraperSourceBlockEksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -204,9 +204,9 @@ public partial class AwsPrometheusScraper(string name) : TerraformResource("aws_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AwsPrometheusScraper(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScrapeConfiguration is required")]
     public required TerraformValue<string> ScrapeConfiguration
     {
-        get => GetArgument<TerraformValue<string>>("scrape_configuration");
+        get => GetRequiredArgument<TerraformValue<string>>("scrape_configuration");
         set => SetArgument("scrape_configuration", value);
     }
 

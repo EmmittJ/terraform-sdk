@@ -50,7 +50,7 @@ public class AzurermConsumptionBudgetResourceGroupFilterBlockDimensionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermConsumptionBudgetResourceGroupFilterBlockTagBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => GetArgument<TerraformValue<double>>("threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -211,9 +211,9 @@ public class AzurermConsumptionBudgetResourceGroupTimePeriodBlock : TerraformBlo
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    public TerraformValue<string>? EndDate
+    public TerraformValue<string> EndDate
     {
-        get => GetArgument<TerraformValue<string>>("end_date");
+        get => GetArgument<TerraformValue<string>>("end_date") ?? AsReference("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermConsumptionBudgetResourceGroupTimePeriodBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
     public required TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date");
+        get => GetRequiredArgument<TerraformValue<string>>("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -292,25 +292,25 @@ public partial class AzurermConsumptionBudgetResourceGroup(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformValue<double> Amount
     {
-        get => GetArgument<TerraformValue<double>>("amount");
+        get => GetRequiredArgument<TerraformValue<double>>("amount");
         set => SetArgument("amount", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformValue<string>? Etag
+    public TerraformValue<string> Etag
     {
-        get => GetArgument<TerraformValue<string>>("etag");
+        get => GetArgument<TerraformValue<string>>("etag") ?? AsReference("etag");
         set => SetArgument("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -320,7 +320,7 @@ public partial class AzurermConsumptionBudgetResourceGroup(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -330,7 +330,7 @@ public partial class AzurermConsumptionBudgetResourceGroup(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformValue<string> ResourceGroupId
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_id");
         set => SetArgument("resource_group_id", value);
     }
 

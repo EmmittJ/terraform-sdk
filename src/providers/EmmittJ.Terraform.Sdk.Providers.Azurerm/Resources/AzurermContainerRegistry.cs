@@ -19,7 +19,7 @@ public class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermContainerRegistryIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -184,9 +184,9 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// <summary>
     /// The encryption attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? Encryption
+    public TerraformList<TerraformMap<object>> Encryption
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption") ?? AsReference("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -202,9 +202,9 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -240,9 +240,9 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// <summary>
     /// The network_rule_set attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? NetworkRuleSet
+    public TerraformList<TerraformMap<object>> NetworkRuleSet
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("network_rule_set");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("network_rule_set") ?? AsReference("network_rule_set");
         set => SetArgument("network_rule_set", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -289,7 +289,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => GetArgument<TerraformValue<string>>("sku");
+        get => GetRequiredArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 

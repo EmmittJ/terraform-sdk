@@ -356,7 +356,7 @@ public class AwsCodedeployDeploymentGroupEcsServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsCodedeployDeploymentGroupEcsServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -524,7 +524,7 @@ public class AwsCodedeployDeploymentGroupLoadBalancerInfoBlockTargetGroupPairInf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArns is required")]
     public required TerraformSet<string> ListenerArns
     {
-        get => GetArgument<TerraformSet<string>>("listener_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("listener_arns");
         set => SetArgument("listener_arns", value);
     }
 
@@ -547,7 +547,7 @@ public class AwsCodedeployDeploymentGroupLoadBalancerInfoBlockTargetGroupPairInf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -570,7 +570,7 @@ public class AwsCodedeployDeploymentGroupLoadBalancerInfoBlockTargetGroupPairInf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArns is required")]
     public required TerraformSet<string> ListenerArns
     {
-        get => GetArgument<TerraformSet<string>>("listener_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("listener_arns");
         set => SetArgument("listener_arns", value);
     }
 
@@ -635,7 +635,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerEvents is required")]
     public required TerraformSet<string> TriggerEvents
     {
-        get => GetArgument<TerraformSet<string>>("trigger_events");
+        get => GetRequiredArgument<TerraformSet<string>>("trigger_events");
         set => SetArgument("trigger_events", value);
     }
 
@@ -645,7 +645,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerName is required")]
     public required TerraformValue<string> TriggerName
     {
-        get => GetArgument<TerraformValue<string>>("trigger_name");
+        get => GetRequiredArgument<TerraformValue<string>>("trigger_name");
         set => SetArgument("trigger_name", value);
     }
 
@@ -655,7 +655,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerTargetArn is required")]
     public required TerraformValue<string> TriggerTargetArn
     {
-        get => GetArgument<TerraformValue<string>>("trigger_target_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("trigger_target_arn");
         set => SetArgument("trigger_target_arn", value);
     }
 
@@ -674,7 +674,7 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     public required TerraformValue<string> AppName
     {
-        get => GetArgument<TerraformValue<string>>("app_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_name");
         set => SetArgument("app_name", value);
     }
 
@@ -702,16 +702,16 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentGroupName is required")]
     public required TerraformValue<string> DeploymentGroupName
     {
-        get => GetArgument<TerraformValue<string>>("deployment_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("deployment_group_name");
         set => SetArgument("deployment_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -727,9 +727,9 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -739,7 +739,7 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRoleArn is required")]
     public required TerraformValue<string> ServiceRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("service_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("service_role_arn");
         set => SetArgument("service_role_arn", value);
     }
 
@@ -755,9 +755,9 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

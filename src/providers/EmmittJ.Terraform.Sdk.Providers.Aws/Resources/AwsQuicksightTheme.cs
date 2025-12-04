@@ -470,7 +470,7 @@ public class AwsQuicksightThemePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     public required TerraformSet<string> Actions
     {
-        get => GetArgument<TerraformSet<string>>("actions");
+        get => GetRequiredArgument<TerraformSet<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -480,7 +480,7 @@ public class AwsQuicksightThemePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetRequiredArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -537,9 +537,9 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -549,16 +549,16 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseThemeId is required")]
     public required TerraformValue<string> BaseThemeId
     {
-        get => GetArgument<TerraformValue<string>>("base_theme_id");
+        get => GetRequiredArgument<TerraformValue<string>>("base_theme_id");
         set => SetArgument("base_theme_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -568,16 +568,16 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -593,9 +593,9 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -605,7 +605,7 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThemeId is required")]
     public required TerraformValue<string> ThemeId
     {
-        get => GetArgument<TerraformValue<string>>("theme_id");
+        get => GetRequiredArgument<TerraformValue<string>>("theme_id");
         set => SetArgument("theme_id", value);
     }
 

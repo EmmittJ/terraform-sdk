@@ -64,7 +64,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiType is required")]
     public required TerraformValue<string> ApiType
     {
-        get => GetArgument<TerraformValue<string>>("api_type");
+        get => GetRequiredArgument<TerraformValue<string>>("api_type");
         set => SetArgument("api_type", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccessKey is required")]
     public required TerraformValue<string> CosmosdbAccessKey
     {
-        get => GetArgument<TerraformValue<string>>("cosmosdb_access_key");
+        get => GetRequiredArgument<TerraformValue<string>>("cosmosdb_access_key");
         set => SetArgument("cosmosdb_access_key", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountId is required")]
     public required TerraformValue<string> CosmosdbAccountId
     {
-        get => GetArgument<TerraformValue<string>>("cosmosdb_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cosmosdb_account_id");
         set => SetArgument("cosmosdb_account_id", value);
     }
 
@@ -136,9 +136,9 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformValue<string> SpringCloudAppId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_app_id");
         set => SetArgument("spring_cloud_app_id", value);
     }
 

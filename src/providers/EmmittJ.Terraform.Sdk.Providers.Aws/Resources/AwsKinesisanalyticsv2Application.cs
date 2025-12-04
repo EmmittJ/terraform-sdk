@@ -105,7 +105,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockApplic
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeContentType is required")]
     public required TerraformValue<string> CodeContentType
     {
-        get => GetArgument<TerraformValue<string>>("code_content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("code_content_type");
         set => SetArgument("code_content_type", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockApplic
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -180,7 +180,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockApplic
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileKey is required")]
     public required TerraformValue<string> FileKey
     {
-        get => GetArgument<TerraformValue<string>>("file_key");
+        get => GetRequiredArgument<TerraformValue<string>>("file_key");
         set => SetArgument("file_key", value);
     }
 
@@ -212,7 +212,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockApplic
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsEnabled is required")]
     public required TerraformValue<bool> SnapshotsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("snapshots_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("snapshots_enabled");
         set => SetArgument("snapshots_enabled", value);
     }
 
@@ -261,7 +261,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockEnviro
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropertyGroupId is required")]
     public required TerraformValue<string> PropertyGroupId
     {
-        get => GetArgument<TerraformValue<string>>("property_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("property_group_id");
         set => SetArgument("property_group_id", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockEnviro
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropertyMap is required")]
     public required TerraformMap<string> PropertyMap
     {
-        get => GetArgument<TerraformMap<string>>("property_map");
+        get => GetRequiredArgument<TerraformMap<string>>("property_map");
         set => SetArgument("property_map", value);
     }
 
@@ -334,18 +334,18 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     /// <summary>
     /// The checkpoint_interval attribute.
     /// </summary>
-    public TerraformValue<double>? CheckpointInterval
+    public TerraformValue<double> CheckpointInterval
     {
-        get => GetArgument<TerraformValue<double>>("checkpoint_interval");
+        get => GetArgument<TerraformValue<double>>("checkpoint_interval") ?? AsReference("checkpoint_interval");
         set => SetArgument("checkpoint_interval", value);
     }
 
     /// <summary>
     /// The checkpointing_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? CheckpointingEnabled
+    public TerraformValue<bool> CheckpointingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("checkpointing_enabled");
+        get => GetArgument<TerraformValue<bool>>("checkpointing_enabled") ?? AsReference("checkpointing_enabled");
         set => SetArgument("checkpointing_enabled", value);
     }
 
@@ -355,16 +355,16 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationType is required")]
     public required TerraformValue<string> ConfigurationType
     {
-        get => GetArgument<TerraformValue<string>>("configuration_type");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_type");
         set => SetArgument("configuration_type", value);
     }
 
     /// <summary>
     /// The min_pause_between_checkpoints attribute.
     /// </summary>
-    public TerraformValue<double>? MinPauseBetweenCheckpoints
+    public TerraformValue<double> MinPauseBetweenCheckpoints
     {
-        get => GetArgument<TerraformValue<double>>("min_pause_between_checkpoints");
+        get => GetArgument<TerraformValue<double>>("min_pause_between_checkpoints") ?? AsReference("min_pause_between_checkpoints");
         set => SetArgument("min_pause_between_checkpoints", value);
     }
 
@@ -387,25 +387,25 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationType is required")]
     public required TerraformValue<string> ConfigurationType
     {
-        get => GetArgument<TerraformValue<string>>("configuration_type");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_type");
         set => SetArgument("configuration_type", value);
     }
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
-    public TerraformValue<string>? LogLevel
+    public TerraformValue<string> LogLevel
     {
-        get => GetArgument<TerraformValue<string>>("log_level");
+        get => GetArgument<TerraformValue<string>>("log_level") ?? AsReference("log_level");
         set => SetArgument("log_level", value);
     }
 
     /// <summary>
     /// The metrics_level attribute.
     /// </summary>
-    public TerraformValue<string>? MetricsLevel
+    public TerraformValue<string> MetricsLevel
     {
-        get => GetArgument<TerraformValue<string>>("metrics_level");
+        get => GetArgument<TerraformValue<string>>("metrics_level") ?? AsReference("metrics_level");
         set => SetArgument("metrics_level", value);
     }
 
@@ -425,9 +425,9 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     /// <summary>
     /// The auto_scaling_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? AutoScalingEnabled
+    public TerraformValue<bool> AutoScalingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("auto_scaling_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_scaling_enabled") ?? AsReference("auto_scaling_enabled");
         set => SetArgument("auto_scaling_enabled", value);
     }
 
@@ -437,25 +437,25 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockFlinkA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationType is required")]
     public required TerraformValue<string> ConfigurationType
     {
-        get => GetArgument<TerraformValue<string>>("configuration_type");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_type");
         set => SetArgument("configuration_type", value);
     }
 
     /// <summary>
     /// The parallelism attribute.
     /// </summary>
-    public TerraformValue<double>? Parallelism
+    public TerraformValue<double> Parallelism
     {
-        get => GetArgument<TerraformValue<double>>("parallelism");
+        get => GetArgument<TerraformValue<double>>("parallelism") ?? AsReference("parallelism");
         set => SetArgument("parallelism", value);
     }
 
     /// <summary>
     /// The parallelism_per_kpu attribute.
     /// </summary>
-    public TerraformValue<double>? ParallelismPerKpu
+    public TerraformValue<double> ParallelismPerKpu
     {
-        get => GetArgument<TerraformValue<double>>("parallelism_per_kpu");
+        get => GetArgument<TerraformValue<double>>("parallelism_per_kpu") ?? AsReference("parallelism_per_kpu");
         set => SetArgument("parallelism_per_kpu", value);
     }
 
@@ -508,9 +508,9 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockRunCon
     /// <summary>
     /// The application_restore_type attribute.
     /// </summary>
-    public TerraformValue<string>? ApplicationRestoreType
+    public TerraformValue<string> ApplicationRestoreType
     {
-        get => GetArgument<TerraformValue<string>>("application_restore_type");
+        get => GetArgument<TerraformValue<string>>("application_restore_type") ?? AsReference("application_restore_type");
         set => SetArgument("application_restore_type", value);
     }
 
@@ -539,9 +539,9 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockRunCon
     /// <summary>
     /// The allow_non_restored_state attribute.
     /// </summary>
-    public TerraformValue<bool>? AllowNonRestoredState
+    public TerraformValue<bool> AllowNonRestoredState
     {
-        get => GetArgument<TerraformValue<bool>>("allow_non_restored_state");
+        get => GetArgument<TerraformValue<bool>>("allow_non_restored_state") ?? AsReference("allow_non_restored_state");
         set => SetArgument("allow_non_restored_state", value);
     }
 
@@ -619,7 +619,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePrefix is required")]
     public required TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -701,9 +701,9 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     /// <summary>
     /// The count attribute.
     /// </summary>
-    public TerraformValue<double>? CountAttribute
+    public TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetArgument<TerraformValue<double>>("count") ?? AsReference("count");
         set => SetArgument("count", value);
     }
 
@@ -752,7 +752,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -832,7 +832,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -842,7 +842,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlType is required")]
     public required TerraformValue<string> SqlType
     {
-        get => GetArgument<TerraformValue<string>>("sql_type");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_type");
         set => SetArgument("sql_type", value);
     }
 
@@ -865,7 +865,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordFormatType is required")]
     public required TerraformValue<string> RecordFormatType
     {
-        get => GetArgument<TerraformValue<string>>("record_format_type");
+        get => GetRequiredArgument<TerraformValue<string>>("record_format_type");
         set => SetArgument("record_format_type", value);
     }
 
@@ -934,7 +934,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordColumnDelimiter is required")]
     public required TerraformValue<string> RecordColumnDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("record_column_delimiter");
+        get => GetRequiredArgument<TerraformValue<string>>("record_column_delimiter");
         set => SetArgument("record_column_delimiter", value);
     }
 
@@ -944,7 +944,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordRowDelimiter is required")]
     public required TerraformValue<string> RecordRowDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("record_row_delimiter");
+        get => GetRequiredArgument<TerraformValue<string>>("record_row_delimiter");
         set => SetArgument("record_row_delimiter", value);
     }
 
@@ -967,7 +967,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordRowPath is required")]
     public required TerraformValue<string> RecordRowPath
     {
-        get => GetArgument<TerraformValue<string>>("record_row_path");
+        get => GetRequiredArgument<TerraformValue<string>>("record_row_path");
         set => SetArgument("record_row_path", value);
     }
 
@@ -987,9 +987,9 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     /// <summary>
     /// The input_starting_position attribute.
     /// </summary>
-    public TerraformValue<string>? InputStartingPosition
+    public TerraformValue<string> InputStartingPosition
     {
-        get => GetArgument<TerraformValue<string>>("input_starting_position");
+        get => GetArgument<TerraformValue<string>>("input_starting_position") ?? AsReference("input_starting_position");
         set => SetArgument("input_starting_position", value);
     }
 
@@ -1012,7 +1012,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -1035,7 +1035,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -1058,7 +1058,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1130,7 +1130,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordFormatType is required")]
     public required TerraformValue<string> RecordFormatType
     {
-        get => GetArgument<TerraformValue<string>>("record_format_type");
+        get => GetRequiredArgument<TerraformValue<string>>("record_format_type");
         set => SetArgument("record_format_type", value);
     }
 
@@ -1153,7 +1153,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -1176,7 +1176,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -1199,7 +1199,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -1228,7 +1228,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -1334,7 +1334,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1344,7 +1344,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlType is required")]
     public required TerraformValue<string> SqlType
     {
-        get => GetArgument<TerraformValue<string>>("sql_type");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_type");
         set => SetArgument("sql_type", value);
     }
 
@@ -1367,7 +1367,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordFormatType is required")]
     public required TerraformValue<string> RecordFormatType
     {
-        get => GetArgument<TerraformValue<string>>("record_format_type");
+        get => GetRequiredArgument<TerraformValue<string>>("record_format_type");
         set => SetArgument("record_format_type", value);
     }
 
@@ -1436,7 +1436,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordColumnDelimiter is required")]
     public required TerraformValue<string> RecordColumnDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("record_column_delimiter");
+        get => GetRequiredArgument<TerraformValue<string>>("record_column_delimiter");
         set => SetArgument("record_column_delimiter", value);
     }
 
@@ -1446,7 +1446,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordRowDelimiter is required")]
     public required TerraformValue<string> RecordRowDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("record_row_delimiter");
+        get => GetRequiredArgument<TerraformValue<string>>("record_row_delimiter");
         set => SetArgument("record_row_delimiter", value);
     }
 
@@ -1469,7 +1469,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordRowPath is required")]
     public required TerraformValue<string> RecordRowPath
     {
-        get => GetArgument<TerraformValue<string>>("record_row_path");
+        get => GetRequiredArgument<TerraformValue<string>>("record_row_path");
         set => SetArgument("record_row_path", value);
     }
 
@@ -1492,7 +1492,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -1502,7 +1502,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockSqlApp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileKey is required")]
     public required TerraformValue<string> FileKey
     {
-        get => GetArgument<TerraformValue<string>>("file_key");
+        get => GetRequiredArgument<TerraformValue<string>>("file_key");
         set => SetArgument("file_key", value);
     }
 
@@ -1525,7 +1525,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockVpcCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -1535,7 +1535,7 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlockVpcCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -1577,7 +1577,7 @@ public class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogStreamArn is required")]
     public required TerraformValue<string> LogStreamArn
     {
-        get => GetArgument<TerraformValue<string>>("log_stream_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("log_stream_arn");
         set => SetArgument("log_stream_arn", value);
     }
 
@@ -1634,9 +1634,9 @@ public partial class AwsKinesisanalyticsv2Application(string name) : TerraformRe
     /// <summary>
     /// The application_mode attribute.
     /// </summary>
-    public TerraformValue<string>? ApplicationMode
+    public TerraformValue<string> ApplicationMode
     {
-        get => GetArgument<TerraformValue<string>>("application_mode");
+        get => GetArgument<TerraformValue<string>>("application_mode") ?? AsReference("application_mode");
         set => SetArgument("application_mode", value);
     }
 
@@ -1661,9 +1661,9 @@ public partial class AwsKinesisanalyticsv2Application(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1673,16 +1673,16 @@ public partial class AwsKinesisanalyticsv2Application(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1692,7 +1692,7 @@ public partial class AwsKinesisanalyticsv2Application(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeEnvironment is required")]
     public required TerraformValue<string> RuntimeEnvironment
     {
-        get => GetArgument<TerraformValue<string>>("runtime_environment");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime_environment");
         set => SetArgument("runtime_environment", value);
     }
 
@@ -1702,7 +1702,7 @@ public partial class AwsKinesisanalyticsv2Application(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRole is required")]
     public required TerraformValue<string> ServiceExecutionRole
     {
-        get => GetArgument<TerraformValue<string>>("service_execution_role");
+        get => GetRequiredArgument<TerraformValue<string>>("service_execution_role");
         set => SetArgument("service_execution_role", value);
     }
 
@@ -1727,9 +1727,9 @@ public partial class AwsKinesisanalyticsv2Application(string name) : TerraformRe
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

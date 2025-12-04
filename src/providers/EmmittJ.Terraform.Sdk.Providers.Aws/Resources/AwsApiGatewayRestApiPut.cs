@@ -37,16 +37,16 @@ public partial class AwsApiGatewayRestApiPut(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformValue<string> Body
     {
-        get => GetArgument<TerraformValue<string>>("body");
+        get => GetRequiredArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
     /// <summary>
     /// The fail_on_warnings attribute.
     /// </summary>
-    public TerraformValue<bool>? FailOnWarnings
+    public TerraformValue<bool> FailOnWarnings
     {
-        get => GetArgument<TerraformValue<bool>>("fail_on_warnings");
+        get => GetArgument<TerraformValue<bool>>("fail_on_warnings") ?? AsReference("fail_on_warnings");
         set => SetArgument("fail_on_warnings", value);
     }
 
@@ -62,9 +62,9 @@ public partial class AwsApiGatewayRestApiPut(string name) : TerraformResource("a
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsApiGatewayRestApiPut(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => GetArgument<TerraformValue<string>>("rest_api_id");
+        get => GetRequiredArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 

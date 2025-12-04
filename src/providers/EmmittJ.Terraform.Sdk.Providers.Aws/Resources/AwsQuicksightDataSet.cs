@@ -52,7 +52,7 @@ public class AwsQuicksightDataSetColumnGroupsBlockGeoSpatialColumnGroupBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
     public required TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code");
+        get => GetRequiredArgument<TerraformValue<string>>("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsQuicksightDataSetColumnGroupsBlockGeoSpatialColumnGroupBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -115,18 +115,18 @@ public class AwsQuicksightDataSetDataSetUsageConfigurationBlock : TerraformBlock
     /// <summary>
     /// The disable_use_as_direct_query_source attribute.
     /// </summary>
-    public TerraformValue<bool>? DisableUseAsDirectQuerySource
+    public TerraformValue<bool> DisableUseAsDirectQuerySource
     {
-        get => GetArgument<TerraformValue<bool>>("disable_use_as_direct_query_source");
+        get => GetArgument<TerraformValue<bool>>("disable_use_as_direct_query_source") ?? AsReference("disable_use_as_direct_query_source");
         set => SetArgument("disable_use_as_direct_query_source", value);
     }
 
     /// <summary>
     /// The disable_use_as_imported_source attribute.
     /// </summary>
-    public TerraformValue<bool>? DisableUseAsImportedSource
+    public TerraformValue<bool> DisableUseAsImportedSource
     {
-        get => GetArgument<TerraformValue<bool>>("disable_use_as_imported_source");
+        get => GetArgument<TerraformValue<bool>>("disable_use_as_imported_source") ?? AsReference("disable_use_as_imported_source");
         set => SetArgument("disable_use_as_imported_source", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsQuicksightDataSetFieldFoldersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldFoldersId is required")]
     public required TerraformValue<string> FieldFoldersId
     {
-        get => GetArgument<TerraformValue<string>>("field_folders_id");
+        get => GetRequiredArgument<TerraformValue<string>>("field_folders_id");
         set => SetArgument("field_folders_id", value);
     }
 
@@ -192,7 +192,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
     public required TerraformValue<string> Alias
     {
-        get => GetArgument<TerraformValue<string>>("alias");
+        get => GetRequiredArgument<TerraformValue<string>>("alias");
         set => SetArgument("alias", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicalTableMapId is required")]
     public required TerraformValue<string> LogicalTableMapId
     {
-        get => GetArgument<TerraformValue<string>>("logical_table_map_id");
+        get => GetRequiredArgument<TerraformValue<string>>("logical_table_map_id");
         set => SetArgument("logical_table_map_id", value);
     }
 
@@ -331,16 +331,16 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockCastColu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => GetArgument<TerraformValue<string>>("column_name");
+        get => GetRequiredArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public TerraformValue<string>? Format
+    public TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetArgument<TerraformValue<string>>("format") ?? AsReference("format");
         set => SetArgument("format", value);
     }
 
@@ -350,7 +350,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockCastColu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NewColumnType is required")]
     public required TerraformValue<string> NewColumnType
     {
-        get => GetArgument<TerraformValue<string>>("new_column_type");
+        get => GetRequiredArgument<TerraformValue<string>>("new_column_type");
         set => SetArgument("new_column_type", value);
     }
 
@@ -399,7 +399,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockCreateCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnId is required")]
     public required TerraformValue<string> ColumnId
     {
-        get => GetArgument<TerraformValue<string>>("column_id");
+        get => GetRequiredArgument<TerraformValue<string>>("column_id");
         set => SetArgument("column_id", value);
     }
 
@@ -409,7 +409,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockCreateCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => GetArgument<TerraformValue<string>>("column_name");
+        get => GetRequiredArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
@@ -419,7 +419,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockCreateCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -442,7 +442,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockFilterOp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionExpression is required")]
     public required TerraformValue<string> ConditionExpression
     {
-        get => GetArgument<TerraformValue<string>>("condition_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("condition_expression");
         set => SetArgument("condition_expression", value);
     }
 
@@ -488,7 +488,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockRenameCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => GetArgument<TerraformValue<string>>("column_name");
+        get => GetRequiredArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
@@ -498,7 +498,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockRenameCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NewColumnName is required")]
     public required TerraformValue<string> NewColumnName
     {
-        get => GetArgument<TerraformValue<string>>("new_column_name");
+        get => GetRequiredArgument<TerraformValue<string>>("new_column_name");
         set => SetArgument("new_column_name", value);
     }
 
@@ -521,7 +521,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockTagColum
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => GetArgument<TerraformValue<string>>("column_name");
+        get => GetRequiredArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
@@ -554,9 +554,9 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockTagColum
     /// <summary>
     /// The column_geographic_role attribute.
     /// </summary>
-    public TerraformValue<string>? ColumnGeographicRole
+    public TerraformValue<string> ColumnGeographicRole
     {
-        get => GetArgument<TerraformValue<string>>("column_geographic_role");
+        get => GetArgument<TerraformValue<string>>("column_geographic_role") ?? AsReference("column_geographic_role");
         set => SetArgument("column_geographic_role", value);
     }
 
@@ -586,9 +586,9 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockTagColum
     /// <summary>
     /// The text attribute.
     /// </summary>
-    public TerraformValue<string>? Text
+    public TerraformValue<string> Text
     {
-        get => GetArgument<TerraformValue<string>>("text");
+        get => GetArgument<TerraformValue<string>>("text") ?? AsReference("text");
         set => SetArgument("text", value);
     }
 
@@ -611,7 +611,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockDataTransformsBlockUntagCol
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => GetArgument<TerraformValue<string>>("column_name");
+        get => GetRequiredArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
@@ -641,18 +641,18 @@ public class AwsQuicksightDataSetLogicalTableMapBlockSourceBlock : TerraformBloc
     /// <summary>
     /// The data_set_arn attribute.
     /// </summary>
-    public TerraformValue<string>? DataSetArn
+    public TerraformValue<string> DataSetArn
     {
-        get => GetArgument<TerraformValue<string>>("data_set_arn");
+        get => GetArgument<TerraformValue<string>>("data_set_arn") ?? AsReference("data_set_arn");
         set => SetArgument("data_set_arn", value);
     }
 
     /// <summary>
     /// The physical_table_id attribute.
     /// </summary>
-    public TerraformValue<string>? PhysicalTableId
+    public TerraformValue<string> PhysicalTableId
     {
-        get => GetArgument<TerraformValue<string>>("physical_table_id");
+        get => GetArgument<TerraformValue<string>>("physical_table_id") ?? AsReference("physical_table_id");
         set => SetArgument("physical_table_id", value);
     }
 
@@ -685,7 +685,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockSourceBlockJoinInstructionB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LeftOperand is required")]
     public required TerraformValue<string> LeftOperand
     {
-        get => GetArgument<TerraformValue<string>>("left_operand");
+        get => GetRequiredArgument<TerraformValue<string>>("left_operand");
         set => SetArgument("left_operand", value);
     }
 
@@ -695,7 +695,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockSourceBlockJoinInstructionB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnClause is required")]
     public required TerraformValue<string> OnClause
     {
-        get => GetArgument<TerraformValue<string>>("on_clause");
+        get => GetRequiredArgument<TerraformValue<string>>("on_clause");
         set => SetArgument("on_clause", value);
     }
 
@@ -705,7 +705,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockSourceBlockJoinInstructionB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RightOperand is required")]
     public required TerraformValue<string> RightOperand
     {
-        get => GetArgument<TerraformValue<string>>("right_operand");
+        get => GetRequiredArgument<TerraformValue<string>>("right_operand");
         set => SetArgument("right_operand", value);
     }
 
@@ -715,7 +715,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlockSourceBlockJoinInstructionB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -755,9 +755,9 @@ public class AwsQuicksightDataSetLogicalTableMapBlockSourceBlockJoinInstructionB
     /// <summary>
     /// The unique_key attribute.
     /// </summary>
-    public TerraformValue<bool>? UniqueKey
+    public TerraformValue<bool> UniqueKey
     {
-        get => GetArgument<TerraformValue<bool>>("unique_key");
+        get => GetArgument<TerraformValue<bool>>("unique_key") ?? AsReference("unique_key");
         set => SetArgument("unique_key", value);
     }
 
@@ -777,9 +777,9 @@ public class AwsQuicksightDataSetLogicalTableMapBlockSourceBlockJoinInstructionB
     /// <summary>
     /// The unique_key attribute.
     /// </summary>
-    public TerraformValue<bool>? UniqueKey
+    public TerraformValue<bool> UniqueKey
     {
-        get => GetArgument<TerraformValue<bool>>("unique_key");
+        get => GetArgument<TerraformValue<bool>>("unique_key") ?? AsReference("unique_key");
         set => SetArgument("unique_key", value);
     }
 
@@ -803,7 +803,7 @@ public class AwsQuicksightDataSetPermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     public required TerraformSet<string> Actions
     {
-        get => GetArgument<TerraformSet<string>>("actions");
+        get => GetRequiredArgument<TerraformSet<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -813,7 +813,7 @@ public class AwsQuicksightDataSetPermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetRequiredArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -837,7 +837,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhysicalTableMapId is required")]
     public required TerraformValue<string> PhysicalTableMapId
     {
-        get => GetArgument<TerraformValue<string>>("physical_table_map_id");
+        get => GetRequiredArgument<TerraformValue<string>>("physical_table_map_id");
         set => SetArgument("physical_table_map_id", value);
     }
 
@@ -890,7 +890,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockCustomSqlBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceArn is required")]
     public required TerraformValue<string> DataSourceArn
     {
-        get => GetArgument<TerraformValue<string>>("data_source_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("data_source_arn");
         set => SetArgument("data_source_arn", value);
     }
 
@@ -900,7 +900,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockCustomSqlBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -910,7 +910,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockCustomSqlBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlQuery is required")]
     public required TerraformValue<string> SqlQuery
     {
-        get => GetArgument<TerraformValue<string>>("sql_query");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_query");
         set => SetArgument("sql_query", value);
     }
 
@@ -943,7 +943,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockCustomSqlBlockColumnsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -953,7 +953,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockCustomSqlBlockColumnsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -985,7 +985,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockRelationalTableBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceArn is required")]
     public required TerraformValue<string> DataSourceArn
     {
-        get => GetArgument<TerraformValue<string>>("data_source_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("data_source_arn");
         set => SetArgument("data_source_arn", value);
     }
 
@@ -995,7 +995,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockRelationalTableBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1040,7 +1040,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockRelationalTableBlockInputC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1050,7 +1050,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockRelationalTableBlockInputC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1073,7 +1073,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockS3SourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceArn is required")]
     public required TerraformValue<string> DataSourceArn
     {
-        get => GetArgument<TerraformValue<string>>("data_source_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("data_source_arn");
         set => SetArgument("data_source_arn", value);
     }
 
@@ -1122,7 +1122,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockS3SourceBlockInputColumnsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1132,7 +1132,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockS3SourceBlockInputColumnsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1152,45 +1152,45 @@ public class AwsQuicksightDataSetPhysicalTableMapBlockS3SourceBlockUploadSetting
     /// <summary>
     /// The contains_header attribute.
     /// </summary>
-    public TerraformValue<bool>? ContainsHeader
+    public TerraformValue<bool> ContainsHeader
     {
-        get => GetArgument<TerraformValue<bool>>("contains_header");
+        get => GetArgument<TerraformValue<bool>>("contains_header") ?? AsReference("contains_header");
         set => SetArgument("contains_header", value);
     }
 
     /// <summary>
     /// The delimiter attribute.
     /// </summary>
-    public TerraformValue<string>? Delimiter
+    public TerraformValue<string> Delimiter
     {
-        get => GetArgument<TerraformValue<string>>("delimiter");
+        get => GetArgument<TerraformValue<string>>("delimiter") ?? AsReference("delimiter");
         set => SetArgument("delimiter", value);
     }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public TerraformValue<string>? Format
+    public TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetArgument<TerraformValue<string>>("format") ?? AsReference("format");
         set => SetArgument("format", value);
     }
 
     /// <summary>
     /// The start_from_row attribute.
     /// </summary>
-    public TerraformValue<double>? StartFromRow
+    public TerraformValue<double> StartFromRow
     {
-        get => GetArgument<TerraformValue<double>>("start_from_row");
+        get => GetArgument<TerraformValue<double>>("start_from_row") ?? AsReference("start_from_row");
         set => SetArgument("start_from_row", value);
     }
 
     /// <summary>
     /// The text_qualifier attribute.
     /// </summary>
-    public TerraformValue<string>? TextQualifier
+    public TerraformValue<string> TextQualifier
     {
-        get => GetArgument<TerraformValue<string>>("text_qualifier");
+        get => GetArgument<TerraformValue<string>>("text_qualifier") ?? AsReference("text_qualifier");
         set => SetArgument("text_qualifier", value);
     }
 
@@ -1292,7 +1292,7 @@ public class AwsQuicksightDataSetRefreshPropertiesBlockRefreshConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => GetArgument<TerraformValue<string>>("column_name");
+        get => GetRequiredArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
@@ -1302,7 +1302,7 @@ public class AwsQuicksightDataSetRefreshPropertiesBlockRefreshConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size");
+        get => GetRequiredArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -1312,7 +1312,7 @@ public class AwsQuicksightDataSetRefreshPropertiesBlockRefreshConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeUnit is required")]
     public required TerraformValue<string> SizeUnit
     {
-        get => GetArgument<TerraformValue<string>>("size_unit");
+        get => GetRequiredArgument<TerraformValue<string>>("size_unit");
         set => SetArgument("size_unit", value);
     }
 
@@ -1336,7 +1336,7 @@ public class AwsQuicksightDataSetRowLevelPermissionDataSetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -1364,7 +1364,7 @@ public class AwsQuicksightDataSetRowLevelPermissionDataSetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionPolicy is required")]
     public required TerraformValue<string> PermissionPolicy
     {
-        get => GetArgument<TerraformValue<string>>("permission_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("permission_policy");
         set => SetArgument("permission_policy", value);
     }
 
@@ -1432,7 +1432,7 @@ public class AwsQuicksightDataSetRowLevelPermissionTagConfigurationBlockTagRules
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => GetArgument<TerraformValue<string>>("column_name");
+        get => GetRequiredArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
@@ -1451,7 +1451,7 @@ public class AwsQuicksightDataSetRowLevelPermissionTagConfigurationBlockTagRules
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
     public required TerraformValue<string> TagKey
     {
-        get => GetArgument<TerraformValue<string>>("tag_key");
+        get => GetRequiredArgument<TerraformValue<string>>("tag_key");
         set => SetArgument("tag_key", value);
     }
 
@@ -1476,9 +1476,9 @@ public partial class AwsQuicksightDataSet(string name) : TerraformResource("aws_
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -1488,16 +1488,16 @@ public partial class AwsQuicksightDataSet(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformValue<string> DataSetId
     {
-        get => GetArgument<TerraformValue<string>>("data_set_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_set_id");
         set => SetArgument("data_set_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1507,7 +1507,7 @@ public partial class AwsQuicksightDataSet(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportMode is required")]
     public required TerraformValue<string> ImportMode
     {
-        get => GetArgument<TerraformValue<string>>("import_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("import_mode");
         set => SetArgument("import_mode", value);
     }
 
@@ -1517,16 +1517,16 @@ public partial class AwsQuicksightDataSet(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1542,9 +1542,9 @@ public partial class AwsQuicksightDataSet(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

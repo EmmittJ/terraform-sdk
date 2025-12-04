@@ -46,7 +46,7 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformValue<double> Asn
     {
-        get => GetArgument<TerraformValue<double>>("asn");
+        get => GetRequiredArgument<TerraformValue<double>>("asn");
         set => SetArgument("asn", value);
     }
 
@@ -57,9 +57,9 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// not overlap with any IPv4 BGP session ranges. Other vendors commonly
     /// call this router ID.
     /// </summary>
-    public TerraformValue<string>? IdentifierRange
+    public TerraformValue<string> IdentifierRange
     {
-        get => GetArgument<TerraformValue<string>>("identifier_range");
+        get => GetArgument<TerraformValue<string>>("identifier_range") ?? AsReference("identifier_range");
         set => SetArgument("identifier_range", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleComputeRouterBgpBlockAdvertisedIpRangesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Range is required")]
     public required TerraformValue<string> Range
     {
-        get => GetArgument<TerraformValue<string>>("range");
+        get => GetRequiredArgument<TerraformValue<string>>("range");
         set => SetArgument("range", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -255,9 +255,9 @@ public partial class GoogleComputeRouter(string name) : TerraformResource("googl
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -272,7 +272,7 @@ public partial class GoogleComputeRouter(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -288,18 +288,18 @@ public partial class GoogleComputeRouter(string name) : TerraformResource("googl
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the router resides.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

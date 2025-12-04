@@ -82,9 +82,9 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -104,16 +104,16 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformValue<string> Plan
     {
-        get => GetArgument<TerraformValue<string>>("plan");
+        get => GetRequiredArgument<TerraformValue<string>>("plan");
         set => SetArgument("plan", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCount is required")]
     public required TerraformValue<double> SlotCount
     {
-        get => GetArgument<TerraformValue<double>>("slot_count");
+        get => GetRequiredArgument<TerraformValue<double>>("slot_count");
         set => SetArgument("slot_count", value);
     }
 

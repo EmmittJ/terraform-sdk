@@ -11,9 +11,9 @@ public partial class GoogleProjectIamMemberRemove(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleProjectIamMemberRemove(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     public required TerraformValue<string> Member
     {
-        get => GetArgument<TerraformValue<string>>("member");
+        get => GetRequiredArgument<TerraformValue<string>>("member");
         set => SetArgument("member", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleProjectIamMemberRemove(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleProjectIamMemberRemove(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => GetArgument<TerraformValue<string>>("role");
+        get => GetRequiredArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 

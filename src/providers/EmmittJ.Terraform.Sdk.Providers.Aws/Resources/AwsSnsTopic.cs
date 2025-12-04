@@ -74,9 +74,9 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// <summary>
     /// The fifo_throughput_scope attribute.
     /// </summary>
-    public TerraformValue<string>? FifoThroughputScope
+    public TerraformValue<string> FifoThroughputScope
     {
-        get => GetArgument<TerraformValue<string>>("fifo_throughput_scope");
+        get => GetArgument<TerraformValue<string>>("fifo_throughput_scope") ?? AsReference("fifo_throughput_scope");
         set => SetArgument("fifo_throughput_scope", value);
     }
 
@@ -146,9 +146,9 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -191,45 +191,45 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? NamePrefix
+    public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformValue<string>? Policy
+    public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The signature_version attribute.
     /// </summary>
-    public TerraformValue<double>? SignatureVersion
+    public TerraformValue<double> SignatureVersion
     {
-        get => GetArgument<TerraformValue<double>>("signature_version");
+        get => GetArgument<TerraformValue<double>>("signature_version") ?? AsReference("signature_version");
         set => SetArgument("signature_version", value);
     }
 
@@ -272,18 +272,18 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The tracing_config attribute.
     /// </summary>
-    public TerraformValue<string>? TracingConfig
+    public TerraformValue<string> TracingConfig
     {
-        get => GetArgument<TerraformValue<string>>("tracing_config");
+        get => GetArgument<TerraformValue<string>>("tracing_config") ?? AsReference("tracing_config");
         set => SetArgument("tracing_config", value);
     }
 

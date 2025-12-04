@@ -19,7 +19,7 @@ public class AzurermMssqlFailoverGroupPartnerServerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -139,9 +139,9 @@ public partial class AzurermMssqlFailoverGroup(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -151,16 +151,16 @@ public partial class AzurermMssqlFailoverGroup(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The readonly_endpoint_failover_policy_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? ReadonlyEndpointFailoverPolicyEnabled
+    public TerraformValue<bool> ReadonlyEndpointFailoverPolicyEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("readonly_endpoint_failover_policy_enabled");
+        get => GetArgument<TerraformValue<bool>>("readonly_endpoint_failover_policy_enabled") ?? AsReference("readonly_endpoint_failover_policy_enabled");
         set => SetArgument("readonly_endpoint_failover_policy_enabled", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AzurermMssqlFailoverGroup(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => GetArgument<TerraformValue<string>>("server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 

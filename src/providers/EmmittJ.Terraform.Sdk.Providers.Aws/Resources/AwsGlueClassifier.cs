@@ -88,9 +88,9 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// <summary>
     /// The serde attribute.
     /// </summary>
-    public TerraformValue<string>? Serde
+    public TerraformValue<string> Serde
     {
-        get => GetArgument<TerraformValue<string>>("serde");
+        get => GetArgument<TerraformValue<string>>("serde") ?? AsReference("serde");
         set => SetArgument("serde", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsGlueClassifierGrokClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformValue<string> Classification
     {
-        get => GetArgument<TerraformValue<string>>("classification");
+        get => GetRequiredArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsGlueClassifierGrokClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrokPattern is required")]
     public required TerraformValue<string> GrokPattern
     {
-        get => GetArgument<TerraformValue<string>>("grok_pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("grok_pattern");
         set => SetArgument("grok_pattern", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsGlueClassifierJsonClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JsonPath is required")]
     public required TerraformValue<string> JsonPath
     {
-        get => GetArgument<TerraformValue<string>>("json_path");
+        get => GetRequiredArgument<TerraformValue<string>>("json_path");
         set => SetArgument("json_path", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsGlueClassifierXmlClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformValue<string> Classification
     {
-        get => GetArgument<TerraformValue<string>>("classification");
+        get => GetRequiredArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -191,7 +191,7 @@ public class AwsGlueClassifierXmlClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowTag is required")]
     public required TerraformValue<string> RowTag
     {
-        get => GetArgument<TerraformValue<string>>("row_tag");
+        get => GetRequiredArgument<TerraformValue<string>>("row_tag");
         set => SetArgument("row_tag", value);
     }
 
@@ -207,9 +207,9 @@ public partial class AwsGlueClassifier(string name) : TerraformResource("aws_glu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -219,16 +219,16 @@ public partial class AwsGlueClassifier(string name) : TerraformResource("aws_glu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

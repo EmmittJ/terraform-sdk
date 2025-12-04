@@ -19,7 +19,7 @@ public class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetRequiredArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -144,16 +144,16 @@ public partial class AzurermDataProtectionBackupPolicyDisk(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRetentionDuration is required")]
     public required TerraformValue<string> DefaultRetentionDuration
     {
-        get => GetArgument<TerraformValue<string>>("default_retention_duration");
+        get => GetRequiredArgument<TerraformValue<string>>("default_retention_duration");
         set => SetArgument("default_retention_duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermDataProtectionBackupPolicyDisk(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermDataProtectionBackupPolicyDisk(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     public required TerraformValue<string> VaultId
     {
-        get => GetArgument<TerraformValue<string>>("vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vault_id");
         set => SetArgument("vault_id", value);
     }
 

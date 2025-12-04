@@ -55,16 +55,16 @@ public partial class AwsBedrockagentcoreAgentRuntimeEndpoint(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentRuntimeId is required")]
     public required TerraformValue<string> AgentRuntimeId
     {
-        get => GetArgument<TerraformValue<string>>("agent_runtime_id");
+        get => GetRequiredArgument<TerraformValue<string>>("agent_runtime_id");
         set => SetArgument("agent_runtime_id", value);
     }
 
     /// <summary>
     /// The agent_runtime_version attribute.
     /// </summary>
-    public TerraformValue<string>? AgentRuntimeVersion
+    public TerraformValue<string> AgentRuntimeVersion
     {
-        get => GetArgument<TerraformValue<string>>("agent_runtime_version");
+        get => GetArgument<TerraformValue<string>>("agent_runtime_version") ?? AsReference("agent_runtime_version");
         set => SetArgument("agent_runtime_version", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AwsBedrockagentcoreAgentRuntimeEndpoint(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

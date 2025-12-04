@@ -66,9 +66,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// Output only for PARTNER type, mutable for PARTNER_PROVIDER and DEDICATED,
     /// Defaults to BPS_10G Possible values: [&amp;quot;BPS_50M&amp;quot;, &amp;quot;BPS_100M&amp;quot;, &amp;quot;BPS_200M&amp;quot;, &amp;quot;BPS_300M&amp;quot;, &amp;quot;BPS_400M&amp;quot;, &amp;quot;BPS_500M&amp;quot;, &amp;quot;BPS_1G&amp;quot;, &amp;quot;BPS_2G&amp;quot;, &amp;quot;BPS_5G&amp;quot;, &amp;quot;BPS_10G&amp;quot;, &amp;quot;BPS_20G&amp;quot;, &amp;quot;BPS_50G&amp;quot;, &amp;quot;BPS_100G&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Bandwidth
+    public TerraformValue<string> Bandwidth
     {
-        get => GetArgument<TerraformValue<string>>("bandwidth");
+        get => GetArgument<TerraformValue<string>>("bandwidth") ?? AsReference("bandwidth");
         set => SetArgument("bandwidth", value);
     }
 
@@ -104,9 +104,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// pairing key so that the provisioned circuit will lie in the specified
     /// domain. If not specified, the value will default to AVAILABILITY_DOMAIN_ANY.
     /// </summary>
-    public TerraformValue<string>? EdgeAvailabilityDomain
+    public TerraformValue<string> EdgeAvailabilityDomain
     {
-        get => GetArgument<TerraformValue<string>>("edge_availability_domain");
+        get => GetArgument<TerraformValue<string>>("edge_availability_domain") ?? AsReference("edge_availability_domain");
         set => SetArgument("edge_availability_domain", value);
     }
 
@@ -132,9 +132,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -190,9 +190,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// Maximum Transmission Unit (MTU), in bytes, of packets passing through this interconnect attachment.
     /// Valid values are 1440, 1460, 1500, and 8896. If not specified, the value will default to 1440.
     /// </summary>
-    public TerraformValue<string>? Mtu
+    public TerraformValue<string> Mtu
     {
-        get => GetArgument<TerraformValue<string>>("mtu");
+        get => GetArgument<TerraformValue<string>>("mtu") ?? AsReference("mtu");
         set => SetArgument("mtu", value);
     }
 
@@ -207,25 +207,25 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the regional interconnect attachment resides.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -238,7 +238,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformValue<string> Router
     {
-        get => GetArgument<TerraformValue<string>>("router");
+        get => GetRequiredArgument<TerraformValue<string>>("router");
         set => SetArgument("router", value);
     }
 
@@ -248,9 +248,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// This field can be both set at interconnect attachments creation and update
     /// interconnect attachment operations. Possible values: [&amp;quot;IPV4_IPV6&amp;quot;, &amp;quot;IPV4_ONLY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? StackType
+    public TerraformValue<string> StackType
     {
-        get => GetArgument<TerraformValue<string>>("stack_type");
+        get => GetArgument<TerraformValue<string>>("stack_type") ?? AsReference("stack_type");
         set => SetArgument("stack_type", value);
     }
 
@@ -272,9 +272,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// The type of InterconnectAttachment you wish to create. Defaults to
     /// DEDICATED. Possible values: [&amp;quot;DEDICATED&amp;quot;, &amp;quot;PARTNER&amp;quot;, &amp;quot;PARTNER_PROVIDER&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -282,9 +282,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. When
     /// using PARTNER type this will be managed upstream.
     /// </summary>
-    public TerraformValue<double>? VlanTag8021q
+    public TerraformValue<double> VlanTag8021q
     {
-        get => GetArgument<TerraformValue<double>>("vlan_tag8021q");
+        get => GetArgument<TerraformValue<double>>("vlan_tag8021q") ?? AsReference("vlan_tag8021q");
         set => SetArgument("vlan_tag8021q", value);
     }
 

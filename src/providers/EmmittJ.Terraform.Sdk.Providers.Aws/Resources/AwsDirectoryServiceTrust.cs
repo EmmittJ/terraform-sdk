@@ -20,9 +20,9 @@ public partial class AwsDirectoryServiceTrust(string name) : TerraformResource("
     /// <summary>
     /// The delete_associated_conditional_forwarder attribute.
     /// </summary>
-    public TerraformValue<bool>? DeleteAssociatedConditionalForwarder
+    public TerraformValue<bool> DeleteAssociatedConditionalForwarder
     {
-        get => GetArgument<TerraformValue<bool>>("delete_associated_conditional_forwarder");
+        get => GetArgument<TerraformValue<bool>>("delete_associated_conditional_forwarder") ?? AsReference("delete_associated_conditional_forwarder");
         set => SetArgument("delete_associated_conditional_forwarder", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsDirectoryServiceTrust(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformValue<string> DirectoryId
     {
-        get => GetArgument<TerraformValue<string>>("directory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("directory_id");
         set => SetArgument("directory_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -51,16 +51,16 @@ public partial class AwsDirectoryServiceTrust(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteDomainName is required")]
     public required TerraformValue<string> RemoteDomainName
     {
-        get => GetArgument<TerraformValue<string>>("remote_domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("remote_domain_name");
         set => SetArgument("remote_domain_name", value);
     }
 
     /// <summary>
     /// The selective_auth attribute.
     /// </summary>
-    public TerraformValue<string>? SelectiveAuth
+    public TerraformValue<string> SelectiveAuth
     {
-        get => GetArgument<TerraformValue<string>>("selective_auth");
+        get => GetArgument<TerraformValue<string>>("selective_auth") ?? AsReference("selective_auth");
         set => SetArgument("selective_auth", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsDirectoryServiceTrust(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustDirection is required")]
     public required TerraformValue<string> TrustDirection
     {
-        get => GetArgument<TerraformValue<string>>("trust_direction");
+        get => GetRequiredArgument<TerraformValue<string>>("trust_direction");
         set => SetArgument("trust_direction", value);
     }
 
@@ -80,16 +80,16 @@ public partial class AwsDirectoryServiceTrust(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustPassword is required")]
     public required TerraformValue<string> TrustPassword
     {
-        get => GetArgument<TerraformValue<string>>("trust_password");
+        get => GetRequiredArgument<TerraformValue<string>>("trust_password");
         set => SetArgument("trust_password", value);
     }
 
     /// <summary>
     /// The trust_type attribute.
     /// </summary>
-    public TerraformValue<string>? TrustType
+    public TerraformValue<string> TrustType
     {
-        get => GetArgument<TerraformValue<string>>("trust_type");
+        get => GetArgument<TerraformValue<string>>("trust_type") ?? AsReference("trust_type");
         set => SetArgument("trust_type", value);
     }
 

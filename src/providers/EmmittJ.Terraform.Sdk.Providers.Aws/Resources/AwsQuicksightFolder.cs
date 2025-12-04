@@ -19,7 +19,7 @@ public class AwsQuicksightFolderPermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     public required TerraformSet<string> Actions
     {
-        get => GetArgument<TerraformSet<string>>("actions");
+        get => GetRequiredArgument<TerraformSet<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsQuicksightFolderPermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetRequiredArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -95,9 +95,9 @@ public partial class AwsQuicksightFolder(string name) : TerraformResource("aws_q
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AwsQuicksightFolder(string name) : TerraformResource("aws_q
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformValue<string> FolderId
     {
-        get => GetArgument<TerraformValue<string>>("folder_id");
+        get => GetRequiredArgument<TerraformValue<string>>("folder_id");
         set => SetArgument("folder_id", value);
     }
 
@@ -123,9 +123,9 @@ public partial class AwsQuicksightFolder(string name) : TerraformResource("aws_q
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -150,9 +150,9 @@ public partial class AwsQuicksightFolder(string name) : TerraformResource("aws_q
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -168,9 +168,9 @@ public partial class AwsQuicksightFolder(string name) : TerraformResource("aws_q
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

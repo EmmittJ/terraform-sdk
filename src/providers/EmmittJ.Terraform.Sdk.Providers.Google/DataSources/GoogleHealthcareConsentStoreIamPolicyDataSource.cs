@@ -14,7 +14,7 @@ public partial class GoogleHealthcareConsentStoreIamPolicyDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsentStoreId is required")]
     public required TerraformValue<string> ConsentStoreId
     {
-        get => GetArgument<TerraformValue<string>>("consent_store_id");
+        get => GetRequiredArgument<TerraformValue<string>>("consent_store_id");
         set => SetArgument("consent_store_id", value);
     }
 
@@ -24,16 +24,16 @@ public partial class GoogleHealthcareConsentStoreIamPolicyDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformValue<string> Dataset
     {
-        get => GetArgument<TerraformValue<string>>("dataset");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset");
         set => SetArgument("dataset", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

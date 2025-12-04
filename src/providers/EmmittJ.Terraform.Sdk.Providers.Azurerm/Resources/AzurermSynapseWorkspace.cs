@@ -19,7 +19,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformValue<string> BranchName
     {
-        get => GetArgument<TerraformValue<string>>("branch_name");
+        get => GetRequiredArgument<TerraformValue<string>>("branch_name");
         set => SetArgument("branch_name", value);
     }
 
@@ -48,7 +48,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformValue<string> ProjectName
     {
-        get => GetArgument<TerraformValue<string>>("project_name");
+        get => GetRequiredArgument<TerraformValue<string>>("project_name");
         set => SetArgument("project_name", value);
     }
 
@@ -58,7 +58,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => GetArgument<TerraformValue<string>>("repository_name");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -68,16 +68,16 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
     public required TerraformValue<string> RootFolder
     {
-        get => GetArgument<TerraformValue<string>>("root_folder");
+        get => GetRequiredArgument<TerraformValue<string>>("root_folder");
         set => SetArgument("root_folder", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string>? TenantId
+    public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermSynapseWorkspaceCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVersionlessId is required")]
     public required TerraformValue<string> KeyVersionlessId
     {
-        get => GetArgument<TerraformValue<string>>("key_versionless_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_versionless_id");
         set => SetArgument("key_versionless_id", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformValue<string> BranchName
     {
-        get => GetArgument<TerraformValue<string>>("branch_name");
+        get => GetRequiredArgument<TerraformValue<string>>("branch_name");
         set => SetArgument("branch_name", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => GetArgument<TerraformValue<string>>("repository_name");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -191,7 +191,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
     public required TerraformValue<string> RootFolder
     {
-        get => GetArgument<TerraformValue<string>>("root_folder");
+        get => GetRequiredArgument<TerraformValue<string>>("root_folder");
         set => SetArgument("root_folder", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermSynapseWorkspaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -329,9 +329,9 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -350,16 +350,16 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? ManagedResourceGroupName
+    public TerraformValue<string> ManagedResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("managed_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group_name") ?? AsReference("managed_resource_group_name");
         set => SetArgument("managed_resource_group_name", value);
     }
 
@@ -378,7 +378,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -406,7 +406,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -443,7 +443,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageDataLakeGen2FilesystemId is required")]
     public required TerraformValue<string> StorageDataLakeGen2FilesystemId
     {
-        get => GetArgument<TerraformValue<string>>("storage_data_lake_gen2_filesystem_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_data_lake_gen2_filesystem_id");
         set => SetArgument("storage_data_lake_gen2_filesystem_id", value);
     }
 

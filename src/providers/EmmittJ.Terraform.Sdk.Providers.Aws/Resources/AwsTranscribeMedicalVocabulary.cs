@@ -52,9 +52,9 @@ public partial class AwsTranscribeMedicalVocabulary(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsTranscribeMedicalVocabulary(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetRequiredArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -89,9 +89,9 @@ public partial class AwsTranscribeMedicalVocabulary(string name) : TerraformReso
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsTranscribeMedicalVocabulary(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VocabularyFileUri is required")]
     public required TerraformValue<string> VocabularyFileUri
     {
-        get => GetArgument<TerraformValue<string>>("vocabulary_file_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("vocabulary_file_uri");
         set => SetArgument("vocabulary_file_uri", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsTranscribeMedicalVocabulary(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VocabularyName is required")]
     public required TerraformValue<string> VocabularyName
     {
-        get => GetArgument<TerraformValue<string>>("vocabulary_name");
+        get => GetRequiredArgument<TerraformValue<string>>("vocabulary_name");
         set => SetArgument("vocabulary_name", value);
     }
 

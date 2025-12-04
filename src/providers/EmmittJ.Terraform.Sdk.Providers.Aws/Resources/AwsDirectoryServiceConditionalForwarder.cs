@@ -14,7 +14,7 @@ public partial class AwsDirectoryServiceConditionalForwarder(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformValue<string> DirectoryId
     {
-        get => GetArgument<TerraformValue<string>>("directory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("directory_id");
         set => SetArgument("directory_id", value);
     }
 
@@ -31,18 +31,18 @@ public partial class AwsDirectoryServiceConditionalForwarder(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsDirectoryServiceConditionalForwarder(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteDomainName is required")]
     public required TerraformValue<string> RemoteDomainName
     {
-        get => GetArgument<TerraformValue<string>>("remote_domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("remote_domain_name");
         set => SetArgument("remote_domain_name", value);
     }
 

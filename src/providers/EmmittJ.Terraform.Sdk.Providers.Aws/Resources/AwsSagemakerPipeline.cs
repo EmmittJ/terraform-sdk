@@ -19,7 +19,7 @@ public class AwsSagemakerPipelineParallelismConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxParallelExecutionSteps is required")]
     public required TerraformValue<double> MaxParallelExecutionSteps
     {
-        get => GetArgument<TerraformValue<double>>("max_parallel_execution_steps");
+        get => GetRequiredArgument<TerraformValue<double>>("max_parallel_execution_steps");
         set => SetArgument("max_parallel_execution_steps", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectKey is required")]
     public required TerraformValue<string> ObjectKey
     {
-        get => GetArgument<TerraformValue<string>>("object_key");
+        get => GetRequiredArgument<TerraformValue<string>>("object_key");
         set => SetArgument("object_key", value);
     }
 
@@ -78,9 +78,9 @@ public partial class AwsSagemakerPipeline(string name) : TerraformResource("aws_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsSagemakerPipeline(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineDisplayName is required")]
     public required TerraformValue<string> PipelineDisplayName
     {
-        get => GetArgument<TerraformValue<string>>("pipeline_display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("pipeline_display_name");
         set => SetArgument("pipeline_display_name", value);
     }
 
@@ -118,16 +118,16 @@ public partial class AwsSagemakerPipeline(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineName is required")]
     public required TerraformValue<string> PipelineName
     {
-        get => GetArgument<TerraformValue<string>>("pipeline_name");
+        get => GetRequiredArgument<TerraformValue<string>>("pipeline_name");
         set => SetArgument("pipeline_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -152,9 +152,9 @@ public partial class AwsSagemakerPipeline(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

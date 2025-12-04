@@ -20,7 +20,7 @@ public class GoogleGkeHubMembershipAuthorityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => GetArgument<TerraformValue<string>>("issuer");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleGkeHubMembershipEndpointBlockGkeClusterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceLink is required")]
     public required TerraformValue<string> ResourceLink
     {
-        get => GetArgument<TerraformValue<string>>("resource_link");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_link");
         set => SetArgument("resource_link", value);
     }
 
@@ -128,9 +128,9 @@ public partial class GoogleGkeHubMembership(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -163,16 +163,16 @@ public partial class GoogleGkeHubMembership(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
     public required TerraformValue<string> MembershipId
     {
-        get => GetArgument<TerraformValue<string>>("membership_id");
+        get => GetRequiredArgument<TerraformValue<string>>("membership_id");
         set => SetArgument("membership_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

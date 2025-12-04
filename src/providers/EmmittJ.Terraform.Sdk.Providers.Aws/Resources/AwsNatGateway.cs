@@ -70,54 +70,54 @@ public partial class AwsNatGateway(string name) : TerraformResource("aws_nat_gat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateIp
+    public TerraformValue<string> PrivateIp
     {
-        get => GetArgument<TerraformValue<string>>("private_ip");
+        get => GetArgument<TerraformValue<string>>("private_ip") ?? AsReference("private_ip");
         set => SetArgument("private_ip", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The secondary_allocation_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SecondaryAllocationIds
+    public TerraformSet<string> SecondaryAllocationIds
     {
-        get => GetArgument<TerraformSet<string>>("secondary_allocation_ids");
+        get => GetArgument<TerraformSet<string>>("secondary_allocation_ids") ?? AsReference("secondary_allocation_ids");
         set => SetArgument("secondary_allocation_ids", value);
     }
 
     /// <summary>
     /// The secondary_private_ip_address_count attribute.
     /// </summary>
-    public TerraformValue<double>? SecondaryPrivateIpAddressCount
+    public TerraformValue<double> SecondaryPrivateIpAddressCount
     {
-        get => GetArgument<TerraformValue<double>>("secondary_private_ip_address_count");
+        get => GetArgument<TerraformValue<double>>("secondary_private_ip_address_count") ?? AsReference("secondary_private_ip_address_count");
         set => SetArgument("secondary_private_ip_address_count", value);
     }
 
     /// <summary>
     /// The secondary_private_ip_addresses attribute.
     /// </summary>
-    public TerraformSet<string>? SecondaryPrivateIpAddresses
+    public TerraformSet<string> SecondaryPrivateIpAddresses
     {
-        get => GetArgument<TerraformSet<string>>("secondary_private_ip_addresses");
+        get => GetArgument<TerraformSet<string>>("secondary_private_ip_addresses") ?? AsReference("secondary_private_ip_addresses");
         set => SetArgument("secondary_private_ip_addresses", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsNatGateway(string name) : TerraformResource("aws_nat_gat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -143,9 +143,9 @@ public partial class AwsNatGateway(string name) : TerraformResource("aws_nat_gat
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

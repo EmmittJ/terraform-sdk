@@ -61,9 +61,9 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     /// <summary>
     /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
     /// </summary>
-    public TerraformValue<string>? Alias
+    public TerraformValue<string> Alias
     {
-        get => GetArgument<TerraformValue<string>>("alias");
+        get => GetArgument<TerraformValue<string>>("alias") ?? AsReference("alias");
         set => SetArgument("alias", value);
     }
 
@@ -79,18 +79,18 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The GUID of the Subscription.
     /// </summary>
-    public TerraformValue<string>? SubscriptionId
+    public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionName is required")]
     public required TerraformValue<string> SubscriptionName
     {
-        get => GetArgument<TerraformValue<string>>("subscription_name");
+        get => GetRequiredArgument<TerraformValue<string>>("subscription_name");
         set => SetArgument("subscription_name", value);
     }
 

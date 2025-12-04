@@ -19,7 +19,7 @@ public class GoogleIamWorkloadIdentityPoolProviderAwsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleIamWorkloadIdentityPoolProviderOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformValue<string> IssuerUri
     {
-        get => GetArgument<TerraformValue<string>>("issuer_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer_uri");
         set => SetArgument("issuer_uri", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleIamWorkloadIdentityPoolProviderSamlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpMetadataXml is required")]
     public required TerraformValue<string> IdpMetadataXml
     {
-        get => GetArgument<TerraformValue<string>>("idp_metadata_xml");
+        get => GetRequiredArgument<TerraformValue<string>>("idp_metadata_xml");
         set => SetArgument("idp_metadata_xml", value);
     }
 
@@ -405,18 +405,18 @@ public partial class GoogleIamWorkloadIdentityPoolProvider(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -428,7 +428,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     public required TerraformValue<string> WorkloadIdentityPoolId
     {
-        get => GetArgument<TerraformValue<string>>("workload_identity_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workload_identity_pool_id");
         set => SetArgument("workload_identity_pool_id", value);
     }
 
@@ -440,7 +440,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolProviderId is required")]
     public required TerraformValue<string> WorkloadIdentityPoolProviderId
     {
-        get => GetArgument<TerraformValue<string>>("workload_identity_pool_provider_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workload_identity_pool_provider_id");
         set => SetArgument("workload_identity_pool_provider_id", value);
     }
 

@@ -37,7 +37,7 @@ public partial class AwsSagemakerHub(string name) : TerraformResource("aws_sagem
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubDescription is required")]
     public required TerraformValue<string> HubDescription
     {
-        get => GetArgument<TerraformValue<string>>("hub_description");
+        get => GetRequiredArgument<TerraformValue<string>>("hub_description");
         set => SetArgument("hub_description", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsSagemakerHub(string name) : TerraformResource("aws_sagem
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubName is required")]
     public required TerraformValue<string> HubName
     {
-        get => GetArgument<TerraformValue<string>>("hub_name");
+        get => GetRequiredArgument<TerraformValue<string>>("hub_name");
         set => SetArgument("hub_name", value);
     }
 
@@ -72,18 +72,18 @@ public partial class AwsSagemakerHub(string name) : TerraformResource("aws_sagem
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -99,9 +99,9 @@ public partial class AwsSagemakerHub(string name) : TerraformResource("aws_sagem
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -14,16 +14,16 @@ public partial class AwsBackupGlobalSettings(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalSettings is required")]
     public required TerraformMap<string> GlobalSettings
     {
-        get => GetArgument<TerraformMap<string>>("global_settings");
+        get => GetRequiredArgument<TerraformMap<string>>("global_settings");
         set => SetArgument("global_settings", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

@@ -19,7 +19,7 @@ public class AzurermPrivateDnsMxRecordRecordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exchange is required")]
     public required TerraformValue<string> Exchange
     {
-        get => GetArgument<TerraformValue<string>>("exchange");
+        get => GetRequiredArgument<TerraformValue<string>>("exchange");
         set => SetArgument("exchange", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermPrivateDnsMxRecordRecordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
     public required TerraformValue<double> Preference
     {
-        get => GetArgument<TerraformValue<double>>("preference");
+        get => GetRequiredArgument<TerraformValue<double>>("preference");
         set => SetArgument("preference", value);
     }
 
@@ -95,9 +95,9 @@ public partial class AzurermPrivateDnsMxRecord(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AzurermPrivateDnsMxRecord(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermPrivateDnsMxRecord(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformValue<double> Ttl
     {
-        get => GetArgument<TerraformValue<double>>("ttl");
+        get => GetRequiredArgument<TerraformValue<double>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermPrivateDnsMxRecord(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
     public required TerraformValue<string> ZoneName
     {
-        get => GetArgument<TerraformValue<string>>("zone_name");
+        get => GetRequiredArgument<TerraformValue<string>>("zone_name");
         set => SetArgument("zone_name", value);
     }
 

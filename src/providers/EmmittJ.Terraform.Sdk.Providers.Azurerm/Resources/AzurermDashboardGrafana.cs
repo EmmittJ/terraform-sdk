@@ -19,7 +19,7 @@ public class AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => GetArgument<TerraformValue<string>>("resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermDashboardGrafanaIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromAddress is required")]
     public required TerraformValue<string> FromAddress
     {
-        get => GetArgument<TerraformValue<string>>("from_address");
+        get => GetRequiredArgument<TerraformValue<string>>("from_address");
         set => SetArgument("from_address", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -126,7 +126,7 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -136,7 +136,7 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTlsPolicy is required")]
     public required TerraformValue<string> StartTlsPolicy
     {
-        get => GetArgument<TerraformValue<string>>("start_tls_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("start_tls_policy");
         set => SetArgument("start_tls_policy", value);
     }
 
@@ -146,7 +146,7 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => GetArgument<TerraformValue<string>>("user");
+        get => GetRequiredArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -251,16 +251,16 @@ public partial class AzurermDashboardGrafana(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaMajorVersion is required")]
     public required TerraformValue<string> GrafanaMajorVersion
     {
-        get => GetArgument<TerraformValue<string>>("grafana_major_version");
+        get => GetRequiredArgument<TerraformValue<string>>("grafana_major_version");
         set => SetArgument("grafana_major_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AzurermDashboardGrafana(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzurermDashboardGrafana(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -299,7 +299,7 @@ public partial class AzurermDashboardGrafana(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

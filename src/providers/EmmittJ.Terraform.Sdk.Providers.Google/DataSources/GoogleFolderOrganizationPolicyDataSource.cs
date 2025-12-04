@@ -14,7 +14,7 @@ public partial class GoogleFolderOrganizationPolicyDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
     public required TerraformValue<string> Constraint
     {
-        get => GetArgument<TerraformValue<string>>("constraint");
+        get => GetRequiredArgument<TerraformValue<string>>("constraint");
         set => SetArgument("constraint", value);
     }
 
@@ -24,16 +24,16 @@ public partial class GoogleFolderOrganizationPolicyDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformValue<string> Folder
     {
-        get => GetArgument<TerraformValue<string>>("folder");
+        get => GetRequiredArgument<TerraformValue<string>>("folder");
         set => SetArgument("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

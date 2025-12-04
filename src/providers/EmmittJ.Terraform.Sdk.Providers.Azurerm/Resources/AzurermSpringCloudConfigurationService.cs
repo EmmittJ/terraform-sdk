@@ -46,7 +46,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Label is required")]
     public required TerraformValue<string> Label
     {
-        get => GetArgument<TerraformValue<string>>("label");
+        get => GetRequiredArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -75,7 +75,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Patterns is required")]
     public required TerraformSet<string> Patterns
     {
-        get => GetArgument<TerraformSet<string>>("patterns");
+        get => GetRequiredArgument<TerraformSet<string>>("patterns");
         set => SetArgument("patterns", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -196,9 +196,9 @@ public partial class AzurermSpringCloudConfigurationService(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AzurermSpringCloudConfigurationService(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -227,7 +227,7 @@ public partial class AzurermSpringCloudConfigurationService(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformValue<string> SpringCloudServiceId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_service_id");
         set => SetArgument("spring_cloud_service_id", value);
     }
 

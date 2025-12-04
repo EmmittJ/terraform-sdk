@@ -19,7 +19,7 @@ public class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelSet is required")]
     public required TerraformMap<string> LabelSet
     {
-        get => GetArgument<TerraformMap<string>>("label_set");
+        get => GetRequiredArgument<TerraformMap<string>>("label_set");
         set => SetArgument("label_set", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlockLimitsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSeries is required")]
     public required TerraformValue<double> MaxSeries
     {
-        get => GetArgument<TerraformValue<double>>("max_series");
+        get => GetRequiredArgument<TerraformValue<double>>("max_series");
         set => SetArgument("max_series", value);
     }
 
@@ -99,18 +99,18 @@ public partial class AwsPrometheusWorkspaceConfiguration(string name) : Terrafor
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The retention_period_in_days attribute.
     /// </summary>
-    public TerraformValue<double>? RetentionPeriodInDays
+    public TerraformValue<double> RetentionPeriodInDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_period_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_period_in_days") ?? AsReference("retention_period_in_days");
         set => SetArgument("retention_period_in_days", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AwsPrometheusWorkspaceConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

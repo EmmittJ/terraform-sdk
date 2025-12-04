@@ -82,7 +82,7 @@ public partial class AzurermDataFactoryLinkedServiceKusto(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -98,9 +98,9 @@ public partial class AzurermDataFactoryLinkedServiceKusto(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermDataFactoryLinkedServiceKusto(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseName is required")]
     public required TerraformValue<string> KustoDatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("kusto_database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kusto_database_name");
         set => SetArgument("kusto_database_name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermDataFactoryLinkedServiceKusto(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoEndpoint is required")]
     public required TerraformValue<string> KustoEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("kusto_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("kusto_endpoint");
         set => SetArgument("kusto_endpoint", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermDataFactoryLinkedServiceKusto(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

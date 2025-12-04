@@ -61,18 +61,18 @@ public partial class AwsWorkspaceswebPortal(string name) : TerraformResource("aw
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformValue<string>? AuthenticationType
+    public TerraformValue<string> AuthenticationType
     {
-        get => GetArgument<TerraformValue<string>>("authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type") ?? AsReference("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
     /// <summary>
     /// The browser_settings_arn attribute.
     /// </summary>
-    public TerraformValue<string>? BrowserSettingsArn
+    public TerraformValue<string> BrowserSettingsArn
     {
-        get => GetArgument<TerraformValue<string>>("browser_settings_arn");
+        get => GetArgument<TerraformValue<string>>("browser_settings_arn") ?? AsReference("browser_settings_arn");
         set => SetArgument("browser_settings_arn", value);
     }
 
@@ -88,36 +88,36 @@ public partial class AwsWorkspaceswebPortal(string name) : TerraformResource("aw
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformValue<string>? InstanceType
+    public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// The max_concurrent_sessions attribute.
     /// </summary>
-    public TerraformValue<double>? MaxConcurrentSessions
+    public TerraformValue<double> MaxConcurrentSessions
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_sessions");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_sessions") ?? AsReference("max_concurrent_sessions");
         set => SetArgument("max_concurrent_sessions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

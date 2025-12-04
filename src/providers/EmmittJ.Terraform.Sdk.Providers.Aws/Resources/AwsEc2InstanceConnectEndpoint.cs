@@ -43,27 +43,27 @@ public partial class AwsEc2InstanceConnectEndpoint(string name) : TerraformResou
     /// <summary>
     /// The preserve_client_ip attribute.
     /// </summary>
-    public TerraformValue<bool>? PreserveClientIp
+    public TerraformValue<bool> PreserveClientIp
     {
-        get => GetArgument<TerraformValue<bool>>("preserve_client_ip");
+        get => GetArgument<TerraformValue<bool>>("preserve_client_ip") ?? AsReference("preserve_client_ip");
         set => SetArgument("preserve_client_ip", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroupIds
+    public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsEc2InstanceConnectEndpoint(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 

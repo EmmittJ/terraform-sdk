@@ -16,9 +16,9 @@ public class AzurermCosmosdbCassandraTableAutoscaleSettingsBlock : TerraformBloc
     /// <summary>
     /// The max_throughput attribute.
     /// </summary>
-    public TerraformValue<double>? MaxThroughput
+    public TerraformValue<double> MaxThroughput
     {
-        get => GetArgument<TerraformValue<double>>("max_throughput");
+        get => GetArgument<TerraformValue<double>>("max_throughput") ?? AsReference("max_throughput");
         set => SetArgument("max_throughput", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermCosmosdbCassandraTableSchemaBlockClusterKeyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermCosmosdbCassandraTableSchemaBlockClusterKeyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrderBy is required")]
     public required TerraformValue<string> OrderBy
     {
-        get => GetArgument<TerraformValue<string>>("order_by");
+        get => GetRequiredArgument<TerraformValue<string>>("order_by");
         set => SetArgument("order_by", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermCosmosdbCassandraTableSchemaBlockColumnBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermCosmosdbCassandraTableSchemaBlockColumnBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermCosmosdbCassandraTableSchemaBlockPartitionKeyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AzurermCosmosdbCassandraTable(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CassandraKeyspaceId is required")]
     public required TerraformValue<string> CassandraKeyspaceId
     {
-        get => GetArgument<TerraformValue<string>>("cassandra_keyspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cassandra_keyspace_id");
         set => SetArgument("cassandra_keyspace_id", value);
     }
 
@@ -248,9 +248,9 @@ public partial class AzurermCosmosdbCassandraTable(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -260,16 +260,16 @@ public partial class AzurermCosmosdbCassandraTable(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 

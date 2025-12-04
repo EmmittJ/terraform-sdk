@@ -53,9 +53,9 @@ public class GoogleEdgecontainerNodePoolNodeConfigBlock : TerraformBlock
     /// <summary>
     /// &amp;quot;The Kubernetes node labels&amp;quot;
     /// </summary>
-    public TerraformMap<string>? Labels
+    public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -115,16 +115,16 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -155,9 +155,9 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     /// The filtering language accepts strings like &amp;quot;name=&amp;lt;name&amp;gt;&amp;quot;, and is
     /// documented in more detail in [AIP-160](https://google.aip.dev/160).
     /// </summary>
-    public TerraformValue<string>? MachineFilter
+    public TerraformValue<string> MachineFilter
     {
-        get => GetArgument<TerraformValue<string>>("machine_filter");
+        get => GetArgument<TerraformValue<string>>("machine_filter") ?? AsReference("machine_filter");
         set => SetArgument("machine_filter", value);
     }
 
@@ -167,7 +167,7 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -177,7 +177,7 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -187,16 +187,16 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeLocation is required")]
     public required TerraformValue<string> NodeLocation
     {
-        get => GetArgument<TerraformValue<string>>("node_location");
+        get => GetRequiredArgument<TerraformValue<string>>("node_location");
         set => SetArgument("node_location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

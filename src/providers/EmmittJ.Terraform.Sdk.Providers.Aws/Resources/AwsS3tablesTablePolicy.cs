@@ -14,7 +14,7 @@ public partial class AwsS3tablesTablePolicy(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsS3tablesTablePolicy(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsS3tablesTablePolicy(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourcePolicy is required")]
     public required TerraformValue<string> ResourcePolicy
     {
-        get => GetArgument<TerraformValue<string>>("resource_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_policy");
         set => SetArgument("resource_policy", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsS3tablesTablePolicy(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
     public required TerraformValue<string> TableBucketArn
     {
-        get => GetArgument<TerraformValue<string>>("table_bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("table_bucket_arn");
         set => SetArgument("table_bucket_arn", value);
     }
 

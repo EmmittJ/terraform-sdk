@@ -28,27 +28,27 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// <summary>
     /// Optional. If true, builds performed during operations that install Python packages have only private connectivity to Google services. If false, the builds also have access to the internet.
     /// </summary>
-    public TerraformValue<bool>? EnablePrivateBuildsOnly
+    public TerraformValue<bool> EnablePrivateBuildsOnly
     {
-        get => GetArgument<TerraformValue<bool>>("enable_private_builds_only");
+        get => GetArgument<TerraformValue<bool>>("enable_private_builds_only") ?? AsReference("enable_private_builds_only");
         set => SetArgument("enable_private_builds_only", value);
     }
 
     /// <summary>
     /// Optional. If true, a private Composer environment will be created.
     /// </summary>
-    public TerraformValue<bool>? EnablePrivateEnvironment
+    public TerraformValue<bool> EnablePrivateEnvironment
     {
-        get => GetArgument<TerraformValue<bool>>("enable_private_environment");
+        get => GetArgument<TerraformValue<bool>>("enable_private_environment") ?? AsReference("enable_private_environment");
         set => SetArgument("enable_private_environment", value);
     }
 
     /// <summary>
     /// The size of the Cloud Composer environment. This field is supported for Cloud Composer environments in versions composer-2.*.*-airflow-*.*.* and newer.
     /// </summary>
-    public TerraformValue<string>? EnvironmentSize
+    public TerraformValue<string> EnvironmentSize
     {
-        get => GetArgument<TerraformValue<string>>("environment_size");
+        get => GetArgument<TerraformValue<string>>("environment_size") ?? AsReference("environment_size");
         set => SetArgument("environment_size", value);
     }
 
@@ -61,18 +61,18 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// <summary>
     /// The number of nodes in the Kubernetes Engine cluster that will be used to run this environment. This field is supported for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*.
     /// </summary>
-    public TerraformValue<double>? NodeCount
+    public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
         set => SetArgument("node_count", value);
     }
 
     /// <summary>
     /// Whether high resilience is enabled or not. This field is supported for Cloud Composer environments in versions composer-2.1.15-airflow-*.*.* and newer.
     /// </summary>
-    public TerraformValue<string>? ResilienceMode
+    public TerraformValue<string> ResilienceMode
     {
-        get => GetArgument<TerraformValue<string>>("resilience_mode");
+        get => GetArgument<TerraformValue<string>>("resilience_mode") ?? AsReference("resilience_mode");
         set => SetArgument("resilience_mode", value);
     }
 
@@ -243,18 +243,18 @@ public class GoogleComposerEnvironmentConfigBlockDataRetentionConfigBlockAirflow
     /// <summary>
     /// How many days data should be retained for. This field is supported for Cloud Composer environments in composer 3 and newer.
     /// </summary>
-    public TerraformValue<double>? RetentionDays
+    public TerraformValue<double> RetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_days");
+        get => GetArgument<TerraformValue<double>>("retention_days") ?? AsReference("retention_days");
         set => SetArgument("retention_days", value);
     }
 
     /// <summary>
     /// Whether database retention is enabled or not. This field is supported for Cloud Composer environments in composer 3 and newer.
     /// </summary>
-    public TerraformValue<string>? RetentionMode
+    public TerraformValue<string> RetentionMode
     {
-        get => GetArgument<TerraformValue<string>>("retention_mode");
+        get => GetArgument<TerraformValue<string>>("retention_mode") ?? AsReference("retention_mode");
         set => SetArgument("retention_mode", value);
     }
 
@@ -330,7 +330,7 @@ public class GoogleComposerEnvironmentConfigBlockEncryptionConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -353,7 +353,7 @@ public class GoogleComposerEnvironmentConfigBlockMaintenanceWindowBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTime is required")]
     public required TerraformValue<string> EndTime
     {
-        get => GetArgument<TerraformValue<string>>("end_time");
+        get => GetRequiredArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -363,7 +363,7 @@ public class GoogleComposerEnvironmentConfigBlockMaintenanceWindowBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Recurrence is required")]
     public required TerraformValue<string> Recurrence
     {
-        get => GetArgument<TerraformValue<string>>("recurrence");
+        get => GetRequiredArgument<TerraformValue<string>>("recurrence");
         set => SetArgument("recurrence", value);
     }
 
@@ -373,7 +373,7 @@ public class GoogleComposerEnvironmentConfigBlockMaintenanceWindowBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -396,7 +396,7 @@ public class GoogleComposerEnvironmentConfigBlockMasterAuthorizedNetworksConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -428,7 +428,7 @@ public class GoogleComposerEnvironmentConfigBlockMasterAuthorizedNetworksConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlock is required")]
     public required TerraformValue<string> CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cidr_block");
+        get => GetRequiredArgument<TerraformValue<string>>("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
@@ -457,81 +457,81 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// <summary>
     /// IPv4 cidr range that will be used by Composer internal components.
     /// </summary>
-    public TerraformValue<string>? ComposerInternalIpv4CidrBlock
+    public TerraformValue<string> ComposerInternalIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("composer_internal_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("composer_internal_ipv4_cidr_block") ?? AsReference("composer_internal_ipv4_cidr_block");
         set => SetArgument("composer_internal_ipv4_cidr_block", value);
     }
 
     /// <summary>
     /// PSC (Private Service Connect) Network entry point. Customers can pre-create the Network Attachment and point Cloud Composer environment to use. It is possible to share network attachment among many environments, provided enough IP addresses are available.
     /// </summary>
-    public TerraformValue<string>? ComposerNetworkAttachment
+    public TerraformValue<string> ComposerNetworkAttachment
     {
-        get => GetArgument<TerraformValue<string>>("composer_network_attachment");
+        get => GetArgument<TerraformValue<string>>("composer_network_attachment") ?? AsReference("composer_network_attachment");
         set => SetArgument("composer_network_attachment", value);
     }
 
     /// <summary>
     /// The disk size in GB used for node VMs. Minimum size is 20GB. If unspecified, defaults to 100GB. Cannot be updated. This field is supported for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*.
     /// </summary>
-    public TerraformValue<double>? DiskSizeGb
+    public TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb") ?? AsReference("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
     /// <summary>
     /// Deploys &#39;ip-masq-agent&#39; daemon set in the GKE cluster and defines nonMasqueradeCIDRs equals to pod IP range so IP masquerading is used for all destination addresses, except between pods traffic. See: https://cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent
     /// </summary>
-    public TerraformValue<bool>? EnableIpMasqAgent
+    public TerraformValue<bool> EnableIpMasqAgent
     {
-        get => GetArgument<TerraformValue<bool>>("enable_ip_masq_agent");
+        get => GetArgument<TerraformValue<bool>>("enable_ip_masq_agent") ?? AsReference("enable_ip_masq_agent");
         set => SetArgument("enable_ip_masq_agent", value);
     }
 
     /// <summary>
     /// The Compute Engine machine type used for cluster instances, specified as a name or relative resource name. For example: &amp;quot;projects/{project}/zones/{zone}/machineTypes/{machineType}&amp;quot;. Must belong to the enclosing environment&#39;s project and region/zone. This field is supported for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*.
     /// </summary>
-    public TerraformValue<string>? MachineType
+    public TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type") ?? AsReference("machine_type");
         set => SetArgument("machine_type", value);
     }
 
     /// <summary>
     /// The Compute Engine machine type used for cluster instances, specified as a name or relative resource name. For example: &amp;quot;projects/{project}/zones/{zone}/machineTypes/{machineType}&amp;quot;. Must belong to the enclosing environment&#39;s project and region/zone. The network must belong to the environment&#39;s project. If unspecified, the &amp;quot;default&amp;quot; network ID in the environment&#39;s project is used. If a Custom Subnet Network is provided, subnetwork must also be provided.
     /// </summary>
-    public TerraformValue<string>? Network
+    public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The set of Google API scopes to be made available on all node VMs. Cannot be updated. If empty, defaults to [&amp;quot;https://www.googleapis.com/auth/cloud-platform&amp;quot;]. This field is supported for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*.
     /// </summary>
-    public TerraformSet<string>? OauthScopes
+    public TerraformSet<string> OauthScopes
     {
-        get => GetArgument<TerraformSet<string>>("oauth_scopes");
+        get => GetArgument<TerraformSet<string>>("oauth_scopes") ?? AsReference("oauth_scopes");
         set => SetArgument("oauth_scopes", value);
     }
 
     /// <summary>
     /// The Google Cloud Platform Service Account to be used by the node VMs. If a service account is not specified, the &amp;quot;default&amp;quot; Compute Engine service account is used. Cannot be updated. If given, note that the service account must have roles/composer.worker for any GCP resources created under the Cloud Composer Environment.
     /// </summary>
-    public TerraformValue<string>? ServiceAccount
+    public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
         set => SetArgument("service_account", value);
     }
 
     /// <summary>
     /// The Compute Engine subnetwork to be used for machine communications, specified as a self-link, relative resource name (e.g. &amp;quot;projects/{project}/regions/{region}/subnetworks/{subnetwork}&amp;quot;), or by name. If subnetwork is provided, network must also be provided and the subnetwork must belong to the enclosing environment&#39;s project and region.
     /// </summary>
-    public TerraformValue<string>? Subnetwork
+    public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -547,9 +547,9 @@ public class GoogleComposerEnvironmentConfigBlockNodeConfigBlock : TerraformBloc
     /// <summary>
     /// The Compute Engine zone in which to deploy the VMs running the Apache Airflow software, specified as the zone name or relative resource name (e.g. &amp;quot;projects/{project}/zones/{zone}&amp;quot;). Must belong to the enclosing environment&#39;s project and region. This field is supported for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -637,36 +637,36 @@ public class GoogleComposerEnvironmentConfigBlockPrivateEnvironmentConfigBlock :
     /// <summary>
     /// When specified, the environment will use Private Service Connect instead of VPC peerings to connect to Cloud SQL in the Tenant Project, and the PSC endpoint in the Customer Project will use an IP address from this subnetwork. This field is supported for Cloud Composer environments in versions composer-2.*.*-airflow-*.*.* and newer.
     /// </summary>
-    public TerraformValue<string>? CloudComposerConnectionSubnetwork
+    public TerraformValue<string> CloudComposerConnectionSubnetwork
     {
-        get => GetArgument<TerraformValue<string>>("cloud_composer_connection_subnetwork");
+        get => GetArgument<TerraformValue<string>>("cloud_composer_connection_subnetwork") ?? AsReference("cloud_composer_connection_subnetwork");
         set => SetArgument("cloud_composer_connection_subnetwork", value);
     }
 
     /// <summary>
     /// The CIDR block from which IP range for Cloud Composer Network in tenant project will be reserved. Needs to be disjoint from private_cluster_config.master_ipv4_cidr_block and cloud_sql_ipv4_cidr_block. This field is supported for Cloud Composer environments in versions composer-2.*.*-airflow-*.*.* and newer.
     /// </summary>
-    public TerraformValue<string>? CloudComposerNetworkIpv4CidrBlock
+    public TerraformValue<string> CloudComposerNetworkIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cloud_composer_network_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("cloud_composer_network_ipv4_cidr_block") ?? AsReference("cloud_composer_network_ipv4_cidr_block");
         set => SetArgument("cloud_composer_network_ipv4_cidr_block", value);
     }
 
     /// <summary>
     /// The CIDR block from which IP range in tenant project will be reserved for Cloud SQL. Needs to be disjoint from web_server_ipv4_cidr_block.
     /// </summary>
-    public TerraformValue<string>? CloudSqlIpv4CidrBlock
+    public TerraformValue<string> CloudSqlIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cloud_sql_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("cloud_sql_ipv4_cidr_block") ?? AsReference("cloud_sql_ipv4_cidr_block");
         set => SetArgument("cloud_sql_ipv4_cidr_block", value);
     }
 
     /// <summary>
     /// Mode of internal communication within the Composer environment. Must be one of &amp;quot;VPC_PEERING&amp;quot; or &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? ConnectionType
+    public TerraformValue<string> ConnectionType
     {
-        get => GetArgument<TerraformValue<string>>("connection_type");
+        get => GetArgument<TerraformValue<string>>("connection_type") ?? AsReference("connection_type");
         set => SetArgument("connection_type", value);
     }
 
@@ -682,27 +682,27 @@ public class GoogleComposerEnvironmentConfigBlockPrivateEnvironmentConfigBlock :
     /// <summary>
     /// When enabled, IPs from public (non-RFC1918) ranges can be used for ip_allocation_policy.cluster_ipv4_cidr_block and ip_allocation_policy.service_ipv4_cidr_block.
     /// </summary>
-    public TerraformValue<bool>? EnablePrivatelyUsedPublicIps
+    public TerraformValue<bool> EnablePrivatelyUsedPublicIps
     {
-        get => GetArgument<TerraformValue<bool>>("enable_privately_used_public_ips");
+        get => GetArgument<TerraformValue<bool>>("enable_privately_used_public_ips") ?? AsReference("enable_privately_used_public_ips");
         set => SetArgument("enable_privately_used_public_ips", value);
     }
 
     /// <summary>
     /// The IP range in CIDR notation to use for the hosted master network. This range is used for assigning internal IP addresses to the cluster master or set of masters and to the internal load balancer virtual IP. This range must not overlap with any other ranges in use within the cluster&#39;s network. If left blank, the default value of &#39;172.16.0.0/28&#39; is used.
     /// </summary>
-    public TerraformValue<string>? MasterIpv4CidrBlock
+    public TerraformValue<string> MasterIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("master_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("master_ipv4_cidr_block") ?? AsReference("master_ipv4_cidr_block");
         set => SetArgument("master_ipv4_cidr_block", value);
     }
 
     /// <summary>
     /// The CIDR block from which IP range for web server will be reserved. Needs to be disjoint from master_ipv4_cidr_block and cloud_sql_ipv4_cidr_block. This field is supported for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*.
     /// </summary>
-    public TerraformValue<string>? WebServerIpv4CidrBlock
+    public TerraformValue<string> WebServerIpv4CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("web_server_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("web_server_ipv4_cidr_block") ?? AsReference("web_server_ipv4_cidr_block");
         set => SetArgument("web_server_ipv4_cidr_block", value);
     }
 
@@ -748,7 +748,7 @@ public class GoogleComposerEnvironmentConfigBlockRecoveryConfigBlockScheduledSna
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -813,9 +813,9 @@ public class GoogleComposerEnvironmentConfigBlockSoftwareConfigBlock : Terraform
     /// <summary>
     /// The version of the software running in the environment. This encapsulates both the version of Cloud Composer functionality and the version of Apache Airflow. It must match the regular expression composer-([0-9]+(\.[0-9]+\.[0-9]+(-preview\.[0-9]+)?)?|latest)-airflow-([0-9]+(\.[0-9]+(\.[0-9]+)?)?). The Cloud Composer portion of the image version is a full semantic version, or an alias in the form of major version number or &#39;latest&#39;. The Apache Airflow portion of the image version is a full semantic version that points to one of the supported Apache Airflow versions, or an alias in the form of only major or major.minor versions specified. See documentation for more details and version list.
     /// </summary>
-    public TerraformValue<string>? ImageVersion
+    public TerraformValue<string> ImageVersion
     {
-        get => GetArgument<TerraformValue<string>>("image_version");
+        get => GetArgument<TerraformValue<string>>("image_version") ?? AsReference("image_version");
         set => SetArgument("image_version", value);
     }
 
@@ -831,27 +831,27 @@ public class GoogleComposerEnvironmentConfigBlockSoftwareConfigBlock : Terraform
     /// <summary>
     /// The major version of Python used to run the Apache Airflow scheduler, worker, and webserver processes. Can be set to &#39;2&#39; or &#39;3&#39;. If not specified, the default is &#39;2&#39;. Cannot be updated. This field is supported for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*. Environments in newer versions always use Python major version 3.
     /// </summary>
-    public TerraformValue<string>? PythonVersion
+    public TerraformValue<string> PythonVersion
     {
-        get => GetArgument<TerraformValue<string>>("python_version");
+        get => GetArgument<TerraformValue<string>>("python_version") ?? AsReference("python_version");
         set => SetArgument("python_version", value);
     }
 
     /// <summary>
     /// The number of schedulers for Airflow. This field is supported for Cloud Composer environments in versions composer-1.*.*-airflow-2.*.*.
     /// </summary>
-    public TerraformValue<double>? SchedulerCount
+    public TerraformValue<double> SchedulerCount
     {
-        get => GetArgument<TerraformValue<double>>("scheduler_count");
+        get => GetArgument<TerraformValue<double>>("scheduler_count") ?? AsReference("scheduler_count");
         set => SetArgument("scheduler_count", value);
     }
 
     /// <summary>
     /// Should be either &#39;ENABLED&#39; or &#39;DISABLED&#39;. Defaults to &#39;ENABLED&#39;. Used in Composer 3.
     /// </summary>
-    public TerraformValue<string>? WebServerPluginsMode
+    public TerraformValue<string> WebServerPluginsMode
     {
-        get => GetArgument<TerraformValue<string>>("web_server_plugins_mode");
+        get => GetArgument<TerraformValue<string>>("web_server_plugins_mode") ?? AsReference("web_server_plugins_mode");
         set => SetArgument("web_server_plugins_mode", value);
     }
 
@@ -884,7 +884,7 @@ public class GoogleComposerEnvironmentConfigBlockSoftwareConfigBlockCloudDataLin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -907,7 +907,7 @@ public class GoogleComposerEnvironmentConfigBlockWebServerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
     public required TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type");
+        get => GetRequiredArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -961,7 +961,7 @@ public class GoogleComposerEnvironmentConfigBlockWebServerNetworkAccessControlBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1044,36 +1044,36 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockDagProcesso
     /// <summary>
     /// Number of DAG processors.
     /// </summary>
-    public TerraformValue<double>? CountAttribute
+    public TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetArgument<TerraformValue<double>>("count") ?? AsReference("count");
         set => SetArgument("count", value);
     }
 
     /// <summary>
     /// CPU request and limit for DAG processor.
     /// </summary>
-    public TerraformValue<double>? Cpu
+    public TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu");
+        get => GetArgument<TerraformValue<double>>("cpu") ?? AsReference("cpu");
         set => SetArgument("cpu", value);
     }
 
     /// <summary>
     /// Memory (GB) request and limit for DAG processor.
     /// </summary>
-    public TerraformValue<double>? MemoryGb
+    public TerraformValue<double> MemoryGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_gb");
+        get => GetArgument<TerraformValue<double>>("memory_gb") ?? AsReference("memory_gb");
         set => SetArgument("memory_gb", value);
     }
 
     /// <summary>
     /// Storage (GB) request and limit for DAG processor.
     /// </summary>
-    public TerraformValue<double>? StorageGb
+    public TerraformValue<double> StorageGb
     {
-        get => GetArgument<TerraformValue<double>>("storage_gb");
+        get => GetArgument<TerraformValue<double>>("storage_gb") ?? AsReference("storage_gb");
         set => SetArgument("storage_gb", value);
     }
 
@@ -1093,36 +1093,36 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockSchedulerBl
     /// <summary>
     /// The number of schedulers.
     /// </summary>
-    public TerraformValue<double>? CountAttribute
+    public TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetArgument<TerraformValue<double>>("count") ?? AsReference("count");
         set => SetArgument("count", value);
     }
 
     /// <summary>
     /// CPU request and limit for a single Airflow scheduler replica
     /// </summary>
-    public TerraformValue<double>? Cpu
+    public TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu");
+        get => GetArgument<TerraformValue<double>>("cpu") ?? AsReference("cpu");
         set => SetArgument("cpu", value);
     }
 
     /// <summary>
     /// Memory (GB) request and limit for a single Airflow scheduler replica.
     /// </summary>
-    public TerraformValue<double>? MemoryGb
+    public TerraformValue<double> MemoryGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_gb");
+        get => GetArgument<TerraformValue<double>>("memory_gb") ?? AsReference("memory_gb");
         set => SetArgument("memory_gb", value);
     }
 
     /// <summary>
     /// Storage (GB) request and limit for a single Airflow scheduler replica.
     /// </summary>
-    public TerraformValue<double>? StorageGb
+    public TerraformValue<double> StorageGb
     {
-        get => GetArgument<TerraformValue<double>>("storage_gb");
+        get => GetArgument<TerraformValue<double>>("storage_gb") ?? AsReference("storage_gb");
         set => SetArgument("storage_gb", value);
     }
 
@@ -1145,7 +1145,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockTriggererBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetRequiredArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -1155,7 +1155,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockTriggererBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu");
+        get => GetRequiredArgument<TerraformValue<double>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -1165,7 +1165,7 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockTriggererBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryGb is required")]
     public required TerraformValue<double> MemoryGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("memory_gb");
         set => SetArgument("memory_gb", value);
     }
 
@@ -1185,27 +1185,27 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockWebServerBl
     /// <summary>
     /// CPU request and limit for Airflow web server.
     /// </summary>
-    public TerraformValue<double>? Cpu
+    public TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu");
+        get => GetArgument<TerraformValue<double>>("cpu") ?? AsReference("cpu");
         set => SetArgument("cpu", value);
     }
 
     /// <summary>
     /// Memory (GB) request and limit for Airflow web server.
     /// </summary>
-    public TerraformValue<double>? MemoryGb
+    public TerraformValue<double> MemoryGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_gb");
+        get => GetArgument<TerraformValue<double>>("memory_gb") ?? AsReference("memory_gb");
         set => SetArgument("memory_gb", value);
     }
 
     /// <summary>
     /// Storage (GB) request and limit for Airflow web server.
     /// </summary>
-    public TerraformValue<double>? StorageGb
+    public TerraformValue<double> StorageGb
     {
-        get => GetArgument<TerraformValue<double>>("storage_gb");
+        get => GetArgument<TerraformValue<double>>("storage_gb") ?? AsReference("storage_gb");
         set => SetArgument("storage_gb", value);
     }
 
@@ -1225,45 +1225,45 @@ public class GoogleComposerEnvironmentConfigBlockWorkloadsConfigBlockWorkerBlock
     /// <summary>
     /// CPU request and limit for a single Airflow worker replica.
     /// </summary>
-    public TerraformValue<double>? Cpu
+    public TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu");
+        get => GetArgument<TerraformValue<double>>("cpu") ?? AsReference("cpu");
         set => SetArgument("cpu", value);
     }
 
     /// <summary>
     /// Maximum number of workers for autoscaling.
     /// </summary>
-    public TerraformValue<double>? MaxCount
+    public TerraformValue<double> MaxCount
     {
-        get => GetArgument<TerraformValue<double>>("max_count");
+        get => GetArgument<TerraformValue<double>>("max_count") ?? AsReference("max_count");
         set => SetArgument("max_count", value);
     }
 
     /// <summary>
     /// Memory (GB) request and limit for a single Airflow worker replica.
     /// </summary>
-    public TerraformValue<double>? MemoryGb
+    public TerraformValue<double> MemoryGb
     {
-        get => GetArgument<TerraformValue<double>>("memory_gb");
+        get => GetArgument<TerraformValue<double>>("memory_gb") ?? AsReference("memory_gb");
         set => SetArgument("memory_gb", value);
     }
 
     /// <summary>
     /// Minimum number of workers for autoscaling.
     /// </summary>
-    public TerraformValue<double>? MinCount
+    public TerraformValue<double> MinCount
     {
-        get => GetArgument<TerraformValue<double>>("min_count");
+        get => GetArgument<TerraformValue<double>>("min_count") ?? AsReference("min_count");
         set => SetArgument("min_count", value);
     }
 
     /// <summary>
     /// Storage (GB) request and limit for a single Airflow worker replica.
     /// </summary>
-    public TerraformValue<double>? StorageGb
+    public TerraformValue<double> StorageGb
     {
-        get => GetArgument<TerraformValue<double>>("storage_gb");
+        get => GetArgument<TerraformValue<double>>("storage_gb") ?? AsReference("storage_gb");
         set => SetArgument("storage_gb", value);
     }
 
@@ -1287,7 +1287,7 @@ public class GoogleComposerEnvironmentStorageConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1344,9 +1344,9 @@ public partial class GoogleComposerEnvironment(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1368,25 +1368,25 @@ public partial class GoogleComposerEnvironment(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The location or Compute Engine region for the environment.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

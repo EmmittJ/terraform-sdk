@@ -64,7 +64,7 @@ public partial class AzureadApplicationApiAccess(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiClientId is required")]
     public required TerraformValue<string> ApiClientId
     {
-        get => GetArgument<TerraformValue<string>>("api_client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_client_id");
         set => SetArgument("api_client_id", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzureadApplicationApiAccess(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

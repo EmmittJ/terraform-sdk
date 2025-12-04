@@ -184,7 +184,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformValue<string> AuthorizationEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("authorization_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("authorization_endpoint");
         set => SetArgument("authorization_endpoint", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => GetArgument<TerraformValue<string>>("issuer");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformValue<string> TokenEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("token_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -552,7 +552,7 @@ public partial class AwsBedrockagentcoreOauth2CredentialProvider(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialProviderVendor is required")]
     public required TerraformValue<string> CredentialProviderVendor
     {
-        get => GetArgument<TerraformValue<string>>("credential_provider_vendor");
+        get => GetRequiredArgument<TerraformValue<string>>("credential_provider_vendor");
         set => SetArgument("credential_provider_vendor", value);
     }
 
@@ -562,16 +562,16 @@ public partial class AwsBedrockagentcoreOauth2CredentialProvider(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

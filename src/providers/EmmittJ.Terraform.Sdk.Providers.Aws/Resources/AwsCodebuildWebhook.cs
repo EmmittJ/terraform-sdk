@@ -50,7 +50,7 @@ public class AwsCodebuildWebhookFilterGroupBlockFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsCodebuildWebhookFilterGroupBlockFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -81,9 +81,9 @@ public class AwsCodebuildWebhookPullRequestBuildPolicyBlock : TerraformBlock
     /// <summary>
     /// The approver_roles attribute.
     /// </summary>
-    public TerraformSet<string>? ApproverRoles
+    public TerraformSet<string> ApproverRoles
     {
-        get => GetArgument<TerraformSet<string>>("approver_roles");
+        get => GetArgument<TerraformSet<string>>("approver_roles") ?? AsReference("approver_roles");
         set => SetArgument("approver_roles", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsCodebuildWebhookPullRequestBuildPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequiresCommentApproval is required")]
     public required TerraformValue<string> RequiresCommentApproval
     {
-        get => GetArgument<TerraformValue<string>>("requires_comment_approval");
+        get => GetRequiredArgument<TerraformValue<string>>("requires_comment_approval");
         set => SetArgument("requires_comment_approval", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -170,9 +170,9 @@ public partial class AwsCodebuildWebhook(string name) : TerraformResource("aws_c
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -191,16 +191,16 @@ public partial class AwsCodebuildWebhook(string name) : TerraformResource("aws_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformValue<string> ProjectName
     {
-        get => GetArgument<TerraformValue<string>>("project_name");
+        get => GetRequiredArgument<TerraformValue<string>>("project_name");
         set => SetArgument("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -61,9 +61,9 @@ public partial class GoogleBigtableMaterializedView(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,16 +82,16 @@ public partial class GoogleBigtableMaterializedView(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaterializedViewId is required")]
     public required TerraformValue<string> MaterializedViewId
     {
-        get => GetArgument<TerraformValue<string>>("materialized_view_id");
+        get => GetRequiredArgument<TerraformValue<string>>("materialized_view_id");
         set => SetArgument("materialized_view_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -101,7 +101,7 @@ public partial class GoogleBigtableMaterializedView(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => GetArgument<TerraformValue<string>>("query");
+        get => GetRequiredArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 

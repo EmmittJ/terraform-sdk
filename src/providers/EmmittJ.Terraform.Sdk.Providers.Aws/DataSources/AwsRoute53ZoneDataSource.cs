@@ -11,18 +11,18 @@ public partial class AwsRoute53ZoneDataSource(string name) : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -38,27 +38,27 @@ public partial class AwsRoute53ZoneDataSource(string name) : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string>? Tags
+    public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformValue<string>? VpcId
+    public TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id") ?? AsReference("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformValue<string>? ZoneId
+    public TerraformValue<string> ZoneId
     {
-        get => GetArgument<TerraformValue<string>>("zone_id");
+        get => GetArgument<TerraformValue<string>>("zone_id") ?? AsReference("zone_id");
         set => SetArgument("zone_id", value);
     }
 

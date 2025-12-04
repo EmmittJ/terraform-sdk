@@ -58,7 +58,7 @@ public partial class GoogleChronicleDataAccessLabel(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessLabelId is required")]
     public required TerraformValue<string> DataAccessLabelId
     {
-        get => GetArgument<TerraformValue<string>>("data_access_label_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_access_label_id");
         set => SetArgument("data_access_label_id", value);
     }
 
@@ -74,9 +74,9 @@ public partial class GoogleChronicleDataAccessLabel(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleChronicleDataAccessLabel(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -96,16 +96,16 @@ public partial class GoogleChronicleDataAccessLabel(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleChronicleDataAccessLabel(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UdmQuery is required")]
     public required TerraformValue<string> UdmQuery
     {
-        get => GetArgument<TerraformValue<string>>("udm_query");
+        get => GetRequiredArgument<TerraformValue<string>>("udm_query");
         set => SetArgument("udm_query", value);
     }
 

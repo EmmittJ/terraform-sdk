@@ -19,7 +19,7 @@ public class AwsVerifiedpermissionsPolicyStoreValidationSettingsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -35,9 +35,9 @@ public partial class AwsVerifiedpermissionsPolicyStore(string name) : TerraformR
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformValue<string>? DeletionProtection
+    public TerraformValue<string> DeletionProtection
     {
-        get => GetArgument<TerraformValue<string>>("deletion_protection");
+        get => GetArgument<TerraformValue<string>>("deletion_protection") ?? AsReference("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -53,9 +53,9 @@ public partial class AwsVerifiedpermissionsPolicyStore(string name) : TerraformR
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

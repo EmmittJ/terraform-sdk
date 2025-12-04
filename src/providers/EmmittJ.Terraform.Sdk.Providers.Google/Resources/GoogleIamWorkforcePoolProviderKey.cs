@@ -31,7 +31,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeySpec is required")]
     public required TerraformValue<string> KeySpec
     {
-        get => GetArgument<TerraformValue<string>>("key_spec");
+        get => GetRequiredArgument<TerraformValue<string>>("key_spec");
         set => SetArgument("key_spec", value);
     }
 
@@ -101,9 +101,9 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -133,7 +133,7 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformValue<string> ProviderId
     {
-        get => GetArgument<TerraformValue<string>>("provider_id");
+        get => GetRequiredArgument<TerraformValue<string>>("provider_id");
         set => SetArgument("provider_id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Use is required")]
     public required TerraformValue<string> Use
     {
-        get => GetArgument<TerraformValue<string>>("use");
+        get => GetRequiredArgument<TerraformValue<string>>("use");
         set => SetArgument("use", value);
     }
 
@@ -153,7 +153,7 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformValue<string> WorkforcePoolId
     {
-        get => GetArgument<TerraformValue<string>>("workforce_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workforce_pool_id");
         set => SetArgument("workforce_pool_id", value);
     }
 

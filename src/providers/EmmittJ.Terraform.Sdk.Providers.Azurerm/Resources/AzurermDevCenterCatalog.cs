@@ -19,7 +19,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     public required TerraformValue<string> Branch
     {
-        get => GetArgument<TerraformValue<string>>("branch");
+        get => GetRequiredArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
     public required TerraformValue<string> KeyVaultKeyUrl
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_key_url");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_key_url");
         set => SetArgument("key_vault_key_url", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     public required TerraformValue<string> Branch
     {
-        get => GetArgument<TerraformValue<string>>("branch");
+        get => GetRequiredArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
     public required TerraformValue<string> KeyVaultKeyUrl
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_key_url");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_key_url");
         set => SetArgument("key_vault_key_url", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -172,16 +172,16 @@ public partial class AzurermDevCenterCatalog(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     public required TerraformValue<string> DevCenterId
     {
-        get => GetArgument<TerraformValue<string>>("dev_center_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dev_center_id");
         set => SetArgument("dev_center_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermDevCenterCatalog(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AzurermDevCenterCatalog(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

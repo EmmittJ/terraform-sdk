@@ -61,9 +61,9 @@ public partial class AzurermPostgresqlFlexibleServerVirtualEndpoint(string name)
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermPostgresqlFlexibleServerVirtualEndpoint(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermPostgresqlFlexibleServerVirtualEndpoint(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicaServerId is required")]
     public required TerraformValue<string> ReplicaServerId
     {
-        get => GetArgument<TerraformValue<string>>("replica_server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("replica_server_id");
         set => SetArgument("replica_server_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermPostgresqlFlexibleServerVirtualEndpoint(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceServerId is required")]
     public required TerraformValue<string> SourceServerId
     {
-        get => GetArgument<TerraformValue<string>>("source_server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_server_id");
         set => SetArgument("source_server_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermPostgresqlFlexibleServerVirtualEndpoint(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

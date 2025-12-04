@@ -25,9 +25,9 @@ public class AwsTransferServerEndpointDetailsBlock : TerraformBlock
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroupIds
+    public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -43,9 +43,9 @@ public class AwsTransferServerEndpointDetailsBlock : TerraformBlock
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformValue<string>? VpcEndpointId
+    public TerraformValue<string> VpcEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("vpc_endpoint_id") ?? AsReference("vpc_endpoint_id");
         set => SetArgument("vpc_endpoint_id", value);
     }
 
@@ -75,36 +75,36 @@ public class AwsTransferServerProtocolDetailsBlock : TerraformBlock
     /// <summary>
     /// The as2_transports attribute.
     /// </summary>
-    public TerraformSet<string>? As2Transports
+    public TerraformSet<string> As2Transports
     {
-        get => GetArgument<TerraformSet<string>>("as2_transports");
+        get => GetArgument<TerraformSet<string>>("as2_transports") ?? AsReference("as2_transports");
         set => SetArgument("as2_transports", value);
     }
 
     /// <summary>
     /// The passive_ip attribute.
     /// </summary>
-    public TerraformValue<string>? PassiveIp
+    public TerraformValue<string> PassiveIp
     {
-        get => GetArgument<TerraformValue<string>>("passive_ip");
+        get => GetArgument<TerraformValue<string>>("passive_ip") ?? AsReference("passive_ip");
         set => SetArgument("passive_ip", value);
     }
 
     /// <summary>
     /// The set_stat_option attribute.
     /// </summary>
-    public TerraformValue<string>? SetStatOption
+    public TerraformValue<string> SetStatOption
     {
-        get => GetArgument<TerraformValue<string>>("set_stat_option");
+        get => GetArgument<TerraformValue<string>>("set_stat_option") ?? AsReference("set_stat_option");
         set => SetArgument("set_stat_option", value);
     }
 
     /// <summary>
     /// The tls_session_resumption_mode attribute.
     /// </summary>
-    public TerraformValue<string>? TlsSessionResumptionMode
+    public TerraformValue<string> TlsSessionResumptionMode
     {
-        get => GetArgument<TerraformValue<string>>("tls_session_resumption_mode");
+        get => GetArgument<TerraformValue<string>>("tls_session_resumption_mode") ?? AsReference("tls_session_resumption_mode");
         set => SetArgument("tls_session_resumption_mode", value);
     }
 
@@ -125,9 +125,9 @@ public class AwsTransferServerS3StorageOptionsBlock : TerraformBlock
     /// <summary>
     /// The directory_listing_optimization attribute.
     /// </summary>
-    public TerraformValue<string>? DirectoryListingOptimization
+    public TerraformValue<string> DirectoryListingOptimization
     {
-        get => GetArgument<TerraformValue<string>>("directory_listing_optimization");
+        get => GetArgument<TerraformValue<string>>("directory_listing_optimization") ?? AsReference("directory_listing_optimization");
         set => SetArgument("directory_listing_optimization", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsTransferServerWorkflowDetailsBlockOnPartialUploadBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
     public required TerraformValue<string> ExecutionRole
     {
-        get => GetArgument<TerraformValue<string>>("execution_role");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_role");
         set => SetArgument("execution_role", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsTransferServerWorkflowDetailsBlockOnPartialUploadBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkflowId is required")]
     public required TerraformValue<string> WorkflowId
     {
-        get => GetArgument<TerraformValue<string>>("workflow_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workflow_id");
         set => SetArgument("workflow_id", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsTransferServerWorkflowDetailsBlockOnUploadBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
     public required TerraformValue<string> ExecutionRole
     {
-        get => GetArgument<TerraformValue<string>>("execution_role");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_role");
         set => SetArgument("execution_role", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsTransferServerWorkflowDetailsBlockOnUploadBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkflowId is required")]
     public required TerraformValue<string> WorkflowId
     {
-        get => GetArgument<TerraformValue<string>>("workflow_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workflow_id");
         set => SetArgument("workflow_id", value);
     }
 
@@ -306,9 +306,9 @@ public partial class AwsTransferServer(string name) : TerraformResource("aws_tra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -360,18 +360,18 @@ public partial class AwsTransferServer(string name) : TerraformResource("aws_tra
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public TerraformSet<string>? Protocols
+    public TerraformSet<string> Protocols
     {
-        get => GetArgument<TerraformSet<string>>("protocols");
+        get => GetArgument<TerraformSet<string>>("protocols") ?? AsReference("protocols");
         set => SetArgument("protocols", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -387,9 +387,9 @@ public partial class AwsTransferServer(string name) : TerraformResource("aws_tra
     /// <summary>
     /// The sftp_authentication_methods attribute.
     /// </summary>
-    public TerraformValue<string>? SftpAuthenticationMethods
+    public TerraformValue<string> SftpAuthenticationMethods
     {
-        get => GetArgument<TerraformValue<string>>("sftp_authentication_methods");
+        get => GetArgument<TerraformValue<string>>("sftp_authentication_methods") ?? AsReference("sftp_authentication_methods");
         set => SetArgument("sftp_authentication_methods", value);
     }
 
@@ -414,9 +414,9 @@ public partial class AwsTransferServer(string name) : TerraformResource("aws_tra
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

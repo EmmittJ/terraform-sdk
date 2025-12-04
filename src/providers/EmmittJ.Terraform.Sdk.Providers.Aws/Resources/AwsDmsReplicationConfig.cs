@@ -16,9 +16,9 @@ public class AwsDmsReplicationConfigComputeConfigBlock : TerraformBlock
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZone
+    public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -34,9 +34,9 @@ public class AwsDmsReplicationConfigComputeConfigBlock : TerraformBlock
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -61,18 +61,18 @@ public class AwsDmsReplicationConfigComputeConfigBlock : TerraformBlock
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
-    public TerraformValue<bool>? MultiAz
+    public TerraformValue<bool> MultiAz
     {
-        get => GetArgument<TerraformValue<bool>>("multi_az");
+        get => GetArgument<TerraformValue<bool>>("multi_az") ?? AsReference("multi_az");
         set => SetArgument("multi_az", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredMaintenanceWindow
+    public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
@@ -82,16 +82,16 @@ public class AwsDmsReplicationConfigComputeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSubnetGroupId is required")]
     public required TerraformValue<string> ReplicationSubnetGroupId
     {
-        get => GetArgument<TerraformValue<string>>("replication_subnet_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("replication_subnet_group_id");
         set => SetArgument("replication_subnet_group_id", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? VpcSecurityGroupIds
+    public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -148,18 +148,18 @@ public partial class AwsDmsReplicationConfig(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -169,16 +169,16 @@ public partial class AwsDmsReplicationConfig(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationConfigIdentifier is required")]
     public required TerraformValue<string> ReplicationConfigIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("replication_config_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("replication_config_identifier");
         set => SetArgument("replication_config_identifier", value);
     }
 
     /// <summary>
     /// The replication_settings attribute.
     /// </summary>
-    public TerraformValue<string>? ReplicationSettings
+    public TerraformValue<string> ReplicationSettings
     {
-        get => GetArgument<TerraformValue<string>>("replication_settings");
+        get => GetArgument<TerraformValue<string>>("replication_settings") ?? AsReference("replication_settings");
         set => SetArgument("replication_settings", value);
     }
 
@@ -188,16 +188,16 @@ public partial class AwsDmsReplicationConfig(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationType is required")]
     public required TerraformValue<string> ReplicationType
     {
-        get => GetArgument<TerraformValue<string>>("replication_type");
+        get => GetRequiredArgument<TerraformValue<string>>("replication_type");
         set => SetArgument("replication_type", value);
     }
 
     /// <summary>
     /// The resource_identifier attribute.
     /// </summary>
-    public TerraformValue<string>? ResourceIdentifier
+    public TerraformValue<string> ResourceIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("resource_identifier");
+        get => GetArgument<TerraformValue<string>>("resource_identifier") ?? AsReference("resource_identifier");
         set => SetArgument("resource_identifier", value);
     }
 
@@ -207,7 +207,7 @@ public partial class AwsDmsReplicationConfig(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEndpointArn is required")]
     public required TerraformValue<string> SourceEndpointArn
     {
-        get => GetArgument<TerraformValue<string>>("source_endpoint_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("source_endpoint_arn");
         set => SetArgument("source_endpoint_arn", value);
     }
 
@@ -235,7 +235,7 @@ public partial class AwsDmsReplicationConfig(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableMappings is required")]
     public required TerraformValue<string> TableMappings
     {
-        get => GetArgument<TerraformValue<string>>("table_mappings");
+        get => GetRequiredArgument<TerraformValue<string>>("table_mappings");
         set => SetArgument("table_mappings", value);
     }
 
@@ -251,9 +251,9 @@ public partial class AwsDmsReplicationConfig(string name) : TerraformResource("a
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AwsDmsReplicationConfig(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetEndpointArn is required")]
     public required TerraformValue<string> TargetEndpointArn
     {
-        get => GetArgument<TerraformValue<string>>("target_endpoint_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("target_endpoint_arn");
         set => SetArgument("target_endpoint_arn", value);
     }
 

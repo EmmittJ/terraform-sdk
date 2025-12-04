@@ -55,7 +55,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformValue<string> AddressFamily
     {
-        get => GetArgument<TerraformValue<string>>("address_family");
+        get => GetRequiredArgument<TerraformValue<string>>("address_family");
         set => SetArgument("address_family", value);
     }
 
@@ -134,9 +134,9 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamScopeId is required")]
     public required TerraformValue<string> IpamScopeId
     {
-        get => GetArgument<TerraformValue<string>>("ipam_scope_id");
+        get => GetRequiredArgument<TerraformValue<string>>("ipam_scope_id");
         set => SetArgument("ipam_scope_id", value);
     }
 
@@ -180,9 +180,9 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -207,9 +207,9 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

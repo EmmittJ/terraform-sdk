@@ -11,18 +11,18 @@ public partial class GoogleSqlBackupRunDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The identifier for this backup run. Unique only for a specific Cloud SQL instance. If left empty and multiple backups exist for the instance, most_recent must be set to true.
     /// </summary>
-    public TerraformValue<double>? BackupId
+    public TerraformValue<double> BackupId
     {
-        get => GetArgument<TerraformValue<double>>("backup_id");
+        get => GetArgument<TerraformValue<double>>("backup_id") ?? AsReference("backup_id");
         set => SetArgument("backup_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleSqlBackupRunDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -48,9 +48,9 @@ public partial class GoogleSqlBackupRunDataSource(string name) : TerraformDataSo
     /// <summary>
     /// Project ID of the project that contains the instance.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

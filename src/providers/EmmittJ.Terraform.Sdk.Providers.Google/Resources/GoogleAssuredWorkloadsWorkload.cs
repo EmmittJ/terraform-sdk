@@ -19,7 +19,7 @@ public class GoogleAssuredWorkloadsWorkloadKmsSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextRotationTime is required")]
     public required TerraformValue<string> NextRotationTime
     {
-        get => GetArgument<TerraformValue<string>>("next_rotation_time");
+        get => GetRequiredArgument<TerraformValue<string>>("next_rotation_time");
         set => SetArgument("next_rotation_time", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleAssuredWorkloadsWorkloadKmsSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RotationPeriod is required")]
     public required TerraformValue<string> RotationPeriod
     {
-        get => GetArgument<TerraformValue<string>>("rotation_period");
+        get => GetRequiredArgument<TerraformValue<string>>("rotation_period");
         set => SetArgument("rotation_period", value);
     }
 
@@ -203,7 +203,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComplianceRegime is required")]
     public required TerraformValue<string> ComplianceRegime
     {
-        get => GetArgument<TerraformValue<string>>("compliance_regime");
+        get => GetRequiredArgument<TerraformValue<string>>("compliance_regime");
         set => SetArgument("compliance_regime", value);
     }
 
@@ -213,7 +213,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -229,9 +229,9 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -253,7 +253,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -263,7 +263,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => GetArgument<TerraformValue<string>>("organization");
+        get => GetRequiredArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -297,9 +297,9 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// <summary>
     /// Optional. Indicates whether the e-mail notification for a violation is enabled for a workload. This value will be by default True, and if not present will be considered as true. This should only be updated via updateWorkload call. Any Changes to this field during the createWorkload call will not be honored. This will always be true while creating the workload.
     /// </summary>
-    public TerraformValue<bool>? ViolationNotificationsEnabled
+    public TerraformValue<bool> ViolationNotificationsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("violation_notifications_enabled");
+        get => GetArgument<TerraformValue<bool>>("violation_notifications_enabled") ?? AsReference("violation_notifications_enabled");
         set => SetArgument("violation_notifications_enabled", value);
     }
 

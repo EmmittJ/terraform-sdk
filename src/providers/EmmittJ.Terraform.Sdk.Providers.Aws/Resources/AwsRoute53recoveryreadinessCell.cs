@@ -37,7 +37,7 @@ public partial class AwsRoute53recoveryreadinessCell(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CellName is required")]
     public required TerraformValue<string> CellName
     {
-        get => GetArgument<TerraformValue<string>>("cell_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cell_name");
         set => SetArgument("cell_name", value);
     }
 
@@ -53,9 +53,9 @@ public partial class AwsRoute53recoveryreadinessCell(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -71,9 +71,9 @@ public partial class AwsRoute53recoveryreadinessCell(string name) : TerraformRes
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

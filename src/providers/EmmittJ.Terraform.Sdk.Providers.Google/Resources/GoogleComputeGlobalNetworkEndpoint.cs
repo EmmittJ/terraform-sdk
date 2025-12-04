@@ -56,16 +56,16 @@ public partial class GoogleComputeGlobalNetworkEndpoint(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkEndpointGroup is required")]
     public required TerraformValue<string> GlobalNetworkEndpointGroup
     {
-        get => GetArgument<TerraformValue<string>>("global_network_endpoint_group");
+        get => GetRequiredArgument<TerraformValue<string>>("global_network_endpoint_group");
         set => SetArgument("global_network_endpoint_group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,16 +84,16 @@ public partial class GoogleComputeGlobalNetworkEndpoint(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

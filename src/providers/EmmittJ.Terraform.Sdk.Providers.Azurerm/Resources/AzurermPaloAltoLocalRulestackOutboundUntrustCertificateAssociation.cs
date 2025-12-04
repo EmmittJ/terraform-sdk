@@ -55,16 +55,16 @@ public partial class AzurermPaloAltoLocalRulestackOutboundUntrustCertificateAsso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     public required TerraformValue<string> CertificateId
     {
-        get => GetArgument<TerraformValue<string>>("certificate_id");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_id");
         set => SetArgument("certificate_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

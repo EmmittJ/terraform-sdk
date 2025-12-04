@@ -96,7 +96,7 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -115,25 +115,25 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformValue<string> IamRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("iam_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string>? MaintenanceWindow
+    public TerraformValue<string> MaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_window");
+        get => GetArgument<TerraformValue<string>>("maintenance_window") ?? AsReference("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformValue<string> NodeType
     {
-        get => GetArgument<TerraformValue<string>>("node_type");
+        get => GetRequiredArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -159,18 +159,18 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? ParameterGroupName
+    public TerraformValue<string> ParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("parameter_group_name") ?? AsReference("parameter_group_name");
         set => SetArgument("parameter_group_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -180,25 +180,25 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFactor is required")]
     public required TerraformValue<double> ReplicationFactor
     {
-        get => GetArgument<TerraformValue<double>>("replication_factor");
+        get => GetRequiredArgument<TerraformValue<double>>("replication_factor");
         set => SetArgument("replication_factor", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroupIds
+    public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? SubnetGroupName
+    public TerraformValue<string> SubnetGroupName
     {
-        get => GetArgument<TerraformValue<string>>("subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("subnet_group_name") ?? AsReference("subnet_group_name");
         set => SetArgument("subnet_group_name", value);
     }
 
@@ -214,9 +214,9 @@ public partial class AwsDaxCluster(string name) : TerraformResource("aws_dax_clu
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -86,7 +86,7 @@ public class AzurermApiManagementApiOperationRequestBlockHeaderBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermApiManagementApiOperationRequestBlockHeaderBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required");
+        get => GetRequiredArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermApiManagementApiOperationRequestBlockHeaderBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermApiManagementApiOperationRequestBlockHeaderBlockExampleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermApiManagementApiOperationRequestBlockQueryParameterBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermApiManagementApiOperationRequestBlockQueryParameterBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required");
+        get => GetRequiredArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -271,7 +271,7 @@ public class AzurermApiManagementApiOperationRequestBlockQueryParameterBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -339,7 +339,7 @@ public class AzurermApiManagementApiOperationRequestBlockQueryParameterBlockExam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -380,7 +380,7 @@ public class AzurermApiManagementApiOperationRequestBlockRepresentationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -457,7 +457,7 @@ public class AzurermApiManagementApiOperationRequestBlockRepresentationBlockExam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -516,7 +516,7 @@ public class AzurermApiManagementApiOperationRequestBlockRepresentationBlockForm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -526,7 +526,7 @@ public class AzurermApiManagementApiOperationRequestBlockRepresentationBlockForm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required");
+        get => GetRequiredArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -545,7 +545,7 @@ public class AzurermApiManagementApiOperationRequestBlockRepresentationBlockForm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -613,7 +613,7 @@ public class AzurermApiManagementApiOperationRequestBlockRepresentationBlockForm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -664,7 +664,7 @@ public class AzurermApiManagementApiOperationResponseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformValue<double> StatusCode
     {
-        get => GetArgument<TerraformValue<double>>("status_code");
+        get => GetRequiredArgument<TerraformValue<double>>("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -723,7 +723,7 @@ public class AzurermApiManagementApiOperationResponseBlockHeaderBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -733,7 +733,7 @@ public class AzurermApiManagementApiOperationResponseBlockHeaderBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required");
+        get => GetRequiredArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -752,7 +752,7 @@ public class AzurermApiManagementApiOperationResponseBlockHeaderBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -820,7 +820,7 @@ public class AzurermApiManagementApiOperationResponseBlockHeaderBlockExampleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -861,7 +861,7 @@ public class AzurermApiManagementApiOperationResponseBlockRepresentationBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -938,7 +938,7 @@ public class AzurermApiManagementApiOperationResponseBlockRepresentationBlockExa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -997,7 +997,7 @@ public class AzurermApiManagementApiOperationResponseBlockRepresentationBlockFor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1007,7 +1007,7 @@ public class AzurermApiManagementApiOperationResponseBlockRepresentationBlockFor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required");
+        get => GetRequiredArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -1026,7 +1026,7 @@ public class AzurermApiManagementApiOperationResponseBlockRepresentationBlockFor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1094,7 +1094,7 @@ public class AzurermApiManagementApiOperationResponseBlockRepresentationBlockFor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1154,7 +1154,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1164,7 +1164,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required");
+        get => GetRequiredArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -1183,7 +1183,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1251,7 +1251,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlockExampleBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1338,7 +1338,7 @@ public partial class AzurermApiManagementApiOperation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => GetArgument<TerraformValue<string>>("api_management_name");
+        get => GetRequiredArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
@@ -1348,7 +1348,7 @@ public partial class AzurermApiManagementApiOperation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
     public required TerraformValue<string> ApiName
     {
-        get => GetArgument<TerraformValue<string>>("api_name");
+        get => GetRequiredArgument<TerraformValue<string>>("api_name");
         set => SetArgument("api_name", value);
     }
 
@@ -1367,16 +1367,16 @@ public partial class AzurermApiManagementApiOperation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1386,7 +1386,7 @@ public partial class AzurermApiManagementApiOperation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     public required TerraformValue<string> Method
     {
-        get => GetArgument<TerraformValue<string>>("method");
+        get => GetRequiredArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -1396,7 +1396,7 @@ public partial class AzurermApiManagementApiOperation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperationId is required")]
     public required TerraformValue<string> OperationId
     {
-        get => GetArgument<TerraformValue<string>>("operation_id");
+        get => GetRequiredArgument<TerraformValue<string>>("operation_id");
         set => SetArgument("operation_id", value);
     }
 
@@ -1406,7 +1406,7 @@ public partial class AzurermApiManagementApiOperation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -1416,7 +1416,7 @@ public partial class AzurermApiManagementApiOperation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
     public required TerraformValue<string> UrlTemplate
     {
-        get => GetArgument<TerraformValue<string>>("url_template");
+        get => GetRequiredArgument<TerraformValue<string>>("url_template");
         set => SetArgument("url_template", value);
     }
 

@@ -431,7 +431,7 @@ public class GoogleComputeUrlMapDefaultRouteActionBlockMaxStreamDurationBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => GetArgument<TerraformValue<string>>("seconds");
+        get => GetRequiredArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -454,7 +454,7 @@ public class GoogleComputeUrlMapDefaultRouteActionBlockRequestMirrorPolicyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => GetArgument<TerraformValue<string>>("backend_service");
+        get => GetRequiredArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -892,7 +892,7 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StripQuery is required")]
     public required TerraformValue<bool> StripQuery
     {
-        get => GetArgument<TerraformValue<bool>>("strip_query");
+        get => GetRequiredArgument<TerraformValue<bool>>("strip_query");
         set => SetArgument("strip_query", value);
     }
 
@@ -967,7 +967,7 @@ public class GoogleComputeUrlMapHeaderActionBlockRequestHeadersToAddBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -977,7 +977,7 @@ public class GoogleComputeUrlMapHeaderActionBlockRequestHeadersToAddBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -989,7 +989,7 @@ public class GoogleComputeUrlMapHeaderActionBlockRequestHeadersToAddBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetRequiredArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -1012,7 +1012,7 @@ public class GoogleComputeUrlMapHeaderActionBlockResponseHeadersToAddBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -1022,7 +1022,7 @@ public class GoogleComputeUrlMapHeaderActionBlockResponseHeadersToAddBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -1034,7 +1034,7 @@ public class GoogleComputeUrlMapHeaderActionBlockResponseHeadersToAddBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetRequiredArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -1070,7 +1070,7 @@ public class GoogleComputeUrlMapHostRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hosts is required")]
     public required TerraformSet<string> Hosts
     {
-        get => GetArgument<TerraformSet<string>>("hosts");
+        get => GetRequiredArgument<TerraformSet<string>>("hosts");
         set => SetArgument("hosts", value);
     }
 
@@ -1081,7 +1081,7 @@ public class GoogleComputeUrlMapHostRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathMatcher is required")]
     public required TerraformValue<string> PathMatcher
     {
-        get => GetArgument<TerraformValue<string>>("path_matcher");
+        get => GetRequiredArgument<TerraformValue<string>>("path_matcher");
         set => SetArgument("path_matcher", value);
     }
 
@@ -1124,7 +1124,7 @@ public class GoogleComputeUrlMapPathMatcherBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1614,7 +1614,7 @@ public class GoogleComputeUrlMapPathMatcherBlockDefaultRouteActionBlockMaxStream
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => GetArgument<TerraformValue<string>>("seconds");
+        get => GetRequiredArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1637,7 +1637,7 @@ public class GoogleComputeUrlMapPathMatcherBlockDefaultRouteActionBlockRequestMi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => GetArgument<TerraformValue<string>>("backend_service");
+        get => GetRequiredArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -2074,7 +2074,7 @@ public class GoogleComputeUrlMapPathMatcherBlockDefaultUrlRedirectBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StripQuery is required")]
     public required TerraformValue<bool> StripQuery
     {
-        get => GetArgument<TerraformValue<bool>>("strip_query");
+        get => GetRequiredArgument<TerraformValue<bool>>("strip_query");
         set => SetArgument("strip_query", value);
     }
 
@@ -2148,7 +2148,7 @@ public class GoogleComputeUrlMapPathMatcherBlockHeaderActionBlockRequestHeadersT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -2158,7 +2158,7 @@ public class GoogleComputeUrlMapPathMatcherBlockHeaderActionBlockRequestHeadersT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -2170,7 +2170,7 @@ public class GoogleComputeUrlMapPathMatcherBlockHeaderActionBlockRequestHeadersT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetRequiredArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -2193,7 +2193,7 @@ public class GoogleComputeUrlMapPathMatcherBlockHeaderActionBlockResponseHeaders
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -2203,7 +2203,7 @@ public class GoogleComputeUrlMapPathMatcherBlockHeaderActionBlockResponseHeaders
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -2215,7 +2215,7 @@ public class GoogleComputeUrlMapPathMatcherBlockHeaderActionBlockResponseHeaders
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetRequiredArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -2241,7 +2241,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     public required TerraformSet<string> Paths
     {
-        get => GetArgument<TerraformSet<string>>("paths");
+        get => GetRequiredArgument<TerraformSet<string>>("paths");
         set => SetArgument("paths", value);
     }
 
@@ -2533,7 +2533,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockCor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disabled is required")]
     public required TerraformValue<bool> Disabled
     {
-        get => GetArgument<TerraformValue<bool>>("disabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -2609,7 +2609,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockFau
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpStatus is required")]
     public required TerraformValue<double> HttpStatus
     {
-        get => GetArgument<TerraformValue<double>>("http_status");
+        get => GetRequiredArgument<TerraformValue<double>>("http_status");
         set => SetArgument("http_status", value);
     }
 
@@ -2621,7 +2621,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockFau
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percentage is required")]
     public required TerraformValue<double> Percentage
     {
-        get => GetArgument<TerraformValue<double>>("percentage");
+        get => GetRequiredArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -2646,7 +2646,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockFau
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percentage is required")]
     public required TerraformValue<double> Percentage
     {
-        get => GetArgument<TerraformValue<double>>("percentage");
+        get => GetRequiredArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -2694,7 +2694,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockFau
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => GetArgument<TerraformValue<string>>("seconds");
+        get => GetRequiredArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -2729,7 +2729,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockMax
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => GetArgument<TerraformValue<string>>("seconds");
+        get => GetRequiredArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -2752,7 +2752,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockReq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => GetArgument<TerraformValue<string>>("backend_service");
+        get => GetRequiredArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -2849,7 +2849,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockRet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => GetArgument<TerraformValue<string>>("seconds");
+        get => GetRequiredArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -2884,7 +2884,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockTim
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => GetArgument<TerraformValue<string>>("seconds");
+        get => GetRequiredArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -2944,7 +2944,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockWei
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => GetArgument<TerraformValue<string>>("backend_service");
+        get => GetRequiredArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -2959,7 +2959,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockWei
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => GetArgument<TerraformValue<double>>("weight");
+        get => GetRequiredArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -3043,7 +3043,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockWei
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -3053,7 +3053,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockWei
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -3065,7 +3065,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockWei
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetRequiredArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -3088,7 +3088,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockWei
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -3098,7 +3098,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockWei
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -3110,7 +3110,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockRouteActionBlockWei
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetRequiredArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -3208,7 +3208,7 @@ public class GoogleComputeUrlMapPathMatcherBlockPathRuleBlockUrlRedirectBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StripQuery is required")]
     public required TerraformValue<bool> StripQuery
     {
-        get => GetArgument<TerraformValue<bool>>("strip_query");
+        get => GetRequiredArgument<TerraformValue<bool>>("strip_query");
         set => SetArgument("strip_query", value);
     }
 
@@ -3245,7 +3245,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -3471,7 +3471,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockHeaderActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -3481,7 +3481,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockHeaderActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -3493,7 +3493,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockHeaderActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetRequiredArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -3516,7 +3516,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockHeaderActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -3526,7 +3526,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockHeaderActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -3538,7 +3538,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockHeaderActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetRequiredArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -3678,7 +3678,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockMatchRulesBlockHe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -3770,7 +3770,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockMatchRulesBlockHe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeEnd is required")]
     public required TerraformValue<double> RangeEnd
     {
-        get => GetArgument<TerraformValue<double>>("range_end");
+        get => GetRequiredArgument<TerraformValue<double>>("range_end");
         set => SetArgument("range_end", value);
     }
 
@@ -3780,7 +3780,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockMatchRulesBlockHe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeStart is required")]
     public required TerraformValue<double> RangeStart
     {
-        get => GetArgument<TerraformValue<double>>("range_start");
+        get => GetRequiredArgument<TerraformValue<double>>("range_start");
         set => SetArgument("range_start", value);
     }
 
@@ -3808,7 +3808,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockMatchRulesBlockMe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterMatchCriteria is required")]
     public required TerraformValue<string> FilterMatchCriteria
     {
-        get => GetArgument<TerraformValue<string>>("filter_match_criteria");
+        get => GetRequiredArgument<TerraformValue<string>>("filter_match_criteria");
         set => SetArgument("filter_match_criteria", value);
     }
 
@@ -3845,7 +3845,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockMatchRulesBlockMe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3856,7 +3856,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockMatchRulesBlockMe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3891,7 +3891,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockMatchRulesBlockQu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4234,7 +4234,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockF
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => GetArgument<TerraformValue<string>>("seconds");
+        get => GetRequiredArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -4269,7 +4269,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => GetArgument<TerraformValue<string>>("seconds");
+        get => GetRequiredArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -4292,7 +4292,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => GetArgument<TerraformValue<string>>("backend_service");
+        get => GetRequiredArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -4315,7 +4315,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumRetries is required")]
     public required TerraformValue<double> NumRetries
     {
-        get => GetArgument<TerraformValue<double>>("num_retries");
+        get => GetRequiredArgument<TerraformValue<double>>("num_retries");
         set => SetArgument("num_retries", value);
     }
 
@@ -4390,7 +4390,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => GetArgument<TerraformValue<string>>("seconds");
+        get => GetRequiredArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -4425,7 +4425,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => GetArgument<TerraformValue<string>>("seconds");
+        get => GetRequiredArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -4507,7 +4507,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => GetArgument<TerraformValue<string>>("backend_service");
+        get => GetRequiredArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -4522,7 +4522,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => GetArgument<TerraformValue<double>>("weight");
+        get => GetRequiredArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -4606,7 +4606,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -4616,7 +4616,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -4628,7 +4628,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetRequiredArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -4651,7 +4651,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -4661,7 +4661,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -4673,7 +4673,7 @@ public class GoogleComputeUrlMapPathMatcherBlockRouteRulesBlockRouteActionBlockW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetRequiredArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -4818,7 +4818,7 @@ public class GoogleComputeUrlMapTestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -4828,7 +4828,7 @@ public class GoogleComputeUrlMapTestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -4869,7 +4869,7 @@ public class GoogleComputeUrlMapTestBlockHeadersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4879,7 +4879,7 @@ public class GoogleComputeUrlMapTestBlockHeadersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4955,9 +4955,9 @@ public partial class GoogleComputeUrlMap(string name) : TerraformResource("googl
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -4972,16 +4972,16 @@ public partial class GoogleComputeUrlMap(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

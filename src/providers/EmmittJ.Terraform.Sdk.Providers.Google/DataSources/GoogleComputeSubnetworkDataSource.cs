@@ -11,9 +11,9 @@ public partial class GoogleComputeSubnetworkDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -29,27 +29,27 @@ public partial class GoogleComputeSubnetworkDataSource(string name) : TerraformD
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformValue<string>? SelfLink
+    public TerraformValue<string> SelfLink
     {
-        get => GetArgument<TerraformValue<string>>("self_link");
+        get => GetArgument<TerraformValue<string>>("self_link") ?? AsReference("self_link");
         set => SetArgument("self_link", value);
     }
 

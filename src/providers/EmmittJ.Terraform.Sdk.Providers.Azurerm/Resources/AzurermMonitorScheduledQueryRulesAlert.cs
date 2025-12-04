@@ -19,7 +19,7 @@ public class AzurermMonitorScheduledQueryRulesAlertActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroup is required")]
     public required TerraformSet<string> ActionGroup
     {
-        get => GetArgument<TerraformSet<string>>("action_group");
+        get => GetRequiredArgument<TerraformSet<string>>("action_group");
         set => SetArgument("action_group", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermMonitorScheduledQueryRulesAlertTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermMonitorScheduledQueryRulesAlertTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => GetArgument<TerraformValue<double>>("threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermMonitorScheduledQueryRulesAlertTriggerBlockMetricTriggerBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricTriggerType is required")]
     public required TerraformValue<string> MetricTriggerType
     {
-        get => GetArgument<TerraformValue<string>>("metric_trigger_type");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_trigger_type");
         set => SetArgument("metric_trigger_type", value);
     }
 
@@ -173,7 +173,7 @@ public class AzurermMonitorScheduledQueryRulesAlertTriggerBlockMetricTriggerBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermMonitorScheduledQueryRulesAlertTriggerBlockMetricTriggerBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => GetArgument<TerraformValue<double>>("threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlert(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     public required TerraformValue<string> DataSourceId
     {
-        get => GetArgument<TerraformValue<string>>("data_source_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_source_id");
         set => SetArgument("data_source_id", value);
     }
 
@@ -248,16 +248,16 @@ public partial class AzurermMonitorScheduledQueryRulesAlert(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<double> Frequency
     {
-        get => GetArgument<TerraformValue<double>>("frequency");
+        get => GetRequiredArgument<TerraformValue<double>>("frequency");
         set => SetArgument("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -267,7 +267,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlert(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -277,7 +277,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlert(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -287,7 +287,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlert(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => GetArgument<TerraformValue<string>>("query");
+        get => GetRequiredArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -306,7 +306,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlert(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -343,7 +343,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlert(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeWindow is required")]
     public required TerraformValue<double> TimeWindow
     {
-        get => GetArgument<TerraformValue<double>>("time_window");
+        get => GetRequiredArgument<TerraformValue<double>>("time_window");
         set => SetArgument("time_window", value);
     }
 

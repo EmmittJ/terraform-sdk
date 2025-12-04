@@ -19,7 +19,7 @@ public class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlockMonthlyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weekday is required")]
     public required TerraformValue<string> Weekday
     {
-        get => GetArgument<TerraformValue<string>>("weekday");
+        get => GetRequiredArgument<TerraformValue<string>>("weekday");
         set => SetArgument("weekday", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -240,9 +240,9 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -261,34 +261,34 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
-    public TerraformValue<string>? PipelineName
+    public TerraformValue<string> PipelineName
     {
-        get => GetArgument<TerraformValue<string>>("pipeline_name");
+        get => GetArgument<TerraformValue<string>>("pipeline_name") ?? AsReference("pipeline_name");
         set => SetArgument("pipeline_name", value);
     }
 
     /// <summary>
     /// The pipeline_parameters attribute.
     /// </summary>
-    public TerraformMap<string>? PipelineParameters
+    public TerraformMap<string> PipelineParameters
     {
-        get => GetArgument<TerraformMap<string>>("pipeline_parameters");
+        get => GetArgument<TerraformMap<string>>("pipeline_parameters") ?? AsReference("pipeline_parameters");
         set => SetArgument("pipeline_parameters", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformValue<string>? StartTime
+    public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
         set => SetArgument("start_time", value);
     }
 

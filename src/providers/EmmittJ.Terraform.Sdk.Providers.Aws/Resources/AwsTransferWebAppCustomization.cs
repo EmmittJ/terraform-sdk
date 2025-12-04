@@ -11,27 +11,27 @@ public partial class AwsTransferWebAppCustomization(string name) : TerraformReso
     /// <summary>
     /// The favicon_file attribute.
     /// </summary>
-    public TerraformValue<string>? FaviconFile
+    public TerraformValue<string> FaviconFile
     {
-        get => GetArgument<TerraformValue<string>>("favicon_file");
+        get => GetArgument<TerraformValue<string>>("favicon_file") ?? AsReference("favicon_file");
         set => SetArgument("favicon_file", value);
     }
 
     /// <summary>
     /// The logo_file attribute.
     /// </summary>
-    public TerraformValue<string>? LogoFile
+    public TerraformValue<string> LogoFile
     {
-        get => GetArgument<TerraformValue<string>>("logo_file");
+        get => GetArgument<TerraformValue<string>>("logo_file") ?? AsReference("logo_file");
         set => SetArgument("logo_file", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsTransferWebAppCustomization(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAppId is required")]
     public required TerraformValue<string> WebAppId
     {
-        get => GetArgument<TerraformValue<string>>("web_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("web_app_id");
         set => SetArgument("web_app_id", value);
     }
 

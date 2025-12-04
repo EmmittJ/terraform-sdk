@@ -144,7 +144,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlockLayer4ConfigsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
     public required TerraformValue<string> IpProtocol
     {
-        get => GetArgument<TerraformValue<string>>("ip_protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_protocol");
         set => SetArgument("ip_protocol", value);
     }
 
@@ -271,7 +271,7 @@ public partial class GoogleComputeNetworkFirewallPolicyRule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -290,7 +290,7 @@ public partial class GoogleComputeNetworkFirewallPolicyRule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => GetArgument<TerraformValue<string>>("direction");
+        get => GetRequiredArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
@@ -323,16 +323,16 @@ public partial class GoogleComputeNetworkFirewallPolicyRule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicy is required")]
     public required TerraformValue<string> FirewallPolicy
     {
-        get => GetArgument<TerraformValue<string>>("firewall_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("firewall_policy");
         set => SetArgument("firewall_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -344,16 +344,16 @@ public partial class GoogleComputeNetworkFirewallPolicyRule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

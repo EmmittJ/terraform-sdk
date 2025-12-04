@@ -16,9 +16,9 @@ public class AwsElastictranscoderPipelineContentConfigBlock : TerraformBlock
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformValue<string>? Bucket
+    public TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetArgument<TerraformValue<string>>("bucket") ?? AsReference("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -139,9 +139,9 @@ public class AwsElastictranscoderPipelineThumbnailConfigBlock : TerraformBlock
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformValue<string>? Bucket
+    public TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetArgument<TerraformValue<string>>("bucket") ?? AsReference("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -217,9 +217,9 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -229,34 +229,34 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputBucket is required")]
     public required TerraformValue<string> InputBucket
     {
-        get => GetArgument<TerraformValue<string>>("input_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("input_bucket");
         set => SetArgument("input_bucket", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The output_bucket attribute.
     /// </summary>
-    public TerraformValue<string>? OutputBucket
+    public TerraformValue<string> OutputBucket
     {
-        get => GetArgument<TerraformValue<string>>("output_bucket");
+        get => GetArgument<TerraformValue<string>>("output_bucket") ?? AsReference("output_bucket");
         set => SetArgument("output_bucket", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -266,7 +266,7 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => GetArgument<TerraformValue<string>>("role");
+        get => GetRequiredArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 

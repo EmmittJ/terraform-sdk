@@ -42,7 +42,7 @@ public class GoogleClouddeployTargetAssociatedEntitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityId is required")]
     public required TerraformValue<string> EntityId
     {
-        get => GetArgument<TerraformValue<string>>("entity_id");
+        get => GetRequiredArgument<TerraformValue<string>>("entity_id");
         set => SetArgument("entity_id", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleClouddeployTargetCustomTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomTargetType is required")]
     public required TerraformValue<string> CustomTargetType
     {
-        get => GetArgument<TerraformValue<string>>("custom_target_type");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_target_type");
         set => SetArgument("custom_target_type", value);
     }
 
@@ -167,27 +167,27 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// <summary>
     /// Optional. Cloud Storage location in which to store execution outputs. This can either be a bucket (&amp;quot;gs://my-bucket&amp;quot;) or a path within a bucket (&amp;quot;gs://my-bucket/my-dir&amp;quot;). If unspecified, a default bucket located in the same region will be used.
     /// </summary>
-    public TerraformValue<string>? ArtifactStorage
+    public TerraformValue<string> ArtifactStorage
     {
-        get => GetArgument<TerraformValue<string>>("artifact_storage");
+        get => GetArgument<TerraformValue<string>>("artifact_storage") ?? AsReference("artifact_storage");
         set => SetArgument("artifact_storage", value);
     }
 
     /// <summary>
     /// Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and 24h in seconds format. If unspecified, a default timeout of 1h is used.
     /// </summary>
-    public TerraformValue<string>? ExecutionTimeout
+    public TerraformValue<string> ExecutionTimeout
     {
-        get => GetArgument<TerraformValue<string>>("execution_timeout");
+        get => GetArgument<TerraformValue<string>>("execution_timeout") ?? AsReference("execution_timeout");
         set => SetArgument("execution_timeout", value);
     }
 
     /// <summary>
     /// Optional. Google service account to use for execution. If unspecified, the project execution service account (-compute@developer.gserviceaccount.com) is used.
     /// </summary>
-    public TerraformValue<string>? ServiceAccount
+    public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -313,7 +313,7 @@ public class GoogleClouddeployTargetRunBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -400,9 +400,9 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -424,7 +424,7 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -434,16 +434,16 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

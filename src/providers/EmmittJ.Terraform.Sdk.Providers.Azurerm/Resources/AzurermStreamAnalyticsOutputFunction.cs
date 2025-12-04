@@ -64,7 +64,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformValue<string> ApiKey
     {
-        get => GetArgument<TerraformValue<string>>("api_key");
+        get => GetRequiredArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionApp is required")]
     public required TerraformValue<string> FunctionApp
     {
-        get => GetArgument<TerraformValue<string>>("function_app");
+        get => GetRequiredArgument<TerraformValue<string>>("function_app");
         set => SetArgument("function_app", value);
     }
 
@@ -102,16 +102,16 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => GetArgument<TerraformValue<string>>("function_name");
+        get => GetRequiredArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
-        get => GetArgument<TerraformValue<string>>("stream_analytics_job_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_analytics_job_name");
         set => SetArgument("stream_analytics_job_name", value);
     }
 

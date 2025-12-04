@@ -20,7 +20,7 @@ public class GoogleFilestoreInstanceFileSharesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGb is required")]
     public required TerraformValue<double> CapacityGb
     {
-        get => GetArgument<TerraformValue<double>>("capacity_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("capacity_gb");
         set => SetArgument("capacity_gb", value);
     }
 
@@ -30,7 +30,7 @@ public class GoogleFilestoreInstanceFileSharesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleFilestoreInstanceInitialReplicationBlockReplicasBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerInstance is required")]
     public required TerraformValue<string> PeerInstance
     {
-        get => GetArgument<TerraformValue<string>>("peer_instance");
+        get => GetRequiredArgument<TerraformValue<string>>("peer_instance");
         set => SetArgument("peer_instance", value);
     }
 
@@ -235,7 +235,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -243,9 +243,9 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     /// A /29 CIDR block that identifies the range of IP
     /// addresses reserved for this instance.
     /// </summary>
-    public TerraformValue<string>? ReservedIpRange
+    public TerraformValue<string> ReservedIpRange
     {
-        get => GetArgument<TerraformValue<string>>("reserved_ip_range");
+        get => GetArgument<TerraformValue<string>>("reserved_ip_range") ?? AsReference("reserved_ip_range");
         set => SetArgument("reserved_ip_range", value);
     }
 
@@ -447,9 +447,9 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -478,9 +478,9 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// <summary>
     /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
     /// </summary>
-    public TerraformValue<string>? Location
+    public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
         set => SetArgument("location", value);
     }
 
@@ -490,16 +490,16 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -539,7 +539,7 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier");
+        get => GetRequiredArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -547,9 +547,9 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// The name of the Filestore zone of the instance.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

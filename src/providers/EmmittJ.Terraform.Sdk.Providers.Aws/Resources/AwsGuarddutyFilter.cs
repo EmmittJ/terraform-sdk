@@ -53,7 +53,7 @@ public class AwsGuarddutyFilterFindingCriteriaBlockCriterionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformValue<string> Field
     {
-        get => GetArgument<TerraformValue<string>>("field");
+        get => GetRequiredArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -136,16 +136,16 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformValue<string> DetectorId
     {
-        get => GetArgument<TerraformValue<string>>("detector_id");
+        get => GetRequiredArgument<TerraformValue<string>>("detector_id");
         set => SetArgument("detector_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -165,16 +165,16 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rank is required")]
     public required TerraformValue<double> Rank
     {
-        get => GetArgument<TerraformValue<double>>("rank");
+        get => GetRequiredArgument<TerraformValue<double>>("rank");
         set => SetArgument("rank", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -190,9 +190,9 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -16,18 +16,18 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     /// <summary>
     /// The cidr_list_aliases attribute.
     /// </summary>
-    public TerraformSet<string>? CidrListAliases
+    public TerraformSet<string> CidrListAliases
     {
-        get => GetArgument<TerraformSet<string>>("cidr_list_aliases");
+        get => GetArgument<TerraformSet<string>>("cidr_list_aliases") ?? AsReference("cidr_list_aliases");
         set => SetArgument("cidr_list_aliases", value);
     }
 
     /// <summary>
     /// The cidrs attribute.
     /// </summary>
-    public TerraformSet<string>? Cidrs
+    public TerraformSet<string> Cidrs
     {
-        get => GetArgument<TerraformSet<string>>("cidrs");
+        get => GetArgument<TerraformSet<string>>("cidrs") ?? AsReference("cidrs");
         set => SetArgument("cidrs", value);
     }
 
@@ -37,16 +37,16 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => GetArgument<TerraformValue<double>>("from_port");
+        get => GetRequiredArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
     /// <summary>
     /// The ipv6_cidrs attribute.
     /// </summary>
-    public TerraformSet<string>? Ipv6Cidrs
+    public TerraformSet<string> Ipv6Cidrs
     {
-        get => GetArgument<TerraformSet<string>>("ipv6_cidrs");
+        get => GetArgument<TerraformSet<string>>("ipv6_cidrs") ?? AsReference("ipv6_cidrs");
         set => SetArgument("ipv6_cidrs", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => GetArgument<TerraformValue<double>>("to_port");
+        get => GetRequiredArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -82,9 +82,9 @@ public partial class AwsLightsailInstancePublicPorts(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -94,16 +94,16 @@ public partial class AwsLightsailInstancePublicPorts(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformValue<string> InstanceName
     {
-        get => GetArgument<TerraformValue<string>>("instance_name");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_name");
         set => SetArgument("instance_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -19,7 +19,7 @@ public class AzurermNetworkManagerRoutingRuleDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformValue<string> Address
     {
-        get => GetArgument<TerraformValue<string>>("address");
+        get => GetRequiredArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermNetworkManagerRoutingRuleDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -137,9 +137,9 @@ public partial class AzurermNetworkManagerRoutingRule(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermNetworkManagerRoutingRule(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermNetworkManagerRoutingRule(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleCollectionId is required")]
     public required TerraformValue<string> RuleCollectionId
     {
-        get => GetArgument<TerraformValue<string>>("rule_collection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_collection_id");
         set => SetArgument("rule_collection_id", value);
     }
 

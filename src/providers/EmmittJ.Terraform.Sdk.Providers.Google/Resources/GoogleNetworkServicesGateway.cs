@@ -56,9 +56,9 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// This field only applies to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// Gateways of type &#39;OPEN_MESH&#39; listen on 0.0.0.0 for IPv4 and :: for IPv6.
     /// </summary>
-    public TerraformList<string>? Addresses
+    public TerraformList<string> Addresses
     {
-        get => GetArgument<TerraformList<string>>("addresses");
+        get => GetArgument<TerraformList<string>>("addresses") ?? AsReference("addresses");
         set => SetArgument("addresses", value);
     }
 
@@ -116,9 +116,9 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -160,7 +160,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -191,9 +191,9 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -245,7 +245,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsEcsServiceAlarmsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmNames is required")]
     public required TerraformSet<string> AlarmNames
     {
-        get => GetArgument<TerraformSet<string>>("alarm_names");
+        get => GetRequiredArgument<TerraformSet<string>>("alarm_names");
         set => SetArgument("alarm_names", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEcsServiceAlarmsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformValue<bool> Enable
     {
-        get => GetArgument<TerraformValue<bool>>("enable");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsEcsServiceAlarmsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rollback is required")]
     public required TerraformValue<bool> Rollback
     {
-        get => GetArgument<TerraformValue<bool>>("rollback");
+        get => GetRequiredArgument<TerraformValue<bool>>("rollback");
         set => SetArgument("rollback", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsEcsServiceCapacityProviderStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformValue<string> CapacityProvider
     {
-        get => GetArgument<TerraformValue<string>>("capacity_provider");
+        get => GetRequiredArgument<TerraformValue<string>>("capacity_provider");
         set => SetArgument("capacity_provider", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsEcsServiceDeploymentCircuitBreakerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformValue<bool> Enable
     {
-        get => GetArgument<TerraformValue<bool>>("enable");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsEcsServiceDeploymentCircuitBreakerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rollback is required")]
     public required TerraformValue<bool> Rollback
     {
-        get => GetArgument<TerraformValue<bool>>("rollback");
+        get => GetRequiredArgument<TerraformValue<bool>>("rollback");
         set => SetArgument("rollback", value);
     }
 
@@ -136,18 +136,18 @@ public class AwsEcsServiceDeploymentConfigurationBlock : TerraformBlock
     /// <summary>
     /// The bake_time_in_minutes attribute.
     /// </summary>
-    public TerraformValue<string>? BakeTimeInMinutes
+    public TerraformValue<string> BakeTimeInMinutes
     {
-        get => GetArgument<TerraformValue<string>>("bake_time_in_minutes");
+        get => GetArgument<TerraformValue<string>>("bake_time_in_minutes") ?? AsReference("bake_time_in_minutes");
         set => SetArgument("bake_time_in_minutes", value);
     }
 
     /// <summary>
     /// The strategy attribute.
     /// </summary>
-    public TerraformValue<string>? Strategy
+    public TerraformValue<string> Strategy
     {
-        get => GetArgument<TerraformValue<string>>("strategy");
+        get => GetArgument<TerraformValue<string>>("strategy") ?? AsReference("strategy");
         set => SetArgument("strategy", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsEcsServiceDeploymentConfigurationBlockLifecycleHookBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HookTargetArn is required")]
     public required TerraformValue<string> HookTargetArn
     {
-        get => GetArgument<TerraformValue<string>>("hook_target_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("hook_target_arn");
         set => SetArgument("hook_target_arn", value);
     }
 
@@ -208,7 +208,7 @@ public class AwsEcsServiceDeploymentConfigurationBlockLifecycleHookBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -255,7 +255,7 @@ public class AwsEcsServiceLoadBalancerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -265,7 +265,7 @@ public class AwsEcsServiceLoadBalancerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerPort is required")]
     public required TerraformValue<double> ContainerPort
     {
-        get => GetArgument<TerraformValue<double>>("container_port");
+        get => GetRequiredArgument<TerraformValue<double>>("container_port");
         set => SetArgument("container_port", value);
     }
 
@@ -316,7 +316,7 @@ public class AwsEcsServiceLoadBalancerBlockAdvancedConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlternateTargetGroupArn is required")]
     public required TerraformValue<string> AlternateTargetGroupArn
     {
-        get => GetArgument<TerraformValue<string>>("alternate_target_group_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("alternate_target_group_arn");
         set => SetArgument("alternate_target_group_arn", value);
     }
 
@@ -326,7 +326,7 @@ public class AwsEcsServiceLoadBalancerBlockAdvancedConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductionListenerRule is required")]
     public required TerraformValue<string> ProductionListenerRule
     {
-        get => GetArgument<TerraformValue<string>>("production_listener_rule");
+        get => GetRequiredArgument<TerraformValue<string>>("production_listener_rule");
         set => SetArgument("production_listener_rule", value);
     }
 
@@ -336,7 +336,7 @@ public class AwsEcsServiceLoadBalancerBlockAdvancedConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -387,7 +387,7 @@ public class AwsEcsServiceNetworkConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => GetArgument<TerraformSet<string>>("subnets");
+        get => GetRequiredArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -420,7 +420,7 @@ public class AwsEcsServiceOrderedPlacementStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -453,7 +453,7 @@ public class AwsEcsServicePlacementConstraintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -477,16 +477,16 @@ public class AwsEcsServiceServiceConnectConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformValue<string>? NamespaceAttribute
+    public TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace");
+        get => GetArgument<TerraformValue<string>>("namespace") ?? AsReference("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -528,16 +528,16 @@ public class AwsEcsServiceServiceConnectConfigurationBlockLogConfigurationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDriver is required")]
     public required TerraformValue<string> LogDriver
     {
-        get => GetArgument<TerraformValue<string>>("log_driver");
+        get => GetRequiredArgument<TerraformValue<string>>("log_driver");
         set => SetArgument("log_driver", value);
     }
 
     /// <summary>
     /// The options attribute.
     /// </summary>
-    public TerraformMap<string>? Options
+    public TerraformMap<string> Options
     {
-        get => GetArgument<TerraformMap<string>>("options");
+        get => GetArgument<TerraformMap<string>>("options") ?? AsReference("options");
         set => SetArgument("options", value);
     }
 
@@ -569,7 +569,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlockLogConfigurationBlockS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -579,7 +579,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlockLogConfigurationBlockS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueFrom is required")]
     public required TerraformValue<string> ValueFrom
     {
-        get => GetArgument<TerraformValue<string>>("value_from");
+        get => GetRequiredArgument<TerraformValue<string>>("value_from");
         set => SetArgument("value_from", value);
     }
 
@@ -599,9 +599,9 @@ public class AwsEcsServiceServiceConnectConfigurationBlockServiceBlock : Terrafo
     /// <summary>
     /// The discovery_name attribute.
     /// </summary>
-    public TerraformValue<string>? DiscoveryName
+    public TerraformValue<string> DiscoveryName
     {
-        get => GetArgument<TerraformValue<string>>("discovery_name");
+        get => GetArgument<TerraformValue<string>>("discovery_name") ?? AsReference("discovery_name");
         set => SetArgument("discovery_name", value);
     }
 
@@ -620,7 +620,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlockServiceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortName is required")]
     public required TerraformValue<string> PortName
     {
-        get => GetArgument<TerraformValue<string>>("port_name");
+        get => GetRequiredArgument<TerraformValue<string>>("port_name");
         set => SetArgument("port_name", value);
     }
 
@@ -670,9 +670,9 @@ public class AwsEcsServiceServiceConnectConfigurationBlockServiceBlockClientAlia
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformValue<string>? DnsName
+    public TerraformValue<string> DnsName
     {
-        get => GetArgument<TerraformValue<string>>("dns_name");
+        get => GetArgument<TerraformValue<string>>("dns_name") ?? AsReference("dns_name");
         set => SetArgument("dns_name", value);
     }
 
@@ -682,7 +682,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlockServiceBlockClientAlia
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -737,7 +737,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlockServiceBlockClientAlia
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -773,7 +773,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlockServiceBlockClientAlia
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exact is required")]
     public required TerraformValue<string> Exact
     {
-        get => GetArgument<TerraformValue<string>>("exact");
+        get => GetRequiredArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -871,7 +871,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlockServiceBlockTlsBlockIs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsPcaAuthorityArn is required")]
     public required TerraformValue<string> AwsPcaAuthorityArn
     {
-        get => GetArgument<TerraformValue<string>>("aws_pca_authority_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("aws_pca_authority_arn");
         set => SetArgument("aws_pca_authority_arn", value);
     }
 
@@ -922,7 +922,7 @@ public class AwsEcsServiceServiceRegistriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryArn is required")]
     public required TerraformValue<string> RegistryArn
     {
-        get => GetArgument<TerraformValue<string>>("registry_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("registry_arn");
         set => SetArgument("registry_arn", value);
     }
 
@@ -987,7 +987,7 @@ public class AwsEcsServiceVolumeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1059,7 +1059,7 @@ public class AwsEcsServiceVolumeConfigurationBlockManagedEbsVolumeBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1145,7 +1145,7 @@ public class AwsEcsServiceVolumeConfigurationBlockManagedEbsVolumeBlockTagSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => GetArgument<TerraformValue<string>>("resource_type");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -1178,7 +1178,7 @@ public class AwsEcsServiceVpcLatticeConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortName is required")]
     public required TerraformValue<string> PortName
     {
-        get => GetArgument<TerraformValue<string>>("port_name");
+        get => GetRequiredArgument<TerraformValue<string>>("port_name");
         set => SetArgument("port_name", value);
     }
 
@@ -1188,7 +1188,7 @@ public class AwsEcsServiceVpcLatticeConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1198,7 +1198,7 @@ public class AwsEcsServiceVpcLatticeConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGroupArn is required")]
     public required TerraformValue<string> TargetGroupArn
     {
-        get => GetArgument<TerraformValue<string>>("target_group_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("target_group_arn");
         set => SetArgument("target_group_arn", value);
     }
 
@@ -1214,18 +1214,18 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// <summary>
     /// The availability_zone_rebalancing attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZoneRebalancing
+    public TerraformValue<string> AvailabilityZoneRebalancing
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone_rebalancing");
+        get => GetArgument<TerraformValue<string>>("availability_zone_rebalancing") ?? AsReference("availability_zone_rebalancing");
         set => SetArgument("availability_zone_rebalancing", value);
     }
 
     /// <summary>
     /// The cluster attribute.
     /// </summary>
-    public TerraformValue<string>? Cluster
+    public TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetArgument<TerraformValue<string>>("cluster") ?? AsReference("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -1304,27 +1304,27 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// <summary>
     /// The iam_role attribute.
     /// </summary>
-    public TerraformValue<string>? IamRole
+    public TerraformValue<string> IamRole
     {
-        get => GetArgument<TerraformValue<string>>("iam_role");
+        get => GetArgument<TerraformValue<string>>("iam_role") ?? AsReference("iam_role");
         set => SetArgument("iam_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
-    public TerraformValue<string>? LaunchType
+    public TerraformValue<string> LaunchType
     {
-        get => GetArgument<TerraformValue<string>>("launch_type");
+        get => GetArgument<TerraformValue<string>>("launch_type") ?? AsReference("launch_type");
         set => SetArgument("launch_type", value);
     }
 
@@ -1334,16 +1334,16 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
-    public TerraformValue<string>? PlatformVersion
+    public TerraformValue<string> PlatformVersion
     {
-        get => GetArgument<TerraformValue<string>>("platform_version");
+        get => GetArgument<TerraformValue<string>>("platform_version") ?? AsReference("platform_version");
         set => SetArgument("platform_version", value);
     }
 
@@ -1359,9 +1359,9 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1395,9 +1395,9 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1413,9 +1413,9 @@ public partial class AwsEcsService(string name) : TerraformResource("aws_ecs_ser
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformMap<string>? Triggers
+    public TerraformMap<string> Triggers
     {
-        get => GetArgument<TerraformMap<string>>("triggers");
+        get => GetArgument<TerraformMap<string>>("triggers") ?? AsReference("triggers");
         set => SetArgument("triggers", value);
     }
 

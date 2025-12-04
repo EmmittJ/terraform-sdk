@@ -53,7 +53,7 @@ public class GoogleContainerAwsClusterAuthorizationBlockAdminGroupsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformValue<string> Group
     {
-        get => GetArgument<TerraformValue<string>>("group");
+        get => GetRequiredArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleContainerAwsClusterAuthorizationBlockAdminUsersBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -97,9 +97,9 @@ public class GoogleContainerAwsClusterBinaryAuthorizationBlock : TerraformBlock
     /// <summary>
     /// Mode of operation for Binary Authorization policy evaluation. Possible values: DISABLED, PROJECT_SINGLETON_POLICY_ENFORCE
     /// </summary>
-    public TerraformValue<string>? EvaluationMode
+    public TerraformValue<string> EvaluationMode
     {
-        get => GetArgument<TerraformValue<string>>("evaluation_mode");
+        get => GetArgument<TerraformValue<string>>("evaluation_mode") ?? AsReference("evaluation_mode");
         set => SetArgument("evaluation_mode", value);
     }
 
@@ -123,16 +123,16 @@ public class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamInstanceProfile is required")]
     public required TerraformValue<string> IamInstanceProfile
     {
-        get => GetArgument<TerraformValue<string>>("iam_instance_profile");
+        get => GetRequiredArgument<TerraformValue<string>>("iam_instance_profile");
         set => SetArgument("iam_instance_profile", value);
     }
 
     /// <summary>
     /// Optional. The AWS instance type. When unspecified, it defaults to `m5.large`.
     /// </summary>
-    public TerraformValue<string>? InstanceType
+    public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -272,16 +272,16 @@ public class GoogleContainerAwsClusterControlPlaneBlockAwsServicesAuthentication
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
     /// <summary>
     /// Optional. An identifier for the assumed role session. When unspecified, it defaults to `multicloud-service-agent`.
     /// </summary>
-    public TerraformValue<string>? RoleSessionName
+    public TerraformValue<string> RoleSessionName
     {
-        get => GetArgument<TerraformValue<string>>("role_session_name");
+        get => GetArgument<TerraformValue<string>>("role_session_name") ?? AsReference("role_session_name");
         set => SetArgument("role_session_name", value);
     }
 
@@ -304,7 +304,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockConfigEncryptionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -327,7 +327,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockDatabaseEncryptionBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -347,9 +347,9 @@ public class GoogleContainerAwsClusterControlPlaneBlockMainVolumeBlock : Terrafo
     /// <summary>
     /// Optional. The number of I/O operations per second (IOPS) to provision for GP3 volume.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -365,27 +365,27 @@ public class GoogleContainerAwsClusterControlPlaneBlockMainVolumeBlock : Terrafo
     /// <summary>
     /// Optional. The size of the volume, in GiBs. When unspecified, a default value is provided. See the specific reference in the parent resource.
     /// </summary>
-    public TerraformValue<double>? SizeGib
+    public TerraformValue<double> SizeGib
     {
-        get => GetArgument<TerraformValue<double>>("size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib") ?? AsReference("size_gib");
         set => SetArgument("size_gib", value);
     }
 
     /// <summary>
     /// Optional. The throughput to provision for the volume, in MiB/s. Only valid if the volume type is GP3. If volume type is gp3 and throughput is not specified, the throughput will defaults to 125.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// Optional. Type of the EBS volume. When unspecified, it defaults to GP2 volume. Possible values: VOLUME_TYPE_UNSPECIFIED, GP2, GP3
     /// </summary>
-    public TerraformValue<string>? VolumeType
+    public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -408,7 +408,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockProxyConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretArn is required")]
     public required TerraformValue<string> SecretArn
     {
-        get => GetArgument<TerraformValue<string>>("secret_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 
@@ -418,7 +418,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockProxyConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -438,9 +438,9 @@ public class GoogleContainerAwsClusterControlPlaneBlockRootVolumeBlock : Terrafo
     /// <summary>
     /// Optional. The number of I/O operations per second (IOPS) to provision for GP3 volume.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
@@ -456,27 +456,27 @@ public class GoogleContainerAwsClusterControlPlaneBlockRootVolumeBlock : Terrafo
     /// <summary>
     /// Optional. The size of the volume, in GiBs. When unspecified, a default value is provided. See the specific reference in the parent resource.
     /// </summary>
-    public TerraformValue<double>? SizeGib
+    public TerraformValue<double> SizeGib
     {
-        get => GetArgument<TerraformValue<double>>("size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib") ?? AsReference("size_gib");
         set => SetArgument("size_gib", value);
     }
 
     /// <summary>
     /// Optional. The throughput to provision for the volume, in MiB/s. Only valid if the volume type is GP3. If volume type is gp3 and throughput is not specified, the throughput will defaults to 125.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// Optional. Type of the EBS volume. When unspecified, it defaults to GP2 volume. Possible values: VOLUME_TYPE_UNSPECIFIED, GP2, GP3
     /// </summary>
-    public TerraformValue<string>? VolumeType
+    public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -499,7 +499,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockSshConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2KeyPair is required")]
     public required TerraformValue<string> Ec2KeyPair
     {
-        get => GetArgument<TerraformValue<string>>("ec2_key_pair");
+        get => GetRequiredArgument<TerraformValue<string>>("ec2_key_pair");
         set => SetArgument("ec2_key_pair", value);
     }
 
@@ -526,9 +526,9 @@ public class GoogleContainerAwsClusterFleetBlock : TerraformBlock
     /// <summary>
     /// The number of the Fleet host project where this cluster will be registered.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -581,7 +581,7 @@ public class GoogleContainerAwsClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -653,7 +653,7 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRegion is required")]
     public required TerraformValue<string> AwsRegion
     {
-        get => GetArgument<TerraformValue<string>>("aws_region");
+        get => GetRequiredArgument<TerraformValue<string>>("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -669,9 +669,9 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -681,7 +681,7 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -691,16 +691,16 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

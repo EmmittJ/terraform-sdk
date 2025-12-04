@@ -52,9 +52,9 @@ public partial class AwsDynamodbTableReplica(string name) : TerraformResource("a
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? DeletionProtectionEnabled
+    public TerraformValue<bool> DeletionProtectionEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled") ?? AsReference("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
@@ -64,25 +64,25 @@ public partial class AwsDynamodbTableReplica(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalTableArn is required")]
     public required TerraformValue<string> GlobalTableArn
     {
-        get => GetArgument<TerraformValue<string>>("global_table_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("global_table_arn");
         set => SetArgument("global_table_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyArn
+    public TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? AsReference("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -98,9 +98,9 @@ public partial class AwsDynamodbTableReplica(string name) : TerraformResource("a
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -125,9 +125,9 @@ public partial class AwsDynamodbTableReplica(string name) : TerraformResource("a
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

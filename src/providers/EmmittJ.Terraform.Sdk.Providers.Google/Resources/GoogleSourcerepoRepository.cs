@@ -21,7 +21,7 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageFormat is required")]
     public required TerraformValue<string> MessageFormat
     {
-        get => GetArgument<TerraformValue<string>>("message_format");
+        get => GetRequiredArgument<TerraformValue<string>>("message_format");
         set => SetArgument("message_format", value);
     }
 
@@ -31,9 +31,9 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     /// the caller needs to have iam.serviceAccounts.actAs permission on this service account.
     /// If unspecified, it defaults to the compute engine default service account.
     /// </summary>
-    public TerraformValue<string>? ServiceAccountEmail
+    public TerraformValue<string> ServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email") ?? AsReference("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => GetArgument<TerraformValue<string>>("topic");
+        get => GetRequiredArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -109,9 +109,9 @@ public partial class GoogleSourcerepoRepository(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -122,16 +122,16 @@ public partial class GoogleSourcerepoRepository(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

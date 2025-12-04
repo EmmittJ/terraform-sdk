@@ -106,7 +106,7 @@ public class GoogleApikeysKeyRestrictionsBlockAndroidKeyRestrictionsBlockAllowed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageName is required")]
     public required TerraformValue<string> PackageName
     {
-        get => GetArgument<TerraformValue<string>>("package_name");
+        get => GetRequiredArgument<TerraformValue<string>>("package_name");
         set => SetArgument("package_name", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleApikeysKeyRestrictionsBlockAndroidKeyRestrictionsBlockAllowed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sha1Fingerprint is required")]
     public required TerraformValue<string> Sha1Fingerprint
     {
-        get => GetArgument<TerraformValue<string>>("sha1_fingerprint");
+        get => GetRequiredArgument<TerraformValue<string>>("sha1_fingerprint");
         set => SetArgument("sha1_fingerprint", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleApikeysKeyRestrictionsBlockApiTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -283,9 +283,9 @@ public partial class GoogleApikeysKey(string name) : TerraformResource("google_a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -295,16 +295,16 @@ public partial class GoogleApikeysKey(string name) : TerraformResource("google_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

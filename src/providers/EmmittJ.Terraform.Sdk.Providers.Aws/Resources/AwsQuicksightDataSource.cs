@@ -60,7 +60,7 @@ public class AwsQuicksightDataSourceCredentialsBlockCredentialPairBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsQuicksightDataSourceCredentialsBlockCredentialPairBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -317,7 +317,7 @@ public class AwsQuicksightDataSourceParametersBlockAmazonElasticsearchBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetRequiredArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -362,7 +362,7 @@ public class AwsQuicksightDataSourceParametersBlockAuroraBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -372,7 +372,7 @@ public class AwsQuicksightDataSourceParametersBlockAuroraBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -382,7 +382,7 @@ public class AwsQuicksightDataSourceParametersBlockAuroraBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -405,7 +405,7 @@ public class AwsQuicksightDataSourceParametersBlockAuroraPostgresqlBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -415,7 +415,7 @@ public class AwsQuicksightDataSourceParametersBlockAuroraPostgresqlBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -425,7 +425,7 @@ public class AwsQuicksightDataSourceParametersBlockAuroraPostgresqlBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -448,7 +448,7 @@ public class AwsQuicksightDataSourceParametersBlockAwsIotAnalyticsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetName is required")]
     public required TerraformValue<string> DataSetName
     {
-        get => GetArgument<TerraformValue<string>>("data_set_name");
+        get => GetRequiredArgument<TerraformValue<string>>("data_set_name");
         set => SetArgument("data_set_name", value);
     }
 
@@ -471,7 +471,7 @@ public class AwsQuicksightDataSourceParametersBlockDatabricksBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -481,7 +481,7 @@ public class AwsQuicksightDataSourceParametersBlockDatabricksBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -491,7 +491,7 @@ public class AwsQuicksightDataSourceParametersBlockDatabricksBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlEndpointPath is required")]
     public required TerraformValue<string> SqlEndpointPath
     {
-        get => GetArgument<TerraformValue<string>>("sql_endpoint_path");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_endpoint_path");
         set => SetArgument("sql_endpoint_path", value);
     }
 
@@ -514,7 +514,7 @@ public class AwsQuicksightDataSourceParametersBlockJiraBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteBaseUrl is required")]
     public required TerraformValue<string> SiteBaseUrl
     {
-        get => GetArgument<TerraformValue<string>>("site_base_url");
+        get => GetRequiredArgument<TerraformValue<string>>("site_base_url");
         set => SetArgument("site_base_url", value);
     }
 
@@ -537,7 +537,7 @@ public class AwsQuicksightDataSourceParametersBlockMariaDbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -547,7 +547,7 @@ public class AwsQuicksightDataSourceParametersBlockMariaDbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -557,7 +557,7 @@ public class AwsQuicksightDataSourceParametersBlockMariaDbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -580,7 +580,7 @@ public class AwsQuicksightDataSourceParametersBlockMysqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -590,7 +590,7 @@ public class AwsQuicksightDataSourceParametersBlockMysqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -600,7 +600,7 @@ public class AwsQuicksightDataSourceParametersBlockMysqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -623,7 +623,7 @@ public class AwsQuicksightDataSourceParametersBlockOracleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -633,7 +633,7 @@ public class AwsQuicksightDataSourceParametersBlockOracleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -643,7 +643,7 @@ public class AwsQuicksightDataSourceParametersBlockOracleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -666,7 +666,7 @@ public class AwsQuicksightDataSourceParametersBlockPostgresqlBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -676,7 +676,7 @@ public class AwsQuicksightDataSourceParametersBlockPostgresqlBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -686,7 +686,7 @@ public class AwsQuicksightDataSourceParametersBlockPostgresqlBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -709,7 +709,7 @@ public class AwsQuicksightDataSourceParametersBlockPrestoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Catalog is required")]
     public required TerraformValue<string> Catalog
     {
-        get => GetArgument<TerraformValue<string>>("catalog");
+        get => GetRequiredArgument<TerraformValue<string>>("catalog");
         set => SetArgument("catalog", value);
     }
 
@@ -719,7 +719,7 @@ public class AwsQuicksightDataSourceParametersBlockPrestoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -729,7 +729,7 @@ public class AwsQuicksightDataSourceParametersBlockPrestoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -752,7 +752,7 @@ public class AwsQuicksightDataSourceParametersBlockRdsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -762,7 +762,7 @@ public class AwsQuicksightDataSourceParametersBlockRdsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -794,7 +794,7 @@ public class AwsQuicksightDataSourceParametersBlockRedshiftBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -870,7 +870,7 @@ public class AwsQuicksightDataSourceParametersBlockS3BlockManifestFileLocationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -880,7 +880,7 @@ public class AwsQuicksightDataSourceParametersBlockS3BlockManifestFileLocationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -903,7 +903,7 @@ public class AwsQuicksightDataSourceParametersBlockServiceNowBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteBaseUrl is required")]
     public required TerraformValue<string> SiteBaseUrl
     {
-        get => GetArgument<TerraformValue<string>>("site_base_url");
+        get => GetRequiredArgument<TerraformValue<string>>("site_base_url");
         set => SetArgument("site_base_url", value);
     }
 
@@ -926,7 +926,7 @@ public class AwsQuicksightDataSourceParametersBlockSnowflakeBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -936,7 +936,7 @@ public class AwsQuicksightDataSourceParametersBlockSnowflakeBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -946,7 +946,7 @@ public class AwsQuicksightDataSourceParametersBlockSnowflakeBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Warehouse is required")]
     public required TerraformValue<string> Warehouse
     {
-        get => GetArgument<TerraformValue<string>>("warehouse");
+        get => GetRequiredArgument<TerraformValue<string>>("warehouse");
         set => SetArgument("warehouse", value);
     }
 
@@ -969,7 +969,7 @@ public class AwsQuicksightDataSourceParametersBlockSparkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -979,7 +979,7 @@ public class AwsQuicksightDataSourceParametersBlockSparkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1002,7 +1002,7 @@ public class AwsQuicksightDataSourceParametersBlockSqlServerBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -1012,7 +1012,7 @@ public class AwsQuicksightDataSourceParametersBlockSqlServerBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1022,7 +1022,7 @@ public class AwsQuicksightDataSourceParametersBlockSqlServerBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1045,7 +1045,7 @@ public class AwsQuicksightDataSourceParametersBlockTeradataBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -1055,7 +1055,7 @@ public class AwsQuicksightDataSourceParametersBlockTeradataBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1065,7 +1065,7 @@ public class AwsQuicksightDataSourceParametersBlockTeradataBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1088,7 +1088,7 @@ public class AwsQuicksightDataSourceParametersBlockTwitterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRows is required")]
     public required TerraformValue<double> MaxRows
     {
-        get => GetArgument<TerraformValue<double>>("max_rows");
+        get => GetRequiredArgument<TerraformValue<double>>("max_rows");
         set => SetArgument("max_rows", value);
     }
 
@@ -1098,7 +1098,7 @@ public class AwsQuicksightDataSourceParametersBlockTwitterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => GetArgument<TerraformValue<string>>("query");
+        get => GetRequiredArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -1122,7 +1122,7 @@ public class AwsQuicksightDataSourcePermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     public required TerraformSet<string> Actions
     {
-        get => GetArgument<TerraformSet<string>>("actions");
+        get => GetRequiredArgument<TerraformSet<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -1132,7 +1132,7 @@ public class AwsQuicksightDataSourcePermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetRequiredArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -1156,7 +1156,7 @@ public class AwsQuicksightDataSourceSslPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisableSsl is required")]
     public required TerraformValue<bool> DisableSsl
     {
-        get => GetArgument<TerraformValue<bool>>("disable_ssl");
+        get => GetRequiredArgument<TerraformValue<bool>>("disable_ssl");
         set => SetArgument("disable_ssl", value);
     }
 
@@ -1180,7 +1180,7 @@ public class AwsQuicksightDataSourceVpcConnectionPropertiesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConnectionArn is required")]
     public required TerraformValue<string> VpcConnectionArn
     {
-        get => GetArgument<TerraformValue<string>>("vpc_connection_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_connection_arn");
         set => SetArgument("vpc_connection_arn", value);
     }
 
@@ -1196,9 +1196,9 @@ public partial class AwsQuicksightDataSource(string name) : TerraformResource("a
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -1208,16 +1208,16 @@ public partial class AwsQuicksightDataSource(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     public required TerraformValue<string> DataSourceId
     {
-        get => GetArgument<TerraformValue<string>>("data_source_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_source_id");
         set => SetArgument("data_source_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1227,16 +1227,16 @@ public partial class AwsQuicksightDataSource(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1252,9 +1252,9 @@ public partial class AwsQuicksightDataSource(string name) : TerraformResource("a
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1264,7 +1264,7 @@ public partial class AwsQuicksightDataSource(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

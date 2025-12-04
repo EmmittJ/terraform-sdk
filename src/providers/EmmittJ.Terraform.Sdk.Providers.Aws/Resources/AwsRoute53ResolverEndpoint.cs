@@ -16,9 +16,9 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     /// <summary>
     /// The ip attribute.
     /// </summary>
-    public TerraformValue<string>? Ip
+    public TerraformValue<string> Ip
     {
-        get => GetArgument<TerraformValue<string>>("ip");
+        get => GetArgument<TerraformValue<string>>("ip") ?? AsReference("ip");
         set => SetArgument("ip", value);
     }
 
@@ -31,9 +31,9 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     /// <summary>
     /// The ipv6 attribute.
     /// </summary>
-    public TerraformValue<string>? Ipv6
+    public TerraformValue<string> Ipv6
     {
-        get => GetArgument<TerraformValue<string>>("ipv6");
+        get => GetArgument<TerraformValue<string>>("ipv6") ?? AsReference("ipv6");
         set => SetArgument("ipv6", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -103,16 +103,16 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => GetArgument<TerraformValue<string>>("direction");
+        get => GetRequiredArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -128,27 +128,27 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public TerraformSet<string>? Protocols
+    public TerraformSet<string> Protocols
     {
-        get => GetArgument<TerraformSet<string>>("protocols");
+        get => GetArgument<TerraformSet<string>>("protocols") ?? AsReference("protocols");
         set => SetArgument("protocols", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The resolver_endpoint_type attribute.
     /// </summary>
-    public TerraformValue<string>? ResolverEndpointType
+    public TerraformValue<string> ResolverEndpointType
     {
-        get => GetArgument<TerraformValue<string>>("resolver_endpoint_type");
+        get => GetArgument<TerraformValue<string>>("resolver_endpoint_type") ?? AsReference("resolver_endpoint_type");
         set => SetArgument("resolver_endpoint_type", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -174,9 +174,9 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

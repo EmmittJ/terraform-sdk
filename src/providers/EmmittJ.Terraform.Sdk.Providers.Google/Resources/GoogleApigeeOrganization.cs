@@ -146,9 +146,9 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// <summary>
     /// Billing type of the Apigee organization. See [Apigee pricing](https://cloud.google.com/apigee/pricing).
     /// </summary>
-    public TerraformValue<string>? BillingType
+    public TerraformValue<string> BillingType
     {
-        get => GetArgument<TerraformValue<string>>("billing_type");
+        get => GetArgument<TerraformValue<string>>("billing_type") ?? AsReference("billing_type");
         set => SetArgument("billing_type", value);
     }
 
@@ -196,9 +196,9 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -208,7 +208,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 

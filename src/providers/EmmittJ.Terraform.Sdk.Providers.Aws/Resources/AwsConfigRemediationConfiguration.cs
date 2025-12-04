@@ -74,7 +74,7 @@ public class AwsConfigRemediationConfigurationParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -99,9 +99,9 @@ public class AwsConfigRemediationConfigurationParameterBlock : TerraformBlock
     /// <summary>
     /// The static_values attribute.
     /// </summary>
-    public TerraformList<string>? StaticValues
+    public TerraformList<string> StaticValues
     {
-        get => GetArgument<TerraformList<string>>("static_values");
+        get => GetArgument<TerraformList<string>>("static_values") ?? AsReference("static_values");
         set => SetArgument("static_values", value);
     }
 
@@ -129,16 +129,16 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigRuleName is required")]
     public required TerraformValue<string> ConfigRuleName
     {
-        get => GetArgument<TerraformValue<string>>("config_rule_name");
+        get => GetRequiredArgument<TerraformValue<string>>("config_rule_name");
         set => SetArgument("config_rule_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -154,9 +154,9 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformValue<string> TargetId
     {
-        get => GetArgument<TerraformValue<string>>("target_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_id");
         set => SetArgument("target_id", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetType is required")]
     public required TerraformValue<string> TargetType
     {
-        get => GetArgument<TerraformValue<string>>("target_type");
+        get => GetRequiredArgument<TerraformValue<string>>("target_type");
         set => SetArgument("target_type", value);
     }
 

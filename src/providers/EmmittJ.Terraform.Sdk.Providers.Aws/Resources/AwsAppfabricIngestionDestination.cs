@@ -94,7 +94,7 @@ public class AwsAppfabricIngestionDestinationDestinationConfigurationBlockAuditL
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformValue<string> StreamName
     {
-        get => GetArgument<TerraformValue<string>>("stream_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_name");
         set => SetArgument("stream_name", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsAppfabricIngestionDestinationDestinationConfigurationBlockAuditL
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsAppfabricIngestionDestinationProcessingConfigurationBlockAuditLo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetRequiredArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -182,7 +182,7 @@ public class AwsAppfabricIngestionDestinationProcessingConfigurationBlockAuditLo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AwsAppfabricIngestionDestination(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformValue<string> AppBundleArn
     {
-        get => GetArgument<TerraformValue<string>>("app_bundle_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("app_bundle_arn");
         set => SetArgument("app_bundle_arn", value);
     }
 
@@ -252,16 +252,16 @@ public partial class AwsAppfabricIngestionDestination(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionArn is required")]
     public required TerraformValue<string> IngestionArn
     {
-        get => GetArgument<TerraformValue<string>>("ingestion_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("ingestion_arn");
         set => SetArgument("ingestion_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

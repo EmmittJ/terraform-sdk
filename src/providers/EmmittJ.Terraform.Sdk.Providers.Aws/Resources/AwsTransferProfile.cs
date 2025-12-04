@@ -14,7 +14,7 @@ public partial class AwsTransferProfile(string name) : TerraformResource("aws_tr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "As2Id is required")]
     public required TerraformValue<string> As2Id
     {
-        get => GetArgument<TerraformValue<string>>("as2_id");
+        get => GetRequiredArgument<TerraformValue<string>>("as2_id");
         set => SetArgument("as2_id", value);
     }
 
@@ -30,9 +30,9 @@ public partial class AwsTransferProfile(string name) : TerraformResource("aws_tr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsTransferProfile(string name) : TerraformResource("aws_tr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileType is required")]
     public required TerraformValue<string> ProfileType
     {
-        get => GetArgument<TerraformValue<string>>("profile_type");
+        get => GetRequiredArgument<TerraformValue<string>>("profile_type");
         set => SetArgument("profile_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -67,9 +67,9 @@ public partial class AwsTransferProfile(string name) : TerraformResource("aws_tr
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

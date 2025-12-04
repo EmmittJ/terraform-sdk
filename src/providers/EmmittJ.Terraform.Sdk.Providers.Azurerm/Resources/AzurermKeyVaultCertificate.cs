@@ -19,7 +19,7 @@ public class AzurermKeyVaultCertificateCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Contents is required")]
     public required TerraformValue<string> Contents
     {
-        get => GetArgument<TerraformValue<string>>("contents");
+        get => GetRequiredArgument<TerraformValue<string>>("contents");
         set => SetArgument("contents", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockIssuerParametersBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -143,9 +143,9 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockKeyPropertiesBlock 
     /// <summary>
     /// The curve attribute.
     /// </summary>
-    public TerraformValue<string>? Curve
+    public TerraformValue<string> Curve
     {
-        get => GetArgument<TerraformValue<string>>("curve");
+        get => GetArgument<TerraformValue<string>>("curve") ?? AsReference("curve");
         set => SetArgument("curve", value);
     }
 
@@ -155,16 +155,16 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockKeyPropertiesBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exportable is required")]
     public required TerraformValue<bool> Exportable
     {
-        get => GetArgument<TerraformValue<bool>>("exportable");
+        get => GetRequiredArgument<TerraformValue<bool>>("exportable");
         set => SetArgument("exportable", value);
     }
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
-    public TerraformValue<double>? KeySize
+    public TerraformValue<double> KeySize
     {
-        get => GetArgument<TerraformValue<double>>("key_size");
+        get => GetArgument<TerraformValue<double>>("key_size") ?? AsReference("key_size");
         set => SetArgument("key_size", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockKeyPropertiesBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     public required TerraformValue<string> KeyType
     {
-        get => GetArgument<TerraformValue<string>>("key_type");
+        get => GetRequiredArgument<TerraformValue<string>>("key_type");
         set => SetArgument("key_type", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockKeyPropertiesBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReuseKey is required")]
     public required TerraformValue<bool> ReuseKey
     {
-        get => GetArgument<TerraformValue<bool>>("reuse_key");
+        get => GetRequiredArgument<TerraformValue<bool>>("reuse_key");
         set => SetArgument("reuse_key", value);
     }
 
@@ -246,7 +246,7 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
     public required TerraformValue<string> ActionType
     {
-        get => GetArgument<TerraformValue<string>>("action_type");
+        get => GetRequiredArgument<TerraformValue<string>>("action_type");
         set => SetArgument("action_type", value);
     }
 
@@ -300,7 +300,7 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockSecretPropertiesBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -320,9 +320,9 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificateProp
     /// <summary>
     /// The extended_key_usage attribute.
     /// </summary>
-    public TerraformList<string>? ExtendedKeyUsage
+    public TerraformList<string> ExtendedKeyUsage
     {
-        get => GetArgument<TerraformList<string>>("extended_key_usage");
+        get => GetArgument<TerraformList<string>>("extended_key_usage") ?? AsReference("extended_key_usage");
         set => SetArgument("extended_key_usage", value);
     }
 
@@ -332,7 +332,7 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificateProp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUsage is required")]
     public required TerraformSet<string> KeyUsage
     {
-        get => GetArgument<TerraformSet<string>>("key_usage");
+        get => GetRequiredArgument<TerraformSet<string>>("key_usage");
         set => SetArgument("key_usage", value);
     }
 
@@ -342,7 +342,7 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificateProp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformValue<string> Subject
     {
-        get => GetArgument<TerraformValue<string>>("subject");
+        get => GetRequiredArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -352,7 +352,7 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificateProp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidityInMonths is required")]
     public required TerraformValue<double> ValidityInMonths
     {
-        get => GetArgument<TerraformValue<double>>("validity_in_months");
+        get => GetRequiredArgument<TerraformValue<double>>("validity_in_months");
         set => SetArgument("validity_in_months", value);
     }
 
@@ -468,9 +468,9 @@ public partial class AzurermKeyVaultCertificate(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -480,7 +480,7 @@ public partial class AzurermKeyVaultCertificate(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -490,7 +490,7 @@ public partial class AzurermKeyVaultCertificate(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

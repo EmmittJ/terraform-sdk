@@ -152,9 +152,9 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseConfigId is required")]
     public required TerraformValue<string> LicenseConfigId
     {
-        get => GetArgument<TerraformValue<string>>("license_config_id");
+        get => GetRequiredArgument<TerraformValue<string>>("license_config_id");
         set => SetArgument("license_config_id", value);
     }
 
@@ -174,7 +174,7 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseCount is required")]
     public required TerraformValue<double> LicenseCount
     {
-        get => GetArgument<TerraformValue<double>>("license_count");
+        get => GetRequiredArgument<TerraformValue<double>>("license_count");
         set => SetArgument("license_count", value);
     }
 
@@ -185,16 +185,16 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -204,7 +204,7 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionTerm is required")]
     public required TerraformValue<string> SubscriptionTerm
     {
-        get => GetArgument<TerraformValue<string>>("subscription_term");
+        get => GetRequiredArgument<TerraformValue<string>>("subscription_term");
         set => SetArgument("subscription_term", value);
     }
 
@@ -214,7 +214,7 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionTier is required")]
     public required TerraformValue<string> SubscriptionTier
     {
-        get => GetArgument<TerraformValue<string>>("subscription_tier");
+        get => GetRequiredArgument<TerraformValue<string>>("subscription_tier");
         set => SetArgument("subscription_tier", value);
     }
 

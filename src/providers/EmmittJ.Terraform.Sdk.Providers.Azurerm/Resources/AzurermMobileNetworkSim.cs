@@ -19,7 +19,7 @@ public class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachedDataNetworkId is required")]
     public required TerraformValue<string> AttachedDataNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("attached_data_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("attached_data_network_id");
         set => SetArgument("attached_data_network_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SliceId is required")]
     public required TerraformValue<string> SliceId
     {
-        get => GetArgument<TerraformValue<string>>("slice_id");
+        get => GetRequiredArgument<TerraformValue<string>>("slice_id");
         set => SetArgument("slice_id", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationKey is required")]
     public required TerraformValue<string> AuthenticationKey
     {
-        get => GetArgument<TerraformValue<string>>("authentication_key");
+        get => GetRequiredArgument<TerraformValue<string>>("authentication_key");
         set => SetArgument("authentication_key", value);
     }
 
@@ -123,9 +123,9 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegratedCircuitCardIdentifier is required")]
     public required TerraformValue<string> IntegratedCircuitCardIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("integrated_circuit_card_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("integrated_circuit_card_identifier");
         set => SetArgument("integrated_circuit_card_identifier", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternationalMobileSubscriberIdentity is required")]
     public required TerraformValue<string> InternationalMobileSubscriberIdentity
     {
-        get => GetArgument<TerraformValue<string>>("international_mobile_subscriber_identity");
+        get => GetRequiredArgument<TerraformValue<string>>("international_mobile_subscriber_identity");
         set => SetArgument("international_mobile_subscriber_identity", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
     public required TerraformValue<string> MobileNetworkSimGroupId
     {
-        get => GetArgument<TerraformValue<string>>("mobile_network_sim_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("mobile_network_sim_group_id");
         set => SetArgument("mobile_network_sim_group_id", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorKeyCode is required")]
     public required TerraformValue<string> OperatorKeyCode
     {
-        get => GetArgument<TerraformValue<string>>("operator_key_code");
+        get => GetRequiredArgument<TerraformValue<string>>("operator_key_code");
         set => SetArgument("operator_key_code", value);
     }
 

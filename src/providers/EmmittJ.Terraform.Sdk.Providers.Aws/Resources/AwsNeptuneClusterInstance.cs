@@ -52,9 +52,9 @@ public partial class AwsNeptuneClusterInstance(string name) : TerraformResource(
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformValue<bool>? ApplyImmediately
+    public TerraformValue<bool> ApplyImmediately
     {
-        get => GetArgument<TerraformValue<bool>>("apply_immediately");
+        get => GetArgument<TerraformValue<bool>>("apply_immediately") ?? AsReference("apply_immediately");
         set => SetArgument("apply_immediately", value);
     }
 
@@ -70,9 +70,9 @@ public partial class AwsNeptuneClusterInstance(string name) : TerraformResource(
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZone
+    public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsNeptuneClusterInstance(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
@@ -98,36 +98,36 @@ public partial class AwsNeptuneClusterInstance(string name) : TerraformResource(
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string>? EngineVersion
+    public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public TerraformValue<string>? Identifier
+    public TerraformValue<string> Identifier
     {
-        get => GetArgument<TerraformValue<string>>("identifier");
+        get => GetArgument<TerraformValue<string>>("identifier") ?? AsReference("identifier");
         set => SetArgument("identifier", value);
     }
 
     /// <summary>
     /// The identifier_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? IdentifierPrefix
+    public TerraformValue<string> IdentifierPrefix
     {
-        get => GetArgument<TerraformValue<string>>("identifier_prefix");
+        get => GetArgument<TerraformValue<string>>("identifier_prefix") ?? AsReference("identifier_prefix");
         set => SetArgument("identifier_prefix", value);
     }
 
@@ -137,25 +137,25 @@ public partial class AwsNeptuneClusterInstance(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceClass is required")]
     public required TerraformValue<string> InstanceClass
     {
-        get => GetArgument<TerraformValue<string>>("instance_class");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_class");
         set => SetArgument("instance_class", value);
     }
 
     /// <summary>
     /// The neptune_parameter_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? NeptuneParameterGroupName
+    public TerraformValue<string> NeptuneParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("neptune_parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("neptune_parameter_group_name") ?? AsReference("neptune_parameter_group_name");
         set => SetArgument("neptune_parameter_group_name", value);
     }
 
     /// <summary>
     /// The neptune_subnet_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? NeptuneSubnetGroupName
+    public TerraformValue<string> NeptuneSubnetGroupName
     {
-        get => GetArgument<TerraformValue<string>>("neptune_subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("neptune_subnet_group_name") ?? AsReference("neptune_subnet_group_name");
         set => SetArgument("neptune_subnet_group_name", value);
     }
 
@@ -171,18 +171,18 @@ public partial class AwsNeptuneClusterInstance(string name) : TerraformResource(
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredBackupWindow
+    public TerraformValue<string> PreferredBackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_backup_window");
+        get => GetArgument<TerraformValue<string>>("preferred_backup_window") ?? AsReference("preferred_backup_window");
         set => SetArgument("preferred_backup_window", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string>? PreferredMaintenanceWindow
+    public TerraformValue<string> PreferredMaintenanceWindow
     {
-        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window") ?? AsReference("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
@@ -207,9 +207,9 @@ public partial class AwsNeptuneClusterInstance(string name) : TerraformResource(
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -234,9 +234,9 @@ public partial class AwsNeptuneClusterInstance(string name) : TerraformResource(
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

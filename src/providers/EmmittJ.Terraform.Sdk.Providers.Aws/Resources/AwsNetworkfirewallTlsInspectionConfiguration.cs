@@ -162,7 +162,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
     public required TerraformSet<double> Protocols
     {
-        get => GetArgument<TerraformSet<double>>("protocols");
+        get => GetRequiredArgument<TerraformSet<double>>("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressDefinition is required")]
     public required TerraformValue<string> AddressDefinition
     {
-        get => GetArgument<TerraformValue<string>>("address_definition");
+        get => GetRequiredArgument<TerraformValue<string>>("address_definition");
         set => SetArgument("address_definition", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => GetArgument<TerraformValue<double>>("from_port");
+        get => GetRequiredArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -254,7 +254,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => GetArgument<TerraformValue<double>>("to_port");
+        get => GetRequiredArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -277,7 +277,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressDefinition is required")]
     public required TerraformValue<string> AddressDefinition
     {
-        get => GetArgument<TerraformValue<string>>("address_definition");
+        get => GetRequiredArgument<TerraformValue<string>>("address_definition");
         set => SetArgument("address_definition", value);
     }
 
@@ -300,7 +300,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => GetArgument<TerraformValue<double>>("from_port");
+        get => GetRequiredArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => GetArgument<TerraformValue<double>>("to_port");
+        get => GetRequiredArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -357,9 +357,9 @@ public partial class AwsNetworkfirewallTlsInspectionConfiguration(string name) :
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? EncryptionConfiguration
+    public TerraformList<TerraformMap<object>> EncryptionConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption_configuration") ?? AsReference("encryption_configuration");
         set => SetArgument("encryption_configuration", value);
     }
 
@@ -369,16 +369,16 @@ public partial class AwsNetworkfirewallTlsInspectionConfiguration(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

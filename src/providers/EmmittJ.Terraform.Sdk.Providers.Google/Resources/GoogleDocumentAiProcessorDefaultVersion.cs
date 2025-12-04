@@ -43,9 +43,9 @@ public partial class GoogleDocumentAiProcessorDefaultVersion(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleDocumentAiProcessorDefaultVersion(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Processor is required")]
     public required TerraformValue<string> Processor
     {
-        get => GetArgument<TerraformValue<string>>("processor");
+        get => GetRequiredArgument<TerraformValue<string>>("processor");
         set => SetArgument("processor", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleDocumentAiProcessorDefaultVersion(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

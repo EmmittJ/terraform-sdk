@@ -64,16 +64,16 @@ public partial class AzurermSpringCloudAppMysqlAssociation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSpringCloudAppMysqlAssociation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MysqlServerId is required")]
     public required TerraformValue<string> MysqlServerId
     {
-        get => GetArgument<TerraformValue<string>>("mysql_server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("mysql_server_id");
         set => SetArgument("mysql_server_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermSpringCloudAppMysqlAssociation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermSpringCloudAppMysqlAssociation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermSpringCloudAppMysqlAssociation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformValue<string> SpringCloudAppId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_app_id");
         set => SetArgument("spring_cloud_app_id", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AzurermSpringCloudAppMysqlAssociation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

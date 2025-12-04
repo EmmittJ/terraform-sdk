@@ -64,16 +64,16 @@ public partial class AzurermAppServiceVirtualNetworkSwiftConnection(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceId is required")]
     public required TerraformValue<string> AppServiceId
     {
-        get => GetArgument<TerraformValue<string>>("app_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_service_id");
         set => SetArgument("app_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermAppServiceVirtualNetworkSwiftConnection(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 

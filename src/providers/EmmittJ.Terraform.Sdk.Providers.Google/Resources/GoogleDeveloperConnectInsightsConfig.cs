@@ -64,7 +64,7 @@ public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlockGoogleArtif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlockGoogleArtif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactRegistryPackage is required")]
     public required TerraformValue<string> ArtifactRegistryPackage
     {
-        get => GetArgument<TerraformValue<string>>("artifact_registry_package");
+        get => GetRequiredArgument<TerraformValue<string>>("artifact_registry_package");
         set => SetArgument("artifact_registry_package", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlockGoogleArtif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -172,16 +172,16 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppHubApplication is required")]
     public required TerraformValue<string> AppHubApplication
     {
-        get => GetArgument<TerraformValue<string>>("app_hub_application");
+        get => GetRequiredArgument<TerraformValue<string>>("app_hub_application");
         set => SetArgument("app_hub_application", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsConfigId is required")]
     public required TerraformValue<string> InsightsConfigId
     {
-        get => GetArgument<TerraformValue<string>>("insights_config_id");
+        get => GetRequiredArgument<TerraformValue<string>>("insights_config_id");
         set => SetArgument("insights_config_id", value);
     }
 
@@ -213,16 +213,16 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

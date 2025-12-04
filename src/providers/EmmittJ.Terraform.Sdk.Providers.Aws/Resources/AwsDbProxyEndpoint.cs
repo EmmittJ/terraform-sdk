@@ -55,7 +55,7 @@ public partial class AwsDbProxyEndpoint(string name) : TerraformResource("aws_db
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyEndpointName is required")]
     public required TerraformValue<string> DbProxyEndpointName
     {
-        get => GetArgument<TerraformValue<string>>("db_proxy_endpoint_name");
+        get => GetRequiredArgument<TerraformValue<string>>("db_proxy_endpoint_name");
         set => SetArgument("db_proxy_endpoint_name", value);
     }
 
@@ -65,25 +65,25 @@ public partial class AwsDbProxyEndpoint(string name) : TerraformResource("aws_db
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyName is required")]
     public required TerraformValue<string> DbProxyName
     {
-        get => GetArgument<TerraformValue<string>>("db_proxy_name");
+        get => GetRequiredArgument<TerraformValue<string>>("db_proxy_name");
         set => SetArgument("db_proxy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -99,9 +99,9 @@ public partial class AwsDbProxyEndpoint(string name) : TerraformResource("aws_db
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -117,9 +117,9 @@ public partial class AwsDbProxyEndpoint(string name) : TerraformResource("aws_db
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? VpcSecurityGroupIds
+    public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsDbProxyEndpoint(string name) : TerraformResource("aws_db
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
     public required TerraformSet<string> VpcSubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("vpc_subnet_ids");
         set => SetArgument("vpc_subnet_ids", value);
     }
 

@@ -75,9 +75,9 @@ public partial class GoogleSecretManagerRegionalSecretVersion(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleSecretManagerRegionalSecretVersion(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => GetArgument<TerraformValue<string>>("secret");
+        get => GetRequiredArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleSecretManagerRegionalSecretVersion(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretData is required")]
     public required TerraformValue<string> SecretData
     {
-        get => GetArgument<TerraformValue<string>>("secret_data");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_data");
         set => SetArgument("secret_data", value);
     }
 

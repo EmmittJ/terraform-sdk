@@ -55,7 +55,7 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     public required TerraformValue<string> AppServiceName
     {
-        get => GetArgument<TerraformValue<string>>("app_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_service_name");
         set => SetArgument("app_service_name", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,25 +84,25 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
-    public TerraformValue<string>? SslState
+    public TerraformValue<string> SslState
     {
-        get => GetArgument<TerraformValue<string>>("ssl_state");
+        get => GetArgument<TerraformValue<string>>("ssl_state") ?? AsReference("ssl_state");
         set => SetArgument("ssl_state", value);
     }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public TerraformValue<string>? Thumbprint
+    public TerraformValue<string> Thumbprint
     {
-        get => GetArgument<TerraformValue<string>>("thumbprint");
+        get => GetArgument<TerraformValue<string>>("thumbprint") ?? AsReference("thumbprint");
         set => SetArgument("thumbprint", value);
     }
 

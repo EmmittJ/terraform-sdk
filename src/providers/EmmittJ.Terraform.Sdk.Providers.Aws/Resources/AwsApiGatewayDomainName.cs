@@ -16,9 +16,9 @@ public class AwsApiGatewayDomainNameEndpointConfigurationBlock : TerraformBlock
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string>? IpAddressType
+    public TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type") ?? AsReference("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsApiGatewayDomainNameMutualTlsAuthenticationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TruststoreUri is required")]
     public required TerraformValue<string> TruststoreUri
     {
-        get => GetArgument<TerraformValue<string>>("truststore_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("truststore_uri");
         set => SetArgument("truststore_uri", value);
     }
 
@@ -125,25 +125,25 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ownership_verification_certificate_arn attribute.
     /// </summary>
-    public TerraformValue<string>? OwnershipVerificationCertificateArn
+    public TerraformValue<string> OwnershipVerificationCertificateArn
     {
-        get => GetArgument<TerraformValue<string>>("ownership_verification_certificate_arn");
+        get => GetArgument<TerraformValue<string>>("ownership_verification_certificate_arn") ?? AsReference("ownership_verification_certificate_arn");
         set => SetArgument("ownership_verification_certificate_arn", value);
     }
 
@@ -159,9 +159,9 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -186,9 +186,9 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// <summary>
     /// The security_policy attribute.
     /// </summary>
-    public TerraformValue<string>? SecurityPolicy
+    public TerraformValue<string> SecurityPolicy
     {
-        get => GetArgument<TerraformValue<string>>("security_policy");
+        get => GetArgument<TerraformValue<string>>("security_policy") ?? AsReference("security_policy");
         set => SetArgument("security_policy", value);
     }
 
@@ -204,9 +204,9 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

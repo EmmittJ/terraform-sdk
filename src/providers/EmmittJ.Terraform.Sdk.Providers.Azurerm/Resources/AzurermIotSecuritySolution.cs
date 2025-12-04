@@ -19,7 +19,7 @@ public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTypes is required")]
     public required TerraformSet<string> DataTypes
     {
-        get => GetArgument<TerraformSet<string>>("data_types");
+        get => GetRequiredArgument<TerraformSet<string>>("data_types");
         set => SetArgument("data_types", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -265,7 +265,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -290,9 +290,9 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -302,7 +302,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubIds is required")]
     public required TerraformSet<string> IothubIds
     {
-        get => GetArgument<TerraformSet<string>>("iothub_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("iothub_ids");
         set => SetArgument("iothub_ids", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -340,25 +340,25 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The query_for_resources attribute.
     /// </summary>
-    public TerraformValue<string>? QueryForResources
+    public TerraformValue<string> QueryForResources
     {
-        get => GetArgument<TerraformValue<string>>("query_for_resources");
+        get => GetArgument<TerraformValue<string>>("query_for_resources") ?? AsReference("query_for_resources");
         set => SetArgument("query_for_resources", value);
     }
 
     /// <summary>
     /// The query_subscription_ids attribute.
     /// </summary>
-    public TerraformSet<string>? QuerySubscriptionIds
+    public TerraformSet<string> QuerySubscriptionIds
     {
-        get => GetArgument<TerraformSet<string>>("query_subscription_ids");
+        get => GetArgument<TerraformSet<string>>("query_subscription_ids") ?? AsReference("query_subscription_ids");
         set => SetArgument("query_subscription_ids", value);
     }
 
@@ -368,7 +368,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

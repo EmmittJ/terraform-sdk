@@ -11,9 +11,9 @@ public partial class GoogleSecretManagerSecretDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleSecretManagerSecretDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => GetArgument<TerraformValue<string>>("secret_id");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 

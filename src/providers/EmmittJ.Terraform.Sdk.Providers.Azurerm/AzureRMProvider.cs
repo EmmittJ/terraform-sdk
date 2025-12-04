@@ -690,7 +690,7 @@ public class AzurermProviderFeaturesBlockTemplateDeploymentBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeleteNestedItemsDuringDeletion is required")]
     public required TerraformValue<bool> DeleteNestedItemsDuringDeletion
     {
-        get => GetArgument<TerraformValue<bool>>("delete_nested_items_during_deletion");
+        get => GetRequiredArgument<TerraformValue<bool>>("delete_nested_items_during_deletion");
         set => SetArgument("delete_nested_items_during_deletion", value);
     }
 

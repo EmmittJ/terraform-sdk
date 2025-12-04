@@ -28,7 +28,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryPeerAddressPrefix is required")]
     public required TerraformValue<string> PrimaryPeerAddressPrefix
     {
-        get => GetArgument<TerraformValue<string>>("primary_peer_address_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("primary_peer_address_prefix");
         set => SetArgument("primary_peer_address_prefix", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondaryPeerAddressPrefix is required")]
     public required TerraformValue<string> SecondaryPeerAddressPrefix
     {
-        get => GetArgument<TerraformValue<string>>("secondary_peer_address_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("secondary_peer_address_prefix");
         set => SetArgument("secondary_peer_address_prefix", value);
     }
 
@@ -226,16 +226,16 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitName is required")]
     public required TerraformValue<string> ExpressRouteCircuitName
     {
-        get => GetArgument<TerraformValue<string>>("express_route_circuit_name");
+        get => GetRequiredArgument<TerraformValue<string>>("express_route_circuit_name");
         set => SetArgument("express_route_circuit_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -251,9 +251,9 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     /// <summary>
     /// The peer_asn attribute.
     /// </summary>
-    public TerraformValue<double>? PeerAsn
+    public TerraformValue<double> PeerAsn
     {
-        get => GetArgument<TerraformValue<double>>("peer_asn");
+        get => GetArgument<TerraformValue<double>>("peer_asn") ?? AsReference("peer_asn");
         set => SetArgument("peer_asn", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringType is required")]
     public required TerraformValue<string> PeeringType
     {
-        get => GetArgument<TerraformValue<string>>("peering_type");
+        get => GetRequiredArgument<TerraformValue<string>>("peering_type");
         set => SetArgument("peering_type", value);
     }
 
@@ -282,7 +282,7 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -319,7 +319,7 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VlanId is required")]
     public required TerraformValue<double> VlanId
     {
-        get => GetArgument<TerraformValue<double>>("vlan_id");
+        get => GetRequiredArgument<TerraformValue<double>>("vlan_id");
         set => SetArgument("vlan_id", value);
     }
 

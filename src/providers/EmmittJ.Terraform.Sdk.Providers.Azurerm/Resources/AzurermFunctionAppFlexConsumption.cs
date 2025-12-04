@@ -28,7 +28,7 @@ public class AzurermFunctionAppFlexConsumptionAlwaysReadyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -58,18 +58,18 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
     /// </summary>
-    public TerraformList<string>? AllowedExternalRedirectUrls
+    public TerraformList<string> AllowedExternalRedirectUrls
     {
-        get => GetArgument<TerraformList<string>>("allowed_external_redirect_urls");
+        get => GetArgument<TerraformList<string>>("allowed_external_redirect_urls") ?? AsReference("allowed_external_redirect_urls");
         set => SetArgument("allowed_external_redirect_urls", value);
     }
 
     /// <summary>
     /// The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
     /// </summary>
-    public TerraformValue<string>? DefaultProvider
+    public TerraformValue<string> DefaultProvider
     {
-        get => GetArgument<TerraformValue<string>>("default_provider");
+        get => GetArgument<TerraformValue<string>>("default_provider") ?? AsReference("default_provider");
         set => SetArgument("default_provider", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -95,9 +95,9 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The RuntimeVersion of the Authentication / Authorization feature in use.
     /// </summary>
-    public TerraformValue<string>? RuntimeVersion
+    public TerraformValue<string> RuntimeVersion
     {
-        get => GetArgument<TerraformValue<string>>("runtime_version");
+        get => GetArgument<TerraformValue<string>>("runtime_version") ?? AsReference("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -122,9 +122,9 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
     /// </summary>
-    public TerraformValue<string>? UnauthenticatedClientAction
+    public TerraformValue<string> UnauthenticatedClientAction
     {
-        get => GetArgument<TerraformValue<string>>("unauthenticated_client_action");
+        get => GetArgument<TerraformValue<string>>("unauthenticated_client_action") ?? AsReference("unauthenticated_client_action");
         set => SetArgument("unauthenticated_client_action", value);
     }
 
@@ -216,7 +216,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlockActiveDirectoryBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -257,7 +257,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlockFacebookBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => GetArgument<TerraformValue<string>>("app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
@@ -307,7 +307,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlockGithubBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -357,7 +357,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlockGoogleBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -407,7 +407,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlockMicrosoftBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -457,7 +457,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlockTwitterBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerKey is required")]
     public required TerraformValue<string> ConsumerKey
     {
-        get => GetArgument<TerraformValue<string>>("consumer_key");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_key");
         set => SetArgument("consumer_key", value);
     }
 
@@ -758,7 +758,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockActiveDirectory
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -813,7 +813,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockActiveDirectory
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantAuthEndpoint is required")]
     public required TerraformValue<string> TenantAuthEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("tenant_auth_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_auth_endpoint");
         set => SetArgument("tenant_auth_endpoint", value);
     }
 
@@ -845,7 +845,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockAppleV2Block : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -855,7 +855,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockAppleV2Block : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
     public required TerraformValue<string> ClientSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("client_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret_setting_name");
         set => SetArgument("client_secret_setting_name", value);
     }
 
@@ -884,7 +884,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockAzureStaticWebA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -925,7 +925,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockCustomOidcV2Blo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -947,7 +947,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockCustomOidcV2Blo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -966,7 +966,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockCustomOidcV2Blo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenidConfigurationEndpoint is required")]
     public required TerraformValue<string> OpenidConfigurationEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("openid_configuration_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("openid_configuration_endpoint");
         set => SetArgument("openid_configuration_endpoint", value);
     }
 
@@ -1004,7 +1004,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockFacebookV2Block
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => GetArgument<TerraformValue<string>>("app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
@@ -1014,16 +1014,16 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockFacebookV2Block
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppSecretSettingName is required")]
     public required TerraformValue<string> AppSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("app_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_secret_setting_name");
         set => SetArgument("app_secret_setting_name", value);
     }
 
     /// <summary>
     /// The version of the Facebook API to be used while logging in.
     /// </summary>
-    public TerraformValue<string>? GraphApiVersion
+    public TerraformValue<string> GraphApiVersion
     {
-        get => GetArgument<TerraformValue<string>>("graph_api_version");
+        get => GetArgument<TerraformValue<string>>("graph_api_version") ?? AsReference("graph_api_version");
         set => SetArgument("graph_api_version", value);
     }
 
@@ -1055,7 +1055,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockGithubV2Block :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1065,7 +1065,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockGithubV2Block :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
     public required TerraformValue<string> ClientSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("client_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret_setting_name");
         set => SetArgument("client_secret_setting_name", value);
     }
 
@@ -1106,7 +1106,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockGoogleV2Block :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1116,7 +1116,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockGoogleV2Block :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
     public required TerraformValue<string> ClientSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("client_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret_setting_name");
         set => SetArgument("client_secret_setting_name", value);
     }
 
@@ -1269,7 +1269,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockMicrosoftV2Bloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1279,7 +1279,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockMicrosoftV2Bloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
     public required TerraformValue<string> ClientSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("client_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret_setting_name");
         set => SetArgument("client_secret_setting_name", value);
     }
 
@@ -1311,7 +1311,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockTwitterV2Block 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerKey is required")]
     public required TerraformValue<string> ConsumerKey
     {
-        get => GetArgument<TerraformValue<string>>("consumer_key");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_key");
         set => SetArgument("consumer_key", value);
     }
 
@@ -1321,7 +1321,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2BlockTwitterV2Block 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerSecretSettingName is required")]
     public required TerraformValue<string> ConsumerSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("consumer_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_secret_setting_name");
         set => SetArgument("consumer_secret_setting_name", value);
     }
 
@@ -1345,7 +1345,7 @@ public class AzurermFunctionAppFlexConsumptionConnectionStringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1355,7 +1355,7 @@ public class AzurermFunctionAppFlexConsumptionConnectionStringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1365,7 +1365,7 @@ public class AzurermFunctionAppFlexConsumptionConnectionStringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1410,7 +1410,7 @@ public class AzurermFunctionAppFlexConsumptionIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1494,9 +1494,9 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// <summary>
     /// Specifies a list of Default Documents for the Linux Web App.
     /// </summary>
-    public TerraformList<string>? DefaultDocuments
+    public TerraformList<string> DefaultDocuments
     {
-        get => GetArgument<TerraformList<string>>("default_documents");
+        get => GetArgument<TerraformList<string>>("default_documents") ?? AsReference("default_documents");
         set => SetArgument("default_documents", value);
     }
 
@@ -1509,9 +1509,9 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
     /// </summary>
-    public TerraformValue<double>? ElasticInstanceMinimum
+    public TerraformValue<double> ElasticInstanceMinimum
     {
-        get => GetArgument<TerraformValue<double>>("elastic_instance_minimum");
+        get => GetArgument<TerraformValue<double>>("elastic_instance_minimum") ?? AsReference("elastic_instance_minimum");
         set => SetArgument("elastic_instance_minimum", value);
     }
 
@@ -1590,9 +1590,9 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022``
     /// </summary>
-    public TerraformValue<string>? RemoteDebuggingVersion
+    public TerraformValue<string> RemoteDebuggingVersion
     {
-        get => GetArgument<TerraformValue<string>>("remote_debugging_version");
+        get => GetArgument<TerraformValue<string>>("remote_debugging_version") ?? AsReference("remote_debugging_version");
         set => SetArgument("remote_debugging_version", value);
     }
 
@@ -1668,9 +1668,9 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The number of Workers for this Linux Function App.
     /// </summary>
-    public TerraformValue<double>? WorkerCount
+    public TerraformValue<double> WorkerCount
     {
-        get => GetArgument<TerraformValue<double>>("worker_count");
+        get => GetArgument<TerraformValue<double>>("worker_count") ?? AsReference("worker_count");
         set => SetArgument("worker_count", value);
     }
 
@@ -1826,9 +1826,9 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlockIpRestrictionBlock 
     /// <summary>
     /// The name which should be used for this `ip_restriction`.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -1911,9 +1911,9 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlockScmIpRestrictionBlo
     /// <summary>
     /// The name which should be used for this `ip_restriction`.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -2101,9 +2101,9 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2122,7 +2122,7 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -2141,7 +2141,7 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2160,7 +2160,7 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -2170,7 +2170,7 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeName is required")]
     public required TerraformValue<string> RuntimeName
     {
-        get => GetArgument<TerraformValue<string>>("runtime_name");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime_name");
         set => SetArgument("runtime_name", value);
     }
 
@@ -2180,7 +2180,7 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformValue<string> RuntimeVersion
     {
-        get => GetArgument<TerraformValue<string>>("runtime_version");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -2190,7 +2190,7 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePlanId is required")]
     public required TerraformValue<string> ServicePlanId
     {
-        get => GetArgument<TerraformValue<string>>("service_plan_id");
+        get => GetRequiredArgument<TerraformValue<string>>("service_plan_id");
         set => SetArgument("service_plan_id", value);
     }
 
@@ -2209,7 +2209,7 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAuthenticationType is required")]
     public required TerraformValue<string> StorageAuthenticationType
     {
-        get => GetArgument<TerraformValue<string>>("storage_authentication_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_authentication_type");
         set => SetArgument("storage_authentication_type", value);
     }
 
@@ -2219,7 +2219,7 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerEndpoint is required")]
     public required TerraformValue<string> StorageContainerEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("storage_container_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_container_endpoint");
         set => SetArgument("storage_container_endpoint", value);
     }
 
@@ -2229,7 +2229,7 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerType is required")]
     public required TerraformValue<string> StorageContainerType
     {
-        get => GetArgument<TerraformValue<string>>("storage_container_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_container_type");
         set => SetArgument("storage_container_type", value);
     }
 
@@ -2272,9 +2272,9 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     /// <summary>
     /// The local path and filename of the Zip packaged application to deploy to this Function App. **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`.
     /// </summary>
-    public TerraformValue<string>? ZipDeployFile
+    public TerraformValue<string> ZipDeployFile
     {
-        get => GetArgument<TerraformValue<string>>("zip_deploy_file");
+        get => GetArgument<TerraformValue<string>>("zip_deploy_file") ?? AsReference("zip_deploy_file");
         set => SetArgument("zip_deploy_file", value);
     }
 

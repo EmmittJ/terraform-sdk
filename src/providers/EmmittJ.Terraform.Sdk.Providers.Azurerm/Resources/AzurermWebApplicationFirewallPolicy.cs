@@ -19,7 +19,7 @@ public class AzurermWebApplicationFirewallPolicyCustomRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermWebApplicationFirewallPolicyCustomRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermWebApplicationFirewallPolicyCustomRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleType is required")]
     public required TerraformValue<string> RuleType
     {
-        get => GetArgument<TerraformValue<string>>("rule_type");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_type");
         set => SetArgument("rule_type", value);
     }
 
@@ -137,7 +137,7 @@ public class AzurermWebApplicationFirewallPolicyCustomRulesBlockMatchConditionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermWebApplicationFirewallPolicyCustomRulesBlockMatchConditionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VariableName is required")]
     public required TerraformValue<string> VariableName
     {
-        get => GetArgument<TerraformValue<string>>("variable_name");
+        get => GetRequiredArgument<TerraformValue<string>>("variable_name");
         set => SetArgument("variable_name", value);
     }
 
@@ -248,7 +248,7 @@ public class AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariable is required")]
     public required TerraformValue<string> MatchVariable
     {
-        get => GetArgument<TerraformValue<string>>("match_variable");
+        get => GetRequiredArgument<TerraformValue<string>>("match_variable");
         set => SetArgument("match_variable", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selector is required")]
     public required TerraformValue<string> Selector
     {
-        get => GetArgument<TerraformValue<string>>("selector");
+        get => GetRequiredArgument<TerraformValue<string>>("selector");
         set => SetArgument("selector", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelectorMatchOperator is required")]
     public required TerraformValue<string> SelectorMatchOperator
     {
-        get => GetArgument<TerraformValue<string>>("selector_match_operator");
+        get => GetRequiredArgument<TerraformValue<string>>("selector_match_operator");
         set => SetArgument("selector_match_operator", value);
     }
 
@@ -350,7 +350,7 @@ public class AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlockE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleGroupName is required")]
     public required TerraformValue<string> RuleGroupName
     {
-        get => GetArgument<TerraformValue<string>>("rule_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_group_name");
         set => SetArgument("rule_group_name", value);
     }
 
@@ -382,7 +382,7 @@ public class AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -414,7 +414,7 @@ public class AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleGroupName is required")]
     public required TerraformValue<string> RuleGroupName
     {
-        get => GetArgument<TerraformValue<string>>("rule_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_group_name");
         set => SetArgument("rule_group_name", value);
     }
 
@@ -464,7 +464,7 @@ public class AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -494,9 +494,9 @@ public class AzurermWebApplicationFirewallPolicyPolicySettingsBlock : TerraformB
     /// <summary>
     /// The file_upload_enforcement attribute.
     /// </summary>
-    public TerraformValue<bool>? FileUploadEnforcement
+    public TerraformValue<bool> FileUploadEnforcement
     {
-        get => GetArgument<TerraformValue<bool>>("file_upload_enforcement");
+        get => GetArgument<TerraformValue<bool>>("file_upload_enforcement") ?? AsReference("file_upload_enforcement");
         set => SetArgument("file_upload_enforcement", value);
     }
 
@@ -632,7 +632,7 @@ public class AzurermWebApplicationFirewallPolicyPolicySettingsBlockLogScrubbingB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariable is required")]
     public required TerraformValue<string> MatchVariable
     {
-        get => GetArgument<TerraformValue<string>>("match_variable");
+        get => GetRequiredArgument<TerraformValue<string>>("match_variable");
         set => SetArgument("match_variable", value);
     }
 
@@ -716,9 +716,9 @@ public partial class AzurermWebApplicationFirewallPolicy(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -728,7 +728,7 @@ public partial class AzurermWebApplicationFirewallPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -738,7 +738,7 @@ public partial class AzurermWebApplicationFirewallPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -748,7 +748,7 @@ public partial class AzurermWebApplicationFirewallPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

@@ -55,7 +55,7 @@ public partial class GoogleSccProjectSccBigQueryExport(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     public required TerraformValue<string> BigQueryExportId
     {
-        get => GetArgument<TerraformValue<string>>("big_query_export_id");
+        get => GetRequiredArgument<TerraformValue<string>>("big_query_export_id");
         set => SetArgument("big_query_export_id", value);
     }
 
@@ -115,18 +115,18 @@ public partial class GoogleSccProjectSccBigQueryExport(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

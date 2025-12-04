@@ -19,7 +19,7 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformValue<string> Product
     {
-        get => GetArgument<TerraformValue<string>>("product");
+        get => GetRequiredArgument<TerraformValue<string>>("product");
         set => SetArgument("product", value);
     }
 
@@ -48,7 +48,7 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AzurermKubernetesClusterExtension(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -154,16 +154,16 @@ public partial class AzurermKubernetesClusterExtension(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionType is required")]
     public required TerraformValue<string> ExtensionType
     {
-        get => GetArgument<TerraformValue<string>>("extension_type");
+        get => GetRequiredArgument<TerraformValue<string>>("extension_type");
         set => SetArgument("extension_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -173,34 +173,34 @@ public partial class AzurermKubernetesClusterExtension(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The release_namespace attribute.
     /// </summary>
-    public TerraformValue<string>? ReleaseNamespace
+    public TerraformValue<string> ReleaseNamespace
     {
-        get => GetArgument<TerraformValue<string>>("release_namespace");
+        get => GetArgument<TerraformValue<string>>("release_namespace") ?? AsReference("release_namespace");
         set => SetArgument("release_namespace", value);
     }
 
     /// <summary>
     /// The release_train attribute.
     /// </summary>
-    public TerraformValue<string>? ReleaseTrain
+    public TerraformValue<string> ReleaseTrain
     {
-        get => GetArgument<TerraformValue<string>>("release_train");
+        get => GetArgument<TerraformValue<string>>("release_train") ?? AsReference("release_train");
         set => SetArgument("release_train", value);
     }
 
     /// <summary>
     /// The target_namespace attribute.
     /// </summary>
-    public TerraformValue<string>? TargetNamespace
+    public TerraformValue<string> TargetNamespace
     {
-        get => GetArgument<TerraformValue<string>>("target_namespace");
+        get => GetArgument<TerraformValue<string>>("target_namespace") ?? AsReference("target_namespace");
         set => SetArgument("target_namespace", value);
     }
 

@@ -55,25 +55,25 @@ public partial class AwsInspector2Enabler(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountIds is required")]
     public required TerraformSet<string> AccountIds
     {
-        get => GetArgument<TerraformSet<string>>("account_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("account_ids");
         set => SetArgument("account_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsInspector2Enabler(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
     public required TerraformSet<string> ResourceTypes
     {
-        get => GetArgument<TerraformSet<string>>("resource_types");
+        get => GetRequiredArgument<TerraformSet<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 

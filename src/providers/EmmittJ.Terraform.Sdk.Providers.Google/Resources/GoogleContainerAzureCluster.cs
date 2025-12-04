@@ -53,7 +53,7 @@ public class GoogleContainerAzureClusterAuthorizationBlockAdminGroupsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformValue<string> Group
     {
-        get => GetArgument<TerraformValue<string>>("group");
+        get => GetRequiredArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleContainerAzureClusterAuthorizationBlockAdminUsersBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleContainerAzureClusterAzureServicesAuthenticationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -110,7 +110,7 @@ public class GoogleContainerAzureClusterAzureServicesAuthenticationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -153,16 +153,16 @@ public class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
     /// <summary>
     /// Optional. The Azure VM size name. Example: `Standard_DS2_v2`. For available VM sizes, see https://docs.microsoft.com/en-us/azure/virtual-machines/vm-naming-conventions. When unspecified, it defaults to `Standard_DS2_v2`.
     /// </summary>
-    public TerraformValue<string>? VmSize
+    public TerraformValue<string> VmSize
     {
-        get => GetArgument<TerraformValue<string>>("vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size") ?? AsReference("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -247,7 +247,7 @@ public class GoogleContainerAzureClusterControlPlaneBlockDatabaseEncryptionBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -267,9 +267,9 @@ public class GoogleContainerAzureClusterControlPlaneBlockMainVolumeBlock : Terra
     /// <summary>
     /// Optional. The size of the disk, in GiBs. When unspecified, a default value is provided. See the specific reference in the parent resource.
     /// </summary>
-    public TerraformValue<double>? SizeGib
+    public TerraformValue<double> SizeGib
     {
-        get => GetArgument<TerraformValue<double>>("size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib") ?? AsReference("size_gib");
         set => SetArgument("size_gib", value);
     }
 
@@ -292,7 +292,7 @@ public class GoogleContainerAzureClusterControlPlaneBlockProxyConfigBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformValue<string> ResourceGroupId
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_id");
         set => SetArgument("resource_group_id", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleContainerAzureClusterControlPlaneBlockProxyConfigBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => GetArgument<TerraformValue<string>>("secret_id");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -325,7 +325,7 @@ public class GoogleContainerAzureClusterControlPlaneBlockReplicaPlacementsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureAvailabilityZone is required")]
     public required TerraformValue<string> AzureAvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("azure_availability_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("azure_availability_zone");
         set => SetArgument("azure_availability_zone", value);
     }
 
@@ -335,7 +335,7 @@ public class GoogleContainerAzureClusterControlPlaneBlockReplicaPlacementsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -355,9 +355,9 @@ public class GoogleContainerAzureClusterControlPlaneBlockRootVolumeBlock : Terra
     /// <summary>
     /// Optional. The size of the disk, in GiBs. When unspecified, a default value is provided. See the specific reference in the parent resource.
     /// </summary>
-    public TerraformValue<double>? SizeGib
+    public TerraformValue<double> SizeGib
     {
-        get => GetArgument<TerraformValue<double>>("size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib") ?? AsReference("size_gib");
         set => SetArgument("size_gib", value);
     }
 
@@ -380,7 +380,7 @@ public class GoogleContainerAzureClusterControlPlaneBlockSshConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizedKey is required")]
     public required TerraformValue<string> AuthorizedKey
     {
-        get => GetArgument<TerraformValue<string>>("authorized_key");
+        get => GetRequiredArgument<TerraformValue<string>>("authorized_key");
         set => SetArgument("authorized_key", value);
     }
 
@@ -407,9 +407,9 @@ public class GoogleContainerAzureClusterFleetBlock : TerraformBlock
     /// <summary>
     /// The number of the Fleet host project where this cluster will be registered.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -453,7 +453,7 @@ public class GoogleContainerAzureClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformValue<string> VirtualNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
@@ -525,7 +525,7 @@ public partial class GoogleContainerAzureCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureRegion is required")]
     public required TerraformValue<string> AzureRegion
     {
-        get => GetArgument<TerraformValue<string>>("azure_region");
+        get => GetRequiredArgument<TerraformValue<string>>("azure_region");
         set => SetArgument("azure_region", value);
     }
 
@@ -550,9 +550,9 @@ public partial class GoogleContainerAzureCluster(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -562,7 +562,7 @@ public partial class GoogleContainerAzureCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -572,16 +572,16 @@ public partial class GoogleContainerAzureCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -591,7 +591,7 @@ public partial class GoogleContainerAzureCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformValue<string> ResourceGroupId
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_id");
         set => SetArgument("resource_group_id", value);
     }
 

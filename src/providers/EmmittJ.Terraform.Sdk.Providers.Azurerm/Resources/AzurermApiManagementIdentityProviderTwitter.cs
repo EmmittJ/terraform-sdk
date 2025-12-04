@@ -64,7 +64,7 @@ public partial class AzurermApiManagementIdentityProviderTwitter(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformValue<string> ApiKey
     {
-        get => GetArgument<TerraformValue<string>>("api_key");
+        get => GetRequiredArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermApiManagementIdentityProviderTwitter(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => GetArgument<TerraformValue<string>>("api_management_name");
+        get => GetRequiredArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermApiManagementIdentityProviderTwitter(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiSecretKey is required")]
     public required TerraformValue<string> ApiSecretKey
     {
-        get => GetArgument<TerraformValue<string>>("api_secret_key");
+        get => GetRequiredArgument<TerraformValue<string>>("api_secret_key");
         set => SetArgument("api_secret_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermApiManagementIdentityProviderTwitter(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

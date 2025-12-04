@@ -73,7 +73,7 @@ public partial class AzureadAdministrativeUnit(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -89,18 +89,18 @@ public partial class AzureadAdministrativeUnit(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// A set of object IDs of members who should be present in this administrative unit. Supported object types are Users or Groups
     /// </summary>
-    public TerraformSet<string>? Members
+    public TerraformSet<string> Members
     {
-        get => GetArgument<TerraformSet<string>>("members");
+        get => GetArgument<TerraformSet<string>>("members") ?? AsReference("members");
         set => SetArgument("members", value);
     }
 

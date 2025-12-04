@@ -55,16 +55,16 @@ public partial class AwsNetworkmanagerSiteToSiteVpnAttachment(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformValue<string> CoreNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("core_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("core_network_id");
         set => SetArgument("core_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AwsNetworkmanagerSiteToSiteVpnAttachment(string name) : Ter
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsNetworkmanagerSiteToSiteVpnAttachment(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnConnectionArn is required")]
     public required TerraformValue<string> VpnConnectionArn
     {
-        get => GetArgument<TerraformValue<string>>("vpn_connection_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("vpn_connection_arn");
         set => SetArgument("vpn_connection_arn", value);
     }
 

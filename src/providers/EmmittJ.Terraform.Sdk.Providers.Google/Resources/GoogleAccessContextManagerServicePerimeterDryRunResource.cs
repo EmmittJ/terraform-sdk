@@ -43,9 +43,9 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunResource(st
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunResource(st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerimeterName is required")]
     public required TerraformValue<string> PerimeterName
     {
-        get => GetArgument<TerraformValue<string>>("perimeter_name");
+        get => GetRequiredArgument<TerraformValue<string>>("perimeter_name");
         set => SetArgument("perimeter_name", value);
     }
 
@@ -67,7 +67,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunResource(st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => GetArgument<TerraformValue<string>>("resource");
+        get => GetRequiredArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 

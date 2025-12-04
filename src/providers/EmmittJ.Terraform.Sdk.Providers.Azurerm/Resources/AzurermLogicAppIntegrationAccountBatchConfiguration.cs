@@ -69,7 +69,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => GetArgument<TerraformValue<double>>("interval");
+        get => GetRequiredArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Week is required")]
     public required TerraformValue<double> Week
     {
-        get => GetArgument<TerraformValue<double>>("week");
+        get => GetRequiredArgument<TerraformValue<double>>("week");
         set => SetArgument("week", value);
     }
 
@@ -198,7 +198,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weekday is required")]
     public required TerraformValue<string> Weekday
     {
-        get => GetArgument<TerraformValue<string>>("weekday");
+        get => GetRequiredArgument<TerraformValue<string>>("weekday");
         set => SetArgument("weekday", value);
     }
 
@@ -267,16 +267,16 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchGroupName is required")]
     public required TerraformValue<string> BatchGroupName
     {
-        get => GetArgument<TerraformValue<string>>("batch_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("batch_group_name");
         set => SetArgument("batch_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -286,7 +286,7 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     public required TerraformValue<string> IntegrationAccountName
     {
-        get => GetArgument<TerraformValue<string>>("integration_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("integration_account_name");
         set => SetArgument("integration_account_name", value);
     }
 
@@ -305,7 +305,7 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -315,7 +315,7 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

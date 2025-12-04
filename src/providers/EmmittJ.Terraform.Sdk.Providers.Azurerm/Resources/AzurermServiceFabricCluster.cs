@@ -19,7 +19,7 @@ public class AzurermServiceFabricClusterAzureActiveDirectoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientApplicationId is required")]
     public required TerraformValue<string> ClientApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("client_application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_application_id");
         set => SetArgument("client_application_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermServiceFabricClusterAzureActiveDirectoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterApplicationId is required")]
     public required TerraformValue<string> ClusterApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_application_id");
         set => SetArgument("cluster_application_id", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermServiceFabricClusterAzureActiveDirectoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermServiceFabricClusterCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
     public required TerraformValue<string> Thumbprint
     {
-        get => GetArgument<TerraformValue<string>>("thumbprint");
+        get => GetRequiredArgument<TerraformValue<string>>("thumbprint");
         set => SetArgument("thumbprint", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermServiceFabricClusterCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
     public required TerraformValue<string> X509StoreName
     {
-        get => GetArgument<TerraformValue<string>>("x509_store_name");
+        get => GetRequiredArgument<TerraformValue<string>>("x509_store_name");
         set => SetArgument("x509_store_name", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermServiceFabricClusterCertificateCommonNamesBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
     public required TerraformValue<string> X509StoreName
     {
-        get => GetArgument<TerraformValue<string>>("x509_store_name");
+        get => GetRequiredArgument<TerraformValue<string>>("x509_store_name");
         set => SetArgument("x509_store_name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermServiceFabricClusterCertificateCommonNamesBlockCommonNamesBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateCommonName is required")]
     public required TerraformValue<string> CertificateCommonName
     {
-        get => GetArgument<TerraformValue<string>>("certificate_common_name");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_common_name");
         set => SetArgument("certificate_common_name", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermServiceFabricClusterClientCertificateCommonNameBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonName is required")]
     public required TerraformValue<string> CommonName
     {
-        get => GetArgument<TerraformValue<string>>("common_name");
+        get => GetRequiredArgument<TerraformValue<string>>("common_name");
         set => SetArgument("common_name", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermServiceFabricClusterClientCertificateCommonNameBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsAdmin is required")]
     public required TerraformValue<bool> IsAdmin
     {
-        get => GetArgument<TerraformValue<bool>>("is_admin");
+        get => GetRequiredArgument<TerraformValue<bool>>("is_admin");
         set => SetArgument("is_admin", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermServiceFabricClusterClientCertificateThumbprintBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsAdmin is required")]
     public required TerraformValue<bool> IsAdmin
     {
-        get => GetArgument<TerraformValue<bool>>("is_admin");
+        get => GetRequiredArgument<TerraformValue<bool>>("is_admin");
         set => SetArgument("is_admin", value);
     }
 
@@ -227,7 +227,7 @@ public class AzurermServiceFabricClusterClientCertificateThumbprintBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
     public required TerraformValue<string> Thumbprint
     {
-        get => GetArgument<TerraformValue<string>>("thumbprint");
+        get => GetRequiredArgument<TerraformValue<string>>("thumbprint");
         set => SetArgument("thumbprint", value);
     }
 
@@ -251,7 +251,7 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobEndpoint is required")]
     public required TerraformValue<string> BlobEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("blob_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("blob_endpoint");
         set => SetArgument("blob_endpoint", value);
     }
 
@@ -261,7 +261,7 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectedAccountKeyName is required")]
     public required TerraformValue<string> ProtectedAccountKeyName
     {
-        get => GetArgument<TerraformValue<string>>("protected_account_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("protected_account_key_name");
         set => SetArgument("protected_account_key_name", value);
     }
 
@@ -271,7 +271,7 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueEndpoint is required")]
     public required TerraformValue<string> QueueEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("queue_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("queue_endpoint");
         set => SetArgument("queue_endpoint", value);
     }
 
@@ -281,7 +281,7 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformValue<string> StorageAccountName
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -291,7 +291,7 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableEndpoint is required")]
     public required TerraformValue<string> TableEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("table_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("table_endpoint");
         set => SetArgument("table_endpoint", value);
     }
 
@@ -315,7 +315,7 @@ public class AzurermServiceFabricClusterFabricSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -357,7 +357,7 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientEndpointPort is required")]
     public required TerraformValue<double> ClientEndpointPort
     {
-        get => GetArgument<TerraformValue<double>>("client_endpoint_port");
+        get => GetRequiredArgument<TerraformValue<double>>("client_endpoint_port");
         set => SetArgument("client_endpoint_port", value);
     }
 
@@ -376,7 +376,7 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpEndpointPort is required")]
     public required TerraformValue<double> HttpEndpointPort
     {
-        get => GetArgument<TerraformValue<double>>("http_endpoint_port");
+        get => GetRequiredArgument<TerraformValue<double>>("http_endpoint_port");
         set => SetArgument("http_endpoint_port", value);
     }
 
@@ -386,7 +386,7 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformValue<double> InstanceCount
     {
-        get => GetArgument<TerraformValue<double>>("instance_count");
+        get => GetRequiredArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -396,7 +396,7 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrimary is required")]
     public required TerraformValue<bool> IsPrimary
     {
-        get => GetArgument<TerraformValue<bool>>("is_primary");
+        get => GetRequiredArgument<TerraformValue<bool>>("is_primary");
         set => SetArgument("is_primary", value);
     }
 
@@ -424,7 +424,7 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -485,7 +485,7 @@ public class AzurermServiceFabricClusterNodeTypeBlockApplicationPortsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndPort is required")]
     public required TerraformValue<double> EndPort
     {
-        get => GetArgument<TerraformValue<double>>("end_port");
+        get => GetRequiredArgument<TerraformValue<double>>("end_port");
         set => SetArgument("end_port", value);
     }
 
@@ -495,7 +495,7 @@ public class AzurermServiceFabricClusterNodeTypeBlockApplicationPortsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartPort is required")]
     public required TerraformValue<double> StartPort
     {
-        get => GetArgument<TerraformValue<double>>("start_port");
+        get => GetRequiredArgument<TerraformValue<double>>("start_port");
         set => SetArgument("start_port", value);
     }
 
@@ -518,7 +518,7 @@ public class AzurermServiceFabricClusterNodeTypeBlockEphemeralPortsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndPort is required")]
     public required TerraformValue<double> EndPort
     {
-        get => GetArgument<TerraformValue<double>>("end_port");
+        get => GetRequiredArgument<TerraformValue<double>>("end_port");
         set => SetArgument("end_port", value);
     }
 
@@ -528,7 +528,7 @@ public class AzurermServiceFabricClusterNodeTypeBlockEphemeralPortsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartPort is required")]
     public required TerraformValue<double> StartPort
     {
-        get => GetArgument<TerraformValue<double>>("start_port");
+        get => GetRequiredArgument<TerraformValue<double>>("start_port");
         set => SetArgument("start_port", value);
     }
 
@@ -552,7 +552,7 @@ public class AzurermServiceFabricClusterReverseProxyCertificateBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
     public required TerraformValue<string> Thumbprint
     {
-        get => GetArgument<TerraformValue<string>>("thumbprint");
+        get => GetRequiredArgument<TerraformValue<string>>("thumbprint");
         set => SetArgument("thumbprint", value);
     }
 
@@ -571,7 +571,7 @@ public class AzurermServiceFabricClusterReverseProxyCertificateBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
     public required TerraformValue<string> X509StoreName
     {
-        get => GetArgument<TerraformValue<string>>("x509_store_name");
+        get => GetRequiredArgument<TerraformValue<string>>("x509_store_name");
         set => SetArgument("x509_store_name", value);
     }
 
@@ -595,7 +595,7 @@ public class AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
     public required TerraformValue<string> X509StoreName
     {
-        get => GetArgument<TerraformValue<string>>("x509_store_name");
+        get => GetRequiredArgument<TerraformValue<string>>("x509_store_name");
         set => SetArgument("x509_store_name", value);
     }
 
@@ -630,7 +630,7 @@ public class AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlockC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateCommonName is required")]
     public required TerraformValue<string> CertificateCommonName
     {
-        get => GetArgument<TerraformValue<string>>("certificate_common_name");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_common_name");
         set => SetArgument("certificate_common_name", value);
     }
 
@@ -882,18 +882,18 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// <summary>
     /// The cluster_code_version attribute.
     /// </summary>
-    public TerraformValue<string>? ClusterCodeVersion
+    public TerraformValue<string> ClusterCodeVersion
     {
-        get => GetArgument<TerraformValue<string>>("cluster_code_version");
+        get => GetArgument<TerraformValue<string>>("cluster_code_version") ?? AsReference("cluster_code_version");
         set => SetArgument("cluster_code_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -903,7 +903,7 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -913,7 +913,7 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementEndpoint is required")]
     public required TerraformValue<string> ManagementEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("management_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("management_endpoint");
         set => SetArgument("management_endpoint", value);
     }
 
@@ -923,7 +923,7 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -933,7 +933,7 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReliabilityLevel is required")]
     public required TerraformValue<string> ReliabilityLevel
     {
-        get => GetArgument<TerraformValue<string>>("reliability_level");
+        get => GetRequiredArgument<TerraformValue<string>>("reliability_level");
         set => SetArgument("reliability_level", value);
     }
 
@@ -943,7 +943,7 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -971,7 +971,7 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpgradeMode is required")]
     public required TerraformValue<string> UpgradeMode
     {
-        get => GetArgument<TerraformValue<string>>("upgrade_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("upgrade_mode");
         set => SetArgument("upgrade_mode", value);
     }
 
@@ -981,7 +981,7 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmImage is required")]
     public required TerraformValue<string> VmImage
     {
-        get => GetArgument<TerraformValue<string>>("vm_image");
+        get => GetRequiredArgument<TerraformValue<string>>("vm_image");
         set => SetArgument("vm_image", value);
     }
 

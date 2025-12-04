@@ -55,16 +55,16 @@ public partial class GoogleEssentialContactsContact(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleEssentialContactsContact(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageTag is required")]
     public required TerraformValue<string> LanguageTag
     {
-        get => GetArgument<TerraformValue<string>>("language_tag");
+        get => GetRequiredArgument<TerraformValue<string>>("language_tag");
         set => SetArgument("language_tag", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleEssentialContactsContact(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 

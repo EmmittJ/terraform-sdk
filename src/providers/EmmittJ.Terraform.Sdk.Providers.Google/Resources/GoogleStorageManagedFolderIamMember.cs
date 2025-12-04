@@ -28,7 +28,7 @@ public class GoogleStorageManagedFolderIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleStorageManagedFolderIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => GetArgument<TerraformValue<string>>("title");
+        get => GetRequiredArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -57,16 +57,16 @@ public partial class GoogleStorageManagedFolderIamMember(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleStorageManagedFolderIamMember(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedFolder is required")]
     public required TerraformValue<string> ManagedFolder
     {
-        get => GetArgument<TerraformValue<string>>("managed_folder");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_folder");
         set => SetArgument("managed_folder", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleStorageManagedFolderIamMember(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     public required TerraformValue<string> Member
     {
-        get => GetArgument<TerraformValue<string>>("member");
+        get => GetRequiredArgument<TerraformValue<string>>("member");
         set => SetArgument("member", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleStorageManagedFolderIamMember(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => GetArgument<TerraformValue<string>>("role");
+        get => GetRequiredArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 

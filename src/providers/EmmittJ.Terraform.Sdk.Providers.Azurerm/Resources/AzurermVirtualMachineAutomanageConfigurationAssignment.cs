@@ -55,16 +55,16 @@ public partial class AzurermVirtualMachineAutomanageConfigurationAssignment(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationId is required")]
     public required TerraformValue<string> ConfigurationId
     {
-        get => GetArgument<TerraformValue<string>>("configuration_id");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_id");
         set => SetArgument("configuration_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermVirtualMachineAutomanageConfigurationAssignment(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 

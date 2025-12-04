@@ -84,9 +84,9 @@ public class GoogleComputeInstanceAttachedDiskBlock : TerraformBlock
     /// <summary>
     /// Name with which the attached disk is accessible under /dev/disk/by-id/
     /// </summary>
-    public TerraformValue<string>? DeviceName
+    public TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetArgument<TerraformValue<string>>("device_name") ?? AsReference("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -135,9 +135,9 @@ public class GoogleComputeInstanceAttachedDiskBlock : TerraformBlock
     /// <summary>
     /// The self_link of the encryption key that is stored in Google Cloud KMS to encrypt this disk. Only one of kms_key_self_link, disk_encryption_key_rsa and disk_encryption_key_raw may be set.
     /// </summary>
-    public TerraformValue<string>? KmsKeySelfLink
+    public TerraformValue<string> KmsKeySelfLink
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? AsReference("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleComputeInstanceAttachedDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -186,9 +186,9 @@ public class GoogleComputeInstanceBootDiskBlock : TerraformBlock
     /// <summary>
     /// Name with which attached disk will be accessible under /dev/disk/by-id/
     /// </summary>
-    public TerraformValue<string>? DeviceName
+    public TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetArgument<TerraformValue<string>>("device_name") ?? AsReference("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -237,9 +237,9 @@ public class GoogleComputeInstanceBootDiskBlock : TerraformBlock
     /// <summary>
     /// A list of features to enable on the guest operating system. Applicable only for bootable images.
     /// </summary>
-    public TerraformList<string>? GuestOsFeatures
+    public TerraformList<string> GuestOsFeatures
     {
-        get => GetArgument<TerraformList<string>>("guest_os_features");
+        get => GetArgument<TerraformList<string>>("guest_os_features") ?? AsReference("guest_os_features");
         set => SetArgument("guest_os_features", value);
     }
 
@@ -255,9 +255,9 @@ public class GoogleComputeInstanceBootDiskBlock : TerraformBlock
     /// <summary>
     /// The self_link of the encryption key that is stored in Google Cloud KMS to encrypt this disk. Only one of kms_key_self_link, disk_encryption_key_raw and disk_encryption_key_rsa may be set.
     /// </summary>
-    public TerraformValue<string>? KmsKeySelfLink
+    public TerraformValue<string> KmsKeySelfLink
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? AsReference("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -273,9 +273,9 @@ public class GoogleComputeInstanceBootDiskBlock : TerraformBlock
     /// <summary>
     /// The name or self_link of the disk attached to this instance.
     /// </summary>
-    public TerraformValue<string>? Source
+    public TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetArgument<TerraformValue<string>>("source") ?? AsReference("source");
         set => SetArgument("source", value);
     }
 
@@ -305,9 +305,9 @@ public class GoogleComputeInstanceBootDiskBlockInitializeParamsBlock : Terraform
     /// <summary>
     /// The architecture of the disk. One of &amp;quot;X86_64&amp;quot; or &amp;quot;ARM64&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? Architecture
+    public TerraformValue<string> Architecture
     {
-        get => GetArgument<TerraformValue<string>>("architecture");
+        get => GetArgument<TerraformValue<string>>("architecture") ?? AsReference("architecture");
         set => SetArgument("architecture", value);
     }
 
@@ -323,36 +323,36 @@ public class GoogleComputeInstanceBootDiskBlockInitializeParamsBlock : Terraform
     /// <summary>
     /// The image from which this disk was initialised.
     /// </summary>
-    public TerraformValue<string>? Image
+    public TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image");
+        get => GetArgument<TerraformValue<string>>("image") ?? AsReference("image");
         set => SetArgument("image", value);
     }
 
     /// <summary>
     /// A set of key/value label pairs assigned to the disk.
     /// </summary>
-    public TerraformMap<string>? Labels
+    public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.
     /// </summary>
-    public TerraformValue<double>? ProvisionedIops
+    public TerraformValue<double> ProvisionedIops
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_iops");
+        get => GetArgument<TerraformValue<double>>("provisioned_iops") ?? AsReference("provisioned_iops");
         set => SetArgument("provisioned_iops", value);
     }
 
     /// <summary>
     /// Indicates how much throughput to provision for the disk. This sets the number of throughput mb per second that the disk can handle.
     /// </summary>
-    public TerraformValue<double>? ProvisionedThroughput
+    public TerraformValue<double> ProvisionedThroughput
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_throughput");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput") ?? AsReference("provisioned_throughput");
         set => SetArgument("provisioned_throughput", value);
     }
 
@@ -368,27 +368,27 @@ public class GoogleComputeInstanceBootDiskBlockInitializeParamsBlock : Terraform
     /// <summary>
     /// A list of self_links of resource policies to attach to the instance&#39;s boot disk. Modifying this list will cause the instance to recreate. Currently a max of 1 resource policy is supported.
     /// </summary>
-    public TerraformList<string>? ResourcePolicies
+    public TerraformList<string> ResourcePolicies
     {
-        get => GetArgument<TerraformList<string>>("resource_policies");
+        get => GetArgument<TerraformList<string>>("resource_policies") ?? AsReference("resource_policies");
         set => SetArgument("resource_policies", value);
     }
 
     /// <summary>
     /// The size of the image in gigabytes.
     /// </summary>
-    public TerraformValue<double>? Size
+    public TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size");
+        get => GetArgument<TerraformValue<double>>("size") ?? AsReference("size");
         set => SetArgument("size", value);
     }
 
     /// <summary>
     /// The snapshot from which this disk was initialised.
     /// </summary>
-    public TerraformValue<string>? Snapshot
+    public TerraformValue<string> Snapshot
     {
-        get => GetArgument<TerraformValue<string>>("snapshot");
+        get => GetArgument<TerraformValue<string>>("snapshot") ?? AsReference("snapshot");
         set => SetArgument("snapshot", value);
     }
 
@@ -404,9 +404,9 @@ public class GoogleComputeInstanceBootDiskBlockInitializeParamsBlock : Terraform
     /// <summary>
     /// The Google Compute Engine disk type. Such as pd-standard, pd-ssd or pd-balanced.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -446,9 +446,9 @@ public class GoogleComputeInstanceBootDiskBlockInitializeParamsBlockSourceImageE
     /// <summary>
     /// The self link of the encryption key that is stored in Google Cloud KMS. Only one of kms_key_self_link, rsa_encrypted_key and raw_key may be set.
     /// </summary>
-    public TerraformValue<string>? KmsKeySelfLink
+    public TerraformValue<string> KmsKeySelfLink
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? AsReference("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -501,9 +501,9 @@ public class GoogleComputeInstanceBootDiskBlockInitializeParamsBlockSourceSnapsh
     /// <summary>
     /// The self link of the encryption key that is stored in Google Cloud KMS. Only one of kms_key_self_link, rsa_encrypted_key and raw_key may be set.
     /// </summary>
-    public TerraformValue<string>? KmsKeySelfLink
+    public TerraformValue<string> KmsKeySelfLink
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? AsReference("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -596,7 +596,7 @@ public class GoogleComputeInstanceGuestAcceleratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetRequiredArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -606,7 +606,7 @@ public class GoogleComputeInstanceGuestAcceleratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -627,9 +627,9 @@ public class GoogleComputeInstanceInstanceEncryptionKeyBlock : TerraformBlock
     /// <summary>
     /// The self link of the encryption key that is stored in Google Cloud KMS.
     /// </summary>
-    public TerraformValue<string>? KmsKeySelfLink
+    public TerraformValue<string> KmsKeySelfLink
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link") ?? AsReference("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -665,9 +665,9 @@ public class GoogleComputeInstanceNetworkInterfaceBlock : TerraformBlock
     /// <summary>
     /// The prefix length of the primary internal IPv6 range.
     /// </summary>
-    public TerraformValue<double>? InternalIpv6PrefixLength
+    public TerraformValue<double> InternalIpv6PrefixLength
     {
-        get => GetArgument<TerraformValue<double>>("internal_ipv6_prefix_length");
+        get => GetArgument<TerraformValue<double>>("internal_ipv6_prefix_length") ?? AsReference("internal_ipv6_prefix_length");
         set => SetArgument("internal_ipv6_prefix_length", value);
     }
 
@@ -680,9 +680,9 @@ public class GoogleComputeInstanceNetworkInterfaceBlock : TerraformBlock
     /// <summary>
     /// An IPv6 internal network address for this network interface. If not specified, Google Cloud will automatically assign an internal IPv6 address from the instance&#39;s subnetwork.
     /// </summary>
-    public TerraformValue<string>? Ipv6Address
+    public TerraformValue<string> Ipv6Address
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_address");
+        get => GetArgument<TerraformValue<string>>("ipv6_address") ?? AsReference("ipv6_address");
         set => SetArgument("ipv6_address", value);
     }
 
@@ -695,27 +695,27 @@ public class GoogleComputeInstanceNetworkInterfaceBlock : TerraformBlock
     /// <summary>
     /// The name or self_link of the network attached to this interface.
     /// </summary>
-    public TerraformValue<string>? Network
+    public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The URL of the network attachment that this interface should connect to in the following format: projects/{projectNumber}/regions/{region_name}/networkAttachments/{network_attachment_name}.
     /// </summary>
-    public TerraformValue<string>? NetworkAttachment
+    public TerraformValue<string> NetworkAttachment
     {
-        get => GetArgument<TerraformValue<string>>("network_attachment");
+        get => GetArgument<TerraformValue<string>>("network_attachment") ?? AsReference("network_attachment");
         set => SetArgument("network_attachment", value);
     }
 
     /// <summary>
     /// The private IP address assigned to the instance.
     /// </summary>
-    public TerraformValue<string>? NetworkIp
+    public TerraformValue<string> NetworkIp
     {
-        get => GetArgument<TerraformValue<string>>("network_ip");
+        get => GetArgument<TerraformValue<string>>("network_ip") ?? AsReference("network_ip");
         set => SetArgument("network_ip", value);
     }
 
@@ -740,27 +740,27 @@ public class GoogleComputeInstanceNetworkInterfaceBlock : TerraformBlock
     /// <summary>
     /// The stack type for this network interface to identify whether the IPv6 feature is enabled or not. If not specified, IPV4_ONLY will be used.
     /// </summary>
-    public TerraformValue<string>? StackType
+    public TerraformValue<string> StackType
     {
-        get => GetArgument<TerraformValue<string>>("stack_type");
+        get => GetArgument<TerraformValue<string>>("stack_type") ?? AsReference("stack_type");
         set => SetArgument("stack_type", value);
     }
 
     /// <summary>
     /// The name or self_link of the subnetwork attached to this interface.
     /// </summary>
-    public TerraformValue<string>? Subnetwork
+    public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
     /// <summary>
     /// The project in which the subnetwork belongs.
     /// </summary>
-    public TerraformValue<string>? SubnetworkProject
+    public TerraformValue<string> SubnetworkProject
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork_project");
+        get => GetArgument<TerraformValue<string>>("subnetwork_project") ?? AsReference("subnetwork_project");
         set => SetArgument("subnetwork_project", value);
     }
 
@@ -807,18 +807,18 @@ public class GoogleComputeInstanceNetworkInterfaceBlockAccessConfigBlock : Terra
     /// <summary>
     /// The IP address that is be 1:1 mapped to the instance&#39;s network ip.
     /// </summary>
-    public TerraformValue<string>? NatIp
+    public TerraformValue<string> NatIp
     {
-        get => GetArgument<TerraformValue<string>>("nat_ip");
+        get => GetArgument<TerraformValue<string>>("nat_ip") ?? AsReference("nat_ip");
         set => SetArgument("nat_ip", value);
     }
 
     /// <summary>
     /// The networking tier used for configuring this instance. One of PREMIUM or STANDARD.
     /// </summary>
-    public TerraformValue<string>? NetworkTier
+    public TerraformValue<string> NetworkTier
     {
-        get => GetArgument<TerraformValue<string>>("network_tier");
+        get => GetArgument<TerraformValue<string>>("network_tier") ?? AsReference("network_tier");
         set => SetArgument("network_tier", value);
     }
 
@@ -850,7 +850,7 @@ public class GoogleComputeInstanceNetworkInterfaceBlockAliasIpRangeBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     public required TerraformValue<string> IpCidrRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_cidr_range");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_cidr_range");
         set => SetArgument("ip_cidr_range", value);
     }
 
@@ -879,27 +879,27 @@ public class GoogleComputeInstanceNetworkInterfaceBlockIpv6AccessConfigBlock : T
     /// <summary>
     /// The first IPv6 address of the external IPv6 range associated with this instance, prefix length is stored in externalIpv6PrefixLength in ipv6AccessConfig. To use a static external IP address, it must be unused and in the same region as the instance&#39;s zone. If not specified, Google Cloud will automatically assign an external IPv6 address from the instance&#39;s subnetwork.
     /// </summary>
-    public TerraformValue<string>? ExternalIpv6
+    public TerraformValue<string> ExternalIpv6
     {
-        get => GetArgument<TerraformValue<string>>("external_ipv6");
+        get => GetArgument<TerraformValue<string>>("external_ipv6") ?? AsReference("external_ipv6");
         set => SetArgument("external_ipv6", value);
     }
 
     /// <summary>
     /// The prefix length of the external IPv6 range.
     /// </summary>
-    public TerraformValue<string>? ExternalIpv6PrefixLength
+    public TerraformValue<string> ExternalIpv6PrefixLength
     {
-        get => GetArgument<TerraformValue<string>>("external_ipv6_prefix_length");
+        get => GetArgument<TerraformValue<string>>("external_ipv6_prefix_length") ?? AsReference("external_ipv6_prefix_length");
         set => SetArgument("external_ipv6_prefix_length", value);
     }
 
     /// <summary>
     /// The name of this access configuration. In ipv6AccessConfigs, the recommended name is External IPv6.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -909,7 +909,7 @@ public class GoogleComputeInstanceNetworkInterfaceBlockIpv6AccessConfigBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkTier is required")]
     public required TerraformValue<string> NetworkTier
     {
-        get => GetArgument<TerraformValue<string>>("network_tier");
+        get => GetRequiredArgument<TerraformValue<string>>("network_tier");
         set => SetArgument("network_tier", value);
     }
 
@@ -942,7 +942,7 @@ public class GoogleComputeInstanceNetworkPerformanceConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalEgressBandwidthTier is required")]
     public required TerraformValue<string> TotalEgressBandwidthTier
     {
-        get => GetArgument<TerraformValue<string>>("total_egress_bandwidth_tier");
+        get => GetRequiredArgument<TerraformValue<string>>("total_egress_bandwidth_tier");
         set => SetArgument("total_egress_bandwidth_tier", value);
     }
 
@@ -989,7 +989,7 @@ public class GoogleComputeInstanceReservationAffinityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1022,7 +1022,7 @@ public class GoogleComputeInstanceReservationAffinityBlockSpecificReservationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1089,9 +1089,9 @@ public class GoogleComputeInstanceSchedulingBlock : TerraformBlock
     /// <summary>
     /// Describes maintenance behavior for the instance. One of MIGRATE or TERMINATE,
     /// </summary>
-    public TerraformValue<string>? OnHostMaintenance
+    public TerraformValue<string> OnHostMaintenance
     {
-        get => GetArgument<TerraformValue<string>>("on_host_maintenance");
+        get => GetArgument<TerraformValue<string>>("on_host_maintenance") ?? AsReference("on_host_maintenance");
         set => SetArgument("on_host_maintenance", value);
     }
 
@@ -1107,9 +1107,9 @@ public class GoogleComputeInstanceSchedulingBlock : TerraformBlock
     /// <summary>
     /// Whether the instance is spot. If this is set as SPOT.
     /// </summary>
-    public TerraformValue<string>? ProvisioningModel
+    public TerraformValue<string> ProvisioningModel
     {
-        get => GetArgument<TerraformValue<string>>("provisioning_model");
+        get => GetArgument<TerraformValue<string>>("provisioning_model") ?? AsReference("provisioning_model");
         set => SetArgument("provisioning_model", value);
     }
 
@@ -1195,7 +1195,7 @@ public class GoogleComputeInstanceSchedulingBlockLocalSsdRecoveryTimeoutBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<double> Seconds
     {
-        get => GetArgument<TerraformValue<double>>("seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1231,7 +1231,7 @@ public class GoogleComputeInstanceSchedulingBlockMaxRunDurationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<double> Seconds
     {
-        get => GetArgument<TerraformValue<double>>("seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1254,7 +1254,7 @@ public class GoogleComputeInstanceSchedulingBlockNodeAffinitiesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1264,7 +1264,7 @@ public class GoogleComputeInstanceSchedulingBlockNodeAffinitiesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1274,7 +1274,7 @@ public class GoogleComputeInstanceSchedulingBlockNodeAffinitiesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => GetArgument<TerraformSet<string>>("values");
+        get => GetRequiredArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -1317,9 +1317,9 @@ public class GoogleComputeInstanceScratchDiskBlock : TerraformBlock
     /// <summary>
     /// Name with which the attached disk is accessible under /dev/disk/by-id/
     /// </summary>
-    public TerraformValue<string>? DeviceName
+    public TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetArgument<TerraformValue<string>>("device_name") ?? AsReference("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -1329,7 +1329,7 @@ public class GoogleComputeInstanceScratchDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterfaceAttribute is required")]
     public required TerraformValue<string> InterfaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("interface");
+        get => GetRequiredArgument<TerraformValue<string>>("interface");
         set => SetArgument("interface", value);
     }
 
@@ -1359,9 +1359,9 @@ public class GoogleComputeInstanceServiceAccountBlock : TerraformBlock
     /// <summary>
     /// The service account e-mail address.
     /// </summary>
-    public TerraformValue<string>? Email
+    public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
         set => SetArgument("email", value);
     }
 
@@ -1371,7 +1371,7 @@ public class GoogleComputeInstanceServiceAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     public required TerraformSet<string> Scopes
     {
-        get => GetArgument<TerraformSet<string>>("scopes");
+        get => GetRequiredArgument<TerraformSet<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -1532,9 +1532,9 @@ public partial class GoogleComputeInstance(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1565,7 +1565,7 @@ public partial class GoogleComputeInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
     public required TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type");
+        get => GetRequiredArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -1590,9 +1590,9 @@ public partial class GoogleComputeInstance(string name) : TerraformResource("goo
     /// <summary>
     /// The minimum CPU platform specified for the VM instance.
     /// </summary>
-    public TerraformValue<string>? MinCpuPlatform
+    public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -1602,16 +1602,16 @@ public partial class GoogleComputeInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If self_link is provided, this value is ignored. If neither self_link nor project are provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1636,9 +1636,9 @@ public partial class GoogleComputeInstance(string name) : TerraformResource("goo
     /// <summary>
     /// The zone of the instance. If self_link is provided, this value is ignored. If neither self_link nor zone are provided, the provider zone is used.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

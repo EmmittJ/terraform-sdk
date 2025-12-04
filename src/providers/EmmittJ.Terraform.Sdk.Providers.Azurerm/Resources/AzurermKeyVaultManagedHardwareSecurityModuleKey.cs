@@ -79,9 +79,9 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyOpts is required")]
     public required TerraformSet<string> KeyOpts
     {
-        get => GetArgument<TerraformSet<string>>("key_opts");
+        get => GetRequiredArgument<TerraformSet<string>>("key_opts");
         set => SetArgument("key_opts", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     public required TerraformValue<string> KeyType
     {
-        get => GetArgument<TerraformValue<string>>("key_type");
+        get => GetRequiredArgument<TerraformValue<string>>("key_type");
         set => SetArgument("key_type", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     public required TerraformValue<string> ManagedHsmId
     {
-        get => GetArgument<TerraformValue<string>>("managed_hsm_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_hsm_id");
         set => SetArgument("managed_hsm_id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

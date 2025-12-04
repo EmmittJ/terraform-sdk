@@ -20,18 +20,18 @@ public partial class GoogleBillingAccountDataSource(string name) : TerraformData
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -47,9 +47,9 @@ public partial class GoogleBillingAccountDataSource(string name) : TerraformData
     /// <summary>
     /// The open attribute.
     /// </summary>
-    public TerraformValue<bool>? Open
+    public TerraformValue<bool> Open
     {
-        get => GetArgument<TerraformValue<bool>>("open");
+        get => GetArgument<TerraformValue<bool>>("open") ?? AsReference("open");
         set => SetArgument("open", value);
     }
 

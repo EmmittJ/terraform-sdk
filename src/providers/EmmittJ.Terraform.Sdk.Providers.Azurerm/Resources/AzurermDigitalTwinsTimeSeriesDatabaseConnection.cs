@@ -55,7 +55,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformValue<string> DigitalTwinsId
     {
-        get => GetArgument<TerraformValue<string>>("digital_twins_id");
+        get => GetRequiredArgument<TerraformValue<string>>("digital_twins_id");
         set => SetArgument("digital_twins_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformValue<string> EventhubName
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_name");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_name");
         set => SetArgument("eventhub_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceEndpointUri is required")]
     public required TerraformValue<string> EventhubNamespaceEndpointUri
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_namespace_endpoint_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_namespace_endpoint_uri");
         set => SetArgument("eventhub_namespace_endpoint_uri", value);
     }
 
@@ -94,16 +94,16 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceId is required")]
     public required TerraformValue<string> EventhubNamespaceId
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_namespace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_namespace_id");
         set => SetArgument("eventhub_namespace_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoClusterId is required")]
     public required TerraformValue<string> KustoClusterId
     {
-        get => GetArgument<TerraformValue<string>>("kusto_cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("kusto_cluster_id");
         set => SetArgument("kusto_cluster_id", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoClusterUri is required")]
     public required TerraformValue<string> KustoClusterUri
     {
-        get => GetArgument<TerraformValue<string>>("kusto_cluster_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("kusto_cluster_uri");
         set => SetArgument("kusto_cluster_uri", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseName is required")]
     public required TerraformValue<string> KustoDatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("kusto_database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kusto_database_name");
         set => SetArgument("kusto_database_name", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

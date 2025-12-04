@@ -19,7 +19,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredChannelPipeline is required")]
     public required TerraformValue<string> PreferredChannelPipeline
     {
-        get => GetArgument<TerraformValue<string>>("preferred_channel_pipeline");
+        get => GetRequiredArgument<TerraformValue<string>>("preferred_channel_pipeline");
         set => SetArgument("preferred_channel_pipeline", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramNumber is required")]
     public required TerraformValue<double> ProgramNumber
     {
-        get => GetArgument<TerraformValue<double>>("program_number");
+        get => GetRequiredArgument<TerraformValue<double>>("program_number");
         set => SetArgument("program_number", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlockServiceDes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderName is required")]
     public required TerraformValue<string> ProviderName
     {
-        get => GetArgument<TerraformValue<string>>("provider_name");
+        get => GetRequiredArgument<TerraformValue<string>>("provider_name");
         set => SetArgument("provider_name", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlockServiceDes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -100,9 +100,9 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlockVideoSetti
     /// <summary>
     /// The constant_bitrate attribute.
     /// </summary>
-    public TerraformValue<double>? ConstantBitrate
+    public TerraformValue<double> ConstantBitrate
     {
-        get => GetArgument<TerraformValue<double>>("constant_bitrate");
+        get => GetArgument<TerraformValue<double>>("constant_bitrate") ?? AsReference("constant_bitrate");
         set => SetArgument("constant_bitrate", value);
     }
 
@@ -131,27 +131,27 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlockVideoSetti
     /// <summary>
     /// The maximum_bitrate attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumBitrate
+    public TerraformValue<double> MaximumBitrate
     {
-        get => GetArgument<TerraformValue<double>>("maximum_bitrate");
+        get => GetArgument<TerraformValue<double>>("maximum_bitrate") ?? AsReference("maximum_bitrate");
         set => SetArgument("maximum_bitrate", value);
     }
 
     /// <summary>
     /// The minimum_bitrate attribute.
     /// </summary>
-    public TerraformValue<double>? MinimumBitrate
+    public TerraformValue<double> MinimumBitrate
     {
-        get => GetArgument<TerraformValue<double>>("minimum_bitrate");
+        get => GetArgument<TerraformValue<double>>("minimum_bitrate") ?? AsReference("minimum_bitrate");
         set => SetArgument("minimum_bitrate", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformValue<double>? Priority
+    public TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetArgument<TerraformValue<double>>("priority") ?? AsReference("priority");
         set => SetArgument("priority", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AwsMedialiveMultiplexProgram(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiplexId is required")]
     public required TerraformValue<string> MultiplexId
     {
-        get => GetArgument<TerraformValue<string>>("multiplex_id");
+        get => GetRequiredArgument<TerraformValue<string>>("multiplex_id");
         set => SetArgument("multiplex_id", value);
     }
 
@@ -203,16 +203,16 @@ public partial class AwsMedialiveMultiplexProgram(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramName is required")]
     public required TerraformValue<string> ProgramName
     {
-        get => GetArgument<TerraformValue<string>>("program_name");
+        get => GetRequiredArgument<TerraformValue<string>>("program_name");
         set => SetArgument("program_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

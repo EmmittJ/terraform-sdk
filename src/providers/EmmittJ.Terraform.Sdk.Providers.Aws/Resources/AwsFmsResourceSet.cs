@@ -40,16 +40,16 @@ public class AwsFmsResourceSetResourceSetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The resource_set_status attribute.
     /// </summary>
-    public TerraformValue<string>? ResourceSetStatus
+    public TerraformValue<string> ResourceSetStatus
     {
-        get => GetArgument<TerraformValue<string>>("resource_set_status");
+        get => GetArgument<TerraformValue<string>>("resource_set_status") ?? AsReference("resource_set_status");
         set => SetArgument("resource_set_status", value);
     }
 
@@ -65,9 +65,9 @@ public class AwsFmsResourceSetResourceSetBlock : TerraformBlock
     /// <summary>
     /// The update_token attribute.
     /// </summary>
-    public TerraformValue<string>? UpdateToken
+    public TerraformValue<string> UpdateToken
     {
-        get => GetArgument<TerraformValue<string>>("update_token");
+        get => GetArgument<TerraformValue<string>>("update_token") ?? AsReference("update_token");
         set => SetArgument("update_token", value);
     }
 
@@ -124,9 +124,9 @@ public partial class AwsFmsResourceSet(string name) : TerraformResource("aws_fms
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

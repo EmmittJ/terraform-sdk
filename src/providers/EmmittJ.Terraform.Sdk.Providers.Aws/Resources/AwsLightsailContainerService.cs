@@ -96,7 +96,7 @@ public class AwsLightsailContainerServicePublicDomainNamesBlockCertificateBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     public required TerraformValue<string> CertificateName
     {
-        get => GetArgument<TerraformValue<string>>("certificate_name");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_name");
         set => SetArgument("certificate_name", value);
     }
 
@@ -163,9 +163,9 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -194,16 +194,16 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Power is required")]
     public required TerraformValue<string> Power
     {
-        get => GetArgument<TerraformValue<string>>("power");
+        get => GetRequiredArgument<TerraformValue<string>>("power");
         set => SetArgument("power", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scale is required")]
     public required TerraformValue<double> Scale
     {
-        get => GetArgument<TerraformValue<double>>("scale");
+        get => GetRequiredArgument<TerraformValue<double>>("scale");
         set => SetArgument("scale", value);
     }
 
@@ -229,9 +229,9 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

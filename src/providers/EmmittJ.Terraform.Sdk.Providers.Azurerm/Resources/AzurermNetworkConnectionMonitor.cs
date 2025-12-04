@@ -55,7 +55,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -327,7 +327,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockHttpConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -337,7 +337,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockHttpConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -422,7 +422,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockTcpConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -455,7 +455,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationEndpoints is required")]
     public required TerraformSet<string> DestinationEndpoints
     {
-        get => GetArgument<TerraformSet<string>>("destination_endpoints");
+        get => GetRequiredArgument<TerraformSet<string>>("destination_endpoints");
         set => SetArgument("destination_endpoints", value);
     }
 
@@ -474,7 +474,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -484,7 +484,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEndpoints is required")]
     public required TerraformSet<string> SourceEndpoints
     {
-        get => GetArgument<TerraformSet<string>>("source_endpoints");
+        get => GetRequiredArgument<TerraformSet<string>>("source_endpoints");
         set => SetArgument("source_endpoints", value);
     }
 
@@ -494,7 +494,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestConfigurationNames is required")]
     public required TerraformSet<string> TestConfigurationNames
     {
-        get => GetArgument<TerraformSet<string>>("test_configuration_names");
+        get => GetRequiredArgument<TerraformSet<string>>("test_configuration_names");
         set => SetArgument("test_configuration_names", value);
     }
 
@@ -560,9 +560,9 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -572,7 +572,7 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -582,7 +582,7 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -592,7 +592,7 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherId is required")]
     public required TerraformValue<string> NetworkWatcherId
     {
-        get => GetArgument<TerraformValue<string>>("network_watcher_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_watcher_id");
         set => SetArgument("network_watcher_id", value);
     }
 

@@ -14,16 +14,16 @@ public partial class AwsWorkspaceswebSessionLoggerAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
     public required TerraformValue<string> PortalArn
     {
-        get => GetArgument<TerraformValue<string>>("portal_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("portal_arn");
         set => SetArgument("portal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsWorkspaceswebSessionLoggerAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionLoggerArn is required")]
     public required TerraformValue<string> SessionLoggerArn
     {
-        get => GetArgument<TerraformValue<string>>("session_logger_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("session_logger_arn");
         set => SetArgument("session_logger_arn", value);
     }
 

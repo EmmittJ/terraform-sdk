@@ -64,7 +64,7 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     public required TerraformValue<string> DevCenterId
     {
-        get => GetArgument<TerraformValue<string>>("dev_center_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dev_center_id");
         set => SetArgument("dev_center_id", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageReferenceId is required")]
     public required TerraformValue<string> ImageReferenceId
     {
-        get => GetArgument<TerraformValue<string>>("image_reference_id");
+        get => GetRequiredArgument<TerraformValue<string>>("image_reference_id");
         set => SetArgument("image_reference_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 

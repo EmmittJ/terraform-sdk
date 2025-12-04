@@ -28,7 +28,7 @@ public class AwsNetworkfirewallRuleGroupEncryptionConfigurationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockReferenceSetsBlockIpSetRef
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockReferenceSetsBlockIpSetRef
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceArn is required")]
     public required TerraformValue<string> ReferenceArn
     {
-        get => GetArgument<TerraformValue<string>>("reference_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("reference_arn");
         set => SetArgument("reference_arn", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRuleVariablesBlockIpSetsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -256,7 +256,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRuleVariablesBlockIpSetsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
     public required TerraformSet<string> Definition
     {
-        get => GetArgument<TerraformSet<string>>("definition");
+        get => GetRequiredArgument<TerraformSet<string>>("definition");
         set => SetArgument("definition", value);
     }
 
@@ -279,7 +279,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRuleVariablesBlockPortSets
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -315,7 +315,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRuleVariablesBlockPortSets
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
     public required TerraformSet<string> Definition
     {
-        get => GetArgument<TerraformSet<string>>("definition");
+        get => GetRequiredArgument<TerraformSet<string>>("definition");
         set => SetArgument("definition", value);
     }
 
@@ -389,7 +389,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockRulesSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GeneratedRulesType is required")]
     public required TerraformValue<string> GeneratedRulesType
     {
-        get => GetArgument<TerraformValue<string>>("generated_rules_type");
+        get => GetRequiredArgument<TerraformValue<string>>("generated_rules_type");
         set => SetArgument("generated_rules_type", value);
     }
 
@@ -399,7 +399,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockRulesSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetTypes is required")]
     public required TerraformSet<string> TargetTypes
     {
-        get => GetArgument<TerraformSet<string>>("target_types");
+        get => GetRequiredArgument<TerraformSet<string>>("target_types");
         set => SetArgument("target_types", value);
     }
 
@@ -409,7 +409,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockRulesSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Targets is required")]
     public required TerraformSet<string> Targets
     {
-        get => GetArgument<TerraformSet<string>>("targets");
+        get => GetRequiredArgument<TerraformSet<string>>("targets");
         set => SetArgument("targets", value);
     }
 
@@ -432,7 +432,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatefulRu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -480,7 +480,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatefulRu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => GetArgument<TerraformValue<string>>("destination");
+        get => GetRequiredArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -490,7 +490,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatefulRu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPort is required")]
     public required TerraformValue<string> DestinationPort
     {
-        get => GetArgument<TerraformValue<string>>("destination_port");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_port");
         set => SetArgument("destination_port", value);
     }
 
@@ -500,7 +500,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatefulRu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => GetArgument<TerraformValue<string>>("direction");
+        get => GetRequiredArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
@@ -510,7 +510,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatefulRu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -520,7 +520,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatefulRu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -530,7 +530,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatefulRu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePort is required")]
     public required TerraformValue<string> SourcePort
     {
-        get => GetArgument<TerraformValue<string>>("source_port");
+        get => GetRequiredArgument<TerraformValue<string>>("source_port");
         set => SetArgument("source_port", value);
     }
 
@@ -553,7 +553,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatefulRu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keyword is required")]
     public required TerraformValue<string> Keyword
     {
-        get => GetArgument<TerraformValue<string>>("keyword");
+        get => GetRequiredArgument<TerraformValue<string>>("keyword");
         set => SetArgument("keyword", value);
     }
 
@@ -619,7 +619,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatelessR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionName is required")]
     public required TerraformValue<string> ActionName
     {
-        get => GetArgument<TerraformValue<string>>("action_name");
+        get => GetRequiredArgument<TerraformValue<string>>("action_name");
         set => SetArgument("action_name", value);
     }
 
@@ -706,7 +706,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatelessR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -729,7 +729,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatelessR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -765,7 +765,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatelessR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     public required TerraformSet<string> Actions
     {
-        get => GetArgument<TerraformSet<string>>("actions");
+        get => GetRequiredArgument<TerraformSet<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -868,7 +868,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatelessR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressDefinition is required")]
     public required TerraformValue<string> AddressDefinition
     {
-        get => GetArgument<TerraformValue<string>>("address_definition");
+        get => GetRequiredArgument<TerraformValue<string>>("address_definition");
         set => SetArgument("address_definition", value);
     }
 
@@ -891,7 +891,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatelessR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => GetArgument<TerraformValue<double>>("from_port");
+        get => GetRequiredArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -923,7 +923,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatelessR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressDefinition is required")]
     public required TerraformValue<string> AddressDefinition
     {
-        get => GetArgument<TerraformValue<string>>("address_definition");
+        get => GetRequiredArgument<TerraformValue<string>>("address_definition");
         set => SetArgument("address_definition", value);
     }
 
@@ -946,7 +946,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatelessR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => GetArgument<TerraformValue<double>>("from_port");
+        get => GetRequiredArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -978,7 +978,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockRulesSourceBlockStatelessR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Flags is required")]
     public required TerraformSet<string> Flags
     {
-        get => GetArgument<TerraformSet<string>>("flags");
+        get => GetRequiredArgument<TerraformSet<string>>("flags");
         set => SetArgument("flags", value);
     }
 
@@ -1010,7 +1010,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlockStatefulRuleOptionsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleOrder is required")]
     public required TerraformValue<string> RuleOrder
     {
-        get => GetArgument<TerraformValue<string>>("rule_order");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_order");
         set => SetArgument("rule_order", value);
     }
 
@@ -1029,7 +1029,7 @@ public partial class AwsNetworkfirewallRuleGroup(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformValue<double> Capacity
     {
-        get => GetArgument<TerraformValue<double>>("capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -1045,9 +1045,9 @@ public partial class AwsNetworkfirewallRuleGroup(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1057,16 +1057,16 @@ public partial class AwsNetworkfirewallRuleGroup(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1091,9 +1091,9 @@ public partial class AwsNetworkfirewallRuleGroup(string name) : TerraformResourc
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1103,7 +1103,7 @@ public partial class AwsNetworkfirewallRuleGroup(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

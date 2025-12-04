@@ -14,7 +14,7 @@ public partial class AwsLightsailDiskAttachment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskName is required")]
     public required TerraformValue<string> DiskName
     {
-        get => GetArgument<TerraformValue<string>>("disk_name");
+        get => GetRequiredArgument<TerraformValue<string>>("disk_name");
         set => SetArgument("disk_name", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsLightsailDiskAttachment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskPath is required")]
     public required TerraformValue<string> DiskPath
     {
-        get => GetArgument<TerraformValue<string>>("disk_path");
+        get => GetRequiredArgument<TerraformValue<string>>("disk_path");
         set => SetArgument("disk_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsLightsailDiskAttachment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformValue<string> InstanceName
     {
-        get => GetArgument<TerraformValue<string>>("instance_name");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_name");
         set => SetArgument("instance_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

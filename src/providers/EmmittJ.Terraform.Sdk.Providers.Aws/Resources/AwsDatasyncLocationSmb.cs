@@ -37,25 +37,25 @@ public partial class AwsDatasyncLocationSmb(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
     public required TerraformSet<string> AgentArns
     {
-        get => GetArgument<TerraformSet<string>>("agent_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("agent_arns");
         set => SetArgument("agent_arns", value);
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformValue<string>? Domain
+    public TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetArgument<TerraformValue<string>>("domain") ?? AsReference("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AwsDatasyncLocationSmb(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsDatasyncLocationSmb(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
     public required TerraformValue<string> ServerHostname
     {
-        get => GetArgument<TerraformValue<string>>("server_hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("server_hostname");
         set => SetArgument("server_hostname", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsDatasyncLocationSmb(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
     public required TerraformValue<string> Subdirectory
     {
-        get => GetArgument<TerraformValue<string>>("subdirectory");
+        get => GetRequiredArgument<TerraformValue<string>>("subdirectory");
         set => SetArgument("subdirectory", value);
     }
 
@@ -110,9 +110,9 @@ public partial class AwsDatasyncLocationSmb(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsDatasyncLocationSmb(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => GetArgument<TerraformValue<string>>("user");
+        get => GetRequiredArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 

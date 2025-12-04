@@ -19,7 +19,7 @@ public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alarm is required")]
     public required TerraformValue<string> Alarm
     {
-        get => GetArgument<TerraformValue<string>>("alarm");
+        get => GetRequiredArgument<TerraformValue<string>>("alarm");
         set => SetArgument("alarm", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionPeriod is required")]
     public required TerraformValue<double> ExtensionPeriod
     {
-        get => GetArgument<TerraformValue<double>>("extension_period");
+        get => GetRequiredArgument<TerraformValue<double>>("extension_period");
         set => SetArgument("extension_period", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WaitPeriod is required")]
     public required TerraformValue<double> WaitPeriod
     {
-        get => GetArgument<TerraformValue<double>>("wait_period");
+        get => GetRequiredArgument<TerraformValue<double>>("wait_period");
         set => SetArgument("wait_period", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsCloudwatchCompositeAlarm(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
     public required TerraformValue<string> AlarmName
     {
-        get => GetArgument<TerraformValue<string>>("alarm_name");
+        get => GetRequiredArgument<TerraformValue<string>>("alarm_name");
         set => SetArgument("alarm_name", value);
     }
 
@@ -95,16 +95,16 @@ public partial class AwsCloudwatchCompositeAlarm(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmRule is required")]
     public required TerraformValue<string> AlarmRule
     {
-        get => GetArgument<TerraformValue<string>>("alarm_rule");
+        get => GetRequiredArgument<TerraformValue<string>>("alarm_rule");
         set => SetArgument("alarm_rule", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -129,9 +129,9 @@ public partial class AwsCloudwatchCompositeAlarm(string name) : TerraformResourc
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -147,9 +147,9 @@ public partial class AwsCloudwatchCompositeAlarm(string name) : TerraformResourc
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

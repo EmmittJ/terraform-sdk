@@ -16,9 +16,9 @@ public class AwsSsoadminApplicationPortalOptionsBlock : TerraformBlock
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    public TerraformValue<string>? Visibility
+    public TerraformValue<string> Visibility
     {
-        get => GetArgument<TerraformValue<string>>("visibility");
+        get => GetArgument<TerraformValue<string>>("visibility") ?? AsReference("visibility");
         set => SetArgument("visibility", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsSsoadminApplicationPortalOptionsBlockSignInOptionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     public required TerraformValue<string> Origin
     {
-        get => GetArgument<TerraformValue<string>>("origin");
+        get => GetRequiredArgument<TerraformValue<string>>("origin");
         set => SetArgument("origin", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationProviderArn is required")]
     public required TerraformValue<string> ApplicationProviderArn
     {
-        get => GetArgument<TerraformValue<string>>("application_provider_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("application_provider_arn");
         set => SetArgument("application_provider_arn", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformValue<string> InstanceArn
     {
-        get => GetArgument<TerraformValue<string>>("instance_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_arn");
         set => SetArgument("instance_arn", value);
     }
 
@@ -116,25 +116,25 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string>? Status
+    public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
         set => SetArgument("status", value);
     }
 

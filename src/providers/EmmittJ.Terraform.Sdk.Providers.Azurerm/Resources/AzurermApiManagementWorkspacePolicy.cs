@@ -64,25 +64,25 @@ public partial class AzurermApiManagementWorkspacePolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementWorkspaceId is required")]
     public required TerraformValue<string> ApiManagementWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("api_management_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_management_workspace_id");
         set => SetArgument("api_management_workspace_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The xml_content attribute.
     /// </summary>
-    public TerraformValue<string>? XmlContent
+    public TerraformValue<string> XmlContent
     {
-        get => GetArgument<TerraformValue<string>>("xml_content");
+        get => GetArgument<TerraformValue<string>>("xml_content") ?? AsReference("xml_content");
         set => SetArgument("xml_content", value);
     }
 

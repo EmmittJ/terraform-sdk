@@ -150,7 +150,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
     public required TerraformValue<string> Shape
     {
-        get => GetArgument<TerraformValue<string>>("shape");
+        get => GetRequiredArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -189,9 +189,9 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// The total storage allocated to the Exadata Infrastructure
     /// resource, in gigabytes (GB).
     /// </summary>
-    public TerraformValue<double>? TotalStorageSizeGb
+    public TerraformValue<double> TotalStorageSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("total_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("total_storage_size_gb") ?? AsReference("total_storage_size_gb");
         set => SetArgument("total_storage_size_gb", value);
     }
 
@@ -234,7 +234,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockCustom
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -256,18 +256,18 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// database server patching operation. Custom action timeout is in minutes and
     /// valid value is between 15 to 120 (inclusive).
     /// </summary>
-    public TerraformValue<double>? CustomActionTimeoutMins
+    public TerraformValue<double> CustomActionTimeoutMins
     {
-        get => GetArgument<TerraformValue<double>>("custom_action_timeout_mins");
+        get => GetArgument<TerraformValue<double>>("custom_action_timeout_mins") ?? AsReference("custom_action_timeout_mins");
         set => SetArgument("custom_action_timeout_mins", value);
     }
 
     /// <summary>
     /// Days during the week when maintenance should be performed.
     /// </summary>
-    public TerraformList<string>? DaysOfWeek
+    public TerraformList<string> DaysOfWeek
     {
-        get => GetArgument<TerraformList<string>>("days_of_week");
+        get => GetArgument<TerraformList<string>>("days_of_week") ?? AsReference("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -281,9 +281,9 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     ///   16 - represents time slot 16:00 - 19:59 UTC
     ///   20 - represents time slot 20:00 - 23:59 UTC
     /// </summary>
-    public TerraformList<double>? HoursOfDay
+    public TerraformList<double> HoursOfDay
     {
-        get => GetArgument<TerraformList<double>>("hours_of_day");
+        get => GetArgument<TerraformList<double>>("hours_of_day") ?? AsReference("hours_of_day");
         set => SetArgument("hours_of_day", value);
     }
 
@@ -291,9 +291,9 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// If true, enables the configuration of a custom action timeout (waiting
     /// period) between database server patching operations.
     /// </summary>
-    public TerraformValue<bool>? IsCustomActionTimeoutEnabled
+    public TerraformValue<bool> IsCustomActionTimeoutEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("is_custom_action_timeout_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_custom_action_timeout_enabled") ?? AsReference("is_custom_action_timeout_enabled");
         set => SetArgument("is_custom_action_timeout_enabled", value);
     }
 
@@ -301,18 +301,18 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// Lead time window allows user to set a lead time to prepare for a down time.
     /// The lead time is in weeks and valid value is between 1 to 4.
     /// </summary>
-    public TerraformValue<double>? LeadTimeWeek
+    public TerraformValue<double> LeadTimeWeek
     {
-        get => GetArgument<TerraformValue<double>>("lead_time_week");
+        get => GetArgument<TerraformValue<double>>("lead_time_week") ?? AsReference("lead_time_week");
         set => SetArgument("lead_time_week", value);
     }
 
     /// <summary>
     /// Months during the year when maintenance should be performed.
     /// </summary>
-    public TerraformList<string>? Months
+    public TerraformList<string> Months
     {
-        get => GetArgument<TerraformList<string>>("months");
+        get => GetArgument<TerraformList<string>>("months") ?? AsReference("months");
         set => SetArgument("months", value);
     }
 
@@ -324,9 +324,9 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// ROLLING
     /// NON_ROLLING
     /// </summary>
-    public TerraformValue<string>? PatchingMode
+    public TerraformValue<string> PatchingMode
     {
-        get => GetArgument<TerraformValue<string>>("patching_mode");
+        get => GetArgument<TerraformValue<string>>("patching_mode") ?? AsReference("patching_mode");
         set => SetArgument("patching_mode", value);
     }
 
@@ -337,9 +337,9 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// CUSTOM_PREFERENCE
     /// NO_PREFERENCE
     /// </summary>
-    public TerraformValue<string>? Preference
+    public TerraformValue<string> Preference
     {
-        get => GetArgument<TerraformValue<string>>("preference");
+        get => GetArgument<TerraformValue<string>>("preference") ?? AsReference("preference");
         set => SetArgument("preference", value);
     }
 
@@ -348,9 +348,9 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlockMainte
     /// the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7
     /// days. Weeks start and end based on calendar dates, not days of the week.
     /// </summary>
-    public TerraformList<double>? WeeksOfMonth
+    public TerraformList<double> WeeksOfMonth
     {
-        get => GetArgument<TerraformList<double>>("weeks_of_month");
+        get => GetArgument<TerraformList<double>>("weeks_of_month") ?? AsReference("weeks_of_month");
         set => SetArgument("weeks_of_month", value);
     }
 
@@ -413,7 +413,7 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructure(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformValue<string> CloudExadataInfrastructureId
     {
-        get => GetArgument<TerraformValue<string>>("cloud_exadata_infrastructure_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cloud_exadata_infrastructure_id");
         set => SetArgument("cloud_exadata_infrastructure_id", value);
     }
 
@@ -438,18 +438,18 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructure(string name)
     /// <summary>
     /// GCP location where Oracle Exadata is hosted.
     /// </summary>
-    public TerraformValue<string>? GcpOracleZone
+    public TerraformValue<string> GcpOracleZone
     {
-        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone");
+        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? AsReference("gcp_oracle_zone");
         set => SetArgument("gcp_oracle_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -471,16 +471,16 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructure(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

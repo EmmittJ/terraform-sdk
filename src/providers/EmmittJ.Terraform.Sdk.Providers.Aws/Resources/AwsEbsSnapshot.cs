@@ -52,9 +52,9 @@ public partial class AwsEbsSnapshot(string name) : TerraformResource("aws_ebs_sn
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,18 +79,18 @@ public partial class AwsEbsSnapshot(string name) : TerraformResource("aws_ebs_sn
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
-    public TerraformValue<string>? StorageTier
+    public TerraformValue<string> StorageTier
     {
-        get => GetArgument<TerraformValue<string>>("storage_tier");
+        get => GetArgument<TerraformValue<string>>("storage_tier") ?? AsReference("storage_tier");
         set => SetArgument("storage_tier", value);
     }
 
@@ -106,9 +106,9 @@ public partial class AwsEbsSnapshot(string name) : TerraformResource("aws_ebs_sn
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsEbsSnapshot(string name) : TerraformResource("aws_ebs_sn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformValue<string> VolumeId
     {
-        get => GetArgument<TerraformValue<string>>("volume_id");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_id");
         set => SetArgument("volume_id", value);
     }
 

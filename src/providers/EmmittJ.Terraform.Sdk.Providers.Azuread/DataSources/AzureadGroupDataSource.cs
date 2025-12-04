@@ -34,18 +34,18 @@ public partial class AzureadGroupDataSource(string name) : TerraformDataSource("
     /// <summary>
     /// The display name for the group
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -61,36 +61,36 @@ public partial class AzureadGroupDataSource(string name) : TerraformDataSource("
     /// <summary>
     /// Whether the group is mail-enabled
     /// </summary>
-    public TerraformValue<bool>? MailEnabled
+    public TerraformValue<bool> MailEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("mail_enabled");
+        get => GetArgument<TerraformValue<bool>>("mail_enabled") ?? AsReference("mail_enabled");
         set => SetArgument("mail_enabled", value);
     }
 
     /// <summary>
     /// The mail alias for the group, unique in the organisation
     /// </summary>
-    public TerraformValue<string>? MailNickname
+    public TerraformValue<string> MailNickname
     {
-        get => GetArgument<TerraformValue<string>>("mail_nickname");
+        get => GetArgument<TerraformValue<string>>("mail_nickname") ?? AsReference("mail_nickname");
         set => SetArgument("mail_nickname", value);
     }
 
     /// <summary>
     /// The object ID of the group
     /// </summary>
-    public TerraformValue<string>? ObjectId
+    public TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetArgument<TerraformValue<string>>("object_id") ?? AsReference("object_id");
         set => SetArgument("object_id", value);
     }
 
     /// <summary>
     /// Whether the group is a security group
     /// </summary>
-    public TerraformValue<bool>? SecurityEnabled
+    public TerraformValue<bool> SecurityEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("security_enabled");
+        get => GetArgument<TerraformValue<bool>>("security_enabled") ?? AsReference("security_enabled");
         set => SetArgument("security_enabled", value);
     }
 

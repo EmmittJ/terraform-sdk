@@ -50,7 +50,7 @@ public class AwsAppfabricAppAuthorizationCredentialBlockApiKeyCredentialBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformValue<string> ApiKey
     {
-        get => GetArgument<TerraformValue<string>>("api_key");
+        get => GetRequiredArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsAppfabricAppAuthorizationCredentialBlockOauth2CredentialBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsAppfabricAppAuthorizationCredentialBlockOauth2CredentialBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsAppfabricAppAuthorizationTenantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantDisplayName is required")]
     public required TerraformValue<string> TenantDisplayName
     {
-        get => GetArgument<TerraformValue<string>>("tenant_display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_display_name");
         set => SetArgument("tenant_display_name", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsAppfabricAppAuthorizationTenantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantIdentifier is required")]
     public required TerraformValue<string> TenantIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("tenant_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_identifier");
         set => SetArgument("tenant_identifier", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AwsAppfabricAppAuthorization(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
     public required TerraformValue<string> App
     {
-        get => GetArgument<TerraformValue<string>>("app");
+        get => GetRequiredArgument<TerraformValue<string>>("app");
         set => SetArgument("app", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsAppfabricAppAuthorization(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformValue<string> AppBundleArn
     {
-        get => GetArgument<TerraformValue<string>>("app_bundle_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("app_bundle_arn");
         set => SetArgument("app_bundle_arn", value);
     }
 
@@ -197,16 +197,16 @@ public partial class AwsAppfabricAppAuthorization(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => GetArgument<TerraformValue<string>>("auth_type");
+        get => GetRequiredArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

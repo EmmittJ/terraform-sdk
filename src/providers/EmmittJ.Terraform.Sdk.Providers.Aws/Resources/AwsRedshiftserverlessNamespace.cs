@@ -11,9 +11,9 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// <summary>
     /// The admin_password_secret_kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? AdminPasswordSecretKmsKeyId
+    public TerraformValue<string> AdminPasswordSecretKmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("admin_password_secret_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("admin_password_secret_kms_key_id") ?? AsReference("admin_password_secret_kms_key_id");
         set => SetArgument("admin_password_secret_kms_key_id", value);
     }
 
@@ -47,18 +47,18 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// <summary>
     /// The admin_username attribute.
     /// </summary>
-    public TerraformValue<string>? AdminUsername
+    public TerraformValue<string> AdminUsername
     {
-        get => GetArgument<TerraformValue<string>>("admin_username");
+        get => GetArgument<TerraformValue<string>>("admin_username") ?? AsReference("admin_username");
         set => SetArgument("admin_username", value);
     }
 
     /// <summary>
     /// The db_name attribute.
     /// </summary>
-    public TerraformValue<string>? DbName
+    public TerraformValue<string> DbName
     {
-        get => GetArgument<TerraformValue<string>>("db_name");
+        get => GetArgument<TerraformValue<string>>("db_name") ?? AsReference("db_name");
         set => SetArgument("db_name", value);
     }
 
@@ -74,27 +74,27 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// <summary>
     /// The iam_roles attribute.
     /// </summary>
-    public TerraformSet<string>? IamRoles
+    public TerraformSet<string> IamRoles
     {
-        get => GetArgument<TerraformSet<string>>("iam_roles");
+        get => GetArgument<TerraformSet<string>>("iam_roles") ?? AsReference("iam_roles");
         set => SetArgument("iam_roles", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -122,16 +122,16 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformValue<string> NamespaceName
     {
-        get => GetArgument<TerraformValue<string>>("namespace_name");
+        get => GetRequiredArgument<TerraformValue<string>>("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -147,9 +147,9 @@ public partial class AwsRedshiftserverlessNamespace(string name) : TerraformReso
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -11,9 +11,9 @@ public partial class AwsQuicksightIngestion(string name) : TerraformResource("aw
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsQuicksightIngestion(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformValue<string> DataSetId
     {
-        get => GetArgument<TerraformValue<string>>("data_set_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_set_id");
         set => SetArgument("data_set_id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsQuicksightIngestion(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionId is required")]
     public required TerraformValue<string> IngestionId
     {
-        get => GetArgument<TerraformValue<string>>("ingestion_id");
+        get => GetRequiredArgument<TerraformValue<string>>("ingestion_id");
         set => SetArgument("ingestion_id", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsQuicksightIngestion(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionType is required")]
     public required TerraformValue<string> IngestionType
     {
-        get => GetArgument<TerraformValue<string>>("ingestion_type");
+        get => GetRequiredArgument<TerraformValue<string>>("ingestion_type");
         set => SetArgument("ingestion_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

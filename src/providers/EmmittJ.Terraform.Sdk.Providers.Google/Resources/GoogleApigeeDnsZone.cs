@@ -19,7 +19,7 @@ public class GoogleApigeeDnsZonePeeringConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
     public required TerraformValue<string> TargetNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("target_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_network_id");
         set => SetArgument("target_network_id", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleApigeeDnsZonePeeringConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetProjectId is required")]
     public required TerraformValue<string> TargetProjectId
     {
-        get => GetArgument<TerraformValue<string>>("target_project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_project_id");
         set => SetArgument("target_project_id", value);
     }
 
@@ -80,7 +80,7 @@ public partial class GoogleApigeeDnsZone(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -90,7 +90,7 @@ public partial class GoogleApigeeDnsZone(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsZoneId is required")]
     public required TerraformValue<string> DnsZoneId
     {
-        get => GetArgument<TerraformValue<string>>("dns_zone_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dns_zone_id");
         set => SetArgument("dns_zone_id", value);
     }
 
@@ -100,16 +100,16 @@ public partial class GoogleApigeeDnsZone(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetRequiredArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleApigeeDnsZone(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 

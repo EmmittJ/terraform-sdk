@@ -25,9 +25,9 @@ public class AwsEcrRepositoryCreationTemplateEncryptionConfigurationBlock : Terr
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKey
+    public TerraformValue<string> KmsKey
     {
-        get => GetArgument<TerraformValue<string>>("kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key") ?? AsReference("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformValue<string> FilterType
     {
-        get => GetArgument<TerraformValue<string>>("filter_type");
+        get => GetRequiredArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppliedFor is required")]
     public required TerraformSet<string> AppliedFor
     {
-        get => GetArgument<TerraformSet<string>>("applied_for");
+        get => GetRequiredArgument<TerraformSet<string>>("applied_for");
         set => SetArgument("applied_for", value);
     }
 
@@ -105,9 +105,9 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -135,16 +135,16 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

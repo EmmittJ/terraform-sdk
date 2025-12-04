@@ -157,7 +157,7 @@ public class GoogleEventarcPipelineDestinationsBlockAuthenticationConfigBlockGoo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetRequiredArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleEventarcPipelineDestinationsBlockAuthenticationConfigBlockOau
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetRequiredArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -399,7 +399,7 @@ public class GoogleEventarcPipelineDestinationsBlockHttpEndpointBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -650,9 +650,9 @@ public class GoogleEventarcPipelineLoggingConfigBlock : TerraformBlock
     /// The minimum severity of logs that will be sent to Stackdriver/Platform
     /// Telemetry. Logs at severitiy ≥ this value will be sent, unless it is NONE. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;DEBUG&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;NOTICE&amp;quot;, &amp;quot;WARNING&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;CRITICAL&amp;quot;, &amp;quot;ALERT&amp;quot;, &amp;quot;EMERGENCY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? LogSeverity
+    public TerraformValue<string> LogSeverity
     {
-        get => GetArgument<TerraformValue<string>>("log_severity");
+        get => GetArgument<TerraformValue<string>>("log_severity") ?? AsReference("log_severity");
         set => SetArgument("log_severity", value);
     }
 
@@ -910,9 +910,9 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -936,7 +936,7 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -947,16 +947,16 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     public required TerraformValue<string> PipelineId
     {
-        get => GetArgument<TerraformValue<string>>("pipeline_id");
+        get => GetRequiredArgument<TerraformValue<string>>("pipeline_id");
         set => SetArgument("pipeline_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

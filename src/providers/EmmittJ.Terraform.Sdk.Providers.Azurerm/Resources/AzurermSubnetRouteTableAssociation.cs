@@ -52,9 +52,9 @@ public partial class AzurermSubnetRouteTableAssociation(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSubnetRouteTableAssociation(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
     public required TerraformValue<string> RouteTableId
     {
-        get => GetArgument<TerraformValue<string>>("route_table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("route_table_id");
         set => SetArgument("route_table_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSubnetRouteTableAssociation(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 

@@ -73,7 +73,7 @@ public partial class AzurermDigitalTwinsEndpointEventhub(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformValue<string> DigitalTwinsId
     {
-        get => GetArgument<TerraformValue<string>>("digital_twins_id");
+        get => GetRequiredArgument<TerraformValue<string>>("digital_twins_id");
         set => SetArgument("digital_twins_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermDigitalTwinsEndpointEventhub(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubPrimaryConnectionString is required")]
     public required TerraformValue<string> EventhubPrimaryConnectionString
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_primary_connection_string");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_primary_connection_string");
         set => SetArgument("eventhub_primary_connection_string", value);
     }
 
@@ -93,16 +93,16 @@ public partial class AzurermDigitalTwinsEndpointEventhub(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubSecondaryConnectionString is required")]
     public required TerraformValue<string> EventhubSecondaryConnectionString
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_secondary_connection_string");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_secondary_connection_string");
         set => SetArgument("eventhub_secondary_connection_string", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermDigitalTwinsEndpointEventhub(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

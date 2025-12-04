@@ -64,25 +64,25 @@ public partial class AzurermApiManagementPolicy(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformValue<string> ApiManagementId
     {
-        get => GetArgument<TerraformValue<string>>("api_management_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_management_id");
         set => SetArgument("api_management_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The xml_content attribute.
     /// </summary>
-    public TerraformValue<string>? XmlContent
+    public TerraformValue<string> XmlContent
     {
-        get => GetArgument<TerraformValue<string>>("xml_content");
+        get => GetArgument<TerraformValue<string>>("xml_content") ?? AsReference("xml_content");
         set => SetArgument("xml_content", value);
     }
 

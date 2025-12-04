@@ -19,7 +19,7 @@ public class AwsDatasyncLocationAzureBlobSasConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformValue<string> Token
     {
-        get => GetArgument<TerraformValue<string>>("token");
+        get => GetRequiredArgument<TerraformValue<string>>("token");
         set => SetArgument("token", value);
     }
 
@@ -47,7 +47,7 @@ public partial class AwsDatasyncLocationAzureBlob(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
     public required TerraformSet<string> AgentArns
     {
-        get => GetArgument<TerraformSet<string>>("agent_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("agent_arns");
         set => SetArgument("agent_arns", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AwsDatasyncLocationAzureBlob(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformValue<string> AuthenticationType
     {
-        get => GetArgument<TerraformValue<string>>("authentication_type");
+        get => GetRequiredArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -76,34 +76,34 @@ public partial class AwsDatasyncLocationAzureBlob(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerUrl is required")]
     public required TerraformValue<string> ContainerUrl
     {
-        get => GetArgument<TerraformValue<string>>("container_url");
+        get => GetRequiredArgument<TerraformValue<string>>("container_url");
         set => SetArgument("container_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformValue<string>? Subdirectory
+    public TerraformValue<string> Subdirectory
     {
-        get => GetArgument<TerraformValue<string>>("subdirectory");
+        get => GetArgument<TerraformValue<string>>("subdirectory") ?? AsReference("subdirectory");
         set => SetArgument("subdirectory", value);
     }
 
@@ -119,9 +119,9 @@ public partial class AwsDatasyncLocationAzureBlob(string name) : TerraformResour
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

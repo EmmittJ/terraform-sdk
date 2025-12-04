@@ -11,9 +11,9 @@ public partial class GoogleMonitoringMeshIstioServiceDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleMonitoringMeshIstioServiceDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshUid is required")]
     public required TerraformValue<string> MeshUid
     {
-        get => GetArgument<TerraformValue<string>>("mesh_uid");
+        get => GetRequiredArgument<TerraformValue<string>>("mesh_uid");
         set => SetArgument("mesh_uid", value);
     }
 
@@ -44,7 +44,7 @@ public partial class GoogleMonitoringMeshIstioServiceDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleMonitoringMeshIstioServiceDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     public required TerraformValue<string> ServiceNamespace
     {
-        get => GetArgument<TerraformValue<string>>("service_namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("service_namespace");
         set => SetArgument("service_namespace", value);
     }
 

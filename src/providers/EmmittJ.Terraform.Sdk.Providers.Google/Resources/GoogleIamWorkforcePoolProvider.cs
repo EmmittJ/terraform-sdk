@@ -27,7 +27,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
     public required TerraformValue<string> AttributesType
     {
-        get => GetArgument<TerraformValue<string>>("attributes_type");
+        get => GetRequiredArgument<TerraformValue<string>>("attributes_type");
         set => SetArgument("attributes_type", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -47,7 +47,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformValue<string> IssuerUri
     {
-        get => GetArgument<TerraformValue<string>>("issuer_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer_uri");
         set => SetArgument("issuer_uri", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlockCl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlainText is required")]
     public required TerraformValue<string> PlainText
     {
-        get => GetArgument<TerraformValue<string>>("plain_text");
+        get => GetRequiredArgument<TerraformValue<string>>("plain_text");
         set => SetArgument("plain_text", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
     public required TerraformValue<string> AttributesType
     {
-        get => GetArgument<TerraformValue<string>>("attributes_type");
+        get => GetRequiredArgument<TerraformValue<string>>("attributes_type");
         set => SetArgument("attributes_type", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformValue<string> IssuerUri
     {
-        get => GetArgument<TerraformValue<string>>("issuer_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer_uri");
         set => SetArgument("issuer_uri", value);
     }
 
@@ -271,7 +271,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlockClien
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlainText is required")]
     public required TerraformValue<string> PlainText
     {
-        get => GetArgument<TerraformValue<string>>("plain_text");
+        get => GetRequiredArgument<TerraformValue<string>>("plain_text");
         set => SetArgument("plain_text", value);
     }
 
@@ -325,7 +325,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -335,7 +335,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformValue<string> IssuerUri
     {
-        get => GetArgument<TerraformValue<string>>("issuer_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer_uri");
         set => SetArgument("issuer_uri", value);
     }
 
@@ -432,7 +432,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlockClientSecretBlockValueBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlainText is required")]
     public required TerraformValue<string> PlainText
     {
-        get => GetArgument<TerraformValue<string>>("plain_text");
+        get => GetRequiredArgument<TerraformValue<string>>("plain_text");
         set => SetArgument("plain_text", value);
     }
 
@@ -473,7 +473,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlockWebSsoConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssertionClaimsBehavior is required")]
     public required TerraformValue<string> AssertionClaimsBehavior
     {
-        get => GetArgument<TerraformValue<string>>("assertion_claims_behavior");
+        get => GetRequiredArgument<TerraformValue<string>>("assertion_claims_behavior");
         set => SetArgument("assertion_claims_behavior", value);
     }
 
@@ -487,7 +487,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlockWebSsoConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseType is required")]
     public required TerraformValue<string> ResponseType
     {
-        get => GetArgument<TerraformValue<string>>("response_type");
+        get => GetRequiredArgument<TerraformValue<string>>("response_type");
         set => SetArgument("response_type", value);
     }
 
@@ -525,7 +525,7 @@ public class GoogleIamWorkforcePoolProviderSamlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpMetadataXml is required")]
     public required TerraformValue<string> IdpMetadataXml
     {
-        get => GetArgument<TerraformValue<string>>("idp_metadata_xml");
+        get => GetRequiredArgument<TerraformValue<string>>("idp_metadata_xml");
         set => SetArgument("idp_metadata_xml", value);
     }
 
@@ -696,9 +696,9 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -708,7 +708,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -720,7 +720,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformValue<string> ProviderId
     {
-        get => GetArgument<TerraformValue<string>>("provider_id");
+        get => GetRequiredArgument<TerraformValue<string>>("provider_id");
         set => SetArgument("provider_id", value);
     }
 
@@ -751,7 +751,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformValue<string> WorkforcePoolId
     {
-        get => GetArgument<TerraformValue<string>>("workforce_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workforce_pool_id");
         set => SetArgument("workforce_pool_id", value);
     }
 

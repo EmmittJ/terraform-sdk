@@ -63,18 +63,18 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     /// Example: us-east4-b-r2.
     /// If not specified, the system will pick a zone based on availability.
     /// </summary>
-    public TerraformValue<string>? GcpOracleZone
+    public TerraformValue<string> GcpOracleZone
     {
-        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone");
+        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone") ?? AsReference("gcp_oracle_zone");
         set => SetArgument("gcp_oracle_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -107,7 +107,7 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -120,16 +120,16 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformValue<string> OdbNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("odb_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("odb_network_id");
         set => SetArgument("odb_network_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

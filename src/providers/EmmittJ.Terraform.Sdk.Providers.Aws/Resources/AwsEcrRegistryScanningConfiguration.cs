@@ -19,7 +19,7 @@ public class AwsEcrRegistryScanningConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanFrequency is required")]
     public required TerraformValue<string> ScanFrequency
     {
-        get => GetArgument<TerraformValue<string>>("scan_frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("scan_frequency");
         set => SetArgument("scan_frequency", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsEcrRegistryScanningConfigurationRuleBlockRepositoryFilterBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsEcrRegistryScanningConfigurationRuleBlockRepositoryFilterBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformValue<string> FilterType
     {
-        get => GetArgument<TerraformValue<string>>("filter_type");
+        get => GetRequiredArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -80,18 +80,18 @@ public partial class AwsEcrRegistryScanningConfiguration(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsEcrRegistryScanningConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanType is required")]
     public required TerraformValue<string> ScanType
     {
-        get => GetArgument<TerraformValue<string>>("scan_type");
+        get => GetRequiredArgument<TerraformValue<string>>("scan_type");
         set => SetArgument("scan_type", value);
     }
 

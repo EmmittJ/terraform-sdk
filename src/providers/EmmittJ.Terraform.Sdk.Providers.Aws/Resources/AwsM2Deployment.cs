@@ -55,7 +55,7 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationVersion is required")]
     public required TerraformValue<double> ApplicationVersion
     {
-        get => GetArgument<TerraformValue<double>>("application_version");
+        get => GetRequiredArgument<TerraformValue<double>>("application_version");
         set => SetArgument("application_version", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformValue<string> EnvironmentId
     {
-        get => GetArgument<TerraformValue<string>>("environment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("environment_id");
         set => SetArgument("environment_id", value);
     }
 
@@ -91,9 +91,9 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<bool> Start
     {
-        get => GetArgument<TerraformValue<bool>>("start");
+        get => GetRequiredArgument<TerraformValue<bool>>("start");
         set => SetArgument("start", value);
     }
 

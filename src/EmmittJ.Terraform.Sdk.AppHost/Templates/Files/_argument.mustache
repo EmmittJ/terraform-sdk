@@ -11,7 +11,7 @@
 {{#UseRequiredKeyword}}
     public required {{{PropertyWrapper}}} {{Name}}
     {
-        get => GetArgument<{{{PropertyWrapper}}}>("{{TerraformName}}");
+        get => GetRequiredArgument<{{{PropertyWrapper}}}>("{{TerraformName}}");
         set => SetArgument("{{TerraformName}}", value);
     }
 
@@ -29,7 +29,7 @@
 {{#UseRequiredKeyword}}
     public required {{{PropertyWrapper}}} {{Name}}
     {
-        get => GetArgument<{{{PropertyWrapper}}}>("{{TerraformName}}");
+        get => GetRequiredArgument<{{{PropertyWrapper}}}>("{{TerraformName}}");
         set => SetArgument("{{TerraformName}}", value);
     }
 
@@ -44,9 +44,9 @@
 {{/UseNullable}}
 {{/IsOptionalArgument}}
 {{#IsOptionalAndComputed}}
-    public {{{PropertyWrapper}}}? {{Name}}
+    public {{{PropertyWrapper}}} {{Name}}
     {
-        get => GetArgument<{{{PropertyWrapper}}}>("{{TerraformName}}");
+        get => GetArgument<{{{PropertyWrapper}}}>("{{TerraformName}}") ?? AsReference("{{TerraformName}}");
         set => SetArgument("{{TerraformName}}", value);
     }
 

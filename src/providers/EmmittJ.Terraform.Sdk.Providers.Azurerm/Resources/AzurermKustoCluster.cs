@@ -40,7 +40,7 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image");
+        get => GetRequiredArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -74,7 +74,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image");
+        get => GetRequiredArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -109,7 +109,7 @@ public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumInstances is required")]
     public required TerraformValue<double> MaximumInstances
     {
-        get => GetArgument<TerraformValue<double>>("maximum_instances");
+        get => GetRequiredArgument<TerraformValue<double>>("maximum_instances");
         set => SetArgument("maximum_instances", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumInstances is required")]
     public required TerraformValue<double> MinimumInstances
     {
-        get => GetArgument<TerraformValue<double>>("minimum_instances");
+        get => GetRequiredArgument<TerraformValue<double>>("minimum_instances");
         set => SetArgument("minimum_instances", value);
     }
 
@@ -164,9 +164,9 @@ public class AzurermKustoClusterSkuBlock : TerraformBlock
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformValue<double>? Capacity
+    public TerraformValue<double> Capacity
     {
-        get => GetArgument<TerraformValue<double>>("capacity");
+        get => GetArgument<TerraformValue<double>>("capacity") ?? AsReference("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -176,7 +176,7 @@ public class AzurermKustoClusterSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -251,7 +251,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataManagementPublicIpId is required")]
     public required TerraformValue<string> DataManagementPublicIpId
     {
-        get => GetArgument<TerraformValue<string>>("data_management_public_ip_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_management_public_ip_id");
         set => SetArgument("data_management_public_ip_id", value);
     }
 
@@ -261,7 +261,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnginePublicIpId is required")]
     public required TerraformValue<string> EnginePublicIpId
     {
-        get => GetArgument<TerraformValue<string>>("engine_public_ip_id");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_public_ip_id");
         set => SetArgument("engine_public_ip_id", value);
     }
 
@@ -271,7 +271,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -332,9 +332,9 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -344,7 +344,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -354,7 +354,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -400,7 +400,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -425,9 +425,9 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// <summary>
     /// The trusted_external_tenants attribute.
     /// </summary>
-    public TerraformList<string>? TrustedExternalTenants
+    public TerraformList<string> TrustedExternalTenants
     {
-        get => GetArgument<TerraformList<string>>("trusted_external_tenants");
+        get => GetArgument<TerraformList<string>>("trusted_external_tenants") ?? AsReference("trusted_external_tenants");
         set => SetArgument("trusted_external_tenants", value);
     }
 

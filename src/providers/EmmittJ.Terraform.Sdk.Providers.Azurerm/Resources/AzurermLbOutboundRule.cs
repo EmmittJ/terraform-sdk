@@ -25,7 +25,7 @@ public class AzurermLbOutboundRuleFrontendIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermLbOutboundRule(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     public required TerraformValue<string> BackendAddressPoolId
     {
-        get => GetArgument<TerraformValue<string>>("backend_address_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("backend_address_pool_id");
         set => SetArgument("backend_address_pool_id", value);
     }
 
@@ -111,18 +111,18 @@ public partial class AzurermLbOutboundRule(string name) : TerraformResource("azu
     /// The enable_tcp_reset attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EnableTcpReset
+    public TerraformValue<bool> EnableTcpReset
     {
-        get => GetArgument<TerraformValue<bool>>("enable_tcp_reset");
+        get => GetArgument<TerraformValue<bool>>("enable_tcp_reset") ?? AsReference("enable_tcp_reset");
         set => SetArgument("enable_tcp_reset", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermLbOutboundRule(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformValue<string> LoadbalancerId
     {
-        get => GetArgument<TerraformValue<string>>("loadbalancer_id");
+        get => GetRequiredArgument<TerraformValue<string>>("loadbalancer_id");
         set => SetArgument("loadbalancer_id", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermLbOutboundRule(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -161,16 +161,16 @@ public partial class AzurermLbOutboundRule(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? TcpResetEnabled
+    public TerraformValue<bool> TcpResetEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("tcp_reset_enabled");
+        get => GetArgument<TerraformValue<bool>>("tcp_reset_enabled") ?? AsReference("tcp_reset_enabled");
         set => SetArgument("tcp_reset_enabled", value);
     }
 

@@ -292,9 +292,9 @@ public class GoogleCloudRunV2ServiceTemplateBlock : TerraformBlock
     /// Sets the maximum number of requests that each serving instance can receive.
     /// If not specified or 0, defaults to 80 when requested CPU &amp;gt;= 1 and defaults to 1 when requested CPU &amp;lt; 1.
     /// </summary>
-    public TerraformValue<double>? MaxInstanceRequestConcurrency
+    public TerraformValue<double> MaxInstanceRequestConcurrency
     {
-        get => GetArgument<TerraformValue<double>>("max_instance_request_concurrency");
+        get => GetArgument<TerraformValue<double>>("max_instance_request_concurrency") ?? AsReference("max_instance_request_concurrency");
         set => SetArgument("max_instance_request_concurrency", value);
     }
 
@@ -310,9 +310,9 @@ public class GoogleCloudRunV2ServiceTemplateBlock : TerraformBlock
     /// <summary>
     /// Email address of the IAM service account associated with the revision of the service. The service account represents the identity of the running revision, and determines what permissions the revision has. If not provided, the revision will use the project&#39;s default service account.
     /// </summary>
-    public TerraformValue<string>? ServiceAccount
+    public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -330,9 +330,9 @@ public class GoogleCloudRunV2ServiceTemplateBlock : TerraformBlock
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? Timeout
+    public TerraformValue<string> Timeout
     {
-        get => GetArgument<TerraformValue<string>>("timeout");
+        get => GetArgument<TerraformValue<string>>("timeout") ?? AsReference("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -445,7 +445,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image");
+        get => GetRequiredArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -544,7 +544,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockEnvBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -609,7 +609,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockEnvBlockValueSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => GetArgument<TerraformValue<string>>("secret");
+        get => GetRequiredArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -718,9 +718,9 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockLivenessProbeBlo
     /// Port number to access on the container. Number must be in the range 1 to 65535.
     /// If not specified, defaults to the same value as container.ports[0].containerPort.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -761,9 +761,9 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockLivenessProbeBlo
     /// Port number to access on the container. Number must be in the range 1 to 65535.
     /// If not specified, defaults to the same value as container.ports[0].containerPort.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -795,7 +795,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockLivenessProbeBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -829,7 +829,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockLivenessProbeBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -858,9 +858,9 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockPortsBlock : Ter
     /// <summary>
     /// If specified, used to specify which protocol to use. Allowed values are &amp;quot;http1&amp;quot; and &amp;quot;h2c&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -890,9 +890,9 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockResourcesBlock :
     /// <summary>
     /// Only memory, CPU, and nvidia.com/gpu are supported. Use key &#39;cpu&#39; for CPU limit, &#39;memory&#39; for memory limit, &#39;nvidia.com/gpu&#39; for gpu limit. Note: The only supported values for CPU are &#39;1&#39;, &#39;2&#39;, &#39;4&#39;, &#39;6&#39; and &#39;8&#39;. Setting 4 CPU requires at least 2Gi of memory, setting 6 or more CPU requires at least 4Gi of memory. The values of the map is string form of the &#39;quantity&#39; k8s type: https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
     /// </summary>
-    public TerraformMap<string>? Limits
+    public TerraformMap<string> Limits
     {
-        get => GetArgument<TerraformMap<string>>("limits");
+        get => GetArgument<TerraformMap<string>>("limits") ?? AsReference("limits");
         set => SetArgument("limits", value);
     }
 
@@ -1001,9 +1001,9 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockStartupProbeBloc
     /// Port number to access on the container. Number must be in the range 1 to 65535.
     /// If not specified, defaults to the same value as container.ports[0].containerPort.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1044,9 +1044,9 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockStartupProbeBloc
     /// Port number to access on the container. Must be in the range 1 to 65535.
     /// If not specified, defaults to the same value as container.ports[0].containerPort.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1078,7 +1078,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockStartupProbeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1108,9 +1108,9 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockStartupProbeBloc
     /// Port number to access on the container. Must be in the range 1 to 65535.
     /// If not specified, defaults to the same value as container.ports[0].containerPort.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1133,7 +1133,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockVolumeMountsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => GetArgument<TerraformValue<string>>("mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -1143,7 +1143,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockContainersBlockVolumeMountsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1175,7 +1175,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockNodeSelectorBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Accelerator is required")]
     public required TerraformValue<string> Accelerator
     {
-        get => GetArgument<TerraformValue<string>>("accelerator");
+        get => GetRequiredArgument<TerraformValue<string>>("accelerator");
         set => SetArgument("accelerator", value);
     }
 
@@ -1230,7 +1230,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockVolumesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1356,7 +1356,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockVolumesBlockGcsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1398,7 +1398,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockVolumesBlockNfsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1417,7 +1417,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockVolumesBlockNfsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => GetArgument<TerraformValue<string>>("server");
+        get => GetRequiredArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -1449,7 +1449,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockVolumesBlockSecretBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => GetArgument<TerraformValue<string>>("secret");
+        get => GetRequiredArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -1490,7 +1490,7 @@ public class GoogleCloudRunV2ServiceTemplateBlockVolumesBlockSecretBlockItemsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1528,9 +1528,9 @@ public class GoogleCloudRunV2ServiceTemplateBlockVpcAccessBlock : TerraformBlock
     /// <summary>
     /// Traffic VPC egress settings. Possible values: [&amp;quot;ALL_TRAFFIC&amp;quot;, &amp;quot;PRIVATE_RANGES_ONLY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Egress
+    public TerraformValue<string> Egress
     {
-        get => GetArgument<TerraformValue<string>>("egress");
+        get => GetArgument<TerraformValue<string>>("egress") ?? AsReference("egress");
         set => SetArgument("egress", value);
     }
 
@@ -1561,9 +1561,9 @@ public class GoogleCloudRunV2ServiceTemplateBlockVpcAccessBlockNetworkInterfaces
     /// network and subnetwork are specified, the given VPC subnetwork must belong to the given VPC network. If network is not specified, it will be
     /// looked up from the subnetwork.
     /// </summary>
-    public TerraformValue<string>? Network
+    public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
         set => SetArgument("network", value);
     }
 
@@ -1572,9 +1572,9 @@ public class GoogleCloudRunV2ServiceTemplateBlockVpcAccessBlockNetworkInterfaces
     /// network and subnetwork are specified, the given VPC subnetwork must belong to the given VPC network. If subnetwork is not specified, the
     /// subnetwork with the same name with the network will be used.
     /// </summary>
-    public TerraformValue<string>? Subnetwork
+    public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -1645,9 +1645,9 @@ public class GoogleCloudRunV2ServiceTrafficBlock : TerraformBlock
     /// <summary>
     /// Specifies percent of the traffic to this Revision. This defaults to zero if unspecified.
     /// </summary>
-    public TerraformValue<double>? Percent
+    public TerraformValue<double> Percent
     {
-        get => GetArgument<TerraformValue<double>>("percent");
+        get => GetArgument<TerraformValue<double>>("percent") ?? AsReference("percent");
         set => SetArgument("percent", value);
     }
 
@@ -1767,18 +1767,18 @@ public partial class GoogleCloudRunV2Service(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Provides the ingress settings for this Service. On output, returns the currently observed ingress settings, or INGRESS_TRAFFIC_UNSPECIFIED if no revision is active. Possible values: [&amp;quot;INGRESS_TRAFFIC_ALL&amp;quot;, &amp;quot;INGRESS_TRAFFIC_INTERNAL_ONLY&amp;quot;, &amp;quot;INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Ingress
+    public TerraformValue<string> Ingress
     {
-        get => GetArgument<TerraformValue<string>>("ingress");
+        get => GetArgument<TerraformValue<string>>("ingress") ?? AsReference("ingress");
         set => SetArgument("ingress", value);
     }
 
@@ -1813,9 +1813,9 @@ public partial class GoogleCloudRunV2Service(string name) : TerraformResource("g
     /// 
     /// For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values: [&amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? LaunchStage
+    public TerraformValue<string> LaunchStage
     {
-        get => GetArgument<TerraformValue<string>>("launch_stage");
+        get => GetArgument<TerraformValue<string>>("launch_stage") ?? AsReference("launch_stage");
         set => SetArgument("launch_stage", value);
     }
 
@@ -1825,7 +1825,7 @@ public partial class GoogleCloudRunV2Service(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1835,16 +1835,16 @@ public partial class GoogleCloudRunV2Service(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

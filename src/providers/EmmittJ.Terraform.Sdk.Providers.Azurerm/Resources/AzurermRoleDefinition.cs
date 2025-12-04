@@ -111,9 +111,9 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     /// <summary>
     /// The assignable_scopes attribute.
     /// </summary>
-    public TerraformList<string>? AssignableScopes
+    public TerraformList<string> AssignableScopes
     {
-        get => GetArgument<TerraformList<string>>("assignable_scopes");
+        get => GetArgument<TerraformList<string>>("assignable_scopes") ?? AsReference("assignable_scopes");
         set => SetArgument("assignable_scopes", value);
     }
 
@@ -129,9 +129,9 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -141,16 +141,16 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public TerraformValue<string>? RoleDefinitionId
+    public TerraformValue<string> RoleDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id") ?? AsReference("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 

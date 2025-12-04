@@ -64,7 +64,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
     public required TerraformValue<double> BackendPort
     {
-        get => GetArgument<TerraformValue<double>>("backend_port");
+        get => GetRequiredArgument<TerraformValue<double>>("backend_port");
         set => SetArgument("backend_port", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendIpConfigurationName is required")]
     public required TerraformValue<string> FrontendIpConfigurationName
     {
-        get => GetArgument<TerraformValue<string>>("frontend_ip_configuration_name");
+        get => GetRequiredArgument<TerraformValue<string>>("frontend_ip_configuration_name");
         set => SetArgument("frontend_ip_configuration_name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortEnd is required")]
     public required TerraformValue<double> FrontendPortEnd
     {
-        get => GetArgument<TerraformValue<double>>("frontend_port_end");
+        get => GetRequiredArgument<TerraformValue<double>>("frontend_port_end");
         set => SetArgument("frontend_port_end", value);
     }
 
@@ -103,16 +103,16 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortStart is required")]
     public required TerraformValue<double> FrontendPortStart
     {
-        get => GetArgument<TerraformValue<double>>("frontend_port_start");
+        get => GetRequiredArgument<TerraformValue<double>>("frontend_port_start");
         set => SetArgument("frontend_port_start", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformValue<string> LoadbalancerId
     {
-        get => GetArgument<TerraformValue<string>>("loadbalancer_id");
+        get => GetRequiredArgument<TerraformValue<string>>("loadbalancer_id");
         set => SetArgument("loadbalancer_id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

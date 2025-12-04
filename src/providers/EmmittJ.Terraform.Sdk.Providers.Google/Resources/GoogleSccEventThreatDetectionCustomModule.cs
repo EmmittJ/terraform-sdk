@@ -56,7 +56,7 @@ public partial class GoogleSccEventThreatDetectionCustomModule(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     public required TerraformValue<string> Config
     {
-        get => GetArgument<TerraformValue<string>>("config");
+        get => GetRequiredArgument<TerraformValue<string>>("config");
         set => SetArgument("config", value);
     }
 
@@ -75,16 +75,16 @@ public partial class GoogleSccEventThreatDetectionCustomModule(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablementState is required")]
     public required TerraformValue<string> EnablementState
     {
-        get => GetArgument<TerraformValue<string>>("enablement_state");
+        get => GetRequiredArgument<TerraformValue<string>>("enablement_state");
         set => SetArgument("enablement_state", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleSccEventThreatDetectionCustomModule(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => GetArgument<TerraformValue<string>>("organization");
+        get => GetRequiredArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -104,7 +104,7 @@ public partial class GoogleSccEventThreatDetectionCustomModule(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

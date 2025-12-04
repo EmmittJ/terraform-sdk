@@ -64,7 +64,7 @@ public partial class AzurermCostAnomalyAlert(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermCostAnomalyAlert(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddresses is required")]
     public required TerraformSet<string> EmailAddresses
     {
-        get => GetArgument<TerraformSet<string>>("email_addresses");
+        get => GetRequiredArgument<TerraformSet<string>>("email_addresses");
         set => SetArgument("email_addresses", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermCostAnomalyAlert(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailSubject is required")]
     public required TerraformValue<string> EmailSubject
     {
-        get => GetArgument<TerraformValue<string>>("email_subject");
+        get => GetRequiredArgument<TerraformValue<string>>("email_subject");
         set => SetArgument("email_subject", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,25 +112,25 @@ public partial class AzurermCostAnomalyAlert(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The notification_email attribute.
     /// </summary>
-    public TerraformValue<string>? NotificationEmail
+    public TerraformValue<string> NotificationEmail
     {
-        get => GetArgument<TerraformValue<string>>("notification_email");
+        get => GetArgument<TerraformValue<string>>("notification_email") ?? AsReference("notification_email");
         set => SetArgument("notification_email", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformValue<string>? SubscriptionId
+    public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 

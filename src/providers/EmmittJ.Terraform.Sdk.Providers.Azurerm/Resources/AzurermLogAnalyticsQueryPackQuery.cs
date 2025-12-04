@@ -73,7 +73,7 @@ public partial class AzurermLogAnalyticsQueryPackQuery(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformValue<string> Body
     {
-        get => GetArgument<TerraformValue<string>>("body");
+        get => GetRequiredArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
@@ -101,25 +101,25 @@ public partial class AzurermLogAnalyticsQueryPackQuery(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermLogAnalyticsQueryPackQuery(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryPackId is required")]
     public required TerraformValue<string> QueryPackId
     {
-        get => GetArgument<TerraformValue<string>>("query_pack_id");
+        get => GetRequiredArgument<TerraformValue<string>>("query_pack_id");
         set => SetArgument("query_pack_id", value);
     }
 

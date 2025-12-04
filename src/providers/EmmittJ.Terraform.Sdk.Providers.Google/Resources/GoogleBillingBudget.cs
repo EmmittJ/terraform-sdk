@@ -125,9 +125,9 @@ public class GoogleBillingBudgetAmountBlockSpecifiedAmountBlock : TerraformBlock
     /// <summary>
     /// The 3-letter currency code defined in ISO 4217.
     /// </summary>
-    public TerraformValue<string>? CurrencyCode
+    public TerraformValue<string> CurrencyCode
     {
-        get => GetArgument<TerraformValue<string>>("currency_code");
+        get => GetArgument<TerraformValue<string>>("currency_code") ?? AsReference("currency_code");
         set => SetArgument("currency_code", value);
     }
 
@@ -208,9 +208,9 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// A single label and value pair specifying that usage from only
     /// this set of labeled resources should be included in the budget.
     /// </summary>
-    public TerraformMap<string>? Labels
+    public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -247,9 +247,9 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// through the Catalog API:
     /// https://cloud.google.com/billing/v1/how-tos/catalog-api.
     /// </summary>
-    public TerraformList<string>? Services
+    public TerraformList<string> Services
     {
-        get => GetArgument<TerraformList<string>>("services");
+        get => GetArgument<TerraformList<string>>("services") ?? AsReference("services");
         set => SetArgument("services", value);
     }
 
@@ -332,7 +332,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockEndDateBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => GetArgument<TerraformValue<double>>("day");
+        get => GetRequiredArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -342,7 +342,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockEndDateBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => GetArgument<TerraformValue<double>>("month");
+        get => GetRequiredArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -352,7 +352,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockEndDateBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => GetArgument<TerraformValue<double>>("year");
+        get => GetRequiredArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -375,7 +375,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockStartDateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => GetArgument<TerraformValue<double>>("day");
+        get => GetRequiredArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -385,7 +385,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockStartDateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => GetArgument<TerraformValue<double>>("month");
+        get => GetRequiredArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -395,7 +395,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockStartDateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => GetArgument<TerraformValue<double>>("year");
+        get => GetRequiredArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -430,7 +430,7 @@ public class GoogleBillingBudgetThresholdRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThresholdPercent is required")]
     public required TerraformValue<double> ThresholdPercent
     {
-        get => GetArgument<TerraformValue<double>>("threshold_percent");
+        get => GetRequiredArgument<TerraformValue<double>>("threshold_percent");
         set => SetArgument("threshold_percent", value);
     }
 
@@ -490,7 +490,7 @@ public partial class GoogleBillingBudget(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     public required TerraformValue<string> BillingAccount
     {
-        get => GetArgument<TerraformValue<string>>("billing_account");
+        get => GetRequiredArgument<TerraformValue<string>>("billing_account");
         set => SetArgument("billing_account", value);
     }
 
@@ -506,9 +506,9 @@ public partial class GoogleBillingBudget(string name) : TerraformResource("googl
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

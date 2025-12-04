@@ -11,45 +11,45 @@ public partial class AwsMqBrokerDataSource(string name) : TerraformDataSource("a
     /// <summary>
     /// The broker_id attribute.
     /// </summary>
-    public TerraformValue<string>? BrokerId
+    public TerraformValue<string> BrokerId
     {
-        get => GetArgument<TerraformValue<string>>("broker_id");
+        get => GetArgument<TerraformValue<string>>("broker_id") ?? AsReference("broker_id");
         set => SetArgument("broker_id", value);
     }
 
     /// <summary>
     /// The broker_name attribute.
     /// </summary>
-    public TerraformValue<string>? BrokerName
+    public TerraformValue<string> BrokerName
     {
-        get => GetArgument<TerraformValue<string>>("broker_name");
+        get => GetArgument<TerraformValue<string>>("broker_name") ?? AsReference("broker_name");
         set => SetArgument("broker_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string>? Tags
+    public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 

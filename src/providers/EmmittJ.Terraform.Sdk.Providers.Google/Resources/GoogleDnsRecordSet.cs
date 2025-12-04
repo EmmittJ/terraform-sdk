@@ -78,7 +78,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockGeoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockGeoBlockHealthCheckedTargetsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -161,7 +161,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockGeoBlockHealthCheckedTargetsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
     public required TerraformValue<string> IpProtocol
     {
-        get => GetArgument<TerraformValue<string>>("ip_protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_protocol");
         set => SetArgument("ip_protocol", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockGeoBlockHealthCheckedTargetsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => GetArgument<TerraformValue<string>>("network_url");
+        get => GetRequiredArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -190,7 +190,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockGeoBlockHealthCheckedTargetsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<string> Port
     {
-        get => GetArgument<TerraformValue<string>>("port");
+        get => GetRequiredArgument<TerraformValue<string>>("port");
         set => SetArgument("port", value);
     }
 
@@ -200,7 +200,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockGeoBlockHealthCheckedTargetsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -288,7 +288,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockPrimaryBackupBlockBackupGeoBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -361,7 +361,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockPrimaryBackupBlockBackupGeoBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -371,7 +371,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockPrimaryBackupBlockBackupGeoBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
     public required TerraformValue<string> IpProtocol
     {
-        get => GetArgument<TerraformValue<string>>("ip_protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_protocol");
         set => SetArgument("ip_protocol", value);
     }
 
@@ -390,7 +390,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockPrimaryBackupBlockBackupGeoBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => GetArgument<TerraformValue<string>>("network_url");
+        get => GetRequiredArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -400,7 +400,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockPrimaryBackupBlockBackupGeoBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<string> Port
     {
-        get => GetArgument<TerraformValue<string>>("port");
+        get => GetRequiredArgument<TerraformValue<string>>("port");
         set => SetArgument("port", value);
     }
 
@@ -410,7 +410,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockPrimaryBackupBlockBackupGeoBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -473,7 +473,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockPrimaryBackupBlockPrimaryBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -483,7 +483,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockPrimaryBackupBlockPrimaryBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
     public required TerraformValue<string> IpProtocol
     {
-        get => GetArgument<TerraformValue<string>>("ip_protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_protocol");
         set => SetArgument("ip_protocol", value);
     }
 
@@ -502,7 +502,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockPrimaryBackupBlockPrimaryBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => GetArgument<TerraformValue<string>>("network_url");
+        get => GetRequiredArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -512,7 +512,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockPrimaryBackupBlockPrimaryBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<string> Port
     {
-        get => GetArgument<TerraformValue<string>>("port");
+        get => GetRequiredArgument<TerraformValue<string>>("port");
         set => SetArgument("port", value);
     }
 
@@ -522,7 +522,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockPrimaryBackupBlockPrimaryBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -563,7 +563,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockWrrBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => GetArgument<TerraformValue<double>>("weight");
+        get => GetRequiredArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -627,7 +627,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockWrrBlockHealthCheckedTargetsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -637,7 +637,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockWrrBlockHealthCheckedTargetsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
     public required TerraformValue<string> IpProtocol
     {
-        get => GetArgument<TerraformValue<string>>("ip_protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_protocol");
         set => SetArgument("ip_protocol", value);
     }
 
@@ -656,7 +656,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockWrrBlockHealthCheckedTargetsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => GetArgument<TerraformValue<string>>("network_url");
+        get => GetRequiredArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -666,7 +666,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockWrrBlockHealthCheckedTargetsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<string> Port
     {
-        get => GetArgument<TerraformValue<string>>("port");
+        get => GetRequiredArgument<TerraformValue<string>>("port");
         set => SetArgument("port", value);
     }
 
@@ -676,7 +676,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlockWrrBlockHealthCheckedTargetsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -701,9 +701,9 @@ public partial class GoogleDnsRecordSet(string name) : TerraformResource("google
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -713,7 +713,7 @@ public partial class GoogleDnsRecordSet(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
     public required TerraformValue<string> ManagedZone
     {
-        get => GetArgument<TerraformValue<string>>("managed_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_zone");
         set => SetArgument("managed_zone", value);
     }
 
@@ -723,16 +723,16 @@ public partial class GoogleDnsRecordSet(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -760,7 +760,7 @@ public partial class GoogleDnsRecordSet(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

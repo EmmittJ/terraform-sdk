@@ -16,9 +16,9 @@ public class AzurermApiManagementAdditionalLocationBlock : TerraformBlock
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformValue<double>? Capacity
+    public TerraformValue<double> Capacity
     {
-        get => GetArgument<TerraformValue<double>>("capacity");
+        get => GetArgument<TerraformValue<double>>("capacity") ?? AsReference("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -43,7 +43,7 @@ public class AzurermApiManagementAdditionalLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermApiManagementAdditionalLocationBlockVirtualNetworkConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermApiManagementCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncodedCertificate is required")]
     public required TerraformValue<string> EncodedCertificate
     {
-        get => GetArgument<TerraformValue<string>>("encoded_certificate");
+        get => GetRequiredArgument<TerraformValue<string>>("encoded_certificate");
         set => SetArgument("encoded_certificate", value);
     }
 
@@ -155,7 +155,7 @@ public class AzurermApiManagementCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoreName is required")]
     public required TerraformValue<string> StoreName
     {
-        get => GetArgument<TerraformValue<string>>("store_name");
+        get => GetRequiredArgument<TerraformValue<string>>("store_name");
         set => SetArgument("store_name", value);
     }
 
@@ -335,16 +335,16 @@ public class AzurermApiManagementHostnameConfigurationBlockDeveloperPortalBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultCertificateId
+    public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -352,9 +352,9 @@ public class AzurermApiManagementHostnameConfigurationBlockDeveloperPortalBlock 
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? KeyVaultId
+    public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -443,16 +443,16 @@ public class AzurermApiManagementHostnameConfigurationBlockManagementBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultCertificateId
+    public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -460,9 +460,9 @@ public class AzurermApiManagementHostnameConfigurationBlockManagementBlock : Ter
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? KeyVaultId
+    public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -551,16 +551,16 @@ public class AzurermApiManagementHostnameConfigurationBlockPortalBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultCertificateId
+    public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -568,9 +568,9 @@ public class AzurermApiManagementHostnameConfigurationBlockPortalBlock : Terrafo
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? KeyVaultId
+    public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -650,9 +650,9 @@ public class AzurermApiManagementHostnameConfigurationBlockProxyBlock : Terrafor
     /// <summary>
     /// The default_ssl_binding attribute.
     /// </summary>
-    public TerraformValue<bool>? DefaultSslBinding
+    public TerraformValue<bool> DefaultSslBinding
     {
-        get => GetArgument<TerraformValue<bool>>("default_ssl_binding");
+        get => GetArgument<TerraformValue<bool>>("default_ssl_binding") ?? AsReference("default_ssl_binding");
         set => SetArgument("default_ssl_binding", value);
     }
 
@@ -668,16 +668,16 @@ public class AzurermApiManagementHostnameConfigurationBlockProxyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultCertificateId
+    public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -685,9 +685,9 @@ public class AzurermApiManagementHostnameConfigurationBlockProxyBlock : Terrafor
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? KeyVaultId
+    public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -776,16 +776,16 @@ public class AzurermApiManagementHostnameConfigurationBlockScmBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultCertificateId
+    public TerraformValue<string> KeyVaultCertificateId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id") ?? AsReference("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -793,9 +793,9 @@ public class AzurermApiManagementHostnameConfigurationBlockScmBlock : TerraformB
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? KeyVaultId
+    public TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id") ?? AsReference("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -870,7 +870,7 @@ public class AzurermApiManagementIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -892,18 +892,18 @@ public class AzurermApiManagementProtocolsBlock : TerraformBlock
     /// The enable_http2 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EnableHttp2
+    public TerraformValue<bool> EnableHttp2
     {
-        get => GetArgument<TerraformValue<bool>>("enable_http2");
+        get => GetArgument<TerraformValue<bool>>("enable_http2") ?? AsReference("enable_http2");
         set => SetArgument("enable_http2", value);
     }
 
     /// <summary>
     /// The http2_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Http2Enabled
+    public TerraformValue<bool> Http2Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("http2_enabled");
+        get => GetArgument<TerraformValue<bool>>("http2_enabled") ?? AsReference("http2_enabled");
         set => SetArgument("http2_enabled", value);
     }
 
@@ -924,27 +924,27 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// <summary>
     /// The backend_ssl30_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? BackendSsl30Enabled
+    public TerraformValue<bool> BackendSsl30Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("backend_ssl30_enabled");
+        get => GetArgument<TerraformValue<bool>>("backend_ssl30_enabled") ?? AsReference("backend_ssl30_enabled");
         set => SetArgument("backend_ssl30_enabled", value);
     }
 
     /// <summary>
     /// The backend_tls10_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? BackendTls10Enabled
+    public TerraformValue<bool> BackendTls10Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("backend_tls10_enabled");
+        get => GetArgument<TerraformValue<bool>>("backend_tls10_enabled") ?? AsReference("backend_tls10_enabled");
         set => SetArgument("backend_tls10_enabled", value);
     }
 
     /// <summary>
     /// The backend_tls11_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? BackendTls11Enabled
+    public TerraformValue<bool> BackendTls11Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("backend_tls11_enabled");
+        get => GetArgument<TerraformValue<bool>>("backend_tls11_enabled") ?? AsReference("backend_tls11_enabled");
         set => SetArgument("backend_tls11_enabled", value);
     }
 
@@ -952,9 +952,9 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// The enable_backend_ssl30 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EnableBackendSsl30
+    public TerraformValue<bool> EnableBackendSsl30
     {
-        get => GetArgument<TerraformValue<bool>>("enable_backend_ssl30");
+        get => GetArgument<TerraformValue<bool>>("enable_backend_ssl30") ?? AsReference("enable_backend_ssl30");
         set => SetArgument("enable_backend_ssl30", value);
     }
 
@@ -962,9 +962,9 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// The enable_backend_tls10 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EnableBackendTls10
+    public TerraformValue<bool> EnableBackendTls10
     {
-        get => GetArgument<TerraformValue<bool>>("enable_backend_tls10");
+        get => GetArgument<TerraformValue<bool>>("enable_backend_tls10") ?? AsReference("enable_backend_tls10");
         set => SetArgument("enable_backend_tls10", value);
     }
 
@@ -972,9 +972,9 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// The enable_backend_tls11 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EnableBackendTls11
+    public TerraformValue<bool> EnableBackendTls11
     {
-        get => GetArgument<TerraformValue<bool>>("enable_backend_tls11");
+        get => GetArgument<TerraformValue<bool>>("enable_backend_tls11") ?? AsReference("enable_backend_tls11");
         set => SetArgument("enable_backend_tls11", value);
     }
 
@@ -982,9 +982,9 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// The enable_frontend_ssl30 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EnableFrontendSsl30
+    public TerraformValue<bool> EnableFrontendSsl30
     {
-        get => GetArgument<TerraformValue<bool>>("enable_frontend_ssl30");
+        get => GetArgument<TerraformValue<bool>>("enable_frontend_ssl30") ?? AsReference("enable_frontend_ssl30");
         set => SetArgument("enable_frontend_ssl30", value);
     }
 
@@ -992,9 +992,9 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// The enable_frontend_tls10 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EnableFrontendTls10
+    public TerraformValue<bool> EnableFrontendTls10
     {
-        get => GetArgument<TerraformValue<bool>>("enable_frontend_tls10");
+        get => GetArgument<TerraformValue<bool>>("enable_frontend_tls10") ?? AsReference("enable_frontend_tls10");
         set => SetArgument("enable_frontend_tls10", value);
     }
 
@@ -1002,36 +1002,36 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
     /// The enable_frontend_tls11 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EnableFrontendTls11
+    public TerraformValue<bool> EnableFrontendTls11
     {
-        get => GetArgument<TerraformValue<bool>>("enable_frontend_tls11");
+        get => GetArgument<TerraformValue<bool>>("enable_frontend_tls11") ?? AsReference("enable_frontend_tls11");
         set => SetArgument("enable_frontend_tls11", value);
     }
 
     /// <summary>
     /// The frontend_ssl30_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? FrontendSsl30Enabled
+    public TerraformValue<bool> FrontendSsl30Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("frontend_ssl30_enabled");
+        get => GetArgument<TerraformValue<bool>>("frontend_ssl30_enabled") ?? AsReference("frontend_ssl30_enabled");
         set => SetArgument("frontend_ssl30_enabled", value);
     }
 
     /// <summary>
     /// The frontend_tls10_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? FrontendTls10Enabled
+    public TerraformValue<bool> FrontendTls10Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("frontend_tls10_enabled");
+        get => GetArgument<TerraformValue<bool>>("frontend_tls10_enabled") ?? AsReference("frontend_tls10_enabled");
         set => SetArgument("frontend_tls10_enabled", value);
     }
 
     /// <summary>
     /// The frontend_tls11_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? FrontendTls11Enabled
+    public TerraformValue<bool> FrontendTls11Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("frontend_tls11_enabled");
+        get => GetArgument<TerraformValue<bool>>("frontend_tls11_enabled") ?? AsReference("frontend_tls11_enabled");
         set => SetArgument("frontend_tls11_enabled", value);
     }
 
@@ -1154,7 +1154,7 @@ public class AzurermApiManagementSignInBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1178,7 +1178,7 @@ public class AzurermApiManagementSignUpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1214,7 +1214,7 @@ public class AzurermApiManagementSignUpBlockTermsOfServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsentRequired is required")]
     public required TerraformValue<bool> ConsentRequired
     {
-        get => GetArgument<TerraformValue<bool>>("consent_required");
+        get => GetRequiredArgument<TerraformValue<bool>>("consent_required");
         set => SetArgument("consent_required", value);
     }
 
@@ -1224,7 +1224,7 @@ public class AzurermApiManagementSignUpBlockTermsOfServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1257,7 +1257,7 @@ public class AzurermApiManagementTenantAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1349,7 +1349,7 @@ public class AzurermApiManagementVirtualNetworkConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -1383,9 +1383,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1395,7 +1395,7 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1414,16 +1414,16 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The notification_sender_email attribute.
     /// </summary>
-    public TerraformValue<string>? NotificationSenderEmail
+    public TerraformValue<string> NotificationSenderEmail
     {
-        get => GetArgument<TerraformValue<string>>("notification_sender_email");
+        get => GetArgument<TerraformValue<string>>("notification_sender_email") ?? AsReference("notification_sender_email");
         set => SetArgument("notification_sender_email", value);
     }
 
@@ -1451,7 +1451,7 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublisherEmail is required")]
     public required TerraformValue<string> PublisherEmail
     {
-        get => GetArgument<TerraformValue<string>>("publisher_email");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher_email");
         set => SetArgument("publisher_email", value);
     }
 
@@ -1461,7 +1461,7 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublisherName is required")]
     public required TerraformValue<string> PublisherName
     {
-        get => GetArgument<TerraformValue<string>>("publisher_name");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher_name");
         set => SetArgument("publisher_name", value);
     }
 
@@ -1471,7 +1471,7 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -1481,7 +1481,7 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 

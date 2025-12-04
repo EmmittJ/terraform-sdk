@@ -14,16 +14,16 @@ public partial class AwsOrganizationsDelegatedAdministrator(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsOrganizationsDelegatedAdministrator(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipal is required")]
     public required TerraformValue<string> ServicePrincipal
     {
-        get => GetArgument<TerraformValue<string>>("service_principal");
+        get => GetRequiredArgument<TerraformValue<string>>("service_principal");
         set => SetArgument("service_principal", value);
     }
 

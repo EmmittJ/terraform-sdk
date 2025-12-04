@@ -19,7 +19,7 @@ public class GoogleBigtableSchemaBundleProtoSchemaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtoDescriptors is required")]
     public required TerraformValue<string> ProtoDescriptors
     {
-        get => GetArgument<TerraformValue<string>>("proto_descriptors");
+        get => GetRequiredArgument<TerraformValue<string>>("proto_descriptors");
         set => SetArgument("proto_descriptors", value);
     }
 
@@ -76,9 +76,9 @@ public partial class GoogleBigtableSchemaBundle(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -103,9 +103,9 @@ public partial class GoogleBigtableSchemaBundle(string name) : TerraformResource
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleBigtableSchemaBundle(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaBundleId is required")]
     public required TerraformValue<string> SchemaBundleId
     {
-        get => GetArgument<TerraformValue<string>>("schema_bundle_id");
+        get => GetRequiredArgument<TerraformValue<string>>("schema_bundle_id");
         set => SetArgument("schema_bundle_id", value);
     }
 

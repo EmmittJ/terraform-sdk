@@ -26,9 +26,9 @@ public class GoogleVpcAccessConnectorSubnetBlock : TerraformBlock
     /// <summary>
     /// Project in which the subnet exists. If not set, this project is assumed to be the project for which the connector create request was issued.
     /// </summary>
-    public TerraformValue<string>? ProjectId
+    public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -85,9 +85,9 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -113,9 +113,9 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// Maximum value of instances in autoscaling group underlying the connector. Value must be between 3 and 10, inclusive. Must be
     /// higher than the value specified by min_instances. Required alongside &#39;min_instances&#39; if not using &#39;min_throughput&#39;/&#39;max_throughput&#39;.
     /// </summary>
-    public TerraformValue<double>? MaxInstances
+    public TerraformValue<double> MaxInstances
     {
-        get => GetArgument<TerraformValue<double>>("max_instances");
+        get => GetArgument<TerraformValue<double>>("max_instances") ?? AsReference("max_instances");
         set => SetArgument("max_instances", value);
     }
 
@@ -124,9 +124,9 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// when using an e2-micro machine type. Value must be a multiple of 100 from 300 through 1000. Must be higher than the value specified by
     /// min_throughput. Only one of &#39;max_throughput&#39; and &#39;max_instances&#39; can be specified. The use of max_throughput is discouraged in favor of max_instances.
     /// </summary>
-    public TerraformValue<double>? MaxThroughput
+    public TerraformValue<double> MaxThroughput
     {
-        get => GetArgument<TerraformValue<double>>("max_throughput");
+        get => GetArgument<TerraformValue<double>>("max_throughput") ?? AsReference("max_throughput");
         set => SetArgument("max_throughput", value);
     }
 
@@ -134,9 +134,9 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// Minimum value of instances in autoscaling group underlying the connector. Value must be between 2 and 9, inclusive. Must be
     /// lower than the value specified by max_instances. Required alongside &#39;max_instances&#39; if not using &#39;min_throughput&#39;/&#39;max_throughput&#39;.
     /// </summary>
-    public TerraformValue<double>? MinInstances
+    public TerraformValue<double> MinInstances
     {
-        get => GetArgument<TerraformValue<double>>("min_instances");
+        get => GetArgument<TerraformValue<double>>("min_instances") ?? AsReference("min_instances");
         set => SetArgument("min_instances", value);
     }
 
@@ -145,9 +145,9 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     /// Value must be a multiple of 100 from 200 through 900. Must be lower than the value specified by max_throughput.
     /// Only one of &#39;min_throughput&#39; and &#39;min_instances&#39; can be specified. The use of min_throughput is discouraged in favor of min_instances.
     /// </summary>
-    public TerraformValue<double>? MinThroughput
+    public TerraformValue<double> MinThroughput
     {
-        get => GetArgument<TerraformValue<double>>("min_throughput");
+        get => GetArgument<TerraformValue<double>>("min_throughput") ?? AsReference("min_throughput");
         set => SetArgument("min_throughput", value);
     }
 
@@ -157,34 +157,34 @@ public partial class GoogleVpcAccessConnector(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Name or self_link of the VPC network. Required if &#39;ip_cidr_range&#39; is set.
     /// </summary>
-    public TerraformValue<string>? Network
+    public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the VPC Access connector resides. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

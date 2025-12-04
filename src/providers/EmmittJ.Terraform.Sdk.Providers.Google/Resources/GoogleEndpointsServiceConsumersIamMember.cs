@@ -28,7 +28,7 @@ public class GoogleEndpointsServiceConsumersIamMemberConditionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleEndpointsServiceConsumersIamMemberConditionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => GetArgument<TerraformValue<string>>("title");
+        get => GetRequiredArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -57,16 +57,16 @@ public partial class GoogleEndpointsServiceConsumersIamMember(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerProject is required")]
     public required TerraformValue<string> ConsumerProject
     {
-        get => GetArgument<TerraformValue<string>>("consumer_project");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_project");
         set => SetArgument("consumer_project", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleEndpointsServiceConsumersIamMember(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     public required TerraformValue<string> Member
     {
-        get => GetArgument<TerraformValue<string>>("member");
+        get => GetRequiredArgument<TerraformValue<string>>("member");
         set => SetArgument("member", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleEndpointsServiceConsumersIamMember(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => GetArgument<TerraformValue<string>>("role");
+        get => GetRequiredArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleEndpointsServiceConsumersIamMember(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 

@@ -11,27 +11,27 @@ public partial class GoogleColabRuntimeTemplateIamPolicyDataSource(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformValue<string>? Location
+    public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleColabRuntimeTemplateIamPolicyDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeTemplate is required")]
     public required TerraformValue<string> RuntimeTemplate
     {
-        get => GetArgument<TerraformValue<string>>("runtime_template");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime_template");
         set => SetArgument("runtime_template", value);
     }
 

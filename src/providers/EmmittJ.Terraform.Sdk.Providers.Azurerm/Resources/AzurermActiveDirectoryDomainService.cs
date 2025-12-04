@@ -49,7 +49,7 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -126,7 +126,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfxCertificate is required")]
     public required TerraformValue<string> PfxCertificate
     {
-        get => GetArgument<TerraformValue<string>>("pfx_certificate");
+        get => GetRequiredArgument<TerraformValue<string>>("pfx_certificate");
         set => SetArgument("pfx_certificate", value);
     }
 
@@ -155,7 +155,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfxCertificatePassword is required")]
     public required TerraformValue<string> PfxCertificatePassword
     {
-        get => GetArgument<TerraformValue<string>>("pfx_certificate_password");
+        get => GetRequiredArgument<TerraformValue<string>>("pfx_certificate_password");
         set => SetArgument("pfx_certificate_password", value);
     }
 
@@ -316,7 +316,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -332,9 +332,9 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -344,7 +344,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -354,7 +354,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -364,7 +364,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -374,7 +374,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => GetArgument<TerraformValue<string>>("sku");
+        get => GetRequiredArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 

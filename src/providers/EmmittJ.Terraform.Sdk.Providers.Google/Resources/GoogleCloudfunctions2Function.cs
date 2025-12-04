@@ -23,9 +23,9 @@ public class GoogleCloudfunctions2FunctionBuildConfigBlock : TerraformBlock
     /// <summary>
     /// User managed repository created in Artifact Registry optionally with a customer managed encryption key.
     /// </summary>
-    public TerraformValue<string>? DockerRepository
+    public TerraformValue<string> DockerRepository
     {
-        get => GetArgument<TerraformValue<string>>("docker_repository");
+        get => GetArgument<TerraformValue<string>>("docker_repository") ?? AsReference("docker_repository");
         set => SetArgument("docker_repository", value);
     }
 
@@ -45,9 +45,9 @@ public class GoogleCloudfunctions2FunctionBuildConfigBlock : TerraformBlock
     /// <summary>
     /// User-provided build-time environment variables for the function.
     /// </summary>
-    public TerraformMap<string>? EnvironmentVariables
+    public TerraformMap<string> EnvironmentVariables
     {
-        get => GetArgument<TerraformMap<string>>("environment_variables");
+        get => GetArgument<TerraformMap<string>>("environment_variables") ?? AsReference("environment_variables");
         set => SetArgument("environment_variables", value);
     }
 
@@ -64,9 +64,9 @@ public class GoogleCloudfunctions2FunctionBuildConfigBlock : TerraformBlock
     /// <summary>
     /// The fully-qualified name of the service account to be used for building the container.
     /// </summary>
-    public TerraformValue<string>? ServiceAccount
+    public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -278,9 +278,9 @@ public class GoogleCloudfunctions2FunctionBuildConfigBlockSourceBlockStorageSour
     /// Google Cloud Storage generation for the object. If the generation
     /// is omitted, the latest generation will be used.
     /// </summary>
-    public TerraformValue<double>? Generation
+    public TerraformValue<double> Generation
     {
-        get => GetArgument<TerraformValue<double>>("generation");
+        get => GetArgument<TerraformValue<double>>("generation") ?? AsReference("generation");
         set => SetArgument("generation", value);
     }
 
@@ -313,7 +313,7 @@ public class GoogleCloudfunctions2FunctionEventTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformValue<string> EventType
     {
-        get => GetArgument<TerraformValue<string>>("event_type");
+        get => GetRequiredArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -321,9 +321,9 @@ public class GoogleCloudfunctions2FunctionEventTriggerBlock : TerraformBlock
     /// The name of a Pub/Sub topic in the same project that will be used
     /// as the transport topic for the event delivery.
     /// </summary>
-    public TerraformValue<string>? PubsubTopic
+    public TerraformValue<string> PubsubTopic
     {
-        get => GetArgument<TerraformValue<string>>("pubsub_topic");
+        get => GetArgument<TerraformValue<string>>("pubsub_topic") ?? AsReference("pubsub_topic");
         set => SetArgument("pubsub_topic", value);
     }
 
@@ -342,9 +342,9 @@ public class GoogleCloudfunctions2FunctionEventTriggerBlock : TerraformBlock
     /// must have permission to invoke Cloud Run services. If empty, defaults to the
     /// Compute Engine default service account: {project_number}-compute@developer.gserviceaccount.com.
     /// </summary>
-    public TerraformValue<string>? ServiceAccountEmail
+    public TerraformValue<string> ServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email") ?? AsReference("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -360,9 +360,9 @@ public class GoogleCloudfunctions2FunctionEventTriggerBlock : TerraformBlock
     /// region as the function, a different region or multi-region, or the global
     /// region. If not provided, defaults to the same region as the function.
     /// </summary>
-    public TerraformValue<string>? TriggerRegion
+    public TerraformValue<string> TriggerRegion
     {
-        get => GetArgument<TerraformValue<string>>("trigger_region");
+        get => GetArgument<TerraformValue<string>>("trigger_region") ?? AsReference("trigger_region");
         set => SetArgument("trigger_region", value);
     }
 
@@ -396,7 +396,7 @@ public class GoogleCloudfunctions2FunctionEventTriggerBlockEventFiltersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attribute is required")]
     public required TerraformValue<string> Attribute
     {
-        get => GetArgument<TerraformValue<string>>("attribute");
+        get => GetRequiredArgument<TerraformValue<string>>("attribute");
         set => SetArgument("attribute", value);
     }
 
@@ -420,7 +420,7 @@ public class GoogleCloudfunctions2FunctionEventTriggerBlockEventFiltersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -450,9 +450,9 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// <summary>
     /// The number of CPUs used in a single container instance. Default value is calculated from available memory.
     /// </summary>
-    public TerraformValue<string>? AvailableCpu
+    public TerraformValue<string> AvailableCpu
     {
-        get => GetArgument<TerraformValue<string>>("available_cpu");
+        get => GetArgument<TerraformValue<string>>("available_cpu") ?? AsReference("available_cpu");
         set => SetArgument("available_cpu", value);
     }
 
@@ -461,9 +461,9 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// Defaults to 256M. Supported units are k, M, G, Mi, Gi. If no unit is
     /// supplied the value is interpreted as bytes.
     /// </summary>
-    public TerraformValue<string>? AvailableMemory
+    public TerraformValue<string> AvailableMemory
     {
-        get => GetArgument<TerraformValue<string>>("available_memory");
+        get => GetArgument<TerraformValue<string>>("available_memory") ?? AsReference("available_memory");
         set => SetArgument("available_memory", value);
     }
 
@@ -479,9 +479,9 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// <summary>
     /// Environment variables that shall be available during function execution.
     /// </summary>
-    public TerraformMap<string>? EnvironmentVariables
+    public TerraformMap<string> EnvironmentVariables
     {
-        get => GetArgument<TerraformMap<string>>("environment_variables");
+        get => GetArgument<TerraformMap<string>>("environment_variables") ?? AsReference("environment_variables");
         set => SetArgument("environment_variables", value);
     }
 
@@ -504,18 +504,18 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// The limit on the maximum number of function instances that may coexist at a
     /// given time.
     /// </summary>
-    public TerraformValue<double>? MaxInstanceCount
+    public TerraformValue<double> MaxInstanceCount
     {
-        get => GetArgument<TerraformValue<double>>("max_instance_count");
+        get => GetArgument<TerraformValue<double>>("max_instance_count") ?? AsReference("max_instance_count");
         set => SetArgument("max_instance_count", value);
     }
 
     /// <summary>
     /// Sets the maximum number of concurrent requests that each instance can receive. Defaults to 1.
     /// </summary>
-    public TerraformValue<double>? MaxInstanceRequestConcurrency
+    public TerraformValue<double> MaxInstanceRequestConcurrency
     {
-        get => GetArgument<TerraformValue<double>>("max_instance_request_concurrency");
+        get => GetArgument<TerraformValue<double>>("max_instance_request_concurrency") ?? AsReference("max_instance_request_concurrency");
         set => SetArgument("max_instance_request_concurrency", value);
     }
 
@@ -538,9 +538,9 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// <summary>
     /// The email of the service account for this function.
     /// </summary>
-    public TerraformValue<string>? ServiceAccountEmail
+    public TerraformValue<string> ServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email") ?? AsReference("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -549,9 +549,9 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlock
     /// can be terminated if the function is not completed at the end of the
     /// timeout period. Defaults to 60 seconds.
     /// </summary>
-    public TerraformValue<double>? TimeoutSeconds
+    public TerraformValue<double> TimeoutSeconds
     {
-        get => GetArgument<TerraformValue<double>>("timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds") ?? AsReference("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -616,7 +616,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlockSecretEnvironmentVar
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -626,7 +626,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlockSecretEnvironmentVar
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -636,7 +636,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlockSecretEnvironmentVar
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => GetArgument<TerraformValue<string>>("secret");
+        get => GetRequiredArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -646,7 +646,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlockSecretEnvironmentVar
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -669,7 +669,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlockSecretVolumesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => GetArgument<TerraformValue<string>>("mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -679,7 +679,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlockSecretVolumesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -689,7 +689,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlockSecretVolumesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => GetArgument<TerraformValue<string>>("secret");
+        get => GetRequiredArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -721,7 +721,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlockSecretVolumesBlockVe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -731,7 +731,7 @@ public class GoogleCloudfunctions2FunctionServiceConfigBlockSecretVolumesBlockVe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -797,9 +797,9 @@ public partial class GoogleCloudfunctions2Function(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -832,7 +832,7 @@ public partial class GoogleCloudfunctions2Function(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -843,16 +843,16 @@ public partial class GoogleCloudfunctions2Function(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

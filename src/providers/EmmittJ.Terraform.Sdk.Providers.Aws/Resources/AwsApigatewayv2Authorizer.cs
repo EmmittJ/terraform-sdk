@@ -69,7 +69,7 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => GetArgument<TerraformValue<string>>("api_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -94,9 +94,9 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     /// <summary>
     /// The authorizer_result_ttl_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? AuthorizerResultTtlInSeconds
+    public TerraformValue<double> AuthorizerResultTtlInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("authorizer_result_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("authorizer_result_ttl_in_seconds") ?? AsReference("authorizer_result_ttl_in_seconds");
         set => SetArgument("authorizer_result_ttl_in_seconds", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerType is required")]
     public required TerraformValue<string> AuthorizerType
     {
-        get => GetArgument<TerraformValue<string>>("authorizer_type");
+        get => GetRequiredArgument<TerraformValue<string>>("authorizer_type");
         set => SetArgument("authorizer_type", value);
     }
 
@@ -131,9 +131,9 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -152,16 +152,16 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

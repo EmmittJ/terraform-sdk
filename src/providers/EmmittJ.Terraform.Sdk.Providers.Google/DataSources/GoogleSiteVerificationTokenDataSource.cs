@@ -34,9 +34,9 @@ public partial class GoogleSiteVerificationTokenDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -47,7 +47,7 @@ public partial class GoogleSiteVerificationTokenDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<string> Identifier
     {
-        get => GetArgument<TerraformValue<string>>("identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -57,7 +57,7 @@ public partial class GoogleSiteVerificationTokenDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -68,7 +68,7 @@ public partial class GoogleSiteVerificationTokenDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationMethod is required")]
     public required TerraformValue<string> VerificationMethod
     {
-        get => GetArgument<TerraformValue<string>>("verification_method");
+        get => GetRequiredArgument<TerraformValue<string>>("verification_method");
         set => SetArgument("verification_method", value);
     }
 

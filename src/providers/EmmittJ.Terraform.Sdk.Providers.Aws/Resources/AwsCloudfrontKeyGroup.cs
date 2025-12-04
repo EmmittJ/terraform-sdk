@@ -20,9 +20,9 @@ public partial class AwsCloudfrontKeyGroup(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCloudfrontKeyGroup(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Items is required")]
     public required TerraformSet<string> Items
     {
-        get => GetArgument<TerraformSet<string>>("items");
+        get => GetRequiredArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsCloudfrontKeyGroup(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

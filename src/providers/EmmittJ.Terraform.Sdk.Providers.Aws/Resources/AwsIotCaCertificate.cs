@@ -55,7 +55,7 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => GetArgument<TerraformValue<bool>>("active");
+        get => GetRequiredArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowAutoRegistration is required")]
     public required TerraformValue<bool> AllowAutoRegistration
     {
-        get => GetArgument<TerraformValue<bool>>("allow_auto_registration");
+        get => GetRequiredArgument<TerraformValue<bool>>("allow_auto_registration");
         set => SetArgument("allow_auto_registration", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatePem is required")]
     public required TerraformValue<string> CaCertificatePem
     {
-        get => GetArgument<TerraformValue<string>>("ca_certificate_pem");
+        get => GetRequiredArgument<TerraformValue<string>>("ca_certificate_pem");
         set => SetArgument("ca_certificate_pem", value);
     }
 
@@ -91,18 +91,18 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -118,9 +118,9 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsConnectHoursOfOperationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => GetArgument<TerraformValue<string>>("day");
+        get => GetRequiredArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsConnectHoursOfOperationConfigBlockEndTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hours is required")]
     public required TerraformValue<double> Hours
     {
-        get => GetArgument<TerraformValue<double>>("hours");
+        get => GetRequiredArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsConnectHoursOfOperationConfigBlockEndTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minutes is required")]
     public required TerraformValue<double> Minutes
     {
-        get => GetArgument<TerraformValue<double>>("minutes");
+        get => GetRequiredArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsConnectHoursOfOperationConfigBlockStartTimeBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hours is required")]
     public required TerraformValue<double> Hours
     {
-        get => GetArgument<TerraformValue<double>>("hours");
+        get => GetRequiredArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsConnectHoursOfOperationConfigBlockStartTimeBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minutes is required")]
     public required TerraformValue<double> Minutes
     {
-        get => GetArgument<TerraformValue<double>>("minutes");
+        get => GetRequiredArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -136,9 +136,9 @@ public partial class AwsConnectHoursOfOperation(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsConnectHoursOfOperation(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => GetArgument<TerraformValue<string>>("instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -158,16 +158,16 @@ public partial class AwsConnectHoursOfOperation(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -183,9 +183,9 @@ public partial class AwsConnectHoursOfOperation(string name) : TerraformResource
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AwsConnectHoursOfOperation(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 

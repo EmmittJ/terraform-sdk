@@ -132,16 +132,16 @@ public partial class AzurermCosmosdbMongoRoleDefinition(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosMongoDatabaseId is required")]
     public required TerraformValue<string> CosmosMongoDatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("cosmos_mongo_database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cosmos_mongo_database_id");
         set => SetArgument("cosmos_mongo_database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermCosmosdbMongoRoleDefinition(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformValue<string> RoleName
     {
-        get => GetArgument<TerraformValue<string>>("role_name");
+        get => GetRequiredArgument<TerraformValue<string>>("role_name");
         set => SetArgument("role_name", value);
     }
 

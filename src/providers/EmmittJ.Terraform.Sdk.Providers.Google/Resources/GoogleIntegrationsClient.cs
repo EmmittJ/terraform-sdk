@@ -21,7 +21,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsLocation is required")]
     public required TerraformValue<string> KmsLocation
     {
-        get => GetArgument<TerraformValue<string>>("kms_location");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_location");
         set => SetArgument("kms_location", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsRing is required")]
     public required TerraformValue<string> KmsRing
     {
-        get => GetArgument<TerraformValue<string>>("kms_ring");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_ring");
         set => SetArgument("kms_ring", value);
     }
 
@@ -124,9 +124,9 @@ public partial class GoogleIntegrationsClient(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -136,16 +136,16 @@ public partial class GoogleIntegrationsClient(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

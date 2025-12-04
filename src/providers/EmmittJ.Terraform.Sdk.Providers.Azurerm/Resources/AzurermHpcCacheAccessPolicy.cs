@@ -19,7 +19,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
     public required TerraformValue<string> Access
     {
-        get => GetArgument<TerraformValue<string>>("access");
+        get => GetRequiredArgument<TerraformValue<string>>("access");
         set => SetArgument("access", value);
     }
 
@@ -65,7 +65,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -153,16 +153,16 @@ public partial class AzurermHpcCacheAccessPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HpcCacheId is required")]
     public required TerraformValue<string> HpcCacheId
     {
-        get => GetArgument<TerraformValue<string>>("hpc_cache_id");
+        get => GetRequiredArgument<TerraformValue<string>>("hpc_cache_id");
         set => SetArgument("hpc_cache_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermHpcCacheAccessPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

@@ -19,7 +19,7 @@ public class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assessment is required")]
     public required TerraformValue<string> Assessment
     {
-        get => GetArgument<TerraformValue<string>>("assessment");
+        get => GetRequiredArgument<TerraformValue<string>>("assessment");
         set => SetArgument("assessment", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<string> Weight
     {
-        get => GetArgument<TerraformValue<string>>("weight");
+        get => GetRequiredArgument<TerraformValue<string>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -95,9 +95,9 @@ public partial class GoogleApigeeSecurityProfileV2(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class GoogleApigeeSecurityProfileV2(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class GoogleApigeeSecurityProfileV2(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformValue<string> ProfileId
     {
-        get => GetArgument<TerraformValue<string>>("profile_id");
+        get => GetRequiredArgument<TerraformValue<string>>("profile_id");
         set => SetArgument("profile_id", value);
     }
 

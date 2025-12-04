@@ -14,16 +14,16 @@ public partial class GoogleBackupDrBackupPlanDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanId is required")]
     public required TerraformValue<string> BackupPlanId
     {
-        get => GetArgument<TerraformValue<string>>("backup_plan_id");
+        get => GetRequiredArgument<TerraformValue<string>>("backup_plan_id");
         set => SetArgument("backup_plan_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleBackupDrBackupPlanDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 

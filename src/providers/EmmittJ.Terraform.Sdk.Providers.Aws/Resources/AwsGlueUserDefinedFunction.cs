@@ -19,7 +19,7 @@ public class AwsGlueUserDefinedFunctionResourceUrisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => GetArgument<TerraformValue<string>>("resource_type");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsGlueUserDefinedFunctionResourceUrisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AwsGlueUserDefinedFunction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassName is required")]
     public required TerraformValue<string> ClassName
     {
-        get => GetArgument<TerraformValue<string>>("class_name");
+        get => GetRequiredArgument<TerraformValue<string>>("class_name");
         set => SetArgument("class_name", value);
     }
 
@@ -67,16 +67,16 @@ public partial class AwsGlueUserDefinedFunction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsGlueUserDefinedFunction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsGlueUserDefinedFunction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerName is required")]
     public required TerraformValue<string> OwnerName
     {
-        get => GetArgument<TerraformValue<string>>("owner_name");
+        get => GetRequiredArgument<TerraformValue<string>>("owner_name");
         set => SetArgument("owner_name", value);
     }
 
@@ -106,16 +106,16 @@ public partial class AwsGlueUserDefinedFunction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerType is required")]
     public required TerraformValue<string> OwnerType
     {
-        get => GetArgument<TerraformValue<string>>("owner_type");
+        get => GetRequiredArgument<TerraformValue<string>>("owner_type");
         set => SetArgument("owner_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

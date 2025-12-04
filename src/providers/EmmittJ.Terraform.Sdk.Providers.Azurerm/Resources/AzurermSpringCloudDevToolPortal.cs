@@ -111,27 +111,27 @@ public partial class AzurermSpringCloudDevToolPortal(string name) : TerraformRes
     /// <summary>
     /// The application_accelerator_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? ApplicationAcceleratorEnabled
+    public TerraformValue<bool> ApplicationAcceleratorEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("application_accelerator_enabled");
+        get => GetArgument<TerraformValue<bool>>("application_accelerator_enabled") ?? AsReference("application_accelerator_enabled");
         set => SetArgument("application_accelerator_enabled", value);
     }
 
     /// <summary>
     /// The application_live_view_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? ApplicationLiveViewEnabled
+    public TerraformValue<bool> ApplicationLiveViewEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("application_live_view_enabled");
+        get => GetArgument<TerraformValue<bool>>("application_live_view_enabled") ?? AsReference("application_live_view_enabled");
         set => SetArgument("application_live_view_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermSpringCloudDevToolPortal(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermSpringCloudDevToolPortal(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformValue<string> SpringCloudServiceId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_service_id");
         set => SetArgument("spring_cloud_service_id", value);
     }
 

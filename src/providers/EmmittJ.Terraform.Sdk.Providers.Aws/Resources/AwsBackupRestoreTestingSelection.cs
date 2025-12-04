@@ -50,7 +50,7 @@ public class AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlockStr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlockStr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlockStr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlockStr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsBackupRestoreTestingSelection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformValue<string> IamRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("iam_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
@@ -122,16 +122,16 @@ public partial class AwsBackupRestoreTestingSelection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The protected_resource_arns attribute.
     /// </summary>
-    public TerraformSet<string>? ProtectedResourceArns
+    public TerraformSet<string> ProtectedResourceArns
     {
-        get => GetArgument<TerraformSet<string>>("protected_resource_arns");
+        get => GetArgument<TerraformSet<string>>("protected_resource_arns") ?? AsReference("protected_resource_arns");
         set => SetArgument("protected_resource_arns", value);
     }
 
@@ -141,25 +141,25 @@ public partial class AwsBackupRestoreTestingSelection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectedResourceType is required")]
     public required TerraformValue<string> ProtectedResourceType
     {
-        get => GetArgument<TerraformValue<string>>("protected_resource_type");
+        get => GetRequiredArgument<TerraformValue<string>>("protected_resource_type");
         set => SetArgument("protected_resource_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The restore_metadata_overrides attribute.
     /// </summary>
-    public TerraformMap<string>? RestoreMetadataOverrides
+    public TerraformMap<string> RestoreMetadataOverrides
     {
-        get => GetArgument<TerraformMap<string>>("restore_metadata_overrides");
+        get => GetArgument<TerraformMap<string>>("restore_metadata_overrides") ?? AsReference("restore_metadata_overrides");
         set => SetArgument("restore_metadata_overrides", value);
     }
 
@@ -169,16 +169,16 @@ public partial class AwsBackupRestoreTestingSelection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestoreTestingPlanName is required")]
     public required TerraformValue<string> RestoreTestingPlanName
     {
-        get => GetArgument<TerraformValue<string>>("restore_testing_plan_name");
+        get => GetRequiredArgument<TerraformValue<string>>("restore_testing_plan_name");
         set => SetArgument("restore_testing_plan_name", value);
     }
 
     /// <summary>
     /// The validation_window_hours attribute.
     /// </summary>
-    public TerraformValue<double>? ValidationWindowHours
+    public TerraformValue<double> ValidationWindowHours
     {
-        get => GetArgument<TerraformValue<double>>("validation_window_hours");
+        get => GetArgument<TerraformValue<double>>("validation_window_hours") ?? AsReference("validation_window_hours");
         set => SetArgument("validation_window_hours", value);
     }
 

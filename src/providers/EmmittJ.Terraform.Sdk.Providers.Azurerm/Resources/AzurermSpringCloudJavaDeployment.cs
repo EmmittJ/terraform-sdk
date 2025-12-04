@@ -16,18 +16,18 @@ public class AzurermSpringCloudJavaDeploymentQuotaBlock : TerraformBlock
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    public TerraformValue<string>? Cpu
+    public TerraformValue<string> Cpu
     {
-        get => GetArgument<TerraformValue<string>>("cpu");
+        get => GetArgument<TerraformValue<string>>("cpu") ?? AsReference("cpu");
         set => SetArgument("cpu", value);
     }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    public TerraformValue<string>? Memory
+    public TerraformValue<string> Memory
     {
-        get => GetArgument<TerraformValue<string>>("memory");
+        get => GetArgument<TerraformValue<string>>("memory") ?? AsReference("memory");
         set => SetArgument("memory", value);
     }
 
@@ -102,9 +102,9 @@ public partial class AzurermSpringCloudJavaDeployment(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermSpringCloudJavaDeployment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermSpringCloudJavaDeployment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformValue<string> SpringCloudAppId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_app_id");
         set => SetArgument("spring_cloud_app_id", value);
     }
 

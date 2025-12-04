@@ -38,7 +38,7 @@ public class AwsFinspaceKxDataviewSegmentConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformValue<string> VolumeName
     {
-        get => GetArgument<TerraformValue<string>>("volume_name");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_name");
         set => SetArgument("volume_name", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoUpdate is required")]
     public required TerraformValue<bool> AutoUpdate
     {
-        get => GetArgument<TerraformValue<bool>>("auto_update");
+        get => GetRequiredArgument<TerraformValue<bool>>("auto_update");
         set => SetArgument("auto_update", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzMode is required")]
     public required TerraformValue<string> AzMode
     {
-        get => GetArgument<TerraformValue<string>>("az_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("az_mode");
         set => SetArgument("az_mode", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -155,16 +155,16 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformValue<string> EnvironmentId
     {
-        get => GetArgument<TerraformValue<string>>("environment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("environment_id");
         set => SetArgument("environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -190,9 +190,9 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -208,9 +208,9 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

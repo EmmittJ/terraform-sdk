@@ -61,9 +61,9 @@ public partial class AzurermMobileNetwork(string name) : TerraformResource("azur
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermMobileNetwork(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermMobileNetwork(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileCountryCode is required")]
     public required TerraformValue<string> MobileCountryCode
     {
-        get => GetArgument<TerraformValue<string>>("mobile_country_code");
+        get => GetRequiredArgument<TerraformValue<string>>("mobile_country_code");
         set => SetArgument("mobile_country_code", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermMobileNetwork(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkCode is required")]
     public required TerraformValue<string> MobileNetworkCode
     {
-        get => GetArgument<TerraformValue<string>>("mobile_network_code");
+        get => GetRequiredArgument<TerraformValue<string>>("mobile_network_code");
         set => SetArgument("mobile_network_code", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermMobileNetwork(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermMobileNetwork(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

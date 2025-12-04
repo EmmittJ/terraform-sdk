@@ -41,16 +41,16 @@ public class AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlockS3Conf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
     /// <summary>
     /// The encryption_option attribute.
     /// </summary>
-    public TerraformValue<string>? EncryptionOption
+    public TerraformValue<string> EncryptionOption
     {
-        get => GetArgument<TerraformValue<string>>("encryption_option");
+        get => GetArgument<TerraformValue<string>>("encryption_option") ?? AsReference("encryption_option");
         set => SetArgument("encryption_option", value);
     }
 
@@ -415,7 +415,7 @@ public class AwsTimestreamqueryScheduledQueryNotificationConfigurationBlockSnsCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformValue<string> TopicArn
     {
-        get => GetArgument<TerraformValue<string>>("topic_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -749,7 +749,7 @@ public class AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformValue<string> ScheduleExpression
     {
-        get => GetArgument<TerraformValue<string>>("schedule_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
@@ -795,7 +795,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -814,7 +814,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -824,7 +824,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeColumn is required")]
     public required TerraformValue<string> TimeColumn
     {
-        get => GetArgument<TerraformValue<string>>("time_column");
+        get => GetRequiredArgument<TerraformValue<string>>("time_column");
         set => SetArgument("time_column", value);
     }
 
@@ -874,7 +874,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DimensionValueType is required")]
     public required TerraformValue<string> DimensionValueType
     {
-        get => GetArgument<TerraformValue<string>>("dimension_value_type");
+        get => GetRequiredArgument<TerraformValue<string>>("dimension_value_type");
         set => SetArgument("dimension_value_type", value);
     }
 
@@ -884,7 +884,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -916,7 +916,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeasureValueType is required")]
     public required TerraformValue<string> MeasureValueType
     {
-        get => GetArgument<TerraformValue<string>>("measure_value_type");
+        get => GetRequiredArgument<TerraformValue<string>>("measure_value_type");
         set => SetArgument("measure_value_type", value);
     }
 
@@ -966,7 +966,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeasureValueType is required")]
     public required TerraformValue<string> MeasureValueType
     {
-        get => GetArgument<TerraformValue<string>>("measure_value_type");
+        get => GetRequiredArgument<TerraformValue<string>>("measure_value_type");
         set => SetArgument("measure_value_type", value);
     }
 
@@ -976,7 +976,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceColumn is required")]
     public required TerraformValue<string> SourceColumn
     {
-        get => GetArgument<TerraformValue<string>>("source_column");
+        get => GetRequiredArgument<TerraformValue<string>>("source_column");
         set => SetArgument("source_column", value);
     }
 
@@ -1039,7 +1039,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeasureValueType is required")]
     public required TerraformValue<string> MeasureValueType
     {
-        get => GetArgument<TerraformValue<string>>("measure_value_type");
+        get => GetRequiredArgument<TerraformValue<string>>("measure_value_type");
         set => SetArgument("measure_value_type", value);
     }
 
@@ -1049,7 +1049,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceColumn is required")]
     public required TerraformValue<string> SourceColumn
     {
-        get => GetArgument<TerraformValue<string>>("source_column");
+        get => GetRequiredArgument<TerraformValue<string>>("source_column");
         set => SetArgument("source_column", value);
     }
 
@@ -1118,7 +1118,7 @@ public partial class AwsTimestreamqueryScheduledQuery(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("execution_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
@@ -1137,7 +1137,7 @@ public partial class AwsTimestreamqueryScheduledQuery(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1147,16 +1147,16 @@ public partial class AwsTimestreamqueryScheduledQuery(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
     public required TerraformValue<string> QueryString
     {
-        get => GetArgument<TerraformValue<string>>("query_string");
+        get => GetRequiredArgument<TerraformValue<string>>("query_string");
         set => SetArgument("query_string", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

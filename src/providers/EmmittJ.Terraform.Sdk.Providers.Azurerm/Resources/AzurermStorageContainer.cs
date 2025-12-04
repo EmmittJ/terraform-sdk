@@ -70,9 +70,9 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
-    public TerraformValue<string>? DefaultEncryptionScope
+    public TerraformValue<string> DefaultEncryptionScope
     {
-        get => GetArgument<TerraformValue<string>>("default_encryption_scope");
+        get => GetArgument<TerraformValue<string>>("default_encryption_scope") ?? AsReference("default_encryption_scope");
         set => SetArgument("default_encryption_scope", value);
     }
 
@@ -88,18 +88,18 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformMap<string>? Metadata
+    public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

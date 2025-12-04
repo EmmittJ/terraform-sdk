@@ -61,18 +61,18 @@ public partial class AzurermLogAnalyticsLinkedService(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The read_access_id attribute.
     /// </summary>
-    public TerraformValue<string>? ReadAccessId
+    public TerraformValue<string> ReadAccessId
     {
-        get => GetArgument<TerraformValue<string>>("read_access_id");
+        get => GetArgument<TerraformValue<string>>("read_access_id") ?? AsReference("read_access_id");
         set => SetArgument("read_access_id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermLogAnalyticsLinkedService(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermLogAnalyticsLinkedService(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

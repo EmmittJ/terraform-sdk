@@ -16,7 +16,7 @@ public partial class GoogleIapClientDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Brand is required")]
     public required TerraformValue<string> Brand
     {
-        get => GetArgument<TerraformValue<string>>("brand");
+        get => GetRequiredArgument<TerraformValue<string>>("brand");
         set => SetArgument("brand", value);
     }
 
@@ -26,16 +26,16 @@ public partial class GoogleIapClientDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

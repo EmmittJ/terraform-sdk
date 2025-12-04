@@ -19,7 +19,7 @@ public class AwsResourceexplorer2ViewFiltersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterString is required")]
     public required TerraformValue<string> FilterString
     {
-        get => GetArgument<TerraformValue<string>>("filter_string");
+        get => GetRequiredArgument<TerraformValue<string>>("filter_string");
         set => SetArgument("filter_string", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsResourceexplorer2ViewIncludedPropertyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -59,9 +59,9 @@ public partial class AwsResourceexplorer2View(string name) : TerraformResource("
     /// <summary>
     /// The default_view attribute.
     /// </summary>
-    public TerraformValue<bool>? DefaultView
+    public TerraformValue<bool> DefaultView
     {
-        get => GetArgument<TerraformValue<bool>>("default_view");
+        get => GetArgument<TerraformValue<bool>>("default_view") ?? AsReference("default_view");
         set => SetArgument("default_view", value);
     }
 
@@ -71,25 +71,25 @@ public partial class AwsResourceexplorer2View(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformValue<string>? Scope
+    public TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetArgument<TerraformValue<string>>("scope") ?? AsReference("scope");
         set => SetArgument("scope", value);
     }
 

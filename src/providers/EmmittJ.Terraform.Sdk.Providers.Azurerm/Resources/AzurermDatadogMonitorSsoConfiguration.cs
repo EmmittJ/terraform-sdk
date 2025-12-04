@@ -64,7 +64,7 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogMonitorId is required")]
     public required TerraformValue<string> DatadogMonitorId
     {
-        get => GetArgument<TerraformValue<string>>("datadog_monitor_id");
+        get => GetRequiredArgument<TerraformValue<string>>("datadog_monitor_id");
         set => SetArgument("datadog_monitor_id", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnterpriseApplicationId is required")]
     public required TerraformValue<string> EnterpriseApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("enterprise_application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("enterprise_application_id");
         set => SetArgument("enterprise_application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -99,9 +99,9 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     /// <summary>
     /// The single_sign_on attribute.
     /// </summary>
-    public TerraformValue<string>? SingleSignOn
+    public TerraformValue<string> SingleSignOn
     {
-        get => GetArgument<TerraformValue<string>>("single_sign_on");
+        get => GetArgument<TerraformValue<string>>("single_sign_on") ?? AsReference("single_sign_on");
         set => SetArgument("single_sign_on", value);
     }
 
@@ -109,9 +109,9 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     /// The single_sign_on_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? SingleSignOnEnabled
+    public TerraformValue<string> SingleSignOnEnabled
     {
-        get => GetArgument<TerraformValue<string>>("single_sign_on_enabled");
+        get => GetArgument<TerraformValue<string>>("single_sign_on_enabled") ?? AsReference("single_sign_on_enabled");
         set => SetArgument("single_sign_on_enabled", value);
     }
 

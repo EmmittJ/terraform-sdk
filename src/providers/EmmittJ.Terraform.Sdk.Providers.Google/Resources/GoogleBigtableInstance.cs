@@ -19,16 +19,16 @@ public class GoogleBigtableInstanceClusterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// Describes the Cloud KMS encryption key that will be used to protect the destination Bigtable cluster. The requirements for this key are: 1) The Cloud Bigtable service account associated with the project that contains this cluster must be granted the cloudkms.cryptoKeyEncrypterDecrypter role on the CMEK key. 2) Only regional keys can be used and the region of the CMEK key must match the region of the cluster. 3) All clusters within an instance must use the same CMEK key. Values are of the form projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}
     /// </summary>
-    public TerraformValue<string>? KmsKeyName
+    public TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name") ?? AsReference("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -44,9 +44,9 @@ public class GoogleBigtableInstanceClusterBlock : TerraformBlock
     /// <summary>
     /// The number of nodes in the cluster. If no value is set, Cloud Bigtable automatically allocates nodes based on your data footprint and optimized for 50% storage utilization.
     /// </summary>
-    public TerraformValue<double>? NumNodes
+    public TerraformValue<double> NumNodes
     {
-        get => GetArgument<TerraformValue<double>>("num_nodes");
+        get => GetArgument<TerraformValue<double>>("num_nodes") ?? AsReference("num_nodes");
         set => SetArgument("num_nodes", value);
     }
 
@@ -68,9 +68,9 @@ public class GoogleBigtableInstanceClusterBlock : TerraformBlock
     /// <summary>
     /// The zone to create the Cloud Bigtable cluster in. Each cluster must have a different zone in the same region. Zones that support Bigtable instances are noted on the Cloud Bigtable locations page.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleBigtableInstanceClusterBlockAutoscalingConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuTarget is required")]
     public required TerraformValue<double> CpuTarget
     {
-        get => GetArgument<TerraformValue<double>>("cpu_target");
+        get => GetRequiredArgument<TerraformValue<double>>("cpu_target");
         set => SetArgument("cpu_target", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleBigtableInstanceClusterBlockAutoscalingConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodes is required")]
     public required TerraformValue<double> MaxNodes
     {
-        get => GetArgument<TerraformValue<double>>("max_nodes");
+        get => GetRequiredArgument<TerraformValue<double>>("max_nodes");
         set => SetArgument("max_nodes", value);
     }
 
@@ -123,16 +123,16 @@ public class GoogleBigtableInstanceClusterBlockAutoscalingConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodes is required")]
     public required TerraformValue<double> MinNodes
     {
-        get => GetArgument<TerraformValue<double>>("min_nodes");
+        get => GetRequiredArgument<TerraformValue<double>>("min_nodes");
         set => SetArgument("min_nodes", value);
     }
 
     /// <summary>
     /// The target storage utilization for autoscaling, in GB, for each node in a cluster. This number is limited between 2560 (2.5TiB) and 5120 (5TiB) for a SSD cluster and between 8192 (8TiB) and 16384 (16 TiB) for an HDD cluster. If not set, whatever is already set for the cluster will not change, or if the cluster is just being created, it will use the default value of 2560 for SSD clusters and 8192 for HDD clusters.
     /// </summary>
-    public TerraformValue<double>? StorageTarget
+    public TerraformValue<double> StorageTarget
     {
-        get => GetArgument<TerraformValue<double>>("storage_target");
+        get => GetArgument<TerraformValue<double>>("storage_target") ?? AsReference("storage_target");
         set => SetArgument("storage_target", value);
     }
 
@@ -198,9 +198,9 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     /// <summary>
     /// The human-readable display name of the Bigtable instance. Defaults to the instance name.
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -216,9 +216,9 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -250,16 +250,16 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

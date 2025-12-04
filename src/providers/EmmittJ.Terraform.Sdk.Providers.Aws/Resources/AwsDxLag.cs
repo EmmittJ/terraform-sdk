@@ -23,7 +23,7 @@ public partial class AwsDxLag(string name) : TerraformResource("aws_dx_lag", nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionsBandwidth is required")]
     public required TerraformValue<string> ConnectionsBandwidth
     {
-        get => GetArgument<TerraformValue<string>>("connections_bandwidth");
+        get => GetRequiredArgument<TerraformValue<string>>("connections_bandwidth");
         set => SetArgument("connections_bandwidth", value);
     }
 
@@ -39,9 +39,9 @@ public partial class AwsDxLag(string name) : TerraformResource("aws_dx_lag", nam
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsDxLag(string name) : TerraformResource("aws_dx_lag", nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -61,25 +61,25 @@ public partial class AwsDxLag(string name) : TerraformResource("aws_dx_lag", nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformValue<string>? ProviderName
+    public TerraformValue<string> ProviderName
     {
-        get => GetArgument<TerraformValue<string>>("provider_name");
+        get => GetArgument<TerraformValue<string>>("provider_name") ?? AsReference("provider_name");
         set => SetArgument("provider_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -95,9 +95,9 @@ public partial class AwsDxLag(string name) : TerraformResource("aws_dx_lag", nam
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -14,16 +14,16 @@ public partial class GoogleOracleDatabaseDbServersDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructure is required")]
     public required TerraformValue<string> CloudExadataInfrastructure
     {
-        get => GetArgument<TerraformValue<string>>("cloud_exadata_infrastructure");
+        get => GetRequiredArgument<TerraformValue<string>>("cloud_exadata_infrastructure");
         set => SetArgument("cloud_exadata_infrastructure", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleOracleDatabaseDbServersDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 

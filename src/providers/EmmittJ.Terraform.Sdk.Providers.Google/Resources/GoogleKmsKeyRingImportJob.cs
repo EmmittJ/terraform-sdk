@@ -43,9 +43,9 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportJobId is required")]
     public required TerraformValue<string> ImportJobId
     {
-        get => GetArgument<TerraformValue<string>>("import_job_id");
+        get => GetRequiredArgument<TerraformValue<string>>("import_job_id");
         set => SetArgument("import_job_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportMethod is required")]
     public required TerraformValue<string> ImportMethod
     {
-        get => GetArgument<TerraformValue<string>>("import_method");
+        get => GetRequiredArgument<TerraformValue<string>>("import_method");
         set => SetArgument("import_method", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformValue<string> KeyRing
     {
-        get => GetArgument<TerraformValue<string>>("key_ring");
+        get => GetRequiredArgument<TerraformValue<string>>("key_ring");
         set => SetArgument("key_ring", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionLevel is required")]
     public required TerraformValue<string> ProtectionLevel
     {
-        get => GetArgument<TerraformValue<string>>("protection_level");
+        get => GetRequiredArgument<TerraformValue<string>>("protection_level");
         set => SetArgument("protection_level", value);
     }
 

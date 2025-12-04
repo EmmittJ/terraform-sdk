@@ -69,16 +69,16 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityPoolId is required")]
     public required TerraformValue<string> CapacityPoolId
     {
-        get => GetArgument<TerraformValue<string>>("capacity_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("capacity_pool_id");
         set => SetArgument("capacity_pool_id", value);
     }
 
     /// <summary>
     /// The encryption_key_source attribute.
     /// </summary>
-    public TerraformValue<string>? EncryptionKeySource
+    public TerraformValue<string> EncryptionKeySource
     {
-        get => GetArgument<TerraformValue<string>>("encryption_key_source");
+        get => GetArgument<TerraformValue<string>>("encryption_key_source") ?? AsReference("encryption_key_source");
         set => SetArgument("encryption_key_source", value);
     }
 
@@ -91,9 +91,9 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     /// <summary>
     /// The key_vault_private_endpoint_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultPrivateEndpointId
+    public TerraformValue<string> KeyVaultPrivateEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_private_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_private_endpoint_id") ?? AsReference("key_vault_private_endpoint_id");
         set => SetArgument("key_vault_private_endpoint_id", value);
     }
 
@@ -109,16 +109,16 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The network_features attribute.
     /// </summary>
-    public TerraformValue<string>? NetworkFeatures
+    public TerraformValue<string> NetworkFeatures
     {
-        get => GetArgument<TerraformValue<string>>("network_features");
+        get => GetArgument<TerraformValue<string>>("network_features") ?? AsReference("network_features");
         set => SetArgument("network_features", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityStyle is required")]
     public required TerraformValue<string> SecurityStyle
     {
-        get => GetArgument<TerraformValue<string>>("security_style");
+        get => GetRequiredArgument<TerraformValue<string>>("security_style");
         set => SetArgument("security_style", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
     public required TerraformValue<string> ServiceLevel
     {
-        get => GetArgument<TerraformValue<string>>("service_level");
+        get => GetRequiredArgument<TerraformValue<string>>("service_level");
         set => SetArgument("service_level", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotDirectoryVisible is required")]
     public required TerraformValue<bool> SnapshotDirectoryVisible
     {
-        get => GetArgument<TerraformValue<bool>>("snapshot_directory_visible");
+        get => GetRequiredArgument<TerraformValue<bool>>("snapshot_directory_visible");
         set => SetArgument("snapshot_directory_visible", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageQuotaInGb is required")]
     public required TerraformValue<double> StorageQuotaInGb
     {
-        get => GetArgument<TerraformValue<double>>("storage_quota_in_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("storage_quota_in_gb");
         set => SetArgument("storage_quota_in_gb", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputInMibps is required")]
     public required TerraformValue<double> ThroughputInMibps
     {
-        get => GetArgument<TerraformValue<double>>("throughput_in_mibps");
+        get => GetRequiredArgument<TerraformValue<double>>("throughput_in_mibps");
         set => SetArgument("throughput_in_mibps", value);
     }
 
@@ -216,7 +216,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumePath is required")]
     public required TerraformValue<string> VolumePath
     {
-        get => GetArgument<TerraformValue<string>>("volume_path");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_path");
         set => SetArgument("volume_path", value);
     }
 
@@ -226,7 +226,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeSpecName is required")]
     public required TerraformValue<string> VolumeSpecName
     {
-        get => GetArgument<TerraformValue<string>>("volume_spec_name");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_spec_name");
         set => SetArgument("volume_spec_name", value);
     }
 
@@ -300,7 +300,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlockDataProtectionReplicationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeLocation is required")]
     public required TerraformValue<string> RemoteVolumeLocation
     {
-        get => GetArgument<TerraformValue<string>>("remote_volume_location");
+        get => GetRequiredArgument<TerraformValue<string>>("remote_volume_location");
         set => SetArgument("remote_volume_location", value);
     }
 
@@ -310,7 +310,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlockDataProtectionReplicationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeResourceId is required")]
     public required TerraformValue<string> RemoteVolumeResourceId
     {
-        get => GetArgument<TerraformValue<string>>("remote_volume_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("remote_volume_resource_id");
         set => SetArgument("remote_volume_resource_id", value);
     }
 
@@ -320,7 +320,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlockDataProtectionReplicationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFrequency is required")]
     public required TerraformValue<string> ReplicationFrequency
     {
-        get => GetArgument<TerraformValue<string>>("replication_frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("replication_frequency");
         set => SetArgument("replication_frequency", value);
     }
 
@@ -343,7 +343,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlockDataProtectionSnapshotPoli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotPolicyId is required")]
     public required TerraformValue<string> SnapshotPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("snapshot_policy_id");
         set => SetArgument("snapshot_policy_id", value);
     }
 
@@ -366,7 +366,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlockExportPolicyRuleBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedClients is required")]
     public required TerraformValue<string> AllowedClients
     {
-        get => GetArgument<TerraformValue<string>>("allowed_clients");
+        get => GetRequiredArgument<TerraformValue<string>>("allowed_clients");
         set => SetArgument("allowed_clients", value);
     }
 
@@ -376,7 +376,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlockExportPolicyRuleBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Nfsv3Enabled is required")]
     public required TerraformValue<bool> Nfsv3Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("nfsv3_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("nfsv3_enabled");
         set => SetArgument("nfsv3_enabled", value);
     }
 
@@ -386,7 +386,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlockExportPolicyRuleBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Nfsv41Enabled is required")]
     public required TerraformValue<bool> Nfsv41Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("nfsv41_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("nfsv41_enabled");
         set => SetArgument("nfsv41_enabled", value);
     }
 
@@ -405,7 +405,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlockExportPolicyRuleBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleIndex is required")]
     public required TerraformValue<double> RuleIndex
     {
-        get => GetArgument<TerraformValue<double>>("rule_index");
+        get => GetRequiredArgument<TerraformValue<double>>("rule_index");
         set => SetArgument("rule_index", value);
     }
 
@@ -442,7 +442,7 @@ public partial class AzurermNetappVolumeGroupOracle(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -452,7 +452,7 @@ public partial class AzurermNetappVolumeGroupOracle(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationIdentifier is required")]
     public required TerraformValue<string> ApplicationIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("application_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("application_identifier");
         set => SetArgument("application_identifier", value);
     }
 
@@ -462,16 +462,16 @@ public partial class AzurermNetappVolumeGroupOracle(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupDescription is required")]
     public required TerraformValue<string> GroupDescription
     {
-        get => GetArgument<TerraformValue<string>>("group_description");
+        get => GetRequiredArgument<TerraformValue<string>>("group_description");
         set => SetArgument("group_description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -481,7 +481,7 @@ public partial class AzurermNetappVolumeGroupOracle(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -491,7 +491,7 @@ public partial class AzurermNetappVolumeGroupOracle(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -501,7 +501,7 @@ public partial class AzurermNetappVolumeGroupOracle(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

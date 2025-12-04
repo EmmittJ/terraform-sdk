@@ -61,18 +61,18 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The managed_disk attribute.
     /// </summary>
-    public TerraformSet<TerraformMap<object>>? ManagedDisk
+    public TerraformSet<TerraformMap<object>> ManagedDisk
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("managed_disk");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("managed_disk") ?? AsReference("managed_disk");
         set => SetArgument("managed_disk", value);
     }
 
@@ -91,16 +91,16 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
-    public TerraformSet<TerraformMap<object>>? NetworkInterface
+    public TerraformSet<TerraformMap<object>> NetworkInterface
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("network_interface");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("network_interface") ?? AsReference("network_interface");
         set => SetArgument("network_interface", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryReplicationPolicyId is required")]
     public required TerraformValue<string> RecoveryReplicationPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("recovery_replication_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_replication_policy_id");
         set => SetArgument("recovery_replication_policy_id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformValue<string> RecoveryVaultName
     {
-        get => GetArgument<TerraformValue<string>>("recovery_vault_name");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_vault_name");
         set => SetArgument("recovery_vault_name", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryFabricName is required")]
     public required TerraformValue<string> SourceRecoveryFabricName
     {
-        get => GetArgument<TerraformValue<string>>("source_recovery_fabric_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_recovery_fabric_name");
         set => SetArgument("source_recovery_fabric_name", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryProtectionContainerName is required")]
     public required TerraformValue<string> SourceRecoveryProtectionContainerName
     {
-        get => GetArgument<TerraformValue<string>>("source_recovery_protection_container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_recovery_protection_container_name");
         set => SetArgument("source_recovery_protection_container_name", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVmId is required")]
     public required TerraformValue<string> SourceVmId
     {
-        get => GetArgument<TerraformValue<string>>("source_vm_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_vm_id");
         set => SetArgument("source_vm_id", value);
     }
 
@@ -203,9 +203,9 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     /// <summary>
     /// The target_network_id attribute.
     /// </summary>
-    public TerraformValue<string>? TargetNetworkId
+    public TerraformValue<string> TargetNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("target_network_id");
+        get => GetArgument<TerraformValue<string>>("target_network_id") ?? AsReference("target_network_id");
         set => SetArgument("target_network_id", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryFabricId is required")]
     public required TerraformValue<string> TargetRecoveryFabricId
     {
-        get => GetArgument<TerraformValue<string>>("target_recovery_fabric_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_recovery_fabric_id");
         set => SetArgument("target_recovery_fabric_id", value);
     }
 
@@ -234,7 +234,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryProtectionContainerId is required")]
     public required TerraformValue<string> TargetRecoveryProtectionContainerId
     {
-        get => GetArgument<TerraformValue<string>>("target_recovery_protection_container_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_recovery_protection_container_id");
         set => SetArgument("target_recovery_protection_container_id", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceGroupId is required")]
     public required TerraformValue<string> TargetResourceGroupId
     {
-        get => GetArgument<TerraformValue<string>>("target_resource_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_resource_group_id");
         set => SetArgument("target_resource_group_id", value);
     }
 
@@ -260,9 +260,9 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     /// <summary>
     /// The target_virtual_machine_size attribute.
     /// </summary>
-    public TerraformValue<string>? TargetVirtualMachineSize
+    public TerraformValue<string> TargetVirtualMachineSize
     {
-        get => GetArgument<TerraformValue<string>>("target_virtual_machine_size");
+        get => GetArgument<TerraformValue<string>>("target_virtual_machine_size") ?? AsReference("target_virtual_machine_size");
         set => SetArgument("target_virtual_machine_size", value);
     }
 
@@ -278,18 +278,18 @@ public partial class AzurermSiteRecoveryReplicatedVm(string name) : TerraformRes
     /// <summary>
     /// The test_network_id attribute.
     /// </summary>
-    public TerraformValue<string>? TestNetworkId
+    public TerraformValue<string> TestNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("test_network_id");
+        get => GetArgument<TerraformValue<string>>("test_network_id") ?? AsReference("test_network_id");
         set => SetArgument("test_network_id", value);
     }
 
     /// <summary>
     /// The unmanaged_disk attribute.
     /// </summary>
-    public TerraformSet<TerraformMap<object>>? UnmanagedDisk
+    public TerraformSet<TerraformMap<object>> UnmanagedDisk
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("unmanaged_disk");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("unmanaged_disk") ?? AsReference("unmanaged_disk");
         set => SetArgument("unmanaged_disk", value);
     }
 

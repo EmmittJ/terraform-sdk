@@ -64,16 +64,16 @@ public partial class AzurermEventhubNamespaceCustomerManagedKey(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceId is required")]
     public required TerraformValue<string> EventhubNamespaceId
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_namespace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_namespace_id");
         set => SetArgument("eventhub_namespace_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermEventhubNamespaceCustomerManagedKey(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyIds is required")]
     public required TerraformSet<string> KeyVaultKeyIds
     {
-        get => GetArgument<TerraformSet<string>>("key_vault_key_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("key_vault_key_ids");
         set => SetArgument("key_vault_key_ids", value);
     }
 

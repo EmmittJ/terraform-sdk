@@ -61,9 +61,9 @@ public partial class GoogleParameterManagerRegionalParameterVersion(string name)
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleParameterManagerRegionalParameterVersion(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
     public required TerraformValue<string> Parameter
     {
-        get => GetArgument<TerraformValue<string>>("parameter");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter");
         set => SetArgument("parameter", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleParameterManagerRegionalParameterVersion(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterData is required")]
     public required TerraformValue<string> ParameterData
     {
-        get => GetArgument<TerraformValue<string>>("parameter_data");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_data");
         set => SetArgument("parameter_data", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleParameterManagerRegionalParameterVersion(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
     public required TerraformValue<string> ParameterVersionId
     {
-        get => GetArgument<TerraformValue<string>>("parameter_version_id");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_version_id");
         set => SetArgument("parameter_version_id", value);
     }
 

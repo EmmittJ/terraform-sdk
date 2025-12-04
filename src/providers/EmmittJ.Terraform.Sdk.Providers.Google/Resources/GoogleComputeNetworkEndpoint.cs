@@ -43,9 +43,9 @@ public partial class GoogleComputeNetworkEndpoint(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -68,7 +68,7 @@ public partial class GoogleComputeNetworkEndpoint(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -78,7 +78,7 @@ public partial class GoogleComputeNetworkEndpoint(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkEndpointGroup is required")]
     public required TerraformValue<string> NetworkEndpointGroup
     {
-        get => GetArgument<TerraformValue<string>>("network_endpoint_group");
+        get => GetRequiredArgument<TerraformValue<string>>("network_endpoint_group");
         set => SetArgument("network_endpoint_group", value);
     }
 
@@ -96,18 +96,18 @@ public partial class GoogleComputeNetworkEndpoint(string name) : TerraformResour
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Zone where the containing network endpoint group is located.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

@@ -43,7 +43,7 @@ public class AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameters is required")]
     public required TerraformMap<string> Parameters
     {
-        get => GetArgument<TerraformMap<string>>("parameters");
+        get => GetRequiredArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -53,16 +53,16 @@ public class AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
     /// <summary>
     /// The type_version attribute.
     /// </summary>
-    public TerraformValue<string>? TypeVersion
+    public TerraformValue<string> TypeVersion
     {
-        get => GetArgument<TerraformValue<string>>("type_version");
+        get => GetArgument<TerraformValue<string>>("type_version") ?? AsReference("type_version");
         set => SetArgument("type_version", value);
     }
 
@@ -119,9 +119,9 @@ public partial class AwsSsmquicksetupConfigurationManager(string name) : Terrafo
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
@@ -131,16 +131,16 @@ public partial class AwsSsmquicksetupConfigurationManager(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

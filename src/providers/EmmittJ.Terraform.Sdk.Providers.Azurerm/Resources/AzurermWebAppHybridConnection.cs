@@ -64,16 +64,16 @@ public partial class AzurermWebAppHybridConnection(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermWebAppHybridConnection(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermWebAppHybridConnection(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelayId is required")]
     public required TerraformValue<string> RelayId
     {
-        get => GetArgument<TerraformValue<string>>("relay_id");
+        get => GetRequiredArgument<TerraformValue<string>>("relay_id");
         set => SetArgument("relay_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermWebAppHybridConnection(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAppId is required")]
     public required TerraformValue<string> WebAppId
     {
-        get => GetArgument<TerraformValue<string>>("web_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("web_app_id");
         set => SetArgument("web_app_id", value);
     }
 

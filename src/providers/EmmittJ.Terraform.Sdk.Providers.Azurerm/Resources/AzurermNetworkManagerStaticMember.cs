@@ -52,9 +52,9 @@ public partial class AzurermNetworkManagerStaticMember(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermNetworkManagerStaticMember(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermNetworkManagerStaticMember(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupId is required")]
     public required TerraformValue<string> NetworkGroupId
     {
-        get => GetArgument<TerraformValue<string>>("network_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_group_id");
         set => SetArgument("network_group_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermNetworkManagerStaticMember(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVirtualNetworkId is required")]
     public required TerraformValue<string> TargetVirtualNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("target_virtual_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_virtual_network_id");
         set => SetArgument("target_virtual_network_id", value);
     }
 

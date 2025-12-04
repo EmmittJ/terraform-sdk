@@ -19,7 +19,7 @@ public class GoogleDataplexZoneDiscoverySpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -44,9 +44,9 @@ public class GoogleDataplexZoneDiscoverySpecBlock : TerraformBlock
     /// <summary>
     /// Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running discovery periodically. Successive discovery runs must be scheduled at least 60 minutes apart. The default value is to run discovery every 60 minutes. To explicitly set a timezone to the cron tab, apply a prefix in the cron tab: &amp;quot;CRON_TZ=${IANA_TIME_ZONE}&amp;quot; or TZ=${IANA_TIME_ZONE}&amp;quot;. The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone database. For example, &amp;quot;CRON_TZ=America/New_York 1 * * * *&amp;quot;, or &amp;quot;TZ=America/New_York 1 * * * *&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? Schedule
+    public TerraformValue<string> Schedule
     {
-        get => GetArgument<TerraformValue<string>>("schedule");
+        get => GetArgument<TerraformValue<string>>("schedule") ?? AsReference("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleDataplexZoneResourceSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationType is required")]
     public required TerraformValue<string> LocationType
     {
-        get => GetArgument<TerraformValue<string>>("location_type");
+        get => GetRequiredArgument<TerraformValue<string>>("location_type");
         set => SetArgument("location_type", value);
     }
 
@@ -245,9 +245,9 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -269,7 +269,7 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
     public required TerraformValue<string> Lake
     {
-        get => GetArgument<TerraformValue<string>>("lake");
+        get => GetRequiredArgument<TerraformValue<string>>("lake");
         set => SetArgument("lake", value);
     }
 
@@ -279,7 +279,7 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -289,16 +289,16 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -308,7 +308,7 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

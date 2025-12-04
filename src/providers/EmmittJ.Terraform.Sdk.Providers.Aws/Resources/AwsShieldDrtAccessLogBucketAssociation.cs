@@ -46,7 +46,7 @@ public partial class AwsShieldDrtAccessLogBucketAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogBucket is required")]
     public required TerraformValue<string> LogBucket
     {
-        get => GetArgument<TerraformValue<string>>("log_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("log_bucket");
         set => SetArgument("log_bucket", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsShieldDrtAccessLogBucketAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArnAssociationId is required")]
     public required TerraformValue<string> RoleArnAssociationId
     {
-        get => GetArgument<TerraformValue<string>>("role_arn_association_id");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn_association_id");
         set => SetArgument("role_arn_association_id", value);
     }
 

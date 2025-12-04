@@ -564,7 +564,7 @@ public class GoogleDialogflowCxFlowEventHandlersBlockTriggerFulfillmentBlockMess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AudioUri is required")]
     public required TerraformValue<string> AudioUri
     {
-        get => GetArgument<TerraformValue<string>>("audio_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("audio_uri");
         set => SetArgument("audio_uri", value);
     }
 
@@ -587,7 +587,7 @@ public class GoogleDialogflowCxFlowEventHandlersBlockTriggerFulfillmentBlockMess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -1299,7 +1299,7 @@ public class GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlockTriggerFulfill
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AudioUri is required")]
     public required TerraformValue<string> AudioUri
     {
-        get => GetArgument<TerraformValue<string>>("audio_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("audio_uri");
         set => SetArgument("audio_uri", value);
     }
 
@@ -1322,7 +1322,7 @@ public class GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlockTriggerFulfill
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -1830,7 +1830,7 @@ public class GoogleDialogflowCxFlowTransitionRoutesBlockTriggerFulfillmentBlockM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AudioUri is required")]
     public required TerraformValue<string> AudioUri
     {
-        get => GetArgument<TerraformValue<string>>("audio_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("audio_uri");
         set => SetArgument("audio_uri", value);
     }
 
@@ -1853,7 +1853,7 @@ public class GoogleDialogflowCxFlowTransitionRoutesBlockTriggerFulfillmentBlockM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -1940,16 +1940,16 @@ public partial class GoogleDialogflowCxFlow(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

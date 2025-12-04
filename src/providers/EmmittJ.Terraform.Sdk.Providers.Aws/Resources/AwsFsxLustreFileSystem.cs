@@ -28,7 +28,7 @@ public class AwsFsxLustreFileSystemDataReadCacheConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizingMode is required")]
     public required TerraformValue<string> SizingMode
     {
-        get => GetArgument<TerraformValue<string>>("sizing_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("sizing_mode");
         set => SetArgument("sizing_mode", value);
     }
 
@@ -49,9 +49,9 @@ public class AwsFsxLustreFileSystemLogConfigurationBlock : TerraformBlock
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    public TerraformValue<string>? Destination
+    public TerraformValue<string> Destination
     {
-        get => GetArgument<TerraformValue<string>>("destination");
+        get => GetArgument<TerraformValue<string>>("destination") ?? AsReference("destination");
         set => SetArgument("destination", value);
     }
 
@@ -81,18 +81,18 @@ public class AwsFsxLustreFileSystemMetadataConfigurationBlock : TerraformBlock
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformValue<string>? Mode
+    public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -181,18 +181,18 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// <summary>
     /// The auto_import_policy attribute.
     /// </summary>
-    public TerraformValue<string>? AutoImportPolicy
+    public TerraformValue<string> AutoImportPolicy
     {
-        get => GetArgument<TerraformValue<string>>("auto_import_policy");
+        get => GetArgument<TerraformValue<string>>("auto_import_policy") ?? AsReference("auto_import_policy");
         set => SetArgument("auto_import_policy", value);
     }
 
     /// <summary>
     /// The automatic_backup_retention_days attribute.
     /// </summary>
-    public TerraformValue<double>? AutomaticBackupRetentionDays
+    public TerraformValue<double> AutomaticBackupRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("automatic_backup_retention_days");
+        get => GetArgument<TerraformValue<double>>("automatic_backup_retention_days") ?? AsReference("automatic_backup_retention_days");
         set => SetArgument("automatic_backup_retention_days", value);
     }
 
@@ -217,9 +217,9 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public TerraformValue<string>? DailyAutomaticBackupStartTime
+    public TerraformValue<string> DailyAutomaticBackupStartTime
     {
-        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time");
+        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time") ?? AsReference("daily_automatic_backup_start_time");
         set => SetArgument("daily_automatic_backup_start_time", value);
     }
 
@@ -253,27 +253,27 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// <summary>
     /// The efa_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? EfaEnabled
+    public TerraformValue<bool> EfaEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("efa_enabled");
+        get => GetArgument<TerraformValue<bool>>("efa_enabled") ?? AsReference("efa_enabled");
         set => SetArgument("efa_enabled", value);
     }
 
     /// <summary>
     /// The export_path attribute.
     /// </summary>
-    public TerraformValue<string>? ExportPath
+    public TerraformValue<string> ExportPath
     {
-        get => GetArgument<TerraformValue<string>>("export_path");
+        get => GetArgument<TerraformValue<string>>("export_path") ?? AsReference("export_path");
         set => SetArgument("export_path", value);
     }
 
     /// <summary>
     /// The file_system_type_version attribute.
     /// </summary>
-    public TerraformValue<string>? FileSystemTypeVersion
+    public TerraformValue<string> FileSystemTypeVersion
     {
-        get => GetArgument<TerraformValue<string>>("file_system_type_version");
+        get => GetArgument<TerraformValue<string>>("file_system_type_version") ?? AsReference("file_system_type_version");
         set => SetArgument("file_system_type_version", value);
     }
 
@@ -289,9 +289,9 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -307,18 +307,18 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// <summary>
     /// The imported_file_chunk_size attribute.
     /// </summary>
-    public TerraformValue<double>? ImportedFileChunkSize
+    public TerraformValue<double> ImportedFileChunkSize
     {
-        get => GetArgument<TerraformValue<double>>("imported_file_chunk_size");
+        get => GetArgument<TerraformValue<double>>("imported_file_chunk_size") ?? AsReference("imported_file_chunk_size");
         set => SetArgument("imported_file_chunk_size", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -334,9 +334,9 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -398,9 +398,9 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -416,9 +416,9 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public TerraformValue<string>? WeeklyMaintenanceStartTime
+    public TerraformValue<string> WeeklyMaintenanceStartTime
     {
-        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time") ?? AsReference("weekly_maintenance_start_time");
         set => SetArgument("weekly_maintenance_start_time", value);
     }
 

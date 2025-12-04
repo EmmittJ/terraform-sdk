@@ -55,16 +55,16 @@ public partial class AzurermVirtualDesktopWorkspaceApplicationGroupAssociation(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationGroupId is required")]
     public required TerraformValue<string> ApplicationGroupId
     {
-        get => GetArgument<TerraformValue<string>>("application_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_group_id");
         set => SetArgument("application_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermVirtualDesktopWorkspaceApplicationGroupAssociation(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsS3BucketLoggingTargetGrantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformValue<string> Permission
     {
-        get => GetArgument<TerraformValue<string>>("permission");
+        get => GetRequiredArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsS3BucketLoggingTargetGrantBlockGranteeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsS3BucketLoggingTargetObjectKeyFormatBlockPartitionedPrefixBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionDateSource is required")]
     public required TerraformValue<string> PartitionDateSource
     {
-        get => GetArgument<TerraformValue<string>>("partition_date_source");
+        get => GetRequiredArgument<TerraformValue<string>>("partition_date_source");
         set => SetArgument("partition_date_source", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsS3BucketLogging(string name) : TerraformResource("aws_s3
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -194,18 +194,18 @@ public partial class AwsS3BucketLogging(string name) : TerraformResource("aws_s3
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AwsS3BucketLogging(string name) : TerraformResource("aws_s3
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetBucket is required")]
     public required TerraformValue<string> TargetBucket
     {
-        get => GetArgument<TerraformValue<string>>("target_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("target_bucket");
         set => SetArgument("target_bucket", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AwsS3BucketLogging(string name) : TerraformResource("aws_s3
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPrefix is required")]
     public required TerraformValue<string> TargetPrefix
     {
-        get => GetArgument<TerraformValue<string>>("target_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("target_prefix");
         set => SetArgument("target_prefix", value);
     }
 

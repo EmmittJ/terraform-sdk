@@ -64,7 +64,7 @@ public partial class AzurermCdnFrontdoorCustomDomainAssociation(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorCustomDomainId is required")]
     public required TerraformValue<string> CdnFrontdoorCustomDomainId
     {
-        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_custom_domain_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cdn_frontdoor_custom_domain_id");
         set => SetArgument("cdn_frontdoor_custom_domain_id", value);
     }
 
@@ -81,9 +81,9 @@ public partial class AzurermCdnFrontdoorCustomDomainAssociation(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

@@ -80,9 +80,9 @@ public class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock : TerraformBlock
     /// <summary>
     /// For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge requests for this site will return nocaptcha if NOCAPTCHA, or an unsolvable challenge if UNSOLVABLE_CHALLENGE. Possible values: TESTING_CHALLENGE_UNSPECIFIED, NOCAPTCHA, UNSOLVABLE_CHALLENGE
     /// </summary>
-    public TerraformValue<string>? TestingChallenge
+    public TerraformValue<string> TestingChallenge
     {
-        get => GetArgument<TerraformValue<string>>("testing_challenge");
+        get => GetArgument<TerraformValue<string>>("testing_challenge") ?? AsReference("testing_challenge");
         set => SetArgument("testing_challenge", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WafFeature is required")]
     public required TerraformValue<string> WafFeature
     {
-        get => GetArgument<TerraformValue<string>>("waf_feature");
+        get => GetRequiredArgument<TerraformValue<string>>("waf_feature");
         set => SetArgument("waf_feature", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WafService is required")]
     public required TerraformValue<string> WafService
     {
-        get => GetArgument<TerraformValue<string>>("waf_service");
+        get => GetRequiredArgument<TerraformValue<string>>("waf_service");
         set => SetArgument("waf_service", value);
     }
 
@@ -214,9 +214,9 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     /// <summary>
     /// Settings for the frequency and difficulty at which this key triggers captcha challenges. This should only be specified for IntegrationTypes CHECKBOX and INVISIBLE. Possible values: CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED, USABILITY, BALANCE, SECURITY
     /// </summary>
-    public TerraformValue<string>? ChallengeSecurityPreference
+    public TerraformValue<string> ChallengeSecurityPreference
     {
-        get => GetArgument<TerraformValue<string>>("challenge_security_preference");
+        get => GetArgument<TerraformValue<string>>("challenge_security_preference") ?? AsReference("challenge_security_preference");
         set => SetArgument("challenge_security_preference", value);
     }
 
@@ -226,7 +226,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationType is required")]
     public required TerraformValue<string> IntegrationType
     {
-        get => GetArgument<TerraformValue<string>>("integration_type");
+        get => GetRequiredArgument<TerraformValue<string>>("integration_type");
         set => SetArgument("integration_type", value);
     }
 
@@ -245,16 +245,16 @@ public partial class GoogleRecaptchaEnterpriseKey(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -273,9 +273,9 @@ public partial class GoogleRecaptchaEnterpriseKey(string name) : TerraformResour
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

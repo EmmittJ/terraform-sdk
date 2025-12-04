@@ -14,16 +14,16 @@ public partial class GoogleProjectOrganizationPolicyDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
     public required TerraformValue<string> Constraint
     {
-        get => GetArgument<TerraformValue<string>>("constraint");
+        get => GetRequiredArgument<TerraformValue<string>>("constraint");
         set => SetArgument("constraint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleProjectOrganizationPolicyDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 

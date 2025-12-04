@@ -11,18 +11,18 @@ public partial class GoogleOrganizationDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformValue<string>? Domain
+    public TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetArgument<TerraformValue<string>>("domain") ?? AsReference("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

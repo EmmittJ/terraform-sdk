@@ -19,25 +19,25 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingGroupArn is required")]
     public required TerraformValue<string> AutoScalingGroupArn
     {
-        get => GetArgument<TerraformValue<string>>("auto_scaling_group_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("auto_scaling_group_arn");
         set => SetArgument("auto_scaling_group_arn", value);
     }
 
     /// <summary>
     /// The managed_draining attribute.
     /// </summary>
-    public TerraformValue<string>? ManagedDraining
+    public TerraformValue<string> ManagedDraining
     {
-        get => GetArgument<TerraformValue<string>>("managed_draining");
+        get => GetArgument<TerraformValue<string>>("managed_draining") ?? AsReference("managed_draining");
         set => SetArgument("managed_draining", value);
     }
 
     /// <summary>
     /// The managed_termination_protection attribute.
     /// </summary>
-    public TerraformValue<string>? ManagedTerminationProtection
+    public TerraformValue<string> ManagedTerminationProtection
     {
-        get => GetArgument<TerraformValue<string>>("managed_termination_protection");
+        get => GetArgument<TerraformValue<string>>("managed_termination_protection") ?? AsReference("managed_termination_protection");
         set => SetArgument("managed_termination_protection", value);
     }
 
@@ -67,45 +67,45 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlockManagedScalingBl
     /// <summary>
     /// The instance_warmup_period attribute.
     /// </summary>
-    public TerraformValue<double>? InstanceWarmupPeriod
+    public TerraformValue<double> InstanceWarmupPeriod
     {
-        get => GetArgument<TerraformValue<double>>("instance_warmup_period");
+        get => GetArgument<TerraformValue<double>>("instance_warmup_period") ?? AsReference("instance_warmup_period");
         set => SetArgument("instance_warmup_period", value);
     }
 
     /// <summary>
     /// The maximum_scaling_step_size attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumScalingStepSize
+    public TerraformValue<double> MaximumScalingStepSize
     {
-        get => GetArgument<TerraformValue<double>>("maximum_scaling_step_size");
+        get => GetArgument<TerraformValue<double>>("maximum_scaling_step_size") ?? AsReference("maximum_scaling_step_size");
         set => SetArgument("maximum_scaling_step_size", value);
     }
 
     /// <summary>
     /// The minimum_scaling_step_size attribute.
     /// </summary>
-    public TerraformValue<double>? MinimumScalingStepSize
+    public TerraformValue<double> MinimumScalingStepSize
     {
-        get => GetArgument<TerraformValue<double>>("minimum_scaling_step_size");
+        get => GetArgument<TerraformValue<double>>("minimum_scaling_step_size") ?? AsReference("minimum_scaling_step_size");
         set => SetArgument("minimum_scaling_step_size", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string>? Status
+    public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
         set => SetArgument("status", value);
     }
 
     /// <summary>
     /// The target_capacity attribute.
     /// </summary>
-    public TerraformValue<double>? TargetCapacity
+    public TerraformValue<double> TargetCapacity
     {
-        get => GetArgument<TerraformValue<double>>("target_capacity");
+        get => GetArgument<TerraformValue<double>>("target_capacity") ?? AsReference("target_capacity");
         set => SetArgument("target_capacity", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureRoleArn is required")]
     public required TerraformValue<string> InfrastructureRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("infrastructure_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("infrastructure_role_arn");
         set => SetArgument("infrastructure_role_arn", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2InstanceProfileArn is required")]
     public required TerraformValue<string> Ec2InstanceProfileArn
     {
-        get => GetArgument<TerraformValue<string>>("ec2_instance_profile_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("ec2_instance_profile_arn");
         set => SetArgument("ec2_instance_profile_arn", value);
     }
 
@@ -616,7 +616,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => GetArgument<TerraformValue<double>>("min");
+        get => GetRequiredArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -741,7 +741,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => GetArgument<TerraformValue<double>>("min");
+        get => GetRequiredArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -773,7 +773,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => GetArgument<TerraformSet<string>>("subnets");
+        get => GetRequiredArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -796,7 +796,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSizeGib is required")]
     public required TerraformValue<double> StorageSizeGib
     {
-        get => GetArgument<TerraformValue<double>>("storage_size_gib");
+        get => GetRequiredArgument<TerraformValue<double>>("storage_size_gib");
         set => SetArgument("storage_size_gib", value);
     }
 
@@ -821,9 +821,9 @@ public partial class AwsEcsCapacityProvider(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -833,16 +833,16 @@ public partial class AwsEcsCapacityProvider(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -858,9 +858,9 @@ public partial class AwsEcsCapacityProvider(string name) : TerraformResource("aw
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

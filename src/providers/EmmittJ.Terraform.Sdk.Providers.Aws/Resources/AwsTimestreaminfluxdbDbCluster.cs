@@ -41,7 +41,7 @@ public class AwsTimestreaminfluxdbDbClusterLogDeliveryConfigurationBlockS3Config
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsTimestreaminfluxdbDbClusterLogDeliveryConfigurationBlockS3Config
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocatedStorage is required")]
     public required TerraformValue<double> AllocatedStorage
     {
-        get => GetArgument<TerraformValue<double>>("allocated_storage");
+        get => GetRequiredArgument<TerraformValue<double>>("allocated_storage");
         set => SetArgument("allocated_storage", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceType is required")]
     public required TerraformValue<string> DbInstanceType
     {
-        get => GetArgument<TerraformValue<string>>("db_instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("db_instance_type");
         set => SetArgument("db_instance_type", value);
     }
 
@@ -154,18 +154,18 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// 					to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, 
     /// 					Influx IO Included 16000 IOPS.
     /// </summary>
-    public TerraformValue<string>? DbStorageType
+    public TerraformValue<string> DbStorageType
     {
-        get => GetArgument<TerraformValue<string>>("db_storage_type");
+        get => GetArgument<TerraformValue<string>>("db_storage_type") ?? AsReference("db_storage_type");
         set => SetArgument("db_storage_type", value);
     }
 
     /// <summary>
     /// Specifies the type of cluster to create.
     /// </summary>
-    public TerraformValue<string>? DeploymentType
+    public TerraformValue<string> DeploymentType
     {
-        get => GetArgument<TerraformValue<string>>("deployment_type");
+        get => GetArgument<TerraformValue<string>>("deployment_type") ?? AsReference("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -173,9 +173,9 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// Specifies the behavior of failure recovery when the primary node of the cluster
     /// 					fails.
     /// </summary>
-    public TerraformValue<string>? FailoverMode
+    public TerraformValue<string> FailoverMode
     {
-        get => GetArgument<TerraformValue<string>>("failover_mode");
+        get => GetArgument<TerraformValue<string>>("failover_mode") ?? AsReference("failover_mode");
         set => SetArgument("failover_mode", value);
     }
 
@@ -188,7 +188,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -197,9 +197,9 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// 					IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate 
     /// 					over both IPv4 and IPv6 protocols.
     /// </summary>
-    public TerraformValue<string>? NetworkType
+    public TerraformValue<string> NetworkType
     {
-        get => GetArgument<TerraformValue<string>>("network_type");
+        get => GetArgument<TerraformValue<string>>("network_type") ?? AsReference("network_type");
         set => SetArgument("network_type", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => GetArgument<TerraformValue<string>>("organization");
+        get => GetRequiredArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -223,34 +223,34 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
     /// <summary>
     /// The port number on which InfluxDB accepts connections.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// Configures the Timestream for InfluxDB cluster with a public IP to facilitate access.
     /// </summary>
-    public TerraformValue<bool>? PubliclyAccessible
+    public TerraformValue<bool> PubliclyAccessible
     {
-        get => GetArgument<TerraformValue<bool>>("publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible") ?? AsReference("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -275,7 +275,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -285,7 +285,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSecurityGroupIds is required")]
     public required TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -296,7 +296,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
     public required TerraformSet<string> VpcSubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("vpc_subnet_ids");
         set => SetArgument("vpc_subnet_ids", value);
     }
 

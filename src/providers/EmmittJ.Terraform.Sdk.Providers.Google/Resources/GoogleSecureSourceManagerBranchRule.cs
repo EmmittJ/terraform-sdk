@@ -64,7 +64,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchRuleId is required")]
     public required TerraformValue<string> BranchRuleId
     {
-        get => GetArgument<TerraformValue<string>>("branch_rule_id");
+        get => GetRequiredArgument<TerraformValue<string>>("branch_rule_id");
         set => SetArgument("branch_rule_id", value);
     }
 
@@ -80,9 +80,9 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludePattern is required")]
     public required TerraformValue<string> IncludePattern
     {
-        get => GetArgument<TerraformValue<string>>("include_pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("include_pattern");
         set => SetArgument("include_pattern", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -127,9 +127,9 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -139,7 +139,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => GetArgument<TerraformValue<string>>("repository_id");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 

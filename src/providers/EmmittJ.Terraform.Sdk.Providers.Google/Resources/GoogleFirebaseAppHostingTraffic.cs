@@ -83,7 +83,7 @@ public class GoogleFirebaseAppHostingTrafficTargetBlockSplitsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Build is required")]
     public required TerraformValue<string> Build
     {
-        get => GetArgument<TerraformValue<string>>("build");
+        get => GetRequiredArgument<TerraformValue<string>>("build");
         set => SetArgument("build", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleFirebaseAppHostingTrafficTargetBlockSplitsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percent is required")]
     public required TerraformValue<double> Percent
     {
-        get => GetArgument<TerraformValue<double>>("percent");
+        get => GetRequiredArgument<TerraformValue<double>>("percent");
         set => SetArgument("percent", value);
     }
 
@@ -153,16 +153,16 @@ public partial class GoogleFirebaseAppHostingTraffic(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
     public required TerraformValue<string> Backend
     {
-        get => GetArgument<TerraformValue<string>>("backend");
+        get => GetRequiredArgument<TerraformValue<string>>("backend");
         set => SetArgument("backend", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -172,16 +172,16 @@ public partial class GoogleFirebaseAppHostingTraffic(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

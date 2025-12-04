@@ -66,18 +66,18 @@ public class AwsAppstreamFleetDomainJoinInfoBlock : TerraformBlock
     /// <summary>
     /// The directory_name attribute.
     /// </summary>
-    public TerraformValue<string>? DirectoryName
+    public TerraformValue<string> DirectoryName
     {
-        get => GetArgument<TerraformValue<string>>("directory_name");
+        get => GetArgument<TerraformValue<string>>("directory_name") ?? AsReference("directory_name");
         set => SetArgument("directory_name", value);
     }
 
     /// <summary>
     /// The organizational_unit_distinguished_name attribute.
     /// </summary>
-    public TerraformValue<string>? OrganizationalUnitDistinguishedName
+    public TerraformValue<string> OrganizationalUnitDistinguishedName
     {
-        get => GetArgument<TerraformValue<string>>("organizational_unit_distinguished_name");
+        get => GetArgument<TerraformValue<string>>("organizational_unit_distinguished_name") ?? AsReference("organizational_unit_distinguished_name");
         set => SetArgument("organizational_unit_distinguished_name", value);
     }
 
@@ -98,18 +98,18 @@ public class AwsAppstreamFleetVpcConfigBlock : TerraformBlock
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformList<string>? SecurityGroupIds
+    public TerraformList<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformList<string>>("security_group_ids");
+        get => GetArgument<TerraformList<string>>("security_group_ids") ?? AsReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformList<string>? SubnetIds
+    public TerraformList<string> SubnetIds
     {
-        get => GetArgument<TerraformList<string>>("subnet_ids");
+        get => GetArgument<TerraformList<string>>("subnet_ids") ?? AsReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -125,63 +125,63 @@ public partial class AwsAppstreamFleet(string name) : TerraformResource("aws_app
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The disconnect_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? DisconnectTimeoutInSeconds
+    public TerraformValue<double> DisconnectTimeoutInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("disconnect_timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("disconnect_timeout_in_seconds") ?? AsReference("disconnect_timeout_in_seconds");
         set => SetArgument("disconnect_timeout_in_seconds", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The enable_default_internet_access attribute.
     /// </summary>
-    public TerraformValue<bool>? EnableDefaultInternetAccess
+    public TerraformValue<bool> EnableDefaultInternetAccess
     {
-        get => GetArgument<TerraformValue<bool>>("enable_default_internet_access");
+        get => GetArgument<TerraformValue<bool>>("enable_default_internet_access") ?? AsReference("enable_default_internet_access");
         set => SetArgument("enable_default_internet_access", value);
     }
 
     /// <summary>
     /// The fleet_type attribute.
     /// </summary>
-    public TerraformValue<string>? FleetType
+    public TerraformValue<string> FleetType
     {
-        get => GetArgument<TerraformValue<string>>("fleet_type");
+        get => GetArgument<TerraformValue<string>>("fleet_type") ?? AsReference("fleet_type");
         set => SetArgument("fleet_type", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformValue<string>? IamRoleArn
+    public TerraformValue<string> IamRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("iam_role_arn") ?? AsReference("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -197,18 +197,18 @@ public partial class AwsAppstreamFleet(string name) : TerraformResource("aws_app
     /// <summary>
     /// The image_arn attribute.
     /// </summary>
-    public TerraformValue<string>? ImageArn
+    public TerraformValue<string> ImageArn
     {
-        get => GetArgument<TerraformValue<string>>("image_arn");
+        get => GetArgument<TerraformValue<string>>("image_arn") ?? AsReference("image_arn");
         set => SetArgument("image_arn", value);
     }
 
     /// <summary>
     /// The image_name attribute.
     /// </summary>
-    public TerraformValue<string>? ImageName
+    public TerraformValue<string> ImageName
     {
-        get => GetArgument<TerraformValue<string>>("image_name");
+        get => GetArgument<TerraformValue<string>>("image_name") ?? AsReference("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AwsAppstreamFleet(string name) : TerraformResource("aws_app
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -234,9 +234,9 @@ public partial class AwsAppstreamFleet(string name) : TerraformResource("aws_app
     /// <summary>
     /// The max_user_duration_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaxUserDurationInSeconds
+    public TerraformValue<double> MaxUserDurationInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("max_user_duration_in_seconds");
+        get => GetArgument<TerraformValue<double>>("max_user_duration_in_seconds") ?? AsReference("max_user_duration_in_seconds");
         set => SetArgument("max_user_duration_in_seconds", value);
     }
 
@@ -246,25 +246,25 @@ public partial class AwsAppstreamFleet(string name) : TerraformResource("aws_app
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The stream_view attribute.
     /// </summary>
-    public TerraformValue<string>? StreamView
+    public TerraformValue<string> StreamView
     {
-        get => GetArgument<TerraformValue<string>>("stream_view");
+        get => GetArgument<TerraformValue<string>>("stream_view") ?? AsReference("stream_view");
         set => SetArgument("stream_view", value);
     }
 
@@ -280,9 +280,9 @@ public partial class AwsAppstreamFleet(string name) : TerraformResource("aws_app
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

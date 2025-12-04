@@ -14,7 +14,7 @@ public partial class GoogleTagsTagKeyDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleTagsTagKeyDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
     public required TerraformValue<string> ShortName
     {
-        get => GetArgument<TerraformValue<string>>("short_name");
+        get => GetRequiredArgument<TerraformValue<string>>("short_name");
         set => SetArgument("short_name", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsCustomerprofilesDomainMatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsCustomerprofilesDomainMatchingBlockAutoMergingBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsCustomerprofilesDomainMatchingBlockAutoMergingBlockConflictResol
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConflictResolvingModel is required")]
     public required TerraformValue<string> ConflictResolvingModel
     {
-        get => GetArgument<TerraformValue<string>>("conflict_resolving_model");
+        get => GetRequiredArgument<TerraformValue<string>>("conflict_resolving_model");
         set => SetArgument("conflict_resolving_model", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsCustomerprofilesDomainMatchingBlockExportingConfigBlockS3Exporti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -234,7 +234,7 @@ public class AwsCustomerprofilesDomainMatchingBlockJobScheduleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfTheWeek is required")]
     public required TerraformValue<string> DayOfTheWeek
     {
-        get => GetArgument<TerraformValue<string>>("day_of_the_week");
+        get => GetRequiredArgument<TerraformValue<string>>("day_of_the_week");
         set => SetArgument("day_of_the_week", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsCustomerprofilesDomainMatchingBlockJobScheduleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformValue<string> Time
     {
-        get => GetArgument<TerraformValue<string>>("time");
+        get => GetRequiredArgument<TerraformValue<string>>("time");
         set => SetArgument("time", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -293,9 +293,9 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlock
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string>? Status
+    public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
         set => SetArgument("status", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockAttributeTypesSelect
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributeMatchingModel is required")]
     public required TerraformValue<string> AttributeMatchingModel
     {
-        get => GetArgument<TerraformValue<string>>("attribute_matching_model");
+        get => GetRequiredArgument<TerraformValue<string>>("attribute_matching_model");
         set => SetArgument("attribute_matching_model", value);
     }
 
@@ -407,7 +407,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockConflictResolutionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConflictResolvingModel is required")]
     public required TerraformValue<string> ConflictResolvingModel
     {
-        get => GetArgument<TerraformValue<string>>("conflict_resolving_model");
+        get => GetRequiredArgument<TerraformValue<string>>("conflict_resolving_model");
         set => SetArgument("conflict_resolving_model", value);
     }
 
@@ -462,7 +462,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockExportingConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -531,7 +531,7 @@ public partial class AwsCustomerprofilesDomain(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultExpirationDays is required")]
     public required TerraformValue<double> DefaultExpirationDays
     {
-        get => GetArgument<TerraformValue<double>>("default_expiration_days");
+        get => GetRequiredArgument<TerraformValue<double>>("default_expiration_days");
         set => SetArgument("default_expiration_days", value);
     }
 
@@ -541,25 +541,25 @@ public partial class AwsCustomerprofilesDomain(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -575,9 +575,9 @@ public partial class AwsCustomerprofilesDomain(string name) : TerraformResource(
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

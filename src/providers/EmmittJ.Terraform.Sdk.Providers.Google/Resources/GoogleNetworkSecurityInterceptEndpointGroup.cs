@@ -62,9 +62,9 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptDeploymentGroup is required")]
     public required TerraformValue<string> InterceptDeploymentGroup
     {
-        get => GetArgument<TerraformValue<string>>("intercept_deployment_group");
+        get => GetRequiredArgument<TerraformValue<string>>("intercept_deployment_group");
         set => SetArgument("intercept_deployment_group", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptEndpointGroupId is required")]
     public required TerraformValue<string> InterceptEndpointGroupId
     {
-        get => GetArgument<TerraformValue<string>>("intercept_endpoint_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("intercept_endpoint_group_id");
         set => SetArgument("intercept_endpoint_group_id", value);
     }
 
@@ -109,16 +109,16 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

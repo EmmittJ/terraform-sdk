@@ -82,7 +82,7 @@ public partial class AzurermSentinelAlertRuleMsSecurityIncident(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -116,9 +116,9 @@ public partial class AzurermSentinelAlertRuleMsSecurityIncident(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermSentinelAlertRuleMsSecurityIncident(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermSentinelAlertRuleMsSecurityIncident(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermSentinelAlertRuleMsSecurityIncident(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductFilter is required")]
     public required TerraformValue<string> ProductFilter
     {
-        get => GetArgument<TerraformValue<string>>("product_filter");
+        get => GetRequiredArgument<TerraformValue<string>>("product_filter");
         set => SetArgument("product_filter", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AzurermSentinelAlertRuleMsSecurityIncident(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeverityFilter is required")]
     public required TerraformSet<string> SeverityFilter
     {
-        get => GetArgument<TerraformSet<string>>("severity_filter");
+        get => GetRequiredArgument<TerraformSet<string>>("severity_filter");
         set => SetArgument("severity_filter", value);
     }
 

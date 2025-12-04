@@ -61,9 +61,9 @@ public partial class AzurermSynapseWorkspaceSqlAadAdmin(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermSynapseWorkspaceSqlAadAdmin(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Login is required")]
     public required TerraformValue<string> Login
     {
-        get => GetArgument<TerraformValue<string>>("login");
+        get => GetRequiredArgument<TerraformValue<string>>("login");
         set => SetArgument("login", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSynapseWorkspaceSqlAadAdmin(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermSynapseWorkspaceSqlAadAdmin(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("synapse_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("synapse_workspace_id");
         set => SetArgument("synapse_workspace_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermSynapseWorkspaceSqlAadAdmin(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

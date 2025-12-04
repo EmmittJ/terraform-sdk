@@ -11,9 +11,9 @@ public partial class AwsProxyProtocolPolicy(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsProxyProtocolPolicy(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePorts is required")]
     public required TerraformSet<string> InstancePorts
     {
-        get => GetArgument<TerraformSet<string>>("instance_ports");
+        get => GetRequiredArgument<TerraformSet<string>>("instance_ports");
         set => SetArgument("instance_ports", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsProxyProtocolPolicy(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancer is required")]
     public required TerraformValue<string> LoadBalancer
     {
-        get => GetArgument<TerraformValue<string>>("load_balancer");
+        get => GetRequiredArgument<TerraformValue<string>>("load_balancer");
         set => SetArgument("load_balancer", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

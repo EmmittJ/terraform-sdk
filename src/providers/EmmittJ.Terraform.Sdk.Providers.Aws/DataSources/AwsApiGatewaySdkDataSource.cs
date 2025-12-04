@@ -11,9 +11,9 @@ public partial class AwsApiGatewaySdkDataSource(string name) : TerraformDataSour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -29,9 +29,9 @@ public partial class AwsApiGatewaySdkDataSource(string name) : TerraformDataSour
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsApiGatewaySdkDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => GetArgument<TerraformValue<string>>("rest_api_id");
+        get => GetRequiredArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsApiGatewaySdkDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SdkType is required")]
     public required TerraformValue<string> SdkType
     {
-        get => GetArgument<TerraformValue<string>>("sdk_type");
+        get => GetRequiredArgument<TerraformValue<string>>("sdk_type");
         set => SetArgument("sdk_type", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsApiGatewaySdkDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
     public required TerraformValue<string> StageName
     {
-        get => GetArgument<TerraformValue<string>>("stage_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stage_name");
         set => SetArgument("stage_name", value);
     }
 

@@ -11,9 +11,9 @@ public partial class AwsCloudwatchContributorInsightRule(string name) : Terrafor
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsCloudwatchContributorInsightRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleDefinition is required")]
     public required TerraformValue<string> RuleDefinition
     {
-        get => GetArgument<TerraformValue<string>>("rule_definition");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_definition");
         set => SetArgument("rule_definition", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsCloudwatchContributorInsightRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformValue<string> RuleName
     {
-        get => GetArgument<TerraformValue<string>>("rule_name");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 

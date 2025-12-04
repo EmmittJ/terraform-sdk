@@ -43,7 +43,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermVpnSiteLinkBlockBgpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformValue<double> Asn
     {
-        get => GetArgument<TerraformValue<double>>("asn");
+        get => GetRequiredArgument<TerraformValue<double>>("asn");
         set => SetArgument("asn", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermVpnSiteLinkBlockBgpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringAddress is required")]
     public required TerraformValue<string> PeeringAddress
     {
-        get => GetArgument<TerraformValue<string>>("peering_address");
+        get => GetRequiredArgument<TerraformValue<string>>("peering_address");
         set => SetArgument("peering_address", value);
     }
 
@@ -261,9 +261,9 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -283,7 +283,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -293,7 +293,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualWanId is required")]
     public required TerraformValue<string> VirtualWanId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_wan_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_wan_id");
         set => SetArgument("virtual_wan_id", value);
     }
 

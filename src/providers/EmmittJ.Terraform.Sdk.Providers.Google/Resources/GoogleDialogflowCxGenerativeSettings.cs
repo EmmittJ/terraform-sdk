@@ -123,7 +123,7 @@ public class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetRequiredArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => GetArgument<TerraformValue<string>>("text");
+        get => GetRequiredArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -290,9 +290,9 @@ public partial class GoogleDialogflowCxGenerativeSettings(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -302,7 +302,7 @@ public partial class GoogleDialogflowCxGenerativeSettings(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetRequiredArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 

@@ -14,34 +14,34 @@ public partial class GoogleGeminiRepositoryGroupIamPolicyDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryIndex is required")]
     public required TerraformValue<string> CodeRepositoryIndex
     {
-        get => GetArgument<TerraformValue<string>>("code_repository_index");
+        get => GetRequiredArgument<TerraformValue<string>>("code_repository_index");
         set => SetArgument("code_repository_index", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformValue<string>? Location
+    public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleGeminiRepositoryGroupIamPolicyDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryGroupId is required")]
     public required TerraformValue<string> RepositoryGroupId
     {
-        get => GetArgument<TerraformValue<string>>("repository_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_group_id");
         set => SetArgument("repository_group_id", value);
     }
 

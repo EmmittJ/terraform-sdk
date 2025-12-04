@@ -82,7 +82,7 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => GetArgument<TerraformValue<string>>("api_management_name");
+        get => GetRequiredArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
@@ -92,25 +92,25 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    public TerraformValue<string>? PrimaryKey
+    public TerraformValue<string> PrimaryKey
     {
-        get => GetArgument<TerraformValue<string>>("primary_key");
+        get => GetArgument<TerraformValue<string>>("primary_key") ?? AsReference("primary_key");
         set => SetArgument("primary_key", value);
     }
 
@@ -129,16 +129,16 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    public TerraformValue<string>? SecondaryKey
+    public TerraformValue<string> SecondaryKey
     {
-        get => GetArgument<TerraformValue<string>>("secondary_key");
+        get => GetArgument<TerraformValue<string>>("secondary_key") ?? AsReference("secondary_key");
         set => SetArgument("secondary_key", value);
     }
 
@@ -154,9 +154,9 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformValue<string>? SubscriptionId
+    public TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id") ?? AsReference("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 

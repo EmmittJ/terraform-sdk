@@ -64,16 +64,16 @@ public partial class AzurermCosmosdbMongoUserDefinition(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosMongoDatabaseId is required")]
     public required TerraformValue<string> CosmosMongoDatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("cosmos_mongo_database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cosmos_mongo_database_id");
         set => SetArgument("cosmos_mongo_database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermCosmosdbMongoUserDefinition(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermCosmosdbMongoUserDefinition(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

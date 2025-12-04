@@ -167,7 +167,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlockKernelsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => GetArgument<TerraformValue<string>>("repository");
+        get => GetRequiredArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -300,9 +300,9 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). No
     /// more than 32 labels can be associated with a cluster.
     /// </summary>
-    public TerraformMap<string>? Labels
+    public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -312,7 +312,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
     public required TerraformValue<string> MachineType
     {
-        get => GetArgument<TerraformValue<string>>("machine_type");
+        get => GetRequiredArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -322,9 +322,9 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// /compute/docs/storing-retrieving-metadata#project_and_instance
     /// _metadata)).
     /// </summary>
-    public TerraformMap<string>? Metadata
+    public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -389,9 +389,9 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// (https://cloud.google.com/compute/docs/
     /// label-or-tag-resources#tags)).
     /// </summary>
-    public TerraformList<string>? Tags
+    public TerraformList<string> Tags
     {
-        get => GetArgument<TerraformList<string>>("tags");
+        get => GetArgument<TerraformList<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -506,7 +506,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => GetArgument<TerraformValue<string>>("repository");
+        get => GetRequiredArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -711,9 +711,9 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// by the disks.setLabels method. This field is only
     /// applicable for persistent disks.
     /// </summary>
-    public TerraformMap<string>? Labels
+    public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -806,9 +806,9 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -836,7 +836,7 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -846,16 +846,16 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

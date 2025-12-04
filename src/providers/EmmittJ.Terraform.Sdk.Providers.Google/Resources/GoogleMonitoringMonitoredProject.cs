@@ -43,9 +43,9 @@ public partial class GoogleMonitoringMonitoredProject(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleMonitoringMonitoredProject(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricsScope is required")]
     public required TerraformValue<string> MetricsScope
     {
-        get => GetArgument<TerraformValue<string>>("metrics_scope");
+        get => GetRequiredArgument<TerraformValue<string>>("metrics_scope");
         set => SetArgument("metrics_scope", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleMonitoringMonitoredProject(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

@@ -22,7 +22,7 @@ public class GoogleNetworkServicesLbRouteExtensionExtensionChainsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleNetworkServicesLbRouteExtensionExtensionChainsBlockExtensions
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleNetworkServicesLbRouteExtensionExtensionChainsBlockExtensions
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleNetworkServicesLbRouteExtensionExtensionChainsBlockMatchCondi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CelExpression is required")]
     public required TerraformValue<string> CelExpression
     {
-        get => GetArgument<TerraformValue<string>>("cel_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("cel_expression");
         set => SetArgument("cel_expression", value);
     }
 
@@ -229,9 +229,9 @@ public partial class GoogleNetworkServicesLbRouteExtension(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -255,7 +255,7 @@ public partial class GoogleNetworkServicesLbRouteExtension(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
     public required TerraformValue<string> LoadBalancingScheme
     {
-        get => GetArgument<TerraformValue<string>>("load_balancing_scheme");
+        get => GetRequiredArgument<TerraformValue<string>>("load_balancing_scheme");
         set => SetArgument("load_balancing_scheme", value);
     }
 
@@ -265,7 +265,7 @@ public partial class GoogleNetworkServicesLbRouteExtension(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -275,16 +275,16 @@ public partial class GoogleNetworkServicesLbRouteExtension(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -64,16 +64,16 @@ public partial class AzurermNginxApiKey(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndDateTime is required")]
     public required TerraformValue<string> EndDateTime
     {
-        get => GetArgument<TerraformValue<string>>("end_date_time");
+        get => GetRequiredArgument<TerraformValue<string>>("end_date_time");
         set => SetArgument("end_date_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermNginxApiKey(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermNginxApiKey(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformValue<string> NginxDeploymentId
     {
-        get => GetArgument<TerraformValue<string>>("nginx_deployment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("nginx_deployment_id");
         set => SetArgument("nginx_deployment_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermNginxApiKey(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretText is required")]
     public required TerraformValue<string> SecretText
     {
-        get => GetArgument<TerraformValue<string>>("secret_text");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_text");
         set => SetArgument("secret_text", value);
     }
 

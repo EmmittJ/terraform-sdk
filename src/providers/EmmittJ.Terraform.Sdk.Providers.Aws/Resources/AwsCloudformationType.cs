@@ -19,7 +19,7 @@ public class AwsCloudformationTypeLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformValue<string> LogGroupName
     {
-        get => GetArgument<TerraformValue<string>>("log_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsCloudformationTypeLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogRoleArn is required")]
     public required TerraformValue<string> LogRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("log_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("log_role_arn");
         set => SetArgument("log_role_arn", value);
     }
 
@@ -54,18 +54,18 @@ public partial class AwsCloudformationType(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AwsCloudformationType(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaHandlerPackage is required")]
     public required TerraformValue<string> SchemaHandlerPackage
     {
-        get => GetArgument<TerraformValue<string>>("schema_handler_package");
+        get => GetRequiredArgument<TerraformValue<string>>("schema_handler_package");
         set => SetArgument("schema_handler_package", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsCloudformationType(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
     public required TerraformValue<string> TypeName
     {
-        get => GetArgument<TerraformValue<string>>("type_name");
+        get => GetRequiredArgument<TerraformValue<string>>("type_name");
         set => SetArgument("type_name", value);
     }
 

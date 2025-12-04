@@ -105,16 +105,16 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => GetArgument<TerraformValue<double>>("interval");
+        get => GetRequiredArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformValue<string> LogicAppId
     {
-        get => GetArgument<TerraformValue<string>>("logic_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("logic_app_id");
         set => SetArgument("logic_app_id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -160,9 +160,9 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformValue<string>? TimeZone
+    public TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone") ?? AsReference("time_zone");
         set => SetArgument("time_zone", value);
     }
 

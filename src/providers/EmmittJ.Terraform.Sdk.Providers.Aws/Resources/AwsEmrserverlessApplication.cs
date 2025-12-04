@@ -74,7 +74,7 @@ public class AwsEmrserverlessApplicationImageConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageUri is required")]
     public required TerraformValue<string> ImageUri
     {
-        get => GetArgument<TerraformValue<string>>("image_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("image_uri");
         set => SetArgument("image_uri", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsEmrserverlessApplicationInitialCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialCapacityType is required")]
     public required TerraformValue<string> InitialCapacityType
     {
-        get => GetArgument<TerraformValue<string>>("initial_capacity_type");
+        get => GetRequiredArgument<TerraformValue<string>>("initial_capacity_type");
         set => SetArgument("initial_capacity_type", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsEmrserverlessApplicationInitialCapacityBlockInitialCapacityConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerCount is required")]
     public required TerraformValue<double> WorkerCount
     {
-        get => GetArgument<TerraformValue<double>>("worker_count");
+        get => GetRequiredArgument<TerraformValue<double>>("worker_count");
         set => SetArgument("worker_count", value);
     }
 
@@ -164,16 +164,16 @@ public class AwsEmrserverlessApplicationInitialCapacityBlockInitialCapacityConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformValue<string> Cpu
     {
-        get => GetArgument<TerraformValue<string>>("cpu");
+        get => GetRequiredArgument<TerraformValue<string>>("cpu");
         set => SetArgument("cpu", value);
     }
 
     /// <summary>
     /// The disk attribute.
     /// </summary>
-    public TerraformValue<string>? Disk
+    public TerraformValue<string> Disk
     {
-        get => GetArgument<TerraformValue<string>>("disk");
+        get => GetArgument<TerraformValue<string>>("disk") ?? AsReference("disk");
         set => SetArgument("disk", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsEmrserverlessApplicationInitialCapacityBlockInitialCapacityConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Memory is required")]
     public required TerraformValue<string> Memory
     {
-        get => GetArgument<TerraformValue<string>>("memory");
+        get => GetRequiredArgument<TerraformValue<string>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -204,18 +204,18 @@ public class AwsEmrserverlessApplicationInteractiveConfigurationBlock : Terrafor
     /// <summary>
     /// The livy_endpoint_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? LivyEndpointEnabled
+    public TerraformValue<bool> LivyEndpointEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("livy_endpoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("livy_endpoint_enabled") ?? AsReference("livy_endpoint_enabled");
         set => SetArgument("livy_endpoint_enabled", value);
     }
 
     /// <summary>
     /// The studio_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? StudioEnabled
+    public TerraformValue<bool> StudioEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("studio_enabled");
+        get => GetArgument<TerraformValue<bool>>("studio_enabled") ?? AsReference("studio_enabled");
         set => SetArgument("studio_enabled", value);
     }
 
@@ -239,16 +239,16 @@ public class AwsEmrserverlessApplicationMaximumCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformValue<string> Cpu
     {
-        get => GetArgument<TerraformValue<string>>("cpu");
+        get => GetRequiredArgument<TerraformValue<string>>("cpu");
         set => SetArgument("cpu", value);
     }
 
     /// <summary>
     /// The disk attribute.
     /// </summary>
-    public TerraformValue<string>? Disk
+    public TerraformValue<string> Disk
     {
-        get => GetArgument<TerraformValue<string>>("disk");
+        get => GetArgument<TerraformValue<string>>("disk") ?? AsReference("disk");
         set => SetArgument("disk", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsEmrserverlessApplicationMaximumCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Memory is required")]
     public required TerraformValue<string> Memory
     {
-        get => GetArgument<TerraformValue<string>>("memory");
+        get => GetRequiredArgument<TerraformValue<string>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -335,7 +335,7 @@ public class AwsEmrserverlessApplicationMonitoringConfigurationBlockCloudwatchLo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -394,7 +394,7 @@ public class AwsEmrserverlessApplicationMonitoringConfigurationBlockCloudwatchLo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -404,7 +404,7 @@ public class AwsEmrserverlessApplicationMonitoringConfigurationBlockCloudwatchLo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => GetArgument<TerraformSet<string>>("values");
+        get => GetRequiredArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -544,7 +544,7 @@ public class AwsEmrserverlessApplicationRuntimeConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformValue<string> Classification
     {
-        get => GetArgument<TerraformValue<string>>("classification");
+        get => GetRequiredArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -574,18 +574,18 @@ public class AwsEmrserverlessApplicationSchedulerConfigurationBlock : TerraformB
     /// <summary>
     /// The max_concurrent_runs attribute.
     /// </summary>
-    public TerraformValue<double>? MaxConcurrentRuns
+    public TerraformValue<double> MaxConcurrentRuns
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_runs");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_runs") ?? AsReference("max_concurrent_runs");
         set => SetArgument("max_concurrent_runs", value);
     }
 
     /// <summary>
     /// The queue_timeout_minutes attribute.
     /// </summary>
-    public TerraformValue<double>? QueueTimeoutMinutes
+    public TerraformValue<double> QueueTimeoutMinutes
     {
-        get => GetArgument<TerraformValue<double>>("queue_timeout_minutes");
+        get => GetArgument<TerraformValue<double>>("queue_timeout_minutes") ?? AsReference("queue_timeout_minutes");
         set => SetArgument("queue_timeout_minutes", value);
     }
 
@@ -610,9 +610,9 @@ public partial class AwsEmrserverlessApplication(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -622,16 +622,16 @@ public partial class AwsEmrserverlessApplication(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -641,7 +641,7 @@ public partial class AwsEmrserverlessApplication(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformValue<string> ReleaseLabel
     {
-        get => GetArgument<TerraformValue<string>>("release_label");
+        get => GetRequiredArgument<TerraformValue<string>>("release_label");
         set => SetArgument("release_label", value);
     }
 
@@ -657,9 +657,9 @@ public partial class AwsEmrserverlessApplication(string name) : TerraformResourc
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -669,7 +669,7 @@ public partial class AwsEmrserverlessApplication(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

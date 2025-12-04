@@ -19,7 +19,7 @@ public class AwsBedrockCustomModelOutputDataConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => GetArgument<TerraformValue<string>>("s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsBedrockCustomModelTrainingDataConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => GetArgument<TerraformValue<string>>("s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsBedrockCustomModelValidationDataConfigBlockValidatorBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => GetArgument<TerraformValue<string>>("s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsBedrockCustomModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsBedrockCustomModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseModelIdentifier is required")]
     public required TerraformValue<string> BaseModelIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("base_model_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("base_model_identifier");
         set => SetArgument("base_model_identifier", value);
     }
 
@@ -193,16 +193,16 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomModelName is required")]
     public required TerraformValue<string> CustomModelName
     {
-        get => GetArgument<TerraformValue<string>>("custom_model_name");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_model_name");
         set => SetArgument("custom_model_name", value);
     }
 
     /// <summary>
     /// The customization_type attribute.
     /// </summary>
-    public TerraformValue<string>? CustomizationType
+    public TerraformValue<string> CustomizationType
     {
-        get => GetArgument<TerraformValue<string>>("customization_type");
+        get => GetArgument<TerraformValue<string>>("customization_type") ?? AsReference("customization_type");
         set => SetArgument("customization_type", value);
     }
 
@@ -212,7 +212,7 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hyperparameters is required")]
     public required TerraformMap<string> Hyperparameters
     {
-        get => GetArgument<TerraformMap<string>>("hyperparameters");
+        get => GetRequiredArgument<TerraformMap<string>>("hyperparameters");
         set => SetArgument("hyperparameters", value);
     }
 
@@ -222,16 +222,16 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformValue<string> JobName
     {
-        get => GetArgument<TerraformValue<string>>("job_name");
+        get => GetRequiredArgument<TerraformValue<string>>("job_name");
         set => SetArgument("job_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 

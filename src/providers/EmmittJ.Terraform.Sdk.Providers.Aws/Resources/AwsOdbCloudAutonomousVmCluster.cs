@@ -55,7 +55,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
     public required TerraformValue<string> Preference
     {
-        get => GetArgument<TerraformValue<string>>("preference");
+        get => GetRequiredArgument<TerraformValue<string>>("preference");
         set => SetArgument("preference", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDataStorageSizeInTbs is required")]
     public required TerraformValue<double> AutonomousDataStorageSizeInTbs
     {
-        get => GetArgument<TerraformValue<double>>("autonomous_data_storage_size_in_tbs");
+        get => GetRequiredArgument<TerraformValue<double>>("autonomous_data_storage_size_in_tbs");
         set => SetArgument("autonomous_data_storage_size_in_tbs", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformValue<string> CloudExadataInfrastructureId
     {
-        get => GetArgument<TerraformValue<string>>("cloud_exadata_infrastructure_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cloud_exadata_infrastructure_id");
         set => SetArgument("cloud_exadata_infrastructure_id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCountPerNode is required")]
     public required TerraformValue<double> CpuCoreCountPerNode
     {
-        get => GetArgument<TerraformValue<double>>("cpu_core_count_per_node");
+        get => GetRequiredArgument<TerraformValue<double>>("cpu_core_count_per_node");
         set => SetArgument("cpu_core_count_per_node", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbServers is required")]
     public required TerraformSet<string> DbServers
     {
-        get => GetArgument<TerraformSet<string>>("db_servers");
+        get => GetRequiredArgument<TerraformSet<string>>("db_servers");
         set => SetArgument("db_servers", value);
     }
 
@@ -173,25 +173,25 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource. 
     /// </summary>
-    public TerraformValue<bool>? IsMtlsEnabledVmCluster
+    public TerraformValue<bool> IsMtlsEnabledVmCluster
     {
-        get => GetArgument<TerraformValue<bool>>("is_mtls_enabled_vm_cluster");
+        get => GetArgument<TerraformValue<bool>>("is_mtls_enabled_vm_cluster") ?? AsReference("is_mtls_enabled_vm_cluster");
         set => SetArgument("is_mtls_enabled_vm_cluster", value);
     }
 
     /// <summary>
     /// The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE . Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformValue<string>? LicenseModel
+    public TerraformValue<string> LicenseModel
     {
-        get => GetArgument<TerraformValue<string>>("license_model");
+        get => GetArgument<TerraformValue<string>>("license_model") ?? AsReference("license_model");
         set => SetArgument("license_model", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryPerOracleComputeUnitInGbs is required")]
     public required TerraformValue<double> MemoryPerOracleComputeUnitInGbs
     {
-        get => GetArgument<TerraformValue<double>>("memory_per_oracle_compute_unit_in_gbs");
+        get => GetRequiredArgument<TerraformValue<double>>("memory_per_oracle_compute_unit_in_gbs");
         set => SetArgument("memory_per_oracle_compute_unit_in_gbs", value);
     }
 
@@ -211,16 +211,16 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformValue<string> OdbNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("odb_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("odb_network_id");
         set => SetArgument("odb_network_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -230,7 +230,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanListenerPortNonTls is required")]
     public required TerraformValue<double> ScanListenerPortNonTls
     {
-        get => GetArgument<TerraformValue<double>>("scan_listener_port_non_tls");
+        get => GetRequiredArgument<TerraformValue<double>>("scan_listener_port_non_tls");
         set => SetArgument("scan_listener_port_non_tls", value);
     }
 
@@ -240,7 +240,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanListenerPortTls is required")]
     public required TerraformValue<double> ScanListenerPortTls
     {
-        get => GetArgument<TerraformValue<double>>("scan_listener_port_tls");
+        get => GetRequiredArgument<TerraformValue<double>>("scan_listener_port_tls");
         set => SetArgument("scan_listener_port_tls", value);
     }
 
@@ -256,9 +256,9 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     /// <summary>
     /// The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformValue<string>? TimeZone
+    public TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone") ?? AsReference("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -268,7 +268,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalContainerDatabases is required")]
     public required TerraformValue<double> TotalContainerDatabases
     {
-        get => GetArgument<TerraformValue<double>>("total_container_databases");
+        get => GetRequiredArgument<TerraformValue<double>>("total_container_databases");
         set => SetArgument("total_container_databases", value);
     }
 

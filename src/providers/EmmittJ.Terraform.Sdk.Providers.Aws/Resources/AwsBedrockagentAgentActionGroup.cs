@@ -167,7 +167,7 @@ public class AwsBedrockagentAgentActionGroupFunctionSchemaBlockMemberFunctionsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -208,7 +208,7 @@ public class AwsBedrockagentAgentActionGroupFunctionSchemaBlockMemberFunctionsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => GetArgument<TerraformValue<string>>("map_block_key");
+        get => GetRequiredArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsBedrockagentAgentActionGroupFunctionSchemaBlockMemberFunctionsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -278,16 +278,16 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupName is required")]
     public required TerraformValue<string> ActionGroupName
     {
-        get => GetArgument<TerraformValue<string>>("action_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("action_group_name");
         set => SetArgument("action_group_name", value);
     }
 
     /// <summary>
     /// The action_group_state attribute.
     /// </summary>
-    public TerraformValue<string>? ActionGroupState
+    public TerraformValue<string> ActionGroupState
     {
-        get => GetArgument<TerraformValue<string>>("action_group_state");
+        get => GetArgument<TerraformValue<string>>("action_group_state") ?? AsReference("action_group_state");
         set => SetArgument("action_group_state", value);
     }
 
@@ -297,7 +297,7 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformValue<string> AgentId
     {
-        get => GetArgument<TerraformValue<string>>("agent_id");
+        get => GetRequiredArgument<TerraformValue<string>>("agent_id");
         set => SetArgument("agent_id", value);
     }
 
@@ -307,7 +307,7 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentVersion is required")]
     public required TerraformValue<string> AgentVersion
     {
-        get => GetArgument<TerraformValue<string>>("agent_version");
+        get => GetRequiredArgument<TerraformValue<string>>("agent_version");
         set => SetArgument("agent_version", value);
     }
 
@@ -332,27 +332,27 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public TerraformValue<bool>? PrepareAgent
+    public TerraformValue<bool> PrepareAgent
     {
-        get => GetArgument<TerraformValue<bool>>("prepare_agent");
+        get => GetArgument<TerraformValue<bool>>("prepare_agent") ?? AsReference("prepare_agent");
         set => SetArgument("prepare_agent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The skip_resource_in_use_check attribute.
     /// </summary>
-    public TerraformValue<bool>? SkipResourceInUseCheck
+    public TerraformValue<bool> SkipResourceInUseCheck
     {
-        get => GetArgument<TerraformValue<bool>>("skip_resource_in_use_check");
+        get => GetArgument<TerraformValue<bool>>("skip_resource_in_use_check") ?? AsReference("skip_resource_in_use_check");
         set => SetArgument("skip_resource_in_use_check", value);
     }
 

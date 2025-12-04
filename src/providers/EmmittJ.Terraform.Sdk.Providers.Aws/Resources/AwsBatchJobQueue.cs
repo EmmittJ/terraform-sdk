@@ -19,7 +19,7 @@ public class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeEnvironment is required")]
     public required TerraformValue<string> ComputeEnvironment
     {
-        get => GetArgument<TerraformValue<string>>("compute_environment");
+        get => GetRequiredArgument<TerraformValue<string>>("compute_environment");
         set => SetArgument("compute_environment", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => GetArgument<TerraformValue<double>>("order");
+        get => GetRequiredArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxTimeSeconds is required")]
     public required TerraformValue<double> MaxTimeSeconds
     {
-        get => GetArgument<TerraformValue<double>>("max_time_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("max_time_seconds");
         set => SetArgument("max_time_seconds", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
     public required TerraformValue<string> Reason
     {
-        get => GetArgument<TerraformValue<string>>("reason");
+        get => GetRequiredArgument<TerraformValue<string>>("reason");
         set => SetArgument("reason", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetRequiredArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AwsBatchJobQueue(string name) : TerraformResource("aws_batc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -153,16 +153,16 @@ public partial class AwsBatchJobQueue(string name) : TerraformResource("aws_batc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AwsBatchJobQueue(string name) : TerraformResource("aws_batc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetRequiredArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 

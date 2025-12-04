@@ -11,54 +11,54 @@ public partial class AwsOutpostsOutpostsDataSource(string name) : TerraformDataS
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZone
+    public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZoneId
+    public TerraformValue<string> AvailabilityZoneId
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone_id");
+        get => GetArgument<TerraformValue<string>>("availability_zone_id") ?? AsReference("availability_zone_id");
         set => SetArgument("availability_zone_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformValue<string>? OwnerId
+    public TerraformValue<string> OwnerId
     {
-        get => GetArgument<TerraformValue<string>>("owner_id");
+        get => GetArgument<TerraformValue<string>>("owner_id") ?? AsReference("owner_id");
         set => SetArgument("owner_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The site_id attribute.
     /// </summary>
-    public TerraformValue<string>? SiteId
+    public TerraformValue<string> SiteId
     {
-        get => GetArgument<TerraformValue<string>>("site_id");
+        get => GetArgument<TerraformValue<string>>("site_id") ?? AsReference("site_id");
         set => SetArgument("site_id", value);
     }
 

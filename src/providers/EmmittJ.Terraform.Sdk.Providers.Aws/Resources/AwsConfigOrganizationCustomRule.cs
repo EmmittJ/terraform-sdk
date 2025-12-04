@@ -70,9 +70,9 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaFunctionArn is required")]
     public required TerraformValue<string> LambdaFunctionArn
     {
-        get => GetArgument<TerraformValue<string>>("lambda_function_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("lambda_function_arn");
         set => SetArgument("lambda_function_arn", value);
     }
 
@@ -110,16 +110,16 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerTypes is required")]
     public required TerraformSet<string> TriggerTypes
     {
-        get => GetArgument<TerraformSet<string>>("trigger_types");
+        get => GetRequiredArgument<TerraformSet<string>>("trigger_types");
         set => SetArgument("trigger_types", value);
     }
 

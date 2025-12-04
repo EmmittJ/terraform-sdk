@@ -117,7 +117,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMongodbExcludedObjectsBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMongodbExcludedObjectsBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformValue<string> Collection
     {
-        get => GetArgument<TerraformValue<string>>("collection");
+        get => GetRequiredArgument<TerraformValue<string>>("collection");
         set => SetArgument("collection", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMysqlExcludedObjectsBlockMysq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMysqlExcludedObjectsBlockMysq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -391,7 +391,7 @@ public class GoogleDatastreamStreamBackfillAllBlockOracleExcludedObjectsBlockOra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -423,7 +423,7 @@ public class GoogleDatastreamStreamBackfillAllBlockOracleExcludedObjectsBlockOra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -554,7 +554,7 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -586,7 +586,7 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -798,7 +798,7 @@ public class GoogleDatastreamStreamBackfillAllBlockSqlServerExcludedObjectsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -830,7 +830,7 @@ public class GoogleDatastreamStreamBackfillAllBlockSqlServerExcludedObjectsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -945,7 +945,7 @@ public class GoogleDatastreamStreamDestinationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationConnectionProfile is required")]
     public required TerraformValue<string> DestinationConnectionProfile
     {
-        get => GetArgument<TerraformValue<string>>("destination_connection_profile");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_connection_profile");
         set => SetArgument("destination_connection_profile", value);
     }
 
@@ -1076,7 +1076,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1086,7 +1086,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     public required TerraformValue<string> ConnectionName
     {
-        get => GetArgument<TerraformValue<string>>("connection_name");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -1096,7 +1096,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileFormat is required")]
     public required TerraformValue<string> FileFormat
     {
-        get => GetArgument<TerraformValue<string>>("file_format");
+        get => GetRequiredArgument<TerraformValue<string>>("file_format");
         set => SetArgument("file_format", value);
     }
 
@@ -1115,7 +1115,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableFormat is required")]
     public required TerraformValue<string> TableFormat
     {
-        get => GetArgument<TerraformValue<string>>("table_format");
+        get => GetRequiredArgument<TerraformValue<string>>("table_format");
         set => SetArgument("table_format", value);
     }
 
@@ -1152,7 +1152,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -1233,7 +1233,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1254,18 +1254,18 @@ public class GoogleDatastreamStreamDestinationConfigBlockGcsDestinationConfigBlo
     /// The maximum duration for which new events are added before a file is closed and a new file is created.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;. Defaults to 900s.
     /// </summary>
-    public TerraformValue<string>? FileRotationInterval
+    public TerraformValue<string> FileRotationInterval
     {
-        get => GetArgument<TerraformValue<string>>("file_rotation_interval");
+        get => GetArgument<TerraformValue<string>>("file_rotation_interval") ?? AsReference("file_rotation_interval");
         set => SetArgument("file_rotation_interval", value);
     }
 
     /// <summary>
     /// The maximum file size to be saved in the bucket.
     /// </summary>
-    public TerraformValue<double>? FileRotationMb
+    public TerraformValue<double> FileRotationMb
     {
-        get => GetArgument<TerraformValue<double>>("file_rotation_mb");
+        get => GetArgument<TerraformValue<double>>("file_rotation_mb") ?? AsReference("file_rotation_mb");
         set => SetArgument("file_rotation_mb", value);
     }
 
@@ -1362,7 +1362,7 @@ public class GoogleDatastreamStreamSourceConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceConnectionProfile is required")]
     public required TerraformValue<string> SourceConnectionProfile
     {
-        get => GetArgument<TerraformValue<string>>("source_connection_profile");
+        get => GetRequiredArgument<TerraformValue<string>>("source_connection_profile");
         set => SetArgument("source_connection_profile", value);
     }
 
@@ -1699,9 +1699,9 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlock : Ter
     /// Maximum number of concurrent backfill tasks. The number should be non negative.
     /// If not set (or set to 0), the system&#39;s default value will be used.
     /// </summary>
-    public TerraformValue<double>? MaxConcurrentBackfillTasks
+    public TerraformValue<double> MaxConcurrentBackfillTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? AsReference("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
@@ -1709,9 +1709,9 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlock : Ter
     /// Maximum number of concurrent CDC tasks. The number should be non negative.
     /// If not set (or set to 0), the system&#39;s default value will be used.
     /// </summary>
-    public TerraformValue<double>? MaxConcurrentCdcTasks
+    public TerraformValue<double> MaxConcurrentCdcTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks") ?? AsReference("max_concurrent_cdc_tasks");
         set => SetArgument("max_concurrent_cdc_tasks", value);
     }
 
@@ -1812,7 +1812,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockExclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -1844,7 +1844,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockExclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -1988,7 +1988,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockInclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -2020,7 +2020,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockInclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -2124,9 +2124,9 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlock : Te
     /// Maximum number of concurrent backfill tasks. The number should be non negative.
     /// If not set (or set to 0), the system&#39;s default value will be used.
     /// </summary>
-    public TerraformValue<double>? MaxConcurrentBackfillTasks
+    public TerraformValue<double> MaxConcurrentBackfillTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? AsReference("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
@@ -2134,9 +2134,9 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlock : Te
     /// Maximum number of concurrent CDC tasks. The number should be non negative.
     /// If not set (or set to 0), the system&#39;s default value will be used.
     /// </summary>
-    public TerraformValue<double>? MaxConcurrentCdcTasks
+    public TerraformValue<double> MaxConcurrentCdcTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks") ?? AsReference("max_concurrent_cdc_tasks");
         set => SetArgument("max_concurrent_cdc_tasks", value);
     }
 
@@ -2237,7 +2237,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockExclu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -2269,7 +2269,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockExclu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -2400,7 +2400,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockInclu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -2432,7 +2432,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockInclu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -2549,9 +2549,9 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlock 
     /// Maximum number of concurrent backfill tasks. The number should be non
     /// negative. If not set (or set to 0), the system&#39;s default value will be used.
     /// </summary>
-    public TerraformValue<double>? MaxConcurrentBackfillTasks
+    public TerraformValue<double> MaxConcurrentBackfillTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? AsReference("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
@@ -2562,7 +2562,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publication is required")]
     public required TerraformValue<string> Publication
     {
-        get => GetArgument<TerraformValue<string>>("publication");
+        get => GetRequiredArgument<TerraformValue<string>>("publication");
         set => SetArgument("publication", value);
     }
 
@@ -2573,7 +2573,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSlot is required")]
     public required TerraformValue<string> ReplicationSlot
     {
-        get => GetArgument<TerraformValue<string>>("replication_slot");
+        get => GetRequiredArgument<TerraformValue<string>>("replication_slot");
         set => SetArgument("replication_slot", value);
     }
 
@@ -2641,7 +2641,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -2673,7 +2673,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -2807,7 +2807,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -2839,7 +2839,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -2948,7 +2948,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSalesforceSourceConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PollingInterval is required")]
     public required TerraformValue<string> PollingInterval
     {
-        get => GetArgument<TerraformValue<string>>("polling_interval");
+        get => GetRequiredArgument<TerraformValue<string>>("polling_interval");
         set => SetArgument("polling_interval", value);
     }
 
@@ -3144,18 +3144,18 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlock :
     /// <summary>
     /// Max concurrent backfill tasks.
     /// </summary>
-    public TerraformValue<double>? MaxConcurrentBackfillTasks
+    public TerraformValue<double> MaxConcurrentBackfillTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks") ?? AsReference("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
     /// <summary>
     /// Max concurrent CDC tasks.
     /// </summary>
-    public TerraformValue<double>? MaxConcurrentCdcTasks
+    public TerraformValue<double> MaxConcurrentCdcTasks
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks") ?? AsReference("max_concurrent_cdc_tasks");
         set => SetArgument("max_concurrent_cdc_tasks", value);
     }
 
@@ -3256,7 +3256,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -3288,7 +3288,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -3413,7 +3413,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => GetArgument<TerraformValue<string>>("schema");
+        get => GetRequiredArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -3445,7 +3445,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => GetArgument<TerraformValue<string>>("table");
+        get => GetRequiredArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -3626,16 +3626,16 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -3657,16 +3657,16 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -3676,7 +3676,7 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamId is required")]
     public required TerraformValue<string> StreamId
     {
-        get => GetArgument<TerraformValue<string>>("stream_id");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_id");
         set => SetArgument("stream_id", value);
     }
 

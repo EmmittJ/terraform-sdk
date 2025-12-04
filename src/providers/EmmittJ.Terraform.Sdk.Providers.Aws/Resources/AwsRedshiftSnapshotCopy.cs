@@ -14,7 +14,7 @@ public partial class AwsRedshiftSnapshotCopy(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("cluster_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
@@ -24,34 +24,34 @@ public partial class AwsRedshiftSnapshotCopy(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRegion is required")]
     public required TerraformValue<string> DestinationRegion
     {
-        get => GetArgument<TerraformValue<string>>("destination_region");
+        get => GetRequiredArgument<TerraformValue<string>>("destination_region");
         set => SetArgument("destination_region", value);
     }
 
     /// <summary>
     /// The manual_snapshot_retention_period attribute.
     /// </summary>
-    public TerraformValue<double>? ManualSnapshotRetentionPeriod
+    public TerraformValue<double> ManualSnapshotRetentionPeriod
     {
-        get => GetArgument<TerraformValue<double>>("manual_snapshot_retention_period");
+        get => GetArgument<TerraformValue<double>>("manual_snapshot_retention_period") ?? AsReference("manual_snapshot_retention_period");
         set => SetArgument("manual_snapshot_retention_period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
-    public TerraformValue<double>? RetentionPeriod
+    public TerraformValue<double> RetentionPeriod
     {
-        get => GetArgument<TerraformValue<double>>("retention_period");
+        get => GetArgument<TerraformValue<double>>("retention_period") ?? AsReference("retention_period");
         set => SetArgument("retention_period", value);
     }
 

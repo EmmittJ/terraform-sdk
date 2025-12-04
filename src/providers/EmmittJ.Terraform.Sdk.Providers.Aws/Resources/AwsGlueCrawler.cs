@@ -28,7 +28,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeltaTables is required")]
     public required TerraformSet<string> DeltaTables
     {
-        get => GetArgument<TerraformSet<string>>("delta_tables");
+        get => GetRequiredArgument<TerraformSet<string>>("delta_tables");
         set => SetArgument("delta_tables", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WriteManifest is required")]
     public required TerraformValue<bool> WriteManifest
     {
-        get => GetArgument<TerraformValue<bool>>("write_manifest");
+        get => GetRequiredArgument<TerraformValue<bool>>("write_manifest");
         set => SetArgument("write_manifest", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsGlueCrawlerDynamodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -192,7 +192,7 @@ public class AwsGlueCrawlerHudiTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTraversalDepth is required")]
     public required TerraformValue<double> MaximumTraversalDepth
     {
-        get => GetArgument<TerraformValue<double>>("maximum_traversal_depth");
+        get => GetRequiredArgument<TerraformValue<double>>("maximum_traversal_depth");
         set => SetArgument("maximum_traversal_depth", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsGlueCrawlerHudiTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     public required TerraformSet<string> Paths
     {
-        get => GetArgument<TerraformSet<string>>("paths");
+        get => GetRequiredArgument<TerraformSet<string>>("paths");
         set => SetArgument("paths", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTraversalDepth is required")]
     public required TerraformValue<double> MaximumTraversalDepth
     {
-        get => GetArgument<TerraformValue<double>>("maximum_traversal_depth");
+        get => GetRequiredArgument<TerraformValue<double>>("maximum_traversal_depth");
         set => SetArgument("maximum_traversal_depth", value);
     }
 
@@ -254,7 +254,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     public required TerraformSet<string> Paths
     {
-        get => GetArgument<TerraformSet<string>>("paths");
+        get => GetRequiredArgument<TerraformSet<string>>("paths");
         set => SetArgument("paths", value);
     }
 
@@ -278,7 +278,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     public required TerraformValue<string> ConnectionName
     {
-        get => GetArgument<TerraformValue<string>>("connection_name");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -327,9 +327,9 @@ public class AwsGlueCrawlerLakeFormationConfigurationBlock : TerraformBlock
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AccountId
+    public TerraformValue<string> AccountId
     {
-        get => GetArgument<TerraformValue<string>>("account_id");
+        get => GetArgument<TerraformValue<string>>("account_id") ?? AsReference("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -385,7 +385,7 @@ public class AwsGlueCrawlerMongodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     public required TerraformValue<string> ConnectionName
     {
-        get => GetArgument<TerraformValue<string>>("connection_name");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -395,7 +395,7 @@ public class AwsGlueCrawlerMongodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -487,7 +487,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -565,7 +565,7 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -581,9 +581,9 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -593,16 +593,16 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -612,7 +612,7 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => GetArgument<TerraformValue<string>>("role");
+        get => GetRequiredArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -655,9 +655,9 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

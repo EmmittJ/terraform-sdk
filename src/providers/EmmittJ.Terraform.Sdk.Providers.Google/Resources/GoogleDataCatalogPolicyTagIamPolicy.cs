@@ -11,9 +11,9 @@ public partial class GoogleDataCatalogPolicyTagIamPolicy(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleDataCatalogPolicyTagIamPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => GetArgument<TerraformValue<string>>("policy_data");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleDataCatalogPolicyTagIamPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyTag is required")]
     public required TerraformValue<string> PolicyTag
     {
-        get => GetArgument<TerraformValue<string>>("policy_tag");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_tag");
         set => SetArgument("policy_tag", value);
     }
 

@@ -20,9 +20,9 @@ public partial class GoogleServiceAccountAccessTokenDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleServiceAccountAccessTokenDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     public required TerraformSet<string> Scopes
     {
-        get => GetArgument<TerraformSet<string>>("scopes");
+        get => GetRequiredArgument<TerraformSet<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleServiceAccountAccessTokenDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     public required TerraformValue<string> TargetServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("target_service_account");
+        get => GetRequiredArgument<TerraformValue<string>>("target_service_account");
         set => SetArgument("target_service_account", value);
     }
 

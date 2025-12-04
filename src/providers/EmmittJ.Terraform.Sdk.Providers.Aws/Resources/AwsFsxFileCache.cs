@@ -25,7 +25,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRepositoryPath is required")]
     public required TerraformValue<string> DataRepositoryPath
     {
-        get => GetArgument<TerraformValue<string>>("data_repository_path");
+        get => GetRequiredArgument<TerraformValue<string>>("data_repository_path");
         set => SetArgument("data_repository_path", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCachePath is required")]
     public required TerraformValue<string> FileCachePath
     {
-        get => GetArgument<TerraformValue<string>>("file_cache_path");
+        get => GetRequiredArgument<TerraformValue<string>>("file_cache_path");
         set => SetArgument("file_cache_path", value);
     }
 
@@ -81,9 +81,9 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string>? Tags
+    public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlockNfsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
     public required TerraformValue<string> DeploymentType
     {
-        get => GetArgument<TerraformValue<string>>("deployment_type");
+        get => GetRequiredArgument<TerraformValue<string>>("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerUnitStorageThroughput is required")]
     public required TerraformValue<double> PerUnitStorageThroughput
     {
-        get => GetArgument<TerraformValue<double>>("per_unit_storage_throughput");
+        get => GetRequiredArgument<TerraformValue<double>>("per_unit_storage_throughput");
         set => SetArgument("per_unit_storage_throughput", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsFsxFileCacheLustreConfigurationBlockMetadataConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
     public required TerraformValue<double> StorageCapacity
     {
-        get => GetArgument<TerraformValue<double>>("storage_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("storage_capacity");
         set => SetArgument("storage_capacity", value);
     }
 
@@ -284,7 +284,7 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCacheType is required")]
     public required TerraformValue<string> FileCacheType
     {
-        get => GetArgument<TerraformValue<string>>("file_cache_type");
+        get => GetRequiredArgument<TerraformValue<string>>("file_cache_type");
         set => SetArgument("file_cache_type", value);
     }
 
@@ -294,34 +294,34 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCacheTypeVersion is required")]
     public required TerraformValue<string> FileCacheTypeVersion
     {
-        get => GetArgument<TerraformValue<string>>("file_cache_type_version");
+        get => GetRequiredArgument<TerraformValue<string>>("file_cache_type_version");
         set => SetArgument("file_cache_type_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -340,7 +340,7 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
     public required TerraformValue<double> StorageCapacity
     {
-        get => GetArgument<TerraformValue<double>>("storage_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("storage_capacity");
         set => SetArgument("storage_capacity", value);
     }
 
@@ -366,9 +366,9 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

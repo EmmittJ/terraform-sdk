@@ -42,7 +42,7 @@ public class GoogleFolderAccessApprovalSettingsEnrolledServicesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudProduct is required")]
     public required TerraformValue<string> CloudProduct
     {
-        get => GetArgument<TerraformValue<string>>("cloud_product");
+        get => GetRequiredArgument<TerraformValue<string>>("cloud_product");
         set => SetArgument("cloud_product", value);
     }
 
@@ -122,16 +122,16 @@ public partial class GoogleFolderAccessApprovalSettings(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformValue<string> FolderId
     {
-        get => GetArgument<TerraformValue<string>>("folder_id");
+        get => GetRequiredArgument<TerraformValue<string>>("folder_id");
         set => SetArgument("folder_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -140,9 +140,9 @@ public partial class GoogleFolderAccessApprovalSettings(string name) : Terraform
     /// Notifications relating to a resource will be sent to all emails in the settings of ancestor
     /// resources of that resource. A maximum of 50 email addresses are allowed.
     /// </summary>
-    public TerraformSet<string>? NotificationEmails
+    public TerraformSet<string> NotificationEmails
     {
-        get => GetArgument<TerraformSet<string>>("notification_emails");
+        get => GetArgument<TerraformSet<string>>("notification_emails") ?? AsReference("notification_emails");
         set => SetArgument("notification_emails", value);
     }
 

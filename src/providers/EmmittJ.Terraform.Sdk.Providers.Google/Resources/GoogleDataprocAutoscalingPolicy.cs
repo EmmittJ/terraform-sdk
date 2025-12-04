@@ -61,7 +61,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlockYarnConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GracefulDecommissionTimeout is required")]
     public required TerraformValue<string> GracefulDecommissionTimeout
     {
-        get => GetArgument<TerraformValue<string>>("graceful_decommission_timeout");
+        get => GetRequiredArgument<TerraformValue<string>>("graceful_decommission_timeout");
         set => SetArgument("graceful_decommission_timeout", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlockYarnConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleDownFactor is required")]
     public required TerraformValue<double> ScaleDownFactor
     {
-        get => GetArgument<TerraformValue<double>>("scale_down_factor");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_down_factor");
         set => SetArgument("scale_down_factor", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlockYarnConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleUpFactor is required")]
     public required TerraformValue<double> ScaleUpFactor
     {
-        get => GetArgument<TerraformValue<double>>("scale_up_factor");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_up_factor");
         set => SetArgument("scale_up_factor", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxInstances is required")]
     public required TerraformValue<double> MaxInstances
     {
-        get => GetArgument<TerraformValue<double>>("max_instances");
+        get => GetRequiredArgument<TerraformValue<double>>("max_instances");
         set => SetArgument("max_instances", value);
     }
 
@@ -289,9 +289,9 @@ public partial class GoogleDataprocAutoscalingPolicy(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -313,16 +313,16 @@ public partial class GoogleDataprocAutoscalingPolicy(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformValue<string> PolicyId
     {
-        get => GetArgument<TerraformValue<string>>("policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_id");
         set => SetArgument("policy_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

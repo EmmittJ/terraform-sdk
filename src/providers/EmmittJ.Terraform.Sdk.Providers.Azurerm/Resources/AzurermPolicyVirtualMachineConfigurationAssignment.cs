@@ -25,18 +25,18 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBloc
     /// <summary>
     /// The content_hash attribute.
     /// </summary>
-    public TerraformValue<string>? ContentHash
+    public TerraformValue<string> ContentHash
     {
-        get => GetArgument<TerraformValue<string>>("content_hash");
+        get => GetArgument<TerraformValue<string>>("content_hash") ?? AsReference("content_hash");
         set => SetArgument("content_hash", value);
     }
 
     /// <summary>
     /// The content_uri attribute.
     /// </summary>
-    public TerraformValue<string>? ContentUri
+    public TerraformValue<string> ContentUri
     {
-        get => GetArgument<TerraformValue<string>>("content_uri");
+        get => GetArgument<TerraformValue<string>>("content_uri") ?? AsReference("content_uri");
         set => SetArgument("content_uri", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -153,9 +153,9 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment(string n
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 

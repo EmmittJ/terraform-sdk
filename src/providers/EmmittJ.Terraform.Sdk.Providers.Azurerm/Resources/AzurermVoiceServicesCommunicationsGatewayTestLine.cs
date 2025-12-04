@@ -61,9 +61,9 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine(string na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Purpose is required")]
     public required TerraformValue<string> Purpose
     {
-        get => GetArgument<TerraformValue<string>>("purpose");
+        get => GetRequiredArgument<TerraformValue<string>>("purpose");
         set => SetArgument("purpose", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceServicesCommunicationsGatewayId is required")]
     public required TerraformValue<string> VoiceServicesCommunicationsGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("voice_services_communications_gateway_id");
+        get => GetRequiredArgument<TerraformValue<string>>("voice_services_communications_gateway_id");
         set => SetArgument("voice_services_communications_gateway_id", value);
     }
 

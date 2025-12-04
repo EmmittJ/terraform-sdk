@@ -743,36 +743,36 @@ public partial class AwsLbListenerRuleDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string>? Arn
+    public TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetArgument<TerraformValue<string>>("arn") ?? AsReference("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
-    public TerraformValue<string>? ListenerArn
+    public TerraformValue<string> ListenerArn
     {
-        get => GetArgument<TerraformValue<string>>("listener_arn");
+        get => GetArgument<TerraformValue<string>>("listener_arn") ?? AsReference("listener_arn");
         set => SetArgument("listener_arn", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformValue<double>? Priority
+    public TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetArgument<TerraformValue<double>>("priority") ?? AsReference("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

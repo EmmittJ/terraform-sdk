@@ -19,7 +19,7 @@ public class AzurermStorageShareAclBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermStorageShareAclBlockAccessPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformValue<string> Permissions
     {
-        get => GetArgument<TerraformValue<string>>("permissions");
+        get => GetRequiredArgument<TerraformValue<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -135,9 +135,9 @@ public partial class AzurermStorageShare(string name) : TerraformResource("azure
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    public TerraformValue<string>? AccessTier
+    public TerraformValue<string> AccessTier
     {
-        get => GetArgument<TerraformValue<string>>("access_tier");
+        get => GetArgument<TerraformValue<string>>("access_tier") ?? AsReference("access_tier");
         set => SetArgument("access_tier", value);
     }
 
@@ -153,18 +153,18 @@ public partial class AzurermStorageShare(string name) : TerraformResource("azure
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformMap<string>? Metadata
+    public TerraformMap<string> Metadata
     {
-        get => GetArgument<TerraformMap<string>>("metadata");
+        get => GetArgument<TerraformMap<string>>("metadata") ?? AsReference("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AzurermStorageShare(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermStorageShare(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quota is required")]
     public required TerraformValue<double> Quota
     {
-        get => GetArgument<TerraformValue<double>>("quota");
+        get => GetRequiredArgument<TerraformValue<double>>("quota");
         set => SetArgument("quota", value);
     }
 

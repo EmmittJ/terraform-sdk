@@ -55,7 +55,7 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
     public required TerraformValue<string> Authority
     {
-        get => GetArgument<TerraformValue<string>>("authority");
+        get => GetRequiredArgument<TerraformValue<string>>("authority");
         set => SetArgument("authority", value);
     }
 
@@ -74,9 +74,9 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     /// * If response headers have not been delivered to the downstream client, a generic 500 error is returned to the client. The error response can be tailored by configuring a custom error response in the load balancer.
     /// * If response headers have been delivered, then the HTTP stream to the downstream client is reset.
     /// </summary>
-    public TerraformValue<bool>? FailOpen
+    public TerraformValue<bool> FailOpen
     {
-        get => GetArgument<TerraformValue<bool>>("fail_open");
+        get => GetArgument<TerraformValue<bool>>("fail_open") ?? AsReference("fail_open");
         set => SetArgument("fail_open", value);
     }
 
@@ -92,9 +92,9 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
     public required TerraformValue<string> LoadBalancingScheme
     {
-        get => GetArgument<TerraformValue<string>>("load_balancing_scheme");
+        get => GetRequiredArgument<TerraformValue<string>>("load_balancing_scheme");
         set => SetArgument("load_balancing_scheme", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -149,16 +149,16 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -170,7 +170,7 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -180,16 +180,16 @@ public partial class GoogleNetworkServicesAuthzExtension(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
     public required TerraformValue<string> Timeout
     {
-        get => GetArgument<TerraformValue<string>>("timeout");
+        get => GetRequiredArgument<TerraformValue<string>>("timeout");
         set => SetArgument("timeout", value);
     }
 
     /// <summary>
     /// The format of communication supported by the callout extension. Will be set to EXT_PROC_GRPC by the backend if no value is set. Possible values: [&amp;quot;WIRE_FORMAT_UNSPECIFIED&amp;quot;, &amp;quot;EXT_PROC_GRPC&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? WireFormat
+    public TerraformValue<string> WireFormat
     {
-        get => GetArgument<TerraformValue<string>>("wire_format");
+        get => GetArgument<TerraformValue<string>>("wire_format") ?? AsReference("wire_format");
         set => SetArgument("wire_format", value);
     }
 

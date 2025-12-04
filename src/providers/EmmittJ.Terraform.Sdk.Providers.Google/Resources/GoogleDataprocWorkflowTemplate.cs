@@ -60,7 +60,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StepId is required")]
     public required TerraformValue<string> StepId
     {
-        get => GetArgument<TerraformValue<string>>("step_id");
+        get => GetRequiredArgument<TerraformValue<string>>("step_id");
         set => SetArgument("step_id", value);
     }
 
@@ -654,7 +654,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPysparkJobBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainPythonFileUri is required")]
     public required TerraformValue<string> MainPythonFileUri
     {
-        get => GetArgument<TerraformValue<string>>("main_python_file_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("main_python_file_uri");
         set => SetArgument("main_python_file_uri", value);
     }
 
@@ -893,7 +893,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkRJobBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainRFileUri is required")]
     public required TerraformValue<string> MainRFileUri
     {
-        get => GetArgument<TerraformValue<string>>("main_r_file_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("main_r_file_uri");
         set => SetArgument("main_r_file_uri", value);
     }
 
@@ -1091,7 +1091,7 @@ public class GoogleDataprocWorkflowTemplateParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1237,16 +1237,16 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockClusterSelectorBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterLabels is required")]
     public required TerraformMap<string> ClusterLabels
     {
-        get => GetArgument<TerraformMap<string>>("cluster_labels");
+        get => GetRequiredArgument<TerraformMap<string>>("cluster_labels");
         set => SetArgument("cluster_labels", value);
     }
 
     /// <summary>
     /// Optional. The zone where workflow process executes. This parameter does not affect the selection of the cluster. If unspecified, the zone of the first cluster matching the selector is used.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -1269,7 +1269,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -1523,9 +1523,9 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// <summary>
     /// Optional. If true, all instances in the cluster will only have internal IP addresses. By default, clusters are not restricted to internal IP addresses, and will have ephemeral external IP addresses assigned to each instance. This `internal_ip_only` restriction can only be enabled for subnetwork enabled networks, and all off-cluster dependencies must be configured to be accessible without external IP addresses.
     /// </summary>
-    public TerraformValue<bool>? InternalIpOnly
+    public TerraformValue<bool> InternalIpOnly
     {
-        get => GetArgument<TerraformValue<bool>>("internal_ip_only");
+        get => GetArgument<TerraformValue<bool>>("internal_ip_only") ?? AsReference("internal_ip_only");
         set => SetArgument("internal_ip_only", value);
     }
 
@@ -1595,9 +1595,9 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// <summary>
     /// Optional. The zone where the Compute Engine cluster will be located. On a create request, it is required in the &amp;quot;global&amp;quot; region. If omitted in a non-global Dataproc region, the service will pick a zone in the corresponding Compute Engine region. On a get request, zone will always be present. A full URL, partial URI, or short name are valid. Examples: * `https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]` * `projects/[project_id]/zones/[zone]` * `us-central1-f`
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 
@@ -1650,7 +1650,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeGroup is required")]
     public required TerraformValue<string> NodeGroup
     {
-        get => GetArgument<TerraformValue<string>>("node_group");
+        get => GetRequiredArgument<TerraformValue<string>>("node_group");
         set => SetArgument("node_group", value);
     }
 
@@ -1863,9 +1863,9 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// <summary>
     /// Optional. Specifies the minimum cpu platform for the Instance Group. See [Dataproc -&amp;gt; Minimum CPU Platform](https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
     /// </summary>
-    public TerraformValue<string>? MinCpuPlatform
+    public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -1971,9 +1971,9 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// <summary>
     /// Optional. Number of attached SSDs, from 0 to 4 (default is 0). If SSDs are not attached, the boot disk is used to store runtime logs and [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data. If one or more SSDs are attached, this runtime bulk data is spread across them, and the boot disk contains only basic config and installed binaries.
     /// </summary>
-    public TerraformValue<double>? NumLocalSsds
+    public TerraformValue<double> NumLocalSsds
     {
-        get => GetArgument<TerraformValue<double>>("num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? AsReference("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -2029,9 +2029,9 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// <summary>
     /// Optional. Specifies the minimum cpu platform for the Instance Group. See [Dataproc -&amp;gt; Minimum CPU Platform](https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
     /// </summary>
-    public TerraformValue<string>? MinCpuPlatform
+    public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -2137,9 +2137,9 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// <summary>
     /// Optional. Number of attached SSDs, from 0 to 4 (default is 0). If SSDs are not attached, the boot disk is used to store runtime logs and [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data. If one or more SSDs are attached, this runtime bulk data is spread across them, and the boot disk contains only basic config and installed binaries.
     /// </summary>
-    public TerraformValue<double>? NumLocalSsds
+    public TerraformValue<double> NumLocalSsds
     {
-        get => GetArgument<TerraformValue<double>>("num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? AsReference("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -2406,9 +2406,9 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// <summary>
     /// Optional. Specifies the minimum cpu platform for the Instance Group. See [Dataproc -&amp;gt; Minimum CPU Platform](https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
     /// </summary>
-    public TerraformValue<string>? MinCpuPlatform
+    public TerraformValue<string> MinCpuPlatform
     {
-        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform") ?? AsReference("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -2514,9 +2514,9 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// <summary>
     /// Optional. Number of attached SSDs, from 0 to 4 (default is 0). If SSDs are not attached, the boot disk is used to store runtime logs and [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data. If one or more SSDs are attached, this runtime bulk data is spread across them, and the boot disk contains only basic config and installed binaries.
     /// </summary>
-    public TerraformValue<double>? NumLocalSsds
+    public TerraformValue<double> NumLocalSsds
     {
-        get => GetArgument<TerraformValue<double>>("num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds") ?? AsReference("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -2582,9 +2582,9 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2606,7 +2606,7 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -2616,16 +2616,16 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -2633,9 +2633,9 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     /// Output only. The current version of this workflow template.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<double>? Version
+    public TerraformValue<double> Version
     {
-        get => GetArgument<TerraformValue<double>>("version");
+        get => GetArgument<TerraformValue<double>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 

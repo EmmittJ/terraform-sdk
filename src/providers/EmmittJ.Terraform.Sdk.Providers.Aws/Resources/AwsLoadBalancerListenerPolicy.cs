@@ -11,9 +11,9 @@ public partial class AwsLoadBalancerListenerPolicy(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsLoadBalancerListenerPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerName is required")]
     public required TerraformValue<string> LoadBalancerName
     {
-        get => GetArgument<TerraformValue<string>>("load_balancer_name");
+        get => GetRequiredArgument<TerraformValue<string>>("load_balancer_name");
         set => SetArgument("load_balancer_name", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsLoadBalancerListenerPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerPort is required")]
     public required TerraformValue<double> LoadBalancerPort
     {
-        get => GetArgument<TerraformValue<double>>("load_balancer_port");
+        get => GetRequiredArgument<TerraformValue<double>>("load_balancer_port");
         set => SetArgument("load_balancer_port", value);
     }
 
@@ -49,9 +49,9 @@ public partial class AwsLoadBalancerListenerPolicy(string name) : TerraformResou
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

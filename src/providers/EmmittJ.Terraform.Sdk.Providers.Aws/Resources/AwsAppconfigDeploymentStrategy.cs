@@ -14,7 +14,7 @@ public partial class AwsAppconfigDeploymentStrategy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentDurationInMinutes is required")]
     public required TerraformValue<double> DeploymentDurationInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("deployment_duration_in_minutes");
+        get => GetRequiredArgument<TerraformValue<double>>("deployment_duration_in_minutes");
         set => SetArgument("deployment_duration_in_minutes", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsAppconfigDeploymentStrategy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrowthFactor is required")]
     public required TerraformValue<double> GrowthFactor
     {
-        get => GetArgument<TerraformValue<double>>("growth_factor");
+        get => GetRequiredArgument<TerraformValue<double>>("growth_factor");
         set => SetArgument("growth_factor", value);
     }
 
@@ -58,9 +58,9 @@ public partial class AwsAppconfigDeploymentStrategy(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -70,16 +70,16 @@ public partial class AwsAppconfigDeploymentStrategy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsAppconfigDeploymentStrategy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicateTo is required")]
     public required TerraformValue<string> ReplicateTo
     {
-        get => GetArgument<TerraformValue<string>>("replicate_to");
+        get => GetRequiredArgument<TerraformValue<string>>("replicate_to");
         set => SetArgument("replicate_to", value);
     }
 
@@ -105,9 +105,9 @@ public partial class AwsAppconfigDeploymentStrategy(string name) : TerraformReso
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

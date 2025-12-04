@@ -55,7 +55,7 @@ public partial class GoogleOracleDatabaseOdbSubnet(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrRange is required")]
     public required TerraformValue<string> CidrRange
     {
-        get => GetArgument<TerraformValue<string>>("cidr_range");
+        get => GetRequiredArgument<TerraformValue<string>>("cidr_range");
         set => SetArgument("cidr_range", value);
     }
 
@@ -71,9 +71,9 @@ public partial class GoogleOracleDatabaseOdbSubnet(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -95,7 +95,7 @@ public partial class GoogleOracleDatabaseOdbSubnet(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -108,7 +108,7 @@ public partial class GoogleOracleDatabaseOdbSubnet(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbSubnetId is required")]
     public required TerraformValue<string> OdbSubnetId
     {
-        get => GetArgument<TerraformValue<string>>("odb_subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("odb_subnet_id");
         set => SetArgument("odb_subnet_id", value);
     }
 
@@ -118,16 +118,16 @@ public partial class GoogleOracleDatabaseOdbSubnet(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Odbnetwork is required")]
     public required TerraformValue<string> Odbnetwork
     {
-        get => GetArgument<TerraformValue<string>>("odbnetwork");
+        get => GetRequiredArgument<TerraformValue<string>>("odbnetwork");
         set => SetArgument("odbnetwork", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -140,7 +140,7 @@ public partial class GoogleOracleDatabaseOdbSubnet(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Purpose is required")]
     public required TerraformValue<string> Purpose
     {
-        get => GetArgument<TerraformValue<string>>("purpose");
+        get => GetRequiredArgument<TerraformValue<string>>("purpose");
         set => SetArgument("purpose", value);
     }
 

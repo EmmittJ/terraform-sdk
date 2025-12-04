@@ -68,16 +68,16 @@ public partial class GoogleSccV2ProjectMuteConfig(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -96,16 +96,16 @@ public partial class GoogleSccV2ProjectMuteConfig(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MuteConfigId is required")]
     public required TerraformValue<string> MuteConfigId
     {
-        get => GetArgument<TerraformValue<string>>("mute_config_id");
+        get => GetRequiredArgument<TerraformValue<string>>("mute_config_id");
         set => SetArgument("mute_config_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleSccV2ProjectMuteConfig(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

@@ -55,7 +55,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerGroup is required")]
     public required TerraformValue<string> ConsumerGroup
     {
-        get => GetArgument<TerraformValue<string>>("consumer_group");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_group");
         set => SetArgument("consumer_group", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -109,9 +109,9 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformValue<string> IothubId
     {
-        get => GetArgument<TerraformValue<string>>("iothub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("iothub_id");
         set => SetArgument("iothub_id", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedAccessPolicyName is required")]
     public required TerraformValue<string> SharedAccessPolicyName
     {
-        get => GetArgument<TerraformValue<string>>("shared_access_policy_name");
+        get => GetRequiredArgument<TerraformValue<string>>("shared_access_policy_name");
         set => SetArgument("shared_access_policy_name", value);
     }
 

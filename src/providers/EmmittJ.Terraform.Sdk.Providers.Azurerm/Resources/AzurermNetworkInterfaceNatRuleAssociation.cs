@@ -52,9 +52,9 @@ public partial class AzurermNetworkInterfaceNatRuleAssociation(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermNetworkInterfaceNatRuleAssociation(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurationName is required")]
     public required TerraformValue<string> IpConfigurationName
     {
-        get => GetArgument<TerraformValue<string>>("ip_configuration_name");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_configuration_name");
         set => SetArgument("ip_configuration_name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermNetworkInterfaceNatRuleAssociation(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatRuleId is required")]
     public required TerraformValue<string> NatRuleId
     {
-        get => GetArgument<TerraformValue<string>>("nat_rule_id");
+        get => GetRequiredArgument<TerraformValue<string>>("nat_rule_id");
         set => SetArgument("nat_rule_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermNetworkInterfaceNatRuleAssociation(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformValue<string> NetworkInterfaceId
     {
-        get => GetArgument<TerraformValue<string>>("network_interface_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 

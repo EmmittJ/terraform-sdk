@@ -14,16 +14,16 @@ public partial class AwsEc2CapacityBlockOfferingDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityDurationHours is required")]
     public required TerraformValue<double> CapacityDurationHours
     {
-        get => GetArgument<TerraformValue<double>>("capacity_duration_hours");
+        get => GetRequiredArgument<TerraformValue<double>>("capacity_duration_hours");
         set => SetArgument("capacity_duration_hours", value);
     }
 
     /// <summary>
     /// The end_date_range attribute.
     /// </summary>
-    public TerraformValue<string>? EndDateRange
+    public TerraformValue<string> EndDateRange
     {
-        get => GetArgument<TerraformValue<string>>("end_date_range");
+        get => GetArgument<TerraformValue<string>>("end_date_range") ?? AsReference("end_date_range");
         set => SetArgument("end_date_range", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsEc2CapacityBlockOfferingDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformValue<double> InstanceCount
     {
-        get => GetArgument<TerraformValue<double>>("instance_count");
+        get => GetRequiredArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -43,25 +43,25 @@ public partial class AwsEc2CapacityBlockOfferingDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The start_date_range attribute.
     /// </summary>
-    public TerraformValue<string>? StartDateRange
+    public TerraformValue<string> StartDateRange
     {
-        get => GetArgument<TerraformValue<string>>("start_date_range");
+        get => GetArgument<TerraformValue<string>>("start_date_range") ?? AsReference("start_date_range");
         set => SetArgument("start_date_range", value);
     }
 

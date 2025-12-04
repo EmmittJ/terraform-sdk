@@ -19,7 +19,7 @@ public class AwsEcsTaskDefinitionEphemeralStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
     public required TerraformValue<double> SizeInGib
     {
-        get => GetArgument<TerraformValue<double>>("size_in_gib");
+        get => GetRequiredArgument<TerraformValue<double>>("size_in_gib");
         set => SetArgument("size_in_gib", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -147,9 +147,9 @@ public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
     /// <summary>
     /// The configure_at_launch attribute.
     /// </summary>
-    public TerraformValue<bool>? ConfigureAtLaunch
+    public TerraformValue<bool> ConfigureAtLaunch
     {
-        get => GetArgument<TerraformValue<bool>>("configure_at_launch");
+        get => GetArgument<TerraformValue<bool>>("configure_at_launch") ?? AsReference("configure_at_launch");
         set => SetArgument("configure_at_launch", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -227,9 +227,9 @@ public class AwsEcsTaskDefinitionVolumeBlockDockerVolumeConfigurationBlock : Ter
     /// <summary>
     /// The driver attribute.
     /// </summary>
-    public TerraformValue<string>? Driver
+    public TerraformValue<string> Driver
     {
-        get => GetArgument<TerraformValue<string>>("driver");
+        get => GetArgument<TerraformValue<string>>("driver") ?? AsReference("driver");
         set => SetArgument("driver", value);
     }
 
@@ -254,9 +254,9 @@ public class AwsEcsTaskDefinitionVolumeBlockDockerVolumeConfigurationBlock : Ter
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformValue<string>? Scope
+    public TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetArgument<TerraformValue<string>>("scope") ?? AsReference("scope");
         set => SetArgument("scope", value);
     }
 
@@ -279,7 +279,7 @@ public class AwsEcsTaskDefinitionVolumeBlockEfsVolumeConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -370,7 +370,7 @@ public class AwsEcsTaskDefinitionVolumeBlockFsxWindowsFileServerVolumeConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -380,7 +380,7 @@ public class AwsEcsTaskDefinitionVolumeBlockFsxWindowsFileServerVolumeConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootDirectory is required")]
     public required TerraformValue<string> RootDirectory
     {
-        get => GetArgument<TerraformValue<string>>("root_directory");
+        get => GetRequiredArgument<TerraformValue<string>>("root_directory");
         set => SetArgument("root_directory", value);
     }
 
@@ -416,7 +416,7 @@ public class AwsEcsTaskDefinitionVolumeBlockFsxWindowsFileServerVolumeConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialsParameter is required")]
     public required TerraformValue<string> CredentialsParameter
     {
-        get => GetArgument<TerraformValue<string>>("credentials_parameter");
+        get => GetRequiredArgument<TerraformValue<string>>("credentials_parameter");
         set => SetArgument("credentials_parameter", value);
     }
 
@@ -426,7 +426,7 @@ public class AwsEcsTaskDefinitionVolumeBlockFsxWindowsFileServerVolumeConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetRequiredArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -445,7 +445,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerDefinitions is required")]
     public required TerraformValue<string> ContainerDefinitions
     {
-        get => GetArgument<TerraformValue<string>>("container_definitions");
+        get => GetRequiredArgument<TerraformValue<string>>("container_definitions");
         set => SetArgument("container_definitions", value);
     }
 
@@ -461,9 +461,9 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// <summary>
     /// The enable_fault_injection attribute.
     /// </summary>
-    public TerraformValue<bool>? EnableFaultInjection
+    public TerraformValue<bool> EnableFaultInjection
     {
-        get => GetArgument<TerraformValue<bool>>("enable_fault_injection");
+        get => GetArgument<TerraformValue<bool>>("enable_fault_injection") ?? AsReference("enable_fault_injection");
         set => SetArgument("enable_fault_injection", value);
     }
 
@@ -482,16 +482,16 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformValue<string> Family
     {
-        get => GetArgument<TerraformValue<string>>("family");
+        get => GetRequiredArgument<TerraformValue<string>>("family");
         set => SetArgument("family", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -516,9 +516,9 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// <summary>
     /// The network_mode attribute.
     /// </summary>
-    public TerraformValue<string>? NetworkMode
+    public TerraformValue<string> NetworkMode
     {
-        get => GetArgument<TerraformValue<string>>("network_mode");
+        get => GetArgument<TerraformValue<string>>("network_mode") ?? AsReference("network_mode");
         set => SetArgument("network_mode", value);
     }
 
@@ -534,9 +534,9 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -570,9 +570,9 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

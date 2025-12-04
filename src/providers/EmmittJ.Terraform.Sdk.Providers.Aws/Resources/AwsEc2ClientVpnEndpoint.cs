@@ -55,7 +55,7 @@ public class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -76,18 +76,18 @@ public class AwsEc2ClientVpnEndpointClientConnectOptionsBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The lambda_function_arn attribute.
     /// </summary>
-    public TerraformValue<string>? LambdaFunctionArn
+    public TerraformValue<string> LambdaFunctionArn
     {
-        get => GetArgument<TerraformValue<string>>("lambda_function_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_function_arn") ?? AsReference("lambda_function_arn");
         set => SetArgument("lambda_function_arn", value);
     }
 
@@ -108,18 +108,18 @@ public class AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock : TerraformBlo
     /// <summary>
     /// The banner_text attribute.
     /// </summary>
-    public TerraformValue<string>? BannerText
+    public TerraformValue<string> BannerText
     {
-        get => GetArgument<TerraformValue<string>>("banner_text");
+        get => GetArgument<TerraformValue<string>>("banner_text") ?? AsReference("banner_text");
         set => SetArgument("banner_text", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -140,9 +140,9 @@ public class AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock : Terrafo
     /// <summary>
     /// The enforced attribute.
     /// </summary>
-    public TerraformValue<bool>? Enforced
+    public TerraformValue<bool> Enforced
     {
-        get => GetArgument<TerraformValue<bool>>("enforced");
+        get => GetArgument<TerraformValue<bool>>("enforced") ?? AsReference("enforced");
         set => SetArgument("enforced", value);
     }
 
@@ -172,9 +172,9 @@ public class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock : TerraformBlock
     /// <summary>
     /// The cloudwatch_log_stream attribute.
     /// </summary>
-    public TerraformValue<string>? CloudwatchLogStream
+    public TerraformValue<string> CloudwatchLogStream
     {
-        get => GetArgument<TerraformValue<string>>("cloudwatch_log_stream");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_log_stream") ?? AsReference("cloudwatch_log_stream");
         set => SetArgument("cloudwatch_log_stream", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -218,9 +218,9 @@ public partial class AwsEc2ClientVpnEndpoint(string name) : TerraformResource("a
     /// <summary>
     /// The disconnect_on_session_timeout attribute.
     /// </summary>
-    public TerraformValue<bool>? DisconnectOnSessionTimeout
+    public TerraformValue<bool> DisconnectOnSessionTimeout
     {
-        get => GetArgument<TerraformValue<bool>>("disconnect_on_session_timeout");
+        get => GetArgument<TerraformValue<bool>>("disconnect_on_session_timeout") ?? AsReference("disconnect_on_session_timeout");
         set => SetArgument("disconnect_on_session_timeout", value);
     }
 
@@ -236,36 +236,36 @@ public partial class AwsEc2ClientVpnEndpoint(string name) : TerraformResource("a
     /// <summary>
     /// The endpoint_ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string>? EndpointIpAddressType
+    public TerraformValue<string> EndpointIpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_ip_address_type");
+        get => GetArgument<TerraformValue<string>>("endpoint_ip_address_type") ?? AsReference("endpoint_ip_address_type");
         set => SetArgument("endpoint_ip_address_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroupIds
+    public TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetArgument<TerraformSet<string>>("security_group_ids") ?? AsReference("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -284,7 +284,7 @@ public partial class AwsEc2ClientVpnEndpoint(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerCertificateArn is required")]
     public required TerraformValue<string> ServerCertificateArn
     {
-        get => GetArgument<TerraformValue<string>>("server_certificate_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("server_certificate_arn");
         set => SetArgument("server_certificate_arn", value);
     }
 
@@ -318,18 +318,18 @@ public partial class AwsEc2ClientVpnEndpoint(string name) : TerraformResource("a
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The traffic_ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string>? TrafficIpAddressType
+    public TerraformValue<string> TrafficIpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("traffic_ip_address_type");
+        get => GetArgument<TerraformValue<string>>("traffic_ip_address_type") ?? AsReference("traffic_ip_address_type");
         set => SetArgument("traffic_ip_address_type", value);
     }
 
@@ -345,9 +345,9 @@ public partial class AwsEc2ClientVpnEndpoint(string name) : TerraformResource("a
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformValue<string>? VpcId
+    public TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id") ?? AsReference("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 

@@ -25,9 +25,9 @@ public class AwsAcmCertificateOptionsBlock : TerraformBlock
     /// <summary>
     /// The export attribute.
     /// </summary>
-    public TerraformValue<string>? Export
+    public TerraformValue<string> Export
     {
-        get => GetArgument<TerraformValue<string>>("export");
+        get => GetArgument<TerraformValue<string>>("export") ?? AsReference("export");
         set => SetArgument("export", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsAcmCertificateValidationOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsAcmCertificateValidationOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidationDomain is required")]
     public required TerraformValue<string> ValidationDomain
     {
-        get => GetArgument<TerraformValue<string>>("validation_domain");
+        get => GetRequiredArgument<TerraformValue<string>>("validation_domain");
         set => SetArgument("validation_domain", value);
     }
 
@@ -104,9 +104,9 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformValue<string>? DomainName
+    public TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name") ?? AsReference("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -122,18 +122,18 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The key_algorithm attribute.
     /// </summary>
-    public TerraformValue<string>? KeyAlgorithm
+    public TerraformValue<string> KeyAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("key_algorithm");
+        get => GetArgument<TerraformValue<string>>("key_algorithm") ?? AsReference("key_algorithm");
         set => SetArgument("key_algorithm", value);
     }
 
@@ -149,18 +149,18 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The subject_alternative_names attribute.
     /// </summary>
-    public TerraformSet<string>? SubjectAlternativeNames
+    public TerraformSet<string> SubjectAlternativeNames
     {
-        get => GetArgument<TerraformSet<string>>("subject_alternative_names");
+        get => GetArgument<TerraformSet<string>>("subject_alternative_names") ?? AsReference("subject_alternative_names");
         set => SetArgument("subject_alternative_names", value);
     }
 
@@ -176,18 +176,18 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The validation_method attribute.
     /// </summary>
-    public TerraformValue<string>? ValidationMethod
+    public TerraformValue<string> ValidationMethod
     {
-        get => GetArgument<TerraformValue<string>>("validation_method");
+        get => GetArgument<TerraformValue<string>>("validation_method") ?? AsReference("validation_method");
         set => SetArgument("validation_method", value);
     }
 

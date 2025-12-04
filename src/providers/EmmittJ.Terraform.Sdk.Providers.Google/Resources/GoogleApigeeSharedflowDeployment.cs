@@ -55,16 +55,16 @@ public partial class GoogleApigeeSharedflowDeployment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => GetArgument<TerraformValue<string>>("environment");
+        get => GetRequiredArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleApigeeSharedflowDeployment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleApigeeSharedflowDeployment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformValue<string> Revision
     {
-        get => GetArgument<TerraformValue<string>>("revision");
+        get => GetRequiredArgument<TerraformValue<string>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleApigeeSharedflowDeployment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedflowId is required")]
     public required TerraformValue<string> SharedflowId
     {
-        get => GetArgument<TerraformValue<string>>("sharedflow_id");
+        get => GetRequiredArgument<TerraformValue<string>>("sharedflow_id");
         set => SetArgument("sharedflow_id", value);
     }
 

@@ -28,7 +28,7 @@ public class GoogleSecurityposturePosturePolicySetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySetId is required")]
     public required TerraformValue<string> PolicySetId
     {
-        get => GetArgument<TerraformValue<string>>("policy_set_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_set_id");
         set => SetArgument("policy_set_id", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformValue<string> PolicyId
     {
-        get => GetArgument<TerraformValue<string>>("policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_id");
         set => SetArgument("policy_id", value);
     }
 
@@ -201,7 +201,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CannedConstraintId is required")]
     public required TerraformValue<string> CannedConstraintId
     {
-        get => GetArgument<TerraformValue<string>>("canned_constraint_id");
+        get => GetRequiredArgument<TerraformValue<string>>("canned_constraint_id");
         set => SetArgument("canned_constraint_id", value);
     }
 
@@ -306,7 +306,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -413,7 +413,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
     public required TerraformValue<string> ActionType
     {
-        get => GetArgument<TerraformValue<string>>("action_type");
+        get => GetRequiredArgument<TerraformValue<string>>("action_type");
         set => SetArgument("action_type", value);
     }
 
@@ -423,7 +423,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Condition is required")]
     public required TerraformValue<string> Condition
     {
-        get => GetArgument<TerraformValue<string>>("condition");
+        get => GetRequiredArgument<TerraformValue<string>>("condition");
         set => SetArgument("condition", value);
     }
 
@@ -461,7 +461,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -564,7 +564,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -708,7 +708,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformValue<string> Severity
     {
-        get => GetArgument<TerraformValue<string>>("severity");
+        get => GetRequiredArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -789,7 +789,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -831,7 +831,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -881,7 +881,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -954,7 +954,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModuleName is required")]
     public required TerraformValue<string> ModuleName
     {
-        get => GetArgument<TerraformValue<string>>("module_name");
+        get => GetRequiredArgument<TerraformValue<string>>("module_name");
         set => SetArgument("module_name", value);
     }
 
@@ -1020,9 +1020,9 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1032,7 +1032,7 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1042,7 +1042,7 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -1052,7 +1052,7 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureId is required")]
     public required TerraformValue<string> PostureId
     {
-        get => GetArgument<TerraformValue<string>>("posture_id");
+        get => GetRequiredArgument<TerraformValue<string>>("posture_id");
         set => SetArgument("posture_id", value);
     }
 
@@ -1063,7 +1063,7 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetRequiredArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 

@@ -129,9 +129,9 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformValue<string>? ClusterId
+    public TerraformValue<string> ClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id") ?? AsReference("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -149,9 +149,9 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     /// The cluster_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? ClusterResourceId
+    public TerraformValue<string> ClusterResourceId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_resource_id");
+        get => GetArgument<TerraformValue<string>>("cluster_resource_id") ?? AsReference("cluster_resource_id");
         set => SetArgument("cluster_resource_id", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -177,9 +177,9 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

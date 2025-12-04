@@ -70,9 +70,9 @@ public partial class AzurermMssqlJob(string name) : TerraformResource("azurerm_m
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermMssqlJob(string name) : TerraformResource("azurerm_m
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobAgentId is required")]
     public required TerraformValue<string> JobAgentId
     {
-        get => GetArgument<TerraformValue<string>>("job_agent_id");
+        get => GetRequiredArgument<TerraformValue<string>>("job_agent_id");
         set => SetArgument("job_agent_id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermMssqlJob(string name) : TerraformResource("azurerm_m
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

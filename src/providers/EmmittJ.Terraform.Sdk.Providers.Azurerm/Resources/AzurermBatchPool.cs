@@ -28,7 +28,7 @@ public class AzurermBatchPoolAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Formula is required")]
     public required TerraformValue<string> Formula
     {
-        get => GetArgument<TerraformValue<string>>("formula");
+        get => GetRequiredArgument<TerraformValue<string>>("formula");
         set => SetArgument("formula", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermBatchPoolCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermBatchPoolCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoreLocation is required")]
     public required TerraformValue<string> StoreLocation
     {
-        get => GetArgument<TerraformValue<string>>("store_location");
+        get => GetRequiredArgument<TerraformValue<string>>("store_location");
         set => SetArgument("store_location", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermBatchPoolDataDisksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
     public required TerraformValue<double> DiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("disk_size_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermBatchPoolDataDisksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformValue<double> Lun
     {
-        get => GetArgument<TerraformValue<double>>("lun");
+        get => GetRequiredArgument<TerraformValue<double>>("lun");
         set => SetArgument("lun", value);
     }
 
@@ -197,7 +197,7 @@ public class AzurermBatchPoolDiskEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskEncryptionTarget is required")]
     public required TerraformValue<string> DiskEncryptionTarget
     {
-        get => GetArgument<TerraformValue<string>>("disk_encryption_target");
+        get => GetRequiredArgument<TerraformValue<string>>("disk_encryption_target");
         set => SetArgument("disk_encryption_target", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -267,7 +267,7 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -286,7 +286,7 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -369,7 +369,7 @@ public class AzurermBatchPoolIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public required TerraformSet<string> IdentityIds
     {
-        get => GetArgument<TerraformSet<string>>("identity_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -379,7 +379,7 @@ public class AzurermBatchPoolIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -462,7 +462,7 @@ public class AzurermBatchPoolMountBlockAzureBlobFileSystemBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -481,7 +481,7 @@ public class AzurermBatchPoolMountBlockAzureBlobFileSystemBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => GetArgument<TerraformValue<string>>("container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -500,7 +500,7 @@ public class AzurermBatchPoolMountBlockAzureBlobFileSystemBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeMountPath is required")]
     public required TerraformValue<string> RelativeMountPath
     {
-        get => GetArgument<TerraformValue<string>>("relative_mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("relative_mount_path");
         set => SetArgument("relative_mount_path", value);
     }
 
@@ -532,7 +532,7 @@ public class AzurermBatchPoolMountBlockAzureFileShareBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountKey is required")]
     public required TerraformValue<string> AccountKey
     {
-        get => GetArgument<TerraformValue<string>>("account_key");
+        get => GetRequiredArgument<TerraformValue<string>>("account_key");
         set => SetArgument("account_key", value);
     }
 
@@ -542,7 +542,7 @@ public class AzurermBatchPoolMountBlockAzureFileShareBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -552,7 +552,7 @@ public class AzurermBatchPoolMountBlockAzureFileShareBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureFileUrl is required")]
     public required TerraformValue<string> AzureFileUrl
     {
-        get => GetArgument<TerraformValue<string>>("azure_file_url");
+        get => GetRequiredArgument<TerraformValue<string>>("azure_file_url");
         set => SetArgument("azure_file_url", value);
     }
 
@@ -571,7 +571,7 @@ public class AzurermBatchPoolMountBlockAzureFileShareBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeMountPath is required")]
     public required TerraformValue<string> RelativeMountPath
     {
-        get => GetArgument<TerraformValue<string>>("relative_mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("relative_mount_path");
         set => SetArgument("relative_mount_path", value);
     }
 
@@ -603,7 +603,7 @@ public class AzurermBatchPoolMountBlockCifsMountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -613,7 +613,7 @@ public class AzurermBatchPoolMountBlockCifsMountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeMountPath is required")]
     public required TerraformValue<string> RelativeMountPath
     {
-        get => GetArgument<TerraformValue<string>>("relative_mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("relative_mount_path");
         set => SetArgument("relative_mount_path", value);
     }
 
@@ -623,7 +623,7 @@ public class AzurermBatchPoolMountBlockCifsMountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -633,7 +633,7 @@ public class AzurermBatchPoolMountBlockCifsMountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => GetArgument<TerraformValue<string>>("user_name");
+        get => GetRequiredArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -665,7 +665,7 @@ public class AzurermBatchPoolMountBlockNfsMountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeMountPath is required")]
     public required TerraformValue<string> RelativeMountPath
     {
-        get => GetArgument<TerraformValue<string>>("relative_mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("relative_mount_path");
         set => SetArgument("relative_mount_path", value);
     }
 
@@ -675,7 +675,7 @@ public class AzurermBatchPoolMountBlockNfsMountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -766,7 +766,7 @@ public class AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
     public required TerraformValue<double> BackendPort
     {
-        get => GetArgument<TerraformValue<double>>("backend_port");
+        get => GetRequiredArgument<TerraformValue<double>>("backend_port");
         set => SetArgument("backend_port", value);
     }
 
@@ -776,7 +776,7 @@ public class AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortRange is required")]
     public required TerraformValue<string> FrontendPortRange
     {
-        get => GetArgument<TerraformValue<string>>("frontend_port_range");
+        get => GetRequiredArgument<TerraformValue<string>>("frontend_port_range");
         set => SetArgument("frontend_port_range", value);
     }
 
@@ -786,7 +786,7 @@ public class AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -796,7 +796,7 @@ public class AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -828,7 +828,7 @@ public class AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
     public required TerraformValue<string> Access
     {
-        get => GetArgument<TerraformValue<string>>("access");
+        get => GetRequiredArgument<TerraformValue<string>>("access");
         set => SetArgument("access", value);
     }
 
@@ -838,7 +838,7 @@ public class AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -848,16 +848,16 @@ public class AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceAddressPrefix is required")]
     public required TerraformValue<string> SourceAddressPrefix
     {
-        get => GetArgument<TerraformValue<string>>("source_address_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("source_address_prefix");
         set => SetArgument("source_address_prefix", value);
     }
 
     /// <summary>
     /// The source_port_ranges attribute.
     /// </summary>
-    public TerraformList<string>? SourcePortRanges
+    public TerraformList<string> SourcePortRanges
     {
-        get => GetArgument<TerraformList<string>>("source_port_ranges");
+        get => GetArgument<TerraformList<string>>("source_port_ranges") ?? AsReference("source_port_ranges");
         set => SetArgument("source_port_ranges", value);
     }
 
@@ -954,7 +954,7 @@ public class AzurermBatchPoolStartTaskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommandLine is required")]
     public required TerraformValue<string> CommandLine
     {
-        get => GetArgument<TerraformValue<string>>("command_line");
+        get => GetRequiredArgument<TerraformValue<string>>("command_line");
         set => SetArgument("command_line", value);
     }
 
@@ -1035,7 +1035,7 @@ public class AzurermBatchPoolStartTaskBlockContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => GetArgument<TerraformValue<string>>("image_name");
+        get => GetRequiredArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -1094,7 +1094,7 @@ public class AzurermBatchPoolStartTaskBlockContainerBlockRegistryBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryServer is required")]
     public required TerraformValue<string> RegistryServer
     {
-        get => GetArgument<TerraformValue<string>>("registry_server");
+        get => GetRequiredArgument<TerraformValue<string>>("registry_server");
         set => SetArgument("registry_server", value);
     }
 
@@ -1331,9 +1331,9 @@ public class AzurermBatchPoolTaskSchedulingPolicyBlock : TerraformBlock
     /// <summary>
     /// The node_fill_type attribute.
     /// </summary>
-    public TerraformValue<string>? NodeFillType
+    public TerraformValue<string> NodeFillType
     {
-        get => GetArgument<TerraformValue<string>>("node_fill_type");
+        get => GetArgument<TerraformValue<string>>("node_fill_type") ?? AsReference("node_fill_type");
         set => SetArgument("node_fill_type", value);
     }
 
@@ -1407,7 +1407,7 @@ public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElevationLevel is required")]
     public required TerraformValue<string> ElevationLevel
     {
-        get => GetArgument<TerraformValue<string>>("elevation_level");
+        get => GetRequiredArgument<TerraformValue<string>>("elevation_level");
         set => SetArgument("elevation_level", value);
     }
 
@@ -1417,7 +1417,7 @@ public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1427,7 +1427,7 @@ public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -1508,7 +1508,7 @@ public class AzurermBatchPoolUserAccountsBlockWindowsUserConfigurationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginMode is required")]
     public required TerraformValue<string> LoginMode
     {
-        get => GetArgument<TerraformValue<string>>("login_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("login_mode");
         set => SetArgument("login_mode", value);
     }
 
@@ -1550,7 +1550,7 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -1566,9 +1566,9 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1614,7 +1614,7 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1624,7 +1624,7 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeAgentSkuId is required")]
     public required TerraformValue<string> NodeAgentSkuId
     {
-        get => GetArgument<TerraformValue<string>>("node_agent_sku_id");
+        get => GetRequiredArgument<TerraformValue<string>>("node_agent_sku_id");
         set => SetArgument("node_agent_sku_id", value);
     }
 
@@ -1643,7 +1643,7 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -1671,7 +1671,7 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformValue<string> VmSize
     {
-        get => GetArgument<TerraformValue<string>>("vm_size");
+        get => GetRequiredArgument<TerraformValue<string>>("vm_size");
         set => SetArgument("vm_size", value);
     }
 

@@ -34,9 +34,9 @@ public partial class AzurermNetappAccountEncryptionDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNetappAccountEncryptionDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
     public required TerraformValue<string> NetappAccountId
     {
-        get => GetArgument<TerraformValue<string>>("netapp_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("netapp_account_id");
         set => SetArgument("netapp_account_id", value);
     }
 

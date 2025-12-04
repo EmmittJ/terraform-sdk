@@ -82,7 +82,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPoint is required")]
     public required TerraformValue<string> ConnectionPoint
     {
-        get => GetArgument<TerraformValue<string>>("connection_point");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_point");
         set => SetArgument("connection_point", value);
     }
 
@@ -107,9 +107,9 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformValue<string> SpringCloudServiceId
     {
-        get => GetArgument<TerraformValue<string>>("spring_cloud_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spring_cloud_service_id");
         set => SetArgument("spring_cloud_service_id", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tenant is required")]
     public required TerraformValue<string> Tenant
     {
-        get => GetArgument<TerraformValue<string>>("tenant");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant");
         set => SetArgument("tenant", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantToken is required")]
     public required TerraformValue<string> TenantToken
     {
-        get => GetArgument<TerraformValue<string>>("tenant_token");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_token");
         set => SetArgument("tenant_token", value);
     }
 

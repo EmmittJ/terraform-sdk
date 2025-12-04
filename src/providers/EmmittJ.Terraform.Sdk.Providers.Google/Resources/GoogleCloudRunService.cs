@@ -84,9 +84,9 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// In Cloud Run the namespace must be equal to either the
     /// project ID or project number.
     /// </summary>
-    public TerraformValue<string>? NamespaceAttribute
+    public TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace");
+        get => GetArgument<TerraformValue<string>>("namespace") ?? AsReference("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -215,9 +215,9 @@ public class GoogleCloudRunServiceTemplateBlockMetadataBlock : TerraformBlock
     ///   [GPU zonal redundancy](https://cloud.google.com/run/docs/configuring/services/gpu-zonal-redundancy) for the Revision.
     /// - &#39;run.googleapis.com/health-check-disabled&#39; disabled health checking containers during deployment.
     /// </summary>
-    public TerraformMap<string>? Annotations
+    public TerraformMap<string> Annotations
     {
-        get => GetArgument<TerraformMap<string>>("annotations");
+        get => GetArgument<TerraformMap<string>>("annotations") ?? AsReference("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -231,9 +231,9 @@ public class GoogleCloudRunServiceTemplateBlockMetadataBlock : TerraformBlock
     /// Map of string keys and values that can be used to organize and categorize
     /// (scope and select) objects.
     /// </summary>
-    public TerraformMap<string>? Labels
+    public TerraformMap<string> Labels
     {
-        get => GetArgument<TerraformMap<string>>("labels");
+        get => GetArgument<TerraformMap<string>>("labels") ?? AsReference("labels");
         set => SetArgument("labels", value);
     }
 
@@ -242,9 +242,9 @@ public class GoogleCloudRunServiceTemplateBlockMetadataBlock : TerraformBlock
     /// Is required when creating resources. Name is primarily intended
     /// for creation idempotence and configuration definition. Cannot be updated.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -252,9 +252,9 @@ public class GoogleCloudRunServiceTemplateBlockMetadataBlock : TerraformBlock
     /// In Cloud Run the namespace must be equal to either the
     /// project ID or project number. It will default to the resource&#39;s project.
     /// </summary>
-    public TerraformValue<string>? NamespaceAttribute
+    public TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace");
+        get => GetArgument<TerraformValue<string>>("namespace") ?? AsReference("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -299,9 +299,9 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlock : TerraformBlock
     /// requests per container of the Revision. If not specified or 0, defaults to 80 when
     /// requested CPU &amp;gt;= 1 and defaults to 1 when requested CPU &amp;lt; 1.
     /// </summary>
-    public TerraformValue<double>? ContainerConcurrency
+    public TerraformValue<double> ContainerConcurrency
     {
-        get => GetArgument<TerraformValue<double>>("container_concurrency");
+        get => GetArgument<TerraformValue<double>>("container_concurrency") ?? AsReference("container_concurrency");
         set => SetArgument("container_concurrency", value);
     }
 
@@ -322,9 +322,9 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlock : TerraformBlock
     /// and determines what permissions the revision has. If not provided, the revision
     /// will use the project&#39;s default service account.
     /// </summary>
-    public TerraformValue<string>? ServiceAccountName
+    public TerraformValue<string> ServiceAccountName
     {
-        get => GetArgument<TerraformValue<string>>("service_account_name");
+        get => GetArgument<TerraformValue<string>>("service_account_name") ?? AsReference("service_account_name");
         set => SetArgument("service_account_name", value);
     }
 
@@ -341,9 +341,9 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlock : TerraformBlock
     /// <summary>
     /// TimeoutSeconds holds the max duration the instance is allowed for responding to a request.
     /// </summary>
-    public TerraformValue<double>? TimeoutSeconds
+    public TerraformValue<double> TimeoutSeconds
     {
-        get => GetArgument<TerraformValue<double>>("timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds") ?? AsReference("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -405,16 +405,16 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image");
+        get => GetRequiredArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
     /// <summary>
     /// Name of the container
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -584,7 +584,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockEnvBlockV
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -599,7 +599,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockEnvBlockV
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -697,7 +697,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockEnvFromBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -752,7 +752,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockEnvFromBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -848,9 +848,9 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockLivenessP
     /// Port number to access on the container. Number must be in the range 1 to 65535.
     /// If not specified, defaults to the same value as container.ports[0].containerPort.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -891,9 +891,9 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockLivenessP
     /// Port number to access on the container. Number must be in the range 1 to 65535.
     /// If not specified, defaults to the same value as container.ports[0].containerPort.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -925,7 +925,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockLivenessP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -963,9 +963,9 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockPortsBloc
     /// <summary>
     /// If specified, used to specify which protocol to use. Allowed values are &amp;quot;http1&amp;quot; (HTTP/1) and &amp;quot;h2c&amp;quot; (HTTP/2 end-to-end). Defaults to &amp;quot;http1&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -1000,9 +1000,9 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockResources
     /// The values of the map is string form of the &#39;quantity&#39; k8s type:
     /// https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
     /// </summary>
-    public TerraformMap<string>? Limits
+    public TerraformMap<string> Limits
     {
-        get => GetArgument<TerraformMap<string>>("limits");
+        get => GetArgument<TerraformMap<string>>("limits") ?? AsReference("limits");
         set => SetArgument("limits", value);
     }
 
@@ -1121,9 +1121,9 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockStartupPr
     /// Port number to access on the container. Number must be in the range 1 to 65535.
     /// If not specified, defaults to the same value as container.ports[0].containerPort.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1164,9 +1164,9 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockStartupPr
     /// Port number to access on the container. Number must be in the range 1 to 65535.
     /// If not specified, defaults to the same value as container.ports[0].containerPort.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1198,7 +1198,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockStartupPr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1228,9 +1228,9 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockStartupPr
     /// Port number to access on the container. Number must be in the range 1 to 65535.
     /// If not specified, defaults to the same value as container.ports[0].containerPort.
     /// </summary>
-    public TerraformValue<double>? Port
+    public TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetArgument<TerraformValue<double>>("port") ?? AsReference("port");
         set => SetArgument("port", value);
     }
 
@@ -1254,7 +1254,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockVolumeMou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => GetArgument<TerraformValue<string>>("mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -1264,7 +1264,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockContainersBlockVolumeMou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1296,7 +1296,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockVolumesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1361,16 +1361,16 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockVolumesBlockCsiBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Driver is required")]
     public required TerraformValue<string> Driver
     {
-        get => GetArgument<TerraformValue<string>>("driver");
+        get => GetRequiredArgument<TerraformValue<string>>("driver");
         set => SetArgument("driver", value);
     }
 
     /// <summary>
     /// If true, all mounts created from this volume will be read-only.
     /// </summary>
-    public TerraformValue<bool>? ReadOnlyAttribute
+    public TerraformValue<bool> ReadOnlyAttribute
     {
-        get => GetArgument<TerraformValue<bool>>("read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only") ?? AsReference("read_only");
         set => SetArgument("read_only", value);
     }
 
@@ -1435,7 +1435,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockVolumesBlockNfsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1454,7 +1454,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockVolumesBlockNfsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => GetArgument<TerraformValue<string>>("server");
+        get => GetRequiredArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -1497,7 +1497,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockVolumesBlockSecretBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => GetArgument<TerraformValue<string>>("secret_name");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -1530,7 +1530,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockVolumesBlockSecretBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1555,7 +1555,7 @@ public class GoogleCloudRunServiceTemplateBlockSpecBlockVolumesBlockSecretBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1632,7 +1632,7 @@ public class GoogleCloudRunServiceTrafficBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percent is required")]
     public required TerraformValue<double> Percent
     {
-        get => GetArgument<TerraformValue<double>>("percent");
+        get => GetRequiredArgument<TerraformValue<double>>("percent");
         set => SetArgument("percent", value);
     }
 
@@ -1687,9 +1687,9 @@ public partial class GoogleCloudRunService(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1699,7 +1699,7 @@ public partial class GoogleCloudRunService(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1712,16 +1712,16 @@ public partial class GoogleCloudRunService(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

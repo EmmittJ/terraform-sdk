@@ -47,25 +47,25 @@ public partial class GoogleIapBrand(string name) : TerraformResource("google_iap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationTitle is required")]
     public required TerraformValue<string> ApplicationTitle
     {
-        get => GetArgument<TerraformValue<string>>("application_title");
+        get => GetRequiredArgument<TerraformValue<string>>("application_title");
         set => SetArgument("application_title", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -79,7 +79,7 @@ public partial class GoogleIapBrand(string name) : TerraformResource("google_iap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportEmail is required")]
     public required TerraformValue<string> SupportEmail
     {
-        get => GetArgument<TerraformValue<string>>("support_email");
+        get => GetRequiredArgument<TerraformValue<string>>("support_email");
         set => SetArgument("support_email", value);
     }
 

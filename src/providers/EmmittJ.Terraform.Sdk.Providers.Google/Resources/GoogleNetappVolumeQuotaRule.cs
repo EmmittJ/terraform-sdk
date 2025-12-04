@@ -64,16 +64,16 @@ public partial class GoogleNetappVolumeQuotaRule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskLimitMib is required")]
     public required TerraformValue<double> DiskLimitMib
     {
-        get => GetArgument<TerraformValue<double>>("disk_limit_mib");
+        get => GetRequiredArgument<TerraformValue<double>>("disk_limit_mib");
         set => SetArgument("disk_limit_mib", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -105,16 +105,16 @@ public partial class GoogleNetappVolumeQuotaRule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -139,7 +139,7 @@ public partial class GoogleNetappVolumeQuotaRule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -149,7 +149,7 @@ public partial class GoogleNetappVolumeQuotaRule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformValue<string> VolumeName
     {
-        get => GetArgument<TerraformValue<string>>("volume_name");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_name");
         set => SetArgument("volume_name", value);
     }
 

@@ -97,9 +97,9 @@ public partial class AzurermBotServiceAzureBot(string name) : TerraformResource(
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -124,9 +124,9 @@ public partial class AzurermBotServiceAzureBot(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermBotServiceAzureBot(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AzurermBotServiceAzureBot(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MicrosoftAppId is required")]
     public required TerraformValue<string> MicrosoftAppId
     {
-        get => GetArgument<TerraformValue<string>>("microsoft_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("microsoft_app_id");
         set => SetArgument("microsoft_app_id", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AzurermBotServiceAzureBot(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AzurermBotServiceAzureBot(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -239,7 +239,7 @@ public partial class AzurermBotServiceAzureBot(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => GetArgument<TerraformValue<string>>("sku");
+        get => GetRequiredArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 

@@ -56,7 +56,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockInventory
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationState is required")]
     public required TerraformValue<string> ConfigurationState
     {
-        get => GetArgument<TerraformValue<string>>("configuration_state");
+        get => GetRequiredArgument<TerraformValue<string>>("configuration_state");
         set => SetArgument("configuration_state", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockInventory
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SseAlgorithm is required")]
     public required TerraformValue<string> SseAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("sse_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("sse_algorithm");
         set => SetArgument("sse_algorithm", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockJournalTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SseAlgorithm is required")]
     public required TerraformValue<string> SseAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("sse_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("sse_algorithm");
         set => SetArgument("sse_algorithm", value);
     }
 
@@ -216,7 +216,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockJournalTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiration is required")]
     public required TerraformValue<string> Expiration
     {
-        get => GetArgument<TerraformValue<string>>("expiration");
+        get => GetRequiredArgument<TerraformValue<string>>("expiration");
         set => SetArgument("expiration", value);
     }
 
@@ -258,7 +258,7 @@ public partial class AwsS3BucketMetadataConfiguration(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -274,9 +274,9 @@ public partial class AwsS3BucketMetadataConfiguration(string name) : TerraformRe
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -52,27 +52,27 @@ public partial class GoogleLoggingOrganizationSettings(string name) : TerraformR
     /// <summary>
     /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
     /// </summary>
-    public TerraformValue<bool>? DisableDefaultSink
+    public TerraformValue<bool> DisableDefaultSink
     {
-        get => GetArgument<TerraformValue<bool>>("disable_default_sink");
+        get => GetArgument<TerraformValue<bool>>("disable_default_sink") ?? AsReference("disable_default_sink");
         set => SetArgument("disable_default_sink", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
     /// </summary>
-    public TerraformValue<string>? KmsKeyName
+    public TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name") ?? AsReference("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -82,16 +82,16 @@ public partial class GoogleLoggingOrganizationSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => GetArgument<TerraformValue<string>>("organization");
+        get => GetRequiredArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
     /// <summary>
     /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
     /// </summary>
-    public TerraformValue<string>? StorageLocation
+    public TerraformValue<string> StorageLocation
     {
-        get => GetArgument<TerraformValue<string>>("storage_location");
+        get => GetArgument<TerraformValue<string>>("storage_location") ?? AsReference("storage_location");
         set => SetArgument("storage_location", value);
     }
 

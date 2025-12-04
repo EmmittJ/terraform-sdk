@@ -19,7 +19,7 @@ public class AzurermFirewallIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -67,7 +67,7 @@ public class AzurermFirewallManagementIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermFirewallManagementIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     public required TerraformValue<string> PublicIpAddressId
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_address_id");
+        get => GetRequiredArgument<TerraformValue<string>>("public_ip_address_id");
         set => SetArgument("public_ip_address_id", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermFirewallManagementIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermFirewallVirtualHubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformValue<string> VirtualHubId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_hub_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_hub_id");
         set => SetArgument("virtual_hub_id", value);
     }
 
@@ -204,9 +204,9 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// <summary>
     /// The dns_proxy_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? DnsProxyEnabled
+    public TerraformValue<bool> DnsProxyEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("dns_proxy_enabled");
+        get => GetArgument<TerraformValue<bool>>("dns_proxy_enabled") ?? AsReference("dns_proxy_enabled");
         set => SetArgument("dns_proxy_enabled", value);
     }
 
@@ -231,9 +231,9 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -272,7 +272,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -282,7 +282,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -292,7 +292,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuTier is required")]
     public required TerraformValue<string> SkuTier
     {
-        get => GetArgument<TerraformValue<string>>("sku_tier");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_tier");
         set => SetArgument("sku_tier", value);
     }
 
@@ -308,9 +308,9 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// <summary>
     /// The threat_intel_mode attribute.
     /// </summary>
-    public TerraformValue<string>? ThreatIntelMode
+    public TerraformValue<string> ThreatIntelMode
     {
-        get => GetArgument<TerraformValue<string>>("threat_intel_mode");
+        get => GetArgument<TerraformValue<string>>("threat_intel_mode") ?? AsReference("threat_intel_mode");
         set => SetArgument("threat_intel_mode", value);
     }
 

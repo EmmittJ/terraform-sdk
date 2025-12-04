@@ -70,9 +70,9 @@ public partial class AzurermVirtualMachineRestorePoint(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermVirtualMachineRestorePoint(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermVirtualMachineRestorePoint(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineRestorePointCollectionId is required")]
     public required TerraformValue<string> VirtualMachineRestorePointCollectionId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_restore_point_collection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_restore_point_collection_id");
         set => SetArgument("virtual_machine_restore_point_collection_id", value);
     }
 

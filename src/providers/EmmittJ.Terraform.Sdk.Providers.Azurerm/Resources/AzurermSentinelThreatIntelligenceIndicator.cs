@@ -211,25 +211,25 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The extension attribute.
     /// </summary>
-    public TerraformValue<string>? Extension
+    public TerraformValue<string> Extension
     {
-        get => GetArgument<TerraformValue<string>>("extension");
+        get => GetArgument<TerraformValue<string>>("extension") ?? AsReference("extension");
         set => SetArgument("extension", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -267,7 +267,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternType is required")]
     public required TerraformValue<string> PatternType
     {
-        get => GetArgument<TerraformValue<string>>("pattern_type");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern_type");
         set => SetArgument("pattern_type", value);
     }
 
@@ -295,7 +295,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -323,7 +323,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidateFromUtc is required")]
     public required TerraformValue<string> ValidateFromUtc
     {
-        get => GetArgument<TerraformValue<string>>("validate_from_utc");
+        get => GetRequiredArgument<TerraformValue<string>>("validate_from_utc");
         set => SetArgument("validate_from_utc", value);
     }
 
@@ -342,7 +342,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

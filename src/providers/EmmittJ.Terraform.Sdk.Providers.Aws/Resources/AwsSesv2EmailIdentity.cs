@@ -46,9 +46,9 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// <summary>
     /// The next_signing_key_length attribute.
     /// </summary>
-    public TerraformValue<string>? NextSigningKeyLength
+    public TerraformValue<string> NextSigningKeyLength
     {
-        get => GetArgument<TerraformValue<string>>("next_signing_key_length");
+        get => GetArgument<TerraformValue<string>>("next_signing_key_length") ?? AsReference("next_signing_key_length");
         set => SetArgument("next_signing_key_length", value);
     }
 
@@ -94,25 +94,25 @@ public partial class AwsSesv2EmailIdentity(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailIdentity is required")]
     public required TerraformValue<string> EmailIdentity
     {
-        get => GetArgument<TerraformValue<string>>("email_identity");
+        get => GetRequiredArgument<TerraformValue<string>>("email_identity");
         set => SetArgument("email_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -128,9 +128,9 @@ public partial class AwsSesv2EmailIdentity(string name) : TerraformResource("aws
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

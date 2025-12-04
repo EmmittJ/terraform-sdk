@@ -19,7 +19,7 @@ public class AwsCodestarnotificationsNotificationRuleTargetBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformValue<string> Address
     {
-        get => GetArgument<TerraformValue<string>>("address");
+        get => GetRequiredArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsCodestarnotificationsNotificationRule(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetailType is required")]
     public required TerraformValue<string> DetailType
     {
-        get => GetArgument<TerraformValue<string>>("detail_type");
+        get => GetRequiredArgument<TerraformValue<string>>("detail_type");
         set => SetArgument("detail_type", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AwsCodestarnotificationsNotificationRule(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTypeIds is required")]
     public required TerraformSet<string> EventTypeIds
     {
-        get => GetArgument<TerraformSet<string>>("event_type_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("event_type_ids");
         set => SetArgument("event_type_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AwsCodestarnotificationsNotificationRule(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsCodestarnotificationsNotificationRule(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => GetArgument<TerraformValue<string>>("resource");
+        get => GetRequiredArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -126,9 +126,9 @@ public partial class AwsCodestarnotificationsNotificationRule(string name) : Ter
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

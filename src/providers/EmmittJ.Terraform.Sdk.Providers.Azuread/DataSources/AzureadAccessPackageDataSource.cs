@@ -43,27 +43,27 @@ public partial class AzureadAccessPackageDataSource(string name) : TerraformData
     /// <summary>
     /// The display name of the access package
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ID of this access package
     /// </summary>
-    public TerraformValue<string>? ObjectId
+    public TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetArgument<TerraformValue<string>>("object_id") ?? AsReference("object_id");
         set => SetArgument("object_id", value);
     }
 

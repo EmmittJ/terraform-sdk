@@ -19,7 +19,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformValue<string> WebhookSecretSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("webhook_secret_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("webhook_secret_secret_version");
         set => SetArgument("webhook_secret_secret_version", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Workspace is required")]
     public required TerraformValue<string> Workspace
     {
-        get => GetArgument<TerraformValue<string>>("workspace");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace");
         set => SetArgument("workspace", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlockAuthorizerCred
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlockReadAuthorizer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformValue<string> HostUri
     {
-        get => GetArgument<TerraformValue<string>>("host_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("host_uri");
         set => SetArgument("host_uri", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformValue<string> WebhookSecretSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("webhook_secret_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("webhook_secret_secret_version");
         set => SetArgument("webhook_secret_secret_version", value);
     }
 
@@ -221,7 +221,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlockAuthorize
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -250,7 +250,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlockReadAutho
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -279,7 +279,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlockServiceDi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -391,7 +391,7 @@ public class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformValue<string> HostUri
     {
-        get => GetArgument<TerraformValue<string>>("host_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("host_uri");
         set => SetArgument("host_uri", value);
     }
 
@@ -451,7 +451,7 @@ public class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlockServiceDirec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -472,9 +472,9 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBlock
     /// <summary>
     /// The URI of the GitLab Enterprise host this connection is for. If not specified, the default value is https://gitlab.com.
     /// </summary>
-    public TerraformValue<string>? HostUri
+    public TerraformValue<string> HostUri
     {
-        get => GetArgument<TerraformValue<string>>("host_uri");
+        get => GetArgument<TerraformValue<string>>("host_uri") ?? AsReference("host_uri");
         set => SetArgument("host_uri", value);
     }
 
@@ -499,7 +499,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformValue<string> WebhookSecretSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("webhook_secret_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("webhook_secret_secret_version");
         set => SetArgument("webhook_secret_secret_version", value);
     }
 
@@ -558,7 +558,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlockAuthorizerCredentialBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -587,7 +587,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlockReadAuthorizerCredenti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -616,7 +616,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlockServiceDirectoryConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -694,9 +694,9 @@ public partial class GoogleCloudbuildv2Connection(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -706,7 +706,7 @@ public partial class GoogleCloudbuildv2Connection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -716,16 +716,16 @@ public partial class GoogleCloudbuildv2Connection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

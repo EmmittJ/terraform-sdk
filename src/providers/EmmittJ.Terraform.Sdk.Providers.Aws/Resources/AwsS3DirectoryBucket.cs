@@ -19,16 +19,16 @@ public class AwsS3DirectoryBucketLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -47,34 +47,34 @@ public partial class AwsS3DirectoryBucket(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The data_redundancy attribute.
     /// </summary>
-    public TerraformValue<string>? DataRedundancy
+    public TerraformValue<string> DataRedundancy
     {
-        get => GetArgument<TerraformValue<string>>("data_redundancy");
+        get => GetArgument<TerraformValue<string>>("data_redundancy") ?? AsReference("data_redundancy");
         set => SetArgument("data_redundancy", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformValue<bool>? ForceDestroy
+    public TerraformValue<bool> ForceDestroy
     {
-        get => GetArgument<TerraformValue<bool>>("force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy") ?? AsReference("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -90,9 +90,9 @@ public partial class AwsS3DirectoryBucket(string name) : TerraformResource("aws_
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 

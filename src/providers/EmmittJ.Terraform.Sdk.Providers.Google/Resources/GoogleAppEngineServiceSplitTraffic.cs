@@ -19,7 +19,7 @@ public class GoogleAppEngineServiceSplitTrafficSplitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Allocations is required")]
     public required TerraformMap<string> Allocations
     {
-        get => GetArgument<TerraformMap<string>>("allocations");
+        get => GetRequiredArgument<TerraformMap<string>>("allocations");
         set => SetArgument("allocations", value);
     }
 
@@ -85,9 +85,9 @@ public partial class GoogleAppEngineServiceSplitTraffic(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -103,9 +103,9 @@ public partial class GoogleAppEngineServiceSplitTraffic(string name) : Terraform
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleAppEngineServiceSplitTraffic(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 

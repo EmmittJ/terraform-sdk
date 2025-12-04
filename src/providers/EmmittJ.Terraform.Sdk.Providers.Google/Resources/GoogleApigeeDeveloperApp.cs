@@ -93,9 +93,9 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     /// <summary>
     /// Developer app family.
     /// </summary>
-    public TerraformValue<string>? AppFamily
+    public TerraformValue<string> AppFamily
     {
-        get => GetArgument<TerraformValue<string>>("app_family");
+        get => GetArgument<TerraformValue<string>>("app_family") ?? AsReference("app_family");
         set => SetArgument("app_family", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUrl is required")]
     public required TerraformValue<string> CallbackUrl
     {
-        get => GetArgument<TerraformValue<string>>("callback_url");
+        get => GetRequiredArgument<TerraformValue<string>>("callback_url");
         set => SetArgument("callback_url", value);
     }
 
@@ -118,16 +118,16 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeveloperEmail is required")]
     public required TerraformValue<string> DeveloperEmail
     {
-        get => GetArgument<TerraformValue<string>>("developer_email");
+        get => GetRequiredArgument<TerraformValue<string>>("developer_email");
         set => SetArgument("developer_email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -148,7 +148,7 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -159,7 +159,7 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -177,9 +177,9 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     /// <summary>
     /// Status of the credential. Valid values include approved or revoked.
     /// </summary>
-    public TerraformValue<string>? Status
+    public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
         set => SetArgument("status", value);
     }
 

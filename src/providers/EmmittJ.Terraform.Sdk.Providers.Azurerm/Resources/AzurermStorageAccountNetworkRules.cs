@@ -19,16 +19,16 @@ public class AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointResourceId is required")]
     public required TerraformValue<string> EndpointResourceId
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_resource_id");
         set => SetArgument("endpoint_resource_id", value);
     }
 
     /// <summary>
     /// The endpoint_tenant_id attribute.
     /// </summary>
-    public TerraformValue<string>? EndpointTenantId
+    public TerraformValue<string> EndpointTenantId
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_tenant_id");
+        get => GetArgument<TerraformValue<string>>("endpoint_tenant_id") ?? AsReference("endpoint_tenant_id");
         set => SetArgument("endpoint_tenant_id", value);
     }
 
@@ -94,9 +94,9 @@ public partial class AzurermStorageAccountNetworkRules(string name) : TerraformR
     /// <summary>
     /// The bypass attribute.
     /// </summary>
-    public TerraformSet<string>? Bypass
+    public TerraformSet<string> Bypass
     {
-        get => GetArgument<TerraformSet<string>>("bypass");
+        get => GetArgument<TerraformSet<string>>("bypass") ?? AsReference("bypass");
         set => SetArgument("bypass", value);
     }
 
@@ -106,16 +106,16 @@ public partial class AzurermStorageAccountNetworkRules(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformValue<string> DefaultAction
     {
-        get => GetArgument<TerraformValue<string>>("default_action");
+        get => GetRequiredArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermStorageAccountNetworkRules(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

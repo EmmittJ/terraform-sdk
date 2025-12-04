@@ -57,9 +57,9 @@ public partial class GoogleDialogflowAgent(string name) : TerraformResource("goo
     /// * API_VERSION_V2: V2 API.
     /// * API_VERSION_V2_BETA_1: V2beta1 API. Possible values: [&amp;quot;API_VERSION_V1&amp;quot;, &amp;quot;API_VERSION_V2&amp;quot;, &amp;quot;API_VERSION_V2_BETA_1&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? ApiVersion
+    public TerraformValue<string> ApiVersion
     {
-        get => GetArgument<TerraformValue<string>>("api_version");
+        get => GetArgument<TerraformValue<string>>("api_version") ?? AsReference("api_version");
         set => SetArgument("api_version", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleDialogflowAgent(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLanguageCode is required")]
     public required TerraformValue<string> DefaultLanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("default_language_code");
+        get => GetRequiredArgument<TerraformValue<string>>("default_language_code");
         set => SetArgument("default_language_code", value);
     }
 
@@ -113,7 +113,7 @@ public partial class GoogleDialogflowAgent(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -129,9 +129,9 @@ public partial class GoogleDialogflowAgent(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -142,18 +142,18 @@ public partial class GoogleDialogflowAgent(string name) : TerraformResource("goo
     /// * MATCH_MODE_ML_ONLY: Can be used for agents with a large number of examples in intents, especially the ones
     /// using @sys.any or very large developer entities. Possible values: [&amp;quot;MATCH_MODE_HYBRID&amp;quot;, &amp;quot;MATCH_MODE_ML_ONLY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? MatchMode
+    public TerraformValue<string> MatchMode
     {
-        get => GetArgument<TerraformValue<string>>("match_mode");
+        get => GetArgument<TerraformValue<string>>("match_mode") ?? AsReference("match_mode");
         set => SetArgument("match_mode", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -187,7 +187,7 @@ public partial class GoogleDialogflowAgent(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 

@@ -46,16 +46,16 @@ public partial class GoogleBigqueryReservationAssignment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assignee is required")]
     public required TerraformValue<string> Assignee
     {
-        get => GetArgument<TerraformValue<string>>("assignee");
+        get => GetRequiredArgument<TerraformValue<string>>("assignee");
         set => SetArgument("assignee", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -65,25 +65,25 @@ public partial class GoogleBigqueryReservationAssignment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
     public required TerraformValue<string> JobType
     {
-        get => GetArgument<TerraformValue<string>>("job_type");
+        get => GetRequiredArgument<TerraformValue<string>>("job_type");
         set => SetArgument("job_type", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformValue<string>? Location
+    public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleBigqueryReservationAssignment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reservation is required")]
     public required TerraformValue<string> Reservation
     {
-        get => GetArgument<TerraformValue<string>>("reservation");
+        get => GetRequiredArgument<TerraformValue<string>>("reservation");
         set => SetArgument("reservation", value);
     }
 

@@ -16,9 +16,9 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// <summary>
     /// The commands attribute.
     /// </summary>
-    public TerraformList<string>? Commands
+    public TerraformList<string> Commands
     {
-        get => GetArgument<TerraformList<string>>("commands");
+        get => GetArgument<TerraformList<string>>("commands") ?? AsReference("commands");
         set => SetArgument("commands", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformValue<double> Cpu
     {
-        get => GetArgument<TerraformValue<double>>("cpu");
+        get => GetRequiredArgument<TerraformValue<double>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image");
+        get => GetRequiredArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -66,7 +66,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Memory is required")]
     public required TerraformValue<double> Memory
     {
-        get => GetArgument<TerraformValue<double>>("memory");
+        get => GetRequiredArgument<TerraformValue<double>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -445,7 +445,7 @@ public class AzurermContainerGroupContainerBlockSecurityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivilegeEnabled is required")]
     public required TerraformValue<bool> PrivilegeEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("privilege_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("privilege_enabled");
         set => SetArgument("privilege_enabled", value);
     }
 
@@ -477,7 +477,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => GetArgument<TerraformValue<string>>("mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -487,7 +487,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -583,7 +583,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlockGitRepoBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -651,7 +651,7 @@ public class AzurermContainerGroupDiagnosticsBlockLogAnalyticsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -661,7 +661,7 @@ public class AzurermContainerGroupDiagnosticsBlockLogAnalyticsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceKey is required")]
     public required TerraformValue<string> WorkspaceKey
     {
-        get => GetArgument<TerraformValue<string>>("workspace_key");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_key");
         set => SetArgument("workspace_key", value);
     }
 
@@ -748,7 +748,7 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -781,7 +781,7 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => GetArgument<TerraformValue<string>>("server");
+        get => GetRequiredArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -820,9 +820,9 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// <summary>
     /// The commands attribute.
     /// </summary>
-    public TerraformList<string>? Commands
+    public TerraformList<string> Commands
     {
-        get => GetArgument<TerraformList<string>>("commands");
+        get => GetArgument<TerraformList<string>>("commands") ?? AsReference("commands");
         set => SetArgument("commands", value);
     }
 
@@ -841,7 +841,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image");
+        get => GetRequiredArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -851,7 +851,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -901,7 +901,7 @@ public class AzurermContainerGroupInitContainerBlockSecurityBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivilegeEnabled is required")]
     public required TerraformValue<bool> PrivilegeEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("privilege_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("privilege_enabled");
         set => SetArgument("privilege_enabled", value);
     }
 
@@ -933,7 +933,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => GetArgument<TerraformValue<string>>("mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -943,7 +943,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1039,7 +1039,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlockGitRepoBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -1123,18 +1123,18 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// <summary>
     /// The exposed_port attribute.
     /// </summary>
-    public TerraformSet<TerraformMap<object>>? ExposedPort
+    public TerraformSet<TerraformMap<object>> ExposedPort
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("exposed_port");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("exposed_port") ?? AsReference("exposed_port");
         set => SetArgument("exposed_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1171,7 +1171,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1181,7 +1181,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1189,9 +1189,9 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// The network_profile_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? NetworkProfileId
+    public TerraformValue<string> NetworkProfileId
     {
-        get => GetArgument<TerraformValue<string>>("network_profile_id");
+        get => GetArgument<TerraformValue<string>>("network_profile_id") ?? AsReference("network_profile_id");
         set => SetArgument("network_profile_id", value);
     }
 
@@ -1201,7 +1201,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformValue<string> OsType
     {
-        get => GetArgument<TerraformValue<string>>("os_type");
+        get => GetRequiredArgument<TerraformValue<string>>("os_type");
         set => SetArgument("os_type", value);
     }
 
@@ -1220,7 +1220,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

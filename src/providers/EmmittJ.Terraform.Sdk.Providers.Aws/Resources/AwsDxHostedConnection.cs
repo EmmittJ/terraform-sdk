@@ -14,7 +14,7 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bandwidth is required")]
     public required TerraformValue<string> Bandwidth
     {
-        get => GetArgument<TerraformValue<string>>("bandwidth");
+        get => GetRequiredArgument<TerraformValue<string>>("bandwidth");
         set => SetArgument("bandwidth", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformValue<string> ConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("connection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerAccountId is required")]
     public required TerraformValue<string> OwnerAccountId
     {
-        get => GetArgument<TerraformValue<string>>("owner_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("owner_account_id");
         set => SetArgument("owner_account_id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
     public required TerraformValue<double> Vlan
     {
-        get => GetArgument<TerraformValue<double>>("vlan");
+        get => GetRequiredArgument<TerraformValue<double>>("vlan");
         set => SetArgument("vlan", value);
     }
 

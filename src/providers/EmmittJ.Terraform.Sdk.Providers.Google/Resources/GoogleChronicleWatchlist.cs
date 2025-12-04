@@ -126,16 +126,16 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -173,9 +173,9 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -185,9 +185,9 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// This value should be 4-63 characters, and valid characters
     /// are /a-z-/.
     /// </summary>
-    public TerraformValue<string>? WatchlistId
+    public TerraformValue<string> WatchlistId
     {
-        get => GetArgument<TerraformValue<string>>("watchlist_id");
+        get => GetArgument<TerraformValue<string>>("watchlist_id") ?? AsReference("watchlist_id");
         set => SetArgument("watchlist_id", value);
     }
 

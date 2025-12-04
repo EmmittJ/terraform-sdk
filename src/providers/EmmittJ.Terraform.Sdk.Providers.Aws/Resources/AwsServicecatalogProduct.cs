@@ -138,27 +138,27 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The distributor attribute.
     /// </summary>
-    public TerraformValue<string>? Distributor
+    public TerraformValue<string> Distributor
     {
-        get => GetArgument<TerraformValue<string>>("distributor");
+        get => GetArgument<TerraformValue<string>>("distributor") ?? AsReference("distributor");
         set => SetArgument("distributor", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -178,43 +178,43 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
     public required TerraformValue<string> Owner
     {
-        get => GetArgument<TerraformValue<string>>("owner");
+        get => GetRequiredArgument<TerraformValue<string>>("owner");
         set => SetArgument("owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The support_description attribute.
     /// </summary>
-    public TerraformValue<string>? SupportDescription
+    public TerraformValue<string> SupportDescription
     {
-        get => GetArgument<TerraformValue<string>>("support_description");
+        get => GetArgument<TerraformValue<string>>("support_description") ?? AsReference("support_description");
         set => SetArgument("support_description", value);
     }
 
     /// <summary>
     /// The support_email attribute.
     /// </summary>
-    public TerraformValue<string>? SupportEmail
+    public TerraformValue<string> SupportEmail
     {
-        get => GetArgument<TerraformValue<string>>("support_email");
+        get => GetArgument<TerraformValue<string>>("support_email") ?? AsReference("support_email");
         set => SetArgument("support_email", value);
     }
 
     /// <summary>
     /// The support_url attribute.
     /// </summary>
-    public TerraformValue<string>? SupportUrl
+    public TerraformValue<string> SupportUrl
     {
-        get => GetArgument<TerraformValue<string>>("support_url");
+        get => GetArgument<TerraformValue<string>>("support_url") ?? AsReference("support_url");
         set => SetArgument("support_url", value);
     }
 
@@ -230,9 +230,9 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AwsServicecatalogProduct(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

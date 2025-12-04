@@ -19,25 +19,25 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomActionTimeoutInMins is required")]
     public required TerraformValue<double> CustomActionTimeoutInMins
     {
-        get => GetArgument<TerraformValue<double>>("custom_action_timeout_in_mins");
+        get => GetRequiredArgument<TerraformValue<double>>("custom_action_timeout_in_mins");
         set => SetArgument("custom_action_timeout_in_mins", value);
     }
 
     /// <summary>
     /// The days_of_week attribute.
     /// </summary>
-    public TerraformSet<TerraformMap<object>>? DaysOfWeek
+    public TerraformSet<TerraformMap<object>> DaysOfWeek
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("days_of_week");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("days_of_week") ?? AsReference("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
     /// <summary>
     /// The hours_of_day attribute.
     /// </summary>
-    public TerraformSet<double>? HoursOfDay
+    public TerraformSet<double> HoursOfDay
     {
-        get => GetArgument<TerraformSet<double>>("hours_of_day");
+        get => GetArgument<TerraformSet<double>>("hours_of_day") ?? AsReference("hours_of_day");
         set => SetArgument("hours_of_day", value);
     }
 
@@ -47,25 +47,25 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsCustomActionTimeoutEnabled is required")]
     public required TerraformValue<bool> IsCustomActionTimeoutEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("is_custom_action_timeout_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("is_custom_action_timeout_enabled");
         set => SetArgument("is_custom_action_timeout_enabled", value);
     }
 
     /// <summary>
     /// The lead_time_in_weeks attribute.
     /// </summary>
-    public TerraformValue<double>? LeadTimeInWeeks
+    public TerraformValue<double> LeadTimeInWeeks
     {
-        get => GetArgument<TerraformValue<double>>("lead_time_in_weeks");
+        get => GetArgument<TerraformValue<double>>("lead_time_in_weeks") ?? AsReference("lead_time_in_weeks");
         set => SetArgument("lead_time_in_weeks", value);
     }
 
     /// <summary>
     /// The months attribute.
     /// </summary>
-    public TerraformSet<TerraformMap<object>>? Months
+    public TerraformSet<TerraformMap<object>> Months
     {
-        get => GetArgument<TerraformSet<TerraformMap<object>>>("months");
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("months") ?? AsReference("months");
         set => SetArgument("months", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchingMode is required")]
     public required TerraformValue<string> PatchingMode
     {
-        get => GetArgument<TerraformValue<string>>("patching_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("patching_mode");
         set => SetArgument("patching_mode", value);
     }
 
@@ -85,16 +85,16 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
     public required TerraformValue<string> Preference
     {
-        get => GetArgument<TerraformValue<string>>("preference");
+        get => GetRequiredArgument<TerraformValue<string>>("preference");
         set => SetArgument("preference", value);
     }
 
     /// <summary>
     /// The weeks_of_month attribute.
     /// </summary>
-    public TerraformSet<double>? WeeksOfMonth
+    public TerraformSet<double> WeeksOfMonth
     {
-        get => GetArgument<TerraformSet<double>>("weeks_of_month");
+        get => GetArgument<TerraformSet<double>>("weeks_of_month") ?? AsReference("weeks_of_month");
         set => SetArgument("weeks_of_month", value);
     }
 
@@ -151,9 +151,9 @@ public partial class AwsOdbCloudExadataInfrastructure(string name) : TerraformRe
     /// <summary>
     /// The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource
     /// </summary>
-    public TerraformValue<string>? AvailabilityZone
+    public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -163,16 +163,16 @@ public partial class AwsOdbCloudExadataInfrastructure(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
     public required TerraformValue<string> AvailabilityZoneId
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone_id");
+        get => GetRequiredArgument<TerraformValue<string>>("availability_zone_id");
         set => SetArgument("availability_zone_id", value);
     }
 
     /// <summary>
     ///  The number of compute instances that the Exadata infrastructure is located
     /// </summary>
-    public TerraformValue<double>? ComputeCount
+    public TerraformValue<double> ComputeCount
     {
-        get => GetArgument<TerraformValue<double>>("compute_count");
+        get => GetArgument<TerraformValue<double>>("compute_count") ?? AsReference("compute_count");
         set => SetArgument("compute_count", value);
     }
 
@@ -200,16 +200,16 @@ public partial class AwsOdbCloudExadataInfrastructure(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -219,16 +219,16 @@ public partial class AwsOdbCloudExadataInfrastructure(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
     public required TerraformValue<string> Shape
     {
-        get => GetArgument<TerraformValue<string>>("shape");
+        get => GetRequiredArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
     /// <summary>
     /// TThe number of storage servers that are activated for the Exadata infrastructure
     /// </summary>
-    public TerraformValue<double>? StorageCount
+    public TerraformValue<double> StorageCount
     {
-        get => GetArgument<TerraformValue<double>>("storage_count");
+        get => GetArgument<TerraformValue<double>>("storage_count") ?? AsReference("storage_count");
         set => SetArgument("storage_count", value);
     }
 

@@ -89,27 +89,27 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
-    public TerraformValue<double>? EphemeralStorage
+    public TerraformValue<double> EphemeralStorage
     {
-        get => GetArgument<TerraformValue<double>>("ephemeral_storage");
+        get => GetArgument<TerraformValue<double>>("ephemeral_storage") ?? AsReference("ephemeral_storage");
         set => SetArgument("ephemeral_storage", value);
     }
 
     /// <summary>
     /// The memory_in_mb attribute.
     /// </summary>
-    public TerraformValue<double>? MemoryInMb
+    public TerraformValue<double> MemoryInMb
     {
-        get => GetArgument<TerraformValue<double>>("memory_in_mb");
+        get => GetArgument<TerraformValue<double>>("memory_in_mb") ?? AsReference("memory_in_mb");
         set => SetArgument("memory_in_mb", value);
     }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? TimeoutInSeconds
+    public TerraformValue<double> TimeoutInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds") ?? AsReference("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsSyntheticsCanaryScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsSyntheticsCanaryScheduleBlockRetryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetries is required")]
     public required TerraformValue<double> MaxRetries
     {
-        get => GetArgument<TerraformValue<double>>("max_retries");
+        get => GetRequiredArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactS3Location is required")]
     public required TerraformValue<string> ArtifactS3Location
     {
-        get => GetArgument<TerraformValue<string>>("artifact_s3_location");
+        get => GetRequiredArgument<TerraformValue<string>>("artifact_s3_location");
         set => SetArgument("artifact_s3_location", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("execution_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
@@ -279,16 +279,16 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Handler is required")]
     public required TerraformValue<string> Handler
     {
-        get => GetArgument<TerraformValue<string>>("handler");
+        get => GetRequiredArgument<TerraformValue<string>>("handler");
         set => SetArgument("handler", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -298,16 +298,16 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -317,7 +317,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformValue<string> RuntimeVersion
     {
-        get => GetArgument<TerraformValue<string>>("runtime_version");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -378,9 +378,9 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

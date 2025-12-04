@@ -55,7 +55,7 @@ public class GoogleNetworkConnectivityInternalRangeMigrationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleNetworkConnectivityInternalRangeMigrationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => GetArgument<TerraformValue<string>>("target");
+        get => GetRequiredArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -144,9 +144,9 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,9 +164,9 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// NOTE: IPv6 ranges are limited to usage=EXTERNAL_TO_VPC and peering=FOR_SELF
     /// NOTE: For IPv6 Ranges this field is compulsory, i.e. the address range must be specified explicitly.
     /// </summary>
-    public TerraformValue<string>? IpCidrRange
+    public TerraformValue<string> IpCidrRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_cidr_range");
+        get => GetArgument<TerraformValue<string>>("ip_cidr_range") ?? AsReference("ip_cidr_range");
         set => SetArgument("ip_cidr_range", value);
     }
 
@@ -189,7 +189,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -199,7 +199,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -218,7 +218,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     public required TerraformValue<string> Peering
     {
-        get => GetArgument<TerraformValue<string>>("peering");
+        get => GetRequiredArgument<TerraformValue<string>>("peering");
         set => SetArgument("peering", value);
     }
 
@@ -237,9 +237,9 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -259,7 +259,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usage is required")]
     public required TerraformValue<string> Usage
     {
-        get => GetArgument<TerraformValue<string>>("usage");
+        get => GetRequiredArgument<TerraformValue<string>>("usage");
         set => SetArgument("usage", value);
     }
 

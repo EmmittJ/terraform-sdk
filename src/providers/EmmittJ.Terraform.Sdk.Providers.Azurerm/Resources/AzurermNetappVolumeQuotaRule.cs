@@ -61,9 +61,9 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaSizeInKib is required")]
     public required TerraformValue<double> QuotaSizeInKib
     {
-        get => GetArgument<TerraformValue<double>>("quota_size_in_kib");
+        get => GetRequiredArgument<TerraformValue<double>>("quota_size_in_kib");
         set => SetArgument("quota_size_in_kib", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaType is required")]
     public required TerraformValue<string> QuotaType
     {
-        get => GetArgument<TerraformValue<string>>("quota_type");
+        get => GetRequiredArgument<TerraformValue<string>>("quota_type");
         set => SetArgument("quota_type", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformValue<string> VolumeId
     {
-        get => GetArgument<TerraformValue<string>>("volume_id");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_id");
         set => SetArgument("volume_id", value);
     }
 

@@ -55,25 +55,25 @@ public partial class GoogleComputeProjectCloudArmorTier(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudArmorTier is required")]
     public required TerraformValue<string> CloudArmorTier
     {
-        get => GetArgument<TerraformValue<string>>("cloud_armor_tier");
+        get => GetRequiredArgument<TerraformValue<string>>("cloud_armor_tier");
         set => SetArgument("cloud_armor_tier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

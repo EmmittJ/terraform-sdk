@@ -14,7 +14,7 @@ public partial class AwsLambdaPermission(string name) : TerraformResource("aws_l
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsLambdaPermission(string name) : TerraformResource("aws_l
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => GetArgument<TerraformValue<string>>("function_name");
+        get => GetRequiredArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
@@ -49,9 +49,9 @@ public partial class AwsLambdaPermission(string name) : TerraformResource("aws_l
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsLambdaPermission(string name) : TerraformResource("aws_l
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetRequiredArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -86,9 +86,9 @@ public partial class AwsLambdaPermission(string name) : TerraformResource("aws_l
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -113,18 +113,18 @@ public partial class AwsLambdaPermission(string name) : TerraformResource("aws_l
     /// <summary>
     /// The statement_id attribute.
     /// </summary>
-    public TerraformValue<string>? StatementId
+    public TerraformValue<string> StatementId
     {
-        get => GetArgument<TerraformValue<string>>("statement_id");
+        get => GetArgument<TerraformValue<string>>("statement_id") ?? AsReference("statement_id");
         set => SetArgument("statement_id", value);
     }
 
     /// <summary>
     /// The statement_id_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? StatementIdPrefix
+    public TerraformValue<string> StatementIdPrefix
     {
-        get => GetArgument<TerraformValue<string>>("statement_id_prefix");
+        get => GetArgument<TerraformValue<string>>("statement_id_prefix") ?? AsReference("statement_id_prefix");
         set => SetArgument("statement_id_prefix", value);
     }
 

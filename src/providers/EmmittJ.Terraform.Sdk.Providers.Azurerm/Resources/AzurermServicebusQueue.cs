@@ -61,9 +61,9 @@ public partial class AzurermServicebusQueue(string name) : TerraformResource("az
     /// <summary>
     /// The auto_delete_on_idle attribute.
     /// </summary>
-    public TerraformValue<string>? AutoDeleteOnIdle
+    public TerraformValue<string> AutoDeleteOnIdle
     {
-        get => GetArgument<TerraformValue<string>>("auto_delete_on_idle");
+        get => GetArgument<TerraformValue<string>>("auto_delete_on_idle") ?? AsReference("auto_delete_on_idle");
         set => SetArgument("auto_delete_on_idle", value);
     }
 
@@ -88,9 +88,9 @@ public partial class AzurermServicebusQueue(string name) : TerraformResource("az
     /// <summary>
     /// The default_message_ttl attribute.
     /// </summary>
-    public TerraformValue<string>? DefaultMessageTtl
+    public TerraformValue<string> DefaultMessageTtl
     {
-        get => GetArgument<TerraformValue<string>>("default_message_ttl");
+        get => GetArgument<TerraformValue<string>>("default_message_ttl") ?? AsReference("default_message_ttl");
         set => SetArgument("default_message_ttl", value);
     }
 
@@ -133,9 +133,9 @@ public partial class AzurermServicebusQueue(string name) : TerraformResource("az
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -160,18 +160,18 @@ public partial class AzurermServicebusQueue(string name) : TerraformResource("az
     /// <summary>
     /// The max_message_size_in_kilobytes attribute.
     /// </summary>
-    public TerraformValue<double>? MaxMessageSizeInKilobytes
+    public TerraformValue<double> MaxMessageSizeInKilobytes
     {
-        get => GetArgument<TerraformValue<double>>("max_message_size_in_kilobytes");
+        get => GetArgument<TerraformValue<double>>("max_message_size_in_kilobytes") ?? AsReference("max_message_size_in_kilobytes");
         set => SetArgument("max_message_size_in_kilobytes", value);
     }
 
     /// <summary>
     /// The max_size_in_megabytes attribute.
     /// </summary>
-    public TerraformValue<double>? MaxSizeInMegabytes
+    public TerraformValue<double> MaxSizeInMegabytes
     {
-        get => GetArgument<TerraformValue<double>>("max_size_in_megabytes");
+        get => GetArgument<TerraformValue<double>>("max_size_in_megabytes") ?? AsReference("max_size_in_megabytes");
         set => SetArgument("max_size_in_megabytes", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermServicebusQueue(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermServicebusQueue(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
     public required TerraformValue<string> NamespaceId
     {
-        get => GetArgument<TerraformValue<string>>("namespace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 

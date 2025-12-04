@@ -25,36 +25,36 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
     /// <summary>
     /// The monthly_retention attribute.
     /// </summary>
-    public TerraformValue<string>? MonthlyRetention
+    public TerraformValue<string> MonthlyRetention
     {
-        get => GetArgument<TerraformValue<string>>("monthly_retention");
+        get => GetArgument<TerraformValue<string>>("monthly_retention") ?? AsReference("monthly_retention");
         set => SetArgument("monthly_retention", value);
     }
 
     /// <summary>
     /// The week_of_year attribute.
     /// </summary>
-    public TerraformValue<double>? WeekOfYear
+    public TerraformValue<double> WeekOfYear
     {
-        get => GetArgument<TerraformValue<double>>("week_of_year");
+        get => GetArgument<TerraformValue<double>>("week_of_year") ?? AsReference("week_of_year");
         set => SetArgument("week_of_year", value);
     }
 
     /// <summary>
     /// The weekly_retention attribute.
     /// </summary>
-    public TerraformValue<string>? WeeklyRetention
+    public TerraformValue<string> WeeklyRetention
     {
-        get => GetArgument<TerraformValue<string>>("weekly_retention");
+        get => GetArgument<TerraformValue<string>>("weekly_retention") ?? AsReference("weekly_retention");
         set => SetArgument("weekly_retention", value);
     }
 
     /// <summary>
     /// The yearly_retention attribute.
     /// </summary>
-    public TerraformValue<string>? YearlyRetention
+    public TerraformValue<string> YearlyRetention
     {
-        get => GetArgument<TerraformValue<string>>("yearly_retention");
+        get => GetArgument<TerraformValue<string>>("yearly_retention") ?? AsReference("yearly_retention");
         set => SetArgument("yearly_retention", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestorePointInTime is required")]
     public required TerraformValue<string> RestorePointInTime
     {
-        get => GetArgument<TerraformValue<string>>("restore_point_in_time");
+        get => GetRequiredArgument<TerraformValue<string>>("restore_point_in_time");
         set => SetArgument("restore_point_in_time", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
     public required TerraformValue<string> SourceDatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("source_database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_database_id");
         set => SetArgument("source_database_id", value);
     }
 
@@ -154,9 +154,9 @@ public partial class AzurermMssqlManagedDatabase(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AzurermMssqlManagedDatabase(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformValue<string> ManagedInstanceId
     {
-        get => GetArgument<TerraformValue<string>>("managed_instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_instance_id");
         set => SetArgument("managed_instance_id", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermMssqlManagedDatabase(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

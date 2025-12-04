@@ -16,9 +16,9 @@ public class AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock : Ter
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateIpAddress
+    public TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? AsReference("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -103,9 +103,9 @@ public partial class AzurermPrivateDnsResolverInboundEndpoint(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermPrivateDnsResolverInboundEndpoint(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermPrivateDnsResolverInboundEndpoint(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermPrivateDnsResolverInboundEndpoint(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsResolverId is required")]
     public required TerraformValue<string> PrivateDnsResolverId
     {
-        get => GetArgument<TerraformValue<string>>("private_dns_resolver_id");
+        get => GetRequiredArgument<TerraformValue<string>>("private_dns_resolver_id");
         set => SetArgument("private_dns_resolver_id", value);
     }
 

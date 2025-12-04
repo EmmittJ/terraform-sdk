@@ -19,7 +19,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VendorName is required")]
     public required TerraformValue<string> VendorName
     {
-        get => GetArgument<TerraformValue<string>>("vendor_name");
+        get => GetRequiredArgument<TerraformValue<string>>("vendor_name");
         set => SetArgument("vendor_name", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -204,7 +204,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseCode is required")]
     public required TerraformValue<double> ResponseCode
     {
-        get => GetArgument<TerraformValue<double>>("response_code");
+        get => GetRequiredArgument<TerraformValue<double>>("response_code");
         set => SetArgument("response_code", value);
     }
 
@@ -300,7 +300,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -377,7 +377,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -387,7 +387,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -454,7 +454,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -464,7 +464,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -531,7 +531,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -541,7 +541,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlockRuleActionOv
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -565,7 +565,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -597,7 +597,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -731,7 +731,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -741,7 +741,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -795,7 +795,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseCode is required")]
     public required TerraformValue<double> ResponseCode
     {
-        get => GetArgument<TerraformValue<double>>("response_code");
+        get => GetRequiredArgument<TerraformValue<double>>("response_code");
         set => SetArgument("response_code", value);
     }
 
@@ -827,7 +827,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -837,7 +837,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -904,7 +904,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -914,7 +914,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -981,7 +981,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -991,7 +991,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1058,7 +1058,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1068,7 +1068,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlockRuleAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1125,9 +1125,9 @@ public partial class AwsWafv2WebAclRuleGroupAssociation(string name) : Terraform
     /// <summary>
     /// Override action for the rule group. Valid values are &#39;none&#39; and &#39;count&#39;. Defaults to &#39;none&#39;.
     /// </summary>
-    public TerraformValue<string>? OverrideAction
+    public TerraformValue<string> OverrideAction
     {
-        get => GetArgument<TerraformValue<string>>("override_action");
+        get => GetArgument<TerraformValue<string>>("override_action") ?? AsReference("override_action");
         set => SetArgument("override_action", value);
     }
 
@@ -1137,16 +1137,16 @@ public partial class AwsWafv2WebAclRuleGroupAssociation(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1156,7 +1156,7 @@ public partial class AwsWafv2WebAclRuleGroupAssociation(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformValue<string> RuleName
     {
-        get => GetArgument<TerraformValue<string>>("rule_name");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 
@@ -1166,7 +1166,7 @@ public partial class AwsWafv2WebAclRuleGroupAssociation(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAclArn is required")]
     public required TerraformValue<string> WebAclArn
     {
-        get => GetArgument<TerraformValue<string>>("web_acl_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("web_acl_arn");
         set => SetArgument("web_acl_arn", value);
     }
 

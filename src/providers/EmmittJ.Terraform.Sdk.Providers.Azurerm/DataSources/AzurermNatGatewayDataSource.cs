@@ -34,9 +34,9 @@ public partial class AzurermNatGatewayDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,25 +46,25 @@ public partial class AzurermNatGatewayDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The public_ip_address_ids attribute.
     /// </summary>
-    public TerraformList<string>? PublicIpAddressIds
+    public TerraformList<string> PublicIpAddressIds
     {
-        get => GetArgument<TerraformList<string>>("public_ip_address_ids");
+        get => GetArgument<TerraformList<string>>("public_ip_address_ids") ?? AsReference("public_ip_address_ids");
         set => SetArgument("public_ip_address_ids", value);
     }
 
     /// <summary>
     /// The public_ip_prefix_ids attribute.
     /// </summary>
-    public TerraformList<string>? PublicIpPrefixIds
+    public TerraformList<string> PublicIpPrefixIds
     {
-        get => GetArgument<TerraformList<string>>("public_ip_prefix_ids");
+        get => GetArgument<TerraformList<string>>("public_ip_prefix_ids") ?? AsReference("public_ip_prefix_ids");
         set => SetArgument("public_ip_prefix_ids", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermNatGatewayDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

@@ -17,9 +17,9 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// Specifies the cache setting for all responses from this backend.
     /// The possible values are: USE_ORIGIN_HEADERS, FORCE_CACHE_ALL and CACHE_ALL_STATIC Possible values: [&amp;quot;USE_ORIGIN_HEADERS&amp;quot;, &amp;quot;FORCE_CACHE_ALL&amp;quot;, &amp;quot;CACHE_ALL_STATIC&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? CacheMode
+    public TerraformValue<string> CacheMode
     {
-        get => GetArgument<TerraformValue<string>>("cache_mode");
+        get => GetArgument<TerraformValue<string>>("cache_mode") ?? AsReference("cache_mode");
         set => SetArgument("cache_mode", value);
     }
 
@@ -27,9 +27,9 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// Specifies the maximum allowed TTL for cached content served by this origin. When the
     /// &#39;cache_mode&#39; is set to &amp;quot;USE_ORIGIN_HEADERS&amp;quot;, you must omit this field.
     /// </summary>
-    public TerraformValue<double>? ClientTtl
+    public TerraformValue<double> ClientTtl
     {
-        get => GetArgument<TerraformValue<double>>("client_ttl");
+        get => GetArgument<TerraformValue<double>>("client_ttl") ?? AsReference("client_ttl");
         set => SetArgument("client_ttl", value);
     }
 
@@ -38,9 +38,9 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// that do not have an existing valid TTL (max-age or s-max-age). When the &#39;cache_mode&#39;
     /// is set to &amp;quot;USE_ORIGIN_HEADERS&amp;quot;, you must omit this field.
     /// </summary>
-    public TerraformValue<double>? DefaultTtl
+    public TerraformValue<double> DefaultTtl
     {
-        get => GetArgument<TerraformValue<double>>("default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl") ?? AsReference("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -48,18 +48,18 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// Specifies the maximum allowed TTL for cached content served by this origin. When the
     /// &#39;cache_mode&#39; is set to &amp;quot;USE_ORIGIN_HEADERS&amp;quot;, you must omit this field.
     /// </summary>
-    public TerraformValue<double>? MaxTtl
+    public TerraformValue<double> MaxTtl
     {
-        get => GetArgument<TerraformValue<double>>("max_ttl");
+        get => GetArgument<TerraformValue<double>>("max_ttl") ?? AsReference("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
     /// <summary>
     /// Negative caching allows per-status code TTLs to be set, in order to apply fine-grained caching for common errors or redirects.
     /// </summary>
-    public TerraformValue<bool>? NegativeCaching
+    public TerraformValue<bool> NegativeCaching
     {
-        get => GetArgument<TerraformValue<bool>>("negative_caching");
+        get => GetArgument<TerraformValue<bool>>("negative_caching") ?? AsReference("negative_caching");
         set => SetArgument("negative_caching", value);
     }
 
@@ -75,9 +75,9 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// <summary>
     /// Serve existing content from the cache (if available) when revalidating content with the origin, or when an error is encountered when refreshing the cache.
     /// </summary>
-    public TerraformValue<double>? ServeWhileStale
+    public TerraformValue<double> ServeWhileStale
     {
-        get => GetArgument<TerraformValue<double>>("serve_while_stale");
+        get => GetArgument<TerraformValue<double>>("serve_while_stale") ?? AsReference("serve_while_stale");
         set => SetArgument("serve_while_stale", value);
     }
 
@@ -296,7 +296,7 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -350,9 +350,9 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -379,16 +379,16 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

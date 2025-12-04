@@ -20,7 +20,7 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionLimit is required")]
     public required TerraformValue<double> ConnectionLimit
     {
-        get => GetArgument<TerraformValue<double>>("connection_limit");
+        get => GetRequiredArgument<TerraformValue<double>>("connection_limit");
         set => SetArgument("connection_limit", value);
     }
 
@@ -101,7 +101,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
     public required TerraformValue<string> ConnectionPreference
     {
-        get => GetArgument<TerraformValue<string>>("connection_preference");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_preference");
         set => SetArgument("connection_preference", value);
     }
 
@@ -144,16 +144,16 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableProxyProtocol is required")]
     public required TerraformValue<bool> EnableProxyProtocol
     {
-        get => GetArgument<TerraformValue<bool>>("enable_proxy_protocol");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable_proxy_protocol");
         set => SetArgument("enable_proxy_protocol", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -168,7 +168,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -185,9 +185,9 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -200,9 +200,9 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// 
     /// If unspecified, the default propagated connection limit is 250. To explicitly send a zero value, set &#39;send_propagated_connection_limit_if_zero = true&#39;.
     /// </summary>
-    public TerraformValue<double>? PropagatedConnectionLimit
+    public TerraformValue<double> PropagatedConnectionLimit
     {
-        get => GetArgument<TerraformValue<double>>("propagated_connection_limit");
+        get => GetArgument<TerraformValue<double>>("propagated_connection_limit") ?? AsReference("propagated_connection_limit");
         set => SetArgument("propagated_connection_limit", value);
     }
 
@@ -212,18 +212,18 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// If false, connection policy update will only affect existing PENDING PSC endpoints. Existing ACCEPTED/REJECTED endpoints will remain untouched regardless how the connection policy is modified .
     /// If true, update will affect both PENDING and ACCEPTED/REJECTED PSC endpoints. For example, an ACCEPTED PSC endpoint will be moved to REJECTED if its project is added to the reject list.
     /// </summary>
-    public TerraformValue<bool>? ReconcileConnections
+    public TerraformValue<bool> ReconcileConnections
     {
-        get => GetArgument<TerraformValue<bool>>("reconcile_connections");
+        get => GetArgument<TerraformValue<bool>>("reconcile_connections") ?? AsReference("reconcile_connections");
         set => SetArgument("reconcile_connections", value);
     }
 
     /// <summary>
     /// URL of the region where the resource resides.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -245,7 +245,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetService is required")]
     public required TerraformValue<string> TargetService
     {
-        get => GetArgument<TerraformValue<string>>("target_service");
+        get => GetRequiredArgument<TerraformValue<string>>("target_service");
         set => SetArgument("target_service", value);
     }
 

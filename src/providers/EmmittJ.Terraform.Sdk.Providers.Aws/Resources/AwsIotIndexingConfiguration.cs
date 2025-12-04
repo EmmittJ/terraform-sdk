@@ -19,7 +19,7 @@ public class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingGroupIndexingMode is required")]
     public required TerraformValue<string> ThingGroupIndexingMode
     {
-        get => GetArgument<TerraformValue<string>>("thing_group_indexing_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("thing_group_indexing_mode");
         set => SetArgument("thing_group_indexing_mode", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingIndexingMode is required")]
     public required TerraformValue<string> ThingIndexingMode
     {
-        get => GetArgument<TerraformValue<string>>("thing_indexing_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("thing_indexing_mode");
         set => SetArgument("thing_indexing_mode", value);
     }
 
@@ -278,18 +278,18 @@ public partial class AwsIotIndexingConfiguration(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

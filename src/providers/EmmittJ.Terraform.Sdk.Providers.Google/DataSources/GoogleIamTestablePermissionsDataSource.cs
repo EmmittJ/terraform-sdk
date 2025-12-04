@@ -23,16 +23,16 @@ public partial class GoogleIamTestablePermissionsDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullResourceName is required")]
     public required TerraformValue<string> FullResourceName
     {
-        get => GetArgument<TerraformValue<string>>("full_resource_name");
+        get => GetRequiredArgument<TerraformValue<string>>("full_resource_name");
         set => SetArgument("full_resource_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

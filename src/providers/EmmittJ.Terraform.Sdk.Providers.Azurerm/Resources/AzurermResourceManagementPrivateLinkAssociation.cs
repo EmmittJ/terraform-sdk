@@ -52,9 +52,9 @@ public partial class AzurermResourceManagementPrivateLinkAssociation(string name
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermResourceManagementPrivateLinkAssociation(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformValue<string> ManagementGroupId
     {
-        get => GetArgument<TerraformValue<string>>("management_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("management_group_id");
         set => SetArgument("management_group_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermResourceManagementPrivateLinkAssociation(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicNetworkAccessEnabled is required")]
     public required TerraformValue<bool> PublicNetworkAccessEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermResourceManagementPrivateLinkAssociation(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceManagementPrivateLinkId is required")]
     public required TerraformValue<string> ResourceManagementPrivateLinkId
     {
-        get => GetArgument<TerraformValue<string>>("resource_management_private_link_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_management_private_link_id");
         set => SetArgument("resource_management_private_link_id", value);
     }
 

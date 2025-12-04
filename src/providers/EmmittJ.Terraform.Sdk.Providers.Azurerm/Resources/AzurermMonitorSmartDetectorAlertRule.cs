@@ -28,7 +28,7 @@ public class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ids is required")]
     public required TerraformSet<string> Ids
     {
-        get => GetArgument<TerraformSet<string>>("ids");
+        get => GetRequiredArgument<TerraformSet<string>>("ids");
         set => SetArgument("ids", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermMonitorSmartDetectorAlertRule(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorType is required")]
     public required TerraformValue<string> DetectorType
     {
-        get => GetArgument<TerraformValue<string>>("detector_type");
+        get => GetRequiredArgument<TerraformValue<string>>("detector_type");
         set => SetArgument("detector_type", value);
     }
 
@@ -134,16 +134,16 @@ public partial class AzurermMonitorSmartDetectorAlertRule(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AzurermMonitorSmartDetectorAlertRule(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermMonitorSmartDetectorAlertRule(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AzurermMonitorSmartDetectorAlertRule(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeResourceIds is required")]
     public required TerraformSet<string> ScopeResourceIds
     {
-        get => GetArgument<TerraformSet<string>>("scope_resource_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("scope_resource_ids");
         set => SetArgument("scope_resource_ids", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AzurermMonitorSmartDetectorAlertRule(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformValue<string> Severity
     {
-        get => GetArgument<TerraformValue<string>>("severity");
+        get => GetRequiredArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 

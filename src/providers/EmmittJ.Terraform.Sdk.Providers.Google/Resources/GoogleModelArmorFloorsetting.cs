@@ -219,7 +219,7 @@ public class GoogleModelArmorFloorsettingFilterConfigBlockRaiSettingsBlockRaiFil
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformValue<string> FilterType
     {
-        get => GetArgument<TerraformValue<string>>("filter_type");
+        get => GetRequiredArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -373,7 +373,7 @@ public class GoogleModelArmorFloorsettingFloorSettingMetadataBlockMultiLanguageD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableMultiLanguageDetection is required")]
     public required TerraformValue<bool> EnableMultiLanguageDetection
     {
-        get => GetArgument<TerraformValue<bool>>("enable_multi_language_detection");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable_multi_language_detection");
         set => SetArgument("enable_multi_language_detection", value);
     }
 
@@ -439,9 +439,9 @@ public partial class GoogleModelArmorFloorsetting(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -460,7 +460,7 @@ public partial class GoogleModelArmorFloorsetting(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -474,7 +474,7 @@ public partial class GoogleModelArmorFloorsetting(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 

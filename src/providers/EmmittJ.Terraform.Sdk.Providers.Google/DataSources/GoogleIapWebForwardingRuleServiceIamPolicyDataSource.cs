@@ -14,25 +14,25 @@ public partial class GoogleIapWebForwardingRuleServiceIamPolicyDataSource(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRuleServiceName is required")]
     public required TerraformValue<string> ForwardingRuleServiceName
     {
-        get => GetArgument<TerraformValue<string>>("forwarding_rule_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("forwarding_rule_service_name");
         set => SetArgument("forwarding_rule_service_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

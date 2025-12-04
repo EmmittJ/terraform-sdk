@@ -64,7 +64,7 @@ public partial class GoogleApigeeFlowhook(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => GetArgument<TerraformValue<string>>("environment");
+        get => GetRequiredArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -74,16 +74,16 @@ public partial class GoogleApigeeFlowhook(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowHookPoint is required")]
     public required TerraformValue<string> FlowHookPoint
     {
-        get => GetArgument<TerraformValue<string>>("flow_hook_point");
+        get => GetRequiredArgument<TerraformValue<string>>("flow_hook_point");
         set => SetArgument("flow_hook_point", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleApigeeFlowhook(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleApigeeFlowhook(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sharedflow is required")]
     public required TerraformValue<string> Sharedflow
     {
-        get => GetArgument<TerraformValue<string>>("sharedflow");
+        get => GetRequiredArgument<TerraformValue<string>>("sharedflow");
         set => SetArgument("sharedflow", value);
     }
 

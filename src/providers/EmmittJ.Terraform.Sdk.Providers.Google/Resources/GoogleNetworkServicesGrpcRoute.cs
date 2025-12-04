@@ -291,7 +291,7 @@ public class GoogleNetworkServicesGrpcRouteRulesBlockMatchesBlockHeadersBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -310,7 +310,7 @@ public class GoogleNetworkServicesGrpcRouteRulesBlockMatchesBlockHeadersBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -342,7 +342,7 @@ public class GoogleNetworkServicesGrpcRouteRulesBlockMatchesBlockMethodBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrpcMethod is required")]
     public required TerraformValue<string> GrpcMethod
     {
-        get => GetArgument<TerraformValue<string>>("grpc_method");
+        get => GetRequiredArgument<TerraformValue<string>>("grpc_method");
         set => SetArgument("grpc_method", value);
     }
 
@@ -352,7 +352,7 @@ public class GoogleNetworkServicesGrpcRouteRulesBlockMatchesBlockMethodBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrpcService is required")]
     public required TerraformValue<string> GrpcService
     {
-        get => GetArgument<TerraformValue<string>>("grpc_service");
+        get => GetRequiredArgument<TerraformValue<string>>("grpc_service");
         set => SetArgument("grpc_service", value);
     }
 
@@ -437,9 +437,9 @@ public partial class GoogleNetworkServicesGrpcRoute(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -479,16 +479,16 @@ public partial class GoogleNetworkServicesGrpcRoute(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

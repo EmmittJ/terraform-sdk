@@ -78,7 +78,7 @@ public class AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformValue<string> KeyVaultKeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermPostgresqlFlexibleServerHighAvailabilityBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -165,7 +165,7 @@ public class AzurermPostgresqlFlexibleServerIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -272,9 +272,9 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
-    public TerraformValue<string>? AdministratorLogin
+    public TerraformValue<string> AdministratorLogin
     {
-        get => GetArgument<TerraformValue<string>>("administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login") ?? AsReference("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -317,9 +317,9 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// <summary>
     /// The backup_retention_days attribute.
     /// </summary>
-    public TerraformValue<double>? BackupRetentionDays
+    public TerraformValue<double> BackupRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("backup_retention_days");
+        get => GetArgument<TerraformValue<double>>("backup_retention_days") ?? AsReference("backup_retention_days");
         set => SetArgument("backup_retention_days", value);
     }
 
@@ -353,9 +353,9 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -365,7 +365,7 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -375,7 +375,7 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -391,9 +391,9 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// <summary>
     /// The private_dns_zone_id attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateDnsZoneId
+    public TerraformValue<string> PrivateDnsZoneId
     {
-        get => GetArgument<TerraformValue<string>>("private_dns_zone_id");
+        get => GetArgument<TerraformValue<string>>("private_dns_zone_id") ?? AsReference("private_dns_zone_id");
         set => SetArgument("private_dns_zone_id", value);
     }
 
@@ -421,16 +421,16 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformValue<string>? SkuName
+    public TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name") ?? AsReference("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -446,18 +446,18 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// <summary>
     /// The storage_mb attribute.
     /// </summary>
-    public TerraformValue<double>? StorageMb
+    public TerraformValue<double> StorageMb
     {
-        get => GetArgument<TerraformValue<double>>("storage_mb");
+        get => GetArgument<TerraformValue<double>>("storage_mb") ?? AsReference("storage_mb");
         set => SetArgument("storage_mb", value);
     }
 
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
-    public TerraformValue<string>? StorageTier
+    public TerraformValue<string> StorageTier
     {
-        get => GetArgument<TerraformValue<string>>("storage_tier");
+        get => GetArgument<TerraformValue<string>>("storage_tier") ?? AsReference("storage_tier");
         set => SetArgument("storage_tier", value);
     }
 
@@ -473,9 +473,9 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string>? Version
+    public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 

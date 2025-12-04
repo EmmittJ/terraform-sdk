@@ -125,7 +125,7 @@ public class AwsSagemakerModelContainerBlockImageConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryAccessMode is required")]
     public required TerraformValue<string> RepositoryAccessMode
     {
-        get => GetArgument<TerraformValue<string>>("repository_access_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_access_mode");
         set => SetArgument("repository_access_mode", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsSagemakerModelContainerBlockImageConfigBlockRepositoryAuthConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryCredentialsProviderArn is required")]
     public required TerraformValue<string> RepositoryCredentialsProviderArn
     {
-        get => GetArgument<TerraformValue<string>>("repository_credentials_provider_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_credentials_provider_arn");
         set => SetArgument("repository_credentials_provider_arn", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsSagemakerModelContainerBlockModelDataSourceBlockS3DataSourceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CompressionType is required")]
     public required TerraformValue<string> CompressionType
     {
-        get => GetArgument<TerraformValue<string>>("compression_type");
+        get => GetRequiredArgument<TerraformValue<string>>("compression_type");
         set => SetArgument("compression_type", value);
     }
 
@@ -216,7 +216,7 @@ public class AwsSagemakerModelContainerBlockModelDataSourceBlockS3DataSourceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3DataType is required")]
     public required TerraformValue<string> S3DataType
     {
-        get => GetArgument<TerraformValue<string>>("s3_data_type");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_data_type");
         set => SetArgument("s3_data_type", value);
     }
 
@@ -226,7 +226,7 @@ public class AwsSagemakerModelContainerBlockModelDataSourceBlockS3DataSourceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => GetArgument<TerraformValue<string>>("s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsSagemakerModelContainerBlockModelDataSourceBlockS3DataSourceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceptEula is required")]
     public required TerraformValue<bool> AcceptEula
     {
-        get => GetArgument<TerraformValue<bool>>("accept_eula");
+        get => GetRequiredArgument<TerraformValue<bool>>("accept_eula");
         set => SetArgument("accept_eula", value);
     }
 
@@ -305,7 +305,7 @@ public class AwsSagemakerModelInferenceExecutionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -435,7 +435,7 @@ public class AwsSagemakerModelPrimaryContainerBlockImageConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryAccessMode is required")]
     public required TerraformValue<string> RepositoryAccessMode
     {
-        get => GetArgument<TerraformValue<string>>("repository_access_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_access_mode");
         set => SetArgument("repository_access_mode", value);
     }
 
@@ -468,7 +468,7 @@ public class AwsSagemakerModelPrimaryContainerBlockImageConfigBlockRepositoryAut
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryCredentialsProviderArn is required")]
     public required TerraformValue<string> RepositoryCredentialsProviderArn
     {
-        get => GetArgument<TerraformValue<string>>("repository_credentials_provider_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("repository_credentials_provider_arn");
         set => SetArgument("repository_credentials_provider_arn", value);
     }
 
@@ -516,7 +516,7 @@ public class AwsSagemakerModelPrimaryContainerBlockModelDataSourceBlockS3DataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CompressionType is required")]
     public required TerraformValue<string> CompressionType
     {
-        get => GetArgument<TerraformValue<string>>("compression_type");
+        get => GetRequiredArgument<TerraformValue<string>>("compression_type");
         set => SetArgument("compression_type", value);
     }
 
@@ -526,7 +526,7 @@ public class AwsSagemakerModelPrimaryContainerBlockModelDataSourceBlockS3DataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3DataType is required")]
     public required TerraformValue<string> S3DataType
     {
-        get => GetArgument<TerraformValue<string>>("s3_data_type");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_data_type");
         set => SetArgument("s3_data_type", value);
     }
 
@@ -536,7 +536,7 @@ public class AwsSagemakerModelPrimaryContainerBlockModelDataSourceBlockS3DataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => GetArgument<TerraformValue<string>>("s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -569,7 +569,7 @@ public class AwsSagemakerModelPrimaryContainerBlockModelDataSourceBlockS3DataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceptEula is required")]
     public required TerraformValue<bool> AcceptEula
     {
-        get => GetArgument<TerraformValue<bool>>("accept_eula");
+        get => GetRequiredArgument<TerraformValue<bool>>("accept_eula");
         set => SetArgument("accept_eula", value);
     }
 
@@ -615,7 +615,7 @@ public class AwsSagemakerModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -625,7 +625,7 @@ public class AwsSagemakerModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => GetArgument<TerraformSet<string>>("subnets");
+        get => GetRequiredArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -653,34 +653,34 @@ public partial class AwsSagemakerModel(string name) : TerraformResource("aws_sag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("execution_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -696,9 +696,9 @@ public partial class AwsSagemakerModel(string name) : TerraformResource("aws_sag
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

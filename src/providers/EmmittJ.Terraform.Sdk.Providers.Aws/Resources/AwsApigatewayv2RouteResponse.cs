@@ -14,16 +14,16 @@ public partial class AwsApigatewayv2RouteResponse(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => GetArgument<TerraformValue<string>>("api_id");
+        get => GetRequiredArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -39,9 +39,9 @@ public partial class AwsApigatewayv2RouteResponse(string name) : TerraformResour
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsApigatewayv2RouteResponse(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteId is required")]
     public required TerraformValue<string> RouteId
     {
-        get => GetArgument<TerraformValue<string>>("route_id");
+        get => GetRequiredArgument<TerraformValue<string>>("route_id");
         set => SetArgument("route_id", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsApigatewayv2RouteResponse(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteResponseKey is required")]
     public required TerraformValue<string> RouteResponseKey
     {
-        get => GetArgument<TerraformValue<string>>("route_response_key");
+        get => GetRequiredArgument<TerraformValue<string>>("route_response_key");
         set => SetArgument("route_response_key", value);
     }
 

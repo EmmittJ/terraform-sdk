@@ -52,7 +52,7 @@ public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlockExternalIdBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlockExternalIdBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => GetArgument<TerraformValue<string>>("issuer");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlockUniqueAttribu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributePath is required")]
     public required TerraformValue<string> AttributePath
     {
-        get => GetArgument<TerraformValue<string>>("attribute_path");
+        get => GetRequiredArgument<TerraformValue<string>>("attribute_path");
         set => SetArgument("attribute_path", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlockUniqueAttribu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributeValue is required")]
     public required TerraformValue<string> AttributeValue
     {
-        get => GetArgument<TerraformValue<string>>("attribute_value");
+        get => GetRequiredArgument<TerraformValue<string>>("attribute_value");
         set => SetArgument("attribute_value", value);
     }
 
@@ -111,9 +111,9 @@ public partial class AwsIdentitystoreUserDataSource(string name) : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -123,25 +123,25 @@ public partial class AwsIdentitystoreUserDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformValue<string> IdentityStoreId
     {
-        get => GetArgument<TerraformValue<string>>("identity_store_id");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_store_id");
         set => SetArgument("identity_store_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public TerraformValue<string>? UserId
+    public TerraformValue<string> UserId
     {
-        get => GetArgument<TerraformValue<string>>("user_id");
+        get => GetArgument<TerraformValue<string>>("user_id") ?? AsReference("user_id");
         set => SetArgument("user_id", value);
     }
 

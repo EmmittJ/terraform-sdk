@@ -25,18 +25,18 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
     /// </summary>
-    public TerraformList<string>? AllowedExternalRedirectUrls
+    public TerraformList<string> AllowedExternalRedirectUrls
     {
-        get => GetArgument<TerraformList<string>>("allowed_external_redirect_urls");
+        get => GetArgument<TerraformList<string>>("allowed_external_redirect_urls") ?? AsReference("allowed_external_redirect_urls");
         set => SetArgument("allowed_external_redirect_urls", value);
     }
 
     /// <summary>
     /// The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
     /// </summary>
-    public TerraformValue<string>? DefaultProvider
+    public TerraformValue<string> DefaultProvider
     {
-        get => GetArgument<TerraformValue<string>>("default_provider");
+        get => GetArgument<TerraformValue<string>>("default_provider") ?? AsReference("default_provider");
         set => SetArgument("default_provider", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -62,9 +62,9 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The RuntimeVersion of the Authentication / Authorization feature in use.
     /// </summary>
-    public TerraformValue<string>? RuntimeVersion
+    public TerraformValue<string> RuntimeVersion
     {
-        get => GetArgument<TerraformValue<string>>("runtime_version");
+        get => GetArgument<TerraformValue<string>>("runtime_version") ?? AsReference("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -89,9 +89,9 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
     /// </summary>
-    public TerraformValue<string>? UnauthenticatedClientAction
+    public TerraformValue<string> UnauthenticatedClientAction
     {
-        get => GetArgument<TerraformValue<string>>("unauthenticated_client_action");
+        get => GetArgument<TerraformValue<string>>("unauthenticated_client_action") ?? AsReference("unauthenticated_client_action");
         set => SetArgument("unauthenticated_client_action", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlockActiveDirectoryBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -224,7 +224,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlockFacebookBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => GetArgument<TerraformValue<string>>("app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
@@ -274,7 +274,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlockGithubBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -324,7 +324,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlockGoogleBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -374,7 +374,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlockMicrosoftBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -424,7 +424,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlockTwitterBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerKey is required")]
     public required TerraformValue<string> ConsumerKey
     {
-        get => GetArgument<TerraformValue<string>>("consumer_key");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_key");
         set => SetArgument("consumer_key", value);
     }
 
@@ -725,7 +725,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockActiveDirectoryV2Block :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -780,7 +780,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockActiveDirectoryV2Block :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantAuthEndpoint is required")]
     public required TerraformValue<string> TenantAuthEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("tenant_auth_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_auth_endpoint");
         set => SetArgument("tenant_auth_endpoint", value);
     }
 
@@ -812,7 +812,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockAppleV2Block : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -822,7 +822,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockAppleV2Block : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
     public required TerraformValue<string> ClientSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("client_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret_setting_name");
         set => SetArgument("client_secret_setting_name", value);
     }
 
@@ -851,7 +851,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockAzureStaticWebAppV2Block
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -892,7 +892,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockCustomOidcV2Block : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -914,7 +914,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockCustomOidcV2Block : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -933,7 +933,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockCustomOidcV2Block : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenidConfigurationEndpoint is required")]
     public required TerraformValue<string> OpenidConfigurationEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("openid_configuration_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("openid_configuration_endpoint");
         set => SetArgument("openid_configuration_endpoint", value);
     }
 
@@ -971,7 +971,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockFacebookV2Block : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => GetArgument<TerraformValue<string>>("app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
@@ -981,16 +981,16 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockFacebookV2Block : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppSecretSettingName is required")]
     public required TerraformValue<string> AppSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("app_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_secret_setting_name");
         set => SetArgument("app_secret_setting_name", value);
     }
 
     /// <summary>
     /// The version of the Facebook API to be used while logging in.
     /// </summary>
-    public TerraformValue<string>? GraphApiVersion
+    public TerraformValue<string> GraphApiVersion
     {
-        get => GetArgument<TerraformValue<string>>("graph_api_version");
+        get => GetArgument<TerraformValue<string>>("graph_api_version") ?? AsReference("graph_api_version");
         set => SetArgument("graph_api_version", value);
     }
 
@@ -1022,7 +1022,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockGithubV2Block : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1032,7 +1032,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockGithubV2Block : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
     public required TerraformValue<string> ClientSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("client_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret_setting_name");
         set => SetArgument("client_secret_setting_name", value);
     }
 
@@ -1073,7 +1073,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockGoogleV2Block : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1083,7 +1083,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockGoogleV2Block : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
     public required TerraformValue<string> ClientSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("client_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret_setting_name");
         set => SetArgument("client_secret_setting_name", value);
     }
 
@@ -1236,7 +1236,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockMicrosoftV2Block : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1246,7 +1246,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockMicrosoftV2Block : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
     public required TerraformValue<string> ClientSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("client_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret_setting_name");
         set => SetArgument("client_secret_setting_name", value);
     }
 
@@ -1278,7 +1278,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockTwitterV2Block : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerKey is required")]
     public required TerraformValue<string> ConsumerKey
     {
-        get => GetArgument<TerraformValue<string>>("consumer_key");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_key");
         set => SetArgument("consumer_key", value);
     }
 
@@ -1288,7 +1288,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsV2BlockTwitterV2Block : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerSecretSettingName is required")]
     public required TerraformValue<string> ConsumerSecretSettingName
     {
-        get => GetArgument<TerraformValue<string>>("consumer_secret_setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_secret_setting_name");
         set => SetArgument("consumer_secret_setting_name", value);
     }
 
@@ -1321,7 +1321,7 @@ public class AzurermWindowsWebAppSlotBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1331,7 +1331,7 @@ public class AzurermWindowsWebAppSlotBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountUrl is required")]
     public required TerraformValue<string> StorageAccountUrl
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_url");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_url");
         set => SetArgument("storage_account_url", value);
     }
 
@@ -1367,7 +1367,7 @@ public class AzurermWindowsWebAppSlotBackupBlockScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrequencyInterval is required")]
     public required TerraformValue<double> FrequencyInterval
     {
-        get => GetArgument<TerraformValue<double>>("frequency_interval");
+        get => GetRequiredArgument<TerraformValue<double>>("frequency_interval");
         set => SetArgument("frequency_interval", value);
     }
 
@@ -1377,7 +1377,7 @@ public class AzurermWindowsWebAppSlotBackupBlockScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrequencyUnit is required")]
     public required TerraformValue<string> FrequencyUnit
     {
-        get => GetArgument<TerraformValue<string>>("frequency_unit");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency_unit");
         set => SetArgument("frequency_unit", value);
     }
 
@@ -1408,9 +1408,9 @@ public class AzurermWindowsWebAppSlotBackupBlockScheduleBlock : TerraformBlock
     /// <summary>
     /// When the schedule should start working in RFC-3339 format.
     /// </summary>
-    public TerraformValue<string>? StartTime
+    public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -1434,7 +1434,7 @@ public class AzurermWindowsWebAppSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1444,7 +1444,7 @@ public class AzurermWindowsWebAppSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1454,7 +1454,7 @@ public class AzurermWindowsWebAppSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1499,7 +1499,7 @@ public class AzurermWindowsWebAppSlotIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1574,7 +1574,7 @@ public class AzurermWindowsWebAppSlotLogsBlockApplicationLogsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemLevel is required")]
     public required TerraformValue<string> FileSystemLevel
     {
-        get => GetArgument<TerraformValue<string>>("file_system_level");
+        get => GetRequiredArgument<TerraformValue<string>>("file_system_level");
         set => SetArgument("file_system_level", value);
     }
 
@@ -1607,7 +1607,7 @@ public class AzurermWindowsWebAppSlotLogsBlockApplicationLogsBlockAzureBlobStora
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Level is required")]
     public required TerraformValue<string> Level
     {
-        get => GetArgument<TerraformValue<string>>("level");
+        get => GetRequiredArgument<TerraformValue<string>>("level");
         set => SetArgument("level", value);
     }
 
@@ -1617,7 +1617,7 @@ public class AzurermWindowsWebAppSlotLogsBlockApplicationLogsBlockAzureBlobStora
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInDays is required")]
     public required TerraformValue<double> RetentionInDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_in_days");
+        get => GetRequiredArgument<TerraformValue<double>>("retention_in_days");
         set => SetArgument("retention_in_days", value);
     }
 
@@ -1627,7 +1627,7 @@ public class AzurermWindowsWebAppSlotLogsBlockApplicationLogsBlockAzureBlobStora
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasUrl is required")]
     public required TerraformValue<string> SasUrl
     {
-        get => GetArgument<TerraformValue<string>>("sas_url");
+        get => GetRequiredArgument<TerraformValue<string>>("sas_url");
         set => SetArgument("sas_url", value);
     }
 
@@ -1692,7 +1692,7 @@ public class AzurermWindowsWebAppSlotLogsBlockHttpLogsBlockAzureBlobStorageBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasUrl is required")]
     public required TerraformValue<string> SasUrl
     {
-        get => GetArgument<TerraformValue<string>>("sas_url");
+        get => GetRequiredArgument<TerraformValue<string>>("sas_url");
         set => SetArgument("sas_url", value);
     }
 
@@ -1715,7 +1715,7 @@ public class AzurermWindowsWebAppSlotLogsBlockHttpLogsBlockFileSystemBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInDays is required")]
     public required TerraformValue<double> RetentionInDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_in_days");
+        get => GetRequiredArgument<TerraformValue<double>>("retention_in_days");
         set => SetArgument("retention_in_days", value);
     }
 
@@ -1725,7 +1725,7 @@ public class AzurermWindowsWebAppSlotLogsBlockHttpLogsBlockFileSystemBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInMb is required")]
     public required TerraformValue<double> RetentionInMb
     {
-        get => GetArgument<TerraformValue<double>>("retention_in_mb");
+        get => GetRequiredArgument<TerraformValue<double>>("retention_in_mb");
         set => SetArgument("retention_in_mb", value);
     }
 
@@ -1809,9 +1809,9 @@ public class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The default_documents attribute.
     /// </summary>
-    public TerraformList<string>? DefaultDocuments
+    public TerraformList<string> DefaultDocuments
     {
-        get => GetArgument<TerraformList<string>>("default_documents");
+        get => GetArgument<TerraformList<string>>("default_documents") ?? AsReference("default_documents");
         set => SetArgument("default_documents", value);
     }
 
@@ -1914,9 +1914,9 @@ public class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The remote_debugging_version attribute.
     /// </summary>
-    public TerraformValue<string>? RemoteDebuggingVersion
+    public TerraformValue<string> RemoteDebuggingVersion
     {
-        get => GetArgument<TerraformValue<string>>("remote_debugging_version");
+        get => GetArgument<TerraformValue<string>>("remote_debugging_version") ?? AsReference("remote_debugging_version");
         set => SetArgument("remote_debugging_version", value);
     }
 
@@ -1956,9 +1956,9 @@ public class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The use_32_bit_worker attribute.
     /// </summary>
-    public TerraformValue<bool>? Use32BitWorker
+    public TerraformValue<bool> Use32BitWorker
     {
-        get => GetArgument<TerraformValue<bool>>("use_32_bit_worker");
+        get => GetArgument<TerraformValue<bool>>("use_32_bit_worker") ?? AsReference("use_32_bit_worker");
         set => SetArgument("use_32_bit_worker", value);
     }
 
@@ -1989,9 +1989,9 @@ public class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The worker_count attribute.
     /// </summary>
-    public TerraformValue<double>? WorkerCount
+    public TerraformValue<double> WorkerCount
     {
-        get => GetArgument<TerraformValue<double>>("worker_count");
+        get => GetArgument<TerraformValue<double>>("worker_count") ?? AsReference("worker_count");
         set => SetArgument("worker_count", value);
     }
 
@@ -2077,9 +2077,9 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockApplicationStackBlock : Terr
     /// <summary>
     /// The current_stack attribute.
     /// </summary>
-    public TerraformValue<string>? CurrentStack
+    public TerraformValue<string> CurrentStack
     {
-        get => GetArgument<TerraformValue<string>>("current_stack");
+        get => GetArgument<TerraformValue<string>>("current_stack") ?? AsReference("current_stack");
         set => SetArgument("current_stack", value);
     }
 
@@ -2131,9 +2131,9 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockApplicationStackBlock : Terr
     /// <summary>
     /// The dotnet_version attribute.
     /// </summary>
-    public TerraformValue<string>? DotnetVersion
+    public TerraformValue<string> DotnetVersion
     {
-        get => GetArgument<TerraformValue<string>>("dotnet_version");
+        get => GetArgument<TerraformValue<string>>("dotnet_version") ?? AsReference("dotnet_version");
         set => SetArgument("dotnet_version", value);
     }
 
@@ -2160,9 +2160,9 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockApplicationStackBlock : Terr
     /// <summary>
     /// Should the application use the embedded web server for the version of Java in use.
     /// </summary>
-    public TerraformValue<bool>? JavaEmbeddedServerEnabled
+    public TerraformValue<bool> JavaEmbeddedServerEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("java_embedded_server_enabled");
+        get => GetArgument<TerraformValue<bool>>("java_embedded_server_enabled") ?? AsReference("java_embedded_server_enabled");
         set => SetArgument("java_embedded_server_enabled", value);
     }
 
@@ -2187,9 +2187,9 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockApplicationStackBlock : Terr
     /// <summary>
     /// The php_version attribute.
     /// </summary>
-    public TerraformValue<string>? PhpVersion
+    public TerraformValue<string> PhpVersion
     {
-        get => GetArgument<TerraformValue<string>>("php_version");
+        get => GetArgument<TerraformValue<string>>("php_version") ?? AsReference("php_version");
         set => SetArgument("php_version", value);
     }
 
@@ -2269,16 +2269,16 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
     public required TerraformValue<string> ActionType
     {
-        get => GetArgument<TerraformValue<string>>("action_type");
+        get => GetRequiredArgument<TerraformValue<string>>("action_type");
         set => SetArgument("action_type", value);
     }
 
     /// <summary>
     /// The minimum_process_execution_time attribute.
     /// </summary>
-    public TerraformValue<string>? MinimumProcessExecutionTime
+    public TerraformValue<string> MinimumProcessExecutionTime
     {
-        get => GetArgument<TerraformValue<string>>("minimum_process_execution_time");
+        get => GetArgument<TerraformValue<string>>("minimum_process_execution_time") ?? AsReference("minimum_process_execution_time");
         set => SetArgument("minimum_process_execution_time", value);
     }
 
@@ -2311,7 +2311,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Executable is required")]
     public required TerraformValue<string> Executable
     {
-        get => GetArgument<TerraformValue<string>>("executable");
+        get => GetRequiredArgument<TerraformValue<string>>("executable");
         set => SetArgument("executable", value);
     }
 
@@ -2403,7 +2403,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockTriggerB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetRequiredArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -2413,7 +2413,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockTriggerB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<string> Interval
     {
-        get => GetArgument<TerraformValue<string>>("interval");
+        get => GetRequiredArgument<TerraformValue<string>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -2436,7 +2436,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockTriggerB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetRequiredArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -2446,7 +2446,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockTriggerB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<string> Interval
     {
-        get => GetArgument<TerraformValue<string>>("interval");
+        get => GetRequiredArgument<TerraformValue<string>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -2456,7 +2456,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockTriggerB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeTaken is required")]
     public required TerraformValue<string> TimeTaken
     {
-        get => GetArgument<TerraformValue<string>>("time_taken");
+        get => GetRequiredArgument<TerraformValue<string>>("time_taken");
         set => SetArgument("time_taken", value);
     }
 
@@ -2479,7 +2479,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockTriggerB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetRequiredArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -2489,7 +2489,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockTriggerB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<string> Interval
     {
-        get => GetArgument<TerraformValue<string>>("interval");
+        get => GetRequiredArgument<TerraformValue<string>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -2508,7 +2508,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockTriggerB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeTaken is required")]
     public required TerraformValue<string> TimeTaken
     {
-        get => GetArgument<TerraformValue<string>>("time_taken");
+        get => GetRequiredArgument<TerraformValue<string>>("time_taken");
         set => SetArgument("time_taken", value);
     }
 
@@ -2531,7 +2531,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockTriggerB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetRequiredArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -2541,7 +2541,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockTriggerB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<string> Interval
     {
-        get => GetArgument<TerraformValue<string>>("interval");
+        get => GetRequiredArgument<TerraformValue<string>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -2560,7 +2560,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockAutoHealSettingBlockTriggerB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCodeRange is required")]
     public required TerraformValue<string> StatusCodeRange
     {
-        get => GetArgument<TerraformValue<string>>("status_code_range");
+        get => GetRequiredArgument<TerraformValue<string>>("status_code_range");
         set => SetArgument("status_code_range", value);
     }
 
@@ -2641,7 +2641,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockHandlerMappingBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Extension is required")]
     public required TerraformValue<string> Extension
     {
-        get => GetArgument<TerraformValue<string>>("extension");
+        get => GetRequiredArgument<TerraformValue<string>>("extension");
         set => SetArgument("extension", value);
     }
 
@@ -2651,7 +2651,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockHandlerMappingBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptProcessorPath is required")]
     public required TerraformValue<string> ScriptProcessorPath
     {
-        get => GetArgument<TerraformValue<string>>("script_processor_path");
+        get => GetRequiredArgument<TerraformValue<string>>("script_processor_path");
         set => SetArgument("script_processor_path", value);
     }
 
@@ -2707,9 +2707,9 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockIpRestrictionBlock : Terrafo
     /// <summary>
     /// The name which should be used for this `ip_restriction`.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -2792,9 +2792,9 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockScmIpRestrictionBlock : Terr
     /// <summary>
     /// The name which should be used for this `ip_restriction`.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -2844,7 +2844,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockVirtualApplicationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhysicalPath is required")]
     public required TerraformValue<string> PhysicalPath
     {
-        get => GetArgument<TerraformValue<string>>("physical_path");
+        get => GetRequiredArgument<TerraformValue<string>>("physical_path");
         set => SetArgument("physical_path", value);
     }
 
@@ -2854,7 +2854,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockVirtualApplicationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preload is required")]
     public required TerraformValue<bool> Preload
     {
-        get => GetArgument<TerraformValue<bool>>("preload");
+        get => GetRequiredArgument<TerraformValue<bool>>("preload");
         set => SetArgument("preload", value);
     }
 
@@ -2864,7 +2864,7 @@ public class AzurermWindowsWebAppSlotSiteConfigBlockVirtualApplicationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
     public required TerraformValue<string> VirtualPath
     {
-        get => GetArgument<TerraformValue<string>>("virtual_path");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_path");
         set => SetArgument("virtual_path", value);
     }
 
@@ -2928,7 +2928,7 @@ public class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKey is required")]
     public required TerraformValue<string> AccessKey
     {
-        get => GetArgument<TerraformValue<string>>("access_key");
+        get => GetRequiredArgument<TerraformValue<string>>("access_key");
         set => SetArgument("access_key", value);
     }
 
@@ -2938,7 +2938,7 @@ public class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -2957,7 +2957,7 @@ public class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2967,7 +2967,7 @@ public class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformValue<string> ShareName
     {
-        get => GetArgument<TerraformValue<string>>("share_name");
+        get => GetRequiredArgument<TerraformValue<string>>("share_name");
         set => SetArgument("share_name", value);
     }
 
@@ -2977,7 +2977,7 @@ public class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -3046,7 +3046,7 @@ public partial class AzurermWindowsWebAppSlot(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceId is required")]
     public required TerraformValue<string> AppServiceId
     {
-        get => GetArgument<TerraformValue<string>>("app_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_service_id");
         set => SetArgument("app_service_id", value);
     }
 
@@ -3125,18 +3125,18 @@ public partial class AzurermWindowsWebAppSlot(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The key_vault_reference_identity_id attribute.
     /// </summary>
-    public TerraformValue<string>? KeyVaultReferenceIdentityId
+    public TerraformValue<string> KeyVaultReferenceIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_reference_identity_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_reference_identity_id") ?? AsReference("key_vault_reference_identity_id");
         set => SetArgument("key_vault_reference_identity_id", value);
     }
 
@@ -3146,7 +3146,7 @@ public partial class AzurermWindowsWebAppSlot(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3207,9 +3207,9 @@ public partial class AzurermWindowsWebAppSlot(string name) : TerraformResource("
     /// <summary>
     /// The local path and filename of the Zip packaged application to deploy to this Windows Web App. **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` on the App in `app_settings`.
     /// </summary>
-    public TerraformValue<string>? ZipDeployFile
+    public TerraformValue<string> ZipDeployFile
     {
-        get => GetArgument<TerraformValue<string>>("zip_deploy_file");
+        get => GetArgument<TerraformValue<string>>("zip_deploy_file") ?? AsReference("zip_deploy_file");
         set => SetArgument("zip_deploy_file", value);
     }
 

@@ -64,16 +64,16 @@ public partial class AzurermActiveDirectoryDomainServiceTrust(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
     public required TerraformValue<string> DomainServiceId
     {
-        get => GetArgument<TerraformValue<string>>("domain_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_service_id");
         set => SetArgument("domain_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermActiveDirectoryDomainServiceTrust(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermActiveDirectoryDomainServiceTrust(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermActiveDirectoryDomainServiceTrust(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedDomainFqdn is required")]
     public required TerraformValue<string> TrustedDomainFqdn
     {
-        get => GetArgument<TerraformValue<string>>("trusted_domain_fqdn");
+        get => GetRequiredArgument<TerraformValue<string>>("trusted_domain_fqdn");
         set => SetArgument("trusted_domain_fqdn", value);
     }
 

@@ -48,7 +48,7 @@ public partial class GoogleApihubHostProjectRegistration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpProject is required")]
     public required TerraformValue<string> GcpProject
     {
-        get => GetArgument<TerraformValue<string>>("gcp_project");
+        get => GetRequiredArgument<TerraformValue<string>>("gcp_project");
         set => SetArgument("gcp_project", value);
     }
 
@@ -61,16 +61,16 @@ public partial class GoogleApihubHostProjectRegistration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProjectRegistrationId is required")]
     public required TerraformValue<string> HostProjectRegistrationId
     {
-        get => GetArgument<TerraformValue<string>>("host_project_registration_id");
+        get => GetRequiredArgument<TerraformValue<string>>("host_project_registration_id");
         set => SetArgument("host_project_registration_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -80,16 +80,16 @@ public partial class GoogleApihubHostProjectRegistration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

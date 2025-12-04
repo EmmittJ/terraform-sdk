@@ -14,16 +14,16 @@ public partial class AwsIamUserSshKeyDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
     public required TerraformValue<string> Encoding
     {
-        get => GetArgument<TerraformValue<string>>("encoding");
+        get => GetRequiredArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsIamUserSshKeyDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKeyId is required")]
     public required TerraformValue<string> SshPublicKeyId
     {
-        get => GetArgument<TerraformValue<string>>("ssh_public_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("ssh_public_key_id");
         set => SetArgument("ssh_public_key_id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsIamUserSshKeyDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

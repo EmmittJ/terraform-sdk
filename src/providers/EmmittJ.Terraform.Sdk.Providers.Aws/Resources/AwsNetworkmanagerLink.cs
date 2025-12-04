@@ -96,16 +96,16 @@ public partial class AwsNetworkmanagerLink(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformValue<string> GlobalNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("global_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("global_network_id");
         set => SetArgument("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsNetworkmanagerLink(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteId is required")]
     public required TerraformValue<string> SiteId
     {
-        get => GetArgument<TerraformValue<string>>("site_id");
+        get => GetRequiredArgument<TerraformValue<string>>("site_id");
         set => SetArgument("site_id", value);
     }
 
@@ -140,9 +140,9 @@ public partial class AwsNetworkmanagerLink(string name) : TerraformResource("aws
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

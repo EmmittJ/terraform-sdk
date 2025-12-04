@@ -43,9 +43,9 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformValue<string> InstanceArn
     {
-        get => GetArgument<TerraformValue<string>>("instance_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_arn");
         set => SetArgument("instance_arn", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
     public required TerraformValue<string> PermissionSetArn
     {
-        get => GetArgument<TerraformValue<string>>("permission_set_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("permission_set_arn");
         set => SetArgument("permission_set_arn", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -85,16 +85,16 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformValue<string> PrincipalType
     {
-        get => GetArgument<TerraformValue<string>>("principal_type");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_type");
         set => SetArgument("principal_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformValue<string> TargetId
     {
-        get => GetArgument<TerraformValue<string>>("target_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_id");
         set => SetArgument("target_id", value);
     }
 

@@ -11,9 +11,9 @@ public partial class GoogleComputeImageDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The family attribute.
     /// </summary>
-    public TerraformValue<string>? Family
+    public TerraformValue<string> Family
     {
-        get => GetArgument<TerraformValue<string>>("family");
+        get => GetArgument<TerraformValue<string>>("family") ?? AsReference("family");
         set => SetArgument("family", value);
     }
 
@@ -29,9 +29,9 @@ public partial class GoogleComputeImageDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -47,18 +47,18 @@ public partial class GoogleComputeImageDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -14,16 +14,16 @@ public partial class GoogleHealthcareHl7V2StoreIamPolicyDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hl7V2StoreId is required")]
     public required TerraformValue<string> Hl7V2StoreId
     {
-        get => GetArgument<TerraformValue<string>>("hl7_v2_store_id");
+        get => GetRequiredArgument<TerraformValue<string>>("hl7_v2_store_id");
         set => SetArgument("hl7_v2_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

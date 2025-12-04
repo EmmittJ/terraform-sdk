@@ -39,7 +39,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteReference is required")]
     public required TerraformValue<string> NoteReference
     {
-        get => GetArgument<TerraformValue<string>>("note_reference");
+        get => GetRequiredArgument<TerraformValue<string>>("note_reference");
         set => SetArgument("note_reference", value);
     }
 
@@ -99,9 +99,9 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlockPubli
     /// be imposed based on which public key type is encapsulated.
     /// See the documentation on publicKey cases below for details.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -214,9 +214,9 @@ public partial class GoogleBinaryAuthorizationAttestor(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -226,16 +226,16 @@ public partial class GoogleBinaryAuthorizationAttestor(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

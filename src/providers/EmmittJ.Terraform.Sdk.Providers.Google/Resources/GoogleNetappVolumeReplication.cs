@@ -25,9 +25,9 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : Ter
     /// <summary>
     /// Share name for destination volume. If not specified, name of source volume&#39;s share name will be used.
     /// </summary>
-    public TerraformValue<string>? ShareName
+    public TerraformValue<string> ShareName
     {
-        get => GetArgument<TerraformValue<string>>("share_name");
+        get => GetArgument<TerraformValue<string>>("share_name") ?? AsReference("share_name");
         set => SetArgument("share_name", value);
     }
 
@@ -37,16 +37,16 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePool is required")]
     public required TerraformValue<string> StoragePool
     {
-        get => GetArgument<TerraformValue<string>>("storage_pool");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_pool");
         set => SetArgument("storage_pool", value);
     }
 
     /// <summary>
     /// Name for the destination volume to be created. If not specified, the name of the source volume will be used.
     /// </summary>
-    public TerraformValue<string>? VolumeId
+    public TerraformValue<string> VolumeId
     {
-        get => GetArgument<TerraformValue<string>>("volume_id");
+        get => GetArgument<TerraformValue<string>>("volume_id") ?? AsReference("volume_id");
         set => SetArgument("volume_id", value);
     }
 
@@ -181,9 +181,9 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -206,7 +206,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -216,16 +216,16 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -247,7 +247,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSchedule is required")]
     public required TerraformValue<string> ReplicationSchedule
     {
-        get => GetArgument<TerraformValue<string>>("replication_schedule");
+        get => GetRequiredArgument<TerraformValue<string>>("replication_schedule");
         set => SetArgument("replication_schedule", value);
     }
 
@@ -257,7 +257,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformValue<string> VolumeName
     {
-        get => GetArgument<TerraformValue<string>>("volume_name");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_name");
         set => SetArgument("volume_name", value);
     }
 

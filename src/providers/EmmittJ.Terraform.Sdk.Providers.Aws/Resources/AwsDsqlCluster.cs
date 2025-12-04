@@ -16,9 +16,9 @@ public class AwsDsqlClusterMultiRegionPropertiesBlock : TerraformBlock
     /// <summary>
     /// The clusters attribute.
     /// </summary>
-    public TerraformSet<string>? Clusters
+    public TerraformSet<string> Clusters
     {
-        get => GetArgument<TerraformSet<string>>("clusters");
+        get => GetArgument<TerraformSet<string>>("clusters") ?? AsReference("clusters");
         set => SetArgument("clusters", value);
     }
 
@@ -84,36 +84,36 @@ public partial class AwsDsqlCluster(string name) : TerraformResource("aws_dsql_c
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? DeletionProtectionEnabled
+    public TerraformValue<bool> DeletionProtectionEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled") ?? AsReference("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformValue<bool>? ForceDestroy
+    public TerraformValue<bool> ForceDestroy
     {
-        get => GetArgument<TerraformValue<bool>>("force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy") ?? AsReference("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The kms_encryption_key attribute.
     /// </summary>
-    public TerraformValue<string>? KmsEncryptionKey
+    public TerraformValue<string> KmsEncryptionKey
     {
-        get => GetArgument<TerraformValue<string>>("kms_encryption_key");
+        get => GetArgument<TerraformValue<string>>("kms_encryption_key") ?? AsReference("kms_encryption_key");
         set => SetArgument("kms_encryption_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

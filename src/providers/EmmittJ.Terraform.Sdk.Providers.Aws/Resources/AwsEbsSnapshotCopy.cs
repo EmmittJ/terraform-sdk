@@ -70,9 +70,9 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,9 +97,9 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRegion is required")]
     public required TerraformValue<string> SourceRegion
     {
-        get => GetArgument<TerraformValue<string>>("source_region");
+        get => GetRequiredArgument<TerraformValue<string>>("source_region");
         set => SetArgument("source_region", value);
     }
 
@@ -119,16 +119,16 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSnapshotId is required")]
     public required TerraformValue<string> SourceSnapshotId
     {
-        get => GetArgument<TerraformValue<string>>("source_snapshot_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_snapshot_id");
         set => SetArgument("source_snapshot_id", value);
     }
 
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
-    public TerraformValue<string>? StorageTier
+    public TerraformValue<string> StorageTier
     {
-        get => GetArgument<TerraformValue<string>>("storage_tier");
+        get => GetArgument<TerraformValue<string>>("storage_tier") ?? AsReference("storage_tier");
         set => SetArgument("storage_tier", value);
     }
 
@@ -144,9 +144,9 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

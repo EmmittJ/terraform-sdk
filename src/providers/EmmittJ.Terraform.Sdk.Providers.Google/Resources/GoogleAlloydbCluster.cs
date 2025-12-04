@@ -20,18 +20,18 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlock
     /// 
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? BackupWindow
+    public TerraformValue<string> BackupWindow
     {
-        get => GetArgument<TerraformValue<string>>("backup_window");
+        get => GetArgument<TerraformValue<string>>("backup_window") ?? AsReference("backup_window");
         set => SetArgument("backup_window", value);
     }
 
     /// <summary>
     /// Whether automated backups are enabled.
     /// </summary>
-    public TerraformValue<bool>? Enabled
+    public TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled") ?? AsReference("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -47,9 +47,9 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlock
     /// <summary>
     /// The location where the backup will be stored. Currently, the only supported option is to store the backup in the same region as the cluster.
     /// </summary>
-    public TerraformValue<string>? Location
+    public TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetArgument<TerraformValue<string>>("location") ?? AsReference("location");
         set => SetArgument("location", value);
     }
 
@@ -271,9 +271,9 @@ public class GoogleAlloydbClusterContinuousBackupConfigBlock : TerraformBlock
     /// 
     /// If not set, defaults to 14 days.
     /// </summary>
-    public TerraformValue<double>? RecoveryWindowDays
+    public TerraformValue<double> RecoveryWindowDays
     {
-        get => GetArgument<TerraformValue<double>>("recovery_window_days");
+        get => GetArgument<TerraformValue<double>>("recovery_window_days") ?? AsReference("recovery_window_days");
         set => SetArgument("recovery_window_days", value);
     }
 
@@ -352,7 +352,7 @@ public class GoogleAlloydbClusterInitialUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -407,7 +407,7 @@ public class GoogleAlloydbClusterMaintenanceUpdatePolicyBlockMaintenanceWindowsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => GetArgument<TerraformValue<string>>("day");
+        get => GetRequiredArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -443,7 +443,7 @@ public class GoogleAlloydbClusterMaintenanceUpdatePolicyBlockMaintenanceWindowsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hours is required")]
     public required TerraformValue<double> Hours
     {
-        get => GetArgument<TerraformValue<double>>("hours");
+        get => GetRequiredArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -558,7 +558,7 @@ public class GoogleAlloydbClusterRestoreBackupSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupName is required")]
     public required TerraformValue<string> BackupName
     {
-        get => GetArgument<TerraformValue<string>>("backup_name");
+        get => GetRequiredArgument<TerraformValue<string>>("backup_name");
         set => SetArgument("backup_name", value);
     }
 
@@ -582,7 +582,7 @@ public class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -592,7 +592,7 @@ public class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PointInTime is required")]
     public required TerraformValue<string> PointInTime
     {
-        get => GetArgument<TerraformValue<string>>("point_in_time");
+        get => GetRequiredArgument<TerraformValue<string>>("point_in_time");
         set => SetArgument("point_in_time", value);
     }
 
@@ -617,7 +617,7 @@ public class GoogleAlloydbClusterSecondaryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryClusterName is required")]
     public required TerraformValue<string> PrimaryClusterName
     {
-        get => GetArgument<TerraformValue<string>>("primary_cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("primary_cluster_name");
         set => SetArgument("primary_cluster_name", value);
     }
 
@@ -691,7 +691,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -708,9 +708,9 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// The database engine major version. This is an optional field and it&#39;s populated at the Cluster creation time.
     /// Note: Changing this field to a higer version results in upgrading the AlloyDB cluster which is an irreversible change.
     /// </summary>
-    public TerraformValue<string>? DatabaseVersion
+    public TerraformValue<string> DatabaseVersion
     {
-        get => GetArgument<TerraformValue<string>>("database_version");
+        get => GetArgument<TerraformValue<string>>("database_version") ?? AsReference("database_version");
         set => SetArgument("database_version", value);
     }
 
@@ -759,9 +759,9 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -783,16 +783,16 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -810,9 +810,9 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// <summary>
     /// The subscrition type of cluster. Possible values: [&amp;quot;TRIAL&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? SubscriptionType
+    public TerraformValue<string> SubscriptionType
     {
-        get => GetArgument<TerraformValue<string>>("subscription_type");
+        get => GetArgument<TerraformValue<string>>("subscription_type") ?? AsReference("subscription_type");
         set => SetArgument("subscription_type", value);
     }
 

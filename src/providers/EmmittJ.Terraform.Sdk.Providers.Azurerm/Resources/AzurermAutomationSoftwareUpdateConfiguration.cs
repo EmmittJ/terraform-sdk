@@ -164,9 +164,9 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The expiry_time attribute.
     /// </summary>
-    public TerraformValue<string>? ExpiryTime
+    public TerraformValue<string> ExpiryTime
     {
-        get => GetArgument<TerraformValue<string>>("expiry_time");
+        get => GetArgument<TerraformValue<string>>("expiry_time") ?? AsReference("expiry_time");
         set => SetArgument("expiry_time", value);
     }
 
@@ -185,7 +185,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -216,9 +216,9 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The next_run attribute.
     /// </summary>
-    public TerraformValue<string>? NextRun
+    public TerraformValue<string> NextRun
     {
-        get => GetArgument<TerraformValue<string>>("next_run");
+        get => GetArgument<TerraformValue<string>>("next_run") ?? AsReference("next_run");
         set => SetArgument("next_run", value);
     }
 
@@ -234,9 +234,9 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformValue<string>? StartTime
+    public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -287,7 +287,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlockMonthlyOcc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => GetArgument<TerraformValue<string>>("day");
+        get => GetRequiredArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -297,7 +297,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlockMonthlyOcc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Occurrence is required")]
     public required TerraformValue<double> Occurrence
     {
-        get => GetArgument<TerraformValue<double>>("occurrence");
+        get => GetRequiredArgument<TerraformValue<double>>("occurrence");
         set => SetArgument("occurrence", value);
     }
 
@@ -401,7 +401,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tag is required")]
     public required TerraformValue<string> Tag
     {
-        get => GetArgument<TerraformValue<string>>("tag");
+        get => GetRequiredArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -563,7 +563,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformValue<string> AutomationAccountId
     {
-        get => GetArgument<TerraformValue<string>>("automation_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("automation_account_id");
         set => SetArgument("automation_account_id", value);
     }
 
@@ -579,9 +579,9 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -591,7 +591,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

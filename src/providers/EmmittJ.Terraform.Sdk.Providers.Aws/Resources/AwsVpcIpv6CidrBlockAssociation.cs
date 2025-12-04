@@ -43,27 +43,27 @@ public partial class AwsVpcIpv6CidrBlockAssociation(string name) : TerraformReso
     /// <summary>
     /// The assign_generated_ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformValue<bool>? AssignGeneratedIpv6CidrBlock
+    public TerraformValue<bool> AssignGeneratedIpv6CidrBlock
     {
-        get => GetArgument<TerraformValue<bool>>("assign_generated_ipv6_cidr_block");
+        get => GetArgument<TerraformValue<bool>>("assign_generated_ipv6_cidr_block") ?? AsReference("assign_generated_ipv6_cidr_block");
         set => SetArgument("assign_generated_ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformValue<string>? Ipv6CidrBlock
+    public TerraformValue<string> Ipv6CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block");
+        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block") ?? AsReference("ipv6_cidr_block");
         set => SetArgument("ipv6_cidr_block", value);
     }
 
@@ -88,18 +88,18 @@ public partial class AwsVpcIpv6CidrBlockAssociation(string name) : TerraformReso
     /// <summary>
     /// The ipv6_pool attribute.
     /// </summary>
-    public TerraformValue<string>? Ipv6Pool
+    public TerraformValue<string> Ipv6Pool
     {
-        get => GetArgument<TerraformValue<string>>("ipv6_pool");
+        get => GetArgument<TerraformValue<string>>("ipv6_pool") ?? AsReference("ipv6_pool");
         set => SetArgument("ipv6_pool", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsVpcIpv6CidrBlockAssociation(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 

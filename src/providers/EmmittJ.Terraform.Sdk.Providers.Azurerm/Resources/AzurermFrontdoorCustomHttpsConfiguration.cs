@@ -132,7 +132,7 @@ public partial class AzurermFrontdoorCustomHttpsConfiguration(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomHttpsProvisioningEnabled is required")]
     public required TerraformValue<bool> CustomHttpsProvisioningEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("custom_https_provisioning_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("custom_https_provisioning_enabled");
         set => SetArgument("custom_https_provisioning_enabled", value);
     }
 
@@ -142,16 +142,16 @@ public partial class AzurermFrontdoorCustomHttpsConfiguration(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpointId is required")]
     public required TerraformValue<string> FrontendEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("frontend_endpoint_id");
+        get => GetRequiredArgument<TerraformValue<string>>("frontend_endpoint_id");
         set => SetArgument("frontend_endpoint_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

@@ -61,9 +61,9 @@ public partial class AzurermStorageContainerImmutabilityPolicy(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermStorageContainerImmutabilityPolicy(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImmutabilityPeriodInDays is required")]
     public required TerraformValue<double> ImmutabilityPeriodInDays
     {
-        get => GetArgument<TerraformValue<double>>("immutability_period_in_days");
+        get => GetRequiredArgument<TerraformValue<double>>("immutability_period_in_days");
         set => SetArgument("immutability_period_in_days", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermStorageContainerImmutabilityPolicy(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerResourceManagerId is required")]
     public required TerraformValue<string> StorageContainerResourceManagerId
     {
-        get => GetArgument<TerraformValue<string>>("storage_container_resource_manager_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_container_resource_manager_id");
         set => SetArgument("storage_container_resource_manager_id", value);
     }
 

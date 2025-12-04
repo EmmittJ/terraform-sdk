@@ -19,7 +19,7 @@ public class AzurermVpnGatewayConnectionRoutingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociatedRouteTable is required")]
     public required TerraformValue<string> AssociatedRouteTable
     {
-        get => GetArgument<TerraformValue<string>>("associated_route_table");
+        get => GetRequiredArgument<TerraformValue<string>>("associated_route_table");
         set => SetArgument("associated_route_table", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalAddressRanges is required")]
     public required TerraformSet<string> LocalAddressRanges
     {
-        get => GetArgument<TerraformSet<string>>("local_address_ranges");
+        get => GetRequiredArgument<TerraformSet<string>>("local_address_ranges");
         set => SetArgument("local_address_ranges", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteAddressRanges is required")]
     public required TerraformSet<string> RemoteAddressRanges
     {
-        get => GetArgument<TerraformSet<string>>("remote_address_ranges");
+        get => GetRequiredArgument<TerraformSet<string>>("remote_address_ranges");
         set => SetArgument("remote_address_ranges", value);
     }
 
@@ -250,7 +250,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -293,9 +293,9 @@ public class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlock
     /// <summary>
     /// The shared_key attribute.
     /// </summary>
-    public TerraformValue<string>? SharedKey
+    public TerraformValue<string> SharedKey
     {
-        get => GetArgument<TerraformValue<string>>("shared_key");
+        get => GetArgument<TerraformValue<string>>("shared_key") ?? AsReference("shared_key");
         set => SetArgument("shared_key", value);
     }
 
@@ -305,7 +305,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnSiteLinkId is required")]
     public required TerraformValue<string> VpnSiteLinkId
     {
-        get => GetArgument<TerraformValue<string>>("vpn_site_link_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpn_site_link_id");
         set => SetArgument("vpn_site_link_id", value);
     }
 
@@ -346,7 +346,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlockCustomBgpAddressBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -356,7 +356,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlockCustomBgpAddressBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurationId is required")]
     public required TerraformValue<string> IpConfigurationId
     {
-        get => GetArgument<TerraformValue<string>>("ip_configuration_id");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_configuration_id");
         set => SetArgument("ip_configuration_id", value);
     }
 
@@ -379,7 +379,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlockIpsecPolicyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DhGroup is required")]
     public required TerraformValue<string> DhGroup
     {
-        get => GetArgument<TerraformValue<string>>("dh_group");
+        get => GetRequiredArgument<TerraformValue<string>>("dh_group");
         set => SetArgument("dh_group", value);
     }
 
@@ -389,7 +389,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlockIpsecPolicyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionAlgorithm is required")]
     public required TerraformValue<string> EncryptionAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("encryption_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("encryption_algorithm");
         set => SetArgument("encryption_algorithm", value);
     }
 
@@ -399,7 +399,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlockIpsecPolicyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeEncryptionAlgorithm is required")]
     public required TerraformValue<string> IkeEncryptionAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("ike_encryption_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("ike_encryption_algorithm");
         set => SetArgument("ike_encryption_algorithm", value);
     }
 
@@ -409,7 +409,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlockIpsecPolicyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeIntegrityAlgorithm is required")]
     public required TerraformValue<string> IkeIntegrityAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("ike_integrity_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("ike_integrity_algorithm");
         set => SetArgument("ike_integrity_algorithm", value);
     }
 
@@ -419,7 +419,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlockIpsecPolicyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrityAlgorithm is required")]
     public required TerraformValue<string> IntegrityAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("integrity_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("integrity_algorithm");
         set => SetArgument("integrity_algorithm", value);
     }
 
@@ -429,7 +429,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlockIpsecPolicyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfsGroup is required")]
     public required TerraformValue<string> PfsGroup
     {
-        get => GetArgument<TerraformValue<string>>("pfs_group");
+        get => GetRequiredArgument<TerraformValue<string>>("pfs_group");
         set => SetArgument("pfs_group", value);
     }
 
@@ -439,7 +439,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlockIpsecPolicyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SaDataSizeKb is required")]
     public required TerraformValue<double> SaDataSizeKb
     {
-        get => GetArgument<TerraformValue<double>>("sa_data_size_kb");
+        get => GetRequiredArgument<TerraformValue<double>>("sa_data_size_kb");
         set => SetArgument("sa_data_size_kb", value);
     }
 
@@ -449,7 +449,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlockIpsecPolicyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SaLifetimeSec is required")]
     public required TerraformValue<double> SaLifetimeSec
     {
-        get => GetArgument<TerraformValue<double>>("sa_lifetime_sec");
+        get => GetRequiredArgument<TerraformValue<double>>("sa_lifetime_sec");
         set => SetArgument("sa_lifetime_sec", value);
     }
 
@@ -465,9 +465,9 @@ public partial class AzurermVpnGatewayConnection(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -486,7 +486,7 @@ public partial class AzurermVpnGatewayConnection(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -496,7 +496,7 @@ public partial class AzurermVpnGatewayConnection(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVpnSiteId is required")]
     public required TerraformValue<string> RemoteVpnSiteId
     {
-        get => GetArgument<TerraformValue<string>>("remote_vpn_site_id");
+        get => GetRequiredArgument<TerraformValue<string>>("remote_vpn_site_id");
         set => SetArgument("remote_vpn_site_id", value);
     }
 
@@ -506,7 +506,7 @@ public partial class AzurermVpnGatewayConnection(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
     public required TerraformValue<string> VpnGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("vpn_gateway_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpn_gateway_id");
         set => SetArgument("vpn_gateway_id", value);
     }
 

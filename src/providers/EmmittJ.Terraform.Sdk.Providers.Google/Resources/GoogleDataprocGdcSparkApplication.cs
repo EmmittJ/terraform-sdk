@@ -55,7 +55,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainPythonFileUri is required")]
     public required TerraformValue<string> MainPythonFileUri
     {
-        get => GetArgument<TerraformValue<string>>("main_python_file_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("main_python_file_uri");
         set => SetArgument("main_python_file_uri", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainRFileUri is required")]
     public required TerraformValue<string> MainRFileUri
     {
-        get => GetArgument<TerraformValue<string>>("main_r_file_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("main_r_file_uri");
         set => SetArgument("main_r_file_uri", value);
     }
 
@@ -353,9 +353,9 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -377,7 +377,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -393,9 +393,9 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -414,7 +414,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serviceinstance is required")]
     public required TerraformValue<string> Serviceinstance
     {
-        get => GetArgument<TerraformValue<string>>("serviceinstance");
+        get => GetRequiredArgument<TerraformValue<string>>("serviceinstance");
         set => SetArgument("serviceinstance", value);
     }
 
@@ -424,7 +424,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SparkApplicationId is required")]
     public required TerraformValue<string> SparkApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("spark_application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spark_application_id");
         set => SetArgument("spark_application_id", value);
     }
 

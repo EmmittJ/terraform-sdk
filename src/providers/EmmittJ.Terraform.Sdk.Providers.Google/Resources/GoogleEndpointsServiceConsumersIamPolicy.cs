@@ -14,16 +14,16 @@ public partial class GoogleEndpointsServiceConsumersIamPolicy(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerProject is required")]
     public required TerraformValue<string> ConsumerProject
     {
-        get => GetArgument<TerraformValue<string>>("consumer_project");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_project");
         set => SetArgument("consumer_project", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleEndpointsServiceConsumersIamPolicy(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => GetArgument<TerraformValue<string>>("policy_data");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleEndpointsServiceConsumersIamPolicy(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 

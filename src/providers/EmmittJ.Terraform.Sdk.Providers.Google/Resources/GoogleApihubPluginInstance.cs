@@ -20,7 +20,7 @@ public class GoogleApihubPluginInstanceActionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionId is required")]
     public required TerraformValue<string> ActionId
     {
-        get => GetArgument<TerraformValue<string>>("action_id");
+        get => GetRequiredArgument<TerraformValue<string>>("action_id");
         set => SetArgument("action_id", value);
     }
 
@@ -34,9 +34,9 @@ public class GoogleApihubPluginInstanceActionsBlock : TerraformBlock
     /// The schedule for this plugin instance action. This can only be set if the
     /// plugin supports API_HUB_SCHEDULE_TRIGGER mode for this action.
     /// </summary>
-    public TerraformValue<string>? ScheduleCronExpression
+    public TerraformValue<string> ScheduleCronExpression
     {
-        get => GetArgument<TerraformValue<string>>("schedule_cron_expression");
+        get => GetArgument<TerraformValue<string>>("schedule_cron_expression") ?? AsReference("schedule_cron_expression");
         set => SetArgument("schedule_cron_expression", value);
     }
 
@@ -44,9 +44,9 @@ public class GoogleApihubPluginInstanceActionsBlock : TerraformBlock
     /// The time zone for the schedule cron expression. If not provided, UTC will
     /// be used.
     /// </summary>
-    public TerraformValue<string>? ScheduleTimeZone
+    public TerraformValue<string> ScheduleTimeZone
     {
-        get => GetArgument<TerraformValue<string>>("schedule_time_zone");
+        get => GetArgument<TerraformValue<string>>("schedule_time_zone") ?? AsReference("schedule_time_zone");
         set => SetArgument("schedule_time_zone", value);
     }
 
@@ -92,9 +92,9 @@ public class GoogleApihubPluginInstanceActionsBlockCurationConfigBlock : Terrafo
     /// DEFAULT_CURATION_FOR_API_METADATA
     /// CUSTOM_CURATION_FOR_API_METADATA
     /// </summary>
-    public TerraformValue<string>? CurationType
+    public TerraformValue<string> CurationType
     {
-        get => GetArgument<TerraformValue<string>>("curation_type");
+        get => GetArgument<TerraformValue<string>>("curation_type") ?? AsReference("curation_type");
         set => SetArgument("curation_type", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleApihubPluginInstanceActionsBlockCurationConfigBlockCustomCura
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Curation is required")]
     public required TerraformValue<string> Curation
     {
-        get => GetArgument<TerraformValue<string>>("curation");
+        get => GetRequiredArgument<TerraformValue<string>>("curation");
         set => SetArgument("curation", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleApihubPluginInstanceAuthConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => GetArgument<TerraformValue<string>>("auth_type");
+        get => GetRequiredArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -230,7 +230,7 @@ public class GoogleApihubPluginInstanceAuthConfigBlockApiKeyConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpElementLocation is required")]
     public required TerraformValue<string> HttpElementLocation
     {
-        get => GetArgument<TerraformValue<string>>("http_element_location");
+        get => GetRequiredArgument<TerraformValue<string>>("http_element_location");
         set => SetArgument("http_element_location", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleApihubPluginInstanceAuthConfigBlockApiKeyConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -279,7 +279,7 @@ public class GoogleApihubPluginInstanceAuthConfigBlockApiKeyConfigBlockApiKeyBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -305,7 +305,7 @@ public class GoogleApihubPluginInstanceAuthConfigBlockGoogleServiceAccountConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetRequiredArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -328,7 +328,7 @@ public class GoogleApihubPluginInstanceAuthConfigBlockOauth2ClientCredentialsCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -365,7 +365,7 @@ public class GoogleApihubPluginInstanceAuthConfigBlockOauth2ClientCredentialsCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -388,7 +388,7 @@ public class GoogleApihubPluginInstanceAuthConfigBlockUserPasswordConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -425,7 +425,7 @@ public class GoogleApihubPluginInstanceAuthConfigBlockUserPasswordConfigBlockPas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => GetArgument<TerraformValue<string>>("secret_version");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -494,16 +494,16 @@ public partial class GoogleApihubPluginInstance(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -513,7 +513,7 @@ public partial class GoogleApihubPluginInstance(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -523,7 +523,7 @@ public partial class GoogleApihubPluginInstance(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plugin is required")]
     public required TerraformValue<string> Plugin
     {
-        get => GetArgument<TerraformValue<string>>("plugin");
+        get => GetRequiredArgument<TerraformValue<string>>("plugin");
         set => SetArgument("plugin", value);
     }
 
@@ -542,16 +542,16 @@ public partial class GoogleApihubPluginInstance(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PluginInstanceId is required")]
     public required TerraformValue<string> PluginInstanceId
     {
-        get => GetArgument<TerraformValue<string>>("plugin_instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("plugin_instance_id");
         set => SetArgument("plugin_instance_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

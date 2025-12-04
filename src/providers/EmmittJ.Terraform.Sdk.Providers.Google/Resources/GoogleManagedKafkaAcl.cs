@@ -31,7 +31,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operation is required")]
     public required TerraformValue<string> Operation
     {
-        get => GetArgument<TerraformValue<string>>("operation");
+        get => GetRequiredArgument<TerraformValue<string>>("operation");
         set => SetArgument("operation", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => GetArgument<TerraformValue<string>>("principal");
+        get => GetRequiredArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleManagedKafkaAcl(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclId is required")]
     public required TerraformValue<string> AclId
     {
-        get => GetArgument<TerraformValue<string>>("acl_id");
+        get => GetRequiredArgument<TerraformValue<string>>("acl_id");
         set => SetArgument("acl_id", value);
     }
 
@@ -124,16 +124,16 @@ public partial class GoogleManagedKafkaAcl(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -143,16 +143,16 @@ public partial class GoogleManagedKafkaAcl(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

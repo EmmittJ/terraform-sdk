@@ -51,7 +51,7 @@ public class GoogleComputeRegionInstanceGroupManagerAutoHealingPoliciesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthCheck is required")]
     public required TerraformValue<string> HealthCheck
     {
-        get => GetArgument<TerraformValue<string>>("health_check");
+        get => GetRequiredArgument<TerraformValue<string>>("health_check");
         set => SetArgument("health_check", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleComputeRegionInstanceGroupManagerAutoHealingPoliciesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialDelaySec is required")]
     public required TerraformValue<double> InitialDelaySec
     {
-        get => GetArgument<TerraformValue<double>>("initial_delay_sec");
+        get => GetRequiredArgument<TerraformValue<double>>("initial_delay_sec");
         set => SetArgument("initial_delay_sec", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleComputeRegionInstanceGroupManagerInstanceFlexibilityPolicyBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineTypes is required")]
     public required TerraformSet<string> MachineTypes
     {
-        get => GetArgument<TerraformSet<string>>("machine_types");
+        get => GetRequiredArgument<TerraformSet<string>>("machine_types");
         set => SetArgument("machine_types", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleComputeRegionInstanceGroupManagerInstanceFlexibilityPolicyBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleComputeRegionInstanceGroupManagerNamedPortBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleComputeRegionInstanceGroupManagerNamedPortBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -213,18 +213,18 @@ public class GoogleComputeRegionInstanceGroupManagerStandbyPolicyBlock : Terrafo
     /// <summary>
     /// Specifies the number of seconds that the MIG should wait to suspend or stop a VM after that VM was created. The initial delay gives the initialization script the time to prepare your VM for a quick scale out. The value of initial delay must be between 0 and 3600 seconds. The default value is 0.
     /// </summary>
-    public TerraformValue<double>? InitialDelaySec
+    public TerraformValue<double> InitialDelaySec
     {
-        get => GetArgument<TerraformValue<double>>("initial_delay_sec");
+        get => GetArgument<TerraformValue<double>>("initial_delay_sec") ?? AsReference("initial_delay_sec");
         set => SetArgument("initial_delay_sec", value);
     }
 
     /// <summary>
     /// Defines how a MIG resumes or starts VMs from a standby pool when the group scales out. The default mode is &amp;quot;MANUAL&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? Mode
+    public TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetArgument<TerraformValue<string>>("mode") ?? AsReference("mode");
         set => SetArgument("mode", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleComputeRegionInstanceGroupManagerStatefulDiskBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetRequiredArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -392,9 +392,9 @@ public class GoogleComputeRegionInstanceGroupManagerUpdatePolicyBlock : Terrafor
     /// <summary>
     /// Specifies a fixed number of VM instances. This must be a positive integer. Conflicts with max_surge_percent. Both cannot be 0
     /// </summary>
-    public TerraformValue<double>? MaxSurgeFixed
+    public TerraformValue<double> MaxSurgeFixed
     {
-        get => GetArgument<TerraformValue<double>>("max_surge_fixed");
+        get => GetArgument<TerraformValue<double>>("max_surge_fixed") ?? AsReference("max_surge_fixed");
         set => SetArgument("max_surge_fixed", value);
     }
 
@@ -410,9 +410,9 @@ public class GoogleComputeRegionInstanceGroupManagerUpdatePolicyBlock : Terrafor
     /// <summary>
     /// Specifies a fixed number of VM instances. This must be a positive integer.
     /// </summary>
-    public TerraformValue<double>? MaxUnavailableFixed
+    public TerraformValue<double> MaxUnavailableFixed
     {
-        get => GetArgument<TerraformValue<double>>("max_unavailable_fixed");
+        get => GetArgument<TerraformValue<double>>("max_unavailable_fixed") ?? AsReference("max_unavailable_fixed");
         set => SetArgument("max_unavailable_fixed", value);
     }
 
@@ -431,7 +431,7 @@ public class GoogleComputeRegionInstanceGroupManagerUpdatePolicyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimalAction is required")]
     public required TerraformValue<string> MinimalAction
     {
-        get => GetArgument<TerraformValue<string>>("minimal_action");
+        get => GetRequiredArgument<TerraformValue<string>>("minimal_action");
         set => SetArgument("minimal_action", value);
     }
 
@@ -459,7 +459,7 @@ public class GoogleComputeRegionInstanceGroupManagerUpdatePolicyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -483,7 +483,7 @@ public class GoogleComputeRegionInstanceGroupManagerVersionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceTemplate is required")]
     public required TerraformValue<string> InstanceTemplate
     {
-        get => GetArgument<TerraformValue<string>>("instance_template");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_template");
         set => SetArgument("instance_template", value);
     }
 
@@ -552,7 +552,7 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseInstanceName is required")]
     public required TerraformValue<string> BaseInstanceName
     {
-        get => GetArgument<TerraformValue<string>>("base_instance_name");
+        get => GetRequiredArgument<TerraformValue<string>>("base_instance_name");
         set => SetArgument("base_instance_name", value);
     }
 
@@ -568,27 +568,27 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     /// <summary>
     /// The shape to which the group converges either proactively or on resize events (depending on the value set in updatePolicy.instanceRedistributionType).
     /// </summary>
-    public TerraformValue<string>? DistributionPolicyTargetShape
+    public TerraformValue<string> DistributionPolicyTargetShape
     {
-        get => GetArgument<TerraformValue<string>>("distribution_policy_target_shape");
+        get => GetArgument<TerraformValue<string>>("distribution_policy_target_shape") ?? AsReference("distribution_policy_target_shape");
         set => SetArgument("distribution_policy_target_shape", value);
     }
 
     /// <summary>
     /// The distribution policy for this managed instance group. You can specify one or more values.
     /// </summary>
-    public TerraformSet<string>? DistributionPolicyZones
+    public TerraformSet<string> DistributionPolicyZones
     {
-        get => GetArgument<TerraformSet<string>>("distribution_policy_zones");
+        get => GetArgument<TerraformSet<string>>("distribution_policy_zones") ?? AsReference("distribution_policy_zones");
         set => SetArgument("distribution_policy_zones", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -607,25 +607,25 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region where the managed instance group resides.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -641,27 +641,27 @@ public partial class GoogleComputeRegionInstanceGroupManager(string name) : Terr
     /// <summary>
     /// The target number of running instances for this managed instance group. This value should always be explicitly set unless this resource is attached to an autoscaler, in which case it should never be set. Defaults to 0.
     /// </summary>
-    public TerraformValue<double>? TargetSize
+    public TerraformValue<double> TargetSize
     {
-        get => GetArgument<TerraformValue<double>>("target_size");
+        get => GetArgument<TerraformValue<double>>("target_size") ?? AsReference("target_size");
         set => SetArgument("target_size", value);
     }
 
     /// <summary>
     /// The target number of stopped instances for this managed instance group.
     /// </summary>
-    public TerraformValue<double>? TargetStoppedSize
+    public TerraformValue<double> TargetStoppedSize
     {
-        get => GetArgument<TerraformValue<double>>("target_stopped_size");
+        get => GetArgument<TerraformValue<double>>("target_stopped_size") ?? AsReference("target_stopped_size");
         set => SetArgument("target_stopped_size", value);
     }
 
     /// <summary>
     /// The target number of suspended instances for this managed instance group.
     /// </summary>
-    public TerraformValue<double>? TargetSuspendedSize
+    public TerraformValue<double> TargetSuspendedSize
     {
-        get => GetArgument<TerraformValue<double>>("target_suspended_size");
+        get => GetArgument<TerraformValue<double>>("target_suspended_size") ?? AsReference("target_suspended_size");
         set => SetArgument("target_suspended_size", value);
     }
 

@@ -60,7 +60,7 @@ public class GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnet is required")]
     public required TerraformValue<string> Subnet
     {
-        get => GetArgument<TerraformValue<string>>("subnet");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet");
         set => SetArgument("subnet", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcName is required")]
     public required TerraformValue<string> VpcName
     {
-        get => GetArgument<TerraformValue<string>>("vpc_name");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_name");
         set => SetArgument("vpc_name", value);
     }
 
@@ -96,18 +96,18 @@ public partial class GoogleDatabaseMigrationServicePrivateConnection(string name
     /// <summary>
     /// Display name.
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleDatabaseMigrationServicePrivateConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -139,16 +139,16 @@ public partial class GoogleDatabaseMigrationServicePrivateConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnectionId is required")]
     public required TerraformValue<string> PrivateConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("private_connection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("private_connection_id");
         set => SetArgument("private_connection_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

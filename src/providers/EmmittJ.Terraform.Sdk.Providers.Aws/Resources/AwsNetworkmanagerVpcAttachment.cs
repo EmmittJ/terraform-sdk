@@ -16,36 +16,36 @@ public class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
     /// <summary>
     /// The appliance_mode_support attribute.
     /// </summary>
-    public TerraformValue<bool>? ApplianceModeSupport
+    public TerraformValue<bool> ApplianceModeSupport
     {
-        get => GetArgument<TerraformValue<bool>>("appliance_mode_support");
+        get => GetArgument<TerraformValue<bool>>("appliance_mode_support") ?? AsReference("appliance_mode_support");
         set => SetArgument("appliance_mode_support", value);
     }
 
     /// <summary>
     /// The dns_support attribute.
     /// </summary>
-    public TerraformValue<bool>? DnsSupport
+    public TerraformValue<bool> DnsSupport
     {
-        get => GetArgument<TerraformValue<bool>>("dns_support");
+        get => GetArgument<TerraformValue<bool>>("dns_support") ?? AsReference("dns_support");
         set => SetArgument("dns_support", value);
     }
 
     /// <summary>
     /// The ipv6_support attribute.
     /// </summary>
-    public TerraformValue<bool>? Ipv6Support
+    public TerraformValue<bool> Ipv6Support
     {
-        get => GetArgument<TerraformValue<bool>>("ipv6_support");
+        get => GetArgument<TerraformValue<bool>>("ipv6_support") ?? AsReference("ipv6_support");
         set => SetArgument("ipv6_support", value);
     }
 
     /// <summary>
     /// The security_group_referencing_support attribute.
     /// </summary>
-    public TerraformValue<bool>? SecurityGroupReferencingSupport
+    public TerraformValue<bool> SecurityGroupReferencingSupport
     {
-        get => GetArgument<TerraformValue<bool>>("security_group_referencing_support");
+        get => GetArgument<TerraformValue<bool>>("security_group_referencing_support") ?? AsReference("security_group_referencing_support");
         set => SetArgument("security_group_referencing_support", value);
     }
 
@@ -105,16 +105,16 @@ public partial class AwsNetworkmanagerVpcAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformValue<string> CoreNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("core_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("core_network_id");
         set => SetArgument("core_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsNetworkmanagerVpcAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetArns is required")]
     public required TerraformSet<string> SubnetArns
     {
-        get => GetArgument<TerraformSet<string>>("subnet_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_arns");
         set => SetArgument("subnet_arns", value);
     }
 
@@ -140,9 +140,9 @@ public partial class AwsNetworkmanagerVpcAttachment(string name) : TerraformReso
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AwsNetworkmanagerVpcAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcArn is required")]
     public required TerraformValue<string> VpcArn
     {
-        get => GetArgument<TerraformValue<string>>("vpc_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_arn");
         set => SetArgument("vpc_arn", value);
     }
 

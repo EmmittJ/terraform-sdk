@@ -25,7 +25,7 @@ public class GoogleHealthcareFhirStoreNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformValue<string> PubsubTopic
     {
-        get => GetArgument<TerraformValue<string>>("pubsub_topic");
+        get => GetRequiredArgument<TerraformValue<string>>("pubsub_topic");
         set => SetArgument("pubsub_topic", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleHealthcareFhirStoreNotificationConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformValue<string> PubsubTopic
     {
-        get => GetArgument<TerraformValue<string>>("pubsub_topic");
+        get => GetRequiredArgument<TerraformValue<string>>("pubsub_topic");
         set => SetArgument("pubsub_topic", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleHealthcareFhirStoreStreamConfigsBlockBigqueryDestinationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetUri is required")]
     public required TerraformValue<string> DatasetUri
     {
-        get => GetArgument<TerraformValue<string>>("dataset_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_uri");
         set => SetArgument("dataset_uri", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleHealthcareFhirStoreStreamConfigsBlockBigqueryDestinationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecursiveStructureDepth is required")]
     public required TerraformValue<double> RecursiveStructureDepth
     {
-        get => GetArgument<TerraformValue<double>>("recursive_structure_depth");
+        get => GetRequiredArgument<TerraformValue<double>>("recursive_structure_depth");
         set => SetArgument("recursive_structure_depth", value);
     }
 
@@ -235,7 +235,7 @@ public class GoogleHealthcareFhirStoreStreamConfigsBlockBigqueryDestinationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -361,9 +361,9 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     /// <summary>
     /// Enable parsing of references within complex FHIR data types such as Extensions. If this value is set to ENABLED, then features like referential integrity and Bundle reference rewriting apply to all references. If this flag has not been specified the behavior of the FHIR store will not change, references in complex data types will not be parsed. New stores will have this value set to ENABLED by default after a notification period. Warning: turning on this flag causes processing existing resources to fail if they contain references to non-existent resources. Possible values: [&amp;quot;COMPLEX_DATA_TYPE_REFERENCE_PARSING_UNSPECIFIED&amp;quot;, &amp;quot;DISABLED&amp;quot;, &amp;quot;ENABLED&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? ComplexDataTypeReferenceParsing
+    public TerraformValue<string> ComplexDataTypeReferenceParsing
     {
-        get => GetArgument<TerraformValue<string>>("complex_data_type_reference_parsing");
+        get => GetArgument<TerraformValue<string>>("complex_data_type_reference_parsing") ?? AsReference("complex_data_type_reference_parsing");
         set => SetArgument("complex_data_type_reference_parsing", value);
     }
 
@@ -374,7 +374,7 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformValue<string> Dataset
     {
-        get => GetArgument<TerraformValue<string>>("dataset");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset");
         set => SetArgument("dataset", value);
     }
 
@@ -452,9 +452,9 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -490,7 +490,7 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -500,7 +500,7 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

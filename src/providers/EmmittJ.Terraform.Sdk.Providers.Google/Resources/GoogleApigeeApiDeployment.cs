@@ -46,7 +46,7 @@ public partial class GoogleApigeeApiDeployment(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => GetArgument<TerraformValue<string>>("environment");
+        get => GetRequiredArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleApigeeApiDeployment(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleApigeeApiDeployment(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProxyId is required")]
     public required TerraformValue<string> ProxyId
     {
-        get => GetArgument<TerraformValue<string>>("proxy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("proxy_id");
         set => SetArgument("proxy_id", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleApigeeApiDeployment(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformValue<string> Revision
     {
-        get => GetArgument<TerraformValue<string>>("revision");
+        get => GetRequiredArgument<TerraformValue<string>>("revision");
         set => SetArgument("revision", value);
     }
 

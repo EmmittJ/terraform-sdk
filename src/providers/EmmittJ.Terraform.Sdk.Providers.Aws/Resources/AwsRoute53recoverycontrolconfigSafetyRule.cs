@@ -19,7 +19,7 @@ public class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Inverted is required")]
     public required TerraformValue<bool> Inverted
     {
-        get => GetArgument<TerraformValue<bool>>("inverted");
+        get => GetRequiredArgument<TerraformValue<bool>>("inverted");
         set => SetArgument("inverted", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => GetArgument<TerraformValue<double>>("threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRule(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPanelArn is required")]
     public required TerraformValue<string> ControlPanelArn
     {
-        get => GetArgument<TerraformValue<string>>("control_panel_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("control_panel_arn");
         set => SetArgument("control_panel_arn", value);
     }
 
@@ -83,9 +83,9 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRule(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRule(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -111,9 +111,9 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRule(string name) : Te
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRule(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WaitPeriodMs is required")]
     public required TerraformValue<double> WaitPeriodMs
     {
-        get => GetArgument<TerraformValue<double>>("wait_period_ms");
+        get => GetRequiredArgument<TerraformValue<double>>("wait_period_ms");
         set => SetArgument("wait_period_ms", value);
     }
 

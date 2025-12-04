@@ -73,7 +73,7 @@ public partial class AzurermNetappAccountEncryption(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
     public required TerraformValue<string> EncryptionKey
     {
-        get => GetArgument<TerraformValue<string>>("encryption_key");
+        get => GetRequiredArgument<TerraformValue<string>>("encryption_key");
         set => SetArgument("encryption_key", value);
     }
 
@@ -89,9 +89,9 @@ public partial class AzurermNetappAccountEncryption(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermNetappAccountEncryption(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
     public required TerraformValue<string> NetappAccountId
     {
-        get => GetArgument<TerraformValue<string>>("netapp_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("netapp_account_id");
         set => SetArgument("netapp_account_id", value);
     }
 

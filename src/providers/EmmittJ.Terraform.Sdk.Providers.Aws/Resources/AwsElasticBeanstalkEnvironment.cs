@@ -19,7 +19,7 @@ public class AwsElasticBeanstalkEnvironmentSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsElasticBeanstalkEnvironmentSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsElasticBeanstalkEnvironmentSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -67,16 +67,16 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Application is required")]
     public required TerraformValue<string> Application
     {
-        get => GetArgument<TerraformValue<string>>("application");
+        get => GetRequiredArgument<TerraformValue<string>>("application");
         set => SetArgument("application", value);
     }
 
     /// <summary>
     /// The cname_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? CnamePrefix
+    public TerraformValue<string> CnamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("cname_prefix");
+        get => GetArgument<TerraformValue<string>>("cname_prefix") ?? AsReference("cname_prefix");
         set => SetArgument("cname_prefix", value);
     }
 
@@ -92,9 +92,9 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -104,16 +104,16 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The platform_arn attribute.
     /// </summary>
-    public TerraformValue<string>? PlatformArn
+    public TerraformValue<string> PlatformArn
     {
-        get => GetArgument<TerraformValue<string>>("platform_arn");
+        get => GetArgument<TerraformValue<string>>("platform_arn") ?? AsReference("platform_arn");
         set => SetArgument("platform_arn", value);
     }
 
@@ -129,18 +129,18 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The solution_stack_name attribute.
     /// </summary>
-    public TerraformValue<string>? SolutionStackName
+    public TerraformValue<string> SolutionStackName
     {
-        get => GetArgument<TerraformValue<string>>("solution_stack_name");
+        get => GetArgument<TerraformValue<string>>("solution_stack_name") ?? AsReference("solution_stack_name");
         set => SetArgument("solution_stack_name", value);
     }
 
@@ -156,9 +156,9 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -183,9 +183,9 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// <summary>
     /// The version_label attribute.
     /// </summary>
-    public TerraformValue<string>? VersionLabel
+    public TerraformValue<string> VersionLabel
     {
-        get => GetArgument<TerraformValue<string>>("version_label");
+        get => GetArgument<TerraformValue<string>>("version_label") ?? AsReference("version_label");
         set => SetArgument("version_label", value);
     }
 

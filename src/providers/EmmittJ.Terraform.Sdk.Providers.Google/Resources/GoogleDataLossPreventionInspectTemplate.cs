@@ -233,7 +233,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockCustomInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -281,7 +281,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockCustomInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -323,7 +323,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockCustomInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -356,7 +356,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockCustomInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -379,7 +379,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockCustomInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -403,7 +403,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockCustomInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -440,7 +440,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockInfoTypesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -482,7 +482,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockInfoTypesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -505,7 +505,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockLimitsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxFindingsPerItem is required")]
     public required TerraformValue<double> MaxFindingsPerItem
     {
-        get => GetArgument<TerraformValue<double>>("max_findings_per_item");
+        get => GetRequiredArgument<TerraformValue<double>>("max_findings_per_item");
         set => SetArgument("max_findings_per_item", value);
     }
 
@@ -515,7 +515,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockLimitsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxFindingsPerRequest is required")]
     public required TerraformValue<double> MaxFindingsPerRequest
     {
-        get => GetArgument<TerraformValue<double>>("max_findings_per_request");
+        get => GetRequiredArgument<TerraformValue<double>>("max_findings_per_request");
         set => SetArgument("max_findings_per_request", value);
     }
 
@@ -547,7 +547,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockLimitsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxFindings is required")]
     public required TerraformValue<double> MaxFindings
     {
-        get => GetArgument<TerraformValue<double>>("max_findings");
+        get => GetRequiredArgument<TerraformValue<double>>("max_findings");
         set => SetArgument("max_findings", value);
     }
 
@@ -581,7 +581,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockLimitsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -623,7 +623,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockLimitsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -684,7 +684,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockRuleSetBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -726,7 +726,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockRuleSetBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -782,7 +782,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockRuleSetBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingType is required")]
     public required TerraformValue<string> MatchingType
     {
-        get => GetArgument<TerraformValue<string>>("matching_type");
+        get => GetRequiredArgument<TerraformValue<string>>("matching_type");
         set => SetArgument("matching_type", value);
     }
 
@@ -878,7 +878,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockRuleSetBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -975,7 +975,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockRuleSetBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -1055,7 +1055,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockRuleSetBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1097,7 +1097,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockRuleSetBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => GetArgument<TerraformValue<string>>("score");
+        get => GetRequiredArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1130,7 +1130,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockRuleSetBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -1216,7 +1216,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlockRuleSetBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -1358,9 +1358,9 @@ public partial class GoogleDataLossPreventionInspectTemplate(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1375,7 +1375,7 @@ public partial class GoogleDataLossPreventionInspectTemplate(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -1384,9 +1384,9 @@ public partial class GoogleDataLossPreventionInspectTemplate(string name) : Terr
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+. The maximum length is
     /// 100 characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformValue<string>? TemplateId
+    public TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id");
+        get => GetArgument<TerraformValue<string>>("template_id") ?? AsReference("template_id");
         set => SetArgument("template_id", value);
     }
 

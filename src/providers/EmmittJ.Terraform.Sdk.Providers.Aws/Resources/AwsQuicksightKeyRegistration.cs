@@ -16,9 +16,9 @@ public class AwsQuicksightKeyRegistrationKeyRegistrationBlock : TerraformBlock
     /// <summary>
     /// The default_key attribute.
     /// </summary>
-    public TerraformValue<bool>? DefaultKey
+    public TerraformValue<bool> DefaultKey
     {
-        get => GetArgument<TerraformValue<bool>>("default_key");
+        get => GetArgument<TerraformValue<bool>>("default_key") ?? AsReference("default_key");
         set => SetArgument("default_key", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsQuicksightKeyRegistrationKeyRegistrationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyArn is required")]
     public required TerraformValue<string> KeyArn
     {
-        get => GetArgument<TerraformValue<string>>("key_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("key_arn");
         set => SetArgument("key_arn", value);
     }
 
@@ -44,18 +44,18 @@ public partial class AwsQuicksightKeyRegistration(string name) : TerraformResour
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

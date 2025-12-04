@@ -52,9 +52,9 @@ public partial class AzurermSubnetNetworkSecurityGroupAssociation(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSubnetNetworkSecurityGroupAssociation(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupId is required")]
     public required TerraformValue<string> NetworkSecurityGroupId
     {
-        get => GetArgument<TerraformValue<string>>("network_security_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_security_group_id");
         set => SetArgument("network_security_group_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSubnetNetworkSecurityGroupAssociation(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 

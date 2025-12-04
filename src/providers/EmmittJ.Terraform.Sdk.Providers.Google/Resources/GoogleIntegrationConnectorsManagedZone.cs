@@ -64,16 +64,16 @@ public partial class GoogleIntegrationConnectorsManagedZone(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dns is required")]
     public required TerraformValue<string> Dns
     {
-        get => GetArgument<TerraformValue<string>>("dns");
+        get => GetRequiredArgument<TerraformValue<string>>("dns");
         set => SetArgument("dns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -96,16 +96,16 @@ public partial class GoogleIntegrationConnectorsManagedZone(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleIntegrationConnectorsManagedZone(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetProject is required")]
     public required TerraformValue<string> TargetProject
     {
-        get => GetArgument<TerraformValue<string>>("target_project");
+        get => GetRequiredArgument<TerraformValue<string>>("target_project");
         set => SetArgument("target_project", value);
     }
 
@@ -125,7 +125,7 @@ public partial class GoogleIntegrationConnectorsManagedZone(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVpc is required")]
     public required TerraformValue<string> TargetVpc
     {
-        get => GetArgument<TerraformValue<string>>("target_vpc");
+        get => GetRequiredArgument<TerraformValue<string>>("target_vpc");
         set => SetArgument("target_vpc", value);
     }
 

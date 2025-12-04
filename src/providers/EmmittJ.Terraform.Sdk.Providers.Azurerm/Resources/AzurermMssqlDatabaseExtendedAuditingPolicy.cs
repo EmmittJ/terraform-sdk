@@ -64,7 +64,7 @@ public partial class AzurermMssqlDatabaseExtendedAuditingPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformValue<string> DatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("database_id");
         set => SetArgument("database_id", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AzurermMssqlDatabaseExtendedAuditingPolicy(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

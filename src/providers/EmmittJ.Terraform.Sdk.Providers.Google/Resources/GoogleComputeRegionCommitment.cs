@@ -37,7 +37,7 @@ public class GoogleComputeRegionCommitmentLicenseResourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "License is required")]
     public required TerraformValue<string> License
     {
-        get => GetArgument<TerraformValue<string>>("license");
+        get => GetRequiredArgument<TerraformValue<string>>("license");
         set => SetArgument("license", value);
     }
 
@@ -133,9 +133,9 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// If the field is set to true, the commitment will be automatically renewed for either
     /// one or three years according to the terms of the existing commitment.
     /// </summary>
-    public TerraformValue<bool>? AutoRenew
+    public TerraformValue<bool> AutoRenew
     {
-        get => GetArgument<TerraformValue<bool>>("auto_renew");
+        get => GetArgument<TerraformValue<bool>>("auto_renew") ?? AsReference("auto_renew");
         set => SetArgument("auto_renew", value);
     }
 
@@ -145,9 +145,9 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// specifies commitments composed of software licenses, listed in licenseResources.
     /// Note that only MACHINE commitments should have a Type specified. Possible values: [&amp;quot;LICENSE&amp;quot;, &amp;quot;MACHINE&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Category
+    public TerraformValue<string> Category
     {
-        get => GetArgument<TerraformValue<string>>("category");
+        get => GetArgument<TerraformValue<string>>("category") ?? AsReference("category");
         set => SetArgument("category", value);
     }
 
@@ -163,18 +163,18 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// <summary>
     /// Specifies the already existing reservations to attach to the Commitment.
     /// </summary>
-    public TerraformValue<string>? ExistingReservations
+    public TerraformValue<string> ExistingReservations
     {
-        get => GetArgument<TerraformValue<string>>("existing_reservations");
+        get => GetArgument<TerraformValue<string>>("existing_reservations") ?? AsReference("existing_reservations");
         set => SetArgument("existing_reservations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -188,7 +188,7 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -199,25 +199,25 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformValue<string> Plan
     {
-        get => GetArgument<TerraformValue<string>>("plan");
+        get => GetRequiredArgument<TerraformValue<string>>("plan");
         set => SetArgument("plan", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// URL of the region where this commitment may be used.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -228,9 +228,9 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// &#39;GENERAL_PURPOSE_T2D&#39;, &#39;GENERAL_PURPOSE_C3&#39;, &#39;COMPUTE_OPTIMIZED_C2&#39;, &#39;COMPUTE_OPTIMIZED_C2D&#39; and
     /// &#39;GRAPHICS_OPTIMIZED_G2&#39;
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 

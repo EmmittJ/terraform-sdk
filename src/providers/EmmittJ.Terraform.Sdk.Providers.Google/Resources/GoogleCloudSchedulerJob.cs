@@ -56,7 +56,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUri is required")]
     public required TerraformValue<string> RelativeUri
     {
-        get => GetArgument<TerraformValue<string>>("relative_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("relative_uri");
         set => SetArgument("relative_uri", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => GetArgument<TerraformValue<string>>("uri");
+        get => GetRequiredArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -219,7 +219,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlockOauthTokenBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     public required TerraformValue<string> ServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("service_account_email");
+        get => GetRequiredArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -253,7 +253,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlockOidcTokenBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     public required TerraformValue<string> ServiceAccountEmail
     {
-        get => GetArgument<TerraformValue<string>>("service_account_email");
+        get => GetRequiredArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleCloudSchedulerJobPubsubTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformValue<string> TopicName
     {
-        get => GetArgument<TerraformValue<string>>("topic_name");
+        get => GetRequiredArgument<TerraformValue<string>>("topic_name");
         set => SetArgument("topic_name", value);
     }
 
@@ -324,9 +324,9 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// The maximum amount of time to wait before retrying a job after it fails.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;.
     /// </summary>
-    public TerraformValue<string>? MaxBackoffDuration
+    public TerraformValue<string> MaxBackoffDuration
     {
-        get => GetArgument<TerraformValue<string>>("max_backoff_duration");
+        get => GetArgument<TerraformValue<string>>("max_backoff_duration") ?? AsReference("max_backoff_duration");
         set => SetArgument("max_backoff_duration", value);
     }
 
@@ -336,9 +336,9 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// then doubles maxDoublings times, then increases linearly,
     /// and finally retries retries at intervals of maxBackoffDuration up to retryCount times.
     /// </summary>
-    public TerraformValue<double>? MaxDoublings
+    public TerraformValue<double> MaxDoublings
     {
-        get => GetArgument<TerraformValue<double>>("max_doublings");
+        get => GetArgument<TerraformValue<double>>("max_doublings") ?? AsReference("max_doublings");
         set => SetArgument("max_doublings", value);
     }
 
@@ -347,9 +347,9 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// If specified with retryCount, the job will be retried until both limits are reached.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;.
     /// </summary>
-    public TerraformValue<string>? MaxRetryDuration
+    public TerraformValue<string> MaxRetryDuration
     {
-        get => GetArgument<TerraformValue<string>>("max_retry_duration");
+        get => GetArgument<TerraformValue<string>>("max_retry_duration") ?? AsReference("max_retry_duration");
         set => SetArgument("max_retry_duration", value);
     }
 
@@ -357,9 +357,9 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// The minimum amount of time to wait before retrying a job after it fails.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;.
     /// </summary>
-    public TerraformValue<string>? MinBackoffDuration
+    public TerraformValue<string> MinBackoffDuration
     {
-        get => GetArgument<TerraformValue<string>>("min_backoff_duration");
+        get => GetArgument<TerraformValue<string>>("min_backoff_duration") ?? AsReference("min_backoff_duration");
         set => SetArgument("min_backoff_duration", value);
     }
 
@@ -368,9 +368,9 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// job using the exponential backoff procedure described by maxDoublings.
     /// Values greater than 5 and negative values are not allowed.
     /// </summary>
-    public TerraformValue<double>? RetryCount
+    public TerraformValue<double> RetryCount
     {
-        get => GetArgument<TerraformValue<double>>("retry_count");
+        get => GetArgument<TerraformValue<double>>("retry_count") ?? AsReference("retry_count");
         set => SetArgument("retry_count", value);
     }
 
@@ -453,9 +453,9 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -465,34 +465,34 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Sets the job to a paused state. Jobs default to being enabled when this property is not set.
     /// </summary>
-    public TerraformValue<bool>? Paused
+    public TerraformValue<bool> Paused
     {
-        get => GetArgument<TerraformValue<bool>>("paused");
+        get => GetArgument<TerraformValue<bool>>("paused") ?? AsReference("paused");
         set => SetArgument("paused", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the scheduler job resides. If it is not provided, Terraform will use the provider default.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

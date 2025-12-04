@@ -64,7 +64,7 @@ public partial class AzureadApplicationCertificate(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AzureadApplicationCertificate(string name) : TerraformResou
     /// <summary>
     /// The end date until which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If omitted, the API will decide a suitable expiry date, which is typically around 2 years from the start date
     /// </summary>
-    public TerraformValue<string>? EndDate
+    public TerraformValue<string> EndDate
     {
-        get => GetArgument<TerraformValue<string>>("end_date");
+        get => GetArgument<TerraformValue<string>>("end_date") ?? AsReference("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -99,27 +99,27 @@ public partial class AzureadApplicationCertificate(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// A UUID used to uniquely identify this certificate. If omitted, a random UUID will be automatically generated
     /// </summary>
-    public TerraformValue<string>? KeyId
+    public TerraformValue<string> KeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_id");
+        get => GetArgument<TerraformValue<string>>("key_id") ?? AsReference("key_id");
         set => SetArgument("key_id", value);
     }
 
     /// <summary>
     /// The start date from which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn&#39;t specified, the current date and time are use
     /// </summary>
-    public TerraformValue<string>? StartDate
+    public TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date");
+        get => GetArgument<TerraformValue<string>>("start_date") ?? AsReference("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzureadApplicationCertificate(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 

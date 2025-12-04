@@ -69,16 +69,16 @@ public partial class GoogleApigeeSecurityMonitoringCondition(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionId is required")]
     public required TerraformValue<string> ConditionId
     {
-        get => GetArgument<TerraformValue<string>>("condition_id");
+        get => GetRequiredArgument<TerraformValue<string>>("condition_id");
         set => SetArgument("condition_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -89,7 +89,7 @@ public partial class GoogleApigeeSecurityMonitoringCondition(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => GetArgument<TerraformValue<string>>("org_id");
+        get => GetRequiredArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class GoogleApigeeSecurityMonitoringCondition(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Profile is required")]
     public required TerraformValue<string> Profile
     {
-        get => GetArgument<TerraformValue<string>>("profile");
+        get => GetRequiredArgument<TerraformValue<string>>("profile");
         set => SetArgument("profile", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleApigeeSecurityMonitoringCondition(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 

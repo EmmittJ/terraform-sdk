@@ -64,7 +64,7 @@ public partial class AzurermCosmosdbPostgresqlFirewallRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermCosmosdbPostgresqlFirewallRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIpAddress is required")]
     public required TerraformValue<string> EndIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("end_ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("end_ip_address");
         set => SetArgument("end_ip_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermCosmosdbPostgresqlFirewallRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermCosmosdbPostgresqlFirewallRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIpAddress is required")]
     public required TerraformValue<string> StartIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("start_ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("start_ip_address");
         set => SetArgument("start_ip_address", value);
     }
 

@@ -42,7 +42,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlockHumanLoopAc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanLoopActivationConditions is required")]
     public required TerraformValue<string> HumanLoopActivationConditions
     {
-        get => GetArgument<TerraformValue<string>>("human_loop_activation_conditions");
+        get => GetRequiredArgument<TerraformValue<string>>("human_loop_activation_conditions");
         set => SetArgument("human_loop_activation_conditions", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanTaskUiArn is required")]
     public required TerraformValue<string> HumanTaskUiArn
     {
-        get => GetArgument<TerraformValue<string>>("human_task_ui_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("human_task_ui_arn");
         set => SetArgument("human_task_ui_arn", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskCount is required")]
     public required TerraformValue<double> TaskCount
     {
-        get => GetArgument<TerraformValue<double>>("task_count");
+        get => GetRequiredArgument<TerraformValue<double>>("task_count");
         set => SetArgument("task_count", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDescription is required")]
     public required TerraformValue<string> TaskDescription
     {
-        get => GetArgument<TerraformValue<string>>("task_description");
+        get => GetRequiredArgument<TerraformValue<string>>("task_description");
         set => SetArgument("task_description", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskTitle is required")]
     public required TerraformValue<string> TaskTitle
     {
-        get => GetArgument<TerraformValue<string>>("task_title");
+        get => GetRequiredArgument<TerraformValue<string>>("task_title");
         set => SetArgument("task_title", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkteamArn is required")]
     public required TerraformValue<string> WorkteamArn
     {
-        get => GetArgument<TerraformValue<string>>("workteam_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("workteam_arn");
         set => SetArgument("workteam_arn", value);
     }
 
@@ -230,7 +230,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsManagedHumanLoopRequestSource is required")]
     public required TerraformValue<string> AwsManagedHumanLoopRequestSource
     {
-        get => GetArgument<TerraformValue<string>>("aws_managed_human_loop_request_source");
+        get => GetRequiredArgument<TerraformValue<string>>("aws_managed_human_loop_request_source");
         set => SetArgument("aws_managed_human_loop_request_source", value);
     }
 
@@ -263,7 +263,7 @@ public class AwsSagemakerFlowDefinitionOutputConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3OutputPath is required")]
     public required TerraformValue<string> S3OutputPath
     {
-        get => GetArgument<TerraformValue<string>>("s3_output_path");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_output_path");
         set => SetArgument("s3_output_path", value);
     }
 
@@ -282,25 +282,25 @@ public partial class AwsSagemakerFlowDefinition(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowDefinitionName is required")]
     public required TerraformValue<string> FlowDefinitionName
     {
-        get => GetArgument<TerraformValue<string>>("flow_definition_name");
+        get => GetRequiredArgument<TerraformValue<string>>("flow_definition_name");
         set => SetArgument("flow_definition_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -310,7 +310,7 @@ public partial class AwsSagemakerFlowDefinition(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -326,9 +326,9 @@ public partial class AwsSagemakerFlowDefinition(string name) : TerraformResource
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

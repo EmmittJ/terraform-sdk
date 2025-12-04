@@ -11,54 +11,54 @@ public partial class AwsWorkspacesWorkspaceDataSource(string name) : TerraformDa
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformValue<string>? DirectoryId
+    public TerraformValue<string> DirectoryId
     {
-        get => GetArgument<TerraformValue<string>>("directory_id");
+        get => GetArgument<TerraformValue<string>>("directory_id") ?? AsReference("directory_id");
         set => SetArgument("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string>? Tags
+    public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformValue<string>? UserName
+    public TerraformValue<string> UserName
     {
-        get => GetArgument<TerraformValue<string>>("user_name");
+        get => GetArgument<TerraformValue<string>>("user_name") ?? AsReference("user_name");
         set => SetArgument("user_name", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformValue<string>? WorkspaceId
+    public TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id") ?? AsReference("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

@@ -67,7 +67,7 @@ public partial class GoogleEventarcEnrollment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CelMatch is required")]
     public required TerraformValue<string> CelMatch
     {
-        get => GetArgument<TerraformValue<string>>("cel_match");
+        get => GetRequiredArgument<TerraformValue<string>>("cel_match");
         set => SetArgument("cel_match", value);
     }
 
@@ -79,7 +79,7 @@ public partial class GoogleEventarcEnrollment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => GetArgument<TerraformValue<string>>("destination");
+        get => GetRequiredArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -99,16 +99,16 @@ public partial class GoogleEventarcEnrollment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrollmentId is required")]
     public required TerraformValue<string> EnrollmentId
     {
-        get => GetArgument<TerraformValue<string>>("enrollment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("enrollment_id");
         set => SetArgument("enrollment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class GoogleEventarcEnrollment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -142,16 +142,16 @@ public partial class GoogleEventarcEnrollment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageBus is required")]
     public required TerraformValue<string> MessageBus
     {
-        get => GetArgument<TerraformValue<string>>("message_bus");
+        get => GetRequiredArgument<TerraformValue<string>>("message_bus");
         set => SetArgument("message_bus", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -65,16 +65,16 @@ public partial class GoogleApigeeEnvReferences(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformValue<string> EnvId
     {
-        get => GetArgument<TerraformValue<string>>("env_id");
+        get => GetRequiredArgument<TerraformValue<string>>("env_id");
         set => SetArgument("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleApigeeEnvReferences(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleApigeeEnvReferences(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Refers is required")]
     public required TerraformValue<string> Refers
     {
-        get => GetArgument<TerraformValue<string>>("refers");
+        get => GetRequiredArgument<TerraformValue<string>>("refers");
         set => SetArgument("refers", value);
     }
 
@@ -104,7 +104,7 @@ public partial class GoogleApigeeEnvReferences(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => GetArgument<TerraformValue<string>>("resource_type");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 

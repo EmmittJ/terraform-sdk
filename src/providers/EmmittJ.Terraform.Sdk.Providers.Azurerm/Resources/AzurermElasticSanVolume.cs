@@ -19,7 +19,7 @@ public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceId is required")]
     public required TerraformValue<string> SourceId
     {
-        get => GetArgument<TerraformValue<string>>("source_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_id");
         set => SetArgument("source_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformValue<string> SourceType
     {
-        get => GetArgument<TerraformValue<string>>("source_type");
+        get => GetRequiredArgument<TerraformValue<string>>("source_type");
         set => SetArgument("source_type", value);
     }
 
@@ -95,9 +95,9 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
     public required TerraformValue<double> SizeInGib
     {
-        get => GetArgument<TerraformValue<double>>("size_in_gib");
+        get => GetRequiredArgument<TerraformValue<double>>("size_in_gib");
         set => SetArgument("size_in_gib", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
     public required TerraformValue<string> VolumeGroupId
     {
-        get => GetArgument<TerraformValue<string>>("volume_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_group_id");
         set => SetArgument("volume_group_id", value);
     }
 

@@ -19,7 +19,7 @@ public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -134,16 +134,16 @@ public partial class AzurermContainerConnectedRegistry(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformValue<string> ContainerRegistryId
     {
-        get => GetArgument<TerraformValue<string>>("container_registry_id");
+        get => GetRequiredArgument<TerraformValue<string>>("container_registry_id");
         set => SetArgument("container_registry_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermContainerConnectedRegistry(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AzurermContainerConnectedRegistry(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyncTokenId is required")]
     public required TerraformValue<string> SyncTokenId
     {
-        get => GetArgument<TerraformValue<string>>("sync_token_id");
+        get => GetRequiredArgument<TerraformValue<string>>("sync_token_id");
         set => SetArgument("sync_token_id", value);
     }
 

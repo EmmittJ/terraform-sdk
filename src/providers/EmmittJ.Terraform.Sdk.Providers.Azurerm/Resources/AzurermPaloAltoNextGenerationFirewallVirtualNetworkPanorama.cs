@@ -19,7 +19,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddress is required")]
     public required TerraformValue<string> PublicIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("public_ip_address");
         set => SetArgument("public_ip_address", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     public required TerraformValue<string> PublicIpAddressId
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_address_id");
+        get => GetRequiredArgument<TerraformValue<string>>("public_ip_address_id");
         set => SetArgument("public_ip_address_id", value);
     }
 
@@ -267,7 +267,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformValue<string> VirtualNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
@@ -333,9 +333,9 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -345,7 +345,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -364,7 +364,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -374,7 +374,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PanoramaBase64Config is required")]
     public required TerraformValue<string> PanoramaBase64Config
     {
-        get => GetArgument<TerraformValue<string>>("panorama_base64_config");
+        get => GetRequiredArgument<TerraformValue<string>>("panorama_base64_config");
         set => SetArgument("panorama_base64_config", value);
     }
 
@@ -393,7 +393,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

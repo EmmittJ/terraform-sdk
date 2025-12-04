@@ -56,7 +56,7 @@ public partial class AzurermPostgresqlDatabase(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Charset is required")]
     public required TerraformValue<string> Charset
     {
-        get => GetArgument<TerraformValue<string>>("charset");
+        get => GetRequiredArgument<TerraformValue<string>>("charset");
         set => SetArgument("charset", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AzurermPostgresqlDatabase(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collation is required")]
     public required TerraformValue<string> Collation
     {
-        get => GetArgument<TerraformValue<string>>("collation");
+        get => GetRequiredArgument<TerraformValue<string>>("collation");
         set => SetArgument("collation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AzurermPostgresqlDatabase(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AzurermPostgresqlDatabase(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AzurermPostgresqlDatabase(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformValue<string> ServerName
     {
-        get => GetArgument<TerraformValue<string>>("server_name");
+        get => GetRequiredArgument<TerraformValue<string>>("server_name");
         set => SetArgument("server_name", value);
     }
 

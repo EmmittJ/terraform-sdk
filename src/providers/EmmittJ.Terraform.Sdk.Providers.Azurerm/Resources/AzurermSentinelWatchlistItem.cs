@@ -61,18 +61,18 @@ public partial class AzurermSentinelWatchlistItem(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermSentinelWatchlistItem(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Properties is required")]
     public required TerraformMap<string> Properties
     {
-        get => GetArgument<TerraformMap<string>>("properties");
+        get => GetRequiredArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSentinelWatchlistItem(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WatchlistId is required")]
     public required TerraformValue<string> WatchlistId
     {
-        get => GetArgument<TerraformValue<string>>("watchlist_id");
+        get => GetRequiredArgument<TerraformValue<string>>("watchlist_id");
         set => SetArgument("watchlist_id", value);
     }
 

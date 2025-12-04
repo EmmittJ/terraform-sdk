@@ -60,7 +60,7 @@ public class AzurermMssqlVirtualMachineAssessmentBlockScheduleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => GetArgument<TerraformValue<string>>("day_of_week");
+        get => GetRequiredArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermMssqlVirtualMachineAssessmentBlockScheduleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -110,9 +110,9 @@ public class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlock
     /// The encryption_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EncryptionEnabled
+    public TerraformValue<bool> EncryptionEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("encryption_enabled") ?? AsReference("encryption_enabled");
         set => SetArgument("encryption_enabled", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodInDays is required")]
     public required TerraformValue<double> RetentionPeriodInDays
     {
-        get => GetArgument<TerraformValue<double>>("retention_period_in_days");
+        get => GetRequiredArgument<TerraformValue<double>>("retention_period_in_days");
         set => SetArgument("retention_period_in_days", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountAccessKey is required")]
     public required TerraformValue<string> StorageAccountAccessKey
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_access_key");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_access_key");
         set => SetArgument("storage_account_access_key", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageBlobEndpoint is required")]
     public required TerraformValue<string> StorageBlobEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("storage_blob_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_blob_endpoint");
         set => SetArgument("storage_blob_endpoint", value);
     }
 
@@ -202,7 +202,7 @@ public class AzurermMssqlVirtualMachineAutoBackupBlockManualScheduleBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullBackupFrequency is required")]
     public required TerraformValue<string> FullBackupFrequency
     {
-        get => GetArgument<TerraformValue<string>>("full_backup_frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("full_backup_frequency");
         set => SetArgument("full_backup_frequency", value);
     }
 
@@ -212,7 +212,7 @@ public class AzurermMssqlVirtualMachineAutoBackupBlockManualScheduleBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullBackupStartHour is required")]
     public required TerraformValue<double> FullBackupStartHour
     {
-        get => GetArgument<TerraformValue<double>>("full_backup_start_hour");
+        get => GetRequiredArgument<TerraformValue<double>>("full_backup_start_hour");
         set => SetArgument("full_backup_start_hour", value);
     }
 
@@ -222,7 +222,7 @@ public class AzurermMssqlVirtualMachineAutoBackupBlockManualScheduleBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullBackupWindowInHours is required")]
     public required TerraformValue<double> FullBackupWindowInHours
     {
-        get => GetArgument<TerraformValue<double>>("full_backup_window_in_hours");
+        get => GetRequiredArgument<TerraformValue<double>>("full_backup_window_in_hours");
         set => SetArgument("full_backup_window_in_hours", value);
     }
 
@@ -232,7 +232,7 @@ public class AzurermMssqlVirtualMachineAutoBackupBlockManualScheduleBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogBackupFrequencyInMinutes is required")]
     public required TerraformValue<double> LogBackupFrequencyInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("log_backup_frequency_in_minutes");
+        get => GetRequiredArgument<TerraformValue<double>>("log_backup_frequency_in_minutes");
         set => SetArgument("log_backup_frequency_in_minutes", value);
     }
 
@@ -256,7 +256,7 @@ public class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => GetArgument<TerraformValue<string>>("day_of_week");
+        get => GetRequiredArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -266,7 +266,7 @@ public class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceWindowDurationInMinutes is required")]
     public required TerraformValue<double> MaintenanceWindowDurationInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("maintenance_window_duration_in_minutes");
+        get => GetRequiredArgument<TerraformValue<double>>("maintenance_window_duration_in_minutes");
         set => SetArgument("maintenance_window_duration_in_minutes", value);
     }
 
@@ -276,7 +276,7 @@ public class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceWindowStartingHour is required")]
     public required TerraformValue<double> MaintenanceWindowStartingHour
     {
-        get => GetArgument<TerraformValue<double>>("maintenance_window_starting_hour");
+        get => GetRequiredArgument<TerraformValue<double>>("maintenance_window_starting_hour");
         set => SetArgument("maintenance_window_starting_hour", value);
     }
 
@@ -300,7 +300,7 @@ public class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultUrl is required")]
     public required TerraformValue<string> KeyVaultUrl
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_url");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_url");
         set => SetArgument("key_vault_url", value);
     }
 
@@ -310,7 +310,7 @@ public class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -320,7 +320,7 @@ public class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalName is required")]
     public required TerraformValue<string> ServicePrincipalName
     {
-        get => GetArgument<TerraformValue<string>>("service_principal_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_principal_name");
         set => SetArgument("service_principal_name", value);
     }
 
@@ -330,7 +330,7 @@ public class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalSecret is required")]
     public required TerraformValue<string> ServicePrincipalSecret
     {
-        get => GetArgument<TerraformValue<string>>("service_principal_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("service_principal_secret");
         set => SetArgument("service_principal_secret", value);
     }
 
@@ -431,7 +431,7 @@ public class AzurermMssqlVirtualMachineStorageConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskType is required")]
     public required TerraformValue<string> DiskType
     {
-        get => GetArgument<TerraformValue<string>>("disk_type");
+        get => GetRequiredArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -441,7 +441,7 @@ public class AzurermMssqlVirtualMachineStorageConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageWorkloadType is required")]
     public required TerraformValue<string> StorageWorkloadType
     {
-        get => GetArgument<TerraformValue<string>>("storage_workload_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_workload_type");
         set => SetArgument("storage_workload_type", value);
     }
 
@@ -503,7 +503,7 @@ public class AzurermMssqlVirtualMachineStorageConfigurationBlockDataSettingsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultFilePath is required")]
     public required TerraformValue<string> DefaultFilePath
     {
-        get => GetArgument<TerraformValue<string>>("default_file_path");
+        get => GetRequiredArgument<TerraformValue<string>>("default_file_path");
         set => SetArgument("default_file_path", value);
     }
 
@@ -536,7 +536,7 @@ public class AzurermMssqlVirtualMachineStorageConfigurationBlockLogSettingsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultFilePath is required")]
     public required TerraformValue<string> DefaultFilePath
     {
-        get => GetArgument<TerraformValue<string>>("default_file_path");
+        get => GetRequiredArgument<TerraformValue<string>>("default_file_path");
         set => SetArgument("default_file_path", value);
     }
 
@@ -596,7 +596,7 @@ public class AzurermMssqlVirtualMachineStorageConfigurationBlockTempDbSettingsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultFilePath is required")]
     public required TerraformValue<string> DefaultFilePath
     {
-        get => GetArgument<TerraformValue<string>>("default_file_path");
+        get => GetRequiredArgument<TerraformValue<string>>("default_file_path");
         set => SetArgument("default_file_path", value);
     }
 
@@ -698,7 +698,7 @@ public class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterBootstrapAccountPassword is required")]
     public required TerraformValue<string> ClusterBootstrapAccountPassword
     {
-        get => GetArgument<TerraformValue<string>>("cluster_bootstrap_account_password");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_bootstrap_account_password");
         set => SetArgument("cluster_bootstrap_account_password", value);
     }
 
@@ -708,7 +708,7 @@ public class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterOperatorAccountPassword is required")]
     public required TerraformValue<string> ClusterOperatorAccountPassword
     {
-        get => GetArgument<TerraformValue<string>>("cluster_operator_account_password");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_operator_account_password");
         set => SetArgument("cluster_operator_account_password", value);
     }
 
@@ -718,7 +718,7 @@ public class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlServiceAccountPassword is required")]
     public required TerraformValue<string> SqlServiceAccountPassword
     {
-        get => GetArgument<TerraformValue<string>>("sql_service_account_password");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_service_account_password");
         set => SetArgument("sql_service_account_password", value);
     }
 
@@ -734,9 +734,9 @@ public partial class AzurermMssqlVirtualMachine(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -818,7 +818,7 @@ public partial class AzurermMssqlVirtualMachine(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 

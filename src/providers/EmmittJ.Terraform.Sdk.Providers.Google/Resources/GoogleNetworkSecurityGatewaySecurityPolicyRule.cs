@@ -64,7 +64,7 @@ public partial class GoogleNetworkSecurityGatewaySecurityPolicyRule(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BasicProfile is required")]
     public required TerraformValue<string> BasicProfile
     {
-        get => GetArgument<TerraformValue<string>>("basic_profile");
+        get => GetRequiredArgument<TerraformValue<string>>("basic_profile");
         set => SetArgument("basic_profile", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleNetworkSecurityGatewaySecurityPolicyRule(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -93,16 +93,16 @@ public partial class GoogleNetworkSecurityGatewaySecurityPolicyRule(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewaySecurityPolicy is required")]
     public required TerraformValue<string> GatewaySecurityPolicy
     {
-        get => GetArgument<TerraformValue<string>>("gateway_security_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("gateway_security_policy");
         set => SetArgument("gateway_security_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleNetworkSecurityGatewaySecurityPolicyRule(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleNetworkSecurityGatewaySecurityPolicyRule(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -133,16 +133,16 @@ public partial class GoogleNetworkSecurityGatewaySecurityPolicyRule(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -152,7 +152,7 @@ public partial class GoogleNetworkSecurityGatewaySecurityPolicyRule(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionMatcher is required")]
     public required TerraformValue<string> SessionMatcher
     {
-        get => GetArgument<TerraformValue<string>>("session_matcher");
+        get => GetRequiredArgument<TerraformValue<string>>("session_matcher");
         set => SetArgument("session_matcher", value);
     }
 

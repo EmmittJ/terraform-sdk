@@ -16,9 +16,9 @@ public class AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlo
     /// <summary>
     /// The minimum_instance_metadata_service_version attribute.
     /// </summary>
-    public TerraformValue<string>? MinimumInstanceMetadataServiceVersion
+    public TerraformValue<string> MinimumInstanceMetadataServiceVersion
     {
-        get => GetArgument<TerraformValue<string>>("minimum_instance_metadata_service_version");
+        get => GetArgument<TerraformValue<string>>("minimum_instance_metadata_service_version") ?? AsReference("minimum_instance_metadata_service_version");
         set => SetArgument("minimum_instance_metadata_service_version", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -101,25 +101,25 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The platform_identifier attribute.
     /// </summary>
-    public TerraformValue<string>? PlatformIdentifier
+    public TerraformValue<string> PlatformIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("platform_identifier");
+        get => GetArgument<TerraformValue<string>>("platform_identifier") ?? AsReference("platform_identifier");
         set => SetArgument("platform_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -145,9 +145,9 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformSet<string>? SecurityGroups
+    public TerraformSet<string> SecurityGroups
     {
-        get => GetArgument<TerraformSet<string>>("security_groups");
+        get => GetArgument<TerraformSet<string>>("security_groups") ?? AsReference("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -172,9 +172,9 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

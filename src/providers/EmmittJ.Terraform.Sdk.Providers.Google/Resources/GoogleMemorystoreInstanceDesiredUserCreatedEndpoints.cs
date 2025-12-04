@@ -76,7 +76,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRule is required")]
     public required TerraformValue<string> ForwardingRule
     {
-        get => GetArgument<TerraformValue<string>>("forwarding_rule");
+        get => GetRequiredArgument<TerraformValue<string>>("forwarding_rule");
         set => SetArgument("forwarding_rule", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -97,16 +97,16 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The consumer project_id where the forwarding rule is created from.
     /// </summary>
-    public TerraformValue<string>? ProjectId
+    public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PscConnectionId is required")]
     public required TerraformValue<string> PscConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("psc_connection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("psc_connection_id");
         set => SetArgument("psc_connection_id", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAttachment is required")]
     public required TerraformValue<string> ServiceAttachment
     {
-        get => GetArgument<TerraformValue<string>>("service_attachment");
+        get => GetRequiredArgument<TerraformValue<string>>("service_attachment");
         set => SetArgument("service_attachment", value);
     }
 
@@ -193,9 +193,9 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints(string
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -205,16 +205,16 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -224,7 +224,7 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -11,9 +11,9 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetRequiredArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -39,9 +39,9 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityType is required")]
     public required TerraformValue<string> IdentityType
     {
-        get => GetArgument<TerraformValue<string>>("identity_type");
+        get => GetRequiredArgument<TerraformValue<string>>("identity_type");
         set => SetArgument("identity_type", value);
     }
 
@@ -67,9 +67,9 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -85,9 +85,9 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformValue<string>? UserName
+    public TerraformValue<string> UserName
     {
-        get => GetArgument<TerraformValue<string>>("user_name");
+        get => GetArgument<TerraformValue<string>>("user_name") ?? AsReference("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserRole is required")]
     public required TerraformValue<string> UserRole
     {
-        get => GetArgument<TerraformValue<string>>("user_role");
+        get => GetRequiredArgument<TerraformValue<string>>("user_role");
         set => SetArgument("user_role", value);
     }
 

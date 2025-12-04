@@ -19,7 +19,7 @@ public class GoogleProjectOrganizationPolicyBooleanPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforced is required")]
     public required TerraformValue<bool> Enforced
     {
-        get => GetArgument<TerraformValue<bool>>("enforced");
+        get => GetRequiredArgument<TerraformValue<bool>>("enforced");
         set => SetArgument("enforced", value);
     }
 
@@ -49,9 +49,9 @@ public class GoogleProjectOrganizationPolicyListPolicyBlock : TerraformBlock
     /// <summary>
     /// The Google Cloud Console will try to default to a configuration that matches the value specified in this field.
     /// </summary>
-    public TerraformValue<string>? SuggestedValue
+    public TerraformValue<string> SuggestedValue
     {
-        get => GetArgument<TerraformValue<string>>("suggested_value");
+        get => GetArgument<TerraformValue<string>>("suggested_value") ?? AsReference("suggested_value");
         set => SetArgument("suggested_value", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleProjectOrganizationPolicyRestorePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAttribute is required")]
     public required TerraformValue<bool> DefaultAttribute
     {
-        get => GetArgument<TerraformValue<bool>>("default");
+        get => GetRequiredArgument<TerraformValue<bool>>("default");
         set => SetArgument("default", value);
     }
 
@@ -226,16 +226,16 @@ public partial class GoogleProjectOrganizationPolicy(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
     public required TerraformValue<string> Constraint
     {
-        get => GetArgument<TerraformValue<string>>("constraint");
+        get => GetRequiredArgument<TerraformValue<string>>("constraint");
         set => SetArgument("constraint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -245,16 +245,16 @@ public partial class GoogleProjectOrganizationPolicy(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetRequiredArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Version of the Policy. Default version is 0.
     /// </summary>
-    public TerraformValue<double>? Version
+    public TerraformValue<double> Version
     {
-        get => GetArgument<TerraformValue<double>>("version");
+        get => GetArgument<TerraformValue<double>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 

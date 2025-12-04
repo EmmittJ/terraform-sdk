@@ -55,7 +55,7 @@ public partial class AwsNetworkmanagerDxGatewayAttachment(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformValue<string> CoreNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("core_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("core_network_id");
         set => SetArgument("core_network_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsNetworkmanagerDxGatewayAttachment(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectConnectGatewayArn is required")]
     public required TerraformValue<string> DirectConnectGatewayArn
     {
-        get => GetArgument<TerraformValue<string>>("direct_connect_gateway_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("direct_connect_gateway_arn");
         set => SetArgument("direct_connect_gateway_arn", value);
     }
 

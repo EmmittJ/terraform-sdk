@@ -55,16 +55,16 @@ public partial class AzurermStaticWebAppCustomDomain(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermStaticWebAppCustomDomain(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticWebAppId is required")]
     public required TerraformValue<string> StaticWebAppId
     {
-        get => GetArgument<TerraformValue<string>>("static_web_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("static_web_app_id");
         set => SetArgument("static_web_app_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermStaticWebAppCustomDomain(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidationType is required")]
     public required TerraformValue<string> ValidationType
     {
-        get => GetArgument<TerraformValue<string>>("validation_type");
+        get => GetRequiredArgument<TerraformValue<string>>("validation_type");
         set => SetArgument("validation_type", value);
     }
 

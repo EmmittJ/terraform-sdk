@@ -11,45 +11,45 @@ public partial class AwsEfsFileSystemDataSource(string name) : TerraformDataSour
     /// <summary>
     /// The creation_token attribute.
     /// </summary>
-    public TerraformValue<string>? CreationToken
+    public TerraformValue<string> CreationToken
     {
-        get => GetArgument<TerraformValue<string>>("creation_token");
+        get => GetArgument<TerraformValue<string>>("creation_token") ?? AsReference("creation_token");
         set => SetArgument("creation_token", value);
     }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformValue<string>? FileSystemId
+    public TerraformValue<string> FileSystemId
     {
-        get => GetArgument<TerraformValue<string>>("file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id") ?? AsReference("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string>? Tags
+    public TerraformMap<string> Tags
     {
-        get => GetArgument<TerraformMap<string>>("tags");
+        get => GetArgument<TerraformMap<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 

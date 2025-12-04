@@ -42,7 +42,7 @@ public class GoogleComputePreviewFeatureRolloutOperationBlockRolloutInputBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PredefinedRolloutPlan is required")]
     public required TerraformValue<string> PredefinedRolloutPlan
     {
-        get => GetArgument<TerraformValue<string>>("predefined_rollout_plan");
+        get => GetRequiredArgument<TerraformValue<string>>("predefined_rollout_plan");
         set => SetArgument("predefined_rollout_plan", value);
     }
 
@@ -102,16 +102,16 @@ public partial class GoogleComputePreviewFeature(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActivationStatus is required")]
     public required TerraformValue<string> ActivationStatus
     {
-        get => GetArgument<TerraformValue<string>>("activation_status");
+        get => GetRequiredArgument<TerraformValue<string>>("activation_status");
         set => SetArgument("activation_status", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -121,16 +121,16 @@ public partial class GoogleComputePreviewFeature(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

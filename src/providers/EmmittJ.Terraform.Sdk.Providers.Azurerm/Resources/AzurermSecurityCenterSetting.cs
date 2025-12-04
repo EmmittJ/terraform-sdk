@@ -64,16 +64,16 @@ public partial class AzurermSecurityCenterSetting(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSecurityCenterSetting(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SettingName is required")]
     public required TerraformValue<string> SettingName
     {
-        get => GetArgument<TerraformValue<string>>("setting_name");
+        get => GetRequiredArgument<TerraformValue<string>>("setting_name");
         set => SetArgument("setting_name", value);
     }
 

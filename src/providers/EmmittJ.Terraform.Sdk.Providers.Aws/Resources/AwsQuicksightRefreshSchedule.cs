@@ -19,16 +19,16 @@ public class AwsQuicksightRefreshScheduleScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshType is required")]
     public required TerraformValue<string> RefreshType
     {
-        get => GetArgument<TerraformValue<string>>("refresh_type");
+        get => GetRequiredArgument<TerraformValue<string>>("refresh_type");
         set => SetArgument("refresh_type", value);
     }
 
     /// <summary>
     /// The start_after_date_time attribute.
     /// </summary>
-    public TerraformValue<string>? StartAfterDateTime
+    public TerraformValue<string> StartAfterDateTime
     {
-        get => GetArgument<TerraformValue<string>>("start_after_date_time");
+        get => GetArgument<TerraformValue<string>>("start_after_date_time") ?? AsReference("start_after_date_time");
         set => SetArgument("start_after_date_time", value);
     }
 
@@ -60,25 +60,25 @@ public class AwsQuicksightRefreshScheduleScheduleBlockScheduleFrequencyBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<string> Interval
     {
-        get => GetArgument<TerraformValue<string>>("interval");
+        get => GetRequiredArgument<TerraformValue<string>>("interval");
         set => SetArgument("interval", value);
     }
 
     /// <summary>
     /// The time_of_the_day attribute.
     /// </summary>
-    public TerraformValue<string>? TimeOfTheDay
+    public TerraformValue<string> TimeOfTheDay
     {
-        get => GetArgument<TerraformValue<string>>("time_of_the_day");
+        get => GetArgument<TerraformValue<string>>("time_of_the_day") ?? AsReference("time_of_the_day");
         set => SetArgument("time_of_the_day", value);
     }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public TerraformValue<string>? Timezone
+    public TerraformValue<string> Timezone
     {
-        get => GetArgument<TerraformValue<string>>("timezone");
+        get => GetArgument<TerraformValue<string>>("timezone") ?? AsReference("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -134,9 +134,9 @@ public partial class AwsQuicksightRefreshSchedule(string name) : TerraformResour
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string>? AwsAccountId
+    public TerraformValue<string> AwsAccountId
     {
-        get => GetArgument<TerraformValue<string>>("aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id") ?? AsReference("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -146,16 +146,16 @@ public partial class AwsQuicksightRefreshSchedule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformValue<string> DataSetId
     {
-        get => GetArgument<TerraformValue<string>>("data_set_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_set_id");
         set => SetArgument("data_set_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AwsQuicksightRefreshSchedule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleId is required")]
     public required TerraformValue<string> ScheduleId
     {
-        get => GetArgument<TerraformValue<string>>("schedule_id");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule_id");
         set => SetArgument("schedule_id", value);
     }
 

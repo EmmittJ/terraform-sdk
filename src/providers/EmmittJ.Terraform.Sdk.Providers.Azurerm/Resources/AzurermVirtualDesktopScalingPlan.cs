@@ -19,7 +19,7 @@ public class AzurermVirtualDesktopScalingPlanHostPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostpoolId is required")]
     public required TerraformValue<string> HostpoolId
     {
-        get => GetArgument<TerraformValue<string>>("hostpool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("hostpool_id");
         set => SetArgument("hostpool_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermVirtualDesktopScalingPlanHostPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingPlanEnabled is required")]
     public required TerraformValue<bool> ScalingPlanEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("scaling_plan_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("scaling_plan_enabled");
         set => SetArgument("scaling_plan_enabled", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysOfWeek is required")]
     public required TerraformSet<string> DaysOfWeek
     {
-        get => GetArgument<TerraformSet<string>>("days_of_week");
+        get => GetRequiredArgument<TerraformSet<string>>("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OffPeakLoadBalancingAlgorithm is required")]
     public required TerraformValue<string> OffPeakLoadBalancingAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("off_peak_load_balancing_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("off_peak_load_balancing_algorithm");
         set => SetArgument("off_peak_load_balancing_algorithm", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OffPeakStartTime is required")]
     public required TerraformValue<string> OffPeakStartTime
     {
-        get => GetArgument<TerraformValue<string>>("off_peak_start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("off_peak_start_time");
         set => SetArgument("off_peak_start_time", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeakLoadBalancingAlgorithm is required")]
     public required TerraformValue<string> PeakLoadBalancingAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("peak_load_balancing_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("peak_load_balancing_algorithm");
         set => SetArgument("peak_load_balancing_algorithm", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeakStartTime is required")]
     public required TerraformValue<string> PeakStartTime
     {
-        get => GetArgument<TerraformValue<string>>("peak_start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("peak_start_time");
         set => SetArgument("peak_start_time", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownCapacityThresholdPercent is required")]
     public required TerraformValue<double> RampDownCapacityThresholdPercent
     {
-        get => GetArgument<TerraformValue<double>>("ramp_down_capacity_threshold_percent");
+        get => GetRequiredArgument<TerraformValue<double>>("ramp_down_capacity_threshold_percent");
         set => SetArgument("ramp_down_capacity_threshold_percent", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownForceLogoffUsers is required")]
     public required TerraformValue<bool> RampDownForceLogoffUsers
     {
-        get => GetArgument<TerraformValue<bool>>("ramp_down_force_logoff_users");
+        get => GetRequiredArgument<TerraformValue<bool>>("ramp_down_force_logoff_users");
         set => SetArgument("ramp_down_force_logoff_users", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownLoadBalancingAlgorithm is required")]
     public required TerraformValue<string> RampDownLoadBalancingAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("ramp_down_load_balancing_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("ramp_down_load_balancing_algorithm");
         set => SetArgument("ramp_down_load_balancing_algorithm", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownMinimumHostsPercent is required")]
     public required TerraformValue<double> RampDownMinimumHostsPercent
     {
-        get => GetArgument<TerraformValue<double>>("ramp_down_minimum_hosts_percent");
+        get => GetRequiredArgument<TerraformValue<double>>("ramp_down_minimum_hosts_percent");
         set => SetArgument("ramp_down_minimum_hosts_percent", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownNotificationMessage is required")]
     public required TerraformValue<string> RampDownNotificationMessage
     {
-        get => GetArgument<TerraformValue<string>>("ramp_down_notification_message");
+        get => GetRequiredArgument<TerraformValue<string>>("ramp_down_notification_message");
         set => SetArgument("ramp_down_notification_message", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownStartTime is required")]
     public required TerraformValue<string> RampDownStartTime
     {
-        get => GetArgument<TerraformValue<string>>("ramp_down_start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("ramp_down_start_time");
         set => SetArgument("ramp_down_start_time", value);
     }
 
@@ -173,7 +173,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownStopHostsWhen is required")]
     public required TerraformValue<string> RampDownStopHostsWhen
     {
-        get => GetArgument<TerraformValue<string>>("ramp_down_stop_hosts_when");
+        get => GetRequiredArgument<TerraformValue<string>>("ramp_down_stop_hosts_when");
         set => SetArgument("ramp_down_stop_hosts_when", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownWaitTimeMinutes is required")]
     public required TerraformValue<double> RampDownWaitTimeMinutes
     {
-        get => GetArgument<TerraformValue<double>>("ramp_down_wait_time_minutes");
+        get => GetRequiredArgument<TerraformValue<double>>("ramp_down_wait_time_minutes");
         set => SetArgument("ramp_down_wait_time_minutes", value);
     }
 
@@ -202,7 +202,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampUpLoadBalancingAlgorithm is required")]
     public required TerraformValue<string> RampUpLoadBalancingAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("ramp_up_load_balancing_algorithm");
+        get => GetRequiredArgument<TerraformValue<string>>("ramp_up_load_balancing_algorithm");
         set => SetArgument("ramp_up_load_balancing_algorithm", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampUpStartTime is required")]
     public required TerraformValue<string> RampUpStartTime
     {
-        get => GetArgument<TerraformValue<string>>("ramp_up_start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("ramp_up_start_time");
         set => SetArgument("ramp_up_start_time", value);
     }
 
@@ -314,9 +314,9 @@ public partial class AzurermVirtualDesktopScalingPlan(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -326,7 +326,7 @@ public partial class AzurermVirtualDesktopScalingPlan(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -336,7 +336,7 @@ public partial class AzurermVirtualDesktopScalingPlan(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -346,7 +346,7 @@ public partial class AzurermVirtualDesktopScalingPlan(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -365,7 +365,7 @@ public partial class AzurermVirtualDesktopScalingPlan(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 

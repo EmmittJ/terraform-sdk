@@ -19,7 +19,7 @@ public class GoogleComputeRegionDiskAsyncPrimaryDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformValue<string> Disk
     {
-        get => GetArgument<TerraformValue<string>>("disk");
+        get => GetRequiredArgument<TerraformValue<string>>("disk");
         set => SetArgument("disk", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleComputeRegionDiskGuestOsFeaturesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -187,9 +187,9 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     ///   * READ_ONLY_SINGLE: The AccessMode means the disk can be attached to multiple instances in RO mode.
     /// The AccessMode is only valid for Hyperdisk disk types.
     /// </summary>
-    public TerraformValue<string>? AccessMode
+    public TerraformValue<string> AccessMode
     {
-        get => GetArgument<TerraformValue<string>>("access_mode");
+        get => GetArgument<TerraformValue<string>>("access_mode") ?? AsReference("access_mode");
         set => SetArgument("access_mode", value);
     }
 
@@ -226,9 +226,9 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -248,9 +248,9 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    public TerraformList<string>? Licenses
+    public TerraformList<string> Licenses
     {
-        get => GetArgument<TerraformList<string>>("licenses");
+        get => GetArgument<TerraformList<string>>("licenses") ?? AsReference("licenses");
         set => SetArgument("licenses", value);
     }
 
@@ -266,7 +266,7 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -277,18 +277,18 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// If an unsupported value is requested, the error message will list
     /// the supported values for the caller&#39;s project.
     /// </summary>
-    public TerraformValue<double>? PhysicalBlockSizeBytes
+    public TerraformValue<double> PhysicalBlockSizeBytes
     {
-        get => GetArgument<TerraformValue<double>>("physical_block_size_bytes");
+        get => GetArgument<TerraformValue<double>>("physical_block_size_bytes") ?? AsReference("physical_block_size_bytes");
         set => SetArgument("physical_block_size_bytes", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -297,9 +297,9 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// that the disk can handle. Values must be between 10,000 and 120,000.
     /// For more details, see the Extreme persistent disk [documentation](https://cloud.google.com/compute/docs/disks/extreme-persistent-disk).
     /// </summary>
-    public TerraformValue<double>? ProvisionedIops
+    public TerraformValue<double> ProvisionedIops
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_iops");
+        get => GetArgument<TerraformValue<double>>("provisioned_iops") ?? AsReference("provisioned_iops");
         set => SetArgument("provisioned_iops", value);
     }
 
@@ -307,18 +307,18 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// Indicates how much throughput to provision for the disk. This sets the number of throughput
     /// mb per second that the disk can handle. Values must be greater than or equal to 1.
     /// </summary>
-    public TerraformValue<double>? ProvisionedThroughput
+    public TerraformValue<double> ProvisionedThroughput
     {
-        get => GetArgument<TerraformValue<double>>("provisioned_throughput");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput") ?? AsReference("provisioned_throughput");
         set => SetArgument("provisioned_throughput", value);
     }
 
     /// <summary>
     /// A reference to the region where the disk resides.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -342,9 +342,9 @@ public partial class GoogleComputeRegionDisk(string name) : TerraformResource("g
     /// the value of sizeGb must not be less than the size of the sourceImage
     /// or the size of the snapshot.
     /// </summary>
-    public TerraformValue<double>? Size
+    public TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size");
+        get => GetArgument<TerraformValue<double>>("size") ?? AsReference("size");
         set => SetArgument("size", value);
     }
 

@@ -52,7 +52,7 @@ public class AwsVpclatticeListenerRuleActionBlockFixedResponseBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformValue<double> StatusCode
     {
-        get => GetArgument<TerraformValue<double>>("status_code");
+        get => GetRequiredArgument<TerraformValue<double>>("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsVpclatticeListenerRuleActionBlockForwardBlockTargetGroupsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGroupIdentifier is required")]
     public required TerraformValue<string> TargetGroupIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("target_group_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("target_group_identifier");
         set => SetArgument("target_group_identifier", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsVpclatticeListenerRuleMatchBlockHttpMatchBlockHeaderMatchesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -386,9 +386,9 @@ public partial class AwsVpclatticeListenerRule(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -398,7 +398,7 @@ public partial class AwsVpclatticeListenerRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerIdentifier is required")]
     public required TerraformValue<string> ListenerIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("listener_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("listener_identifier");
         set => SetArgument("listener_identifier", value);
     }
 
@@ -408,7 +408,7 @@ public partial class AwsVpclatticeListenerRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -418,16 +418,16 @@ public partial class AwsVpclatticeListenerRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -437,7 +437,7 @@ public partial class AwsVpclatticeListenerRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceIdentifier is required")]
     public required TerraformValue<string> ServiceIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("service_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("service_identifier");
         set => SetArgument("service_identifier", value);
     }
 
@@ -453,9 +453,9 @@ public partial class AwsVpclatticeListenerRule(string name) : TerraformResource(
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

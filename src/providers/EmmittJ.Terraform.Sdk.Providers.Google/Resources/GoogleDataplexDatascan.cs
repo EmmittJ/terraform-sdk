@@ -695,7 +695,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dimension is required")]
     public required TerraformValue<string> Dimension
     {
-        get => GetArgument<TerraformValue<string>>("dimension");
+        get => GetRequiredArgument<TerraformValue<string>>("dimension");
         set => SetArgument("dimension", value);
     }
 
@@ -912,7 +912,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockRegexExpectatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regex is required")]
     public required TerraformValue<string> Regex
     {
-        get => GetArgument<TerraformValue<string>>("regex");
+        get => GetRequiredArgument<TerraformValue<string>>("regex");
         set => SetArgument("regex", value);
     }
 
@@ -935,7 +935,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockRowConditionExp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlExpression is required")]
     public required TerraformValue<string> SqlExpression
     {
-        get => GetArgument<TerraformValue<string>>("sql_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_expression");
         set => SetArgument("sql_expression", value);
     }
 
@@ -981,7 +981,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockSqlAssertionBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlStatement is required")]
     public required TerraformValue<string> SqlStatement
     {
-        get => GetArgument<TerraformValue<string>>("sql_statement");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_statement");
         set => SetArgument("sql_statement", value);
     }
 
@@ -1024,7 +1024,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockStatisticRangeE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Statistic is required")]
     public required TerraformValue<string> Statistic
     {
-        get => GetArgument<TerraformValue<string>>("statistic");
+        get => GetRequiredArgument<TerraformValue<string>>("statistic");
         set => SetArgument("statistic", value);
     }
 
@@ -1067,7 +1067,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockTableConditionE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlExpression is required")]
     public required TerraformValue<string> SqlExpression
     {
-        get => GetArgument<TerraformValue<string>>("sql_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_expression");
         set => SetArgument("sql_expression", value);
     }
 
@@ -1185,7 +1185,7 @@ public class GoogleDataplexDatascanExecutionSpecBlockTriggerBlockScheduleBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cron is required")]
     public required TerraformValue<string> Cron
     {
-        get => GetArgument<TerraformValue<string>>("cron");
+        get => GetRequiredArgument<TerraformValue<string>>("cron");
         set => SetArgument("cron", value);
     }
 
@@ -1245,7 +1245,7 @@ public partial class GoogleDataplexDatascan(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataScanId is required")]
     public required TerraformValue<string> DataScanId
     {
-        get => GetArgument<TerraformValue<string>>("data_scan_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_scan_id");
         set => SetArgument("data_scan_id", value);
     }
 
@@ -1270,9 +1270,9 @@ public partial class GoogleDataplexDatascan(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1295,16 +1295,16 @@ public partial class GoogleDataplexDatascan(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -77,7 +77,7 @@ public class AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlockDynamicPr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlockDynamicPr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermSentinelAlertRuleScheduledEntityMappingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     public required TerraformValue<string> EntityType
     {
-        get => GetArgument<TerraformValue<string>>("entity_type");
+        get => GetRequiredArgument<TerraformValue<string>>("entity_type");
         set => SetArgument("entity_type", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermSentinelAlertRuleScheduledEntityMappingBlockFieldMappingBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => GetArgument<TerraformValue<string>>("column_name");
+        get => GetRequiredArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermSentinelAlertRuleScheduledEntityMappingBlockFieldMappingBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<string> Identifier
     {
-        get => GetArgument<TerraformValue<string>>("identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermSentinelAlertRuleScheduledEventGroupingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AggregationMethod is required")]
     public required TerraformValue<string> AggregationMethod
     {
-        get => GetArgument<TerraformValue<string>>("aggregation_method");
+        get => GetRequiredArgument<TerraformValue<string>>("aggregation_method");
         set => SetArgument("aggregation_method", value);
     }
 
@@ -205,7 +205,7 @@ public class AzurermSentinelAlertRuleScheduledIncidentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateIncidentEnabled is required")]
     public required TerraformValue<bool> CreateIncidentEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("create_incident_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("create_incident_enabled");
         set => SetArgument("create_incident_enabled", value);
     }
 
@@ -318,7 +318,7 @@ public class AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => GetArgument<TerraformValue<string>>("column_name");
+        get => GetRequiredArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
@@ -423,7 +423,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -439,9 +439,9 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -451,7 +451,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -461,7 +461,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -471,7 +471,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => GetArgument<TerraformValue<string>>("query");
+        get => GetRequiredArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -499,7 +499,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformValue<string> Severity
     {
-        get => GetArgument<TerraformValue<string>>("severity");
+        get => GetRequiredArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 

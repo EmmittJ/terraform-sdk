@@ -57,9 +57,9 @@ public class AwsEfsFileSystemProtectionBlock : TerraformBlock
     /// <summary>
     /// The replication_overwrite attribute.
     /// </summary>
-    public TerraformValue<string>? ReplicationOverwrite
+    public TerraformValue<string> ReplicationOverwrite
     {
-        get => GetArgument<TerraformValue<string>>("replication_overwrite");
+        get => GetArgument<TerraformValue<string>>("replication_overwrite") ?? AsReference("replication_overwrite");
         set => SetArgument("replication_overwrite", value);
     }
 
@@ -75,54 +75,54 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// <summary>
     /// The availability_zone_name attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZoneName
+    public TerraformValue<string> AvailabilityZoneName
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone_name");
+        get => GetArgument<TerraformValue<string>>("availability_zone_name") ?? AsReference("availability_zone_name");
         set => SetArgument("availability_zone_name", value);
     }
 
     /// <summary>
     /// The creation_token attribute.
     /// </summary>
-    public TerraformValue<string>? CreationToken
+    public TerraformValue<string> CreationToken
     {
-        get => GetArgument<TerraformValue<string>>("creation_token");
+        get => GetArgument<TerraformValue<string>>("creation_token") ?? AsReference("creation_token");
         set => SetArgument("creation_token", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformValue<bool>? Encrypted
+    public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The performance_mode attribute.
     /// </summary>
-    public TerraformValue<string>? PerformanceMode
+    public TerraformValue<string> PerformanceMode
     {
-        get => GetArgument<TerraformValue<string>>("performance_mode");
+        get => GetArgument<TerraformValue<string>>("performance_mode") ?? AsReference("performance_mode");
         set => SetArgument("performance_mode", value);
     }
 
@@ -138,9 +138,9 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -156,9 +156,9 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

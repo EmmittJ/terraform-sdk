@@ -23,7 +23,7 @@ public partial class AwsDatazoneGlossary(string name) : TerraformResource("aws_d
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformValue<string> DomainIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("domain_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_identifier");
         set => SetArgument("domain_identifier", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsDatazoneGlossary(string name) : TerraformResource("aws_d
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsDatazoneGlossary(string name) : TerraformResource("aws_d
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwningProjectIdentifier is required")]
     public required TerraformValue<string> OwningProjectIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("owning_project_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("owning_project_identifier");
         set => SetArgument("owning_project_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

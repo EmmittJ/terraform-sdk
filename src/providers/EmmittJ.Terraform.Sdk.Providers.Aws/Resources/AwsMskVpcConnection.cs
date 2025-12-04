@@ -14,7 +14,7 @@ public partial class AwsMskVpcConnection(string name) : TerraformResource("aws_m
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     public required TerraformValue<string> Authentication
     {
-        get => GetArgument<TerraformValue<string>>("authentication");
+        get => GetRequiredArgument<TerraformValue<string>>("authentication");
         set => SetArgument("authentication", value);
     }
 
@@ -24,25 +24,25 @@ public partial class AwsMskVpcConnection(string name) : TerraformResource("aws_m
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSubnets is required")]
     public required TerraformSet<string> ClientSubnets
     {
-        get => GetArgument<TerraformSet<string>>("client_subnets");
+        get => GetRequiredArgument<TerraformSet<string>>("client_subnets");
         set => SetArgument("client_subnets", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsMskVpcConnection(string name) : TerraformResource("aws_m
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
     public required TerraformSet<string> SecurityGroups
     {
-        get => GetArgument<TerraformSet<string>>("security_groups");
+        get => GetRequiredArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -68,9 +68,9 @@ public partial class AwsMskVpcConnection(string name) : TerraformResource("aws_m
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsMskVpcConnection(string name) : TerraformResource("aws_m
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetClusterArn is required")]
     public required TerraformValue<string> TargetClusterArn
     {
-        get => GetArgument<TerraformValue<string>>("target_cluster_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("target_cluster_arn");
         set => SetArgument("target_cluster_arn", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsMskVpcConnection(string name) : TerraformResource("aws_m
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 

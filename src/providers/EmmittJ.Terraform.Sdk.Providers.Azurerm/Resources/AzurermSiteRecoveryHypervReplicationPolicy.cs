@@ -64,16 +64,16 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationConsistentSnapshotFrequencyInHours is required")]
     public required TerraformValue<double> ApplicationConsistentSnapshotFrequencyInHours
     {
-        get => GetArgument<TerraformValue<double>>("application_consistent_snapshot_frequency_in_hours");
+        get => GetRequiredArgument<TerraformValue<double>>("application_consistent_snapshot_frequency_in_hours");
         set => SetArgument("application_consistent_snapshot_frequency_in_hours", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryPointRetentionInHours is required")]
     public required TerraformValue<double> RecoveryPointRetentionInHours
     {
-        get => GetArgument<TerraformValue<double>>("recovery_point_retention_in_hours");
+        get => GetRequiredArgument<TerraformValue<double>>("recovery_point_retention_in_hours");
         set => SetArgument("recovery_point_retention_in_hours", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformValue<string> RecoveryVaultId
     {
-        get => GetArgument<TerraformValue<string>>("recovery_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_vault_id");
         set => SetArgument("recovery_vault_id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationIntervalInSeconds is required")]
     public required TerraformValue<double> ReplicationIntervalInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("replication_interval_in_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("replication_interval_in_seconds");
         set => SetArgument("replication_interval_in_seconds", value);
     }
 

@@ -81,7 +81,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockDiskBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetRequiredArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockDiskBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockExternalIpBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterfaceName is required")]
     public required TerraformValue<string> InterfaceName
     {
-        get => GetArgument<TerraformValue<string>>("interface_name");
+        get => GetRequiredArgument<TerraformValue<string>>("interface_name");
         set => SetArgument("interface_name", value);
     }
 
@@ -197,7 +197,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockInternalIpBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterfaceName is required")]
     public required TerraformValue<string> InterfaceName
     {
-        get => GetArgument<TerraformValue<string>>("interface_name");
+        get => GetRequiredArgument<TerraformValue<string>>("interface_name");
         set => SetArgument("interface_name", value);
     }
 
@@ -286,9 +286,9 @@ public partial class GoogleComputeRegionPerInstanceConfig(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -326,25 +326,25 @@ public partial class GoogleComputeRegionPerInstanceConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the containing instance group manager is located
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -354,7 +354,7 @@ public partial class GoogleComputeRegionPerInstanceConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionInstanceGroupManager is required")]
     public required TerraformValue<string> RegionInstanceGroupManager
     {
-        get => GetArgument<TerraformValue<string>>("region_instance_group_manager");
+        get => GetRequiredArgument<TerraformValue<string>>("region_instance_group_manager");
         set => SetArgument("region_instance_group_manager", value);
     }
 

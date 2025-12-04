@@ -34,7 +34,7 @@ public class AwsBcmdataexportsExportExportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsBcmdataexportsExportExportBlockDataQueryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStatement is required")]
     public required TerraformValue<string> QueryStatement
     {
-        get => GetArgument<TerraformValue<string>>("query_statement");
+        get => GetRequiredArgument<TerraformValue<string>>("query_statement");
         set => SetArgument("query_statement", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Prefix is required")]
     public required TerraformValue<string> S3Prefix
     {
-        get => GetArgument<TerraformValue<string>>("s3_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_prefix");
         set => SetArgument("s3_prefix", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Region is required")]
     public required TerraformValue<string> S3Region
     {
-        get => GetArgument<TerraformValue<string>>("s3_region");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_region");
         set => SetArgument("s3_region", value);
     }
 
@@ -190,7 +190,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compression is required")]
     public required TerraformValue<string> Compression
     {
-        get => GetArgument<TerraformValue<string>>("compression");
+        get => GetRequiredArgument<TerraformValue<string>>("compression");
         set => SetArgument("compression", value);
     }
 
@@ -200,7 +200,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetRequiredArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputType is required")]
     public required TerraformValue<string> OutputType
     {
-        get => GetArgument<TerraformValue<string>>("output_type");
+        get => GetRequiredArgument<TerraformValue<string>>("output_type");
         set => SetArgument("output_type", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Overwrite is required")]
     public required TerraformValue<string> Overwrite
     {
-        get => GetArgument<TerraformValue<string>>("overwrite");
+        get => GetRequiredArgument<TerraformValue<string>>("overwrite");
         set => SetArgument("overwrite", value);
     }
 
@@ -243,7 +243,7 @@ public class AwsBcmdataexportsExportExportBlockRefreshCadenceBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 

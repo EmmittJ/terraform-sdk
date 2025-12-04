@@ -37,7 +37,7 @@ public class AzurermStreamAnalyticsStreamInputEventhubSerializationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -124,16 +124,16 @@ public partial class AzurermStreamAnalyticsStreamInputEventhub(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformValue<string> EventhubName
     {
-        get => GetArgument<TerraformValue<string>>("eventhub_name");
+        get => GetRequiredArgument<TerraformValue<string>>("eventhub_name");
         set => SetArgument("eventhub_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermStreamAnalyticsStreamInputEventhub(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermStreamAnalyticsStreamInputEventhub(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermStreamAnalyticsStreamInputEventhub(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusNamespace is required")]
     public required TerraformValue<string> ServicebusNamespace
     {
-        get => GetArgument<TerraformValue<string>>("servicebus_namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("servicebus_namespace");
         set => SetArgument("servicebus_namespace", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermStreamAnalyticsStreamInputEventhub(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
-        get => GetArgument<TerraformValue<string>>("stream_analytics_job_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_analytics_job_name");
         set => SetArgument("stream_analytics_job_name", value);
     }
 

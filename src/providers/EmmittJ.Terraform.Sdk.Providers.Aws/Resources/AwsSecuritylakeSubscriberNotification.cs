@@ -68,7 +68,7 @@ public class AwsSecuritylakeSubscriberNotificationConfigurationBlockHttpsNotific
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => GetArgument<TerraformValue<string>>("endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsSecuritylakeSubscriberNotificationConfigurationBlockHttpsNotific
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRoleArn is required")]
     public required TerraformValue<string> TargetRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("target_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("target_role_arn");
         set => SetArgument("target_role_arn", value);
     }
 
@@ -116,9 +116,9 @@ public partial class AwsSecuritylakeSubscriberNotification(string name) : Terraf
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AwsSecuritylakeSubscriberNotification(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriberId is required")]
     public required TerraformValue<string> SubscriberId
     {
-        get => GetArgument<TerraformValue<string>>("subscriber_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subscriber_id");
         set => SetArgument("subscriber_id", value);
     }
 

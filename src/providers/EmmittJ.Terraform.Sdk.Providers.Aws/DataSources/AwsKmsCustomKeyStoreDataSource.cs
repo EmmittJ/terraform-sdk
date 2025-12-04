@@ -11,36 +11,36 @@ public partial class AwsKmsCustomKeyStoreDataSource(string name) : TerraformData
     /// <summary>
     /// The custom_key_store_id attribute.
     /// </summary>
-    public TerraformValue<string>? CustomKeyStoreId
+    public TerraformValue<string> CustomKeyStoreId
     {
-        get => GetArgument<TerraformValue<string>>("custom_key_store_id");
+        get => GetArgument<TerraformValue<string>>("custom_key_store_id") ?? AsReference("custom_key_store_id");
         set => SetArgument("custom_key_store_id", value);
     }
 
     /// <summary>
     /// The custom_key_store_name attribute.
     /// </summary>
-    public TerraformValue<string>? CustomKeyStoreName
+    public TerraformValue<string> CustomKeyStoreName
     {
-        get => GetArgument<TerraformValue<string>>("custom_key_store_name");
+        get => GetArgument<TerraformValue<string>>("custom_key_store_name") ?? AsReference("custom_key_store_name");
         set => SetArgument("custom_key_store_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

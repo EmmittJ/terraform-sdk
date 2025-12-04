@@ -67,16 +67,16 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallEndpoint is required")]
     public required TerraformValue<string> FirewallEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("firewall_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("firewall_endpoint");
         set => SetArgument("firewall_endpoint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -119,7 +119,7 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 

@@ -28,7 +28,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryType is required")]
     public required TerraformValue<string> DirectoryType
     {
-        get => GetArgument<TerraformValue<string>>("directory_type");
+        get => GetRequiredArgument<TerraformValue<string>>("directory_type");
         set => SetArgument("directory_type", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlockActiveDirectoryBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainGuid is required")]
     public required TerraformValue<string> DomainGuid
     {
-        get => GetArgument<TerraformValue<string>>("domain_guid");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_guid");
         set => SetArgument("domain_guid", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlockActiveDirectoryBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -146,9 +146,9 @@ public class AzurermStorageAccountBlobPropertiesBlock : TerraformBlock
     /// <summary>
     /// The default_service_version attribute.
     /// </summary>
-    public TerraformValue<string>? DefaultServiceVersion
+    public TerraformValue<string> DefaultServiceVersion
     {
-        get => GetArgument<TerraformValue<string>>("default_service_version");
+        get => GetArgument<TerraformValue<string>>("default_service_version") ?? AsReference("default_service_version");
         set => SetArgument("default_service_version", value);
     }
 
@@ -291,7 +291,7 @@ public class AzurermStorageAccountBlobPropertiesBlockCorsRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
     public required TerraformValue<double> MaxAgeInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("max_age_in_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("max_age_in_seconds");
         set => SetArgument("max_age_in_seconds", value);
     }
 
@@ -345,7 +345,7 @@ public class AzurermStorageAccountBlobPropertiesBlockRestorePolicyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
     public required TerraformValue<double> Days
     {
-        get => GetArgument<TerraformValue<double>>("days");
+        get => GetRequiredArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -369,7 +369,7 @@ public class AzurermStorageAccountCustomDomainBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -420,7 +420,7 @@ public class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserAssignedIdentityId is required")]
     public required TerraformValue<string> UserAssignedIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
+        get => GetRequiredArgument<TerraformValue<string>>("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 
@@ -465,7 +465,7 @@ public class AzurermStorageAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -489,7 +489,7 @@ public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowProtectedAppendWrites is required")]
     public required TerraformValue<bool> AllowProtectedAppendWrites
     {
-        get => GetArgument<TerraformValue<bool>>("allow_protected_append_writes");
+        get => GetRequiredArgument<TerraformValue<bool>>("allow_protected_append_writes");
         set => SetArgument("allow_protected_append_writes", value);
     }
 
@@ -499,7 +499,7 @@ public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeriodSinceCreationInDays is required")]
     public required TerraformValue<double> PeriodSinceCreationInDays
     {
-        get => GetArgument<TerraformValue<double>>("period_since_creation_in_days");
+        get => GetRequiredArgument<TerraformValue<double>>("period_since_creation_in_days");
         set => SetArgument("period_since_creation_in_days", value);
     }
 
@@ -509,7 +509,7 @@ public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetRequiredArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -530,9 +530,9 @@ public class AzurermStorageAccountNetworkRulesBlock : TerraformBlock
     /// <summary>
     /// The bypass attribute.
     /// </summary>
-    public TerraformSet<string>? Bypass
+    public TerraformSet<string> Bypass
     {
-        get => GetArgument<TerraformSet<string>>("bypass");
+        get => GetArgument<TerraformSet<string>>("bypass") ?? AsReference("bypass");
         set => SetArgument("bypass", value);
     }
 
@@ -542,25 +542,25 @@ public class AzurermStorageAccountNetworkRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformValue<string> DefaultAction
     {
-        get => GetArgument<TerraformValue<string>>("default_action");
+        get => GetRequiredArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
     /// <summary>
     /// The ip_rules attribute.
     /// </summary>
-    public TerraformSet<string>? IpRules
+    public TerraformSet<string> IpRules
     {
-        get => GetArgument<TerraformSet<string>>("ip_rules");
+        get => GetArgument<TerraformSet<string>>("ip_rules") ?? AsReference("ip_rules");
         set => SetArgument("ip_rules", value);
     }
 
     /// <summary>
     /// The virtual_network_subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string>? VirtualNetworkSubnetIds
+    public TerraformSet<string> VirtualNetworkSubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("virtual_network_subnet_ids");
+        get => GetArgument<TerraformSet<string>>("virtual_network_subnet_ids") ?? AsReference("virtual_network_subnet_ids");
         set => SetArgument("virtual_network_subnet_ids", value);
     }
 
@@ -592,16 +592,16 @@ public class AzurermStorageAccountNetworkRulesBlockPrivateLinkAccessBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointResourceId is required")]
     public required TerraformValue<string> EndpointResourceId
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_resource_id");
         set => SetArgument("endpoint_resource_id", value);
     }
 
     /// <summary>
     /// The endpoint_tenant_id attribute.
     /// </summary>
-    public TerraformValue<string>? EndpointTenantId
+    public TerraformValue<string> EndpointTenantId
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_tenant_id");
+        get => GetArgument<TerraformValue<string>>("endpoint_tenant_id") ?? AsReference("endpoint_tenant_id");
         set => SetArgument("endpoint_tenant_id", value);
     }
 
@@ -719,7 +719,7 @@ public class AzurermStorageAccountQueuePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
     public required TerraformValue<double> MaxAgeInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("max_age_in_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("max_age_in_seconds");
         set => SetArgument("max_age_in_seconds", value);
     }
 
@@ -742,7 +742,7 @@ public class AzurermStorageAccountQueuePropertiesBlockHourMetricsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -770,7 +770,7 @@ public class AzurermStorageAccountQueuePropertiesBlockHourMetricsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -793,7 +793,7 @@ public class AzurermStorageAccountQueuePropertiesBlockLoggingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
     public required TerraformValue<bool> Delete
     {
-        get => GetArgument<TerraformValue<bool>>("delete");
+        get => GetRequiredArgument<TerraformValue<bool>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -803,7 +803,7 @@ public class AzurermStorageAccountQueuePropertiesBlockLoggingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
     public required TerraformValue<bool> Read
     {
-        get => GetArgument<TerraformValue<bool>>("read");
+        get => GetRequiredArgument<TerraformValue<bool>>("read");
         set => SetArgument("read", value);
     }
 
@@ -822,7 +822,7 @@ public class AzurermStorageAccountQueuePropertiesBlockLoggingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -832,7 +832,7 @@ public class AzurermStorageAccountQueuePropertiesBlockLoggingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
     public required TerraformValue<bool> Write
     {
-        get => GetArgument<TerraformValue<bool>>("write");
+        get => GetRequiredArgument<TerraformValue<bool>>("write");
         set => SetArgument("write", value);
     }
 
@@ -855,7 +855,7 @@ public class AzurermStorageAccountQueuePropertiesBlockMinuteMetricsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -883,7 +883,7 @@ public class AzurermStorageAccountQueuePropertiesBlockMinuteMetricsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -957,7 +957,7 @@ public class AzurermStorageAccountSasPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpirationPeriod is required")]
     public required TerraformValue<string> ExpirationPeriod
     {
-        get => GetArgument<TerraformValue<string>>("expiration_period");
+        get => GetRequiredArgument<TerraformValue<string>>("expiration_period");
         set => SetArgument("expiration_period", value);
     }
 
@@ -1064,7 +1064,7 @@ public class AzurermStorageAccountSharePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
     public required TerraformValue<double> MaxAgeInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("max_age_in_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("max_age_in_seconds");
         set => SetArgument("max_age_in_seconds", value);
     }
 
@@ -1243,9 +1243,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    public TerraformValue<string>? AccessTier
+    public TerraformValue<string> AccessTier
     {
-        get => GetArgument<TerraformValue<string>>("access_tier");
+        get => GetArgument<TerraformValue<string>>("access_tier") ?? AsReference("access_tier");
         set => SetArgument("access_tier", value);
     }
 
@@ -1264,7 +1264,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountReplicationType is required")]
     public required TerraformValue<string> AccountReplicationType
     {
-        get => GetArgument<TerraformValue<string>>("account_replication_type");
+        get => GetRequiredArgument<TerraformValue<string>>("account_replication_type");
         set => SetArgument("account_replication_type", value);
     }
 
@@ -1274,7 +1274,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountTier is required")]
     public required TerraformValue<string> AccountTier
     {
-        get => GetArgument<TerraformValue<string>>("account_tier");
+        get => GetRequiredArgument<TerraformValue<string>>("account_tier");
         set => SetArgument("account_tier", value);
     }
 
@@ -1344,9 +1344,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1371,9 +1371,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// <summary>
     /// The large_file_share_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? LargeFileShareEnabled
+    public TerraformValue<bool> LargeFileShareEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("large_file_share_enabled");
+        get => GetArgument<TerraformValue<bool>>("large_file_share_enabled") ?? AsReference("large_file_share_enabled");
         set => SetArgument("large_file_share_enabled", value);
     }
 
@@ -1392,7 +1392,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1411,7 +1411,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1457,7 +1457,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

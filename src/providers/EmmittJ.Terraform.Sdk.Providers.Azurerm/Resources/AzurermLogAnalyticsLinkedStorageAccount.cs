@@ -64,16 +64,16 @@ public partial class AzurermLogAnalyticsLinkedStorageAccount(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceTypeAttribute is required")]
     public required TerraformValue<string> DataSourceTypeAttribute
     {
-        get => GetArgument<TerraformValue<string>>("data_source_type");
+        get => GetRequiredArgument<TerraformValue<string>>("data_source_type");
         set => SetArgument("data_source_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermLogAnalyticsLinkedStorageAccount(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -93,25 +93,25 @@ public partial class AzurermLogAnalyticsLinkedStorageAccount(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountIds is required")]
     public required TerraformSet<string> StorageAccountIds
     {
-        get => GetArgument<TerraformSet<string>>("storage_account_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("storage_account_ids");
         set => SetArgument("storage_account_ids", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformValue<string>? WorkspaceId
+    public TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id") ?? AsReference("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
     /// <summary>
     /// The workspace_resource_id attribute.
     /// </summary>
-    public TerraformValue<string>? WorkspaceResourceId
+    public TerraformValue<string> WorkspaceResourceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_resource_id");
+        get => GetArgument<TerraformValue<string>>("workspace_resource_id") ?? AsReference("workspace_resource_id");
         set => SetArgument("workspace_resource_id", value);
     }
 

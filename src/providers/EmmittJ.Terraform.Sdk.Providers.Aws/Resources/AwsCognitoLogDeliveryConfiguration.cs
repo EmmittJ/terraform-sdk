@@ -19,7 +19,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSource is required")]
     public required TerraformValue<string> EventSource
     {
-        get => GetArgument<TerraformValue<string>>("event_source");
+        get => GetRequiredArgument<TerraformValue<string>>("event_source");
         set => SetArgument("event_source", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogLevel is required")]
     public required TerraformValue<string> LogLevel
     {
-        get => GetArgument<TerraformValue<string>>("log_level");
+        get => GetRequiredArgument<TerraformValue<string>>("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -138,9 +138,9 @@ public partial class AwsCognitoLogDeliveryConfiguration(string name) : Terraform
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsCognitoLogDeliveryConfiguration(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => GetArgument<TerraformValue<string>>("user_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 

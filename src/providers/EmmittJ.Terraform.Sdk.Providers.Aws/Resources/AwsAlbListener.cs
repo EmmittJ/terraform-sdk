@@ -16,9 +16,9 @@ public class AwsAlbListenerDefaultActionBlock : TerraformBlock
     /// <summary>
     /// The order attribute.
     /// </summary>
-    public TerraformValue<double>? Order
+    public TerraformValue<double> Order
     {
-        get => GetArgument<TerraformValue<double>>("order");
+        get => GetArgument<TerraformValue<double>>("order") ?? AsReference("order");
         set => SetArgument("order", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsAlbListenerDefaultActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -116,36 +116,36 @@ public class AwsAlbListenerDefaultActionBlockAuthenticateCognitoBlock : Terrafor
     /// <summary>
     /// The on_unauthenticated_request attribute.
     /// </summary>
-    public TerraformValue<string>? OnUnauthenticatedRequest
+    public TerraformValue<string> OnUnauthenticatedRequest
     {
-        get => GetArgument<TerraformValue<string>>("on_unauthenticated_request");
+        get => GetArgument<TerraformValue<string>>("on_unauthenticated_request") ?? AsReference("on_unauthenticated_request");
         set => SetArgument("on_unauthenticated_request", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformValue<string>? Scope
+    public TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetArgument<TerraformValue<string>>("scope") ?? AsReference("scope");
         set => SetArgument("scope", value);
     }
 
     /// <summary>
     /// The session_cookie_name attribute.
     /// </summary>
-    public TerraformValue<string>? SessionCookieName
+    public TerraformValue<string> SessionCookieName
     {
-        get => GetArgument<TerraformValue<string>>("session_cookie_name");
+        get => GetArgument<TerraformValue<string>>("session_cookie_name") ?? AsReference("session_cookie_name");
         set => SetArgument("session_cookie_name", value);
     }
 
     /// <summary>
     /// The session_timeout attribute.
     /// </summary>
-    public TerraformValue<double>? SessionTimeout
+    public TerraformValue<double> SessionTimeout
     {
-        get => GetArgument<TerraformValue<double>>("session_timeout");
+        get => GetArgument<TerraformValue<double>>("session_timeout") ?? AsReference("session_timeout");
         set => SetArgument("session_timeout", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsAlbListenerDefaultActionBlockAuthenticateCognitoBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolArn is required")]
     public required TerraformValue<string> UserPoolArn
     {
-        get => GetArgument<TerraformValue<string>>("user_pool_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("user_pool_arn");
         set => SetArgument("user_pool_arn", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsAlbListenerDefaultActionBlockAuthenticateCognitoBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolClientId is required")]
     public required TerraformValue<string> UserPoolClientId
     {
-        get => GetArgument<TerraformValue<string>>("user_pool_client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("user_pool_client_id");
         set => SetArgument("user_pool_client_id", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsAlbListenerDefaultActionBlockAuthenticateCognitoBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolDomain is required")]
     public required TerraformValue<string> UserPoolDomain
     {
-        get => GetArgument<TerraformValue<string>>("user_pool_domain");
+        get => GetRequiredArgument<TerraformValue<string>>("user_pool_domain");
         set => SetArgument("user_pool_domain", value);
     }
 
@@ -207,7 +207,7 @@ public class AwsAlbListenerDefaultActionBlockAuthenticateOidcBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformValue<string> AuthorizationEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("authorization_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("authorization_endpoint");
         set => SetArgument("authorization_endpoint", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsAlbListenerDefaultActionBlockAuthenticateOidcBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsAlbListenerDefaultActionBlockAuthenticateOidcBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -237,43 +237,43 @@ public class AwsAlbListenerDefaultActionBlockAuthenticateOidcBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => GetArgument<TerraformValue<string>>("issuer");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
     /// <summary>
     /// The on_unauthenticated_request attribute.
     /// </summary>
-    public TerraformValue<string>? OnUnauthenticatedRequest
+    public TerraformValue<string> OnUnauthenticatedRequest
     {
-        get => GetArgument<TerraformValue<string>>("on_unauthenticated_request");
+        get => GetArgument<TerraformValue<string>>("on_unauthenticated_request") ?? AsReference("on_unauthenticated_request");
         set => SetArgument("on_unauthenticated_request", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformValue<string>? Scope
+    public TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetArgument<TerraformValue<string>>("scope") ?? AsReference("scope");
         set => SetArgument("scope", value);
     }
 
     /// <summary>
     /// The session_cookie_name attribute.
     /// </summary>
-    public TerraformValue<string>? SessionCookieName
+    public TerraformValue<string> SessionCookieName
     {
-        get => GetArgument<TerraformValue<string>>("session_cookie_name");
+        get => GetArgument<TerraformValue<string>>("session_cookie_name") ?? AsReference("session_cookie_name");
         set => SetArgument("session_cookie_name", value);
     }
 
     /// <summary>
     /// The session_timeout attribute.
     /// </summary>
-    public TerraformValue<double>? SessionTimeout
+    public TerraformValue<double> SessionTimeout
     {
-        get => GetArgument<TerraformValue<double>>("session_timeout");
+        get => GetArgument<TerraformValue<double>>("session_timeout") ?? AsReference("session_timeout");
         set => SetArgument("session_timeout", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsAlbListenerDefaultActionBlockAuthenticateOidcBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformValue<string> TokenEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("token_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -293,7 +293,7 @@ public class AwsAlbListenerDefaultActionBlockAuthenticateOidcBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserInfoEndpoint is required")]
     public required TerraformValue<string> UserInfoEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("user_info_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("user_info_endpoint");
         set => SetArgument("user_info_endpoint", value);
     }
 
@@ -316,7 +316,7 @@ public class AwsAlbListenerDefaultActionBlockFixedResponseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => GetArgument<TerraformValue<string>>("content_type");
+        get => GetRequiredArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -332,9 +332,9 @@ public class AwsAlbListenerDefaultActionBlockFixedResponseBlock : TerraformBlock
     /// <summary>
     /// The status_code attribute.
     /// </summary>
-    public TerraformValue<string>? StatusCode
+    public TerraformValue<string> StatusCode
     {
-        get => GetArgument<TerraformValue<string>>("status_code");
+        get => GetArgument<TerraformValue<string>>("status_code") ?? AsReference("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -393,7 +393,7 @@ public class AwsAlbListenerDefaultActionBlockForwardBlockStickinessBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<double> Duration
     {
-        get => GetArgument<TerraformValue<double>>("duration");
+        get => GetRequiredArgument<TerraformValue<double>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -425,7 +425,7 @@ public class AwsAlbListenerDefaultActionBlockForwardBlockTargetGroupBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => GetArgument<TerraformValue<string>>("arn");
+        get => GetRequiredArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -502,7 +502,7 @@ public class AwsAlbListenerDefaultActionBlockRedirectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformValue<string> StatusCode
     {
-        get => GetArgument<TerraformValue<string>>("status_code");
+        get => GetRequiredArgument<TerraformValue<string>>("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -523,9 +523,9 @@ public class AwsAlbListenerMutualAuthenticationBlock : TerraformBlock
     /// <summary>
     /// The advertise_trust_store_ca_names attribute.
     /// </summary>
-    public TerraformValue<string>? AdvertiseTrustStoreCaNames
+    public TerraformValue<string> AdvertiseTrustStoreCaNames
     {
-        get => GetArgument<TerraformValue<string>>("advertise_trust_store_ca_names");
+        get => GetArgument<TerraformValue<string>>("advertise_trust_store_ca_names") ?? AsReference("advertise_trust_store_ca_names");
         set => SetArgument("advertise_trust_store_ca_names", value);
     }
 
@@ -544,7 +544,7 @@ public class AwsAlbListenerMutualAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -619,9 +619,9 @@ public partial class AwsAlbListener(string name) : TerraformResource("aws_alb_li
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -631,7 +631,7 @@ public partial class AwsAlbListener(string name) : TerraformResource("aws_alb_li
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerArn is required")]
     public required TerraformValue<string> LoadBalancerArn
     {
-        get => GetArgument<TerraformValue<string>>("load_balancer_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("load_balancer_arn");
         set => SetArgument("load_balancer_arn", value);
     }
 
@@ -647,198 +647,198 @@ public partial class AwsAlbListener(string name) : TerraformResource("aws_alb_li
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformValue<string>? Protocol
+    public TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetArgument<TerraformValue<string>>("protocol") ?? AsReference("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_header_name attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpRequestXAmznMtlsClientcertHeaderName
+    public TerraformValue<string> RoutingHttpRequestXAmznMtlsClientcertHeaderName
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_header_name");
+        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_header_name") ?? AsReference("routing_http_request_x_amzn_mtls_clientcert_header_name");
         set => SetArgument("routing_http_request_x_amzn_mtls_clientcert_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_issuer_header_name attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName
+    public TerraformValue<string> RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_issuer_header_name");
+        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_issuer_header_name") ?? AsReference("routing_http_request_x_amzn_mtls_clientcert_issuer_header_name");
         set => SetArgument("routing_http_request_x_amzn_mtls_clientcert_issuer_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_leaf_header_name attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName
+    public TerraformValue<string> RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_leaf_header_name");
+        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_leaf_header_name") ?? AsReference("routing_http_request_x_amzn_mtls_clientcert_leaf_header_name");
         set => SetArgument("routing_http_request_x_amzn_mtls_clientcert_leaf_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName
+    public TerraformValue<string> RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name");
+        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name") ?? AsReference("routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name");
         set => SetArgument("routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_subject_header_name attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName
+    public TerraformValue<string> RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_subject_header_name");
+        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_subject_header_name") ?? AsReference("routing_http_request_x_amzn_mtls_clientcert_subject_header_name");
         set => SetArgument("routing_http_request_x_amzn_mtls_clientcert_subject_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_validity_header_name attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName
+    public TerraformValue<string> RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_validity_header_name");
+        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_mtls_clientcert_validity_header_name") ?? AsReference("routing_http_request_x_amzn_mtls_clientcert_validity_header_name");
         set => SetArgument("routing_http_request_x_amzn_mtls_clientcert_validity_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_tls_cipher_suite_header_name attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpRequestXAmznTlsCipherSuiteHeaderName
+    public TerraformValue<string> RoutingHttpRequestXAmznTlsCipherSuiteHeaderName
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_tls_cipher_suite_header_name");
+        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_tls_cipher_suite_header_name") ?? AsReference("routing_http_request_x_amzn_tls_cipher_suite_header_name");
         set => SetArgument("routing_http_request_x_amzn_tls_cipher_suite_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_tls_version_header_name attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpRequestXAmznTlsVersionHeaderName
+    public TerraformValue<string> RoutingHttpRequestXAmznTlsVersionHeaderName
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_tls_version_header_name");
+        get => GetArgument<TerraformValue<string>>("routing_http_request_x_amzn_tls_version_header_name") ?? AsReference("routing_http_request_x_amzn_tls_version_header_name");
         set => SetArgument("routing_http_request_x_amzn_tls_version_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_allow_credentials_header_value attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpResponseAccessControlAllowCredentialsHeaderValue
+    public TerraformValue<string> RoutingHttpResponseAccessControlAllowCredentialsHeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_allow_credentials_header_value");
+        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_allow_credentials_header_value") ?? AsReference("routing_http_response_access_control_allow_credentials_header_value");
         set => SetArgument("routing_http_response_access_control_allow_credentials_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_allow_headers_header_value attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpResponseAccessControlAllowHeadersHeaderValue
+    public TerraformValue<string> RoutingHttpResponseAccessControlAllowHeadersHeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_allow_headers_header_value");
+        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_allow_headers_header_value") ?? AsReference("routing_http_response_access_control_allow_headers_header_value");
         set => SetArgument("routing_http_response_access_control_allow_headers_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_allow_methods_header_value attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpResponseAccessControlAllowMethodsHeaderValue
+    public TerraformValue<string> RoutingHttpResponseAccessControlAllowMethodsHeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_allow_methods_header_value");
+        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_allow_methods_header_value") ?? AsReference("routing_http_response_access_control_allow_methods_header_value");
         set => SetArgument("routing_http_response_access_control_allow_methods_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_allow_origin_header_value attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpResponseAccessControlAllowOriginHeaderValue
+    public TerraformValue<string> RoutingHttpResponseAccessControlAllowOriginHeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_allow_origin_header_value");
+        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_allow_origin_header_value") ?? AsReference("routing_http_response_access_control_allow_origin_header_value");
         set => SetArgument("routing_http_response_access_control_allow_origin_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_expose_headers_header_value attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpResponseAccessControlExposeHeadersHeaderValue
+    public TerraformValue<string> RoutingHttpResponseAccessControlExposeHeadersHeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_expose_headers_header_value");
+        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_expose_headers_header_value") ?? AsReference("routing_http_response_access_control_expose_headers_header_value");
         set => SetArgument("routing_http_response_access_control_expose_headers_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_max_age_header_value attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpResponseAccessControlMaxAgeHeaderValue
+    public TerraformValue<string> RoutingHttpResponseAccessControlMaxAgeHeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_max_age_header_value");
+        get => GetArgument<TerraformValue<string>>("routing_http_response_access_control_max_age_header_value") ?? AsReference("routing_http_response_access_control_max_age_header_value");
         set => SetArgument("routing_http_response_access_control_max_age_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_content_security_policy_header_value attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpResponseContentSecurityPolicyHeaderValue
+    public TerraformValue<string> RoutingHttpResponseContentSecurityPolicyHeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_response_content_security_policy_header_value");
+        get => GetArgument<TerraformValue<string>>("routing_http_response_content_security_policy_header_value") ?? AsReference("routing_http_response_content_security_policy_header_value");
         set => SetArgument("routing_http_response_content_security_policy_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_server_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? RoutingHttpResponseServerEnabled
+    public TerraformValue<bool> RoutingHttpResponseServerEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("routing_http_response_server_enabled");
+        get => GetArgument<TerraformValue<bool>>("routing_http_response_server_enabled") ?? AsReference("routing_http_response_server_enabled");
         set => SetArgument("routing_http_response_server_enabled", value);
     }
 
     /// <summary>
     /// The routing_http_response_strict_transport_security_header_value attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpResponseStrictTransportSecurityHeaderValue
+    public TerraformValue<string> RoutingHttpResponseStrictTransportSecurityHeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_response_strict_transport_security_header_value");
+        get => GetArgument<TerraformValue<string>>("routing_http_response_strict_transport_security_header_value") ?? AsReference("routing_http_response_strict_transport_security_header_value");
         set => SetArgument("routing_http_response_strict_transport_security_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_x_content_type_options_header_value attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpResponseXContentTypeOptionsHeaderValue
+    public TerraformValue<string> RoutingHttpResponseXContentTypeOptionsHeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_response_x_content_type_options_header_value");
+        get => GetArgument<TerraformValue<string>>("routing_http_response_x_content_type_options_header_value") ?? AsReference("routing_http_response_x_content_type_options_header_value");
         set => SetArgument("routing_http_response_x_content_type_options_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_x_frame_options_header_value attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingHttpResponseXFrameOptionsHeaderValue
+    public TerraformValue<string> RoutingHttpResponseXFrameOptionsHeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("routing_http_response_x_frame_options_header_value");
+        get => GetArgument<TerraformValue<string>>("routing_http_response_x_frame_options_header_value") ?? AsReference("routing_http_response_x_frame_options_header_value");
         set => SetArgument("routing_http_response_x_frame_options_header_value", value);
     }
 
     /// <summary>
     /// The ssl_policy attribute.
     /// </summary>
-    public TerraformValue<string>? SslPolicy
+    public TerraformValue<string> SslPolicy
     {
-        get => GetArgument<TerraformValue<string>>("ssl_policy");
+        get => GetArgument<TerraformValue<string>>("ssl_policy") ?? AsReference("ssl_policy");
         set => SetArgument("ssl_policy", value);
     }
 
@@ -854,18 +854,18 @@ public partial class AwsAlbListener(string name) : TerraformResource("aws_alb_li
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The tcp_idle_timeout_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? TcpIdleTimeoutSeconds
+    public TerraformValue<double> TcpIdleTimeoutSeconds
     {
-        get => GetArgument<TerraformValue<double>>("tcp_idle_timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("tcp_idle_timeout_seconds") ?? AsReference("tcp_idle_timeout_seconds");
         set => SetArgument("tcp_idle_timeout_seconds", value);
     }
 

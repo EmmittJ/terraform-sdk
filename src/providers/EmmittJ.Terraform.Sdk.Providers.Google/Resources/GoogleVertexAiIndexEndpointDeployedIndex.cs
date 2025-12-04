@@ -18,9 +18,9 @@ public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : T
     /// 
     /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale the model to that many replicas is guaranteed (barring service outages). If traffic against the DeployedModel increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, a no upper bound for scaling under heavy traffic will be assume, though Vertex AI may be unable to scale beyond certain replica number.
     /// </summary>
-    public TerraformValue<double>? MaxReplicaCount
+    public TerraformValue<double> MaxReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("max_replica_count");
+        get => GetArgument<TerraformValue<double>>("max_replica_count") ?? AsReference("max_replica_count");
         set => SetArgument("max_replica_count", value);
     }
 
@@ -29,9 +29,9 @@ public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : T
     /// 
     /// If traffic against it increases, it may dynamically be deployed onto more replicas up to [maxReplicaCount](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/AutomaticResources#FIELDS.max_replica_count), and as traffic decreases, some of these extra replicas may be freed. If the requested value is too large, the deployment will error.
     /// </summary>
-    public TerraformValue<double>? MinReplicaCount
+    public TerraformValue<double> MinReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("min_replica_count");
+        get => GetArgument<TerraformValue<double>>("min_replica_count") ?? AsReference("min_replica_count");
         set => SetArgument("min_replica_count", value);
     }
 
@@ -52,9 +52,9 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : T
     /// <summary>
     /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If maxReplicaCount is not set, the default value is minReplicaCount
     /// </summary>
-    public TerraformValue<double>? MaxReplicaCount
+    public TerraformValue<double> MaxReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("max_replica_count");
+        get => GetArgument<TerraformValue<double>>("max_replica_count") ?? AsReference("max_replica_count");
         set => SetArgument("max_replica_count", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicaCount is required")]
     public required TerraformValue<double> MinReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("min_replica_count");
+        get => GetRequiredArgument<TerraformValue<double>>("min_replica_count");
         set => SetArgument("min_replica_count", value);
     }
 
@@ -220,7 +220,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeployedIndexId is required")]
     public required TerraformValue<string> DeployedIndexId
     {
-        get => GetArgument<TerraformValue<string>>("deployed_index_id");
+        get => GetRequiredArgument<TerraformValue<string>>("deployed_index_id");
         set => SetArgument("deployed_index_id", value);
     }
 
@@ -256,9 +256,9 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -268,7 +268,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
     public required TerraformValue<string> Index
     {
-        get => GetArgument<TerraformValue<string>>("index");
+        get => GetRequiredArgument<TerraformValue<string>>("index");
         set => SetArgument("index", value);
     }
 
@@ -279,7 +279,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexEndpoint is required")]
     public required TerraformValue<string> IndexEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("index_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("index_endpoint");
         set => SetArgument("index_endpoint", value);
     }
 

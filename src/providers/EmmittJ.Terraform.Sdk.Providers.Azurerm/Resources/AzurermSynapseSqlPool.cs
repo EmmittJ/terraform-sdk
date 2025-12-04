@@ -19,7 +19,7 @@ public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PointInTime is required")]
     public required TerraformValue<string> PointInTime
     {
-        get => GetArgument<TerraformValue<string>>("point_in_time");
+        get => GetRequiredArgument<TerraformValue<string>>("point_in_time");
         set => SetArgument("point_in_time", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
     public required TerraformValue<string> SourceDatabaseId
     {
-        get => GetArgument<TerraformValue<string>>("source_database_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_database_id");
         set => SetArgument("source_database_id", value);
     }
 
@@ -95,9 +95,9 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    public TerraformValue<string>? Collation
+    public TerraformValue<string> Collation
     {
-        get => GetArgument<TerraformValue<string>>("collation");
+        get => GetArgument<TerraformValue<string>>("collation") ?? AsReference("collation");
         set => SetArgument("collation", value);
     }
 
@@ -131,9 +131,9 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
     public required TerraformValue<string> StorageAccountType
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_type");
         set => SetArgument("storage_account_type", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("synapse_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("synapse_workspace_id");
         set => SetArgument("synapse_workspace_id", value);
     }
 

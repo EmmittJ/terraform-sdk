@@ -46,7 +46,7 @@ public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAddresses is required")]
     public required TerraformSet<string> OperatorAddresses
     {
-        get => GetArgument<TerraformSet<string>>("operator_addresses");
+        get => GetRequiredArgument<TerraformSet<string>>("operator_addresses");
         set => SetArgument("operator_addresses", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermVoiceServicesCommunicationsGateway(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Codecs is required")]
     public required TerraformValue<string> Codecs
     {
-        get => GetArgument<TerraformValue<string>>("codecs");
+        get => GetRequiredArgument<TerraformValue<string>>("codecs");
         set => SetArgument("codecs", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AzurermVoiceServicesCommunicationsGateway(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connectivity is required")]
     public required TerraformValue<string> Connectivity
     {
-        get => GetArgument<TerraformValue<string>>("connectivity");
+        get => GetRequiredArgument<TerraformValue<string>>("connectivity");
         set => SetArgument("connectivity", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermVoiceServicesCommunicationsGateway(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "E911Type is required")]
     public required TerraformValue<string> E911Type
     {
-        get => GetArgument<TerraformValue<string>>("e911_type");
+        get => GetRequiredArgument<TerraformValue<string>>("e911_type");
         set => SetArgument("e911_type", value);
     }
 
@@ -179,9 +179,9 @@ public partial class AzurermVoiceServicesCommunicationsGateway(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermVoiceServicesCommunicationsGateway(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AzurermVoiceServicesCommunicationsGateway(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -239,7 +239,7 @@ public partial class AzurermVoiceServicesCommunicationsGateway(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

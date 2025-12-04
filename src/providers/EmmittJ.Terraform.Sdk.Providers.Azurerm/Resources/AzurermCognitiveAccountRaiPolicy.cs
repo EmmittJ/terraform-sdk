@@ -19,7 +19,7 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockEnabled is required")]
     public required TerraformValue<bool> BlockEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("block_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("block_enabled");
         set => SetArgument("block_enabled", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterEnabled is required")]
     public required TerraformValue<bool> FilterEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("filter_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("filter_enabled");
         set => SetArgument("filter_enabled", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeverityThreshold is required")]
     public required TerraformValue<string> SeverityThreshold
     {
-        get => GetArgument<TerraformValue<string>>("severity_threshold");
+        get => GetRequiredArgument<TerraformValue<string>>("severity_threshold");
         set => SetArgument("severity_threshold", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermCognitiveAccountRaiPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BasePolicyName is required")]
     public required TerraformValue<string> BasePolicyName
     {
-        get => GetArgument<TerraformValue<string>>("base_policy_name");
+        get => GetRequiredArgument<TerraformValue<string>>("base_policy_name");
         set => SetArgument("base_policy_name", value);
     }
 
@@ -138,16 +138,16 @@ public partial class AzurermCognitiveAccountRaiPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
     public required TerraformValue<string> CognitiveAccountId
     {
-        get => GetArgument<TerraformValue<string>>("cognitive_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cognitive_account_id");
         set => SetArgument("cognitive_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AzurermCognitiveAccountRaiPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

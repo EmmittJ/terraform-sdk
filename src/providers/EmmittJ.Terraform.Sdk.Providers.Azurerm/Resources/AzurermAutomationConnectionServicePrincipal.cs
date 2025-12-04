@@ -64,7 +64,7 @@ public partial class AzurermAutomationConnectionServicePrincipal(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermAutomationConnectionServicePrincipal(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformValue<string> AutomationAccountName
     {
-        get => GetArgument<TerraformValue<string>>("automation_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("automation_account_name");
         set => SetArgument("automation_account_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermAutomationConnectionServicePrincipal(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateThumbprint is required")]
     public required TerraformValue<string> CertificateThumbprint
     {
-        get => GetArgument<TerraformValue<string>>("certificate_thumbprint");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_thumbprint");
         set => SetArgument("certificate_thumbprint", value);
     }
 
@@ -100,9 +100,9 @@ public partial class AzurermAutomationConnectionServicePrincipal(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermAutomationConnectionServicePrincipal(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermAutomationConnectionServicePrincipal(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermAutomationConnectionServicePrincipal(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformValue<string> SubscriptionId
     {
-        get => GetArgument<TerraformValue<string>>("subscription_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AzurermAutomationConnectionServicePrincipal(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

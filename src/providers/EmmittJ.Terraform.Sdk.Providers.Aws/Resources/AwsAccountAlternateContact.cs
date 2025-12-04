@@ -64,7 +64,7 @@ public partial class AwsAccountAlternateContact(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlternateContactType is required")]
     public required TerraformValue<string> AlternateContactType
     {
-        get => GetArgument<TerraformValue<string>>("alternate_contact_type");
+        get => GetRequiredArgument<TerraformValue<string>>("alternate_contact_type");
         set => SetArgument("alternate_contact_type", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsAccountAlternateContact(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformValue<string> EmailAddress
     {
-        get => GetArgument<TerraformValue<string>>("email_address");
+        get => GetRequiredArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsAccountAlternateContact(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsAccountAlternateContact(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetRequiredArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsAccountAlternateContact(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => GetArgument<TerraformValue<string>>("title");
+        get => GetRequiredArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 

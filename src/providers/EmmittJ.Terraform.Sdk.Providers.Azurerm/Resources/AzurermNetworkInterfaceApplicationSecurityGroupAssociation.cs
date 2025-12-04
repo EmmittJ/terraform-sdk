@@ -55,16 +55,16 @@ public partial class AzurermNetworkInterfaceApplicationSecurityGroupAssociation(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationSecurityGroupId is required")]
     public required TerraformValue<string> ApplicationSecurityGroupId
     {
-        get => GetArgument<TerraformValue<string>>("application_security_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_security_group_id");
         set => SetArgument("application_security_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermNetworkInterfaceApplicationSecurityGroupAssociation(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformValue<string> NetworkInterfaceId
     {
-        get => GetArgument<TerraformValue<string>>("network_interface_id");
+        get => GetRequiredArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 

@@ -52,9 +52,9 @@ public partial class AzurermNatGatewayPublicIpAssociation(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermNatGatewayPublicIpAssociation(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatGatewayId is required")]
     public required TerraformValue<string> NatGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("nat_gateway_id");
+        get => GetRequiredArgument<TerraformValue<string>>("nat_gateway_id");
         set => SetArgument("nat_gateway_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermNatGatewayPublicIpAssociation(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     public required TerraformValue<string> PublicIpAddressId
     {
-        get => GetArgument<TerraformValue<string>>("public_ip_address_id");
+        get => GetRequiredArgument<TerraformValue<string>>("public_ip_address_id");
         set => SetArgument("public_ip_address_id", value);
     }
 

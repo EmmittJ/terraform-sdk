@@ -40,7 +40,7 @@ public class AzurermBatchAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => GetArgument<TerraformValue<string>>("url");
+        get => GetRequiredArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermBatchAccountNetworkProfileBlockAccountAccessBlockIpRuleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
     public required TerraformValue<string> IpRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_range");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_range");
         set => SetArgument("ip_range", value);
     }
 
@@ -234,7 +234,7 @@ public class AzurermBatchAccountNetworkProfileBlockNodeManagementAccessBlockIpRu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
     public required TerraformValue<string> IpRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_range");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_range");
         set => SetArgument("ip_range", value);
     }
 
@@ -300,9 +300,9 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// <summary>
     /// The allowed_authentication_modes attribute.
     /// </summary>
-    public TerraformSet<string>? AllowedAuthenticationModes
+    public TerraformSet<string> AllowedAuthenticationModes
     {
-        get => GetArgument<TerraformSet<string>>("allowed_authentication_modes");
+        get => GetArgument<TerraformSet<string>>("allowed_authentication_modes") ?? AsReference("allowed_authentication_modes");
         set => SetArgument("allowed_authentication_modes", value);
     }
 
@@ -318,9 +318,9 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -330,7 +330,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -340,7 +340,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -368,7 +368,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

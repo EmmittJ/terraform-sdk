@@ -11,9 +11,9 @@ public partial class AwsCostoptimizationhubEnrollmentStatus(string name) : Terra
     /// <summary>
     /// The include_member_accounts attribute.
     /// </summary>
-    public TerraformValue<bool>? IncludeMemberAccounts
+    public TerraformValue<bool> IncludeMemberAccounts
     {
-        get => GetArgument<TerraformValue<bool>>("include_member_accounts");
+        get => GetArgument<TerraformValue<bool>>("include_member_accounts") ?? AsReference("include_member_accounts");
         set => SetArgument("include_member_accounts", value);
     }
 

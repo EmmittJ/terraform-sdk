@@ -90,9 +90,9 @@ public class GoogleAppEngineStandardAppVersionAutomaticScalingBlockStandardSched
     /// 
     /// **Note:** Starting from March 2025, App Engine sets the maxInstances default for standard environment deployments to 20. This change doesn&#39;t impact existing apps. To override the default, specify a new value between 0 and 2147483647, and deploy a new version or redeploy over an existing version. To disable the maxInstances default configuration setting, specify the maximum permitted value 2147483647.
     /// </summary>
-    public TerraformValue<double>? MaxInstances
+    public TerraformValue<double> MaxInstances
     {
-        get => GetArgument<TerraformValue<double>>("max_instances");
+        get => GetArgument<TerraformValue<double>>("max_instances") ?? AsReference("max_instances");
         set => SetArgument("max_instances", value);
     }
 
@@ -153,7 +153,7 @@ public class GoogleAppEngineStandardAppVersionBasicScalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxInstances is required")]
     public required TerraformValue<double> MaxInstances
     {
-        get => GetArgument<TerraformValue<double>>("max_instances");
+        get => GetRequiredArgument<TerraformValue<double>>("max_instances");
         set => SetArgument("max_instances", value);
     }
 
@@ -209,7 +209,7 @@ public class GoogleAppEngineStandardAppVersionDeploymentBlockFilesBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleAppEngineStandardAppVersionDeploymentBlockFilesBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUrl is required")]
     public required TerraformValue<string> SourceUrl
     {
-        get => GetArgument<TerraformValue<string>>("source_url");
+        get => GetRequiredArgument<TerraformValue<string>>("source_url");
         set => SetArgument("source_url", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleAppEngineStandardAppVersionDeploymentBlockZipBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUrl is required")]
     public required TerraformValue<string> SourceUrl
     {
-        get => GetArgument<TerraformValue<string>>("source_url");
+        get => GetRequiredArgument<TerraformValue<string>>("source_url");
         set => SetArgument("source_url", value);
     }
 
@@ -284,7 +284,7 @@ public class GoogleAppEngineStandardAppVersionEntrypointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shell is required")]
     public required TerraformValue<string> Shell
     {
-        get => GetArgument<TerraformValue<string>>("shell");
+        get => GetRequiredArgument<TerraformValue<string>>("shell");
         set => SetArgument("shell", value);
     }
 
@@ -387,7 +387,7 @@ public class GoogleAppEngineStandardAppVersionHandlersBlockScriptBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptPath is required")]
     public required TerraformValue<string> ScriptPath
     {
-        get => GetArgument<TerraformValue<string>>("script_path");
+        get => GetRequiredArgument<TerraformValue<string>>("script_path");
         set => SetArgument("script_path", value);
     }
 
@@ -527,7 +527,7 @@ public class GoogleAppEngineStandardAppVersionManualScalingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instances is required")]
     public required TerraformValue<double> Instances
     {
-        get => GetArgument<TerraformValue<double>>("instances");
+        get => GetRequiredArgument<TerraformValue<double>>("instances");
         set => SetArgument("instances", value);
     }
 
@@ -601,7 +601,7 @@ public class GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -644,9 +644,9 @@ public partial class GoogleAppEngineStandardAppVersion(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -665,9 +665,9 @@ public partial class GoogleAppEngineStandardAppVersion(string name) : TerraformR
     /// BasicScaling or ManualScaling: B1, B2, B4, B4_1G, B8
     /// Defaults to F1 for AutomaticScaling and B2 for ManualScaling and BasicScaling. If no scaling is specified, AutomaticScaling is chosen.
     /// </summary>
-    public TerraformValue<string>? InstanceClass
+    public TerraformValue<string> InstanceClass
     {
-        get => GetArgument<TerraformValue<string>>("instance_class");
+        get => GetArgument<TerraformValue<string>>("instance_class") ?? AsReference("instance_class");
         set => SetArgument("instance_class", value);
     }
 
@@ -683,9 +683,9 @@ public partial class GoogleAppEngineStandardAppVersion(string name) : TerraformR
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -695,7 +695,7 @@ public partial class GoogleAppEngineStandardAppVersion(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformValue<string> Runtime
     {
-        get => GetArgument<TerraformValue<string>>("runtime");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime");
         set => SetArgument("runtime", value);
     }
 
@@ -716,16 +716,16 @@ public partial class GoogleAppEngineStandardAppVersion(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
     /// <summary>
     /// The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as default if this field is neither provided in app.yaml file nor through CLI flag.
     /// </summary>
-    public TerraformValue<string>? ServiceAccount
+    public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
         set => SetArgument("service_account", value);
     }
 

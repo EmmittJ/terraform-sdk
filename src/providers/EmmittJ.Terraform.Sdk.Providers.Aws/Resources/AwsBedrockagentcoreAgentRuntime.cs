@@ -41,7 +41,7 @@ public class AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlockContainerCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerUri is required")]
     public required TerraformValue<string> ContainerUri
     {
-        get => GetArgument<TerraformValue<string>>("container_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("container_uri");
         set => SetArgument("container_uri", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlockCustomJw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiscoveryUrl is required")]
     public required TerraformValue<string> DiscoveryUrl
     {
-        get => GetArgument<TerraformValue<string>>("discovery_url");
+        get => GetRequiredArgument<TerraformValue<string>>("discovery_url");
         set => SetArgument("discovery_url", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkMode is required")]
     public required TerraformValue<string> NetworkMode
     {
-        get => GetArgument<TerraformValue<string>>("network_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("network_mode");
         set => SetArgument("network_mode", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlockNetworkMode
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
     public required TerraformSet<string> SecurityGroups
     {
-        get => GetArgument<TerraformSet<string>>("security_groups");
+        get => GetRequiredArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlockNetworkMode
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => GetArgument<TerraformSet<string>>("subnets");
+        get => GetRequiredArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -277,7 +277,7 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentRuntimeName is required")]
     public required TerraformValue<string> AgentRuntimeName
     {
-        get => GetArgument<TerraformValue<string>>("agent_runtime_name");
+        get => GetRequiredArgument<TerraformValue<string>>("agent_runtime_name");
         set => SetArgument("agent_runtime_name", value);
     }
 
@@ -302,18 +302,18 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     /// <summary>
     /// The lifecycle_configuration attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? LifecycleConfiguration
+    public TerraformList<TerraformMap<object>> LifecycleConfiguration
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("lifecycle_configuration");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("lifecycle_configuration") ?? AsReference("lifecycle_configuration");
         set => SetArgument("lifecycle_configuration", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -323,7 +323,7 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 

@@ -123,7 +123,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorEndpointId is required")]
     public required TerraformValue<string> CdnFrontdoorEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_endpoint_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cdn_frontdoor_endpoint_id");
         set => SetArgument("cdn_frontdoor_endpoint_id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorOriginGroupId is required")]
     public required TerraformValue<string> CdnFrontdoorOriginGroupId
     {
-        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_origin_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cdn_frontdoor_origin_group_id");
         set => SetArgument("cdn_frontdoor_origin_group_id", value);
     }
 
@@ -195,9 +195,9 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -236,7 +236,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportedProtocols is required")]
     public required TerraformSet<string> SupportedProtocols
     {
-        get => GetArgument<TerraformSet<string>>("supported_protocols");
+        get => GetRequiredArgument<TerraformSet<string>>("supported_protocols");
         set => SetArgument("supported_protocols", value);
     }
 

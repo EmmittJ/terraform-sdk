@@ -19,7 +19,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformValue<string> Cidr
     {
-        get => GetArgument<TerraformValue<string>>("cidr");
+        get => GetRequiredArgument<TerraformValue<string>>("cidr");
         set => SetArgument("cidr", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlockPortRangeBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => GetArgument<TerraformValue<double>>("from_port");
+        get => GetRequiredArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlockPortRangeBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => GetArgument<TerraformValue<double>>("to_port");
+        get => GetRequiredArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlockPortRangeBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => GetArgument<TerraformValue<double>>("from_port");
+        get => GetRequiredArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlockPortRangeBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => GetArgument<TerraformValue<double>>("to_port");
+        get => GetRequiredArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -247,7 +247,7 @@ public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlockPortRangeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => GetArgument<TerraformValue<double>>("from_port");
+        get => GetRequiredArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -257,7 +257,7 @@ public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlockPortRangeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => GetArgument<TerraformValue<double>>("to_port");
+        get => GetRequiredArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -435,7 +435,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentType is required")]
     public required TerraformValue<string> AttachmentType
     {
-        get => GetArgument<TerraformValue<string>>("attachment_type");
+        get => GetRequiredArgument<TerraformValue<string>>("attachment_type");
         set => SetArgument("attachment_type", value);
     }
 
@@ -472,16 +472,16 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformValue<string> EndpointType
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_type");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_type");
         set => SetArgument("endpoint_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -497,9 +497,9 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -524,9 +524,9 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -536,7 +536,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedAccessGroupId is required")]
     public required TerraformValue<string> VerifiedAccessGroupId
     {
-        get => GetArgument<TerraformValue<string>>("verified_access_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("verified_access_group_id");
         set => SetArgument("verified_access_group_id", value);
     }
 

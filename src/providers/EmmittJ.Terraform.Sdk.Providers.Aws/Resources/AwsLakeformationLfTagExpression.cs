@@ -19,7 +19,7 @@ public class AwsLakeformationLfTagExpressionExpressionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
     public required TerraformValue<string> TagKey
     {
-        get => GetArgument<TerraformValue<string>>("tag_key");
+        get => GetRequiredArgument<TerraformValue<string>>("tag_key");
         set => SetArgument("tag_key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsLakeformationLfTagExpressionExpressionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValues is required")]
     public required TerraformSet<string> TagValues
     {
-        get => GetArgument<TerraformSet<string>>("tag_values");
+        get => GetRequiredArgument<TerraformSet<string>>("tag_values");
         set => SetArgument("tag_values", value);
     }
 
@@ -45,9 +45,9 @@ public partial class AwsLakeformationLfTagExpression(string name) : TerraformRes
     /// <summary>
     /// The ID of the Data Catalog.
     /// </summary>
-    public TerraformValue<string>? CatalogId
+    public TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id") ?? AsReference("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AwsLakeformationLfTagExpression(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

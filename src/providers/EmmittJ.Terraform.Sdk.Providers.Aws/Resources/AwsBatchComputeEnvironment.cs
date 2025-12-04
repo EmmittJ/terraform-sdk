@@ -34,9 +34,9 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// <summary>
     /// The desired_vcpus attribute.
     /// </summary>
-    public TerraformValue<double>? DesiredVcpus
+    public TerraformValue<double> DesiredVcpus
     {
-        get => GetArgument<TerraformValue<double>>("desired_vcpus");
+        get => GetArgument<TerraformValue<double>>("desired_vcpus") ?? AsReference("desired_vcpus");
         set => SetArgument("desired_vcpus", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxVcpus is required")]
     public required TerraformValue<double> MaxVcpus
     {
-        get => GetArgument<TerraformValue<double>>("max_vcpus");
+        get => GetRequiredArgument<TerraformValue<double>>("max_vcpus");
         set => SetArgument("max_vcpus", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => GetArgument<TerraformSet<string>>("subnets");
+        get => GetRequiredArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -187,9 +187,9 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlockEc2ConfigurationBloc
     /// <summary>
     /// The image_id_override attribute.
     /// </summary>
-    public TerraformValue<string>? ImageIdOverride
+    public TerraformValue<string> ImageIdOverride
     {
-        get => GetArgument<TerraformValue<string>>("image_id_override");
+        get => GetArgument<TerraformValue<string>>("image_id_override") ?? AsReference("image_id_override");
         set => SetArgument("image_id_override", value);
     }
 
@@ -245,9 +245,9 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlockLaunchTemplateBlock 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string>? Version
+    public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsBatchComputeEnvironmentEksConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EksClusterArn is required")]
     public required TerraformValue<string> EksClusterArn
     {
-        get => GetArgument<TerraformValue<string>>("eks_cluster_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("eks_cluster_arn");
         set => SetArgument("eks_cluster_arn", value);
     }
 
@@ -281,7 +281,7 @@ public class AwsBatchComputeEnvironmentEksConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesNamespace is required")]
     public required TerraformValue<string> KubernetesNamespace
     {
-        get => GetArgument<TerraformValue<string>>("kubernetes_namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("kubernetes_namespace");
         set => SetArgument("kubernetes_namespace", value);
     }
 
@@ -302,18 +302,18 @@ public class AwsBatchComputeEnvironmentUpdatePolicyBlock : TerraformBlock
     /// <summary>
     /// The job_execution_timeout_minutes attribute.
     /// </summary>
-    public TerraformValue<double>? JobExecutionTimeoutMinutes
+    public TerraformValue<double> JobExecutionTimeoutMinutes
     {
-        get => GetArgument<TerraformValue<double>>("job_execution_timeout_minutes");
+        get => GetArgument<TerraformValue<double>>("job_execution_timeout_minutes") ?? AsReference("job_execution_timeout_minutes");
         set => SetArgument("job_execution_timeout_minutes", value);
     }
 
     /// <summary>
     /// The terminate_jobs_on_update attribute.
     /// </summary>
-    public TerraformValue<bool>? TerminateJobsOnUpdate
+    public TerraformValue<bool> TerminateJobsOnUpdate
     {
-        get => GetArgument<TerraformValue<bool>>("terminate_jobs_on_update");
+        get => GetArgument<TerraformValue<bool>>("terminate_jobs_on_update") ?? AsReference("terminate_jobs_on_update");
         set => SetArgument("terminate_jobs_on_update", value);
     }
 
@@ -329,45 +329,45 @@ public partial class AwsBatchComputeEnvironment(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? NamePrefix
+    public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
-    public TerraformValue<string>? ServiceRole
+    public TerraformValue<string> ServiceRole
     {
-        get => GetArgument<TerraformValue<string>>("service_role");
+        get => GetArgument<TerraformValue<string>>("service_role") ?? AsReference("service_role");
         set => SetArgument("service_role", value);
     }
 
@@ -392,9 +392,9 @@ public partial class AwsBatchComputeEnvironment(string name) : TerraformResource
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -404,7 +404,7 @@ public partial class AwsBatchComputeEnvironment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

@@ -25,7 +25,7 @@ public class GoogleComputeGlobalForwardingRuleMetadataFiltersBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterMatchCriteria is required")]
     public required TerraformValue<string> FilterMatchCriteria
     {
-        get => GetArgument<TerraformValue<string>>("filter_match_criteria");
+        get => GetRequiredArgument<TerraformValue<string>>("filter_match_criteria");
         set => SetArgument("filter_match_criteria", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleComputeGlobalForwardingRuleMetadataFiltersBlockFilterLabelsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleComputeGlobalForwardingRuleMetadataFiltersBlockFilterLabelsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -94,9 +94,9 @@ public class GoogleComputeGlobalForwardingRuleServiceDirectoryRegistrationsBlock
     /// <summary>
     /// Service Directory namespace to register the forwarding rule under.
     /// </summary>
-    public TerraformValue<string>? NamespaceAttribute
+    public TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace");
+        get => GetArgument<TerraformValue<string>>("namespace") ?? AsReference("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -211,9 +211,9 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -257,9 +257,9 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// When reading an &#39;IPAddress&#39;, the API always returns the IP
     /// address number.
     /// </summary>
-    public TerraformValue<string>? IpAddress
+    public TerraformValue<string> IpAddress
     {
-        get => GetArgument<TerraformValue<string>>("ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address") ?? AsReference("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -275,9 +275,9 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// as described in [Load balancing
     /// features](https://cloud.google.com/load-balancing/docs/features#protocols_from_the_load_balancer_to_the_backends). Possible values: [&amp;quot;TCP&amp;quot;, &amp;quot;UDP&amp;quot;, &amp;quot;ESP&amp;quot;, &amp;quot;AH&amp;quot;, &amp;quot;SCTP&amp;quot;, &amp;quot;ICMP&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? IpProtocol
+    public TerraformValue<string> IpProtocol
     {
-        get => GetArgument<TerraformValue<string>>("ip_protocol");
+        get => GetArgument<TerraformValue<string>>("ip_protocol") ?? AsReference("ip_protocol");
         set => SetArgument("ip_protocol", value);
     }
 
@@ -333,7 +333,7 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -349,9 +349,9 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// For Private Service Connect forwarding rules that forward traffic to Google
     /// APIs, a network must be provided.
     /// </summary>
-    public TerraformValue<string>? Network
+    public TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetArgument<TerraformValue<string>>("network") ?? AsReference("network");
         set => SetArgument("network", value);
     }
 
@@ -368,9 +368,9 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// If &#39;IPAddress&#39; is specified, this value must be equal to the
     /// networkTier of the Address. Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? NetworkTier
+    public TerraformValue<string> NetworkTier
     {
-        get => GetArgument<TerraformValue<string>>("network_tier");
+        get => GetArgument<TerraformValue<string>>("network_tier") ?? AsReference("network_tier");
         set => SetArgument("network_tier", value);
     }
 
@@ -414,9 +414,9 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -438,9 +438,9 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     /// However, a subnetwork must be specified if the network is in custom subnet
     /// mode or when creating external forwarding rule with IPv6.
     /// </summary>
-    public TerraformValue<string>? Subnetwork
+    public TerraformValue<string> Subnetwork
     {
-        get => GetArgument<TerraformValue<string>>("subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork") ?? AsReference("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -461,7 +461,7 @@ public partial class GoogleComputeGlobalForwardingRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => GetArgument<TerraformValue<string>>("target");
+        get => GetRequiredArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 

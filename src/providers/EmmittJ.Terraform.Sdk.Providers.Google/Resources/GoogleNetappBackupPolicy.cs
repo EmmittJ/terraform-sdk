@@ -55,7 +55,7 @@ public partial class GoogleNetappBackupPolicy(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DailyBackupLimit is required")]
     public required TerraformValue<double> DailyBackupLimit
     {
-        get => GetArgument<TerraformValue<double>>("daily_backup_limit");
+        get => GetRequiredArgument<TerraformValue<double>>("daily_backup_limit");
         set => SetArgument("daily_backup_limit", value);
     }
 
@@ -81,9 +81,9 @@ public partial class GoogleNetappBackupPolicy(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleNetappBackupPolicy(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -116,7 +116,7 @@ public partial class GoogleNetappBackupPolicy(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonthlyBackupLimit is required")]
     public required TerraformValue<double> MonthlyBackupLimit
     {
-        get => GetArgument<TerraformValue<double>>("monthly_backup_limit");
+        get => GetRequiredArgument<TerraformValue<double>>("monthly_backup_limit");
         set => SetArgument("monthly_backup_limit", value);
     }
 
@@ -126,16 +126,16 @@ public partial class GoogleNetappBackupPolicy(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -145,7 +145,7 @@ public partial class GoogleNetappBackupPolicy(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WeeklyBackupLimit is required")]
     public required TerraformValue<double> WeeklyBackupLimit
     {
-        get => GetArgument<TerraformValue<double>>("weekly_backup_limit");
+        get => GetRequiredArgument<TerraformValue<double>>("weekly_backup_limit");
         set => SetArgument("weekly_backup_limit", value);
     }
 

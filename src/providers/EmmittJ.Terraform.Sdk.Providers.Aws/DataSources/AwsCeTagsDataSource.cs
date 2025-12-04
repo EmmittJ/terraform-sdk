@@ -732,7 +732,7 @@ public class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<string> End
     {
-        get => GetArgument<TerraformValue<string>>("end");
+        get => GetRequiredArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -742,7 +742,7 @@ public class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<string> Start
     {
-        get => GetArgument<TerraformValue<string>>("start");
+        get => GetRequiredArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -758,9 +758,9 @@ public partial class AwsCeTagsDataSource(string name) : TerraformDataSource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

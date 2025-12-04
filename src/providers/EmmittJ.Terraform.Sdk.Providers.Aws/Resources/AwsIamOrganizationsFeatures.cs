@@ -14,7 +14,7 @@ public partial class AwsIamOrganizationsFeatures(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledFeatures is required")]
     public required TerraformSet<string> EnabledFeatures
     {
-        get => GetArgument<TerraformSet<string>>("enabled_features");
+        get => GetRequiredArgument<TerraformSet<string>>("enabled_features");
         set => SetArgument("enabled_features", value);
     }
 

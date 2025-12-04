@@ -19,7 +19,7 @@ public class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformValue<double> MaxCapacity
     {
-        get => GetArgument<TerraformValue<double>>("max_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformValue<double> MinCapacity
     {
-        get => GetArgument<TerraformValue<double>>("min_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("min_capacity");
         set => SetArgument("min_capacity", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformValue<double> Capacity
     {
-        get => GetArgument<TerraformValue<double>>("capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier");
+        get => GetRequiredArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -148,27 +148,27 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
-    public TerraformValue<string>? EnclaveType
+    public TerraformValue<string> EnclaveType
     {
-        get => GetArgument<TerraformValue<string>>("enclave_type");
+        get => GetArgument<TerraformValue<string>>("enclave_type") ?? AsReference("enclave_type");
         set => SetArgument("enclave_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformValue<string>? LicenseType
+    public TerraformValue<string> LicenseType
     {
-        get => GetArgument<TerraformValue<string>>("license_type");
+        get => GetArgument<TerraformValue<string>>("license_type") ?? AsReference("license_type");
         set => SetArgument("license_type", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -194,18 +194,18 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     /// <summary>
     /// The max_size_bytes attribute.
     /// </summary>
-    public TerraformValue<double>? MaxSizeBytes
+    public TerraformValue<double> MaxSizeBytes
     {
-        get => GetArgument<TerraformValue<double>>("max_size_bytes");
+        get => GetArgument<TerraformValue<double>>("max_size_bytes") ?? AsReference("max_size_bytes");
         set => SetArgument("max_size_bytes", value);
     }
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
-    public TerraformValue<double>? MaxSizeGb
+    public TerraformValue<double> MaxSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("max_size_gb");
+        get => GetArgument<TerraformValue<double>>("max_size_gb") ?? AsReference("max_size_gb");
         set => SetArgument("max_size_gb", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -235,7 +235,7 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformValue<string> ServerName
     {
-        get => GetArgument<TerraformValue<string>>("server_name");
+        get => GetRequiredArgument<TerraformValue<string>>("server_name");
         set => SetArgument("server_name", value);
     }
 

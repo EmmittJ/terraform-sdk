@@ -64,7 +64,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventLogName is required")]
     public required TerraformValue<string> EventLogName
     {
-        get => GetArgument<TerraformValue<string>>("event_log_name");
+        get => GetRequiredArgument<TerraformValue<string>>("event_log_name");
         set => SetArgument("event_log_name", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTypes is required")]
     public required TerraformSet<string> EventTypes
     {
-        get => GetArgument<TerraformSet<string>>("event_types");
+        get => GetRequiredArgument<TerraformSet<string>>("event_types");
         set => SetArgument("event_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
     public required TerraformValue<string> WorkspaceName
     {
-        get => GetArgument<TerraformValue<string>>("workspace_name");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_name");
         set => SetArgument("workspace_name", value);
     }
 

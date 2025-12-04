@@ -43,9 +43,9 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformValue<string>? NamespaceId
+    public TerraformValue<string> NamespaceId
     {
-        get => GetArgument<TerraformValue<string>>("namespace_id");
+        get => GetArgument<TerraformValue<string>>("namespace_id") ?? AsReference("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 
@@ -72,9 +72,9 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? NamespaceName
+    public TerraformValue<string> NamespaceName
     {
-        get => GetArgument<TerraformValue<string>>("namespace_name");
+        get => GetArgument<TerraformValue<string>>("namespace_name") ?? AsReference("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
@@ -82,9 +82,9 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? ResourceGroupName
+    public TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name") ?? AsReference("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

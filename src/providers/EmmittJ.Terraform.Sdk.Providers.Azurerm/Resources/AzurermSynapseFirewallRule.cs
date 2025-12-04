@@ -64,16 +64,16 @@ public partial class AzurermSynapseFirewallRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIpAddress is required")]
     public required TerraformValue<string> EndIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("end_ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("end_ip_address");
         set => SetArgument("end_ip_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSynapseFirewallRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermSynapseFirewallRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIpAddress is required")]
     public required TerraformValue<string> StartIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("start_ip_address");
+        get => GetRequiredArgument<TerraformValue<string>>("start_ip_address");
         set => SetArgument("start_ip_address", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermSynapseFirewallRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("synapse_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("synapse_workspace_id");
         set => SetArgument("synapse_workspace_id", value);
     }
 

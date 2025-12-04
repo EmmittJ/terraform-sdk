@@ -73,7 +73,7 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -134,9 +134,9 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public TerraformValue<string>? CertificateArn
+    public TerraformValue<string> CertificateArn
     {
-        get => GetArgument<TerraformValue<string>>("certificate_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_arn") ?? AsReference("certificate_arn");
         set => SetArgument("certificate_arn", value);
     }
 
@@ -290,7 +290,7 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointId is required")]
     public required TerraformValue<string> EndpointId
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_id");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_id");
         set => SetArgument("endpoint_id", value);
     }
 
@@ -300,7 +300,7 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformValue<string> EndpointType
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_type");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint_type");
         set => SetArgument("endpoint_type", value);
     }
 
@@ -334,9 +334,9 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -361,9 +361,9 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyArn
+    public TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn") ?? AsReference("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -406,9 +406,9 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -445,16 +445,16 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccessRoleArn is required")]
     public required TerraformValue<string> ServiceAccessRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("service_access_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("service_access_role_arn");
         set => SetArgument("service_access_role_arn", value);
     }
 
     /// <summary>
     /// The ssl_mode attribute.
     /// </summary>
-    public TerraformValue<string>? SslMode
+    public TerraformValue<string> SslMode
     {
-        get => GetArgument<TerraformValue<string>>("ssl_mode");
+        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? AsReference("ssl_mode");
         set => SetArgument("ssl_mode", value);
     }
 
@@ -470,9 +470,9 @@ public partial class AwsDmsS3Endpoint(string name) : TerraformResource("aws_dms_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -19,7 +19,7 @@ public class GoogleVertexAiIndexEncryptionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleVertexAiIndexMetadataBlockConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dimensions is required")]
     public required TerraformValue<double> Dimensions
     {
-        get => GetArgument<TerraformValue<double>>("dimensions");
+        get => GetRequiredArgument<TerraformValue<double>>("dimensions");
         set => SetArgument("dimensions", value);
     }
 
@@ -140,9 +140,9 @@ public class GoogleVertexAiIndexMetadataBlockConfigBlock : TerraformBlock
     /// * SHARD_SIZE_MEDIUM: Medium (20GB)
     /// * SHARD_SIZE_LARGE: Large (50GB)
     /// </summary>
-    public TerraformValue<string>? ShardSize
+    public TerraformValue<string> ShardSize
     {
-        get => GetArgument<TerraformValue<string>>("shard_size");
+        get => GetArgument<TerraformValue<string>>("shard_size") ?? AsReference("shard_size");
         set => SetArgument("shard_size", value);
     }
 
@@ -299,16 +299,16 @@ public partial class GoogleVertexAiIndex(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -338,9 +338,9 @@ public partial class GoogleVertexAiIndex(string name) : TerraformResource("googl
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

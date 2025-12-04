@@ -40,9 +40,9 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     /// <summary>
     /// The source_keyword attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>>? SourceKeyword
+    public TerraformList<TerraformMap<object>> SourceKeyword
     {
-        get => GetArgument<TerraformList<TerraformMap<object>>>("source_keyword");
+        get => GetArgument<TerraformList<TerraformMap<object>>>("source_keyword") ?? AsReference("source_keyword");
         set => SetArgument("source_keyword", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformValue<string> SourceName
     {
-        get => GetArgument<TerraformValue<string>>("source_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_name");
         set => SetArgument("source_name", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSetUpOption is required")]
     public required TerraformValue<string> SourceSetUpOption
     {
-        get => GetArgument<TerraformValue<string>>("source_set_up_option");
+        get => GetRequiredArgument<TerraformValue<string>>("source_set_up_option");
         set => SetArgument("source_set_up_option", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformValue<string> SourceType
     {
-        get => GetArgument<TerraformValue<string>>("source_type");
+        get => GetRequiredArgument<TerraformValue<string>>("source_type");
         set => SetArgument("source_type", value);
     }
 
@@ -127,16 +127,16 @@ public partial class AwsAuditmanagerControl(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -23,7 +23,7 @@ public partial class AwsNotificationsEventRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformValue<string> EventType
     {
-        get => GetArgument<TerraformValue<string>>("event_type");
+        get => GetRequiredArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsNotificationsEventRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationConfigurationArn is required")]
     public required TerraformValue<string> NotificationConfigurationArn
     {
-        get => GetArgument<TerraformValue<string>>("notification_configuration_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("notification_configuration_arn");
         set => SetArgument("notification_configuration_arn", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsNotificationsEventRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regions is required")]
     public required TerraformSet<string> Regions
     {
-        get => GetArgument<TerraformSet<string>>("regions");
+        get => GetRequiredArgument<TerraformSet<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsNotificationsEventRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 

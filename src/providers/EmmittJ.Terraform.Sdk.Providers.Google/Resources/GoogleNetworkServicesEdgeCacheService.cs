@@ -16,9 +16,9 @@ public class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock : TerraformBloc
     /// <summary>
     /// Specifies whether to enable logging for traffic served by this service.
     /// </summary>
-    public TerraformValue<bool>? Enable
+    public TerraformValue<bool> Enable
     {
-        get => GetArgument<TerraformValue<bool>>("enable");
+        get => GetArgument<TerraformValue<bool>>("enable") ?? AsReference("enable");
         set => SetArgument("enable", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockHostRuleBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathMatcher is required")]
     public required TerraformValue<string> PathMatcher
     {
-        get => GetArgument<TerraformValue<string>>("path_matcher");
+        get => GetRequiredArgument<TerraformValue<string>>("path_matcher");
         set => SetArgument("path_matcher", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -221,7 +221,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<string> Priority
     {
-        get => GetArgument<TerraformValue<string>>("priority");
+        get => GetRequiredArgument<TerraformValue<string>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -350,7 +350,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -360,16 +360,16 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
     /// <summary>
     /// Whether to replace all existing headers with the same name.
     /// </summary>
-    public TerraformValue<bool>? Replace
+    public TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetArgument<TerraformValue<bool>>("replace") ?? AsReference("replace");
         set => SetArgument("replace", value);
     }
 
@@ -392,7 +392,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -415,7 +415,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -425,16 +425,16 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
     /// <summary>
     /// Whether to replace all existing headers with the same name.
     /// </summary>
-    public TerraformValue<bool>? Replace
+    public TerraformValue<bool> Replace
     {
-        get => GetArgument<TerraformValue<bool>>("replace");
+        get => GetArgument<TerraformValue<bool>>("replace") ?? AsReference("replace");
         set => SetArgument("replace", value);
     }
 
@@ -459,7 +459,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -488,9 +488,9 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// <summary>
     /// Specifies that prefixMatch and fullPathMatch matches are case sensitive.
     /// </summary>
-    public TerraformValue<bool>? IgnoreCase
+    public TerraformValue<bool> IgnoreCase
     {
-        get => GetArgument<TerraformValue<bool>>("ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case") ?? AsReference("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -568,7 +568,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -576,9 +576,9 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// If set to false (default), the headerMatch is considered a match if the match criteria above are met.
     /// If set to true, the headerMatch is considered a match if the match criteria above are NOT met.
     /// </summary>
-    public TerraformValue<bool>? InvertMatch
+    public TerraformValue<bool> InvertMatch
     {
-        get => GetArgument<TerraformValue<bool>>("invert_match");
+        get => GetArgument<TerraformValue<bool>>("invert_match") ?? AsReference("invert_match");
         set => SetArgument("invert_match", value);
     }
 
@@ -637,7 +637,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -722,9 +722,9 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// 
     /// For all cache modes, Cache-Control headers will be passed to the client. Use clientTtl to override what is sent to the client. Possible values: [&amp;quot;CACHE_ALL_STATIC&amp;quot;, &amp;quot;USE_ORIGIN_HEADERS&amp;quot;, &amp;quot;FORCE_CACHE_ALL&amp;quot;, &amp;quot;BYPASS_CACHE&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? CacheMode
+    public TerraformValue<string> CacheMode
     {
-        get => GetArgument<TerraformValue<string>>("cache_mode");
+        get => GetArgument<TerraformValue<string>>("cache_mode") ?? AsReference("cache_mode");
         set => SetArgument("cache_mode", value);
     }
 
@@ -763,9 +763,9 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// 
     /// A duration in seconds terminated by &#39;s&#39;. Example: &amp;quot;3s&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? DefaultTtl
+    public TerraformValue<string> DefaultTtl
     {
-        get => GetArgument<TerraformValue<string>>("default_ttl");
+        get => GetArgument<TerraformValue<string>>("default_ttl") ?? AsReference("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -785,9 +785,9 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// 
     /// A duration in seconds terminated by &#39;s&#39;. Example: &amp;quot;3s&amp;quot;.
     /// </summary>
-    public TerraformValue<string>? MaxTtl
+    public TerraformValue<string> MaxTtl
     {
-        get => GetArgument<TerraformValue<string>>("max_ttl");
+        get => GetArgument<TerraformValue<string>>("max_ttl") ?? AsReference("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
@@ -825,9 +825,9 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// <summary>
     /// The EdgeCacheKeyset containing the set of public keys used to validate signed requests at the edge.
     /// </summary>
-    public TerraformValue<string>? SignedRequestKeyset
+    public TerraformValue<string> SignedRequestKeyset
     {
-        get => GetArgument<TerraformValue<string>>("signed_request_keyset");
+        get => GetArgument<TerraformValue<string>>("signed_request_keyset") ?? AsReference("signed_request_keyset");
         set => SetArgument("signed_request_keyset", value);
     }
 
@@ -854,9 +854,9 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// 
     /// When set to REQUIRE_SIGNATURES, all matching requests will have their signature validated. Requests that were not signed with the corresponding private key, or that are otherwise invalid (expired, do not match the signature, IP address, or header) will be rejected with a HTTP 403 and (if enabled) logged. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;REQUIRE_SIGNATURES&amp;quot;, &amp;quot;REQUIRE_TOKENS&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? SignedRequestMode
+    public TerraformValue<string> SignedRequestMode
     {
-        get => GetArgument<TerraformValue<string>>("signed_request_mode");
+        get => GetArgument<TerraformValue<string>>("signed_request_mode") ?? AsReference("signed_request_mode");
         set => SetArgument("signed_request_mode", value);
     }
 
@@ -1006,9 +1006,9 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// 
     /// Note: this should only be enabled if hosts share the same origin and content. Removing the host from the cache key may inadvertently result in different objects being cached than intended, depending on which route the first user matched.
     /// </summary>
-    public TerraformValue<bool>? ExcludeHost
+    public TerraformValue<bool> ExcludeHost
     {
-        get => GetArgument<TerraformValue<bool>>("exclude_host");
+        get => GetArgument<TerraformValue<bool>>("exclude_host") ?? AsReference("exclude_host");
         set => SetArgument("exclude_host", value);
     }
 
@@ -1041,9 +1041,9 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// <summary>
     /// If true, http and https requests will be cached separately.
     /// </summary>
-    public TerraformValue<bool>? IncludeProtocol
+    public TerraformValue<bool> IncludeProtocol
     {
-        get => GetArgument<TerraformValue<bool>>("include_protocol");
+        get => GetArgument<TerraformValue<bool>>("include_protocol") ?? AsReference("include_protocol");
         set => SetArgument("include_protocol", value);
     }
 
@@ -1213,7 +1213,7 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAge is required")]
     public required TerraformValue<string> MaxAge
     {
-        get => GetArgument<TerraformValue<string>>("max_age");
+        get => GetRequiredArgument<TerraformValue<string>>("max_age");
         set => SetArgument("max_age", value);
     }
 
@@ -1321,9 +1321,9 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// 
     /// This can only be set if there is at least one (1) edgeSslCertificate set on the service.
     /// </summary>
-    public TerraformValue<bool>? HttpsRedirect
+    public TerraformValue<bool> HttpsRedirect
     {
-        get => GetArgument<TerraformValue<bool>>("https_redirect");
+        get => GetArgument<TerraformValue<bool>>("https_redirect") ?? AsReference("https_redirect");
         set => SetArgument("https_redirect", value);
     }
 
@@ -1362,18 +1362,18 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlockPathMatcherBlockRo
     /// - &#39;TEMPORARY_REDIRECT&#39;, which corresponds to 307. in this case, the request method will be retained.
     /// - &#39;PERMANENT_REDIRECT&#39;, which corresponds to 308. in this case, the request method will be retained. Possible values: [&amp;quot;MOVED_PERMANENTLY_DEFAULT&amp;quot;, &amp;quot;FOUND&amp;quot;, &amp;quot;SEE_OTHER&amp;quot;, &amp;quot;TEMPORARY_REDIRECT&amp;quot;, &amp;quot;PERMANENT_REDIRECT&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? RedirectResponseCode
+    public TerraformValue<string> RedirectResponseCode
     {
-        get => GetArgument<TerraformValue<string>>("redirect_response_code");
+        get => GetArgument<TerraformValue<string>>("redirect_response_code") ?? AsReference("redirect_response_code");
         set => SetArgument("redirect_response_code", value);
     }
 
     /// <summary>
     /// If set to true, any accompanying query portion of the original URL is removed prior to redirecting the request. If set to false, the query portion of the original URL is retained.
     /// </summary>
-    public TerraformValue<bool>? StripQuery
+    public TerraformValue<bool> StripQuery
     {
-        get => GetArgument<TerraformValue<bool>>("strip_query");
+        get => GetArgument<TerraformValue<bool>>("strip_query") ?? AsReference("strip_query");
         set => SetArgument("strip_query", value);
     }
 
@@ -1452,9 +1452,9 @@ public partial class GoogleNetworkServicesEdgeCacheService(string name) : Terraf
     /// <summary>
     /// HTTP/3 (IETF QUIC) and Google QUIC are enabled by default.
     /// </summary>
-    public TerraformValue<bool>? DisableQuic
+    public TerraformValue<bool> DisableQuic
     {
-        get => GetArgument<TerraformValue<bool>>("disable_quic");
+        get => GetArgument<TerraformValue<bool>>("disable_quic") ?? AsReference("disable_quic");
         set => SetArgument("disable_quic", value);
     }
 
@@ -1481,9 +1481,9 @@ public partial class GoogleNetworkServicesEdgeCacheService(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1507,16 +1507,16 @@ public partial class GoogleNetworkServicesEdgeCacheService(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1526,9 +1526,9 @@ public partial class GoogleNetworkServicesEdgeCacheService(string name) : Terraf
     /// Clients who connect over HTTP (port 80) will receive a HTTP 301 to the same URL over HTTPS (port 443).
     /// You must have at least one (1) edgeSslCertificate specified to enable this.
     /// </summary>
-    public TerraformValue<bool>? RequireTls
+    public TerraformValue<bool> RequireTls
     {
-        get => GetArgument<TerraformValue<bool>>("require_tls");
+        get => GetArgument<TerraformValue<bool>>("require_tls") ?? AsReference("require_tls");
         set => SetArgument("require_tls", value);
     }
 

@@ -40,7 +40,7 @@ public class AzurermMachineLearningComputeClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformValue<double> MaxNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("max_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -74,7 +74,7 @@ public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformValue<double> MinNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("min_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleDownNodesAfterIdleDuration is required")]
     public required TerraformValue<string> ScaleDownNodesAfterIdleDuration
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_nodes_after_idle_duration");
+        get => GetRequiredArgument<TerraformValue<string>>("scale_down_nodes_after_idle_duration");
         set => SetArgument("scale_down_nodes_after_idle_duration", value);
     }
 
@@ -117,7 +117,7 @@ public class AzurermMachineLearningComputeClusterSshBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformValue<string> AdminUsername
     {
-        get => GetArgument<TerraformValue<string>>("admin_username");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_username");
         set => SetArgument("admin_username", value);
     }
 
@@ -201,9 +201,9 @@ public partial class AzurermMachineLearningComputeCluster(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -222,7 +222,7 @@ public partial class AzurermMachineLearningComputeCluster(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AzurermMachineLearningComputeCluster(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
     public required TerraformValue<string> MachineLearningWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("machine_learning_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("machine_learning_workspace_id");
         set => SetArgument("machine_learning_workspace_id", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AzurermMachineLearningComputeCluster(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -267,9 +267,9 @@ public partial class AzurermMachineLearningComputeCluster(string name) : Terrafo
     /// <summary>
     /// The subnet_resource_id attribute.
     /// </summary>
-    public TerraformValue<string>? SubnetResourceId
+    public TerraformValue<string> SubnetResourceId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_resource_id");
+        get => GetArgument<TerraformValue<string>>("subnet_resource_id") ?? AsReference("subnet_resource_id");
         set => SetArgument("subnet_resource_id", value);
     }
 
@@ -288,7 +288,7 @@ public partial class AzurermMachineLearningComputeCluster(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmPriority is required")]
     public required TerraformValue<string> VmPriority
     {
-        get => GetArgument<TerraformValue<string>>("vm_priority");
+        get => GetRequiredArgument<TerraformValue<string>>("vm_priority");
         set => SetArgument("vm_priority", value);
     }
 
@@ -298,7 +298,7 @@ public partial class AzurermMachineLearningComputeCluster(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformValue<string> VmSize
     {
-        get => GetArgument<TerraformValue<string>>("vm_size");
+        get => GetRequiredArgument<TerraformValue<string>>("vm_size");
         set => SetArgument("vm_size", value);
     }
 

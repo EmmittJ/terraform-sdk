@@ -52,9 +52,9 @@ public partial class AzurermSiteRecoveryNetworkMapping(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSiteRecoveryNetworkMapping(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSiteRecoveryNetworkMapping(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformValue<string> RecoveryVaultName
     {
-        get => GetArgument<TerraformValue<string>>("recovery_vault_name");
+        get => GetRequiredArgument<TerraformValue<string>>("recovery_vault_name");
         set => SetArgument("recovery_vault_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermSiteRecoveryNetworkMapping(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermSiteRecoveryNetworkMapping(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceNetworkId is required")]
     public required TerraformValue<string> SourceNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("source_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_network_id");
         set => SetArgument("source_network_id", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermSiteRecoveryNetworkMapping(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryFabricName is required")]
     public required TerraformValue<string> SourceRecoveryFabricName
     {
-        get => GetArgument<TerraformValue<string>>("source_recovery_fabric_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_recovery_fabric_name");
         set => SetArgument("source_recovery_fabric_name", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermSiteRecoveryNetworkMapping(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
     public required TerraformValue<string> TargetNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("target_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("target_network_id");
         set => SetArgument("target_network_id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermSiteRecoveryNetworkMapping(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryFabricName is required")]
     public required TerraformValue<string> TargetRecoveryFabricName
     {
-        get => GetArgument<TerraformValue<string>>("target_recovery_fabric_name");
+        get => GetRequiredArgument<TerraformValue<string>>("target_recovery_fabric_name");
         set => SetArgument("target_recovery_fabric_name", value);
     }
 

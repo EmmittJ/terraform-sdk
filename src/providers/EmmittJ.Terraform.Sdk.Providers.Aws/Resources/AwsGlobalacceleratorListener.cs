@@ -87,7 +87,7 @@ public partial class AwsGlobalacceleratorListener(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorArn is required")]
     public required TerraformValue<string> AcceleratorArn
     {
-        get => GetArgument<TerraformValue<string>>("accelerator_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("accelerator_arn");
         set => SetArgument("accelerator_arn", value);
     }
 
@@ -103,9 +103,9 @@ public partial class AwsGlobalacceleratorListener(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsGlobalacceleratorListener(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 

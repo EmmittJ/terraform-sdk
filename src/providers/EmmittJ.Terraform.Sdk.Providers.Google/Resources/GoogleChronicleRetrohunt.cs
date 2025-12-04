@@ -19,7 +19,7 @@ public class GoogleChronicleRetrohuntProcessIntervalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTime is required")]
     public required TerraformValue<string> EndTime
     {
-        get => GetArgument<TerraformValue<string>>("end_time");
+        get => GetRequiredArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleChronicleRetrohuntProcessIntervalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -77,9 +77,9 @@ public partial class GoogleChronicleRetrohunt(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -89,7 +89,7 @@ public partial class GoogleChronicleRetrohunt(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => GetArgument<TerraformValue<string>>("instance");
+        get => GetRequiredArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -99,25 +99,25 @@ public partial class GoogleChronicleRetrohunt(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The retrohunt ID of the Retrohunt. A retrohunt is an execution of a Rule over a time range in the past.
     /// </summary>
-    public TerraformValue<string>? Retrohunt
+    public TerraformValue<string> Retrohunt
     {
-        get => GetArgument<TerraformValue<string>>("retrohunt");
+        get => GetArgument<TerraformValue<string>>("retrohunt") ?? AsReference("retrohunt");
         set => SetArgument("retrohunt", value);
     }
 
@@ -127,7 +127,7 @@ public partial class GoogleChronicleRetrohunt(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformValue<string> Rule
     {
-        get => GetArgument<TerraformValue<string>>("rule");
+        get => GetRequiredArgument<TerraformValue<string>>("rule");
         set => SetArgument("rule", value);
     }
 

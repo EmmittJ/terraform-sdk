@@ -19,7 +19,7 @@ public class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hour is required")]
     public required TerraformValue<double> Hour
     {
-        get => GetArgument<TerraformValue<double>>("hour");
+        get => GetRequiredArgument<TerraformValue<double>>("hour");
         set => SetArgument("hour", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
     public required TerraformValue<double> Minute
     {
-        get => GetArgument<TerraformValue<double>>("minute");
+        get => GetRequiredArgument<TerraformValue<double>>("minute");
         set => SetArgument("minute", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
+        get => GetRequiredArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermNetappSnapshotPolicyHourlyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
     public required TerraformValue<double> Minute
     {
-        get => GetArgument<TerraformValue<double>>("minute");
+        get => GetRequiredArgument<TerraformValue<double>>("minute");
         set => SetArgument("minute", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermNetappSnapshotPolicyHourlyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
+        get => GetRequiredArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysOfMonth is required")]
     public required TerraformSet<double> DaysOfMonth
     {
-        get => GetArgument<TerraformSet<double>>("days_of_month");
+        get => GetRequiredArgument<TerraformSet<double>>("days_of_month");
         set => SetArgument("days_of_month", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hour is required")]
     public required TerraformValue<double> Hour
     {
-        get => GetArgument<TerraformValue<double>>("hour");
+        get => GetRequiredArgument<TerraformValue<double>>("hour");
         set => SetArgument("hour", value);
     }
 
@@ -117,7 +117,7 @@ public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
     public required TerraformValue<double> Minute
     {
-        get => GetArgument<TerraformValue<double>>("minute");
+        get => GetRequiredArgument<TerraformValue<double>>("minute");
         set => SetArgument("minute", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
+        get => GetRequiredArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -201,7 +201,7 @@ public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysOfWeek is required")]
     public required TerraformSet<string> DaysOfWeek
     {
-        get => GetArgument<TerraformSet<string>>("days_of_week");
+        get => GetRequiredArgument<TerraformSet<string>>("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -211,7 +211,7 @@ public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hour is required")]
     public required TerraformValue<double> Hour
     {
-        get => GetArgument<TerraformValue<double>>("hour");
+        get => GetRequiredArgument<TerraformValue<double>>("hour");
         set => SetArgument("hour", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
     public required TerraformValue<double> Minute
     {
-        get => GetArgument<TerraformValue<double>>("minute");
+        get => GetRequiredArgument<TerraformValue<double>>("minute");
         set => SetArgument("minute", value);
     }
 
@@ -231,7 +231,7 @@ public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
+        get => GetRequiredArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AzurermNetappSnapshotPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -260,16 +260,16 @@ public partial class AzurermNetappSnapshotPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -279,7 +279,7 @@ public partial class AzurermNetappSnapshotPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -289,7 +289,7 @@ public partial class AzurermNetappSnapshotPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -299,7 +299,7 @@ public partial class AzurermNetappSnapshotPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

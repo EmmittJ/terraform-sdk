@@ -84,7 +84,7 @@ public class GoogleComputeRegionSecurityPolicyRuleMatchBlockExprBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlockExc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRuleSet is required")]
     public required TerraformValue<string> TargetRuleSet
     {
-        get => GetArgument<TerraformValue<string>>("target_rule_set");
+        get => GetRequiredArgument<TerraformValue<string>>("target_rule_set");
         set => SetArgument("target_rule_set", value);
     }
 
@@ -322,7 +322,7 @@ public class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlockExc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -361,7 +361,7 @@ public class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlockExc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -400,7 +400,7 @@ public class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlockExc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -439,7 +439,7 @@ public class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlockExc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -729,7 +729,7 @@ public partial class GoogleComputeRegionSecurityPolicyRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -745,9 +745,9 @@ public partial class GoogleComputeRegionSecurityPolicyRule(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -768,16 +768,16 @@ public partial class GoogleComputeRegionSecurityPolicyRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -787,7 +787,7 @@ public partial class GoogleComputeRegionSecurityPolicyRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -797,7 +797,7 @@ public partial class GoogleComputeRegionSecurityPolicyRule(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
     public required TerraformValue<string> SecurityPolicy
     {
-        get => GetArgument<TerraformValue<string>>("security_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("security_policy");
         set => SetArgument("security_policy", value);
     }
 

@@ -55,7 +55,7 @@ public class AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlockNodeImageSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlockUpgradeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermKubernetesFleetUpdateRunStageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -155,7 +155,7 @@ public class AzurermKubernetesFleetUpdateRunStageBlockGroupBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -230,9 +230,9 @@ public partial class AzurermKubernetesFleetUpdateRun(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AzurermKubernetesFleetUpdateRun(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesFleetManagerId is required")]
     public required TerraformValue<string> KubernetesFleetManagerId
     {
-        get => GetArgument<TerraformValue<string>>("kubernetes_fleet_manager_id");
+        get => GetRequiredArgument<TerraformValue<string>>("kubernetes_fleet_manager_id");
         set => SetArgument("kubernetes_fleet_manager_id", value);
     }
 
@@ -252,7 +252,7 @@ public partial class AzurermKubernetesFleetUpdateRun(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

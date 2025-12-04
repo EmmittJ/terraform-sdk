@@ -123,7 +123,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockCreateS3DataAccessFromS3Buck
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -173,7 +173,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockCreateS3DataAccessFromS3Buck
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformValue<string> KmsKeyArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -218,7 +218,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockImportAssetsFromS3BlockAsset
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -228,7 +228,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockImportAssetsFromS3BlockAsset
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -251,7 +251,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockImportAssetsFromSignedUrlBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     public required TerraformValue<string> Filename
     {
-        get => GetArgument<TerraformValue<string>>("filename");
+        get => GetRequiredArgument<TerraformValue<string>>("filename");
         set => SetArgument("filename", value);
     }
 
@@ -302,16 +302,16 @@ public partial class AwsDataexchangeRevisionAssets(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformValue<string> DataSetId
     {
-        get => GetArgument<TerraformValue<string>>("data_set_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_set_id");
         set => SetArgument("data_set_id", value);
     }
 
     /// <summary>
     /// The finalized attribute.
     /// </summary>
-    public TerraformValue<bool>? Finalized
+    public TerraformValue<bool> Finalized
     {
-        get => GetArgument<TerraformValue<bool>>("finalized");
+        get => GetArgument<TerraformValue<bool>>("finalized") ?? AsReference("finalized");
         set => SetArgument("finalized", value);
     }
 
@@ -327,9 +327,9 @@ public partial class AwsDataexchangeRevisionAssets(string name) : TerraformResou
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

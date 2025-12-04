@@ -11,9 +11,9 @@ public partial class AwsChatbotSlackWorkspaceDataSource(string name) : Terraform
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsChatbotSlackWorkspaceDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackTeamName is required")]
     public required TerraformValue<string> SlackTeamName
     {
-        get => GetArgument<TerraformValue<string>>("slack_team_name");
+        get => GetRequiredArgument<TerraformValue<string>>("slack_team_name");
         set => SetArgument("slack_team_name", value);
     }
 

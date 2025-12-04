@@ -11,9 +11,9 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerId is required")]
     public required TerraformValue<string> TriggerId
     {
-        get => GetArgument<TerraformValue<string>>("trigger_id");
+        get => GetRequiredArgument<TerraformValue<string>>("trigger_id");
         set => SetArgument("trigger_id", value);
     }
 

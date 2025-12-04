@@ -22,7 +22,7 @@ public class GoogleDataplexEntryAspectsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AspectKey is required")]
     public required TerraformValue<string> AspectKey
     {
-        get => GetArgument<TerraformValue<string>>("aspect_key");
+        get => GetRequiredArgument<TerraformValue<string>>("aspect_key");
         set => SetArgument("aspect_key", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleDataplexEntryAspectsBlockAspectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
     public required TerraformValue<string> Data
     {
-        get => GetArgument<TerraformValue<string>>("data");
+        get => GetRequiredArgument<TerraformValue<string>>("data");
         set => SetArgument("data", value);
     }
 
@@ -297,7 +297,7 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryType is required")]
     public required TerraformValue<string> EntryType
     {
-        get => GetArgument<TerraformValue<string>>("entry_type");
+        get => GetRequiredArgument<TerraformValue<string>>("entry_type");
         set => SetArgument("entry_type", value);
     }
 
@@ -314,9 +314,9 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -341,9 +341,9 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

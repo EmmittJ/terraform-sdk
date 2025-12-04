@@ -37,16 +37,16 @@ public partial class AzurermBlueprintPublishedVersionDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlueprintName is required")]
     public required TerraformValue<string> BlueprintName
     {
-        get => GetArgument<TerraformValue<string>>("blueprint_name");
+        get => GetRequiredArgument<TerraformValue<string>>("blueprint_name");
         set => SetArgument("blueprint_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermBlueprintPublishedVersionDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformValue<string> ScopeId
     {
-        get => GetArgument<TerraformValue<string>>("scope_id");
+        get => GetRequiredArgument<TerraformValue<string>>("scope_id");
         set => SetArgument("scope_id", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermBlueprintPublishedVersionDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

@@ -46,7 +46,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationProtocol is required")]
     public required TerraformValue<string> AuthenticationProtocol
     {
-        get => GetArgument<TerraformValue<string>>("authentication_protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("authentication_protocol");
         set => SetArgument("authentication_protocol", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformValue<string> DirectoryId
     {
-        get => GetArgument<TerraformValue<string>>("directory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("directory_id");
         set => SetArgument("directory_id", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayLabel is required")]
     public required TerraformValue<string> DisplayLabel
     {
-        get => GetArgument<TerraformValue<string>>("display_label");
+        get => GetRequiredArgument<TerraformValue<string>>("display_label");
         set => SetArgument("display_label", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusPort is required")]
     public required TerraformValue<double> RadiusPort
     {
-        get => GetArgument<TerraformValue<double>>("radius_port");
+        get => GetRequiredArgument<TerraformValue<double>>("radius_port");
         set => SetArgument("radius_port", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusRetries is required")]
     public required TerraformValue<double> RadiusRetries
     {
-        get => GetArgument<TerraformValue<double>>("radius_retries");
+        get => GetRequiredArgument<TerraformValue<double>>("radius_retries");
         set => SetArgument("radius_retries", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusServers is required")]
     public required TerraformSet<string> RadiusServers
     {
-        get => GetArgument<TerraformSet<string>>("radius_servers");
+        get => GetRequiredArgument<TerraformSet<string>>("radius_servers");
         set => SetArgument("radius_servers", value);
     }
 
@@ -115,16 +115,16 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusTimeout is required")]
     public required TerraformValue<double> RadiusTimeout
     {
-        get => GetArgument<TerraformValue<double>>("radius_timeout");
+        get => GetRequiredArgument<TerraformValue<double>>("radius_timeout");
         set => SetArgument("radius_timeout", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedSecret is required")]
     public required TerraformValue<string> SharedSecret
     {
-        get => GetArgument<TerraformValue<string>>("shared_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("shared_secret");
         set => SetArgument("shared_secret", value);
     }
 

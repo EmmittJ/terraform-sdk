@@ -171,9 +171,9 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxDeliveryCount is required")]
     public required TerraformValue<double> MaxDeliveryCount
     {
-        get => GetArgument<TerraformValue<double>>("max_delivery_count");
+        get => GetRequiredArgument<TerraformValue<double>>("max_delivery_count");
         set => SetArgument("max_delivery_count", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -230,7 +230,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
     public required TerraformValue<string> TopicId
     {
-        get => GetArgument<TerraformValue<string>>("topic_id");
+        get => GetRequiredArgument<TerraformValue<string>>("topic_id");
         set => SetArgument("topic_id", value);
     }
 

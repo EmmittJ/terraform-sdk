@@ -27,9 +27,9 @@ public class GoogleNetworkServicesWasmPluginLogConfigBlock : TerraformBlock
     /// This field is can be set only if logging is enabled for the plugin.
     /// If the field is not provided when logging is enabled, it is set to INFO by default. Possible values: [&amp;quot;LOG_LEVEL_UNSPECIFIED&amp;quot;, &amp;quot;TRACE&amp;quot;, &amp;quot;DEBUG&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;WARN&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;CRITICAL&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? MinLogLevel
+    public TerraformValue<string> MinLogLevel
     {
-        get => GetArgument<TerraformValue<string>>("min_log_level");
+        get => GetArgument<TerraformValue<string>>("min_log_level") ?? AsReference("min_log_level");
         set => SetArgument("min_log_level", value);
     }
 
@@ -39,9 +39,9 @@ public class GoogleNetworkServicesWasmPluginLogConfigBlock : TerraformBlock
     /// The default value when logging is enabled is 1.0. The value of the field must be between 0 and 1 (inclusive).
     /// This field can be specified only if logging is enabled for this plugin.
     /// </summary>
-    public TerraformValue<double>? SampleRate
+    public TerraformValue<double> SampleRate
     {
-        get => GetArgument<TerraformValue<double>>("sample_rate");
+        get => GetArgument<TerraformValue<double>>("sample_rate") ?? AsReference("sample_rate");
         set => SetArgument("sample_rate", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionName is required")]
     public required TerraformValue<string> VersionName
     {
-        get => GetArgument<TerraformValue<string>>("version_name");
+        get => GetRequiredArgument<TerraformValue<string>>("version_name");
         set => SetArgument("version_name", value);
     }
 
@@ -208,9 +208,9 @@ public partial class GoogleNetworkServicesWasmPlugin(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -241,7 +241,7 @@ public partial class GoogleNetworkServicesWasmPlugin(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainVersionId is required")]
     public required TerraformValue<string> MainVersionId
     {
-        get => GetArgument<TerraformValue<string>>("main_version_id");
+        get => GetRequiredArgument<TerraformValue<string>>("main_version_id");
         set => SetArgument("main_version_id", value);
     }
 
@@ -251,16 +251,16 @@ public partial class GoogleNetworkServicesWasmPlugin(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

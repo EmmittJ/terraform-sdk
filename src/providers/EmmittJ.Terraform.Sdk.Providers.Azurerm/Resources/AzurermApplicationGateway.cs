@@ -19,7 +19,7 @@ public class AzurermApplicationGatewayAuthenticationCertificateBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
     public required TerraformValue<string> Data
     {
-        get => GetArgument<TerraformValue<string>>("data");
+        get => GetRequiredArgument<TerraformValue<string>>("data");
         set => SetArgument("data", value);
     }
 
@@ -35,7 +35,7 @@ public class AzurermApplicationGatewayAuthenticationCertificateBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermApplicationGatewayAutoscaleConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformValue<double> MinCapacity
     {
-        get => GetArgument<TerraformValue<double>>("min_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("min_capacity");
         set => SetArgument("min_capacity", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermApplicationGatewayBackendAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieBasedAffinity is required")]
     public required TerraformValue<string> CookieBasedAffinity
     {
-        get => GetArgument<TerraformValue<string>>("cookie_based_affinity");
+        get => GetRequiredArgument<TerraformValue<string>>("cookie_based_affinity");
         set => SetArgument("cookie_based_affinity", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -202,7 +202,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -227,7 +227,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -293,7 +293,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlockAuthenticationCert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -316,7 +316,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlockConnectionDraining
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DrainTimeoutSec is required")]
     public required TerraformValue<double> DrainTimeoutSec
     {
-        get => GetArgument<TerraformValue<double>>("drain_timeout_sec");
+        get => GetRequiredArgument<TerraformValue<double>>("drain_timeout_sec");
         set => SetArgument("drain_timeout_sec", value);
     }
 
@@ -326,7 +326,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlockConnectionDraining
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -350,7 +350,7 @@ public class AzurermApplicationGatewayCustomErrorConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomErrorPageUrl is required")]
     public required TerraformValue<string> CustomErrorPageUrl
     {
-        get => GetArgument<TerraformValue<string>>("custom_error_page_url");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_error_page_url");
         set => SetArgument("custom_error_page_url", value);
     }
 
@@ -366,7 +366,7 @@ public class AzurermApplicationGatewayCustomErrorConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformValue<string> StatusCode
     {
-        get => GetArgument<TerraformValue<string>>("status_code");
+        get => GetRequiredArgument<TerraformValue<string>>("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -396,16 +396,16 @@ public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateIpAddress
+    public TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? AsReference("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -477,7 +477,7 @@ public class AzurermApplicationGatewayFrontendPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -487,7 +487,7 @@ public class AzurermApplicationGatewayFrontendPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -517,7 +517,7 @@ public class AzurermApplicationGatewayGatewayIpConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -527,7 +527,7 @@ public class AzurermApplicationGatewayGatewayIpConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -551,7 +551,7 @@ public class AzurermApplicationGatewayGlobalAttributeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestBufferingEnabled is required")]
     public required TerraformValue<bool> RequestBufferingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("request_buffering_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("request_buffering_enabled");
         set => SetArgument("request_buffering_enabled", value);
     }
 
@@ -561,7 +561,7 @@ public class AzurermApplicationGatewayGlobalAttributeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseBufferingEnabled is required")]
     public required TerraformValue<bool> ResponseBufferingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("response_buffering_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("response_buffering_enabled");
         set => SetArgument("response_buffering_enabled", value);
     }
 
@@ -600,7 +600,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendIpConfigurationName is required")]
     public required TerraformValue<string> FrontendIpConfigurationName
     {
-        get => GetArgument<TerraformValue<string>>("frontend_ip_configuration_name");
+        get => GetRequiredArgument<TerraformValue<string>>("frontend_ip_configuration_name");
         set => SetArgument("frontend_ip_configuration_name", value);
     }
 
@@ -616,7 +616,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortName is required")]
     public required TerraformValue<string> FrontendPortName
     {
-        get => GetArgument<TerraformValue<string>>("frontend_port_name");
+        get => GetRequiredArgument<TerraformValue<string>>("frontend_port_name");
         set => SetArgument("frontend_port_name", value);
     }
 
@@ -650,7 +650,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -660,7 +660,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -731,7 +731,7 @@ public class AzurermApplicationGatewayHttpListenerBlockCustomErrorConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomErrorPageUrl is required")]
     public required TerraformValue<string> CustomErrorPageUrl
     {
-        get => GetArgument<TerraformValue<string>>("custom_error_page_url");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_error_page_url");
         set => SetArgument("custom_error_page_url", value);
     }
 
@@ -747,7 +747,7 @@ public class AzurermApplicationGatewayHttpListenerBlockCustomErrorConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformValue<string> StatusCode
     {
-        get => GetArgument<TerraformValue<string>>("status_code");
+        get => GetRequiredArgument<TerraformValue<string>>("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -792,7 +792,7 @@ public class AzurermApplicationGatewayIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -822,7 +822,7 @@ public class AzurermApplicationGatewayPrivateLinkConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -857,7 +857,7 @@ public class AzurermApplicationGatewayPrivateLinkConfigurationBlockIpConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -867,16 +867,16 @@ public class AzurermApplicationGatewayPrivateLinkConfigurationBlockIpConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Primary is required")]
     public required TerraformValue<bool> Primary
     {
-        get => GetArgument<TerraformValue<bool>>("primary");
+        get => GetRequiredArgument<TerraformValue<bool>>("primary");
         set => SetArgument("primary", value);
     }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateIpAddress
+    public TerraformValue<string> PrivateIpAddress
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address") ?? AsReference("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -886,7 +886,7 @@ public class AzurermApplicationGatewayPrivateLinkConfigurationBlockIpConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddressAllocation is required")]
     public required TerraformValue<string> PrivateIpAddressAllocation
     {
-        get => GetArgument<TerraformValue<string>>("private_ip_address_allocation");
+        get => GetRequiredArgument<TerraformValue<string>>("private_ip_address_allocation");
         set => SetArgument("private_ip_address_allocation", value);
     }
 
@@ -896,7 +896,7 @@ public class AzurermApplicationGatewayPrivateLinkConfigurationBlockIpConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -935,7 +935,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => GetArgument<TerraformValue<double>>("interval");
+        get => GetRequiredArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -954,7 +954,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -964,7 +964,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -992,7 +992,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -1002,7 +1002,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
     public required TerraformValue<double> Timeout
     {
-        get => GetArgument<TerraformValue<double>>("timeout");
+        get => GetRequiredArgument<TerraformValue<double>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -1012,7 +1012,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnhealthyThreshold is required")]
     public required TerraformValue<double> UnhealthyThreshold
     {
-        get => GetArgument<TerraformValue<double>>("unhealthy_threshold");
+        get => GetRequiredArgument<TerraformValue<double>>("unhealthy_threshold");
         set => SetArgument("unhealthy_threshold", value);
     }
 
@@ -1102,7 +1102,7 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1112,7 +1112,7 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectType is required")]
     public required TerraformValue<string> RedirectType
     {
-        get => GetArgument<TerraformValue<string>>("redirect_type");
+        get => GetRequiredArgument<TerraformValue<string>>("redirect_type");
         set => SetArgument("redirect_type", value);
     }
 
@@ -1196,7 +1196,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpListenerName is required")]
     public required TerraformValue<string> HttpListenerName
     {
-        get => GetArgument<TerraformValue<string>>("http_listener_name");
+        get => GetRequiredArgument<TerraformValue<string>>("http_listener_name");
         set => SetArgument("http_listener_name", value);
     }
 
@@ -1212,7 +1212,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1261,7 +1261,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleType is required")]
     public required TerraformValue<string> RuleType
     {
-        get => GetArgument<TerraformValue<string>>("rule_type");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_type");
         set => SetArgument("rule_type", value);
     }
 
@@ -1306,7 +1306,7 @@ public class AzurermApplicationGatewayRewriteRuleSetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1338,7 +1338,7 @@ public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1348,7 +1348,7 @@ public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleSequence is required")]
     public required TerraformValue<double> RuleSequence
     {
-        get => GetArgument<TerraformValue<double>>("rule_sequence");
+        get => GetRequiredArgument<TerraformValue<double>>("rule_sequence");
         set => SetArgument("rule_sequence", value);
     }
 
@@ -1426,7 +1426,7 @@ public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockConditi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => GetArgument<TerraformValue<string>>("pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -1436,7 +1436,7 @@ public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockConditi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Variable is required")]
     public required TerraformValue<string> Variable
     {
-        get => GetArgument<TerraformValue<string>>("variable");
+        get => GetRequiredArgument<TerraformValue<string>>("variable");
         set => SetArgument("variable", value);
     }
 
@@ -1459,7 +1459,7 @@ public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockRequest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -1469,7 +1469,7 @@ public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockRequest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -1492,7 +1492,7 @@ public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockRespons
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => GetArgument<TerraformValue<string>>("header_name");
+        get => GetRequiredArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -1502,7 +1502,7 @@ public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockRespons
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => GetArgument<TerraformValue<string>>("header_value");
+        get => GetRequiredArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -1584,7 +1584,7 @@ public class AzurermApplicationGatewaySkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1594,7 +1594,7 @@ public class AzurermApplicationGatewaySkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier");
+        get => GetRequiredArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -1642,7 +1642,7 @@ public class AzurermApplicationGatewaySslCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1746,7 +1746,7 @@ public class AzurermApplicationGatewaySslProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1915,7 +1915,7 @@ public class AzurermApplicationGatewayTrustedClientCertificateBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
     public required TerraformValue<string> Data
     {
-        get => GetArgument<TerraformValue<string>>("data");
+        get => GetRequiredArgument<TerraformValue<string>>("data");
         set => SetArgument("data", value);
     }
 
@@ -1931,7 +1931,7 @@ public class AzurermApplicationGatewayTrustedClientCertificateBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1979,7 +1979,7 @@ public class AzurermApplicationGatewayTrustedRootCertificateBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2069,7 +2069,7 @@ public class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2149,7 +2149,7 @@ public class AzurermApplicationGatewayUrlPathMapBlockPathRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2213,7 +2213,7 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2232,7 +2232,7 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallMode is required")]
     public required TerraformValue<string> FirewallMode
     {
-        get => GetArgument<TerraformValue<string>>("firewall_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("firewall_mode");
         set => SetArgument("firewall_mode", value);
     }
 
@@ -2269,7 +2269,7 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleSetVersion is required")]
     public required TerraformValue<string> RuleSetVersion
     {
-        get => GetArgument<TerraformValue<string>>("rule_set_version");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_set_version");
         set => SetArgument("rule_set_version", value);
     }
 
@@ -2310,7 +2310,7 @@ public class AzurermApplicationGatewayWafConfigurationBlockDisabledRuleGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleGroupName is required")]
     public required TerraformValue<string> RuleGroupName
     {
-        get => GetArgument<TerraformValue<string>>("rule_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_group_name");
         set => SetArgument("rule_group_name", value);
     }
 
@@ -2342,7 +2342,7 @@ public class AzurermApplicationGatewayWafConfigurationBlockExclusionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariable is required")]
     public required TerraformValue<string> MatchVariable
     {
-        get => GetArgument<TerraformValue<string>>("match_variable");
+        get => GetRequiredArgument<TerraformValue<string>>("match_variable");
         set => SetArgument("match_variable", value);
     }
 
@@ -2412,9 +2412,9 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2424,7 +2424,7 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -2434,7 +2434,7 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2444,7 +2444,7 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

@@ -61,9 +61,9 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// <summary>
     /// The deduplication_scope attribute.
     /// </summary>
-    public TerraformValue<string>? DeduplicationScope
+    public TerraformValue<string> DeduplicationScope
     {
-        get => GetArgument<TerraformValue<string>>("deduplication_scope");
+        get => GetArgument<TerraformValue<string>>("deduplication_scope") ?? AsReference("deduplication_scope");
         set => SetArgument("deduplication_scope", value);
     }
 
@@ -88,27 +88,27 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// <summary>
     /// The fifo_throughput_limit attribute.
     /// </summary>
-    public TerraformValue<string>? FifoThroughputLimit
+    public TerraformValue<string> FifoThroughputLimit
     {
-        get => GetArgument<TerraformValue<string>>("fifo_throughput_limit");
+        get => GetArgument<TerraformValue<string>>("fifo_throughput_limit") ?? AsReference("fifo_throughput_limit");
         set => SetArgument("fifo_throughput_limit", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_data_key_reuse_period_seconds attribute.
     /// </summary>
-    public TerraformValue<double>? KmsDataKeyReusePeriodSeconds
+    public TerraformValue<double> KmsDataKeyReusePeriodSeconds
     {
-        get => GetArgument<TerraformValue<double>>("kms_data_key_reuse_period_seconds");
+        get => GetArgument<TerraformValue<double>>("kms_data_key_reuse_period_seconds") ?? AsReference("kms_data_key_reuse_period_seconds");
         set => SetArgument("kms_data_key_reuse_period_seconds", value);
     }
 
@@ -142,27 +142,27 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? NamePrefix
+    public TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix") ?? AsReference("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformValue<string>? Policy
+    public TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy");
+        get => GetArgument<TerraformValue<string>>("policy") ?? AsReference("policy");
         set => SetArgument("policy", value);
     }
 
@@ -178,36 +178,36 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// <summary>
     /// The redrive_allow_policy attribute.
     /// </summary>
-    public TerraformValue<string>? RedriveAllowPolicy
+    public TerraformValue<string> RedriveAllowPolicy
     {
-        get => GetArgument<TerraformValue<string>>("redrive_allow_policy");
+        get => GetArgument<TerraformValue<string>>("redrive_allow_policy") ?? AsReference("redrive_allow_policy");
         set => SetArgument("redrive_allow_policy", value);
     }
 
     /// <summary>
     /// The redrive_policy attribute.
     /// </summary>
-    public TerraformValue<string>? RedrivePolicy
+    public TerraformValue<string> RedrivePolicy
     {
-        get => GetArgument<TerraformValue<string>>("redrive_policy");
+        get => GetArgument<TerraformValue<string>>("redrive_policy") ?? AsReference("redrive_policy");
         set => SetArgument("redrive_policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The sqs_managed_sse_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? SqsManagedSseEnabled
+    public TerraformValue<bool> SqsManagedSseEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("sqs_managed_sse_enabled");
+        get => GetArgument<TerraformValue<bool>>("sqs_managed_sse_enabled") ?? AsReference("sqs_managed_sse_enabled");
         set => SetArgument("sqs_managed_sse_enabled", value);
     }
 
@@ -223,9 +223,9 @@ public partial class AwsSqsQueue(string name) : TerraformResource("aws_sqs_queue
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

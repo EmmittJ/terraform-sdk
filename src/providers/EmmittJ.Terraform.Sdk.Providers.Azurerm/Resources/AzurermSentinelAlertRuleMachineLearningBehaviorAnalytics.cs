@@ -64,7 +64,7 @@ public partial class AzurermSentinelAlertRuleMachineLearningBehaviorAnalytics(st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertRuleTemplateGuid is required")]
     public required TerraformValue<string> AlertRuleTemplateGuid
     {
-        get => GetArgument<TerraformValue<string>>("alert_rule_template_guid");
+        get => GetRequiredArgument<TerraformValue<string>>("alert_rule_template_guid");
         set => SetArgument("alert_rule_template_guid", value);
     }
 
@@ -80,9 +80,9 @@ public partial class AzurermSentinelAlertRuleMachineLearningBehaviorAnalytics(st
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSentinelAlertRuleMachineLearningBehaviorAnalytics(st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermSentinelAlertRuleMachineLearningBehaviorAnalytics(st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

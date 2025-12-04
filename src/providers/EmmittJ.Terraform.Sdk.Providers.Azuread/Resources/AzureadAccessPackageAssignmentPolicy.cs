@@ -77,7 +77,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApprovalTimeoutInDays is required")]
     public required TerraformValue<double> ApprovalTimeoutInDays
     {
-        get => GetArgument<TerraformValue<double>>("approval_timeout_in_days");
+        get => GetRequiredArgument<TerraformValue<double>>("approval_timeout_in_days");
         set => SetArgument("approval_timeout_in_days", value);
     }
 
@@ -154,7 +154,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubjectType is required")]
     public required TerraformValue<string> SubjectType
     {
-        get => GetArgument<TerraformValue<string>>("subject_type");
+        get => GetRequiredArgument<TerraformValue<string>>("subject_type");
         set => SetArgument("subject_type", value);
     }
 
@@ -195,7 +195,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubjectType is required")]
     public required TerraformValue<string> SubjectType
     {
-        get => GetArgument<TerraformValue<string>>("subject_type");
+        get => GetRequiredArgument<TerraformValue<string>>("subject_type");
         set => SetArgument("subject_type", value);
     }
 
@@ -331,7 +331,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlockRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubjectType is required")]
     public required TerraformValue<string> SubjectType
     {
-        get => GetArgument<TerraformValue<string>>("subject_type");
+        get => GetRequiredArgument<TerraformValue<string>>("subject_type");
         set => SetArgument("subject_type", value);
     }
 
@@ -408,7 +408,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockChoiceBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActualValue is required")]
     public required TerraformValue<string> ActualValue
     {
-        get => GetArgument<TerraformValue<string>>("actual_value");
+        get => GetRequiredArgument<TerraformValue<string>>("actual_value");
         set => SetArgument("actual_value", value);
     }
 
@@ -444,7 +444,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockChoiceBlockDisplay
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultText is required")]
     public required TerraformValue<string> DefaultText
     {
-        get => GetArgument<TerraformValue<string>>("default_text");
+        get => GetRequiredArgument<TerraformValue<string>>("default_text");
         set => SetArgument("default_text", value);
     }
 
@@ -476,7 +476,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockChoiceBlockDisplay
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -486,7 +486,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockChoiceBlockDisplay
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetRequiredArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -509,7 +509,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockTextBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultText is required")]
     public required TerraformValue<string> DefaultText
     {
-        get => GetArgument<TerraformValue<string>>("default_text");
+        get => GetRequiredArgument<TerraformValue<string>>("default_text");
         set => SetArgument("default_text", value);
     }
 
@@ -541,7 +541,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockTextBlockLocalized
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => GetArgument<TerraformValue<string>>("content");
+        get => GetRequiredArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -551,7 +551,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockTextBlockLocalized
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetRequiredArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -633,7 +633,7 @@ public class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlockRequestor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubjectType is required")]
     public required TerraformValue<string> SubjectType
     {
-        get => GetArgument<TerraformValue<string>>("subject_type");
+        get => GetRequiredArgument<TerraformValue<string>>("subject_type");
         set => SetArgument("subject_type", value);
     }
 
@@ -702,7 +702,7 @@ public partial class AzureadAccessPackageAssignmentPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPackageId is required")]
     public required TerraformValue<string> AccessPackageId
     {
-        get => GetArgument<TerraformValue<string>>("access_package_id");
+        get => GetRequiredArgument<TerraformValue<string>>("access_package_id");
         set => SetArgument("access_package_id", value);
     }
 
@@ -712,7 +712,7 @@ public partial class AzureadAccessPackageAssignmentPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -722,7 +722,7 @@ public partial class AzureadAccessPackageAssignmentPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -756,9 +756,9 @@ public partial class AzureadAccessPackageAssignmentPolicy(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

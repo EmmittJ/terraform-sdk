@@ -19,7 +19,7 @@ public class GoogleDnsManagedZoneCloudLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableLogging is required")]
     public required TerraformValue<bool> EnableLogging
     {
-        get => GetArgument<TerraformValue<bool>>("enable_logging");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable_logging");
         set => SetArgument("enable_logging", value);
     }
 
@@ -50,9 +50,9 @@ public class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlock
     /// Specifies the mechanism used to provide authenticated denial-of-existence responses.
     /// non_existence can only be updated when the state is &#39;off&#39;. Possible values: [&amp;quot;nsec&amp;quot;, &amp;quot;nsec3&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? NonExistence
+    public TerraformValue<string> NonExistence
     {
-        get => GetArgument<TerraformValue<string>>("non_existence");
+        get => GetArgument<TerraformValue<string>>("non_existence") ?? AsReference("non_existence");
         set => SetArgument("non_existence", value);
     }
 
@@ -244,7 +244,7 @@ public class GoogleDnsManagedZonePeeringConfigBlockTargetNetworkBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => GetArgument<TerraformValue<string>>("network_url");
+        get => GetRequiredArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -301,7 +301,7 @@ public class GoogleDnsManagedZonePrivateVisibilityConfigBlockGkeClustersBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GkeClusterName is required")]
     public required TerraformValue<string> GkeClusterName
     {
-        get => GetArgument<TerraformValue<string>>("gke_cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("gke_cluster_name");
         set => SetArgument("gke_cluster_name", value);
     }
 
@@ -326,7 +326,7 @@ public class GoogleDnsManagedZonePrivateVisibilityConfigBlockNetworksBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => GetArgument<TerraformValue<string>>("network_url");
+        get => GetRequiredArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -395,7 +395,7 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
     public required TerraformValue<string> DnsName
     {
-        get => GetArgument<TerraformValue<string>>("dns_name");
+        get => GetRequiredArgument<TerraformValue<string>>("dns_name");
         set => SetArgument("dns_name", value);
     }
 
@@ -411,9 +411,9 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -437,16 +437,16 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

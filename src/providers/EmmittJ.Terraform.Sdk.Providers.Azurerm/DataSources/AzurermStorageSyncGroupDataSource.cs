@@ -34,9 +34,9 @@ public partial class AzurermStorageSyncGroupDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermStorageSyncGroupDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermStorageSyncGroupDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncId is required")]
     public required TerraformValue<string> StorageSyncId
     {
-        get => GetArgument<TerraformValue<string>>("storage_sync_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_sync_id");
         set => SetArgument("storage_sync_id", value);
     }
 

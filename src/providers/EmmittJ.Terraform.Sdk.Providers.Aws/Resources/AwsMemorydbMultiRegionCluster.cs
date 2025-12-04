@@ -61,18 +61,18 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformValue<string>? Engine
+    public TerraformValue<string> Engine
     {
-        get => GetArgument<TerraformValue<string>>("engine");
+        get => GetArgument<TerraformValue<string>>("engine") ?? AsReference("engine");
         set => SetArgument("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string>? EngineVersion
+    public TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version") ?? AsReference("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiRegionClusterNameSuffix is required")]
     public required TerraformValue<string> MultiRegionClusterNameSuffix
     {
-        get => GetArgument<TerraformValue<string>>("multi_region_cluster_name_suffix");
+        get => GetRequiredArgument<TerraformValue<string>>("multi_region_cluster_name_suffix");
         set => SetArgument("multi_region_cluster_name_suffix", value);
     }
 
     /// <summary>
     /// The multi_region_parameter_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? MultiRegionParameterGroupName
+    public TerraformValue<string> MultiRegionParameterGroupName
     {
-        get => GetArgument<TerraformValue<string>>("multi_region_parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("multi_region_parameter_group_name") ?? AsReference("multi_region_parameter_group_name");
         set => SetArgument("multi_region_parameter_group_name", value);
     }
 
@@ -101,25 +101,25 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformValue<string> NodeType
     {
-        get => GetArgument<TerraformValue<string>>("node_type");
+        get => GetRequiredArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
     /// <summary>
     /// The num_shards attribute.
     /// </summary>
-    public TerraformValue<double>? NumShards
+    public TerraformValue<double> NumShards
     {
-        get => GetArgument<TerraformValue<double>>("num_shards");
+        get => GetArgument<TerraformValue<double>>("num_shards") ?? AsReference("num_shards");
         set => SetArgument("num_shards", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -135,9 +135,9 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    public TerraformValue<bool>? TlsEnabled
+    public TerraformValue<bool> TlsEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("tls_enabled");
+        get => GetArgument<TerraformValue<bool>>("tls_enabled") ?? AsReference("tls_enabled");
         set => SetArgument("tls_enabled", value);
     }
 

@@ -44,7 +44,7 @@ public class AzurermDataProtectionBackupPolicyKubernetesClusterDefaultRetentionR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreType is required")]
     public required TerraformValue<string> DataStoreType
     {
-        get => GetArgument<TerraformValue<string>>("data_store_type");
+        get => GetRequiredArgument<TerraformValue<string>>("data_store_type");
         set => SetArgument("data_store_type", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermDataProtectionBackupPolicyKubernetesClusterDefaultRetentionR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetRequiredArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreType is required")]
     public required TerraformValue<string> DataStoreType
     {
-        get => GetArgument<TerraformValue<string>>("data_store_type");
+        get => GetRequiredArgument<TerraformValue<string>>("data_store_type");
         set => SetArgument("data_store_type", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetRequiredArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -271,9 +271,9 @@ public partial class AzurermDataProtectionBackupPolicyKubernetesCluster(string n
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -283,7 +283,7 @@ public partial class AzurermDataProtectionBackupPolicyKubernetesCluster(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -293,7 +293,7 @@ public partial class AzurermDataProtectionBackupPolicyKubernetesCluster(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AzurermDataProtectionBackupPolicyKubernetesCluster(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultName is required")]
     public required TerraformValue<string> VaultName
     {
-        get => GetArgument<TerraformValue<string>>("vault_name");
+        get => GetRequiredArgument<TerraformValue<string>>("vault_name");
         set => SetArgument("vault_name", value);
     }
 

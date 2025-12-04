@@ -87,7 +87,7 @@ public partial class GoogleBigqueryDatapolicyDataPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyId is required")]
     public required TerraformValue<string> DataPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("data_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_policy_id");
         set => SetArgument("data_policy_id", value);
     }
 
@@ -97,16 +97,16 @@ public partial class GoogleBigqueryDatapolicyDataPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyType is required")]
     public required TerraformValue<string> DataPolicyType
     {
-        get => GetArgument<TerraformValue<string>>("data_policy_type");
+        get => GetRequiredArgument<TerraformValue<string>>("data_policy_type");
         set => SetArgument("data_policy_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class GoogleBigqueryDatapolicyDataPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -126,16 +126,16 @@ public partial class GoogleBigqueryDatapolicyDataPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyTag is required")]
     public required TerraformValue<string> PolicyTag
     {
-        get => GetArgument<TerraformValue<string>>("policy_tag");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_tag");
         set => SetArgument("policy_tag", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

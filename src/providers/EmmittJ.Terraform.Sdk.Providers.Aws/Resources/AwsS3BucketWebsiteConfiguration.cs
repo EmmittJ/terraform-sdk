@@ -19,7 +19,7 @@ public class AwsS3BucketWebsiteConfigurationErrorDocumentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsS3BucketWebsiteConfigurationIndexDocumentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Suffix is required")]
     public required TerraformValue<string> Suffix
     {
-        get => GetArgument<TerraformValue<string>>("suffix");
+        get => GetRequiredArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => GetArgument<TerraformValue<string>>("host_name");
+        get => GetRequiredArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AwsS3BucketWebsiteConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -237,27 +237,27 @@ public partial class AwsS3BucketWebsiteConfiguration(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The routing_rules attribute.
     /// </summary>
-    public TerraformValue<string>? RoutingRules
+    public TerraformValue<string> RoutingRules
     {
-        get => GetArgument<TerraformValue<string>>("routing_rules");
+        get => GetArgument<TerraformValue<string>>("routing_rules") ?? AsReference("routing_rules");
         set => SetArgument("routing_rules", value);
     }
 

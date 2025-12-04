@@ -54,9 +54,9 @@ public partial class GoogleComputeGlobalAddress(string name) : TerraformResource
     /// resource. This can be supplied as an input to reserve a specific
     /// address or omitted to allow GCP to choose a valid one for you.
     /// </summary>
-    public TerraformValue<string>? Address
+    public TerraformValue<string> Address
     {
-        get => GetArgument<TerraformValue<string>>("address");
+        get => GetArgument<TerraformValue<string>>("address") ?? AsReference("address");
         set => SetArgument("address", value);
     }
 
@@ -84,9 +84,9 @@ public partial class GoogleComputeGlobalAddress(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class GoogleComputeGlobalAddress(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -148,18 +148,18 @@ public partial class GoogleComputeGlobalAddress(string name) : TerraformResource
     /// This field is not applicable to addresses with addressType=INTERNAL
     /// when purpose=PRIVATE_SERVICE_CONNECT
     /// </summary>
-    public TerraformValue<double>? PrefixLength
+    public TerraformValue<double> PrefixLength
     {
-        get => GetArgument<TerraformValue<double>>("prefix_length");
+        get => GetArgument<TerraformValue<double>>("prefix_length") ?? AsReference("prefix_length");
         set => SetArgument("prefix_length", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

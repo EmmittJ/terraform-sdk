@@ -77,7 +77,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalePolicyId is required")]
     public required TerraformValue<string> AutoscalePolicyId
     {
-        get => GetArgument<TerraformValue<string>>("autoscale_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("autoscale_policy_id");
         set => SetArgument("autoscale_policy_id", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTypeId is required")]
     public required TerraformValue<string> NodeTypeId
     {
-        get => GetArgument<TerraformValue<string>>("node_type_id");
+        get => GetRequiredArgument<TerraformValue<string>>("node_type_id");
         set => SetArgument("node_type_id", value);
     }
 
@@ -98,7 +98,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOutSize is required")]
     public required TerraformValue<double> ScaleOutSize
     {
-        get => GetArgument<TerraformValue<double>>("scale_out_size");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_out_size");
         set => SetArgument("scale_out_size", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleIn is required")]
     public required TerraformValue<double> ScaleIn
     {
-        get => GetArgument<TerraformValue<double>>("scale_in");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_in");
         set => SetArgument("scale_in", value);
     }
 
@@ -161,7 +161,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOut is required")]
     public required TerraformValue<double> ScaleOut
     {
-        get => GetArgument<TerraformValue<double>>("scale_out");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_out");
         set => SetArgument("scale_out", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleIn is required")]
     public required TerraformValue<double> ScaleIn
     {
-        get => GetArgument<TerraformValue<double>>("scale_in");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_in");
         set => SetArgument("scale_in", value);
     }
 
@@ -194,7 +194,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOut is required")]
     public required TerraformValue<double> ScaleOut
     {
-        get => GetArgument<TerraformValue<double>>("scale_out");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_out");
         set => SetArgument("scale_out", value);
     }
 
@@ -217,7 +217,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleIn is required")]
     public required TerraformValue<double> ScaleIn
     {
-        get => GetArgument<TerraformValue<double>>("scale_in");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_in");
         set => SetArgument("scale_in", value);
     }
 
@@ -227,7 +227,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOut is required")]
     public required TerraformValue<double> ScaleOut
     {
-        get => GetArgument<TerraformValue<double>>("scale_out");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_out");
         set => SetArgument("scale_out", value);
     }
 
@@ -263,7 +263,7 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTypeId is required")]
     public required TerraformValue<string> NodeTypeId
     {
-        get => GetArgument<TerraformValue<string>>("node_type_id");
+        get => GetRequiredArgument<TerraformValue<string>>("node_type_id");
         set => SetArgument("node_type_id", value);
     }
 
@@ -330,9 +330,9 @@ public partial class GoogleVmwareengineCluster(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -342,7 +342,7 @@ public partial class GoogleVmwareengineCluster(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -354,7 +354,7 @@ public partial class GoogleVmwareengineCluster(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => GetArgument<TerraformValue<string>>("parent");
+        get => GetRequiredArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 

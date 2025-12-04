@@ -21,7 +21,7 @@ public class GoogleDnsResponsePolicyGkeClustersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GkeClusterName is required")]
     public required TerraformValue<string> GkeClusterName
     {
-        get => GetArgument<TerraformValue<string>>("gke_cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("gke_cluster_name");
         set => SetArgument("gke_cluster_name", value);
     }
 
@@ -47,7 +47,7 @@ public class GoogleDnsResponsePolicyNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => GetArgument<TerraformValue<string>>("network_url");
+        get => GetRequiredArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -113,18 +113,18 @@ public partial class GoogleDnsResponsePolicy(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -134,7 +134,7 @@ public partial class GoogleDnsResponsePolicy(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicyName is required")]
     public required TerraformValue<string> ResponsePolicyName
     {
-        get => GetArgument<TerraformValue<string>>("response_policy_name");
+        get => GetRequiredArgument<TerraformValue<string>>("response_policy_name");
         set => SetArgument("response_policy_name", value);
     }
 

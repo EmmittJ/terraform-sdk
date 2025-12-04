@@ -55,16 +55,16 @@ public partial class AzureadAccessPackageResourceCatalogAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformValue<string> CatalogId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_id");
+        get => GetRequiredArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadAccessPackageResourceCatalogAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOriginId is required")]
     public required TerraformValue<string> ResourceOriginId
     {
-        get => GetArgument<TerraformValue<string>>("resource_origin_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_origin_id");
         set => SetArgument("resource_origin_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzureadAccessPackageResourceCatalogAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOriginSystem is required")]
     public required TerraformValue<string> ResourceOriginSystem
     {
-        get => GetArgument<TerraformValue<string>>("resource_origin_system");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_origin_system");
         set => SetArgument("resource_origin_system", value);
     }
 

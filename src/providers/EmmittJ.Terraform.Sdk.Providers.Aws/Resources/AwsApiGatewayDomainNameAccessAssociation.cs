@@ -14,7 +14,7 @@ public partial class AwsApiGatewayDomainNameAccessAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessAssociationSource is required")]
     public required TerraformValue<string> AccessAssociationSource
     {
-        get => GetArgument<TerraformValue<string>>("access_association_source");
+        get => GetRequiredArgument<TerraformValue<string>>("access_association_source");
         set => SetArgument("access_association_source", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsApiGatewayDomainNameAccessAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessAssociationSourceType is required")]
     public required TerraformValue<string> AccessAssociationSourceType
     {
-        get => GetArgument<TerraformValue<string>>("access_association_source_type");
+        get => GetRequiredArgument<TerraformValue<string>>("access_association_source_type");
         set => SetArgument("access_association_source_type", value);
     }
 
@@ -34,16 +34,16 @@ public partial class AwsApiGatewayDomainNameAccessAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNameArn is required")]
     public required TerraformValue<string> DomainNameArn
     {
-        get => GetArgument<TerraformValue<string>>("domain_name_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name_arn");
         set => SetArgument("domain_name_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsDatasyncLocationHdfsNameNodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsDatasyncLocationHdfsNameNodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -50,18 +50,18 @@ public class AwsDatasyncLocationHdfsQopConfigurationBlock : TerraformBlock
     /// <summary>
     /// The data_transfer_protection attribute.
     /// </summary>
-    public TerraformValue<string>? DataTransferProtection
+    public TerraformValue<string> DataTransferProtection
     {
-        get => GetArgument<TerraformValue<string>>("data_transfer_protection");
+        get => GetArgument<TerraformValue<string>>("data_transfer_protection") ?? AsReference("data_transfer_protection");
         set => SetArgument("data_transfer_protection", value);
     }
 
     /// <summary>
     /// The rpc_protection attribute.
     /// </summary>
-    public TerraformValue<string>? RpcProtection
+    public TerraformValue<string> RpcProtection
     {
-        get => GetArgument<TerraformValue<string>>("rpc_protection");
+        get => GetArgument<TerraformValue<string>>("rpc_protection") ?? AsReference("rpc_protection");
         set => SetArgument("rpc_protection", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
     public required TerraformSet<string> AgentArns
     {
-        get => GetArgument<TerraformSet<string>>("agent_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("agent_arns");
         set => SetArgument("agent_arns", value);
     }
 
@@ -105,9 +105,9 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -168,9 +168,9 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -213,9 +213,9 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

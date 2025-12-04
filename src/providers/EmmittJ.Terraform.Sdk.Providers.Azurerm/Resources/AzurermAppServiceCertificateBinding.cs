@@ -55,7 +55,7 @@ public partial class AzurermAppServiceCertificateBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     public required TerraformValue<string> CertificateId
     {
-        get => GetArgument<TerraformValue<string>>("certificate_id");
+        get => GetRequiredArgument<TerraformValue<string>>("certificate_id");
         set => SetArgument("certificate_id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermAppServiceCertificateBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostnameBindingId is required")]
     public required TerraformValue<string> HostnameBindingId
     {
-        get => GetArgument<TerraformValue<string>>("hostname_binding_id");
+        get => GetRequiredArgument<TerraformValue<string>>("hostname_binding_id");
         set => SetArgument("hostname_binding_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermAppServiceCertificateBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslState is required")]
     public required TerraformValue<string> SslState
     {
-        get => GetArgument<TerraformValue<string>>("ssl_state");
+        get => GetRequiredArgument<TerraformValue<string>>("ssl_state");
         set => SetArgument("ssl_state", value);
     }
 

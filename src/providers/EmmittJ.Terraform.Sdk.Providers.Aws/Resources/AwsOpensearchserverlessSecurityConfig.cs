@@ -28,16 +28,16 @@ public class AwsOpensearchserverlessSecurityConfigSamlOptionsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     public required TerraformValue<string> Metadata
     {
-        get => GetArgument<TerraformValue<string>>("metadata");
+        get => GetRequiredArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
     /// <summary>
     /// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
     /// </summary>
-    public TerraformValue<double>? SessionTimeout
+    public TerraformValue<double> SessionTimeout
     {
-        get => GetArgument<TerraformValue<double>>("session_timeout");
+        get => GetArgument<TerraformValue<double>>("session_timeout") ?? AsReference("session_timeout");
         set => SetArgument("session_timeout", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsOpensearchserverlessSecurityConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsOpensearchserverlessSecurityConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

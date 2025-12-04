@@ -19,7 +19,7 @@ public class AwsVpnConnectionDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsVpnConnectionDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => GetArgument<TerraformSet<string>>("values");
+        get => GetRequiredArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -45,18 +45,18 @@ public partial class AwsVpnConnectionDataSource(string name) : TerraformDataSour
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The vpn_connection_id attribute.
     /// </summary>
-    public TerraformValue<string>? VpnConnectionId
+    public TerraformValue<string> VpnConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("vpn_connection_id");
+        get => GetArgument<TerraformValue<string>>("vpn_connection_id") ?? AsReference("vpn_connection_id");
         set => SetArgument("vpn_connection_id", value);
     }
 

@@ -73,16 +73,16 @@ public partial class AzurermLbBackendAddressPoolAddress(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     public required TerraformValue<string> BackendAddressPoolId
     {
-        get => GetArgument<TerraformValue<string>>("backend_address_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("backend_address_pool_id");
         set => SetArgument("backend_address_pool_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermLbBackendAddressPoolAddress(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

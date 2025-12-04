@@ -55,7 +55,7 @@ public partial class AzureadAccessPackageResourcePackageAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPackageId is required")]
     public required TerraformValue<string> AccessPackageId
     {
-        get => GetArgument<TerraformValue<string>>("access_package_id");
+        get => GetRequiredArgument<TerraformValue<string>>("access_package_id");
         set => SetArgument("access_package_id", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzureadAccessPackageResourcePackageAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogResourceAssociationId is required")]
     public required TerraformValue<string> CatalogResourceAssociationId
     {
-        get => GetArgument<TerraformValue<string>>("catalog_resource_association_id");
+        get => GetRequiredArgument<TerraformValue<string>>("catalog_resource_association_id");
         set => SetArgument("catalog_resource_association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

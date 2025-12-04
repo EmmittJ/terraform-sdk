@@ -52,9 +52,9 @@ public partial class GoogleGkeHubMembershipBinding(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -77,7 +77,7 @@ public partial class GoogleGkeHubMembershipBinding(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleGkeHubMembershipBinding(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipBindingId is required")]
     public required TerraformValue<string> MembershipBindingId
     {
-        get => GetArgument<TerraformValue<string>>("membership_binding_id");
+        get => GetRequiredArgument<TerraformValue<string>>("membership_binding_id");
         set => SetArgument("membership_binding_id", value);
     }
 
@@ -97,16 +97,16 @@ public partial class GoogleGkeHubMembershipBinding(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
     public required TerraformValue<string> MembershipId
     {
-        get => GetArgument<TerraformValue<string>>("membership_id");
+        get => GetRequiredArgument<TerraformValue<string>>("membership_id");
         set => SetArgument("membership_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -117,7 +117,7 @@ public partial class GoogleGkeHubMembershipBinding(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 

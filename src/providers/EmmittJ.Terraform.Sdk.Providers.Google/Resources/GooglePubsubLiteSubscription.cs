@@ -19,7 +19,7 @@ public class GooglePubsubLiteSubscriptionDeliveryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryRequirement is required")]
     public required TerraformValue<string> DeliveryRequirement
     {
-        get => GetArgument<TerraformValue<string>>("delivery_requirement");
+        get => GetRequiredArgument<TerraformValue<string>>("delivery_requirement");
         set => SetArgument("delivery_requirement", value);
     }
 
@@ -76,9 +76,9 @@ public partial class GooglePubsubLiteSubscription(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -88,16 +88,16 @@ public partial class GooglePubsubLiteSubscription(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -116,7 +116,7 @@ public partial class GooglePubsubLiteSubscription(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => GetArgument<TerraformValue<string>>("topic");
+        get => GetRequiredArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 

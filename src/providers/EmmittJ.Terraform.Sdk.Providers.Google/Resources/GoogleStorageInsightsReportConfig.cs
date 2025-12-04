@@ -60,7 +60,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockEndDateBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => GetArgument<TerraformValue<double>>("day");
+        get => GetRequiredArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockEndDateBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => GetArgument<TerraformValue<double>>("month");
+        get => GetRequiredArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockEndDateBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => GetArgument<TerraformValue<double>>("year");
+        get => GetRequiredArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockStartDateBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => GetArgument<TerraformValue<double>>("day");
+        get => GetRequiredArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockStartDateBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => GetArgument<TerraformValue<double>>("month");
+        get => GetRequiredArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockStartDateBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => GetArgument<TerraformValue<double>>("year");
+        get => GetRequiredArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlockSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -362,9 +362,9 @@ public partial class GoogleStorageInsightsReportConfig(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -375,16 +375,16 @@ public partial class GoogleStorageInsightsReportConfig(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

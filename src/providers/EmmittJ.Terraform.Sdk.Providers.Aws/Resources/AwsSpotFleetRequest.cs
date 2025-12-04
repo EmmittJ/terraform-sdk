@@ -19,7 +19,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ami is required")]
     public required TerraformValue<string> Ami
     {
-        get => GetArgument<TerraformValue<string>>("ami");
+        get => GetRequiredArgument<TerraformValue<string>>("ami");
         set => SetArgument("ami", value);
     }
 
@@ -35,9 +35,9 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string>? AvailabilityZone
+    public TerraformValue<string> AvailabilityZone
     {
-        get => GetArgument<TerraformValue<string>>("availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone") ?? AsReference("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -74,16 +74,16 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformValue<string>? KeyName
+    public TerraformValue<string> KeyName
     {
-        get => GetArgument<TerraformValue<string>>("key_name");
+        get => GetArgument<TerraformValue<string>>("key_name") ?? AsReference("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -99,9 +99,9 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     /// <summary>
     /// The placement_group attribute.
     /// </summary>
-    public TerraformValue<string>? PlacementGroup
+    public TerraformValue<string> PlacementGroup
     {
-        get => GetArgument<TerraformValue<string>>("placement_group");
+        get => GetArgument<TerraformValue<string>>("placement_group") ?? AsReference("placement_group");
         set => SetArgument("placement_group", value);
     }
 
@@ -126,9 +126,9 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformValue<string>? SubnetId
+    public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -153,9 +153,9 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? VpcSecurityGroupIds
+    public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -223,70 +223,70 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockEbsBlockDeviceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetRequiredArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformValue<bool>? Encrypted
+    public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
-    public TerraformValue<string>? SnapshotId
+    public TerraformValue<string> SnapshotId
     {
-        get => GetArgument<TerraformValue<string>>("snapshot_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_id") ?? AsReference("snapshot_id");
         set => SetArgument("snapshot_id", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    public TerraformValue<double>? VolumeSize
+    public TerraformValue<double> VolumeSize
     {
-        get => GetArgument<TerraformValue<double>>("volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size") ?? AsReference("volume_size");
         set => SetArgument("volume_size", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformValue<string>? VolumeType
+    public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -309,7 +309,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockEphemeralBlockDeviceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => GetArgument<TerraformValue<string>>("device_name");
+        get => GetRequiredArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -319,7 +319,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockEphemeralBlockDeviceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualName is required")]
     public required TerraformValue<string> VirtualName
     {
-        get => GetArgument<TerraformValue<string>>("virtual_name");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_name");
         set => SetArgument("virtual_name", value);
     }
 
@@ -348,54 +348,54 @@ public class AwsSpotFleetRequestLaunchSpecificationBlockRootBlockDeviceBlock : T
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformValue<bool>? Encrypted
+    public TerraformValue<bool> Encrypted
     {
-        get => GetArgument<TerraformValue<bool>>("encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted") ?? AsReference("encrypted");
         set => SetArgument("encrypted", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double>? Iops
+    public TerraformValue<double> Iops
     {
-        get => GetArgument<TerraformValue<double>>("iops");
+        get => GetArgument<TerraformValue<double>>("iops") ?? AsReference("iops");
         set => SetArgument("iops", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double>? Throughput
+    public TerraformValue<double> Throughput
     {
-        get => GetArgument<TerraformValue<double>>("throughput");
+        get => GetArgument<TerraformValue<double>>("throughput") ?? AsReference("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    public TerraformValue<double>? VolumeSize
+    public TerraformValue<double> VolumeSize
     {
-        get => GetArgument<TerraformValue<double>>("volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size") ?? AsReference("volume_size");
         set => SetArgument("volume_size", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformValue<string>? VolumeType
+    public TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type") ?? AsReference("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -509,36 +509,36 @@ public class AwsSpotFleetRequestLaunchTemplateConfigBlockOverridesBlock : Terraf
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformValue<double>? Priority
+    public TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetArgument<TerraformValue<double>>("priority") ?? AsReference("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// The spot_price attribute.
     /// </summary>
-    public TerraformValue<string>? SpotPrice
+    public TerraformValue<string> SpotPrice
     {
-        get => GetArgument<TerraformValue<string>>("spot_price");
+        get => GetArgument<TerraformValue<string>>("spot_price") ?? AsReference("spot_price");
         set => SetArgument("spot_price", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformValue<string>? SubnetId
+    public TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id") ?? AsReference("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
     /// <summary>
     /// The weighted_capacity attribute.
     /// </summary>
-    public TerraformValue<double>? WeightedCapacity
+    public TerraformValue<double> WeightedCapacity
     {
-        get => GetArgument<TerraformValue<double>>("weighted_capacity");
+        get => GetArgument<TerraformValue<double>>("weighted_capacity") ?? AsReference("weighted_capacity");
         set => SetArgument("weighted_capacity", value);
     }
 
@@ -1198,16 +1198,16 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamFleetRole is required")]
     public required TerraformValue<string> IamFleetRole
     {
-        get => GetArgument<TerraformValue<string>>("iam_fleet_role");
+        get => GetRequiredArgument<TerraformValue<string>>("iam_fleet_role");
         set => SetArgument("iam_fleet_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1232,9 +1232,9 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     /// <summary>
     /// The load_balancers attribute.
     /// </summary>
-    public TerraformSet<string>? LoadBalancers
+    public TerraformSet<string> LoadBalancers
     {
-        get => GetArgument<TerraformSet<string>>("load_balancers");
+        get => GetArgument<TerraformSet<string>>("load_balancers") ?? AsReference("load_balancers");
         set => SetArgument("load_balancers", value);
     }
 
@@ -1268,9 +1268,9 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1304,9 +1304,9 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1316,7 +1316,7 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetCapacity is required")]
     public required TerraformValue<double> TargetCapacity
     {
-        get => GetArgument<TerraformValue<double>>("target_capacity");
+        get => GetRequiredArgument<TerraformValue<double>>("target_capacity");
         set => SetArgument("target_capacity", value);
     }
 
@@ -1332,9 +1332,9 @@ public partial class AwsSpotFleetRequest(string name) : TerraformResource("aws_s
     /// <summary>
     /// The target_group_arns attribute.
     /// </summary>
-    public TerraformSet<string>? TargetGroupArns
+    public TerraformSet<string> TargetGroupArns
     {
-        get => GetArgument<TerraformSet<string>>("target_group_arns");
+        get => GetArgument<TerraformSet<string>>("target_group_arns") ?? AsReference("target_group_arns");
         set => SetArgument("target_group_arns", value);
     }
 

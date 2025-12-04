@@ -19,7 +19,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => GetArgument<TerraformValue<double>>("from_port");
+        get => GetRequiredArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
     public required TerraformSet<string> Protocols
     {
-        get => GetArgument<TerraformSet<string>>("protocols");
+        get => GetRequiredArgument<TerraformSet<string>>("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => GetArgument<TerraformValue<double>>("to_port");
+        get => GetRequiredArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -110,18 +110,18 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup(string name)
     /// <summary>
     /// The endpoint_group_region attribute.
     /// </summary>
-    public TerraformValue<string>? EndpointGroupRegion
+    public TerraformValue<string> EndpointGroupRegion
     {
-        get => GetArgument<TerraformValue<string>>("endpoint_group_region");
+        get => GetArgument<TerraformValue<string>>("endpoint_group_region") ?? AsReference("endpoint_group_region");
         set => SetArgument("endpoint_group_region", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
     public required TerraformValue<string> ListenerArn
     {
-        get => GetArgument<TerraformValue<string>>("listener_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("listener_arn");
         set => SetArgument("listener_arn", value);
     }
 

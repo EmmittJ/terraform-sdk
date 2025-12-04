@@ -16,18 +16,18 @@ public class AwsKendraIndexCapacityUnitsBlock : TerraformBlock
     /// <summary>
     /// The query_capacity_units attribute.
     /// </summary>
-    public TerraformValue<double>? QueryCapacityUnits
+    public TerraformValue<double> QueryCapacityUnits
     {
-        get => GetArgument<TerraformValue<double>>("query_capacity_units");
+        get => GetArgument<TerraformValue<double>>("query_capacity_units") ?? AsReference("query_capacity_units");
         set => SetArgument("query_capacity_units", value);
     }
 
     /// <summary>
     /// The storage_capacity_units attribute.
     /// </summary>
-    public TerraformValue<double>? StorageCapacityUnits
+    public TerraformValue<double> StorageCapacityUnits
     {
-        get => GetArgument<TerraformValue<double>>("storage_capacity_units");
+        get => GetArgument<TerraformValue<double>>("storage_capacity_units") ?? AsReference("storage_capacity_units");
         set => SetArgument("storage_capacity_units", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -101,45 +101,45 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlockRelevanceBlo
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformValue<string>? Duration
+    public TerraformValue<string> Duration
     {
-        get => GetArgument<TerraformValue<string>>("duration");
+        get => GetArgument<TerraformValue<string>>("duration") ?? AsReference("duration");
         set => SetArgument("duration", value);
     }
 
     /// <summary>
     /// The freshness attribute.
     /// </summary>
-    public TerraformValue<bool>? Freshness
+    public TerraformValue<bool> Freshness
     {
-        get => GetArgument<TerraformValue<bool>>("freshness");
+        get => GetArgument<TerraformValue<bool>>("freshness") ?? AsReference("freshness");
         set => SetArgument("freshness", value);
     }
 
     /// <summary>
     /// The importance attribute.
     /// </summary>
-    public TerraformValue<double>? Importance
+    public TerraformValue<double> Importance
     {
-        get => GetArgument<TerraformValue<double>>("importance");
+        get => GetArgument<TerraformValue<double>>("importance") ?? AsReference("importance");
         set => SetArgument("importance", value);
     }
 
     /// <summary>
     /// The rank_order attribute.
     /// </summary>
-    public TerraformValue<string>? RankOrder
+    public TerraformValue<string> RankOrder
     {
-        get => GetArgument<TerraformValue<string>>("rank_order");
+        get => GetArgument<TerraformValue<string>>("rank_order") ?? AsReference("rank_order");
         set => SetArgument("rank_order", value);
     }
 
     /// <summary>
     /// The values_importance_map attribute.
     /// </summary>
-    public TerraformMap<double>? ValuesImportanceMap
+    public TerraformMap<double> ValuesImportanceMap
     {
-        get => GetArgument<TerraformMap<double>>("values_importance_map");
+        get => GetArgument<TerraformMap<double>>("values_importance_map") ?? AsReference("values_importance_map");
         set => SetArgument("values_importance_map", value);
     }
 
@@ -159,36 +159,36 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlockSearchBlock 
     /// <summary>
     /// The displayable attribute.
     /// </summary>
-    public TerraformValue<bool>? Displayable
+    public TerraformValue<bool> Displayable
     {
-        get => GetArgument<TerraformValue<bool>>("displayable");
+        get => GetArgument<TerraformValue<bool>>("displayable") ?? AsReference("displayable");
         set => SetArgument("displayable", value);
     }
 
     /// <summary>
     /// The facetable attribute.
     /// </summary>
-    public TerraformValue<bool>? Facetable
+    public TerraformValue<bool> Facetable
     {
-        get => GetArgument<TerraformValue<bool>>("facetable");
+        get => GetArgument<TerraformValue<bool>>("facetable") ?? AsReference("facetable");
         set => SetArgument("facetable", value);
     }
 
     /// <summary>
     /// The searchable attribute.
     /// </summary>
-    public TerraformValue<bool>? Searchable
+    public TerraformValue<bool> Searchable
     {
-        get => GetArgument<TerraformValue<bool>>("searchable");
+        get => GetArgument<TerraformValue<bool>>("searchable") ?? AsReference("searchable");
         set => SetArgument("searchable", value);
     }
 
     /// <summary>
     /// The sortable attribute.
     /// </summary>
-    public TerraformValue<bool>? Sortable
+    public TerraformValue<bool> Sortable
     {
-        get => GetArgument<TerraformValue<bool>>("sortable");
+        get => GetArgument<TerraformValue<bool>>("sortable") ?? AsReference("sortable");
         set => SetArgument("sortable", value);
     }
 
@@ -276,7 +276,7 @@ public class AwsKendraIndexUserGroupResolutionConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserGroupResolutionMode is required")]
     public required TerraformValue<string> UserGroupResolutionMode
     {
-        get => GetArgument<TerraformValue<string>>("user_group_resolution_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("user_group_resolution_mode");
         set => SetArgument("user_group_resolution_mode", value);
     }
 
@@ -333,7 +333,7 @@ public class AwsKendraIndexUserTokenConfigurationsBlockJsonTokenTypeConfiguratio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupAttributeField is required")]
     public required TerraformValue<string> GroupAttributeField
     {
-        get => GetArgument<TerraformValue<string>>("group_attribute_field");
+        get => GetRequiredArgument<TerraformValue<string>>("group_attribute_field");
         set => SetArgument("group_attribute_field", value);
     }
 
@@ -343,7 +343,7 @@ public class AwsKendraIndexUserTokenConfigurationsBlockJsonTokenTypeConfiguratio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserNameAttributeField is required")]
     public required TerraformValue<string> UserNameAttributeField
     {
-        get => GetArgument<TerraformValue<string>>("user_name_attribute_field");
+        get => GetRequiredArgument<TerraformValue<string>>("user_name_attribute_field");
         set => SetArgument("user_name_attribute_field", value);
     }
 
@@ -393,7 +393,7 @@ public class AwsKendraIndexUserTokenConfigurationsBlockJwtTokenTypeConfiguration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyLocation is required")]
     public required TerraformValue<string> KeyLocation
     {
-        get => GetArgument<TerraformValue<string>>("key_location");
+        get => GetRequiredArgument<TerraformValue<string>>("key_location");
         set => SetArgument("key_location", value);
     }
 
@@ -454,9 +454,9 @@ public partial class AwsKendraIndex(string name) : TerraformResource("aws_kendra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -466,16 +466,16 @@ public partial class AwsKendraIndex(string name) : TerraformResource("aws_kendra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -485,7 +485,7 @@ public partial class AwsKendraIndex(string name) : TerraformResource("aws_kendra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -501,9 +501,9 @@ public partial class AwsKendraIndex(string name) : TerraformResource("aws_kendra
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -45,7 +45,7 @@ public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlockMetadataLabe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataLabelMatchCriteria is required")]
     public required TerraformValue<string> MetadataLabelMatchCriteria
     {
-        get => GetArgument<TerraformValue<string>>("metadata_label_match_criteria");
+        get => GetRequiredArgument<TerraformValue<string>>("metadata_label_match_criteria");
         set => SetArgument("metadata_label_match_criteria", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlockMetadataLabe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelName is required")]
     public required TerraformValue<string> LabelName
     {
-        get => GetArgument<TerraformValue<string>>("label_name");
+        get => GetRequiredArgument<TerraformValue<string>>("label_name");
         set => SetArgument("label_name", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlockMetadataLabe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelValue is required")]
     public required TerraformValue<string> LabelValue
     {
-        get => GetArgument<TerraformValue<string>>("label_value");
+        get => GetRequiredArgument<TerraformValue<string>>("label_value");
         set => SetArgument("label_value", value);
     }
 
@@ -195,9 +195,9 @@ public partial class GoogleNetworkServicesEndpointPolicy(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -219,16 +219,16 @@ public partial class GoogleNetworkServicesEndpointPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -247,7 +247,7 @@ public partial class GoogleNetworkServicesEndpointPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

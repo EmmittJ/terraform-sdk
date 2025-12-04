@@ -60,16 +60,16 @@ public class AwsRoute53ZoneVpcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
     /// <summary>
     /// The vpc_region attribute.
     /// </summary>
-    public TerraformValue<string>? VpcRegion
+    public TerraformValue<string> VpcRegion
     {
-        get => GetArgument<TerraformValue<string>>("vpc_region");
+        get => GetArgument<TerraformValue<string>>("vpc_region") ?? AsReference("vpc_region");
         set => SetArgument("vpc_region", value);
     }
 
@@ -112,9 +112,9 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -140,9 +140,9 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

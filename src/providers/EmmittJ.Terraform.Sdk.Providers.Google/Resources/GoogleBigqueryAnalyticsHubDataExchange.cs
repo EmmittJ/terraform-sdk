@@ -115,7 +115,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     public required TerraformValue<string> DataExchangeId
     {
-        get => GetArgument<TerraformValue<string>>("data_exchange_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_exchange_id");
         set => SetArgument("data_exchange_id", value);
     }
 
@@ -131,9 +131,9 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// <summary>
     /// Type of discovery on the discovery page for all the listings under this exchange. Cannot be set for a Data Clean Room. Updating this field also updates (overwrites) the discoveryType field for all the listings under this exchange. Possible values: [&amp;quot;DISCOVERY_TYPE_PRIVATE&amp;quot;, &amp;quot;DISCOVERY_TYPE_PUBLIC&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? DiscoveryType
+    public TerraformValue<string> DiscoveryType
     {
-        get => GetArgument<TerraformValue<string>>("discovery_type");
+        get => GetArgument<TerraformValue<string>>("discovery_type") ?? AsReference("discovery_type");
         set => SetArgument("discovery_type", value);
     }
 
@@ -143,7 +143,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -168,9 +168,9 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -180,7 +180,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -205,9 +205,9 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

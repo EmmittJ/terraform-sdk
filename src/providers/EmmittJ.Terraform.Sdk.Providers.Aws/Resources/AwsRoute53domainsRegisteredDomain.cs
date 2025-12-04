@@ -16,126 +16,126 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlock
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
-    public TerraformValue<string>? AddressLine1
+    public TerraformValue<string> AddressLine1
     {
-        get => GetArgument<TerraformValue<string>>("address_line_1");
+        get => GetArgument<TerraformValue<string>>("address_line_1") ?? AsReference("address_line_1");
         set => SetArgument("address_line_1", value);
     }
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
-    public TerraformValue<string>? AddressLine2
+    public TerraformValue<string> AddressLine2
     {
-        get => GetArgument<TerraformValue<string>>("address_line_2");
+        get => GetArgument<TerraformValue<string>>("address_line_2") ?? AsReference("address_line_2");
         set => SetArgument("address_line_2", value);
     }
 
     /// <summary>
     /// The city attribute.
     /// </summary>
-    public TerraformValue<string>? City
+    public TerraformValue<string> City
     {
-        get => GetArgument<TerraformValue<string>>("city");
+        get => GetArgument<TerraformValue<string>>("city") ?? AsReference("city");
         set => SetArgument("city", value);
     }
 
     /// <summary>
     /// The contact_type attribute.
     /// </summary>
-    public TerraformValue<string>? ContactType
+    public TerraformValue<string> ContactType
     {
-        get => GetArgument<TerraformValue<string>>("contact_type");
+        get => GetArgument<TerraformValue<string>>("contact_type") ?? AsReference("contact_type");
         set => SetArgument("contact_type", value);
     }
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
-    public TerraformValue<string>? CountryCode
+    public TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code");
+        get => GetArgument<TerraformValue<string>>("country_code") ?? AsReference("country_code");
         set => SetArgument("country_code", value);
     }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformValue<string>? Email
+    public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The extra_params attribute.
     /// </summary>
-    public TerraformMap<string>? ExtraParams
+    public TerraformMap<string> ExtraParams
     {
-        get => GetArgument<TerraformMap<string>>("extra_params");
+        get => GetArgument<TerraformMap<string>>("extra_params") ?? AsReference("extra_params");
         set => SetArgument("extra_params", value);
     }
 
     /// <summary>
     /// The fax attribute.
     /// </summary>
-    public TerraformValue<string>? Fax
+    public TerraformValue<string> Fax
     {
-        get => GetArgument<TerraformValue<string>>("fax");
+        get => GetArgument<TerraformValue<string>>("fax") ?? AsReference("fax");
         set => SetArgument("fax", value);
     }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public TerraformValue<string>? FirstName
+    public TerraformValue<string> FirstName
     {
-        get => GetArgument<TerraformValue<string>>("first_name");
+        get => GetArgument<TerraformValue<string>>("first_name") ?? AsReference("first_name");
         set => SetArgument("first_name", value);
     }
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public TerraformValue<string>? LastName
+    public TerraformValue<string> LastName
     {
-        get => GetArgument<TerraformValue<string>>("last_name");
+        get => GetArgument<TerraformValue<string>>("last_name") ?? AsReference("last_name");
         set => SetArgument("last_name", value);
     }
 
     /// <summary>
     /// The organization_name attribute.
     /// </summary>
-    public TerraformValue<string>? OrganizationName
+    public TerraformValue<string> OrganizationName
     {
-        get => GetArgument<TerraformValue<string>>("organization_name");
+        get => GetArgument<TerraformValue<string>>("organization_name") ?? AsReference("organization_name");
         set => SetArgument("organization_name", value);
     }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformValue<string>? PhoneNumber
+    public TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number") ?? AsReference("phone_number");
         set => SetArgument("phone_number", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string>? State
+    public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
         set => SetArgument("state", value);
     }
 
     /// <summary>
     /// The zip_code attribute.
     /// </summary>
-    public TerraformValue<string>? ZipCode
+    public TerraformValue<string> ZipCode
     {
-        get => GetArgument<TerraformValue<string>>("zip_code");
+        get => GetArgument<TerraformValue<string>>("zip_code") ?? AsReference("zip_code");
         set => SetArgument("zip_code", value);
     }
 
@@ -156,126 +156,126 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlo
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
-    public TerraformValue<string>? AddressLine1
+    public TerraformValue<string> AddressLine1
     {
-        get => GetArgument<TerraformValue<string>>("address_line_1");
+        get => GetArgument<TerraformValue<string>>("address_line_1") ?? AsReference("address_line_1");
         set => SetArgument("address_line_1", value);
     }
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
-    public TerraformValue<string>? AddressLine2
+    public TerraformValue<string> AddressLine2
     {
-        get => GetArgument<TerraformValue<string>>("address_line_2");
+        get => GetArgument<TerraformValue<string>>("address_line_2") ?? AsReference("address_line_2");
         set => SetArgument("address_line_2", value);
     }
 
     /// <summary>
     /// The city attribute.
     /// </summary>
-    public TerraformValue<string>? City
+    public TerraformValue<string> City
     {
-        get => GetArgument<TerraformValue<string>>("city");
+        get => GetArgument<TerraformValue<string>>("city") ?? AsReference("city");
         set => SetArgument("city", value);
     }
 
     /// <summary>
     /// The contact_type attribute.
     /// </summary>
-    public TerraformValue<string>? ContactType
+    public TerraformValue<string> ContactType
     {
-        get => GetArgument<TerraformValue<string>>("contact_type");
+        get => GetArgument<TerraformValue<string>>("contact_type") ?? AsReference("contact_type");
         set => SetArgument("contact_type", value);
     }
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
-    public TerraformValue<string>? CountryCode
+    public TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code");
+        get => GetArgument<TerraformValue<string>>("country_code") ?? AsReference("country_code");
         set => SetArgument("country_code", value);
     }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformValue<string>? Email
+    public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The extra_params attribute.
     /// </summary>
-    public TerraformMap<string>? ExtraParams
+    public TerraformMap<string> ExtraParams
     {
-        get => GetArgument<TerraformMap<string>>("extra_params");
+        get => GetArgument<TerraformMap<string>>("extra_params") ?? AsReference("extra_params");
         set => SetArgument("extra_params", value);
     }
 
     /// <summary>
     /// The fax attribute.
     /// </summary>
-    public TerraformValue<string>? Fax
+    public TerraformValue<string> Fax
     {
-        get => GetArgument<TerraformValue<string>>("fax");
+        get => GetArgument<TerraformValue<string>>("fax") ?? AsReference("fax");
         set => SetArgument("fax", value);
     }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public TerraformValue<string>? FirstName
+    public TerraformValue<string> FirstName
     {
-        get => GetArgument<TerraformValue<string>>("first_name");
+        get => GetArgument<TerraformValue<string>>("first_name") ?? AsReference("first_name");
         set => SetArgument("first_name", value);
     }
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public TerraformValue<string>? LastName
+    public TerraformValue<string> LastName
     {
-        get => GetArgument<TerraformValue<string>>("last_name");
+        get => GetArgument<TerraformValue<string>>("last_name") ?? AsReference("last_name");
         set => SetArgument("last_name", value);
     }
 
     /// <summary>
     /// The organization_name attribute.
     /// </summary>
-    public TerraformValue<string>? OrganizationName
+    public TerraformValue<string> OrganizationName
     {
-        get => GetArgument<TerraformValue<string>>("organization_name");
+        get => GetArgument<TerraformValue<string>>("organization_name") ?? AsReference("organization_name");
         set => SetArgument("organization_name", value);
     }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformValue<string>? PhoneNumber
+    public TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number") ?? AsReference("phone_number");
         set => SetArgument("phone_number", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string>? State
+    public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
         set => SetArgument("state", value);
     }
 
     /// <summary>
     /// The zip_code attribute.
     /// </summary>
-    public TerraformValue<string>? ZipCode
+    public TerraformValue<string> ZipCode
     {
-        get => GetArgument<TerraformValue<string>>("zip_code");
+        get => GetArgument<TerraformValue<string>>("zip_code") ?? AsReference("zip_code");
         set => SetArgument("zip_code", value);
     }
 
@@ -308,7 +308,7 @@ public class AwsRoute53domainsRegisteredDomainNameServerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -329,126 +329,126 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : Terraform
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
-    public TerraformValue<string>? AddressLine1
+    public TerraformValue<string> AddressLine1
     {
-        get => GetArgument<TerraformValue<string>>("address_line_1");
+        get => GetArgument<TerraformValue<string>>("address_line_1") ?? AsReference("address_line_1");
         set => SetArgument("address_line_1", value);
     }
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
-    public TerraformValue<string>? AddressLine2
+    public TerraformValue<string> AddressLine2
     {
-        get => GetArgument<TerraformValue<string>>("address_line_2");
+        get => GetArgument<TerraformValue<string>>("address_line_2") ?? AsReference("address_line_2");
         set => SetArgument("address_line_2", value);
     }
 
     /// <summary>
     /// The city attribute.
     /// </summary>
-    public TerraformValue<string>? City
+    public TerraformValue<string> City
     {
-        get => GetArgument<TerraformValue<string>>("city");
+        get => GetArgument<TerraformValue<string>>("city") ?? AsReference("city");
         set => SetArgument("city", value);
     }
 
     /// <summary>
     /// The contact_type attribute.
     /// </summary>
-    public TerraformValue<string>? ContactType
+    public TerraformValue<string> ContactType
     {
-        get => GetArgument<TerraformValue<string>>("contact_type");
+        get => GetArgument<TerraformValue<string>>("contact_type") ?? AsReference("contact_type");
         set => SetArgument("contact_type", value);
     }
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
-    public TerraformValue<string>? CountryCode
+    public TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code");
+        get => GetArgument<TerraformValue<string>>("country_code") ?? AsReference("country_code");
         set => SetArgument("country_code", value);
     }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformValue<string>? Email
+    public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The extra_params attribute.
     /// </summary>
-    public TerraformMap<string>? ExtraParams
+    public TerraformMap<string> ExtraParams
     {
-        get => GetArgument<TerraformMap<string>>("extra_params");
+        get => GetArgument<TerraformMap<string>>("extra_params") ?? AsReference("extra_params");
         set => SetArgument("extra_params", value);
     }
 
     /// <summary>
     /// The fax attribute.
     /// </summary>
-    public TerraformValue<string>? Fax
+    public TerraformValue<string> Fax
     {
-        get => GetArgument<TerraformValue<string>>("fax");
+        get => GetArgument<TerraformValue<string>>("fax") ?? AsReference("fax");
         set => SetArgument("fax", value);
     }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public TerraformValue<string>? FirstName
+    public TerraformValue<string> FirstName
     {
-        get => GetArgument<TerraformValue<string>>("first_name");
+        get => GetArgument<TerraformValue<string>>("first_name") ?? AsReference("first_name");
         set => SetArgument("first_name", value);
     }
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public TerraformValue<string>? LastName
+    public TerraformValue<string> LastName
     {
-        get => GetArgument<TerraformValue<string>>("last_name");
+        get => GetArgument<TerraformValue<string>>("last_name") ?? AsReference("last_name");
         set => SetArgument("last_name", value);
     }
 
     /// <summary>
     /// The organization_name attribute.
     /// </summary>
-    public TerraformValue<string>? OrganizationName
+    public TerraformValue<string> OrganizationName
     {
-        get => GetArgument<TerraformValue<string>>("organization_name");
+        get => GetArgument<TerraformValue<string>>("organization_name") ?? AsReference("organization_name");
         set => SetArgument("organization_name", value);
     }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformValue<string>? PhoneNumber
+    public TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number") ?? AsReference("phone_number");
         set => SetArgument("phone_number", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string>? State
+    public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
         set => SetArgument("state", value);
     }
 
     /// <summary>
     /// The zip_code attribute.
     /// </summary>
-    public TerraformValue<string>? ZipCode
+    public TerraformValue<string> ZipCode
     {
-        get => GetArgument<TerraformValue<string>>("zip_code");
+        get => GetArgument<TerraformValue<string>>("zip_code") ?? AsReference("zip_code");
         set => SetArgument("zip_code", value);
     }
 
@@ -469,126 +469,126 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlock
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
-    public TerraformValue<string>? AddressLine1
+    public TerraformValue<string> AddressLine1
     {
-        get => GetArgument<TerraformValue<string>>("address_line_1");
+        get => GetArgument<TerraformValue<string>>("address_line_1") ?? AsReference("address_line_1");
         set => SetArgument("address_line_1", value);
     }
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
-    public TerraformValue<string>? AddressLine2
+    public TerraformValue<string> AddressLine2
     {
-        get => GetArgument<TerraformValue<string>>("address_line_2");
+        get => GetArgument<TerraformValue<string>>("address_line_2") ?? AsReference("address_line_2");
         set => SetArgument("address_line_2", value);
     }
 
     /// <summary>
     /// The city attribute.
     /// </summary>
-    public TerraformValue<string>? City
+    public TerraformValue<string> City
     {
-        get => GetArgument<TerraformValue<string>>("city");
+        get => GetArgument<TerraformValue<string>>("city") ?? AsReference("city");
         set => SetArgument("city", value);
     }
 
     /// <summary>
     /// The contact_type attribute.
     /// </summary>
-    public TerraformValue<string>? ContactType
+    public TerraformValue<string> ContactType
     {
-        get => GetArgument<TerraformValue<string>>("contact_type");
+        get => GetArgument<TerraformValue<string>>("contact_type") ?? AsReference("contact_type");
         set => SetArgument("contact_type", value);
     }
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
-    public TerraformValue<string>? CountryCode
+    public TerraformValue<string> CountryCode
     {
-        get => GetArgument<TerraformValue<string>>("country_code");
+        get => GetArgument<TerraformValue<string>>("country_code") ?? AsReference("country_code");
         set => SetArgument("country_code", value);
     }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformValue<string>? Email
+    public TerraformValue<string> Email
     {
-        get => GetArgument<TerraformValue<string>>("email");
+        get => GetArgument<TerraformValue<string>>("email") ?? AsReference("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The extra_params attribute.
     /// </summary>
-    public TerraformMap<string>? ExtraParams
+    public TerraformMap<string> ExtraParams
     {
-        get => GetArgument<TerraformMap<string>>("extra_params");
+        get => GetArgument<TerraformMap<string>>("extra_params") ?? AsReference("extra_params");
         set => SetArgument("extra_params", value);
     }
 
     /// <summary>
     /// The fax attribute.
     /// </summary>
-    public TerraformValue<string>? Fax
+    public TerraformValue<string> Fax
     {
-        get => GetArgument<TerraformValue<string>>("fax");
+        get => GetArgument<TerraformValue<string>>("fax") ?? AsReference("fax");
         set => SetArgument("fax", value);
     }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public TerraformValue<string>? FirstName
+    public TerraformValue<string> FirstName
     {
-        get => GetArgument<TerraformValue<string>>("first_name");
+        get => GetArgument<TerraformValue<string>>("first_name") ?? AsReference("first_name");
         set => SetArgument("first_name", value);
     }
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public TerraformValue<string>? LastName
+    public TerraformValue<string> LastName
     {
-        get => GetArgument<TerraformValue<string>>("last_name");
+        get => GetArgument<TerraformValue<string>>("last_name") ?? AsReference("last_name");
         set => SetArgument("last_name", value);
     }
 
     /// <summary>
     /// The organization_name attribute.
     /// </summary>
-    public TerraformValue<string>? OrganizationName
+    public TerraformValue<string> OrganizationName
     {
-        get => GetArgument<TerraformValue<string>>("organization_name");
+        get => GetArgument<TerraformValue<string>>("organization_name") ?? AsReference("organization_name");
         set => SetArgument("organization_name", value);
     }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformValue<string>? PhoneNumber
+    public TerraformValue<string> PhoneNumber
     {
-        get => GetArgument<TerraformValue<string>>("phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number") ?? AsReference("phone_number");
         set => SetArgument("phone_number", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string>? State
+    public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
         set => SetArgument("state", value);
     }
 
     /// <summary>
     /// The zip_code attribute.
     /// </summary>
-    public TerraformValue<string>? ZipCode
+    public TerraformValue<string> ZipCode
     {
-        get => GetArgument<TerraformValue<string>>("zip_code");
+        get => GetArgument<TerraformValue<string>>("zip_code") ?? AsReference("zip_code");
         set => SetArgument("zip_code", value);
     }
 
@@ -666,16 +666,16 @@ public partial class AwsRoute53domainsRegisteredDomain(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -700,9 +700,9 @@ public partial class AwsRoute53domainsRegisteredDomain(string name) : TerraformR
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

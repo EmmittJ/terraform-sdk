@@ -21,7 +21,7 @@ public class GoogleGkeonpremVmwareClusterAntiAffinityGroupsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AagConfigDisabled is required")]
     public required TerraformValue<bool> AagConfigDisabled
     {
-        get => GetArgument<TerraformValue<bool>>("aag_config_disabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("aag_config_disabled");
         set => SetArgument("aag_config_disabled", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleGkeonpremVmwareClusterAuthorizationBlockAdminUsersBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleGkeonpremVmwareClusterAutoRepairConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleGkeonpremVmwareClusterControlPlaneNodeBlockAutoResizeConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -309,9 +309,9 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockF5ConfigBlock : Terraf
     /// <summary>
     /// The pool name. Only necessary, if using SNAT.
     /// </summary>
-    public TerraformValue<string>? SnatPool
+    public TerraformValue<string> SnatPool
     {
-        get => GetArgument<TerraformValue<string>>("snat_pool");
+        get => GetArgument<TerraformValue<string>>("snat_pool") ?? AsReference("snat_pool");
         set => SetArgument("snat_pool", value);
     }
 
@@ -332,9 +332,9 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockManualLbConfigBlock : 
     /// NodePort for control plane service. The Kubernetes API server in the admin
     /// cluster is implemented as a Service of type NodePort (ex. 30968).
     /// </summary>
-    public TerraformValue<double>? ControlPlaneNodePort
+    public TerraformValue<double> ControlPlaneNodePort
     {
-        get => GetArgument<TerraformValue<double>>("control_plane_node_port");
+        get => GetArgument<TerraformValue<double>>("control_plane_node_port") ?? AsReference("control_plane_node_port");
         set => SetArgument("control_plane_node_port", value);
     }
 
@@ -342,9 +342,9 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockManualLbConfigBlock : 
     /// NodePort for ingress service&#39;s http. The ingress service in the admin
     /// cluster is implemented as a Service of type NodePort (ex. 32527).
     /// </summary>
-    public TerraformValue<double>? IngressHttpNodePort
+    public TerraformValue<double> IngressHttpNodePort
     {
-        get => GetArgument<TerraformValue<double>>("ingress_http_node_port");
+        get => GetArgument<TerraformValue<double>>("ingress_http_node_port") ?? AsReference("ingress_http_node_port");
         set => SetArgument("ingress_http_node_port", value);
     }
 
@@ -352,9 +352,9 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockManualLbConfigBlock : 
     /// NodePort for ingress service&#39;s https. The ingress service in the admin
     /// cluster is implemented as a Service of type NodePort (ex. 30139).
     /// </summary>
-    public TerraformValue<double>? IngressHttpsNodePort
+    public TerraformValue<double> IngressHttpsNodePort
     {
-        get => GetArgument<TerraformValue<double>>("ingress_https_node_port");
+        get => GetArgument<TerraformValue<double>>("ingress_https_node_port") ?? AsReference("ingress_https_node_port");
         set => SetArgument("ingress_https_node_port", value);
     }
 
@@ -362,9 +362,9 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockManualLbConfigBlock : 
     /// NodePort for konnectivity server service running as a sidecar in each
     /// kube-apiserver pod (ex. 30564).
     /// </summary>
-    public TerraformValue<double>? KonnectivityServerNodePort
+    public TerraformValue<double> KonnectivityServerNodePort
     {
-        get => GetArgument<TerraformValue<double>>("konnectivity_server_node_port");
+        get => GetArgument<TerraformValue<double>>("konnectivity_server_node_port") ?? AsReference("konnectivity_server_node_port");
         set => SetArgument("konnectivity_server_node_port", value);
     }
 
@@ -423,18 +423,18 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockMetalLbConfigBlockAddr
     /// This avoids buggy consumer devices mistakenly dropping IPv4 traffic for
     /// those special IP addresses.
     /// </summary>
-    public TerraformValue<bool>? AvoidBuggyIps
+    public TerraformValue<bool> AvoidBuggyIps
     {
-        get => GetArgument<TerraformValue<bool>>("avoid_buggy_ips");
+        get => GetArgument<TerraformValue<bool>>("avoid_buggy_ips") ?? AsReference("avoid_buggy_ips");
         set => SetArgument("avoid_buggy_ips", value);
     }
 
     /// <summary>
     /// If true, prevent IP addresses from being automatically assigned.
     /// </summary>
-    public TerraformValue<bool>? ManualAssign
+    public TerraformValue<bool> ManualAssign
     {
-        get => GetArgument<TerraformValue<bool>>("manual_assign");
+        get => GetArgument<TerraformValue<bool>>("manual_assign") ?? AsReference("manual_assign");
         set => SetArgument("manual_assign", value);
     }
 
@@ -444,7 +444,7 @@ public class GoogleGkeonpremVmwareClusterLoadBalancerBlockMetalLbConfigBlockAddr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pool is required")]
     public required TerraformValue<string> Pool
     {
-        get => GetArgument<TerraformValue<string>>("pool");
+        get => GetRequiredArgument<TerraformValue<string>>("pool");
         set => SetArgument("pool", value);
     }
 
@@ -519,9 +519,9 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlock : TerraformBlock
     /// <summary>
     /// vcenter_network specifies vCenter network name. Inherited from the admin cluster.
     /// </summary>
-    public TerraformValue<string>? VcenterNetwork
+    public TerraformValue<string> VcenterNetwork
     {
-        get => GetArgument<TerraformValue<string>>("vcenter_network");
+        get => GetArgument<TerraformValue<string>>("vcenter_network") ?? AsReference("vcenter_network");
         set => SetArgument("vcenter_network", value);
     }
 
@@ -644,9 +644,9 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlockControlPlaneV2ConfigB
     /// <summary>
     /// Hostname of the machine. VM&#39;s name will be used if this field is empty.
     /// </summary>
-    public TerraformValue<string>? Hostname
+    public TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetArgument<TerraformValue<string>>("hostname") ?? AsReference("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -679,7 +679,7 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlockDhcpIpConfigBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -767,7 +767,7 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlockStaticIpConfigBlockIp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gateway is required")]
     public required TerraformValue<string> Gateway
     {
-        get => GetArgument<TerraformValue<string>>("gateway");
+        get => GetRequiredArgument<TerraformValue<string>>("gateway");
         set => SetArgument("gateway", value);
     }
 
@@ -777,7 +777,7 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlockStaticIpConfigBlockIp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Netmask is required")]
     public required TerraformValue<string> Netmask
     {
-        get => GetArgument<TerraformValue<string>>("netmask");
+        get => GetRequiredArgument<TerraformValue<string>>("netmask");
         set => SetArgument("netmask", value);
     }
 
@@ -809,9 +809,9 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlockStaticIpConfigBlockIp
     /// <summary>
     /// Hostname of the machine. VM&#39;s name will be used if this field is empty.
     /// </summary>
-    public TerraformValue<string>? Hostname
+    public TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetArgument<TerraformValue<string>>("hostname") ?? AsReference("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -821,7 +821,7 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlockStaticIpConfigBlockIp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ip is required")]
     public required TerraformValue<string> Ip
     {
-        get => GetArgument<TerraformValue<string>>("ip");
+        get => GetRequiredArgument<TerraformValue<string>>("ip");
         set => SetArgument("ip", value);
     }
 
@@ -846,7 +846,7 @@ public class GoogleGkeonpremVmwareClusterStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VsphereCsiDisabled is required")]
     public required TerraformValue<bool> VsphereCsiDisabled
     {
-        get => GetArgument<TerraformValue<bool>>("vsphere_csi_disabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("vsphere_csi_disabled");
         set => SetArgument("vsphere_csi_disabled", value);
     }
 
@@ -937,63 +937,63 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// <summary>
     /// Contains the vCenter CA certificate public key for SSL verification.
     /// </summary>
-    public TerraformValue<string>? CaCertData
+    public TerraformValue<string> CaCertData
     {
-        get => GetArgument<TerraformValue<string>>("ca_cert_data");
+        get => GetArgument<TerraformValue<string>>("ca_cert_data") ?? AsReference("ca_cert_data");
         set => SetArgument("ca_cert_data", value);
     }
 
     /// <summary>
     /// The name of the vCenter cluster for the user cluster.
     /// </summary>
-    public TerraformValue<string>? Cluster
+    public TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetArgument<TerraformValue<string>>("cluster") ?? AsReference("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// The name of the vCenter datacenter for the user cluster.
     /// </summary>
-    public TerraformValue<string>? Datacenter
+    public TerraformValue<string> Datacenter
     {
-        get => GetArgument<TerraformValue<string>>("datacenter");
+        get => GetArgument<TerraformValue<string>>("datacenter") ?? AsReference("datacenter");
         set => SetArgument("datacenter", value);
     }
 
     /// <summary>
     /// The name of the vCenter datastore for the user cluster.
     /// </summary>
-    public TerraformValue<string>? Datastore
+    public TerraformValue<string> Datastore
     {
-        get => GetArgument<TerraformValue<string>>("datastore");
+        get => GetArgument<TerraformValue<string>>("datastore") ?? AsReference("datastore");
         set => SetArgument("datastore", value);
     }
 
     /// <summary>
     /// The name of the vCenter folder for the user cluster.
     /// </summary>
-    public TerraformValue<string>? Folder
+    public TerraformValue<string> Folder
     {
-        get => GetArgument<TerraformValue<string>>("folder");
+        get => GetArgument<TerraformValue<string>>("folder") ?? AsReference("folder");
         set => SetArgument("folder", value);
     }
 
     /// <summary>
     /// The name of the vCenter resource pool for the user cluster.
     /// </summary>
-    public TerraformValue<string>? ResourcePool
+    public TerraformValue<string> ResourcePool
     {
-        get => GetArgument<TerraformValue<string>>("resource_pool");
+        get => GetArgument<TerraformValue<string>>("resource_pool") ?? AsReference("resource_pool");
         set => SetArgument("resource_pool", value);
     }
 
     /// <summary>
     /// The name of the vCenter storage policy for the user cluster.
     /// </summary>
-    public TerraformValue<string>? StoragePolicyName
+    public TerraformValue<string> StoragePolicyName
     {
-        get => GetArgument<TerraformValue<string>>("storage_policy_name");
+        get => GetArgument<TerraformValue<string>>("storage_policy_name") ?? AsReference("storage_policy_name");
         set => SetArgument("storage_policy_name", value);
     }
 
@@ -1015,7 +1015,7 @@ public partial class GoogleGkeonpremVmwareCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminClusterMembership is required")]
     public required TerraformValue<string> AdminClusterMembership
     {
-        get => GetArgument<TerraformValue<string>>("admin_cluster_membership");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_cluster_membership");
         set => SetArgument("admin_cluster_membership", value);
     }
 
@@ -1078,9 +1078,9 @@ public partial class GoogleGkeonpremVmwareCluster(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1090,7 +1090,7 @@ public partial class GoogleGkeonpremVmwareCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1100,7 +1100,7 @@ public partial class GoogleGkeonpremVmwareCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1110,25 +1110,25 @@ public partial class GoogleGkeonpremVmwareCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnPremVersion is required")]
     public required TerraformValue<string> OnPremVersion
     {
-        get => GetArgument<TerraformValue<string>>("on_prem_version");
+        get => GetRequiredArgument<TerraformValue<string>>("on_prem_version");
         set => SetArgument("on_prem_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Enable VM tracking.
     /// </summary>
-    public TerraformValue<bool>? VmTrackingEnabled
+    public TerraformValue<bool> VmTrackingEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("vm_tracking_enabled");
+        get => GetArgument<TerraformValue<bool>>("vm_tracking_enabled") ?? AsReference("vm_tracking_enabled");
         set => SetArgument("vm_tracking_enabled", value);
     }
 

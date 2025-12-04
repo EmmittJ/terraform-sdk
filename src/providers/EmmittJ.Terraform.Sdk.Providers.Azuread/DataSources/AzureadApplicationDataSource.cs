@@ -34,45 +34,45 @@ public partial class AzureadApplicationDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The Client ID (also called Application ID)
     /// </summary>
-    public TerraformValue<string>? ClientId
+    public TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetArgument<TerraformValue<string>>("client_id") ?? AsReference("client_id");
         set => SetArgument("client_id", value);
     }
 
     /// <summary>
     /// The display name for the application
     /// </summary>
-    public TerraformValue<string>? DisplayName
+    public TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetArgument<TerraformValue<string>>("display_name") ?? AsReference("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// One of the application&#39;s identifier URIs
     /// </summary>
-    public TerraformValue<string>? IdentifierUri
+    public TerraformValue<string> IdentifierUri
     {
-        get => GetArgument<TerraformValue<string>>("identifier_uri");
+        get => GetArgument<TerraformValue<string>>("identifier_uri") ?? AsReference("identifier_uri");
         set => SetArgument("identifier_uri", value);
     }
 
     /// <summary>
     /// The application&#39;s object ID
     /// </summary>
-    public TerraformValue<string>? ObjectId
+    public TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetArgument<TerraformValue<string>>("object_id") ?? AsReference("object_id");
         set => SetArgument("object_id", value);
     }
 

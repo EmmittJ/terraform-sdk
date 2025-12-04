@@ -28,7 +28,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlockActionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlockSelectionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountNumber is required")]
     public required TerraformValue<double> CountNumber
     {
-        get => GetArgument<TerraformValue<double>>("count_number");
+        get => GetRequiredArgument<TerraformValue<double>>("count_number");
         set => SetArgument("count_number", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlockSelectionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountType is required")]
     public required TerraformValue<string> CountType
     {
-        get => GetArgument<TerraformValue<string>>("count_type");
+        get => GetRequiredArgument<TerraformValue<string>>("count_type");
         set => SetArgument("count_type", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlockSelectionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagStatus is required")]
     public required TerraformValue<string> TagStatus
     {
-        get => GetArgument<TerraformValue<string>>("tag_status");
+        get => GetRequiredArgument<TerraformValue<string>>("tag_status");
         set => SetArgument("tag_status", value);
     }
 

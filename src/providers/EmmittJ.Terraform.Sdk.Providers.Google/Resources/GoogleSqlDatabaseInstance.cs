@@ -64,7 +64,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstanceName is required")]
     public required TerraformValue<string> SourceInstanceName
     {
-        get => GetArgument<TerraformValue<string>>("source_instance_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_instance_name");
         set => SetArgument("source_instance_name", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Datasource is required")]
     public required TerraformValue<string> Datasource
     {
-        get => GetArgument<TerraformValue<string>>("datasource");
+        get => GetRequiredArgument<TerraformValue<string>>("datasource");
         set => SetArgument("datasource", value);
     }
 
@@ -308,7 +308,7 @@ public class GoogleSqlDatabaseInstanceRestoreBackupContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRunId is required")]
     public required TerraformValue<double> BackupRunId
     {
-        get => GetArgument<TerraformValue<double>>("backup_run_id");
+        get => GetRequiredArgument<TerraformValue<double>>("backup_run_id");
         set => SetArgument("backup_run_id", value);
     }
 
@@ -381,9 +381,9 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// <summary>
     /// Enables the enforcement of Cloud SQL Auth Proxy or Cloud SQL connectors for all the connections. If enabled, all the direct connections are rejected.
     /// </summary>
-    public TerraformValue<string>? ConnectorEnforcement
+    public TerraformValue<string> ConnectorEnforcement
     {
-        get => GetArgument<TerraformValue<string>>("connector_enforcement");
+        get => GetArgument<TerraformValue<string>>("connector_enforcement") ?? AsReference("connector_enforcement");
         set => SetArgument("connector_enforcement", value);
     }
 
@@ -417,27 +417,27 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// <summary>
     /// The size of data disk, in GB. Size of a running instance cannot be reduced but can be increased. The minimum value is 10GB for PD_SSD, PD_HDD and 20GB for HYPERDISK_BALANCED.
     /// </summary>
-    public TerraformValue<double>? DiskSize
+    public TerraformValue<double> DiskSize
     {
-        get => GetArgument<TerraformValue<double>>("disk_size");
+        get => GetArgument<TerraformValue<double>>("disk_size") ?? AsReference("disk_size");
         set => SetArgument("disk_size", value);
     }
 
     /// <summary>
     /// The type of supported data disk is tier dependent and can be PD_SSD or PD_HDD or HYPERDISK_BALANCED.
     /// </summary>
-    public TerraformValue<string>? DiskType
+    public TerraformValue<string> DiskType
     {
-        get => GetArgument<TerraformValue<string>>("disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type") ?? AsReference("disk_type");
         set => SetArgument("disk_type", value);
     }
 
     /// <summary>
     /// The edition of the instance, can be ENTERPRISE or ENTERPRISE_PLUS.
     /// </summary>
-    public TerraformValue<string>? Edition
+    public TerraformValue<string> Edition
     {
-        get => GetArgument<TerraformValue<string>>("edition");
+        get => GetArgument<TerraformValue<string>>("edition") ?? AsReference("edition");
         set => SetArgument("edition", value);
     }
 
@@ -491,7 +491,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier");
+        get => GetRequiredArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -507,9 +507,9 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// <summary>
     /// A set of key/value user label pairs to assign to the instance.
     /// </summary>
-    public TerraformMap<string>? UserLabels
+    public TerraformMap<string> UserLabels
     {
-        get => GetArgument<TerraformMap<string>>("user_labels");
+        get => GetArgument<TerraformMap<string>>("user_labels") ?? AsReference("user_labels");
         set => SetArgument("user_labels", value);
     }
 
@@ -686,7 +686,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockActiveDirectoryConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetRequiredArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -764,18 +764,18 @@ public class GoogleSqlDatabaseInstanceSettingsBlockBackupConfigurationBlock : Te
     /// <summary>
     /// HH:MM format time indicating when backup configuration starts.
     /// </summary>
-    public TerraformValue<string>? StartTime
+    public TerraformValue<string> StartTime
     {
-        get => GetArgument<TerraformValue<string>>("start_time");
+        get => GetArgument<TerraformValue<string>>("start_time") ?? AsReference("start_time");
         set => SetArgument("start_time", value);
     }
 
     /// <summary>
     /// The number of days of transaction logs we retain for point in time restore, from 1-7. (For PostgreSQL Enterprise Plus instances, from 1 to 35.)
     /// </summary>
-    public TerraformValue<double>? TransactionLogRetentionDays
+    public TerraformValue<double> TransactionLogRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("transaction_log_retention_days");
+        get => GetArgument<TerraformValue<double>>("transaction_log_retention_days") ?? AsReference("transaction_log_retention_days");
         set => SetArgument("transaction_log_retention_days", value);
     }
 
@@ -808,7 +808,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockBackupConfigurationBlockBacku
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetainedBackups is required")]
     public required TerraformValue<double> RetainedBackups
     {
-        get => GetArgument<TerraformValue<double>>("retained_backups");
+        get => GetRequiredArgument<TerraformValue<double>>("retained_backups");
         set => SetArgument("retained_backups", value);
     }
 
@@ -871,7 +871,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockConnectionPoolConfigBlockFlag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -881,7 +881,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockConnectionPoolConfigBlockFlag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -926,7 +926,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockDatabaseFlagsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -936,7 +936,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockDatabaseFlagsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -959,7 +959,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockDenyMaintenancePeriodBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndDate is required")]
     public required TerraformValue<string> EndDate
     {
-        get => GetArgument<TerraformValue<string>>("end_date");
+        get => GetRequiredArgument<TerraformValue<string>>("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -969,7 +969,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockDenyMaintenancePeriodBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
     public required TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date");
+        get => GetRequiredArgument<TerraformValue<string>>("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -979,7 +979,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockDenyMaintenancePeriodBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformValue<string> Time
     {
-        get => GetArgument<TerraformValue<string>>("time");
+        get => GetRequiredArgument<TerraformValue<string>>("time");
         set => SetArgument("time", value);
     }
 
@@ -1039,9 +1039,9 @@ public class GoogleSqlDatabaseInstanceSettingsBlockInsightsConfigBlock : Terrafo
     /// <summary>
     /// Number of query execution plans captured by Insights per minute for all queries combined. Between 0 and 20. Default to 5. For Enterprise Plus instances, from 0 to 200.
     /// </summary>
-    public TerraformValue<double>? QueryPlansPerMinute
+    public TerraformValue<double> QueryPlansPerMinute
     {
-        get => GetArgument<TerraformValue<double>>("query_plans_per_minute");
+        get => GetArgument<TerraformValue<double>>("query_plans_per_minute") ?? AsReference("query_plans_per_minute");
         set => SetArgument("query_plans_per_minute", value);
     }
 
@@ -1133,9 +1133,9 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlock : Terraf
     /// <summary>
     /// Specify how the server certificate&#39;s Certificate Authority is hosted.
     /// </summary>
-    public TerraformValue<string>? ServerCaMode
+    public TerraformValue<string> ServerCaMode
     {
-        get => GetArgument<TerraformValue<string>>("server_ca_mode");
+        get => GetArgument<TerraformValue<string>>("server_ca_mode") ?? AsReference("server_ca_mode");
         set => SetArgument("server_ca_mode", value);
     }
 
@@ -1151,9 +1151,9 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlock : Terraf
     /// <summary>
     /// Specify how SSL connection should be enforced in DB connections.
     /// </summary>
-    public TerraformValue<string>? SslMode
+    public TerraformValue<string> SslMode
     {
-        get => GetArgument<TerraformValue<string>>("ssl_mode");
+        get => GetArgument<TerraformValue<string>>("ssl_mode") ?? AsReference("ssl_mode");
         set => SetArgument("ssl_mode", value);
     }
 
@@ -1212,7 +1212,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockAuthorize
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1284,7 +1284,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockPscConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerNetwork is required")]
     public required TerraformValue<string> ConsumerNetwork
     {
-        get => GetArgument<TerraformValue<string>>("consumer_network");
+        get => GetRequiredArgument<TerraformValue<string>>("consumer_network");
         set => SetArgument("consumer_network", value);
     }
 
@@ -1432,7 +1432,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockPasswordValidationPolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePasswordPolicy is required")]
     public required TerraformValue<bool> EnablePasswordPolicy
     {
-        get => GetArgument<TerraformValue<bool>>("enable_password_policy");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable_password_policy");
         set => SetArgument("enable_password_policy", value);
     }
 
@@ -1675,7 +1675,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseVersion is required")]
     public required TerraformValue<string> DatabaseVersion
     {
-        get => GetArgument<TerraformValue<string>>("database_version");
+        get => GetRequiredArgument<TerraformValue<string>>("database_version");
         set => SetArgument("database_version", value);
     }
 
@@ -1691,9 +1691,9 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// <summary>
     /// The encryption_key_name attribute.
     /// </summary>
-    public TerraformValue<string>? EncryptionKeyName
+    public TerraformValue<string> EncryptionKeyName
     {
-        get => GetArgument<TerraformValue<string>>("encryption_key_name");
+        get => GetArgument<TerraformValue<string>>("encryption_key_name") ?? AsReference("encryption_key_name");
         set => SetArgument("encryption_key_name", value);
     }
 
@@ -1709,81 +1709,81 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The type of the instance. See https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1/instances#SqlInstanceType for supported values.
     /// </summary>
-    public TerraformValue<string>? InstanceType
+    public TerraformValue<string> InstanceType
     {
-        get => GetArgument<TerraformValue<string>>("instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type") ?? AsReference("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// Maintenance version.
     /// </summary>
-    public TerraformValue<string>? MaintenanceVersion
+    public TerraformValue<string> MaintenanceVersion
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_version");
+        get => GetArgument<TerraformValue<string>>("maintenance_version") ?? AsReference("maintenance_version");
         set => SetArgument("maintenance_version", value);
     }
 
     /// <summary>
     /// The name of the instance that will act as the master in the replication setup. Note, this requires the master to have binary_log_enabled set, as well as existing backups.
     /// </summary>
-    public TerraformValue<string>? MasterInstanceName
+    public TerraformValue<string> MasterInstanceName
     {
-        get => GetArgument<TerraformValue<string>>("master_instance_name");
+        get => GetArgument<TerraformValue<string>>("master_instance_name") ?? AsReference("master_instance_name");
         set => SetArgument("master_instance_name", value);
     }
 
     /// <summary>
     /// The name of the instance. If the name is left blank, Terraform will randomly generate one when the instance is first created. This is done because after a name is used, it cannot be reused for up to one week.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// For a read pool instance, the number of nodes in the read pool. For read pools with auto scaling enabled, this field is read only.
     /// </summary>
-    public TerraformValue<double>? NodeCount
+    public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
         set => SetArgument("node_count", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region the instance will sit in. Note, Cloud SQL is not available in all regions. A valid region must be provided to use this resource. If a region is not provided in the resource definition, the provider region will be used instead, but this will be an apply-time error for instances if the provider region is not supported with Cloud SQL. If you choose not to provide the region argument for this resource, make sure you understand this.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The replicas of the instance.
     /// </summary>
-    public TerraformList<string>? ReplicaNames
+    public TerraformList<string> ReplicaNames
     {
-        get => GetArgument<TerraformList<string>>("replica_names");
+        get => GetArgument<TerraformList<string>>("replica_names") ?? AsReference("replica_names");
         set => SetArgument("replica_names", value);
     }
 

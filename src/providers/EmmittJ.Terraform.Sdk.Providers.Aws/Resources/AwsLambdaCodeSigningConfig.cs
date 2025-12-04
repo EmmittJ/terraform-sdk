@@ -19,7 +19,7 @@ public class AwsLambdaCodeSigningConfigAllowedPublishersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningProfileVersionArns is required")]
     public required TerraformSet<string> SigningProfileVersionArns
     {
-        get => GetArgument<TerraformSet<string>>("signing_profile_version_arns");
+        get => GetRequiredArgument<TerraformSet<string>>("signing_profile_version_arns");
         set => SetArgument("signing_profile_version_arns", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsLambdaCodeSigningConfigPoliciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UntrustedArtifactOnDeployment is required")]
     public required TerraformValue<string> UntrustedArtifactOnDeployment
     {
-        get => GetArgument<TerraformValue<string>>("untrusted_artifact_on_deployment");
+        get => GetRequiredArgument<TerraformValue<string>>("untrusted_artifact_on_deployment");
         set => SetArgument("untrusted_artifact_on_deployment", value);
     }
 
@@ -68,18 +68,18 @@ public partial class AwsLambdaCodeSigningConfig(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -95,9 +95,9 @@ public partial class AwsLambdaCodeSigningConfig(string name) : TerraformResource
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

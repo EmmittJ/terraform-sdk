@@ -43,7 +43,7 @@ public class AwsDevopsguruResourceCollectionTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBoundaryKey is required")]
     public required TerraformValue<string> AppBoundaryKey
     {
-        get => GetArgument<TerraformValue<string>>("app_boundary_key");
+        get => GetRequiredArgument<TerraformValue<string>>("app_boundary_key");
         set => SetArgument("app_boundary_key", value);
     }
 
@@ -69,9 +69,9 @@ public partial class AwsDevopsguruResourceCollection(string name) : TerraformRes
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsDevopsguruResourceCollection(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

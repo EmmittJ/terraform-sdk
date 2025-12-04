@@ -40,7 +40,7 @@ public class AzurermStreamAnalyticsJobIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermStreamAnalyticsJobJobStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => GetArgument<TerraformValue<string>>("account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -148,9 +148,9 @@ public partial class AzurermStreamAnalyticsJob(string name) : TerraformResource(
     /// <summary>
     /// The compatibility_level attribute.
     /// </summary>
-    public TerraformValue<string>? CompatibilityLevel
+    public TerraformValue<string> CompatibilityLevel
     {
-        get => GetArgument<TerraformValue<string>>("compatibility_level");
+        get => GetArgument<TerraformValue<string>>("compatibility_level") ?? AsReference("compatibility_level");
         set => SetArgument("compatibility_level", value);
     }
 
@@ -202,9 +202,9 @@ public partial class AzurermStreamAnalyticsJob(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AzurermStreamAnalyticsJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermStreamAnalyticsJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AzurermStreamAnalyticsJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -289,7 +289,7 @@ public partial class AzurermStreamAnalyticsJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransformationQuery is required")]
     public required TerraformValue<string> TransformationQuery
     {
-        get => GetArgument<TerraformValue<string>>("transformation_query");
+        get => GetRequiredArgument<TerraformValue<string>>("transformation_query");
         set => SetArgument("transformation_query", value);
     }
 

@@ -37,7 +37,7 @@ public partial class AwsNetworkmanagerAttachmentAccepter(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentId is required")]
     public required TerraformValue<string> AttachmentId
     {
-        get => GetArgument<TerraformValue<string>>("attachment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("attachment_id");
         set => SetArgument("attachment_id", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsNetworkmanagerAttachmentAccepter(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentType is required")]
     public required TerraformValue<string> AttachmentType
     {
-        get => GetArgument<TerraformValue<string>>("attachment_type");
+        get => GetRequiredArgument<TerraformValue<string>>("attachment_type");
         set => SetArgument("attachment_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

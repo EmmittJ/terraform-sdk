@@ -19,7 +19,7 @@ public class AzurermCosmosdbAccountAnalyticalStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaType is required")]
     public required TerraformValue<string> SchemaType
     {
-        get => GetArgument<TerraformValue<string>>("schema_type");
+        get => GetRequiredArgument<TerraformValue<string>>("schema_type");
         set => SetArgument("schema_type", value);
     }
 
@@ -40,36 +40,36 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     /// <summary>
     /// The interval_in_minutes attribute.
     /// </summary>
-    public TerraformValue<double>? IntervalInMinutes
+    public TerraformValue<double> IntervalInMinutes
     {
-        get => GetArgument<TerraformValue<double>>("interval_in_minutes");
+        get => GetArgument<TerraformValue<double>>("interval_in_minutes") ?? AsReference("interval_in_minutes");
         set => SetArgument("interval_in_minutes", value);
     }
 
     /// <summary>
     /// The retention_in_hours attribute.
     /// </summary>
-    public TerraformValue<double>? RetentionInHours
+    public TerraformValue<double> RetentionInHours
     {
-        get => GetArgument<TerraformValue<double>>("retention_in_hours");
+        get => GetArgument<TerraformValue<double>>("retention_in_hours") ?? AsReference("retention_in_hours");
         set => SetArgument("retention_in_hours", value);
     }
 
     /// <summary>
     /// The storage_redundancy attribute.
     /// </summary>
-    public TerraformValue<string>? StorageRedundancy
+    public TerraformValue<string> StorageRedundancy
     {
-        get => GetArgument<TerraformValue<string>>("storage_redundancy");
+        get => GetArgument<TerraformValue<string>>("storage_redundancy") ?? AsReference("storage_redundancy");
         set => SetArgument("storage_redundancy", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformValue<string>? Tier
+    public TerraformValue<string> Tier
     {
-        get => GetArgument<TerraformValue<string>>("tier");
+        get => GetArgument<TerraformValue<string>>("tier") ?? AsReference("tier");
         set => SetArgument("tier", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermCosmosdbAccountCapabilitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermCosmosdbAccountCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalThroughputLimit is required")]
     public required TerraformValue<double> TotalThroughputLimit
     {
-        get => GetArgument<TerraformValue<double>>("total_throughput_limit");
+        get => GetRequiredArgument<TerraformValue<double>>("total_throughput_limit");
         set => SetArgument("total_throughput_limit", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsistencyLevel is required")]
     public required TerraformValue<string> ConsistencyLevel
     {
-        get => GetArgument<TerraformValue<string>>("consistency_level");
+        get => GetRequiredArgument<TerraformValue<string>>("consistency_level");
         set => SetArgument("consistency_level", value);
     }
 
@@ -256,7 +256,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailoverPriority is required")]
     public required TerraformValue<double> FailoverPriority
     {
-        get => GetArgument<TerraformValue<double>>("failover_priority");
+        get => GetRequiredArgument<TerraformValue<double>>("failover_priority");
         set => SetArgument("failover_priority", value);
     }
 
@@ -272,7 +272,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -326,7 +326,7 @@ public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -350,7 +350,7 @@ public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestoreTimestampInUtc is required")]
     public required TerraformValue<string> RestoreTimestampInUtc
     {
-        get => GetArgument<TerraformValue<string>>("restore_timestamp_in_utc");
+        get => GetRequiredArgument<TerraformValue<string>>("restore_timestamp_in_utc");
         set => SetArgument("restore_timestamp_in_utc", value);
     }
 
@@ -360,7 +360,7 @@ public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceCosmosdbAccountId is required")]
     public required TerraformValue<string> SourceCosmosdbAccountId
     {
-        get => GetArgument<TerraformValue<string>>("source_cosmosdb_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_cosmosdb_account_id");
         set => SetArgument("source_cosmosdb_account_id", value);
     }
 
@@ -419,7 +419,7 @@ public class AzurermCosmosdbAccountRestoreBlockDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -451,7 +451,7 @@ public class AzurermCosmosdbAccountRestoreBlockGremlinDatabaseBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -525,7 +525,7 @@ public class AzurermCosmosdbAccountVirtualNetworkRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -586,9 +586,9 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    public TerraformValue<string>? CreateMode
+    public TerraformValue<string> CreateMode
     {
-        get => GetArgument<TerraformValue<string>>("create_mode");
+        get => GetArgument<TerraformValue<string>>("create_mode") ?? AsReference("create_mode");
         set => SetArgument("create_mode", value);
     }
 
@@ -613,9 +613,9 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -670,7 +670,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -695,9 +695,9 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// <summary>
     /// The mongo_server_version attribute.
     /// </summary>
-    public TerraformValue<string>? MongoServerVersion
+    public TerraformValue<string> MongoServerVersion
     {
-        get => GetArgument<TerraformValue<string>>("mongo_server_version");
+        get => GetArgument<TerraformValue<string>>("mongo_server_version") ?? AsReference("mongo_server_version");
         set => SetArgument("mongo_server_version", value);
     }
 
@@ -716,7 +716,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -744,7 +744,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferType is required")]
     public required TerraformValue<string> OfferType
     {
-        get => GetArgument<TerraformValue<string>>("offer_type");
+        get => GetRequiredArgument<TerraformValue<string>>("offer_type");
         set => SetArgument("offer_type", value);
     }
 
@@ -772,7 +772,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

@@ -61,9 +61,9 @@ public partial class AzurermSynapseSqlPoolExtendedAuditingPolicy(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermSynapseSqlPoolExtendedAuditingPolicy(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlPoolId is required")]
     public required TerraformValue<string> SqlPoolId
     {
-        get => GetArgument<TerraformValue<string>>("sql_pool_id");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_pool_id");
         set => SetArgument("sql_pool_id", value);
     }
 

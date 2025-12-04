@@ -19,7 +19,7 @@ public class AwsCloudfrontRealtimeLogConfigEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamType is required")]
     public required TerraformValue<string> StreamType
     {
-        get => GetArgument<TerraformValue<string>>("stream_type");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_type");
         set => SetArgument("stream_type", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsCloudfrontRealtimeLogConfigEndpointBlockKinesisStreamConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -65,7 +65,7 @@ public class AwsCloudfrontRealtimeLogConfigEndpointBlockKinesisStreamConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformValue<string> StreamArn
     {
-        get => GetArgument<TerraformValue<string>>("stream_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_arn");
         set => SetArgument("stream_arn", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AwsCloudfrontRealtimeLogConfig(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     public required TerraformSet<string> Fields
     {
-        get => GetArgument<TerraformSet<string>>("fields");
+        get => GetRequiredArgument<TerraformSet<string>>("fields");
         set => SetArgument("fields", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsCloudfrontRealtimeLogConfig(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsCloudfrontRealtimeLogConfig(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRate is required")]
     public required TerraformValue<double> SamplingRate
     {
-        get => GetArgument<TerraformValue<double>>("sampling_rate");
+        get => GetRequiredArgument<TerraformValue<double>>("sampling_rate");
         set => SetArgument("sampling_rate", value);
     }
 

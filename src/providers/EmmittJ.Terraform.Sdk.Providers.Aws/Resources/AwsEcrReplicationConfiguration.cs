@@ -81,7 +81,7 @@ public class AwsEcrReplicationConfigurationReplicationConfigurationBlockRuleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsEcrReplicationConfigurationReplicationConfigurationBlockRuleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryId is required")]
     public required TerraformValue<string> RegistryId
     {
-        get => GetArgument<TerraformValue<string>>("registry_id");
+        get => GetRequiredArgument<TerraformValue<string>>("registry_id");
         set => SetArgument("registry_id", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsEcrReplicationConfigurationReplicationConfigurationBlockRuleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => GetArgument<TerraformValue<string>>("filter");
+        get => GetRequiredArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsEcrReplicationConfigurationReplicationConfigurationBlockRuleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformValue<string> FilterType
     {
-        get => GetArgument<TerraformValue<string>>("filter_type");
+        get => GetRequiredArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -140,18 +140,18 @@ public partial class AwsEcrReplicationConfiguration(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -14,16 +14,16 @@ public partial class AwsApprunnerDefaultAutoScalingConfigurationVersion(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingConfigurationArn is required")]
     public required TerraformValue<string> AutoScalingConfigurationArn
     {
-        get => GetArgument<TerraformValue<string>>("auto_scaling_configuration_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("auto_scaling_configuration_arn");
         set => SetArgument("auto_scaling_configuration_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

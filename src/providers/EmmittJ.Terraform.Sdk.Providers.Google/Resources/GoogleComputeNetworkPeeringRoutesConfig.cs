@@ -55,7 +55,7 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportCustomRoutes is required")]
     public required TerraformValue<bool> ExportCustomRoutes
     {
-        get => GetArgument<TerraformValue<bool>>("export_custom_routes");
+        get => GetRequiredArgument<TerraformValue<bool>>("export_custom_routes");
         set => SetArgument("export_custom_routes", value);
     }
 
@@ -64,18 +64,18 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig(string name) : Terr
     /// IPv4 special-use ranges are always exported to peers and
     /// are not controlled by this field.
     /// </summary>
-    public TerraformValue<bool>? ExportSubnetRoutesWithPublicIp
+    public TerraformValue<bool> ExportSubnetRoutesWithPublicIp
     {
-        get => GetArgument<TerraformValue<bool>>("export_subnet_routes_with_public_ip");
+        get => GetArgument<TerraformValue<bool>>("export_subnet_routes_with_public_ip") ?? AsReference("export_subnet_routes_with_public_ip");
         set => SetArgument("export_subnet_routes_with_public_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportCustomRoutes is required")]
     public required TerraformValue<bool> ImportCustomRoutes
     {
-        get => GetArgument<TerraformValue<bool>>("import_custom_routes");
+        get => GetRequiredArgument<TerraformValue<bool>>("import_custom_routes");
         set => SetArgument("import_custom_routes", value);
     }
 
@@ -94,9 +94,9 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig(string name) : Terr
     /// IPv4 special-use ranges are always imported from peers and
     /// are not controlled by this field.
     /// </summary>
-    public TerraformValue<bool>? ImportSubnetRoutesWithPublicIp
+    public TerraformValue<bool> ImportSubnetRoutesWithPublicIp
     {
-        get => GetArgument<TerraformValue<bool>>("import_subnet_routes_with_public_ip");
+        get => GetArgument<TerraformValue<bool>>("import_subnet_routes_with_public_ip") ?? AsReference("import_subnet_routes_with_public_ip");
         set => SetArgument("import_subnet_routes_with_public_ip", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -116,16 +116,16 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     public required TerraformValue<string> Peering
     {
-        get => GetArgument<TerraformValue<string>>("peering");
+        get => GetRequiredArgument<TerraformValue<string>>("peering");
         set => SetArgument("peering", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

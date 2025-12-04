@@ -16,18 +16,18 @@ public class AwsMqBrokerConfigurationBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
-    public TerraformValue<double>? Revision
+    public TerraformValue<double> Revision
     {
-        get => GetArgument<TerraformValue<double>>("revision");
+        get => GetArgument<TerraformValue<double>>("revision") ?? AsReference("revision");
         set => SetArgument("revision", value);
     }
 
@@ -48,9 +48,9 @@ public class AwsMqBrokerEncryptionOptionsBlock : TerraformBlock
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string>? KmsKeyId
+    public TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id") ?? AsReference("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -228,7 +228,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => GetArgument<TerraformValue<string>>("day_of_week");
+        get => GetRequiredArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -238,7 +238,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeOfDay is required")]
     public required TerraformValue<string> TimeOfDay
     {
-        get => GetArgument<TerraformValue<string>>("time_of_day");
+        get => GetRequiredArgument<TerraformValue<string>>("time_of_day");
         set => SetArgument("time_of_day", value);
     }
 
@@ -248,7 +248,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => GetArgument<TerraformValue<string>>("time_zone");
+        get => GetRequiredArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -331,7 +331,7 @@ public class AwsMqBrokerUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -350,7 +350,7 @@ public class AwsMqBrokerUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -375,9 +375,9 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// <summary>
     /// The authentication_strategy attribute.
     /// </summary>
-    public TerraformValue<string>? AuthenticationStrategy
+    public TerraformValue<string> AuthenticationStrategy
     {
-        get => GetArgument<TerraformValue<string>>("authentication_strategy");
+        get => GetArgument<TerraformValue<string>>("authentication_strategy") ?? AsReference("authentication_strategy");
         set => SetArgument("authentication_strategy", value);
     }
 
@@ -396,16 +396,16 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrokerName is required")]
     public required TerraformValue<string> BrokerName
     {
-        get => GetArgument<TerraformValue<string>>("broker_name");
+        get => GetRequiredArgument<TerraformValue<string>>("broker_name");
         set => SetArgument("broker_name", value);
     }
 
     /// <summary>
     /// The data_replication_mode attribute.
     /// </summary>
-    public TerraformValue<string>? DataReplicationMode
+    public TerraformValue<string> DataReplicationMode
     {
-        get => GetArgument<TerraformValue<string>>("data_replication_mode");
+        get => GetArgument<TerraformValue<string>>("data_replication_mode") ?? AsReference("data_replication_mode");
         set => SetArgument("data_replication_mode", value);
     }
 
@@ -433,7 +433,7 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
     public required TerraformValue<string> EngineType
     {
-        get => GetArgument<TerraformValue<string>>("engine_type");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_type");
         set => SetArgument("engine_type", value);
     }
 
@@ -443,7 +443,7 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
     public required TerraformValue<string> EngineVersion
     {
-        get => GetArgument<TerraformValue<string>>("engine_version");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -453,16 +453,16 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostInstanceType is required")]
     public required TerraformValue<string> HostInstanceType
     {
-        get => GetArgument<TerraformValue<string>>("host_instance_type");
+        get => GetRequiredArgument<TerraformValue<string>>("host_instance_type");
         set => SetArgument("host_instance_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -478,9 +478,9 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -496,18 +496,18 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformValue<string>? StorageType
+    public TerraformValue<string> StorageType
     {
-        get => GetArgument<TerraformValue<string>>("storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type") ?? AsReference("storage_type");
         set => SetArgument("storage_type", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string>? SubnetIds
+    public TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetArgument<TerraformSet<string>>("subnet_ids") ?? AsReference("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -523,9 +523,9 @@ public partial class AwsMqBroker(string name) : TerraformResource("aws_mq_broker
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

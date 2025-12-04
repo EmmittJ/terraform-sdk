@@ -19,7 +19,7 @@ public class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     public required TerraformSet<string> Events
     {
-        get => GetArgument<TerraformSet<string>>("events");
+        get => GetRequiredArgument<TerraformSet<string>>("events");
         set => SetArgument("events", value);
     }
 
@@ -44,9 +44,9 @@ public class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsS3BucketNotificationQueueBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     public required TerraformSet<string> Events
     {
-        get => GetArgument<TerraformSet<string>>("events");
+        get => GetRequiredArgument<TerraformSet<string>>("events");
         set => SetArgument("events", value);
     }
 
@@ -104,9 +104,9 @@ public class AwsS3BucketNotificationQueueBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsS3BucketNotificationQueueBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueArn is required")]
     public required TerraformValue<string> QueueArn
     {
-        get => GetArgument<TerraformValue<string>>("queue_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("queue_arn");
         set => SetArgument("queue_arn", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsS3BucketNotificationTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     public required TerraformSet<string> Events
     {
-        get => GetArgument<TerraformSet<string>>("events");
+        get => GetRequiredArgument<TerraformSet<string>>("events");
         set => SetArgument("events", value);
     }
 
@@ -165,9 +165,9 @@ public class AwsS3BucketNotificationTopicBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsS3BucketNotificationTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformValue<string> TopicArn
     {
-        get => GetArgument<TerraformValue<string>>("topic_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AwsS3BucketNotification(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -212,18 +212,18 @@ public partial class AwsS3BucketNotification(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

@@ -43,9 +43,9 @@ public partial class GoogleComputePublicDelegatedPrefix(string name) : Terraform
     /// <summary>
     /// The allocatable prefix length supported by this public delegated prefix. This field is optional and cannot be set for prefixes in DELEGATION mode. It cannot be set for IPv4 prefixes either, and it always defaults to 32.
     /// </summary>
-    public TerraformValue<double>? AllocatablePrefixLength
+    public TerraformValue<double> AllocatablePrefixLength
     {
-        get => GetArgument<TerraformValue<double>>("allocatable_prefix_length");
+        get => GetArgument<TerraformValue<double>>("allocatable_prefix_length") ?? AsReference("allocatable_prefix_length");
         set => SetArgument("allocatable_prefix_length", value);
     }
 
@@ -61,9 +61,9 @@ public partial class GoogleComputePublicDelegatedPrefix(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleComputePublicDelegatedPrefix(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     public required TerraformValue<string> IpCidrRange
     {
-        get => GetArgument<TerraformValue<string>>("ip_cidr_range");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_cidr_range");
         set => SetArgument("ip_cidr_range", value);
     }
 
@@ -107,7 +107,7 @@ public partial class GoogleComputePublicDelegatedPrefix(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -117,16 +117,16 @@ public partial class GoogleComputePublicDelegatedPrefix(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentPrefix is required")]
     public required TerraformValue<string> ParentPrefix
     {
-        get => GetArgument<TerraformValue<string>>("parent_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("parent_prefix");
         set => SetArgument("parent_prefix", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -136,7 +136,7 @@ public partial class GoogleComputePublicDelegatedPrefix(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

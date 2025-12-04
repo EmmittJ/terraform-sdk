@@ -25,7 +25,7 @@ public class AzurermKubernetesClusterAciConnectorLinuxBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetName is required")]
     public required TerraformValue<string> SubnetName
     {
-        get => GetArgument<TerraformValue<string>>("subnet_name");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_name");
         set => SetArgument("subnet_name", value);
     }
 
@@ -114,9 +114,9 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// <summary>
     /// The empty_bulk_delete_max attribute.
     /// </summary>
-    public TerraformValue<string>? EmptyBulkDeleteMax
+    public TerraformValue<string> EmptyBulkDeleteMax
     {
-        get => GetArgument<TerraformValue<string>>("empty_bulk_delete_max");
+        get => GetArgument<TerraformValue<string>>("empty_bulk_delete_max") ?? AsReference("empty_bulk_delete_max");
         set => SetArgument("empty_bulk_delete_max", value);
     }
 
@@ -141,9 +141,9 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// <summary>
     /// The max_graceful_termination_sec attribute.
     /// </summary>
-    public TerraformValue<string>? MaxGracefulTerminationSec
+    public TerraformValue<string> MaxGracefulTerminationSec
     {
-        get => GetArgument<TerraformValue<string>>("max_graceful_termination_sec");
+        get => GetArgument<TerraformValue<string>>("max_graceful_termination_sec") ?? AsReference("max_graceful_termination_sec");
         set => SetArgument("max_graceful_termination_sec", value);
     }
 
@@ -177,72 +177,72 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// <summary>
     /// The new_pod_scale_up_delay attribute.
     /// </summary>
-    public TerraformValue<string>? NewPodScaleUpDelay
+    public TerraformValue<string> NewPodScaleUpDelay
     {
-        get => GetArgument<TerraformValue<string>>("new_pod_scale_up_delay");
+        get => GetArgument<TerraformValue<string>>("new_pod_scale_up_delay") ?? AsReference("new_pod_scale_up_delay");
         set => SetArgument("new_pod_scale_up_delay", value);
     }
 
     /// <summary>
     /// The scale_down_delay_after_add attribute.
     /// </summary>
-    public TerraformValue<string>? ScaleDownDelayAfterAdd
+    public TerraformValue<string> ScaleDownDelayAfterAdd
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_add");
+        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_add") ?? AsReference("scale_down_delay_after_add");
         set => SetArgument("scale_down_delay_after_add", value);
     }
 
     /// <summary>
     /// The scale_down_delay_after_delete attribute.
     /// </summary>
-    public TerraformValue<string>? ScaleDownDelayAfterDelete
+    public TerraformValue<string> ScaleDownDelayAfterDelete
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_delete");
+        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_delete") ?? AsReference("scale_down_delay_after_delete");
         set => SetArgument("scale_down_delay_after_delete", value);
     }
 
     /// <summary>
     /// The scale_down_delay_after_failure attribute.
     /// </summary>
-    public TerraformValue<string>? ScaleDownDelayAfterFailure
+    public TerraformValue<string> ScaleDownDelayAfterFailure
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_failure");
+        get => GetArgument<TerraformValue<string>>("scale_down_delay_after_failure") ?? AsReference("scale_down_delay_after_failure");
         set => SetArgument("scale_down_delay_after_failure", value);
     }
 
     /// <summary>
     /// The scale_down_unneeded attribute.
     /// </summary>
-    public TerraformValue<string>? ScaleDownUnneeded
+    public TerraformValue<string> ScaleDownUnneeded
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_unneeded");
+        get => GetArgument<TerraformValue<string>>("scale_down_unneeded") ?? AsReference("scale_down_unneeded");
         set => SetArgument("scale_down_unneeded", value);
     }
 
     /// <summary>
     /// The scale_down_unready attribute.
     /// </summary>
-    public TerraformValue<string>? ScaleDownUnready
+    public TerraformValue<string> ScaleDownUnready
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_unready");
+        get => GetArgument<TerraformValue<string>>("scale_down_unready") ?? AsReference("scale_down_unready");
         set => SetArgument("scale_down_unready", value);
     }
 
     /// <summary>
     /// The scale_down_utilization_threshold attribute.
     /// </summary>
-    public TerraformValue<string>? ScaleDownUtilizationThreshold
+    public TerraformValue<string> ScaleDownUtilizationThreshold
     {
-        get => GetArgument<TerraformValue<string>>("scale_down_utilization_threshold");
+        get => GetArgument<TerraformValue<string>>("scale_down_utilization_threshold") ?? AsReference("scale_down_utilization_threshold");
         set => SetArgument("scale_down_utilization_threshold", value);
     }
 
     /// <summary>
     /// The scan_interval attribute.
     /// </summary>
-    public TerraformValue<string>? ScanInterval
+    public TerraformValue<string> ScanInterval
     {
-        get => GetArgument<TerraformValue<string>>("scan_interval");
+        get => GetArgument<TerraformValue<string>>("scan_interval") ?? AsReference("scan_interval");
         set => SetArgument("scan_interval", value);
     }
 
@@ -299,9 +299,9 @@ public class AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlB
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string>? TenantId
+    public TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id") ?? AsReference("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -357,7 +357,7 @@ public class AzurermKubernetesClusterConfidentialComputingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SgxQuoteHelperEnabled is required")]
     public required TerraformValue<bool> SgxQuoteHelperEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("sgx_quote_helper_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("sgx_quote_helper_enabled");
         set => SetArgument("sgx_quote_helper_enabled", value);
     }
 
@@ -441,9 +441,9 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// <summary>
     /// The kubelet_disk_type attribute.
     /// </summary>
-    public TerraformValue<string>? KubeletDiskType
+    public TerraformValue<string> KubeletDiskType
     {
-        get => GetArgument<TerraformValue<string>>("kubelet_disk_type");
+        get => GetArgument<TerraformValue<string>>("kubelet_disk_type") ?? AsReference("kubelet_disk_type");
         set => SetArgument("kubelet_disk_type", value);
     }
 
@@ -459,9 +459,9 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// <summary>
     /// The max_pods attribute.
     /// </summary>
-    public TerraformValue<double>? MaxPods
+    public TerraformValue<double> MaxPods
     {
-        get => GetArgument<TerraformValue<double>>("max_pods");
+        get => GetArgument<TerraformValue<double>>("max_pods") ?? AsReference("max_pods");
         set => SetArgument("max_pods", value);
     }
 
@@ -480,25 +480,25 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
-    public TerraformValue<double>? NodeCount
+    public TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetArgument<TerraformValue<double>>("node_count") ?? AsReference("node_count");
         set => SetArgument("node_count", value);
     }
 
     /// <summary>
     /// The node_labels attribute.
     /// </summary>
-    public TerraformMap<string>? NodeLabels
+    public TerraformMap<string> NodeLabels
     {
-        get => GetArgument<TerraformMap<string>>("node_labels");
+        get => GetArgument<TerraformMap<string>>("node_labels") ?? AsReference("node_labels");
         set => SetArgument("node_labels", value);
     }
 
@@ -532,18 +532,18 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// <summary>
     /// The orchestrator_version attribute.
     /// </summary>
-    public TerraformValue<string>? OrchestratorVersion
+    public TerraformValue<string> OrchestratorVersion
     {
-        get => GetArgument<TerraformValue<string>>("orchestrator_version");
+        get => GetArgument<TerraformValue<string>>("orchestrator_version") ?? AsReference("orchestrator_version");
         set => SetArgument("orchestrator_version", value);
     }
 
     /// <summary>
     /// The os_disk_size_gb attribute.
     /// </summary>
-    public TerraformValue<double>? OsDiskSizeGb
+    public TerraformValue<double> OsDiskSizeGb
     {
-        get => GetArgument<TerraformValue<double>>("os_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("os_disk_size_gb") ?? AsReference("os_disk_size_gb");
         set => SetArgument("os_disk_size_gb", value);
     }
 
@@ -559,9 +559,9 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// <summary>
     /// The os_sku attribute.
     /// </summary>
-    public TerraformValue<string>? OsSku
+    public TerraformValue<string> OsSku
     {
-        get => GetArgument<TerraformValue<string>>("os_sku");
+        get => GetArgument<TerraformValue<string>>("os_sku") ?? AsReference("os_sku");
         set => SetArgument("os_sku", value);
     }
 
@@ -640,9 +640,9 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
-    public TerraformValue<string>? VmSize
+    public TerraformValue<string> VmSize
     {
-        get => GetArgument<TerraformValue<string>>("vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size") ?? AsReference("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -658,9 +658,9 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// <summary>
     /// The workload_runtime attribute.
     /// </summary>
-    public TerraformValue<string>? WorkloadRuntime
+    public TerraformValue<string> WorkloadRuntime
     {
-        get => GetArgument<TerraformValue<string>>("workload_runtime");
+        get => GetArgument<TerraformValue<string>>("workload_runtime") ?? AsReference("workload_runtime");
         set => SetArgument("workload_runtime", value);
     }
 
@@ -841,9 +841,9 @@ public class AzurermKubernetesClusterDefaultNodePoolBlockLinuxOsConfigBlock : Te
     /// <summary>
     /// The transparent_huge_page attribute.
     /// </summary>
-    public TerraformValue<string>? TransparentHugePage
+    public TerraformValue<string> TransparentHugePage
     {
-        get => GetArgument<TerraformValue<string>>("transparent_huge_page");
+        get => GetArgument<TerraformValue<string>>("transparent_huge_page") ?? AsReference("transparent_huge_page");
         set => SetArgument("transparent_huge_page", value);
     }
 
@@ -860,9 +860,9 @@ public class AzurermKubernetesClusterDefaultNodePoolBlockLinuxOsConfigBlock : Te
     /// The transparent_huge_page_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string>? TransparentHugePageEnabled
+    public TerraformValue<string> TransparentHugePageEnabled
     {
-        get => GetArgument<TerraformValue<string>>("transparent_huge_page_enabled");
+        get => GetArgument<TerraformValue<string>>("transparent_huge_page_enabled") ?? AsReference("transparent_huge_page_enabled");
         set => SetArgument("transparent_huge_page_enabled", value);
     }
 
@@ -1258,7 +1258,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlockUpgradeSettingsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSurge is required")]
     public required TerraformValue<string> MaxSurge
     {
-        get => GetArgument<TerraformValue<string>>("max_surge");
+        get => GetRequiredArgument<TerraformValue<string>>("max_surge");
         set => SetArgument("max_surge", value);
     }
 
@@ -1362,7 +1362,7 @@ public class AzurermKubernetesClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1448,7 +1448,7 @@ public class AzurermKubernetesClusterKeyManagementServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformValue<string> KeyVaultKeyId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -1516,27 +1516,27 @@ public class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlock
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformValue<string>? ClientId
+    public TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetArgument<TerraformValue<string>>("client_id") ?? AsReference("client_id");
         set => SetArgument("client_id", value);
     }
 
     /// <summary>
     /// The object_id attribute.
     /// </summary>
-    public TerraformValue<string>? ObjectId
+    public TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetArgument<TerraformValue<string>>("object_id") ?? AsReference("object_id");
         set => SetArgument("object_id", value);
     }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformValue<string>? UserAssignedIdentityId
+    public TerraformValue<string> UserAssignedIdentityId
     {
-        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id") ?? AsReference("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 
@@ -1560,7 +1560,7 @@ public class AzurermKubernetesClusterLinuxProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformValue<string> AdminUsername
     {
-        get => GetArgument<TerraformValue<string>>("admin_username");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_username");
         set => SetArgument("admin_username", value);
     }
 
@@ -1596,7 +1596,7 @@ public class AzurermKubernetesClusterLinuxProfileBlockSshKeyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyData is required")]
     public required TerraformValue<string> KeyData
     {
-        get => GetArgument<TerraformValue<string>>("key_data");
+        get => GetRequiredArgument<TerraformValue<string>>("key_data");
         set => SetArgument("key_data", value);
     }
 
@@ -1651,7 +1651,7 @@ public class AzurermKubernetesClusterMaintenanceWindowBlockAllowedBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => GetArgument<TerraformValue<string>>("day");
+        get => GetRequiredArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -1661,7 +1661,7 @@ public class AzurermKubernetesClusterMaintenanceWindowBlockAllowedBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hours is required")]
     public required TerraformSet<double> Hours
     {
-        get => GetArgument<TerraformSet<double>>("hours");
+        get => GetRequiredArgument<TerraformSet<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -1684,7 +1684,7 @@ public class AzurermKubernetesClusterMaintenanceWindowBlockNotAllowedBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<string> End
     {
-        get => GetArgument<TerraformValue<string>>("end");
+        get => GetRequiredArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -1694,7 +1694,7 @@ public class AzurermKubernetesClusterMaintenanceWindowBlockNotAllowedBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<string> Start
     {
-        get => GetArgument<TerraformValue<string>>("start");
+        get => GetRequiredArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -1736,7 +1736,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<double> Duration
     {
-        get => GetArgument<TerraformValue<double>>("duration");
+        get => GetRequiredArgument<TerraformValue<double>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -1746,7 +1746,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -1756,16 +1756,16 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => GetArgument<TerraformValue<double>>("interval");
+        get => GetRequiredArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
-    public TerraformValue<string>? StartDate
+    public TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date");
+        get => GetArgument<TerraformValue<string>>("start_date") ?? AsReference("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -1824,7 +1824,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlockNotAllowed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<string> End
     {
-        get => GetArgument<TerraformValue<string>>("end");
+        get => GetRequiredArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -1834,7 +1834,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlockNotAllowed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<string> Start
     {
-        get => GetArgument<TerraformValue<string>>("start");
+        get => GetRequiredArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -1876,7 +1876,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<double> Duration
     {
-        get => GetArgument<TerraformValue<double>>("duration");
+        get => GetRequiredArgument<TerraformValue<double>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -1886,7 +1886,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => GetArgument<TerraformValue<string>>("frequency");
+        get => GetRequiredArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -1896,16 +1896,16 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => GetArgument<TerraformValue<double>>("interval");
+        get => GetRequiredArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
-    public TerraformValue<string>? StartDate
+    public TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date");
+        get => GetArgument<TerraformValue<string>>("start_date") ?? AsReference("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -1964,7 +1964,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlockNotAllowedBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<string> End
     {
-        get => GetArgument<TerraformValue<string>>("end");
+        get => GetRequiredArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -1974,7 +1974,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlockNotAllowedBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<string> Start
     {
-        get => GetArgument<TerraformValue<string>>("start");
+        get => GetRequiredArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -1998,7 +1998,7 @@ public class AzurermKubernetesClusterMicrosoftDefenderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -2051,18 +2051,18 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// <summary>
     /// The dns_service_ip attribute.
     /// </summary>
-    public TerraformValue<string>? DnsServiceIp
+    public TerraformValue<string> DnsServiceIp
     {
-        get => GetArgument<TerraformValue<string>>("dns_service_ip");
+        get => GetArgument<TerraformValue<string>>("dns_service_ip") ?? AsReference("dns_service_ip");
         set => SetArgument("dns_service_ip", value);
     }
 
     /// <summary>
     /// The ip_versions attribute.
     /// </summary>
-    public TerraformList<string>? IpVersions
+    public TerraformList<string> IpVersions
     {
-        get => GetArgument<TerraformList<string>>("ip_versions");
+        get => GetArgument<TerraformList<string>>("ip_versions") ?? AsReference("ip_versions");
         set => SetArgument("ip_versions", value);
     }
 
@@ -2087,9 +2087,9 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// <summary>
     /// The network_mode attribute.
     /// </summary>
-    public TerraformValue<string>? NetworkMode
+    public TerraformValue<string> NetworkMode
     {
-        get => GetArgument<TerraformValue<string>>("network_mode");
+        get => GetArgument<TerraformValue<string>>("network_mode") ?? AsReference("network_mode");
         set => SetArgument("network_mode", value);
     }
 
@@ -2099,7 +2099,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkPlugin is required")]
     public required TerraformValue<string> NetworkPlugin
     {
-        get => GetArgument<TerraformValue<string>>("network_plugin");
+        get => GetRequiredArgument<TerraformValue<string>>("network_plugin");
         set => SetArgument("network_plugin", value);
     }
 
@@ -2115,9 +2115,9 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// <summary>
     /// The network_policy attribute.
     /// </summary>
-    public TerraformValue<string>? NetworkPolicy
+    public TerraformValue<string> NetworkPolicy
     {
-        get => GetArgument<TerraformValue<string>>("network_policy");
+        get => GetArgument<TerraformValue<string>>("network_policy") ?? AsReference("network_policy");
         set => SetArgument("network_policy", value);
     }
 
@@ -2133,36 +2133,36 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// <summary>
     /// The pod_cidr attribute.
     /// </summary>
-    public TerraformValue<string>? PodCidr
+    public TerraformValue<string> PodCidr
     {
-        get => GetArgument<TerraformValue<string>>("pod_cidr");
+        get => GetArgument<TerraformValue<string>>("pod_cidr") ?? AsReference("pod_cidr");
         set => SetArgument("pod_cidr", value);
     }
 
     /// <summary>
     /// The pod_cidrs attribute.
     /// </summary>
-    public TerraformList<string>? PodCidrs
+    public TerraformList<string> PodCidrs
     {
-        get => GetArgument<TerraformList<string>>("pod_cidrs");
+        get => GetArgument<TerraformList<string>>("pod_cidrs") ?? AsReference("pod_cidrs");
         set => SetArgument("pod_cidrs", value);
     }
 
     /// <summary>
     /// The service_cidr attribute.
     /// </summary>
-    public TerraformValue<string>? ServiceCidr
+    public TerraformValue<string> ServiceCidr
     {
-        get => GetArgument<TerraformValue<string>>("service_cidr");
+        get => GetArgument<TerraformValue<string>>("service_cidr") ?? AsReference("service_cidr");
         set => SetArgument("service_cidr", value);
     }
 
     /// <summary>
     /// The service_cidrs attribute.
     /// </summary>
-    public TerraformList<string>? ServiceCidrs
+    public TerraformList<string> ServiceCidrs
     {
-        get => GetArgument<TerraformList<string>>("service_cidrs");
+        get => GetArgument<TerraformList<string>>("service_cidrs") ?? AsReference("service_cidrs");
         set => SetArgument("service_cidrs", value);
     }
 
@@ -2267,18 +2267,18 @@ public class AzurermKubernetesClusterNetworkProfileBlockLoadBalancerProfileBlock
     /// <summary>
     /// The managed_outbound_ip_count attribute.
     /// </summary>
-    public TerraformValue<double>? ManagedOutboundIpCount
+    public TerraformValue<double> ManagedOutboundIpCount
     {
-        get => GetArgument<TerraformValue<double>>("managed_outbound_ip_count");
+        get => GetArgument<TerraformValue<double>>("managed_outbound_ip_count") ?? AsReference("managed_outbound_ip_count");
         set => SetArgument("managed_outbound_ip_count", value);
     }
 
     /// <summary>
     /// The managed_outbound_ipv6_count attribute.
     /// </summary>
-    public TerraformValue<double>? ManagedOutboundIpv6Count
+    public TerraformValue<double> ManagedOutboundIpv6Count
     {
-        get => GetArgument<TerraformValue<double>>("managed_outbound_ipv6_count");
+        get => GetArgument<TerraformValue<double>>("managed_outbound_ipv6_count") ?? AsReference("managed_outbound_ipv6_count");
         set => SetArgument("managed_outbound_ipv6_count", value);
     }
 
@@ -2340,9 +2340,9 @@ public class AzurermKubernetesClusterNetworkProfileBlockNatGatewayProfileBlock :
     /// <summary>
     /// The managed_outbound_ip_count attribute.
     /// </summary>
-    public TerraformValue<double>? ManagedOutboundIpCount
+    public TerraformValue<double> ManagedOutboundIpCount
     {
-        get => GetArgument<TerraformValue<double>>("managed_outbound_ip_count");
+        get => GetArgument<TerraformValue<double>>("managed_outbound_ip_count") ?? AsReference("managed_outbound_ip_count");
         set => SetArgument("managed_outbound_ip_count", value);
     }
 
@@ -2366,7 +2366,7 @@ public class AzurermKubernetesClusterOmsAgentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -2423,7 +2423,7 @@ public class AzurermKubernetesClusterServiceMeshProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -2466,7 +2466,7 @@ public class AzurermKubernetesClusterServiceMeshProfileBlockCertificateAuthority
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertChainObjectName is required")]
     public required TerraformValue<string> CertChainObjectName
     {
-        get => GetArgument<TerraformValue<string>>("cert_chain_object_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cert_chain_object_name");
         set => SetArgument("cert_chain_object_name", value);
     }
 
@@ -2476,7 +2476,7 @@ public class AzurermKubernetesClusterServiceMeshProfileBlockCertificateAuthority
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertObjectName is required")]
     public required TerraformValue<string> CertObjectName
     {
-        get => GetArgument<TerraformValue<string>>("cert_object_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cert_object_name");
         set => SetArgument("cert_object_name", value);
     }
 
@@ -2486,7 +2486,7 @@ public class AzurermKubernetesClusterServiceMeshProfileBlockCertificateAuthority
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyObjectName is required")]
     public required TerraformValue<string> KeyObjectName
     {
-        get => GetArgument<TerraformValue<string>>("key_object_name");
+        get => GetRequiredArgument<TerraformValue<string>>("key_object_name");
         set => SetArgument("key_object_name", value);
     }
 
@@ -2496,7 +2496,7 @@ public class AzurermKubernetesClusterServiceMeshProfileBlockCertificateAuthority
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => GetArgument<TerraformValue<string>>("key_vault_id");
+        get => GetRequiredArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -2506,7 +2506,7 @@ public class AzurermKubernetesClusterServiceMeshProfileBlockCertificateAuthority
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootCertObjectName is required")]
     public required TerraformValue<string> RootCertObjectName
     {
-        get => GetArgument<TerraformValue<string>>("root_cert_object_name");
+        get => GetRequiredArgument<TerraformValue<string>>("root_cert_object_name");
         set => SetArgument("root_cert_object_name", value);
     }
 
@@ -2530,7 +2530,7 @@ public class AzurermKubernetesClusterServicePrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -2540,7 +2540,7 @@ public class AzurermKubernetesClusterServicePrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -2673,7 +2673,7 @@ public class AzurermKubernetesClusterUpgradeOverrideBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForceUpgradeEnabled is required")]
     public required TerraformValue<bool> ForceUpgradeEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("force_upgrade_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("force_upgrade_enabled");
         set => SetArgument("force_upgrade_enabled", value);
     }
 
@@ -2736,7 +2736,7 @@ public class AzurermKubernetesClusterWindowsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
     public required TerraformValue<string> AdminPassword
     {
-        get => GetArgument<TerraformValue<string>>("admin_password");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_password");
         set => SetArgument("admin_password", value);
     }
 
@@ -2746,7 +2746,7 @@ public class AzurermKubernetesClusterWindowsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformValue<string> AdminUsername
     {
-        get => GetArgument<TerraformValue<string>>("admin_username");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_username");
         set => SetArgument("admin_username", value);
     }
 
@@ -2788,7 +2788,7 @@ public class AzurermKubernetesClusterWindowsProfileBlockGmsaBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsServer is required")]
     public required TerraformValue<string> DnsServer
     {
-        get => GetArgument<TerraformValue<string>>("dns_server");
+        get => GetRequiredArgument<TerraformValue<string>>("dns_server");
         set => SetArgument("dns_server", value);
     }
 
@@ -2798,7 +2798,7 @@ public class AzurermKubernetesClusterWindowsProfileBlockGmsaBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootDomain is required")]
     public required TerraformValue<string> RootDomain
     {
-        get => GetArgument<TerraformValue<string>>("root_domain");
+        get => GetRequiredArgument<TerraformValue<string>>("root_domain");
         set => SetArgument("root_domain", value);
     }
 
@@ -2936,9 +2936,9 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2963,9 +2963,9 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     /// <summary>
     /// The kubernetes_version attribute.
     /// </summary>
-    public TerraformValue<string>? KubernetesVersion
+    public TerraformValue<string> KubernetesVersion
     {
-        get => GetArgument<TerraformValue<string>>("kubernetes_version");
+        get => GetArgument<TerraformValue<string>>("kubernetes_version") ?? AsReference("kubernetes_version");
         set => SetArgument("kubernetes_version", value);
     }
 
@@ -2984,7 +2984,7 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -2994,7 +2994,7 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3010,9 +3010,9 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     /// <summary>
     /// The node_resource_group attribute.
     /// </summary>
-    public TerraformValue<string>? NodeResourceGroup
+    public TerraformValue<string> NodeResourceGroup
     {
-        get => GetArgument<TerraformValue<string>>("node_resource_group");
+        get => GetArgument<TerraformValue<string>>("node_resource_group") ?? AsReference("node_resource_group");
         set => SetArgument("node_resource_group", value);
     }
 
@@ -3055,9 +3055,9 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     /// <summary>
     /// The private_dns_zone_id attribute.
     /// </summary>
-    public TerraformValue<string>? PrivateDnsZoneId
+    public TerraformValue<string> PrivateDnsZoneId
     {
-        get => GetArgument<TerraformValue<string>>("private_dns_zone_id");
+        get => GetArgument<TerraformValue<string>>("private_dns_zone_id") ?? AsReference("private_dns_zone_id");
         set => SetArgument("private_dns_zone_id", value);
     }
 
@@ -3067,7 +3067,7 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

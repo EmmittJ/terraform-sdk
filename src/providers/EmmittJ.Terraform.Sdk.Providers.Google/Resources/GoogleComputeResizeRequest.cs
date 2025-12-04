@@ -28,7 +28,7 @@ public class GoogleComputeResizeRequestRequestedRunDurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => GetArgument<TerraformValue<string>>("seconds");
+        get => GetRequiredArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -85,9 +85,9 @@ public partial class GoogleComputeResizeRequest(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -97,7 +97,7 @@ public partial class GoogleComputeResizeRequest(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroupManager is required")]
     public required TerraformValue<string> InstanceGroupManager
     {
-        get => GetArgument<TerraformValue<string>>("instance_group_manager");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_group_manager");
         set => SetArgument("instance_group_manager", value);
     }
 
@@ -107,16 +107,16 @@ public partial class GoogleComputeResizeRequest(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -126,16 +126,16 @@ public partial class GoogleComputeResizeRequest(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResizeBy is required")]
     public required TerraformValue<double> ResizeBy
     {
-        get => GetArgument<TerraformValue<double>>("resize_by");
+        get => GetRequiredArgument<TerraformValue<double>>("resize_by");
         set => SetArgument("resize_by", value);
     }
 
     /// <summary>
     /// The reference of the compute zone scoping this request. If it is not provided, the provider zone is used.
     /// </summary>
-    public TerraformValue<string>? Zone
+    public TerraformValue<string> Zone
     {
-        get => GetArgument<TerraformValue<string>>("zone");
+        get => GetArgument<TerraformValue<string>>("zone") ?? AsReference("zone");
         set => SetArgument("zone", value);
     }
 

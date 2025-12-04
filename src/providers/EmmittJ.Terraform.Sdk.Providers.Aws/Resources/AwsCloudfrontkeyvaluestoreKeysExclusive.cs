@@ -19,7 +19,7 @@ public class AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => GetArgument<TerraformValue<string>>("key");
+        get => GetRequiredArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -48,16 +48,16 @@ public partial class AwsCloudfrontkeyvaluestoreKeysExclusive(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValueStoreArn is required")]
     public required TerraformValue<string> KeyValueStoreArn
     {
-        get => GetArgument<TerraformValue<string>>("key_value_store_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("key_value_store_arn");
         set => SetArgument("key_value_store_arn", value);
     }
 
     /// <summary>
     /// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
     /// </summary>
-    public TerraformValue<double>? MaxBatchSize
+    public TerraformValue<double> MaxBatchSize
     {
-        get => GetArgument<TerraformValue<double>>("max_batch_size");
+        get => GetArgument<TerraformValue<double>>("max_batch_size") ?? AsReference("max_batch_size");
         set => SetArgument("max_batch_size", value);
     }
 

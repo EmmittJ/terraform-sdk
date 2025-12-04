@@ -19,9 +19,9 @@ public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock : TerraformBlock
     /// PAB policy version will be set to the current latest version, and this version
     /// won&#39;t get updated when new versions are released.
     /// </summary>
-    public TerraformValue<string>? EnforcementVersion
+    public TerraformValue<string> EnforcementVersion
     {
-        get => GetArgument<TerraformValue<string>>("enforcement_version");
+        get => GetArgument<TerraformValue<string>>("enforcement_version") ?? AsReference("enforcement_version");
         set => SetArgument("enforcement_version", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlockRulesBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Effect is required")]
     public required TerraformValue<string> Effect
     {
-        get => GetArgument<TerraformValue<string>>("effect");
+        get => GetRequiredArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -163,9 +163,9 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -185,7 +185,7 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => GetArgument<TerraformValue<string>>("organization");
+        get => GetRequiredArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -196,7 +196,7 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalAccessBoundaryPolicyId is required")]
     public required TerraformValue<string> PrincipalAccessBoundaryPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("principal_access_boundary_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_access_boundary_policy_id");
         set => SetArgument("principal_access_boundary_policy_id", value);
     }
 

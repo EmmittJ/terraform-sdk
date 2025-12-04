@@ -46,16 +46,16 @@ public partial class AwsDxHostedPublicVirtualInterface(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformValue<string> AddressFamily
     {
-        get => GetArgument<TerraformValue<string>>("address_family");
+        get => GetRequiredArgument<TerraformValue<string>>("address_family");
         set => SetArgument("address_family", value);
     }
 
     /// <summary>
     /// The amazon_address attribute.
     /// </summary>
-    public TerraformValue<string>? AmazonAddress
+    public TerraformValue<string> AmazonAddress
     {
-        get => GetArgument<TerraformValue<string>>("amazon_address");
+        get => GetArgument<TerraformValue<string>>("amazon_address") ?? AsReference("amazon_address");
         set => SetArgument("amazon_address", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AwsDxHostedPublicVirtualInterface(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
     public required TerraformValue<double> BgpAsn
     {
-        get => GetArgument<TerraformValue<double>>("bgp_asn");
+        get => GetRequiredArgument<TerraformValue<double>>("bgp_asn");
         set => SetArgument("bgp_asn", value);
     }
 
     /// <summary>
     /// The bgp_auth_key attribute.
     /// </summary>
-    public TerraformValue<string>? BgpAuthKey
+    public TerraformValue<string> BgpAuthKey
     {
-        get => GetArgument<TerraformValue<string>>("bgp_auth_key");
+        get => GetArgument<TerraformValue<string>>("bgp_auth_key") ?? AsReference("bgp_auth_key");
         set => SetArgument("bgp_auth_key", value);
     }
 
@@ -84,25 +84,25 @@ public partial class AwsDxHostedPublicVirtualInterface(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformValue<string> ConnectionId
     {
-        get => GetArgument<TerraformValue<string>>("connection_id");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
     /// <summary>
     /// The customer_address attribute.
     /// </summary>
-    public TerraformValue<string>? CustomerAddress
+    public TerraformValue<string> CustomerAddress
     {
-        get => GetArgument<TerraformValue<string>>("customer_address");
+        get => GetArgument<TerraformValue<string>>("customer_address") ?? AsReference("customer_address");
         set => SetArgument("customer_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsDxHostedPublicVirtualInterface(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,16 +122,16 @@ public partial class AwsDxHostedPublicVirtualInterface(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerAccountId is required")]
     public required TerraformValue<string> OwnerAccountId
     {
-        get => GetArgument<TerraformValue<string>>("owner_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("owner_account_id");
         set => SetArgument("owner_account_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsDxHostedPublicVirtualInterface(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteFilterPrefixes is required")]
     public required TerraformSet<string> RouteFilterPrefixes
     {
-        get => GetArgument<TerraformSet<string>>("route_filter_prefixes");
+        get => GetRequiredArgument<TerraformSet<string>>("route_filter_prefixes");
         set => SetArgument("route_filter_prefixes", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsDxHostedPublicVirtualInterface(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
     public required TerraformValue<double> Vlan
     {
-        get => GetArgument<TerraformValue<double>>("vlan");
+        get => GetRequiredArgument<TerraformValue<double>>("vlan");
         set => SetArgument("vlan", value);
     }
 

@@ -28,7 +28,7 @@ public class AzurermSecurityCenterAutomationActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => GetArgument<TerraformValue<string>>("resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -44,9 +44,9 @@ public class AzurermSecurityCenterAutomationActionBlock : TerraformBlock
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermSecurityCenterAutomationSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSource is required")]
     public required TerraformValue<string> EventSource
     {
-        get => GetArgument<TerraformValue<string>>("event_source");
+        get => GetRequiredArgument<TerraformValue<string>>("event_source");
         set => SetArgument("event_source", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermSecurityCenterAutomationSourceBlockRuleSetBlockRuleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpectedValue is required")]
     public required TerraformValue<string> ExpectedValue
     {
-        get => GetArgument<TerraformValue<string>>("expected_value");
+        get => GetRequiredArgument<TerraformValue<string>>("expected_value");
         set => SetArgument("expected_value", value);
     }
 
@@ -137,7 +137,7 @@ public class AzurermSecurityCenterAutomationSourceBlockRuleSetBlockRuleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermSecurityCenterAutomationSourceBlockRuleSetBlockRuleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropertyPath is required")]
     public required TerraformValue<string> PropertyPath
     {
-        get => GetArgument<TerraformValue<string>>("property_path");
+        get => GetRequiredArgument<TerraformValue<string>>("property_path");
         set => SetArgument("property_path", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermSecurityCenterAutomationSourceBlockRuleSetBlockRuleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropertyType is required")]
     public required TerraformValue<string> PropertyType
     {
-        get => GetArgument<TerraformValue<string>>("property_type");
+        get => GetRequiredArgument<TerraformValue<string>>("property_type");
         set => SetArgument("property_type", value);
     }
 
@@ -241,9 +241,9 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

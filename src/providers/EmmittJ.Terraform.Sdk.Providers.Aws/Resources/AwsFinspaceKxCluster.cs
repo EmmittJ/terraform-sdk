@@ -19,7 +19,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingMetric is required")]
     public required TerraformValue<string> AutoScalingMetric
     {
-        get => GetArgument<TerraformValue<string>>("auto_scaling_metric");
+        get => GetRequiredArgument<TerraformValue<string>>("auto_scaling_metric");
         set => SetArgument("auto_scaling_metric", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformValue<double> MaxNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("max_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricTarget is required")]
     public required TerraformValue<double> MetricTarget
     {
-        get => GetArgument<TerraformValue<double>>("metric_target");
+        get => GetRequiredArgument<TerraformValue<double>>("metric_target");
         set => SetArgument("metric_target", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformValue<double> MinNodeCount
     {
-        get => GetArgument<TerraformValue<double>>("min_node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleInCooldownSeconds is required")]
     public required TerraformValue<double> ScaleInCooldownSeconds
     {
-        get => GetArgument<TerraformValue<double>>("scale_in_cooldown_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_in_cooldown_seconds");
         set => SetArgument("scale_in_cooldown_seconds", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOutCooldownSeconds is required")]
     public required TerraformValue<double> ScaleOutCooldownSeconds
     {
-        get => GetArgument<TerraformValue<double>>("scale_out_cooldown_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("scale_out_cooldown_seconds");
         set => SetArgument("scale_out_cooldown_seconds", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsFinspaceKxClusterCacheStorageConfigurationsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<double> Size
     {
-        get => GetArgument<TerraformValue<double>>("size");
+        get => GetRequiredArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsFinspaceKxClusterCacheStorageConfigurationsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsFinspaceKxClusterCapacityConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsFinspaceKxClusterCapacityConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformValue<string> NodeType
     {
-        get => GetArgument<TerraformValue<string>>("node_type");
+        get => GetRequiredArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsFinspaceKxClusterCodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsFinspaceKxClusterCodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Key is required")]
     public required TerraformValue<string> S3Key
     {
-        get => GetArgument<TerraformValue<string>>("s3_key");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_key");
         set => SetArgument("s3_key", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsFinspaceKxClusterDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => GetArgument<TerraformValue<string>>("database_name");
+        get => GetRequiredArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -254,7 +254,7 @@ public class AwsFinspaceKxClusterDatabaseBlockCacheConfigurationsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheType is required")]
     public required TerraformValue<string> CacheType
     {
-        get => GetArgument<TerraformValue<string>>("cache_type");
+        get => GetRequiredArgument<TerraformValue<string>>("cache_type");
         set => SetArgument("cache_type", value);
     }
 
@@ -346,7 +346,7 @@ public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryReservation is required")]
     public required TerraformValue<double> MemoryReservation
     {
-        get => GetArgument<TerraformValue<double>>("memory_reservation");
+        get => GetRequiredArgument<TerraformValue<double>>("memory_reservation");
         set => SetArgument("memory_reservation", value);
     }
 
@@ -356,7 +356,7 @@ public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => GetArgument<TerraformValue<double>>("node_count");
+        get => GetRequiredArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingGroupName is required")]
     public required TerraformValue<string> ScalingGroupName
     {
-        get => GetArgument<TerraformValue<string>>("scaling_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("scaling_group_name");
         set => SetArgument("scaling_group_name", value);
     }
 
@@ -390,7 +390,7 @@ public class AwsFinspaceKxClusterTickerplantLogConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TickerplantLogVolumes is required")]
     public required TerraformSet<string> TickerplantLogVolumes
     {
-        get => GetArgument<TerraformSet<string>>("tickerplant_log_volumes");
+        get => GetRequiredArgument<TerraformSet<string>>("tickerplant_log_volumes");
         set => SetArgument("tickerplant_log_volumes", value);
     }
 
@@ -455,7 +455,7 @@ public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddressType is required")]
     public required TerraformValue<string> IpAddressType
     {
-        get => GetArgument<TerraformValue<string>>("ip_address_type");
+        get => GetRequiredArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -465,7 +465,7 @@ public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -475,7 +475,7 @@ public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -485,7 +485,7 @@ public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -513,7 +513,7 @@ public partial class AwsFinspaceKxCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzMode is required")]
     public required TerraformValue<string> AzMode
     {
-        get => GetArgument<TerraformValue<string>>("az_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("az_mode");
         set => SetArgument("az_mode", value);
     }
 
@@ -541,7 +541,7 @@ public partial class AwsFinspaceKxCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformValue<string> EnvironmentId
     {
-        get => GetArgument<TerraformValue<string>>("environment_id");
+        get => GetRequiredArgument<TerraformValue<string>>("environment_id");
         set => SetArgument("environment_id", value);
     }
 
@@ -557,9 +557,9 @@ public partial class AwsFinspaceKxCluster(string name) : TerraformResource("aws_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -578,16 +578,16 @@ public partial class AwsFinspaceKxCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -597,7 +597,7 @@ public partial class AwsFinspaceKxCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformValue<string> ReleaseLabel
     {
-        get => GetArgument<TerraformValue<string>>("release_label");
+        get => GetRequiredArgument<TerraformValue<string>>("release_label");
         set => SetArgument("release_label", value);
     }
 
@@ -613,9 +613,9 @@ public partial class AwsFinspaceKxCluster(string name) : TerraformResource("aws_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -625,7 +625,7 @@ public partial class AwsFinspaceKxCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

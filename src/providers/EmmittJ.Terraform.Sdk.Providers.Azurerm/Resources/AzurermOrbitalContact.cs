@@ -56,7 +56,7 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactProfileId is required")]
     public required TerraformValue<string> ContactProfileId
     {
-        get => GetArgument<TerraformValue<string>>("contact_profile_id");
+        get => GetRequiredArgument<TerraformValue<string>>("contact_profile_id");
         set => SetArgument("contact_profile_id", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroundStationName is required")]
     public required TerraformValue<string> GroundStationName
     {
-        get => GetArgument<TerraformValue<string>>("ground_station_name");
+        get => GetRequiredArgument<TerraformValue<string>>("ground_station_name");
         set => SetArgument("ground_station_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationEndTime is required")]
     public required TerraformValue<string> ReservationEndTime
     {
-        get => GetArgument<TerraformValue<string>>("reservation_end_time");
+        get => GetRequiredArgument<TerraformValue<string>>("reservation_end_time");
         set => SetArgument("reservation_end_time", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationStartTime is required")]
     public required TerraformValue<string> ReservationStartTime
     {
-        get => GetArgument<TerraformValue<string>>("reservation_start_time");
+        get => GetRequiredArgument<TerraformValue<string>>("reservation_start_time");
         set => SetArgument("reservation_start_time", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpacecraftId is required")]
     public required TerraformValue<string> SpacecraftId
     {
-        get => GetArgument<TerraformValue<string>>("spacecraft_id");
+        get => GetRequiredArgument<TerraformValue<string>>("spacecraft_id");
         set => SetArgument("spacecraft_id", value);
     }
 

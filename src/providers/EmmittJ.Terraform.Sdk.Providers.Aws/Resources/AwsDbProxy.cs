@@ -25,9 +25,9 @@ public class AwsDbProxyAuthBlock : TerraformBlock
     /// <summary>
     /// The client_password_auth_type attribute.
     /// </summary>
-    public TerraformValue<string>? ClientPasswordAuthType
+    public TerraformValue<string> ClientPasswordAuthType
     {
-        get => GetArgument<TerraformValue<string>>("client_password_auth_type");
+        get => GetArgument<TerraformValue<string>>("client_password_auth_type") ?? AsReference("client_password_auth_type");
         set => SetArgument("client_password_auth_type", value);
     }
 
@@ -129,9 +129,9 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     /// <summary>
     /// The default_auth_scheme attribute.
     /// </summary>
-    public TerraformValue<string>? DefaultAuthScheme
+    public TerraformValue<string> DefaultAuthScheme
     {
-        get => GetArgument<TerraformValue<string>>("default_auth_scheme");
+        get => GetArgument<TerraformValue<string>>("default_auth_scheme") ?? AsReference("default_auth_scheme");
         set => SetArgument("default_auth_scheme", value);
     }
 
@@ -141,25 +141,25 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineFamily is required")]
     public required TerraformValue<string> EngineFamily
     {
-        get => GetArgument<TerraformValue<string>>("engine_family");
+        get => GetRequiredArgument<TerraformValue<string>>("engine_family");
         set => SetArgument("engine_family", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The idle_client_timeout attribute.
     /// </summary>
-    public TerraformValue<double>? IdleClientTimeout
+    public TerraformValue<double> IdleClientTimeout
     {
-        get => GetArgument<TerraformValue<double>>("idle_client_timeout");
+        get => GetArgument<TerraformValue<double>>("idle_client_timeout") ?? AsReference("idle_client_timeout");
         set => SetArgument("idle_client_timeout", value);
     }
 
@@ -169,16 +169,16 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -213,18 +213,18 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string>? VpcSecurityGroupIds
+    public TerraformSet<string> VpcSecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids") ?? AsReference("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -234,7 +234,7 @@ public partial class AwsDbProxy(string name) : TerraformResource("aws_db_proxy",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
     public required TerraformSet<string> VpcSubnetIds
     {
-        get => GetArgument<TerraformSet<string>>("vpc_subnet_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("vpc_subnet_ids");
         set => SetArgument("vpc_subnet_ids", value);
     }
 

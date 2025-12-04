@@ -64,16 +64,16 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPoli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpireAfter is required")]
     public required TerraformValue<string> ExpireAfter
     {
-        get => GetArgument<TerraformValue<string>>("expire_after");
+        get => GetRequiredArgument<TerraformValue<string>>("expire_after");
         set => SetArgument("expire_after", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPoli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmKeyId is required")]
     public required TerraformValue<string> ManagedHsmKeyId
     {
-        get => GetArgument<TerraformValue<string>>("managed_hsm_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("managed_hsm_key_id");
         set => SetArgument("managed_hsm_key_id", value);
     }
 

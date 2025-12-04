@@ -251,7 +251,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformValue<string> ApiKey
     {
-        get => GetArgument<TerraformValue<string>>("api_key");
+        get => GetRequiredArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -261,7 +261,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretKey is required")]
     public required TerraformValue<string> SecretKey
     {
-        get => GetArgument<TerraformValue<string>>("secret_key");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_key");
         set => SetArgument("secret_key", value);
     }
 
@@ -284,7 +284,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformValue<string> AuthenticationType
     {
-        get => GetArgument<TerraformValue<string>>("authentication_type");
+        get => GetRequiredArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -347,7 +347,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformValue<string> ApiKey
     {
-        get => GetArgument<TerraformValue<string>>("api_key");
+        get => GetRequiredArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -379,7 +379,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -389,7 +389,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -421,7 +421,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomAuthenticationType is required")]
     public required TerraformValue<string> CustomAuthenticationType
     {
-        get => GetArgument<TerraformValue<string>>("custom_authentication_type");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_authentication_type");
         set => SetArgument("custom_authentication_type", value);
     }
 
@@ -534,7 +534,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformValue<string> ApiKey
     {
-        get => GetArgument<TerraformValue<string>>("api_key");
+        get => GetRequiredArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -544,7 +544,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationKey is required")]
     public required TerraformValue<string> ApplicationKey
     {
-        get => GetArgument<TerraformValue<string>>("application_key");
+        get => GetRequiredArgument<TerraformValue<string>>("application_key");
         set => SetArgument("application_key", value);
     }
 
@@ -567,7 +567,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiToken is required")]
     public required TerraformValue<string> ApiToken
     {
-        get => GetArgument<TerraformValue<string>>("api_token");
+        get => GetRequiredArgument<TerraformValue<string>>("api_token");
         set => SetArgument("api_token", value);
     }
 
@@ -599,7 +599,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -609,7 +609,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -754,7 +754,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
     public required TerraformValue<string> AccessKeyId
     {
-        get => GetArgument<TerraformValue<string>>("access_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("access_key_id");
         set => SetArgument("access_key_id", value);
     }
 
@@ -764,7 +764,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Datakey is required")]
     public required TerraformValue<string> Datakey
     {
-        get => GetArgument<TerraformValue<string>>("datakey");
+        get => GetRequiredArgument<TerraformValue<string>>("datakey");
         set => SetArgument("datakey", value);
     }
 
@@ -774,7 +774,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretAccessKey is required")]
     public required TerraformValue<string> SecretAccessKey
     {
-        get => GetArgument<TerraformValue<string>>("secret_access_key");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_access_key");
         set => SetArgument("secret_access_key", value);
     }
 
@@ -784,7 +784,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformValue<string> UserId
     {
-        get => GetArgument<TerraformValue<string>>("user_id");
+        get => GetRequiredArgument<TerraformValue<string>>("user_id");
         set => SetArgument("user_id", value);
     }
 
@@ -816,7 +816,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -826,7 +826,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -890,7 +890,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -900,7 +900,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -1055,7 +1055,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -1065,7 +1065,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -1097,7 +1097,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1107,7 +1107,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -1180,7 +1180,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -1190,7 +1190,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -1213,7 +1213,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformValue<string> ApiKey
     {
-        get => GetArgument<TerraformValue<string>>("api_key");
+        get => GetRequiredArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -1245,7 +1245,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1255,7 +1255,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -1319,7 +1319,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -1329,7 +1329,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -1352,7 +1352,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiSecretKey is required")]
     public required TerraformValue<string> ApiSecretKey
     {
-        get => GetArgument<TerraformValue<string>>("api_secret_key");
+        get => GetRequiredArgument<TerraformValue<string>>("api_secret_key");
         set => SetArgument("api_secret_key", value);
     }
 
@@ -1375,7 +1375,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -1385,7 +1385,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -1417,7 +1417,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1427,7 +1427,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -1729,7 +1729,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauth2GrantType is required")]
     public required TerraformValue<string> Oauth2GrantType
     {
-        get => GetArgument<TerraformValue<string>>("oauth2_grant_type");
+        get => GetRequiredArgument<TerraformValue<string>>("oauth2_grant_type");
         set => SetArgument("oauth2_grant_type", value);
     }
 
@@ -1739,7 +1739,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenUrl is required")]
     public required TerraformValue<string> TokenUrl
     {
-        get => GetArgument<TerraformValue<string>>("token_url");
+        get => GetRequiredArgument<TerraformValue<string>>("token_url");
         set => SetArgument("token_url", value);
     }
 
@@ -1771,7 +1771,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceUrl is required")]
     public required TerraformValue<string> InstanceUrl
     {
-        get => GetArgument<TerraformValue<string>>("instance_url");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_url");
         set => SetArgument("instance_url", value);
     }
 
@@ -1794,7 +1794,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceUrl is required")]
     public required TerraformValue<string> InstanceUrl
     {
-        get => GetArgument<TerraformValue<string>>("instance_url");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_url");
         set => SetArgument("instance_url", value);
     }
 
@@ -1843,7 +1843,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceUrl is required")]
     public required TerraformValue<string> InstanceUrl
     {
-        get => GetArgument<TerraformValue<string>>("instance_url");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_url");
         set => SetArgument("instance_url", value);
     }
 
@@ -1866,7 +1866,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceUrl is required")]
     public required TerraformValue<string> InstanceUrl
     {
-        get => GetArgument<TerraformValue<string>>("instance_url");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_url");
         set => SetArgument("instance_url", value);
     }
 
@@ -1889,7 +1889,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1944,7 +1944,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2007,7 +2007,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationHostUrl is required")]
     public required TerraformValue<string> ApplicationHostUrl
     {
-        get => GetArgument<TerraformValue<string>>("application_host_url");
+        get => GetRequiredArgument<TerraformValue<string>>("application_host_url");
         set => SetArgument("application_host_url", value);
     }
 
@@ -2017,7 +2017,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationServicePath is required")]
     public required TerraformValue<string> ApplicationServicePath
     {
-        get => GetArgument<TerraformValue<string>>("application_service_path");
+        get => GetRequiredArgument<TerraformValue<string>>("application_service_path");
         set => SetArgument("application_service_path", value);
     }
 
@@ -2027,7 +2027,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientNumber is required")]
     public required TerraformValue<string> ClientNumber
     {
-        get => GetArgument<TerraformValue<string>>("client_number");
+        get => GetRequiredArgument<TerraformValue<string>>("client_number");
         set => SetArgument("client_number", value);
     }
 
@@ -2046,7 +2046,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortNumber is required")]
     public required TerraformValue<double> PortNumber
     {
-        get => GetArgument<TerraformValue<double>>("port_number");
+        get => GetRequiredArgument<TerraformValue<double>>("port_number");
         set => SetArgument("port_number", value);
     }
 
@@ -2088,7 +2088,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthCodeUrl is required")]
     public required TerraformValue<string> AuthCodeUrl
     {
-        get => GetArgument<TerraformValue<string>>("auth_code_url");
+        get => GetRequiredArgument<TerraformValue<string>>("auth_code_url");
         set => SetArgument("auth_code_url", value);
     }
 
@@ -2108,7 +2108,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenUrl is required")]
     public required TerraformValue<string> TokenUrl
     {
-        get => GetArgument<TerraformValue<string>>("token_url");
+        get => GetRequiredArgument<TerraformValue<string>>("token_url");
         set => SetArgument("token_url", value);
     }
 
@@ -2131,7 +2131,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceUrl is required")]
     public required TerraformValue<string> InstanceUrl
     {
-        get => GetArgument<TerraformValue<string>>("instance_url");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_url");
         set => SetArgument("instance_url", value);
     }
 
@@ -2167,7 +2167,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceUrl is required")]
     public required TerraformValue<string> InstanceUrl
     {
-        get => GetArgument<TerraformValue<string>>("instance_url");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_url");
         set => SetArgument("instance_url", value);
     }
 
@@ -2199,7 +2199,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -2236,7 +2236,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     public required TerraformValue<string> Stage
     {
-        get => GetArgument<TerraformValue<string>>("stage");
+        get => GetRequiredArgument<TerraformValue<string>>("stage");
         set => SetArgument("stage", value);
     }
 
@@ -2246,7 +2246,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Warehouse is required")]
     public required TerraformValue<string> Warehouse
     {
-        get => GetArgument<TerraformValue<string>>("warehouse");
+        get => GetRequiredArgument<TerraformValue<string>>("warehouse");
         set => SetArgument("warehouse", value);
     }
 
@@ -2282,7 +2282,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceUrl is required")]
     public required TerraformValue<string> InstanceUrl
     {
-        get => GetArgument<TerraformValue<string>>("instance_url");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_url");
         set => SetArgument("instance_url", value);
     }
 
@@ -2305,7 +2305,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlockConnectorProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceUrl is required")]
     public required TerraformValue<string> InstanceUrl
     {
-        get => GetArgument<TerraformValue<string>>("instance_url");
+        get => GetRequiredArgument<TerraformValue<string>>("instance_url");
         set => SetArgument("instance_url", value);
     }
 
@@ -2324,7 +2324,7 @@ public partial class AwsAppflowConnectorProfile(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionMode is required")]
     public required TerraformValue<string> ConnectionMode
     {
-        get => GetArgument<TerraformValue<string>>("connection_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_mode");
         set => SetArgument("connection_mode", value);
     }
 
@@ -2343,25 +2343,25 @@ public partial class AwsAppflowConnectorProfile(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     public required TerraformValue<string> ConnectorType
     {
-        get => GetArgument<TerraformValue<string>>("connector_type");
+        get => GetRequiredArgument<TerraformValue<string>>("connector_type");
         set => SetArgument("connector_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_arn attribute.
     /// </summary>
-    public TerraformValue<string>? KmsArn
+    public TerraformValue<string> KmsArn
     {
-        get => GetArgument<TerraformValue<string>>("kms_arn");
+        get => GetArgument<TerraformValue<string>>("kms_arn") ?? AsReference("kms_arn");
         set => SetArgument("kms_arn", value);
     }
 
@@ -2371,16 +2371,16 @@ public partial class AwsAppflowConnectorProfile(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

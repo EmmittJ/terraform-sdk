@@ -19,16 +19,16 @@ public class AwsVpcRouteServerPeerBgpOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     public required TerraformValue<double> PeerAsn
     {
-        get => GetArgument<TerraformValue<double>>("peer_asn");
+        get => GetRequiredArgument<TerraformValue<double>>("peer_asn");
         set => SetArgument("peer_asn", value);
     }
 
     /// <summary>
     /// The peer_liveness_detection attribute.
     /// </summary>
-    public TerraformValue<string>? PeerLivenessDetection
+    public TerraformValue<string> PeerLivenessDetection
     {
-        get => GetArgument<TerraformValue<string>>("peer_liveness_detection");
+        get => GetArgument<TerraformValue<string>>("peer_liveness_detection") ?? AsReference("peer_liveness_detection");
         set => SetArgument("peer_liveness_detection", value);
     }
 
@@ -79,16 +79,16 @@ public partial class AwsVpcRouteServerPeer(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAddress is required")]
     public required TerraformValue<string> PeerAddress
     {
-        get => GetArgument<TerraformValue<string>>("peer_address");
+        get => GetRequiredArgument<TerraformValue<string>>("peer_address");
         set => SetArgument("peer_address", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsVpcRouteServerPeer(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerEndpointId is required")]
     public required TerraformValue<string> RouteServerEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("route_server_endpoint_id");
+        get => GetRequiredArgument<TerraformValue<string>>("route_server_endpoint_id");
         set => SetArgument("route_server_endpoint_id", value);
     }
 

@@ -19,7 +19,7 @@ public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeEnd is required")]
     public required TerraformValue<string> RangeEnd
     {
-        get => GetArgument<TerraformValue<string>>("range_end");
+        get => GetRequiredArgument<TerraformValue<string>>("range_end");
         set => SetArgument("range_end", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeStart is required")]
     public required TerraformValue<string> RangeStart
     {
-        get => GetArgument<TerraformValue<string>>("range_start");
+        get => GetRequiredArgument<TerraformValue<string>>("range_start");
         set => SetArgument("range_start", value);
     }
 
@@ -123,9 +123,9 @@ public partial class AzurermAnalysisServicesServer(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermAnalysisServicesServer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermAnalysisServicesServer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AzurermAnalysisServicesServer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AzurermAnalysisServicesServer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => GetArgument<TerraformValue<string>>("sku");
+        get => GetRequiredArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 

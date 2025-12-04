@@ -19,7 +19,7 @@ public class AwsCodepipelineArtifactStoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsCodepipelineArtifactStoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsCodepipelineArtifactStoreBlockEncryptionKeyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsCodepipelineArtifactStoreBlockEncryptionKeyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsCodepipelineStageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsCodepipelineStageBlockActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => GetArgument<TerraformValue<string>>("category");
+        get => GetRequiredArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsCodepipelineStageBlockActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -226,7 +226,7 @@ public class AwsCodepipelineStageBlockActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
     public required TerraformValue<string> Owner
     {
-        get => GetArgument<TerraformValue<string>>("owner");
+        get => GetRequiredArgument<TerraformValue<string>>("owner");
         set => SetArgument("owner", value);
     }
 
@@ -236,16 +236,16 @@ public class AwsCodepipelineStageBlockActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderAttribute is required")]
     public required TerraformValue<string> ProviderAttribute
     {
-        get => GetArgument<TerraformValue<string>>("provider");
+        get => GetRequiredArgument<TerraformValue<string>>("provider");
         set => SetArgument("provider", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -261,9 +261,9 @@ public class AwsCodepipelineStageBlockActionBlock : TerraformBlock
     /// <summary>
     /// The run_order attribute.
     /// </summary>
-    public TerraformValue<double>? RunOrder
+    public TerraformValue<double> RunOrder
     {
-        get => GetArgument<TerraformValue<double>>("run_order");
+        get => GetArgument<TerraformValue<double>>("run_order") ?? AsReference("run_order");
         set => SetArgument("run_order", value);
     }
 
@@ -282,7 +282,7 @@ public class AwsCodepipelineStageBlockActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -393,7 +393,7 @@ public class AwsCodepipelineStageBlockBeforeEntryBlockConditionBlockRuleBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsCodepipelineStageBlockBeforeEntryBlockConditionBlockRuleBlockRul
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => GetArgument<TerraformValue<string>>("category");
+        get => GetRequiredArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -475,7 +475,7 @@ public class AwsCodepipelineStageBlockBeforeEntryBlockConditionBlockRuleBlockRul
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderAttribute is required")]
     public required TerraformValue<string> ProviderAttribute
     {
-        get => GetArgument<TerraformValue<string>>("provider");
+        get => GetRequiredArgument<TerraformValue<string>>("provider");
         set => SetArgument("provider", value);
     }
 
@@ -611,7 +611,7 @@ public class AwsCodepipelineStageBlockOnFailureBlockConditionBlockRuleBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -674,7 +674,7 @@ public class AwsCodepipelineStageBlockOnFailureBlockConditionBlockRuleBlockRuleT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => GetArgument<TerraformValue<string>>("category");
+        get => GetRequiredArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -693,7 +693,7 @@ public class AwsCodepipelineStageBlockOnFailureBlockConditionBlockRuleBlockRuleT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderAttribute is required")]
     public required TerraformValue<string> ProviderAttribute
     {
-        get => GetArgument<TerraformValue<string>>("provider");
+        get => GetRequiredArgument<TerraformValue<string>>("provider");
         set => SetArgument("provider", value);
     }
 
@@ -835,7 +835,7 @@ public class AwsCodepipelineStageBlockOnSuccessBlockConditionBlockRuleBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -898,7 +898,7 @@ public class AwsCodepipelineStageBlockOnSuccessBlockConditionBlockRuleBlockRuleT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => GetArgument<TerraformValue<string>>("category");
+        get => GetRequiredArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -917,7 +917,7 @@ public class AwsCodepipelineStageBlockOnSuccessBlockConditionBlockRuleBlockRuleT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderAttribute is required")]
     public required TerraformValue<string> ProviderAttribute
     {
-        get => GetArgument<TerraformValue<string>>("provider");
+        get => GetRequiredArgument<TerraformValue<string>>("provider");
         set => SetArgument("provider", value);
     }
 
@@ -950,7 +950,7 @@ public class AwsCodepipelineTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
     public required TerraformValue<string> ProviderType
     {
-        get => GetArgument<TerraformValue<string>>("provider_type");
+        get => GetRequiredArgument<TerraformValue<string>>("provider_type");
         set => SetArgument("provider_type", value);
     }
 
@@ -986,7 +986,7 @@ public class AwsCodepipelineTriggerBlockGitConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceActionName is required")]
     public required TerraformValue<string> SourceActionName
     {
-        get => GetArgument<TerraformValue<string>>("source_action_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_action_name");
         set => SetArgument("source_action_name", value);
     }
 
@@ -1288,7 +1288,7 @@ public class AwsCodepipelineVariableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1313,9 +1313,9 @@ public partial class AwsCodepipeline(string name) : TerraformResource("aws_codep
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1325,7 +1325,7 @@ public partial class AwsCodepipeline(string name) : TerraformResource("aws_codep
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1341,9 +1341,9 @@ public partial class AwsCodepipeline(string name) : TerraformResource("aws_codep
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1353,7 +1353,7 @@ public partial class AwsCodepipeline(string name) : TerraformResource("aws_codep
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1369,9 +1369,9 @@ public partial class AwsCodepipeline(string name) : TerraformResource("aws_codep
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPool is required")]
     public required TerraformValue<string> UserPool
     {
-        get => GetArgument<TerraformValue<string>>("user_pool");
+        get => GetRequiredArgument<TerraformValue<string>>("user_pool");
         set => SetArgument("user_pool", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformValue<string> AuthorizationEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("authorization_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("authorization_endpoint");
         set => SetArgument("authorization_endpoint", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => GetArgument<TerraformValue<string>>("issuer");
+        get => GetRequiredArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JwksUri is required")]
     public required TerraformValue<string> JwksUri
     {
-        get => GetArgument<TerraformValue<string>>("jwks_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("jwks_uri");
         set => SetArgument("jwks_uri", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogoutEndpoint is required")]
     public required TerraformValue<string> LogoutEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("logout_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("logout_endpoint");
         set => SetArgument("logout_endpoint", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformValue<string> TokenEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("token_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserInfoEndpoint is required")]
     public required TerraformValue<string> UserInfoEndpoint
     {
-        get => GetArgument<TerraformValue<string>>("user_info_endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("user_info_endpoint");
         set => SetArgument("user_info_endpoint", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsSagemakerWorkforceSourceIpConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidrs is required")]
     public required TerraformSet<string> Cidrs
     {
-        get => GetArgument<TerraformSet<string>>("cidrs");
+        get => GetRequiredArgument<TerraformSet<string>>("cidrs");
         set => SetArgument("cidrs", value);
     }
 
@@ -228,18 +228,18 @@ public partial class AwsSagemakerWorkforce(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -249,7 +249,7 @@ public partial class AwsSagemakerWorkforce(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforceName is required")]
     public required TerraformValue<string> WorkforceName
     {
-        get => GetArgument<TerraformValue<string>>("workforce_name");
+        get => GetRequiredArgument<TerraformValue<string>>("workforce_name");
         set => SetArgument("workforce_name", value);
     }
 

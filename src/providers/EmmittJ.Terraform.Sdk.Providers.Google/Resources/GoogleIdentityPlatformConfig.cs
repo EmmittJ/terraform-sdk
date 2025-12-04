@@ -94,7 +94,7 @@ public class GoogleIdentityPlatformConfigBlockingFunctionsBlockTriggersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformValue<string> EventType
     {
-        get => GetArgument<TerraformValue<string>>("event_type");
+        get => GetRequiredArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleIdentityPlatformConfigBlockingFunctionsBlockTriggersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionUri is required")]
     public required TerraformValue<string> FunctionUri
     {
-        get => GetArgument<TerraformValue<string>>("function_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("function_uri");
         set => SetArgument("function_uri", value);
     }
 
@@ -207,9 +207,9 @@ public class GoogleIdentityPlatformConfigMfaBlock : TerraformBlock
     /// <summary>
     /// Whether MultiFactor Authentication has been enabled for this project. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;ENABLED&amp;quot;, &amp;quot;MANDATORY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? State
+    public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
         set => SetArgument("state", value);
     }
 
@@ -238,9 +238,9 @@ public class GoogleIdentityPlatformConfigMfaBlockProviderConfigsBlock : Terrafor
     /// <summary>
     /// Whether MultiFactor Authentication has been enabled for this project. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;ENABLED&amp;quot;, &amp;quot;MANDATORY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? State
+    public TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetArgument<TerraformValue<string>>("state") ?? AsReference("state");
         set => SetArgument("state", value);
     }
 
@@ -498,7 +498,7 @@ public class GoogleIdentityPlatformConfigSignInBlockAnonymousBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -521,7 +521,7 @@ public class GoogleIdentityPlatformConfigSignInBlockEmailBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -555,7 +555,7 @@ public class GoogleIdentityPlatformConfigSignInBlockPhoneNumberBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -699,9 +699,9 @@ public partial class GoogleIdentityPlatformConfig(string name) : TerraformResour
     /// <summary>
     /// List of domains authorized for OAuth redirects.
     /// </summary>
-    public TerraformList<string>? AuthorizedDomains
+    public TerraformList<string> AuthorizedDomains
     {
-        get => GetArgument<TerraformList<string>>("authorized_domains");
+        get => GetArgument<TerraformList<string>>("authorized_domains") ?? AsReference("authorized_domains");
         set => SetArgument("authorized_domains", value);
     }
 
@@ -717,18 +717,18 @@ public partial class GoogleIdentityPlatformConfig(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

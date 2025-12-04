@@ -11,9 +11,9 @@ public partial class GoogleParameterManagerRegionalParameterDataSource(string na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleParameterManagerRegionalParameterDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleParameterManagerRegionalParameterDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterId is required")]
     public required TerraformValue<string> ParameterId
     {
-        get => GetArgument<TerraformValue<string>>("parameter_id");
+        get => GetRequiredArgument<TerraformValue<string>>("parameter_id");
         set => SetArgument("parameter_id", value);
     }
 

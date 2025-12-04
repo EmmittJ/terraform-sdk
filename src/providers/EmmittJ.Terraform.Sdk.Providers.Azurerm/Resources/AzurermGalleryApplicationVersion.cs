@@ -19,7 +19,7 @@ public class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Install is required")]
     public required TerraformValue<string> Install
     {
-        get => GetArgument<TerraformValue<string>>("install");
+        get => GetRequiredArgument<TerraformValue<string>>("install");
         set => SetArgument("install", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoveAttribute is required")]
     public required TerraformValue<string> RemoveAttribute
     {
-        get => GetArgument<TerraformValue<string>>("remove");
+        get => GetRequiredArgument<TerraformValue<string>>("remove");
         set => SetArgument("remove", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermGalleryApplicationVersionSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MediaLink is required")]
     public required TerraformValue<string> MediaLink
     {
-        get => GetArgument<TerraformValue<string>>("media_link");
+        get => GetRequiredArgument<TerraformValue<string>>("media_link");
         set => SetArgument("media_link", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionalReplicaCount is required")]
     public required TerraformValue<double> RegionalReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("regional_replica_count");
+        get => GetRequiredArgument<TerraformValue<double>>("regional_replica_count");
         set => SetArgument("regional_replica_count", value);
     }
 
@@ -228,16 +228,16 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationId is required")]
     public required TerraformValue<string> GalleryApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("gallery_application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("gallery_application_id");
         set => SetArgument("gallery_application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

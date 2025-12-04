@@ -64,7 +64,7 @@ public partial class AzurermDevCenterProjectPool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevBoxDefinitionName is required")]
     public required TerraformValue<string> DevBoxDefinitionName
     {
-        get => GetArgument<TerraformValue<string>>("dev_box_definition_name");
+        get => GetRequiredArgument<TerraformValue<string>>("dev_box_definition_name");
         set => SetArgument("dev_box_definition_name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermDevCenterProjectPool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterAttachedNetworkName is required")]
     public required TerraformValue<string> DevCenterAttachedNetworkName
     {
-        get => GetArgument<TerraformValue<string>>("dev_center_attached_network_name");
+        get => GetRequiredArgument<TerraformValue<string>>("dev_center_attached_network_name");
         set => SetArgument("dev_center_attached_network_name", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermDevCenterProjectPool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     public required TerraformValue<string> DevCenterProjectId
     {
-        get => GetArgument<TerraformValue<string>>("dev_center_project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dev_center_project_id");
         set => SetArgument("dev_center_project_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermDevCenterProjectPool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalAdministratorEnabled is required")]
     public required TerraformValue<bool> LocalAdministratorEnabled
     {
-        get => GetArgument<TerraformValue<bool>>("local_administrator_enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("local_administrator_enabled");
         set => SetArgument("local_administrator_enabled", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermDevCenterProjectPool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermDevCenterProjectPool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

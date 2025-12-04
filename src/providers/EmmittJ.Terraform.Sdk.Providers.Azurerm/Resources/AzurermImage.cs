@@ -16,9 +16,9 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// <summary>
     /// The blob_uri attribute.
     /// </summary>
-    public TerraformValue<string>? BlobUri
+    public TerraformValue<string> BlobUri
     {
-        get => GetArgument<TerraformValue<string>>("blob_uri");
+        get => GetArgument<TerraformValue<string>>("blob_uri") ?? AsReference("blob_uri");
         set => SetArgument("blob_uri", value);
     }
 
@@ -61,9 +61,9 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// <summary>
     /// The size_gb attribute.
     /// </summary>
-    public TerraformValue<double>? SizeGb
+    public TerraformValue<double> SizeGb
     {
-        get => GetArgument<TerraformValue<double>>("size_gb");
+        get => GetArgument<TerraformValue<double>>("size_gb") ?? AsReference("size_gb");
         set => SetArgument("size_gb", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     public required TerraformValue<string> StorageType
     {
-        get => GetArgument<TerraformValue<string>>("storage_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -94,9 +94,9 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The blob_uri attribute.
     /// </summary>
-    public TerraformValue<string>? BlobUri
+    public TerraformValue<string> BlobUri
     {
-        get => GetArgument<TerraformValue<string>>("blob_uri");
+        get => GetArgument<TerraformValue<string>>("blob_uri") ?? AsReference("blob_uri");
         set => SetArgument("blob_uri", value);
     }
 
@@ -121,9 +121,9 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
-    public TerraformValue<string>? ManagedDiskId
+    public TerraformValue<string> ManagedDiskId
     {
-        get => GetArgument<TerraformValue<string>>("managed_disk_id");
+        get => GetArgument<TerraformValue<string>>("managed_disk_id") ?? AsReference("managed_disk_id");
         set => SetArgument("managed_disk_id", value);
     }
 
@@ -148,9 +148,9 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The size_gb attribute.
     /// </summary>
-    public TerraformValue<double>? SizeGb
+    public TerraformValue<double> SizeGb
     {
-        get => GetArgument<TerraformValue<double>>("size_gb");
+        get => GetArgument<TerraformValue<double>>("size_gb") ?? AsReference("size_gb");
         set => SetArgument("size_gb", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     public required TerraformValue<string> StorageType
     {
-        get => GetArgument<TerraformValue<string>>("storage_type");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -235,9 +235,9 @@ public partial class AzurermImage(string name) : TerraformResource("azurerm_imag
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AzurermImage(string name) : TerraformResource("azurerm_imag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AzurermImage(string name) : TerraformResource("azurerm_imag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -267,7 +267,7 @@ public partial class AzurermImage(string name) : TerraformResource("azurerm_imag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

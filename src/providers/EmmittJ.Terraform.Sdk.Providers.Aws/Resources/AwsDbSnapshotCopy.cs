@@ -52,9 +52,9 @@ public partial class AwsDbSnapshotCopy(string name) : TerraformResource("aws_db_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -70,9 +70,9 @@ public partial class AwsDbSnapshotCopy(string name) : TerraformResource("aws_db_
     /// <summary>
     /// The option_group_name attribute.
     /// </summary>
-    public TerraformValue<string>? OptionGroupName
+    public TerraformValue<string> OptionGroupName
     {
-        get => GetArgument<TerraformValue<string>>("option_group_name");
+        get => GetArgument<TerraformValue<string>>("option_group_name") ?? AsReference("option_group_name");
         set => SetArgument("option_group_name", value);
     }
 
@@ -88,9 +88,9 @@ public partial class AwsDbSnapshotCopy(string name) : TerraformResource("aws_db_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsDbSnapshotCopy(string name) : TerraformResource("aws_db_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbSnapshotIdentifier is required")]
     public required TerraformValue<string> SourceDbSnapshotIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("source_db_snapshot_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("source_db_snapshot_identifier");
         set => SetArgument("source_db_snapshot_identifier", value);
     }
 
@@ -125,9 +125,9 @@ public partial class AwsDbSnapshotCopy(string name) : TerraformResource("aws_db_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsDbSnapshotCopy(string name) : TerraformResource("aws_db_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDbSnapshotIdentifier is required")]
     public required TerraformValue<string> TargetDbSnapshotIdentifier
     {
-        get => GetArgument<TerraformValue<string>>("target_db_snapshot_identifier");
+        get => GetRequiredArgument<TerraformValue<string>>("target_db_snapshot_identifier");
         set => SetArgument("target_db_snapshot_identifier", value);
     }
 

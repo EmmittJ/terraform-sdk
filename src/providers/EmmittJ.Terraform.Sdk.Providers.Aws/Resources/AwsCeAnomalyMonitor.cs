@@ -11,9 +11,9 @@ public partial class AwsCeAnomalyMonitor(string name) : TerraformResource("aws_c
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCeAnomalyMonitor(string name) : TerraformResource("aws_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorType is required")]
     public required TerraformValue<string> MonitorType
     {
-        get => GetArgument<TerraformValue<string>>("monitor_type");
+        get => GetRequiredArgument<TerraformValue<string>>("monitor_type");
         set => SetArgument("monitor_type", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsCeAnomalyMonitor(string name) : TerraformResource("aws_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -67,9 +67,9 @@ public partial class AwsCeAnomalyMonitor(string name) : TerraformResource("aws_c
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

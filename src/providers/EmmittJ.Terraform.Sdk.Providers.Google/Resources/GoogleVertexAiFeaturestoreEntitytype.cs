@@ -72,7 +72,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlockCategorica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -132,7 +132,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlockNumericalT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => GetArgument<TerraformValue<double>>("value");
+        get => GetRequiredArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -242,16 +242,16 @@ public partial class GoogleVertexAiFeaturestoreEntitytype(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Featurestore is required")]
     public required TerraformValue<string> Featurestore
     {
-        get => GetArgument<TerraformValue<string>>("featurestore");
+        get => GetRequiredArgument<TerraformValue<string>>("featurestore");
         set => SetArgument("featurestore", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

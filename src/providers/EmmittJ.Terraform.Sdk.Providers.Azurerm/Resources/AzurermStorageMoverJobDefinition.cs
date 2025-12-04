@@ -73,7 +73,7 @@ public partial class AzurermStorageMoverJobDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyMode is required")]
     public required TerraformValue<string> CopyMode
     {
-        get => GetArgument<TerraformValue<string>>("copy_mode");
+        get => GetRequiredArgument<TerraformValue<string>>("copy_mode");
         set => SetArgument("copy_mode", value);
     }
 
@@ -89,9 +89,9 @@ public partial class AzurermStorageMoverJobDefinition(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermStorageMoverJobDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermStorageMoverJobDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformValue<string> SourceName
     {
-        get => GetArgument<TerraformValue<string>>("source_name");
+        get => GetRequiredArgument<TerraformValue<string>>("source_name");
         set => SetArgument("source_name", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermStorageMoverJobDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverProjectId is required")]
     public required TerraformValue<string> StorageMoverProjectId
     {
-        get => GetArgument<TerraformValue<string>>("storage_mover_project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_mover_project_id");
         set => SetArgument("storage_mover_project_id", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermStorageMoverJobDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
     public required TerraformValue<string> TargetName
     {
-        get => GetArgument<TerraformValue<string>>("target_name");
+        get => GetRequiredArgument<TerraformValue<string>>("target_name");
         set => SetArgument("target_name", value);
     }
 

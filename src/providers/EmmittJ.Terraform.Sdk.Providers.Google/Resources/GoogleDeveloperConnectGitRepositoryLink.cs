@@ -67,7 +67,7 @@ public partial class GoogleDeveloperConnectGitRepositoryLink(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloneUri is required")]
     public required TerraformValue<string> CloneUri
     {
-        get => GetArgument<TerraformValue<string>>("clone_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("clone_uri");
         set => SetArgument("clone_uri", value);
     }
 
@@ -90,16 +90,16 @@ public partial class GoogleDeveloperConnectGitRepositoryLink(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GitRepositoryLinkId is required")]
     public required TerraformValue<string> GitRepositoryLinkId
     {
-        get => GetArgument<TerraformValue<string>>("git_repository_link_id");
+        get => GetRequiredArgument<TerraformValue<string>>("git_repository_link_id");
         set => SetArgument("git_repository_link_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class GoogleDeveloperConnectGitRepositoryLink(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -131,16 +131,16 @@ public partial class GoogleDeveloperConnectGitRepositoryLink(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentConnection is required")]
     public required TerraformValue<string> ParentConnection
     {
-        get => GetArgument<TerraformValue<string>>("parent_connection");
+        get => GetRequiredArgument<TerraformValue<string>>("parent_connection");
         set => SetArgument("parent_connection", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

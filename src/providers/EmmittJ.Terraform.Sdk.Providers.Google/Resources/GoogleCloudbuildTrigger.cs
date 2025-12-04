@@ -43,7 +43,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BitbucketServerConfigResource is required")]
     public required TerraformValue<string> BitbucketServerConfigResource
     {
-        get => GetArgument<TerraformValue<string>>("bitbucket_server_config_resource");
+        get => GetRequiredArgument<TerraformValue<string>>("bitbucket_server_config_resource");
         set => SetArgument("bitbucket_server_config_resource", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectKey is required")]
     public required TerraformValue<string> ProjectKey
     {
-        get => GetArgument<TerraformValue<string>>("project_key");
+        get => GetRequiredArgument<TerraformValue<string>>("project_key");
         set => SetArgument("project_key", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoSlug is required")]
     public required TerraformValue<string> RepoSlug
     {
-        get => GetArgument<TerraformValue<string>>("repo_slug");
+        get => GetRequiredArgument<TerraformValue<string>>("repo_slug");
         set => SetArgument("repo_slug", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlockPullRequest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     public required TerraformValue<string> Branch
     {
-        get => GetArgument<TerraformValue<string>>("branch");
+        get => GetRequiredArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -587,7 +587,7 @@ public class GoogleCloudbuildTriggerBuildBlockAvailableSecretsBlockSecretManager
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Env is required")]
     public required TerraformValue<string> Env
     {
-        get => GetArgument<TerraformValue<string>>("env");
+        get => GetRequiredArgument<TerraformValue<string>>("env");
         set => SetArgument("env", value);
     }
 
@@ -597,7 +597,7 @@ public class GoogleCloudbuildTriggerBuildBlockAvailableSecretsBlockSecretManager
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionName is required")]
     public required TerraformValue<string> VersionName
     {
-        get => GetArgument<TerraformValue<string>>("version_name");
+        get => GetRequiredArgument<TerraformValue<string>>("version_name");
         set => SetArgument("version_name", value);
     }
 
@@ -795,7 +795,7 @@ public class GoogleCloudbuildTriggerBuildBlockSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -913,7 +913,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockRepoSourceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoName is required")]
     public required TerraformValue<string> RepoName
     {
-        get => GetArgument<TerraformValue<string>>("repo_name");
+        get => GetRequiredArgument<TerraformValue<string>>("repo_name");
         set => SetArgument("repo_name", value);
     }
 
@@ -956,7 +956,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockStorageSourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -977,7 +977,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockStorageSourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1108,7 +1108,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1201,7 +1201,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlockVolumesBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1214,7 +1214,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlockVolumesBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1238,7 +1238,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GitRepositoryLink is required")]
     public required TerraformValue<string> GitRepositoryLink
     {
-        get => GetArgument<TerraformValue<string>>("git_repository_link");
+        get => GetRequiredArgument<TerraformValue<string>>("git_repository_link");
         set => SetArgument("git_repository_link", value);
     }
 
@@ -1388,7 +1388,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1399,7 +1399,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoType is required")]
     public required TerraformValue<string> RepoType
     {
-        get => GetArgument<TerraformValue<string>>("repo_type");
+        get => GetRequiredArgument<TerraformValue<string>>("repo_type");
         set => SetArgument("repo_type", value);
     }
 
@@ -1517,7 +1517,7 @@ public class GoogleCloudbuildTriggerGithubBlockPullRequestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     public required TerraformValue<string> Branch
     {
-        get => GetArgument<TerraformValue<string>>("branch");
+        get => GetRequiredArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -1621,7 +1621,7 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => GetArgument<TerraformValue<string>>("topic");
+        get => GetRequiredArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -1797,7 +1797,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefAttribute is required")]
     public required TerraformValue<string> RefAttribute
     {
-        get => GetArgument<TerraformValue<string>>("ref");
+        get => GetRequiredArgument<TerraformValue<string>>("ref");
         set => SetArgument("ref", value);
     }
 
@@ -1808,7 +1808,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoType is required")]
     public required TerraformValue<string> RepoType
     {
-        get => GetArgument<TerraformValue<string>>("repo_type");
+        get => GetRequiredArgument<TerraformValue<string>>("repo_type");
         set => SetArgument("repo_type", value);
     }
 
@@ -1931,9 +1931,9 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// ID of the project that owns the Cloud Source Repository. If
     /// omitted, the project ID requesting the build is assumed.
     /// </summary>
-    public TerraformValue<string>? ProjectId
+    public TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetArgument<TerraformValue<string>>("project_id") ?? AsReference("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1976,7 +1976,7 @@ public class GoogleCloudbuildTriggerWebhookConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => GetArgument<TerraformValue<string>>("secret");
+        get => GetRequiredArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -2037,9 +2037,9 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2103,18 +2103,18 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// <summary>
     /// Name of the trigger. Must be unique within the project.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

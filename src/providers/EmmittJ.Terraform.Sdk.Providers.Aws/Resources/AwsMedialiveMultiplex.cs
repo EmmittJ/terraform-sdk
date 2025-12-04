@@ -16,9 +16,9 @@ public class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlock
     /// <summary>
     /// The maximum_video_buffer_delay_milliseconds attribute.
     /// </summary>
-    public TerraformValue<double>? MaximumVideoBufferDelayMilliseconds
+    public TerraformValue<double> MaximumVideoBufferDelayMilliseconds
     {
-        get => GetArgument<TerraformValue<double>>("maximum_video_buffer_delay_milliseconds");
+        get => GetArgument<TerraformValue<double>>("maximum_video_buffer_delay_milliseconds") ?? AsReference("maximum_video_buffer_delay_milliseconds");
         set => SetArgument("maximum_video_buffer_delay_milliseconds", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransportStreamBitrate is required")]
     public required TerraformValue<double> TransportStreamBitrate
     {
-        get => GetArgument<TerraformValue<double>>("transport_stream_bitrate");
+        get => GetRequiredArgument<TerraformValue<double>>("transport_stream_bitrate");
         set => SetArgument("transport_stream_bitrate", value);
     }
 
@@ -38,16 +38,16 @@ public class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransportStreamId is required")]
     public required TerraformValue<double> TransportStreamId
     {
-        get => GetArgument<TerraformValue<double>>("transport_stream_id");
+        get => GetRequiredArgument<TerraformValue<double>>("transport_stream_id");
         set => SetArgument("transport_stream_id", value);
     }
 
     /// <summary>
     /// The transport_stream_reserved_bitrate attribute.
     /// </summary>
-    public TerraformValue<double>? TransportStreamReservedBitrate
+    public TerraformValue<double> TransportStreamReservedBitrate
     {
-        get => GetArgument<TerraformValue<double>>("transport_stream_reserved_bitrate");
+        get => GetArgument<TerraformValue<double>>("transport_stream_reserved_bitrate") ?? AsReference("transport_stream_reserved_bitrate");
         set => SetArgument("transport_stream_reserved_bitrate", value);
     }
 
@@ -114,9 +114,9 @@ public partial class AwsMedialiveMultiplex(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -126,16 +126,16 @@ public partial class AwsMedialiveMultiplex(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -160,9 +160,9 @@ public partial class AwsMedialiveMultiplex(string name) : TerraformResource("aws
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

@@ -11,9 +11,9 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     /// <summary>
     /// The anomaly_visibility_time attribute.
     /// </summary>
-    public TerraformValue<double>? AnomalyVisibilityTime
+    public TerraformValue<double> AnomalyVisibilityTime
     {
-        get => GetArgument<TerraformValue<double>>("anomaly_visibility_time");
+        get => GetArgument<TerraformValue<double>>("anomaly_visibility_time") ?? AsReference("anomaly_visibility_time");
         set => SetArgument("anomaly_visibility_time", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -76,9 +76,9 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

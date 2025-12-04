@@ -25,7 +25,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalSizeInGb is required")]
     public required TerraformValue<double> TotalSizeInGb
     {
-        get => GetArgument<TerraformValue<double>>("total_size_in_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("total_size_in_gb");
         set => SetArgument("total_size_in_gb", value);
     }
 
@@ -94,16 +94,16 @@ public partial class AzurermOracleExascaleDatabaseStorageVault(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdditionalFlashCachePercentage is required")]
     public required TerraformValue<double> AdditionalFlashCachePercentage
     {
-        get => GetArgument<TerraformValue<double>>("additional_flash_cache_percentage");
+        get => GetRequiredArgument<TerraformValue<double>>("additional_flash_cache_percentage");
         set => SetArgument("additional_flash_cache_percentage", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string>? Description
+    public TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetArgument<TerraformValue<string>>("description") ?? AsReference("description");
         set => SetArgument("description", value);
     }
 
@@ -113,16 +113,16 @@ public partial class AzurermOracleExascaleDatabaseStorageVault(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVault(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVault(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVault(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVault(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zones is required")]
     public required TerraformSet<string> Zones
     {
-        get => GetArgument<TerraformSet<string>>("zones");
+        get => GetRequiredArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 

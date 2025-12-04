@@ -91,7 +91,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dns is required")]
     public required TerraformValue<string> Dns
     {
-        get => GetArgument<TerraformValue<string>>("dns");
+        get => GetRequiredArgument<TerraformValue<string>>("dns");
         set => SetArgument("dns", value);
     }
 
@@ -101,7 +101,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => GetArgument<TerraformValue<string>>("domain");
+        get => GetRequiredArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -117,9 +117,9 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -169,7 +169,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -179,7 +179,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -191,7 +191,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetBiosPrefix is required")]
     public required TerraformValue<string> NetBiosPrefix
     {
-        get => GetArgument<TerraformValue<string>>("net_bios_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("net_bios_prefix");
         set => SetArgument("net_bios_prefix", value);
     }
 
@@ -209,9 +209,9 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// Name of the Organizational Unit where you intend to create the computer account for NetApp Volumes.
     /// Defaults to &#39;CN=Computers&#39; if left empty.
     /// </summary>
-    public TerraformValue<string>? OrganizationalUnit
+    public TerraformValue<string> OrganizationalUnit
     {
-        get => GetArgument<TerraformValue<string>>("organizational_unit");
+        get => GetArgument<TerraformValue<string>>("organizational_unit") ?? AsReference("organizational_unit");
         set => SetArgument("organizational_unit", value);
     }
 
@@ -221,16 +221,16 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -259,7 +259,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

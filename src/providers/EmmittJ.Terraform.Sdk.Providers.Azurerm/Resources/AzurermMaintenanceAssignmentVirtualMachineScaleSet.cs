@@ -52,9 +52,9 @@ public partial class AzurermMaintenanceAssignmentVirtualMachineScaleSet(string n
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermMaintenanceAssignmentVirtualMachineScaleSet(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermMaintenanceAssignmentVirtualMachineScaleSet(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceConfigurationId is required")]
     public required TerraformValue<string> MaintenanceConfigurationId
     {
-        get => GetArgument<TerraformValue<string>>("maintenance_configuration_id");
+        get => GetRequiredArgument<TerraformValue<string>>("maintenance_configuration_id");
         set => SetArgument("maintenance_configuration_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermMaintenanceAssignmentVirtualMachineScaleSet(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineScaleSetId is required")]
     public required TerraformValue<string> VirtualMachineScaleSetId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_scale_set_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_scale_set_id");
         set => SetArgument("virtual_machine_scale_set_id", value);
     }
 

@@ -19,7 +19,7 @@ public class GoogleNetappBackupVaultBackupRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupMinimumEnforcedRetentionDays is required")]
     public required TerraformValue<double> BackupMinimumEnforcedRetentionDays
     {
-        get => GetArgument<TerraformValue<double>>("backup_minimum_enforced_retention_days");
+        get => GetRequiredArgument<TerraformValue<double>>("backup_minimum_enforced_retention_days");
         set => SetArgument("backup_minimum_enforced_retention_days", value);
     }
 
@@ -121,9 +121,9 @@ public partial class GoogleNetappBackupVault(string name) : TerraformResource("g
     /// <summary>
     /// Type of the backup vault to be created. Default is IN_REGION. Possible values: [&amp;quot;BACKUP_VAULT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;IN_REGION&amp;quot;, &amp;quot;CROSS_REGION&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? BackupVaultType
+    public TerraformValue<string> BackupVaultType
     {
-        get => GetArgument<TerraformValue<string>>("backup_vault_type");
+        get => GetArgument<TerraformValue<string>>("backup_vault_type") ?? AsReference("backup_vault_type");
         set => SetArgument("backup_vault_type", value);
     }
 
@@ -139,9 +139,9 @@ public partial class GoogleNetappBackupVault(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleNetappBackupVault(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -174,16 +174,16 @@ public partial class GoogleNetappBackupVault(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

@@ -16,9 +16,9 @@ public class AzurermPimActiveRoleAssignmentScheduleBlock : TerraformBlock
     /// <summary>
     /// The start date/time of the role assignment
     /// </summary>
-    public TerraformValue<string>? StartDateTime
+    public TerraformValue<string> StartDateTime
     {
-        get => GetArgument<TerraformValue<string>>("start_date_time");
+        get => GetArgument<TerraformValue<string>>("start_date_time") ?? AsReference("start_date_time");
         set => SetArgument("start_date_time", value);
     }
 
@@ -48,27 +48,27 @@ public class AzurermPimActiveRoleAssignmentScheduleBlockExpirationBlock : Terraf
     /// <summary>
     /// The duration of the role assignment in days
     /// </summary>
-    public TerraformValue<double>? DurationDays
+    public TerraformValue<double> DurationDays
     {
-        get => GetArgument<TerraformValue<double>>("duration_days");
+        get => GetArgument<TerraformValue<double>>("duration_days") ?? AsReference("duration_days");
         set => SetArgument("duration_days", value);
     }
 
     /// <summary>
     /// The duration of the role assignment in hours
     /// </summary>
-    public TerraformValue<double>? DurationHours
+    public TerraformValue<double> DurationHours
     {
-        get => GetArgument<TerraformValue<double>>("duration_hours");
+        get => GetArgument<TerraformValue<double>>("duration_hours") ?? AsReference("duration_hours");
         set => SetArgument("duration_hours", value);
     }
 
     /// <summary>
     /// The end date/time of the role assignment
     /// </summary>
-    public TerraformValue<string>? EndDateTime
+    public TerraformValue<string> EndDateTime
     {
-        get => GetArgument<TerraformValue<string>>("end_date_time");
+        get => GetArgument<TerraformValue<string>>("end_date_time") ?? AsReference("end_date_time");
         set => SetArgument("end_date_time", value);
     }
 
@@ -157,18 +157,18 @@ public partial class AzurermPimActiveRoleAssignment(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The justification for this role assignment
     /// </summary>
-    public TerraformValue<string>? Justification
+    public TerraformValue<string> Justification
     {
-        get => GetArgument<TerraformValue<string>>("justification");
+        get => GetArgument<TerraformValue<string>>("justification") ?? AsReference("justification");
         set => SetArgument("justification", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AzurermPimActiveRoleAssignment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -188,7 +188,7 @@ public partial class AzurermPimActiveRoleAssignment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformValue<string> RoleDefinitionId
     {
-        get => GetArgument<TerraformValue<string>>("role_definition_id");
+        get => GetRequiredArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AzurermPimActiveRoleAssignment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 

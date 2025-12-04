@@ -19,7 +19,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public required TerraformSet<string> IdentityIds
     {
-        get => GetArgument<TerraformSet<string>>("identity_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppResourceGroupName is required")]
     public required TerraformValue<string> AppResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("app_resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("app_resource_group_name");
         set => SetArgument("app_resource_group_name", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -136,7 +136,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfDisks is required")]
     public required TerraformValue<double> NumberOfDisks
     {
-        get => GetArgument<TerraformValue<double>>("number_of_disks");
+        get => GetRequiredArgument<TerraformValue<double>>("number_of_disks");
         set => SetArgument("number_of_disks", value);
     }
 
@@ -146,7 +146,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGb is required")]
     public required TerraformValue<double> SizeInGb
     {
-        get => GetArgument<TerraformValue<double>>("size_in_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("size_in_gb");
         set => SetArgument("size_in_gb", value);
     }
 
@@ -156,7 +156,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformValue<string> VolumeName
     {
-        get => GetArgument<TerraformValue<string>>("volume_name");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_name");
         set => SetArgument("volume_name", value);
     }
 
@@ -189,7 +189,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineSize is required")]
     public required TerraformValue<string> VirtualMachineSize
     {
-        get => GetArgument<TerraformValue<string>>("virtual_machine_size");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_machine_size");
         set => SetArgument("virtual_machine_size", value);
     }
 
@@ -238,7 +238,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformValue<string> Offer
     {
-        get => GetArgument<TerraformValue<string>>("offer");
+        get => GetRequiredArgument<TerraformValue<string>>("offer");
         set => SetArgument("offer", value);
     }
 
@@ -248,7 +248,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => GetArgument<TerraformValue<string>>("publisher");
+        get => GetRequiredArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => GetArgument<TerraformValue<string>>("sku");
+        get => GetRequiredArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -291,7 +291,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformValue<string> AdminUsername
     {
-        get => GetArgument<TerraformValue<string>>("admin_username");
+        get => GetRequiredArgument<TerraformValue<string>>("admin_username");
         set => SetArgument("admin_username", value);
     }
 
@@ -301,7 +301,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPrivateKey is required")]
     public required TerraformValue<string> SshPrivateKey
     {
-        get => GetArgument<TerraformValue<string>>("ssh_private_key");
+        get => GetRequiredArgument<TerraformValue<string>>("ssh_private_key");
         set => SetArgument("ssh_private_key", value);
     }
 
@@ -311,7 +311,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKey is required")]
     public required TerraformValue<string> SshPublicKey
     {
-        get => GetArgument<TerraformValue<string>>("ssh_public_key");
+        get => GetRequiredArgument<TerraformValue<string>>("ssh_public_key");
         set => SetArgument("ssh_public_key", value);
     }
 
@@ -402,7 +402,7 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformValue<string> VolumeName
     {
-        get => GetArgument<TerraformValue<string>>("volume_name");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_name");
         set => SetArgument("volume_name", value);
     }
 
@@ -471,7 +471,7 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstance(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppLocation is required")]
     public required TerraformValue<string> AppLocation
     {
-        get => GetArgument<TerraformValue<string>>("app_location");
+        get => GetRequiredArgument<TerraformValue<string>>("app_location");
         set => SetArgument("app_location", value);
     }
 
@@ -481,16 +481,16 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstance(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => GetArgument<TerraformValue<string>>("environment");
+        get => GetRequiredArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -500,7 +500,7 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstance(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -528,7 +528,7 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstance(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -538,7 +538,7 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstance(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -548,7 +548,7 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstance(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapFqdn is required")]
     public required TerraformValue<string> SapFqdn
     {
-        get => GetArgument<TerraformValue<string>>("sap_fqdn");
+        get => GetRequiredArgument<TerraformValue<string>>("sap_fqdn");
         set => SetArgument("sap_fqdn", value);
     }
 
@@ -558,7 +558,7 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstance(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapProduct is required")]
     public required TerraformValue<string> SapProduct
     {
-        get => GetArgument<TerraformValue<string>>("sap_product");
+        get => GetRequiredArgument<TerraformValue<string>>("sap_product");
         set => SetArgument("sap_product", value);
     }
 

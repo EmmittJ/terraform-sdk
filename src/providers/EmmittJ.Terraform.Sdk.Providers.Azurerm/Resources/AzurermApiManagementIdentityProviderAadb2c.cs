@@ -64,7 +64,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedTenant is required")]
     public required TerraformValue<string> AllowedTenant
     {
-        get => GetArgument<TerraformValue<string>>("allowed_tenant");
+        get => GetRequiredArgument<TerraformValue<string>>("allowed_tenant");
         set => SetArgument("allowed_tenant", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => GetArgument<TerraformValue<string>>("api_management_name");
+        get => GetRequiredArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
     public required TerraformValue<string> Authority
     {
-        get => GetArgument<TerraformValue<string>>("authority");
+        get => GetRequiredArgument<TerraformValue<string>>("authority");
         set => SetArgument("authority", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -113,16 +113,16 @@ public partial class AzurermApiManagementIdentityProviderAadb2c(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => GetArgument<TerraformValue<string>>("client_secret");
+        get => GetRequiredArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninPolicy is required")]
     public required TerraformValue<string> SigninPolicy
     {
-        get => GetArgument<TerraformValue<string>>("signin_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("signin_policy");
         set => SetArgument("signin_policy", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninTenant is required")]
     public required TerraformValue<string> SigninTenant
     {
-        get => GetArgument<TerraformValue<string>>("signin_tenant");
+        get => GetRequiredArgument<TerraformValue<string>>("signin_tenant");
         set => SetArgument("signin_tenant", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignupPolicy is required")]
     public required TerraformValue<string> SignupPolicy
     {
-        get => GetArgument<TerraformValue<string>>("signup_policy");
+        get => GetRequiredArgument<TerraformValue<string>>("signup_policy");
         set => SetArgument("signup_policy", value);
     }
 

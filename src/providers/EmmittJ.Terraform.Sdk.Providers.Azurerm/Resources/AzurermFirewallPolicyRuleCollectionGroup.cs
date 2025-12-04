@@ -19,7 +19,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -196,7 +196,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -229,7 +229,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -263,7 +263,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -273,7 +273,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -283,7 +283,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -345,7 +345,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlockRuleB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -401,7 +401,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlockRuleB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TranslatedPort is required")]
     public required TerraformValue<double> TranslatedPort
     {
-        get => GetArgument<TerraformValue<double>>("translated_port");
+        get => GetRequiredArgument<TerraformValue<double>>("translated_port");
         set => SetArgument("translated_port", value);
     }
 
@@ -425,7 +425,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -435,7 +435,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -445,7 +445,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -526,7 +526,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -623,16 +623,16 @@ public partial class AzurermFirewallPolicyRuleCollectionGroup(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicyId is required")]
     public required TerraformValue<string> FirewallPolicyId
     {
-        get => GetArgument<TerraformValue<string>>("firewall_policy_id");
+        get => GetRequiredArgument<TerraformValue<string>>("firewall_policy_id");
         set => SetArgument("firewall_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -642,7 +642,7 @@ public partial class AzurermFirewallPolicyRuleCollectionGroup(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -652,7 +652,7 @@ public partial class AzurermFirewallPolicyRuleCollectionGroup(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => GetArgument<TerraformValue<double>>("priority");
+        get => GetRequiredArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 

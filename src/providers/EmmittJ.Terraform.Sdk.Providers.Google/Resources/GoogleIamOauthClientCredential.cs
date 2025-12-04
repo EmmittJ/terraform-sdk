@@ -73,9 +73,9 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -98,7 +98,7 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientCredentialId is required")]
     public required TerraformValue<string> OauthClientCredentialId
     {
-        get => GetArgument<TerraformValue<string>>("oauth_client_credential_id");
+        get => GetRequiredArgument<TerraformValue<string>>("oauth_client_credential_id");
         set => SetArgument("oauth_client_credential_id", value);
     }
 
@@ -108,16 +108,16 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauthclient is required")]
     public required TerraformValue<string> Oauthclient
     {
-        get => GetArgument<TerraformValue<string>>("oauthclient");
+        get => GetRequiredArgument<TerraformValue<string>>("oauthclient");
         set => SetArgument("oauthclient", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

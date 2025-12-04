@@ -19,7 +19,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => GetArgument<TerraformValue<string>>("cluster_id");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcNetwork is required")]
     public required TerraformValue<string> VpcNetwork
     {
-        get => GetArgument<TerraformValue<string>>("vpc_network");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_network");
         set => SetArgument("vpc_network", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => GetArgument<TerraformValue<string>>("user");
+        get => GetRequiredArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCount is required")]
     public required TerraformValue<double> CpuCount
     {
-        get => GetArgument<TerraformValue<double>>("cpu_count");
+        get => GetRequiredArgument<TerraformValue<double>>("cpu_count");
         set => SetArgument("cpu_count", value);
     }
 
@@ -370,7 +370,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceId is required")]
     public required TerraformValue<string> SourceId
     {
-        get => GetArgument<TerraformValue<string>>("source_id");
+        get => GetRequiredArgument<TerraformValue<string>>("source_id");
         set => SetArgument("source_id", value);
     }
 
@@ -517,7 +517,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -669,7 +669,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseService is required")]
     public required TerraformValue<string> DatabaseService
     {
-        get => GetArgument<TerraformValue<string>>("database_service");
+        get => GetRequiredArgument<TerraformValue<string>>("database_service");
         set => SetArgument("database_service", value);
     }
 
@@ -679,7 +679,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => GetArgument<TerraformValue<string>>("host");
+        get => GetRequiredArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -690,7 +690,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -706,7 +706,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -716,7 +716,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -779,7 +779,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockForwardSs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => GetArgument<TerraformValue<string>>("hostname");
+        get => GetRequiredArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -798,7 +798,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockForwardSs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => GetArgument<TerraformValue<double>>("port");
+        get => GetRequiredArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -817,7 +817,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockForwardSs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -840,7 +840,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockPrivateCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnection is required")]
     public required TerraformValue<string> PrivateConnection
     {
-        get => GetArgument<TerraformValue<string>>("private_connection");
+        get => GetRequiredArgument<TerraformValue<string>>("private_connection");
         set => SetArgument("private_connection", value);
     }
 
@@ -1105,7 +1105,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionProfileId is required")]
     public required TerraformValue<string> ConnectionProfileId
     {
-        get => GetArgument<TerraformValue<string>>("connection_profile_id");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_profile_id");
         set => SetArgument("connection_profile_id", value);
     }
 
@@ -1121,9 +1121,9 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile(string name
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1152,9 +1152,9 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile(string name
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

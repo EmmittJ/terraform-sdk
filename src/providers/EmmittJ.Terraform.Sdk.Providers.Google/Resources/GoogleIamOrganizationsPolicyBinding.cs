@@ -152,9 +152,9 @@ public partial class GoogleIamOrganizationsPolicyBinding(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleIamOrganizationsPolicyBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -174,7 +174,7 @@ public partial class GoogleIamOrganizationsPolicyBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => GetArgument<TerraformValue<string>>("organization");
+        get => GetRequiredArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -184,7 +184,7 @@ public partial class GoogleIamOrganizationsPolicyBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformValue<string> Policy
     {
-        get => GetArgument<TerraformValue<string>>("policy");
+        get => GetRequiredArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -194,7 +194,7 @@ public partial class GoogleIamOrganizationsPolicyBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyBindingId is required")]
     public required TerraformValue<string> PolicyBindingId
     {
-        get => GetArgument<TerraformValue<string>>("policy_binding_id");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_binding_id");
         set => SetArgument("policy_binding_id", value);
     }
 

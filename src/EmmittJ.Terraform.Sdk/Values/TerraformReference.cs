@@ -20,7 +20,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/expressions/references"/></para>
 /// </remarks>
-public class TerraformReference<T> : TerraformValue<T>, ITerraformHasParent
+public class TerraformReference<T> : TerraformValue<T>, ITerraformReferenceable, ITerraformHasParent
 {
     private readonly ITerraformReferenceable _block;
     private readonly string _attributeName;
@@ -50,18 +50,24 @@ public class TerraformReference<T> : TerraformValue<T>, ITerraformHasParent
         set => throw new NotSupportedException("TerraformReference parent attribute name is immutable.");
     }
 
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    /// <summary>
+    /// Returns the expression this reference represents.
+    /// </summary>
+    /// <returns>The reference expression.</returns>
+    public TerraformExpression AsReference()
     {
         // Handle ITerraformNamedReferenceable (like locals) which provide their own AsReference(name) method
         if (_block is ITerraformNamedReferenceable namedBlock)
         {
-            yield return namedBlock.AsReference(_attributeName);
+            return namedBlock.AsReference(_attributeName);
         }
-        else
-        {
-            // For regular blocks, get block reference and append attribute as member
-            var expr = _block.AsReference().Member(_attributeName);
-            yield return expr;
-        }
+
+        // For regular blocks, get block reference and append attribute as member
+        return _block.AsReference().Member(_attributeName);
+    }
+
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        yield return AsReference();
     }
 }

@@ -19,7 +19,7 @@ public class AzurermMobileNetworkServicePccRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMobileNetworkServicePccRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Precedence is required")]
     public required TerraformValue<double> Precedence
     {
-        get => GetArgument<TerraformValue<double>>("precedence");
+        get => GetRequiredArgument<TerraformValue<double>>("precedence");
         set => SetArgument("precedence", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermMobileNetworkServicePccRuleBlockQosPolicyBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QosIndicator is required")]
     public required TerraformValue<double> QosIndicator
     {
-        get => GetArgument<TerraformValue<double>>("qos_indicator");
+        get => GetRequiredArgument<TerraformValue<double>>("qos_indicator");
         set => SetArgument("qos_indicator", value);
     }
 
@@ -156,7 +156,7 @@ public class AzurermMobileNetworkServicePccRuleBlockQosPolicyBlockGuaranteedBitR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Downlink is required")]
     public required TerraformValue<string> Downlink
     {
-        get => GetArgument<TerraformValue<string>>("downlink");
+        get => GetRequiredArgument<TerraformValue<string>>("downlink");
         set => SetArgument("downlink", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermMobileNetworkServicePccRuleBlockQosPolicyBlockGuaranteedBitR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uplink is required")]
     public required TerraformValue<string> Uplink
     {
-        get => GetArgument<TerraformValue<string>>("uplink");
+        get => GetRequiredArgument<TerraformValue<string>>("uplink");
         set => SetArgument("uplink", value);
     }
 
@@ -189,7 +189,7 @@ public class AzurermMobileNetworkServicePccRuleBlockQosPolicyBlockMaximumBitRate
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Downlink is required")]
     public required TerraformValue<string> Downlink
     {
-        get => GetArgument<TerraformValue<string>>("downlink");
+        get => GetRequiredArgument<TerraformValue<string>>("downlink");
         set => SetArgument("downlink", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermMobileNetworkServicePccRuleBlockQosPolicyBlockMaximumBitRate
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uplink is required")]
     public required TerraformValue<string> Uplink
     {
-        get => GetArgument<TerraformValue<string>>("uplink");
+        get => GetRequiredArgument<TerraformValue<string>>("uplink");
         set => SetArgument("uplink", value);
     }
 
@@ -222,7 +222,7 @@ public class AzurermMobileNetworkServicePccRuleBlockServiceDataFlowTemplateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => GetArgument<TerraformValue<string>>("direction");
+        get => GetRequiredArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
@@ -232,7 +232,7 @@ public class AzurermMobileNetworkServicePccRuleBlockServiceDataFlowTemplateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -347,7 +347,7 @@ public class AzurermMobileNetworkServiceServiceQosPolicyBlockMaximumBitRateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Downlink is required")]
     public required TerraformValue<string> Downlink
     {
-        get => GetArgument<TerraformValue<string>>("downlink");
+        get => GetRequiredArgument<TerraformValue<string>>("downlink");
         set => SetArgument("downlink", value);
     }
 
@@ -357,7 +357,7 @@ public class AzurermMobileNetworkServiceServiceQosPolicyBlockMaximumBitRateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uplink is required")]
     public required TerraformValue<string> Uplink
     {
-        get => GetArgument<TerraformValue<string>>("uplink");
+        get => GetRequiredArgument<TerraformValue<string>>("uplink");
         set => SetArgument("uplink", value);
     }
 
@@ -423,9 +423,9 @@ public partial class AzurermMobileNetworkService(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -435,7 +435,7 @@ public partial class AzurermMobileNetworkService(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -445,7 +445,7 @@ public partial class AzurermMobileNetworkService(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     public required TerraformValue<string> MobileNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("mobile_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("mobile_network_id");
         set => SetArgument("mobile_network_id", value);
     }
 
@@ -455,7 +455,7 @@ public partial class AzurermMobileNetworkService(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -465,7 +465,7 @@ public partial class AzurermMobileNetworkService(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrecedence is required")]
     public required TerraformValue<double> ServicePrecedence
     {
-        get => GetArgument<TerraformValue<double>>("service_precedence");
+        get => GetRequiredArgument<TerraformValue<double>>("service_precedence");
         set => SetArgument("service_precedence", value);
     }
 

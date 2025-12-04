@@ -75,7 +75,7 @@ public class GoogleNetworkSecurityAuthzPolicyCustomProviderBlockCloudIapBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => GetArgument<TerraformValue<bool>>("enabled");
+        get => GetRequiredArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Length is required")]
     public required TerraformValue<double> Length
     {
-        get => GetArgument<TerraformValue<double>>("length");
+        get => GetRequiredArgument<TerraformValue<double>>("length");
         set => SetArgument("length", value);
     }
 
@@ -222,7 +222,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -563,7 +563,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Length is required")]
     public required TerraformValue<double> Length
     {
-        get => GetArgument<TerraformValue<double>>("length");
+        get => GetRequiredArgument<TerraformValue<double>>("length");
         set => SetArgument("length", value);
     }
 
@@ -573,7 +573,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => GetArgument<TerraformValue<string>>("prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -1511,7 +1511,7 @@ public class GoogleNetworkSecurityAuthzPolicyTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
     public required TerraformValue<string> LoadBalancingScheme
     {
-        get => GetArgument<TerraformValue<string>>("load_balancing_scheme");
+        get => GetRequiredArgument<TerraformValue<string>>("load_balancing_scheme");
         set => SetArgument("load_balancing_scheme", value);
     }
 
@@ -1588,7 +1588,7 @@ public partial class GoogleNetworkSecurityAuthzPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -1604,9 +1604,9 @@ public partial class GoogleNetworkSecurityAuthzPolicy(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1629,7 +1629,7 @@ public partial class GoogleNetworkSecurityAuthzPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1639,16 +1639,16 @@ public partial class GoogleNetworkSecurityAuthzPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

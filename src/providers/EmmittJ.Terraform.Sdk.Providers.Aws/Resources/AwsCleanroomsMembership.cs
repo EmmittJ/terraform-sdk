@@ -72,7 +72,7 @@ public class AwsCleanroomsMembershipDefaultResultConfigurationBlockOutputConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => GetArgument<TerraformValue<string>>("bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsCleanroomsMembershipDefaultResultConfigurationBlockOutputConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResultFormat is required")]
     public required TerraformValue<string> ResultFormat
     {
-        get => GetArgument<TerraformValue<string>>("result_format");
+        get => GetRequiredArgument<TerraformValue<string>>("result_format");
         set => SetArgument("result_format", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsCleanroomsMembershipPaymentConfigurationBlockQueryComputeBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsResponsible is required")]
     public required TerraformValue<bool> IsResponsible
     {
-        get => GetArgument<TerraformValue<bool>>("is_responsible");
+        get => GetRequiredArgument<TerraformValue<bool>>("is_responsible");
         set => SetArgument("is_responsible", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsCleanroomsMembership(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationId is required")]
     public required TerraformValue<string> CollaborationId
     {
-        get => GetArgument<TerraformValue<string>>("collaboration_id");
+        get => GetRequiredArgument<TerraformValue<string>>("collaboration_id");
         set => SetArgument("collaboration_id", value);
     }
 
@@ -166,16 +166,16 @@ public partial class AwsCleanroomsMembership(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
     public required TerraformValue<string> QueryLogStatus
     {
-        get => GetArgument<TerraformValue<string>>("query_log_status");
+        get => GetRequiredArgument<TerraformValue<string>>("query_log_status");
         set => SetArgument("query_log_status", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

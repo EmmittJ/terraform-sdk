@@ -37,7 +37,7 @@ public class GoogleAppEngineFlexibleAppVersionApiConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Script is required")]
     public required TerraformValue<string> Script
     {
-        get => GetArgument<TerraformValue<string>>("script");
+        get => GetRequiredArgument<TerraformValue<string>>("script");
         set => SetArgument("script", value);
     }
 
@@ -89,9 +89,9 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : TerraformB
     /// 
     /// Defaults to a runtime-specific value.
     /// </summary>
-    public TerraformValue<double>? MaxConcurrentRequests
+    public TerraformValue<double> MaxConcurrentRequests
     {
-        get => GetArgument<TerraformValue<double>>("max_concurrent_requests");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_requests") ?? AsReference("max_concurrent_requests");
         set => SetArgument("max_concurrent_requests", value);
     }
 
@@ -220,7 +220,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockCpuUtilizatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetUtilization is required")]
     public required TerraformValue<double> TargetUtilization
     {
-        get => GetArgument<TerraformValue<double>>("target_utilization");
+        get => GetRequiredArgument<TerraformValue<double>>("target_utilization");
         set => SetArgument("target_utilization", value);
     }
 
@@ -425,7 +425,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockCloudBuildOptionsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppYamlPath is required")]
     public required TerraformValue<string> AppYamlPath
     {
-        get => GetArgument<TerraformValue<string>>("app_yaml_path");
+        get => GetRequiredArgument<TerraformValue<string>>("app_yaml_path");
         set => SetArgument("app_yaml_path", value);
     }
 
@@ -460,7 +460,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockContainerBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => GetArgument<TerraformValue<string>>("image");
+        get => GetRequiredArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -483,7 +483,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockFilesBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -502,7 +502,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockFilesBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUrl is required")]
     public required TerraformValue<string> SourceUrl
     {
-        get => GetArgument<TerraformValue<string>>("source_url");
+        get => GetRequiredArgument<TerraformValue<string>>("source_url");
         set => SetArgument("source_url", value);
     }
 
@@ -534,7 +534,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockZipBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUrl is required")]
     public required TerraformValue<string> SourceUrl
     {
-        get => GetArgument<TerraformValue<string>>("source_url");
+        get => GetRequiredArgument<TerraformValue<string>>("source_url");
         set => SetArgument("source_url", value);
     }
 
@@ -584,7 +584,7 @@ public class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -617,7 +617,7 @@ public class GoogleAppEngineFlexibleAppVersionEntrypointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shell is required")]
     public required TerraformValue<string> Shell
     {
-        get => GetArgument<TerraformValue<string>>("shell");
+        get => GetRequiredArgument<TerraformValue<string>>("shell");
         set => SetArgument("shell", value);
     }
 
@@ -752,7 +752,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlockScriptBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptPath is required")]
     public required TerraformValue<string> ScriptPath
     {
-        get => GetArgument<TerraformValue<string>>("script_path");
+        get => GetRequiredArgument<TerraformValue<string>>("script_path");
         set => SetArgument("script_path", value);
     }
 
@@ -895,7 +895,7 @@ public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -940,7 +940,7 @@ public class GoogleAppEngineFlexibleAppVersionManualScalingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instances is required")]
     public required TerraformValue<double> Instances
     {
-        get => GetArgument<TerraformValue<double>>("instances");
+        get => GetRequiredArgument<TerraformValue<double>>("instances");
         set => SetArgument("instances", value);
     }
 
@@ -982,7 +982,7 @@ public class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1066,7 +1066,7 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1157,7 +1157,7 @@ public class GoogleAppEngineFlexibleAppVersionResourcesBlockVolumesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1167,7 +1167,7 @@ public class GoogleAppEngineFlexibleAppVersionResourcesBlockVolumesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeGb is required")]
     public required TerraformValue<double> SizeGb
     {
-        get => GetArgument<TerraformValue<double>>("size_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("size_gb");
         set => SetArgument("size_gb", value);
     }
 
@@ -1177,7 +1177,7 @@ public class GoogleAppEngineFlexibleAppVersionResourcesBlockVolumesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeType is required")]
     public required TerraformValue<string> VolumeType
     {
-        get => GetArgument<TerraformValue<string>>("volume_type");
+        get => GetRequiredArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -1242,7 +1242,7 @@ public class GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1295,9 +1295,9 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1343,9 +1343,9 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -1355,7 +1355,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformValue<string> Runtime
     {
-        get => GetArgument<TerraformValue<string>>("runtime");
+        get => GetRequiredArgument<TerraformValue<string>>("runtime");
         set => SetArgument("runtime", value);
     }
 
@@ -1364,9 +1364,9 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// Please see the app.yaml reference for valid values at &#39;https://cloud.google.com/appengine/docs/standard/&amp;lt;language&amp;gt;/config/appref&#39;\
     /// Substitute &#39;&amp;lt;language&amp;gt;&#39; with &#39;python&#39;, &#39;java&#39;, &#39;php&#39;, &#39;ruby&#39;, &#39;go&#39; or &#39;nodejs&#39;.
     /// </summary>
-    public TerraformValue<string>? RuntimeApiVersion
+    public TerraformValue<string> RuntimeApiVersion
     {
-        get => GetArgument<TerraformValue<string>>("runtime_api_version");
+        get => GetArgument<TerraformValue<string>>("runtime_api_version") ?? AsReference("runtime_api_version");
         set => SetArgument("runtime_api_version", value);
     }
 
@@ -1394,7 +1394,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => GetArgument<TerraformValue<string>>("service");
+        get => GetRequiredArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -1402,9 +1402,9 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as
     /// default if this field is neither provided in app.yaml file nor through CLI flag.
     /// </summary>
-    public TerraformValue<string>? ServiceAccount
+    public TerraformValue<string> ServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("service_account");
+        get => GetArgument<TerraformValue<string>>("service_account") ?? AsReference("service_account");
         set => SetArgument("service_account", value);
     }
 

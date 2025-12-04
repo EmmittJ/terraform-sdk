@@ -95,7 +95,7 @@ public class GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlockClientValidation
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PluginInstance is required")]
     public required TerraformValue<string> PluginInstance
     {
-        get => GetArgument<TerraformValue<string>>("plugin_instance");
+        get => GetRequiredArgument<TerraformValue<string>>("plugin_instance");
         set => SetArgument("plugin_instance", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlockClientValidation
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetUri is required")]
     public required TerraformValue<string> TargetUri
     {
-        get => GetArgument<TerraformValue<string>>("target_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("target_uri");
         set => SetArgument("target_uri", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleNetworkSecurityServerTlsPolicyServerCertificateBlockCertifica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PluginInstance is required")]
     public required TerraformValue<string> PluginInstance
     {
-        get => GetArgument<TerraformValue<string>>("plugin_instance");
+        get => GetRequiredArgument<TerraformValue<string>>("plugin_instance");
         set => SetArgument("plugin_instance", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleNetworkSecurityServerTlsPolicyServerCertificateBlockGrpcEndpo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetUri is required")]
     public required TerraformValue<string> TargetUri
     {
-        get => GetArgument<TerraformValue<string>>("target_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("target_uri");
         set => SetArgument("target_uri", value);
     }
 
@@ -275,9 +275,9 @@ public partial class GoogleNetworkSecurityServerTlsPolicy(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -309,16 +309,16 @@ public partial class GoogleNetworkSecurityServerTlsPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

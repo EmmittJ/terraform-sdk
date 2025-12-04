@@ -55,7 +55,7 @@ public partial class AwsServerlessapplicationrepositoryCloudformationStack(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AwsServerlessapplicationrepositoryCloudformationStack(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capabilities is required")]
     public required TerraformSet<string> Capabilities
     {
-        get => GetArgument<TerraformSet<string>>("capabilities");
+        get => GetRequiredArgument<TerraformSet<string>>("capabilities");
         set => SetArgument("capabilities", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -84,34 +84,34 @@ public partial class AwsServerlessapplicationrepositoryCloudformationStack(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMap<string>? Parameters
+    public TerraformMap<string> Parameters
     {
-        get => GetArgument<TerraformMap<string>>("parameters");
+        get => GetArgument<TerraformMap<string>>("parameters") ?? AsReference("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The semantic_version attribute.
     /// </summary>
-    public TerraformValue<string>? SemanticVersion
+    public TerraformValue<string> SemanticVersion
     {
-        get => GetArgument<TerraformValue<string>>("semantic_version");
+        get => GetArgument<TerraformValue<string>>("semantic_version") ?? AsReference("semantic_version");
         set => SetArgument("semantic_version", value);
     }
 
@@ -127,9 +127,9 @@ public partial class AwsServerlessapplicationrepositoryCloudformationStack(strin
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

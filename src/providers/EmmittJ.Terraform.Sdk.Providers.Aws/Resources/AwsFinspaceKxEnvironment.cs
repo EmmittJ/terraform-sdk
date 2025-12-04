@@ -19,7 +19,7 @@ public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDnsServerIp is required")]
     public required TerraformValue<string> CustomDnsServerIp
     {
-        get => GetArgument<TerraformValue<string>>("custom_dns_server_ip");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_dns_server_ip");
         set => SetArgument("custom_dns_server_ip", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDnsServerName is required")]
     public required TerraformValue<string> CustomDnsServerName
     {
-        get => GetArgument<TerraformValue<string>>("custom_dns_server_name");
+        get => GetRequiredArgument<TerraformValue<string>>("custom_dns_server_name");
         set => SetArgument("custom_dns_server_name", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutableCidrSpace is required")]
     public required TerraformValue<string> RoutableCidrSpace
     {
-        get => GetArgument<TerraformValue<string>>("routable_cidr_space");
+        get => GetRequiredArgument<TerraformValue<string>>("routable_cidr_space");
         set => SetArgument("routable_cidr_space", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformValue<string> TransitGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("transit_gateway_id");
+        get => GetRequiredArgument<TerraformValue<string>>("transit_gateway_id");
         set => SetArgument("transit_gateway_id", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlock is required")]
     public required TerraformValue<string> CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cidr_block");
+        get => GetRequiredArgument<TerraformValue<string>>("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleAction is required")]
     public required TerraformValue<string> RuleAction
     {
-        get => GetArgument<TerraformValue<string>>("rule_action");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_action");
         set => SetArgument("rule_action", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformValue<double> RuleNumber
     {
-        get => GetArgument<TerraformValue<double>>("rule_number");
+        get => GetRequiredArgument<TerraformValue<double>>("rule_number");
         set => SetArgument("rule_number", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformValue<double> Code
     {
-        get => GetArgument<TerraformValue<double>>("code");
+        get => GetRequiredArgument<TerraformValue<double>>("code");
         set => SetArgument("code", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<double> Type
     {
-        get => GetArgument<TerraformValue<double>>("type");
+        get => GetRequiredArgument<TerraformValue<double>>("type");
         set => SetArgument("type", value);
     }
 
@@ -243,7 +243,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "From is required")]
     public required TerraformValue<double> From
     {
-        get => GetArgument<TerraformValue<double>>("from");
+        get => GetRequiredArgument<TerraformValue<double>>("from");
         set => SetArgument("from", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "To is required")]
     public required TerraformValue<double> To
     {
-        get => GetArgument<TerraformValue<double>>("to");
+        get => GetRequiredArgument<TerraformValue<double>>("to");
         set => SetArgument("to", value);
     }
 
@@ -281,7 +281,7 @@ public partial class AwsFinspaceKxEnvironment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformValue<string> KmsKeyId
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -291,16 +291,16 @@ public partial class AwsFinspaceKxEnvironment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -316,9 +316,9 @@ public partial class AwsFinspaceKxEnvironment(string name) : TerraformResource("
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

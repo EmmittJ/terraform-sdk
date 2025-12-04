@@ -29,9 +29,9 @@ public partial class GoogleServiceAccountJwtDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleServiceAccountJwtDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     public required TerraformValue<string> Payload
     {
-        get => GetArgument<TerraformValue<string>>("payload");
+        get => GetRequiredArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleServiceAccountJwtDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     public required TerraformValue<string> TargetServiceAccount
     {
-        get => GetArgument<TerraformValue<string>>("target_service_account");
+        get => GetRequiredArgument<TerraformValue<string>>("target_service_account");
         set => SetArgument("target_service_account", value);
     }
 

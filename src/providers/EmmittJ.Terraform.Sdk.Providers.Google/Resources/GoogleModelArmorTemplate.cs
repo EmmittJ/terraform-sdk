@@ -176,7 +176,7 @@ public class GoogleModelArmorTemplateFilterConfigBlockRaiSettingsBlockRaiFilters
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformValue<string> FilterType
     {
-        get => GetArgument<TerraformValue<string>>("filter_type");
+        get => GetRequiredArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -404,7 +404,7 @@ public class GoogleModelArmorTemplateTemplateMetadataBlockMultiLanguageDetection
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableMultiLanguageDetection is required")]
     public required TerraformValue<bool> EnableMultiLanguageDetection
     {
-        get => GetArgument<TerraformValue<bool>>("enable_multi_language_detection");
+        get => GetRequiredArgument<TerraformValue<bool>>("enable_multi_language_detection");
         set => SetArgument("enable_multi_language_detection", value);
     }
 
@@ -461,9 +461,9 @@ public partial class GoogleModelArmorTemplate(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -485,16 +485,16 @@ public partial class GoogleModelArmorTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -506,7 +506,7 @@ public partial class GoogleModelArmorTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
     public required TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id");
+        get => GetRequiredArgument<TerraformValue<string>>("template_id");
         set => SetArgument("template_id", value);
     }
 

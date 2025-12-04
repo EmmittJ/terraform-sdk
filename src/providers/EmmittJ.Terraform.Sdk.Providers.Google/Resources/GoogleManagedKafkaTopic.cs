@@ -55,7 +55,7 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => GetArgument<TerraformValue<string>>("cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -71,9 +71,9 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -99,9 +99,9 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFactor is required")]
     public required TerraformValue<double> ReplicationFactor
     {
-        get => GetArgument<TerraformValue<double>>("replication_factor");
+        get => GetRequiredArgument<TerraformValue<double>>("replication_factor");
         set => SetArgument("replication_factor", value);
     }
 
@@ -121,7 +121,7 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
     public required TerraformValue<string> TopicId
     {
-        get => GetArgument<TerraformValue<string>>("topic_id");
+        get => GetRequiredArgument<TerraformValue<string>>("topic_id");
         set => SetArgument("topic_id", value);
     }
 

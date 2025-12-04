@@ -64,7 +64,7 @@ public partial class AzurermStreamAnalyticsReferenceInputMssql(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => GetArgument<TerraformValue<string>>("database");
+        get => GetRequiredArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AzurermStreamAnalyticsReferenceInputMssql(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullSnapshotQuery is required")]
     public required TerraformValue<string> FullSnapshotQuery
     {
-        get => GetArgument<TerraformValue<string>>("full_snapshot_query");
+        get => GetRequiredArgument<TerraformValue<string>>("full_snapshot_query");
         set => SetArgument("full_snapshot_query", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermStreamAnalyticsReferenceInputMssql(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermStreamAnalyticsReferenceInputMssql(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermStreamAnalyticsReferenceInputMssql(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshType is required")]
     public required TerraformValue<string> RefreshType
     {
-        get => GetArgument<TerraformValue<string>>("refresh_type");
+        get => GetRequiredArgument<TerraformValue<string>>("refresh_type");
         set => SetArgument("refresh_type", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermStreamAnalyticsReferenceInputMssql(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermStreamAnalyticsReferenceInputMssql(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => GetArgument<TerraformValue<string>>("server");
+        get => GetRequiredArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermStreamAnalyticsReferenceInputMssql(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
-        get => GetArgument<TerraformValue<string>>("stream_analytics_job_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_analytics_job_name");
         set => SetArgument("stream_analytics_job_name", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AzurermStreamAnalyticsReferenceInputMssql(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

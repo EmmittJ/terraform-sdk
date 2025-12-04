@@ -95,7 +95,7 @@ public class AzureadApplicationApiBlockOauth2PermissionScopeBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -155,7 +155,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMemberTypes is required")]
     public required TerraformSet<string> AllowedMemberTypes
     {
-        get => GetArgument<TerraformSet<string>>("allowed_member_types");
+        get => GetRequiredArgument<TerraformSet<string>>("allowed_member_types");
         set => SetArgument("allowed_member_types", value);
     }
 
@@ -165,7 +165,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -175,7 +175,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -194,7 +194,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -335,7 +335,7 @@ public class AzureadApplicationOptionalClaimsBlockAccessTokenBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -385,7 +385,7 @@ public class AzureadApplicationOptionalClaimsBlockIdTokenBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -435,7 +435,7 @@ public class AzureadApplicationOptionalClaimsBlockSaml2TokenBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -468,16 +468,16 @@ public class AzureadApplicationPasswordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The end date until which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`)
     /// </summary>
-    public TerraformValue<string>? EndDate
+    public TerraformValue<string> EndDate
     {
-        get => GetArgument<TerraformValue<string>>("end_date");
+        get => GetArgument<TerraformValue<string>>("end_date") ?? AsReference("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -490,9 +490,9 @@ public class AzureadApplicationPasswordBlock : TerraformBlock
     /// <summary>
     /// The start date from which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn&#39;t specified, the current date is used
     /// </summary>
-    public TerraformValue<string>? StartDate
+    public TerraformValue<string> StartDate
     {
-        get => GetArgument<TerraformValue<string>>("start_date");
+        get => GetArgument<TerraformValue<string>>("start_date") ?? AsReference("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -545,7 +545,7 @@ public class AzureadApplicationRequiredResourceAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceAppId is required")]
     public required TerraformValue<string> ResourceAppId
     {
-        get => GetArgument<TerraformValue<string>>("resource_app_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_app_id");
         set => SetArgument("resource_app_id", value);
     }
 
@@ -580,7 +580,7 @@ public class AzureadApplicationRequiredResourceAccessBlockResourceAccessBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetRequiredArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -590,7 +590,7 @@ public class AzureadApplicationRequiredResourceAccessBlockResourceAccessBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -782,7 +782,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -807,9 +807,9 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -915,18 +915,18 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// <summary>
     /// A set of tags to apply to the application
     /// </summary>
-    public TerraformSet<string>? Tags
+    public TerraformSet<string> Tags
     {
-        get => GetArgument<TerraformSet<string>>("tags");
+        get => GetArgument<TerraformSet<string>>("tags") ?? AsReference("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// Unique ID of the application template from which this application is created
     /// </summary>
-    public TerraformValue<string>? TemplateId
+    public TerraformValue<string> TemplateId
     {
-        get => GetArgument<TerraformValue<string>>("template_id");
+        get => GetArgument<TerraformValue<string>>("template_id") ?? AsReference("template_id");
         set => SetArgument("template_id", value);
     }
 

@@ -85,16 +85,16 @@ public class AwsS3tablesTableMetadataBlockIcebergBlockSchemaBlockFieldBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// A Boolean value that specifies whether values are required for each row in this field. Default: false.
     /// </summary>
-    public TerraformValue<bool>? Required
+    public TerraformValue<bool> Required
     {
-        get => GetArgument<TerraformValue<bool>>("required");
+        get => GetArgument<TerraformValue<bool>>("required") ?? AsReference("required");
         set => SetArgument("required", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsS3tablesTableMetadataBlockIcebergBlockSchemaBlockFieldBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -120,9 +120,9 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformMap<object>? EncryptionConfiguration
+    public TerraformMap<object> EncryptionConfiguration
     {
-        get => GetArgument<TerraformMap<object>>("encryption_configuration");
+        get => GetArgument<TerraformMap<object>>("encryption_configuration") ?? AsReference("encryption_configuration");
         set => SetArgument("encryption_configuration", value);
     }
 
@@ -132,16 +132,16 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => GetArgument<TerraformValue<string>>("format");
+        get => GetRequiredArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
     /// <summary>
     /// The maintenance_configuration attribute.
     /// </summary>
-    public TerraformMap<object>? MaintenanceConfiguration
+    public TerraformMap<object> MaintenanceConfiguration
     {
-        get => GetArgument<TerraformMap<object>>("maintenance_configuration");
+        get => GetArgument<TerraformMap<object>>("maintenance_configuration") ?? AsReference("maintenance_configuration");
         set => SetArgument("maintenance_configuration", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -161,16 +161,16 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => GetArgument<TerraformValue<string>>("namespace");
+        get => GetRequiredArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
     public required TerraformValue<string> TableBucketArn
     {
-        get => GetArgument<TerraformValue<string>>("table_bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("table_bucket_arn");
         set => SetArgument("table_bucket_arn", value);
     }
 

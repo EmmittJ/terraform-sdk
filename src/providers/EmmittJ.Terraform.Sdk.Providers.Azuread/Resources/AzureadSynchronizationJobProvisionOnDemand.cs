@@ -19,7 +19,7 @@ public class AzureadSynchronizationJobProvisionOnDemandParameterBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     public required TerraformValue<string> RuleId
     {
-        get => GetArgument<TerraformValue<string>>("rule_id");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_id");
         set => SetArgument("rule_id", value);
     }
 
@@ -54,7 +54,7 @@ public class AzureadSynchronizationJobProvisionOnDemandParameterBlockSubjectBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => GetArgument<TerraformValue<string>>("object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -64,7 +64,7 @@ public class AzureadSynchronizationJobProvisionOnDemandParameterBlockSubjectBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectTypeName is required")]
     public required TerraformValue<string> ObjectTypeName
     {
-        get => GetArgument<TerraformValue<string>>("object_type_name");
+        get => GetRequiredArgument<TerraformValue<string>>("object_type_name");
         set => SetArgument("object_type_name", value);
     }
 
@@ -121,9 +121,9 @@ public partial class AzureadSynchronizationJobProvisionOnDemand(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzureadSynchronizationJobProvisionOnDemand(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformValue<string> ServicePrincipalId
     {
-        get => GetArgument<TerraformValue<string>>("service_principal_id");
+        get => GetRequiredArgument<TerraformValue<string>>("service_principal_id");
         set => SetArgument("service_principal_id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzureadSynchronizationJobProvisionOnDemand(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynchronizationJobId is required")]
     public required TerraformValue<string> SynchronizationJobId
     {
-        get => GetArgument<TerraformValue<string>>("synchronization_job_id");
+        get => GetRequiredArgument<TerraformValue<string>>("synchronization_job_id");
         set => SetArgument("synchronization_job_id", value);
     }
 

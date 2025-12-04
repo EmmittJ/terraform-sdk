@@ -25,7 +25,7 @@ public class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogStreamArn is required")]
     public required TerraformValue<string> LogStreamArn
     {
-        get => GetArgument<TerraformValue<string>>("log_stream_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("log_stream_arn");
         set => SetArgument("log_stream_arn", value);
     }
 
@@ -35,7 +35,7 @@ public class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -65,7 +65,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePrefix is required")]
     public required TerraformValue<string> NamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("name_prefix");
+        get => GetRequiredArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockKinesisFirehoseBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockKinesisFirehoseBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockKinesisStreamBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockKinesisStreamBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -219,9 +219,9 @@ public class AwsKinesisAnalyticsApplicationInputsBlockParallelismBlock : Terrafo
     /// <summary>
     /// The count attribute.
     /// </summary>
-    public TerraformValue<double>? CountAttribute
+    public TerraformValue<double> CountAttribute
     {
-        get => GetArgument<TerraformValue<double>>("count");
+        get => GetArgument<TerraformValue<double>>("count") ?? AsReference("count");
         set => SetArgument("count", value);
     }
 
@@ -270,7 +270,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockProcessingConfigurationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -280,7 +280,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockProcessingConfigurationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -360,7 +360,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockSchemaBlockRecordColumnsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -370,7 +370,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockSchemaBlockRecordColumnsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlType is required")]
     public required TerraformValue<string> SqlType
     {
-        get => GetArgument<TerraformValue<string>>("sql_type");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_type");
         set => SetArgument("sql_type", value);
     }
 
@@ -455,7 +455,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockSchemaBlockRecordFormatBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordColumnDelimiter is required")]
     public required TerraformValue<string> RecordColumnDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("record_column_delimiter");
+        get => GetRequiredArgument<TerraformValue<string>>("record_column_delimiter");
         set => SetArgument("record_column_delimiter", value);
     }
 
@@ -465,7 +465,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockSchemaBlockRecordFormatBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordRowDelimiter is required")]
     public required TerraformValue<string> RecordRowDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("record_row_delimiter");
+        get => GetRequiredArgument<TerraformValue<string>>("record_row_delimiter");
         set => SetArgument("record_row_delimiter", value);
     }
 
@@ -488,7 +488,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlockSchemaBlockRecordFormatBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordRowPath is required")]
     public required TerraformValue<string> RecordRowPath
     {
-        get => GetArgument<TerraformValue<string>>("record_row_path");
+        get => GetRequiredArgument<TerraformValue<string>>("record_row_path");
         set => SetArgument("record_row_path", value);
     }
 
@@ -508,9 +508,9 @@ public class AwsKinesisAnalyticsApplicationInputsBlockStartingPositionConfigurat
     /// <summary>
     /// The starting_position attribute.
     /// </summary>
-    public TerraformValue<string>? StartingPosition
+    public TerraformValue<string> StartingPosition
     {
-        get => GetArgument<TerraformValue<string>>("starting_position");
+        get => GetArgument<TerraformValue<string>>("starting_position") ?? AsReference("starting_position");
         set => SetArgument("starting_position", value);
     }
 
@@ -540,7 +540,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -606,7 +606,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlockKinesisFirehoseBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -616,7 +616,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlockKinesisFirehoseBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -639,7 +639,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlockKinesisStreamBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -649,7 +649,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlockKinesisStreamBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -672,7 +672,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlockLambdaBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => GetArgument<TerraformValue<string>>("resource_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -682,7 +682,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlockLambdaBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -705,7 +705,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlockSchemaBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordFormatType is required")]
     public required TerraformValue<string> RecordFormatType
     {
-        get => GetArgument<TerraformValue<string>>("record_format_type");
+        get => GetRequiredArgument<TerraformValue<string>>("record_format_type");
         set => SetArgument("record_format_type", value);
     }
 
@@ -735,7 +735,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -784,7 +784,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlockS3Block : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => GetArgument<TerraformValue<string>>("bucket_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -794,7 +794,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlockS3Block : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileKey is required")]
     public required TerraformValue<string> FileKey
     {
-        get => GetArgument<TerraformValue<string>>("file_key");
+        get => GetRequiredArgument<TerraformValue<string>>("file_key");
         set => SetArgument("file_key", value);
     }
 
@@ -804,7 +804,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlockS3Block : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => GetArgument<TerraformValue<string>>("role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -884,7 +884,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlockSchemaBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -894,7 +894,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlockSchemaBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlType is required")]
     public required TerraformValue<string> SqlType
     {
-        get => GetArgument<TerraformValue<string>>("sql_type");
+        get => GetRequiredArgument<TerraformValue<string>>("sql_type");
         set => SetArgument("sql_type", value);
     }
 
@@ -979,7 +979,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlockSchemaBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordColumnDelimiter is required")]
     public required TerraformValue<string> RecordColumnDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("record_column_delimiter");
+        get => GetRequiredArgument<TerraformValue<string>>("record_column_delimiter");
         set => SetArgument("record_column_delimiter", value);
     }
 
@@ -989,7 +989,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlockSchemaBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordRowDelimiter is required")]
     public required TerraformValue<string> RecordRowDelimiter
     {
-        get => GetArgument<TerraformValue<string>>("record_row_delimiter");
+        get => GetRequiredArgument<TerraformValue<string>>("record_row_delimiter");
         set => SetArgument("record_row_delimiter", value);
     }
 
@@ -1012,7 +1012,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlockSchemaBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordRowPath is required")]
     public required TerraformValue<string> RecordRowPath
     {
-        get => GetArgument<TerraformValue<string>>("record_row_path");
+        get => GetRequiredArgument<TerraformValue<string>>("record_row_path");
         set => SetArgument("record_row_path", value);
     }
 
@@ -1047,9 +1047,9 @@ public partial class AwsKinesisAnalyticsApplication(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1059,16 +1059,16 @@ public partial class AwsKinesisAnalyticsApplication(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -1093,9 +1093,9 @@ public partial class AwsKinesisAnalyticsApplication(string name) : TerraformReso
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

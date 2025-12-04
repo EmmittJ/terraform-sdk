@@ -40,7 +40,7 @@ public class GoogleComputeRegionAutoscalerAutoscalingPolicyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxReplicas is required")]
     public required TerraformValue<double> MaxReplicas
     {
-        get => GetArgument<TerraformValue<double>>("max_replicas");
+        get => GetRequiredArgument<TerraformValue<double>>("max_replicas");
         set => SetArgument("max_replicas", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleComputeRegionAutoscalerAutoscalingPolicyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicas is required")]
     public required TerraformValue<double> MinReplicas
     {
-        get => GetArgument<TerraformValue<double>>("min_replicas");
+        get => GetRequiredArgument<TerraformValue<double>>("min_replicas");
         set => SetArgument("min_replicas", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleComputeRegionAutoscalerAutoscalingPolicyBlockCpuUtilizationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<double> Target
     {
-        get => GetArgument<TerraformValue<double>>("target");
+        get => GetRequiredArgument<TerraformValue<double>>("target");
         set => SetArgument("target", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleComputeRegionAutoscalerAutoscalingPolicyBlockLoadBalancingUti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<double> Target
     {
-        get => GetArgument<TerraformValue<double>>("target");
+        get => GetRequiredArgument<TerraformValue<double>>("target");
         set => SetArgument("target", value);
     }
 
@@ -249,7 +249,7 @@ public class GoogleComputeRegionAutoscalerAutoscalingPolicyBlockMetricBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -407,7 +407,7 @@ public class GoogleComputeRegionAutoscalerAutoscalingPolicyBlockScalingSchedules
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DurationSec is required")]
     public required TerraformValue<double> DurationSec
     {
-        get => GetArgument<TerraformValue<double>>("duration_sec");
+        get => GetRequiredArgument<TerraformValue<double>>("duration_sec");
         set => SetArgument("duration_sec", value);
     }
 
@@ -417,7 +417,7 @@ public class GoogleComputeRegionAutoscalerAutoscalingPolicyBlockScalingSchedules
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinRequiredReplicas is required")]
     public required TerraformValue<double> MinRequiredReplicas
     {
-        get => GetArgument<TerraformValue<double>>("min_required_replicas");
+        get => GetRequiredArgument<TerraformValue<double>>("min_required_replicas");
         set => SetArgument("min_required_replicas", value);
     }
 
@@ -427,7 +427,7 @@ public class GoogleComputeRegionAutoscalerAutoscalingPolicyBlockScalingSchedules
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -437,7 +437,7 @@ public class GoogleComputeRegionAutoscalerAutoscalingPolicyBlockScalingSchedules
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => GetArgument<TerraformValue<string>>("schedule");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -512,9 +512,9 @@ public partial class GoogleComputeRegionAutoscaler(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -528,25 +528,25 @@ public partial class GoogleComputeRegionAutoscaler(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// URL of the region where the instance group resides.
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -556,7 +556,7 @@ public partial class GoogleComputeRegionAutoscaler(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => GetArgument<TerraformValue<string>>("target");
+        get => GetRequiredArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 

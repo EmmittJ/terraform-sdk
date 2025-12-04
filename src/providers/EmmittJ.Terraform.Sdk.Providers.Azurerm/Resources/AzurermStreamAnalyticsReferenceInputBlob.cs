@@ -37,7 +37,7 @@ public class AzurermStreamAnalyticsReferenceInputBlobSerializationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -115,16 +115,16 @@ public partial class AzurermStreamAnalyticsReferenceInputBlob(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DateFormat is required")]
     public required TerraformValue<string> DateFormat
     {
-        get => GetArgument<TerraformValue<string>>("date_format");
+        get => GetRequiredArgument<TerraformValue<string>>("date_format");
         set => SetArgument("date_format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermStreamAnalyticsReferenceInputBlob(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzurermStreamAnalyticsReferenceInputBlob(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathPattern is required")]
     public required TerraformValue<string> PathPattern
     {
-        get => GetArgument<TerraformValue<string>>("path_pattern");
+        get => GetRequiredArgument<TerraformValue<string>>("path_pattern");
         set => SetArgument("path_pattern", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AzurermStreamAnalyticsReferenceInputBlob(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AzurermStreamAnalyticsReferenceInputBlob(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformValue<string> StorageAccountName
     {
-        get => GetArgument<TerraformValue<string>>("storage_account_name");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AzurermStreamAnalyticsReferenceInputBlob(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformValue<string> StorageContainerName
     {
-        get => GetArgument<TerraformValue<string>>("storage_container_name");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_container_name");
         set => SetArgument("storage_container_name", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AzurermStreamAnalyticsReferenceInputBlob(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
-        get => GetArgument<TerraformValue<string>>("stream_analytics_job_name");
+        get => GetRequiredArgument<TerraformValue<string>>("stream_analytics_job_name");
         set => SetArgument("stream_analytics_job_name", value);
     }
 
@@ -203,7 +203,7 @@ public partial class AzurermStreamAnalyticsReferenceInputBlob(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeFormat is required")]
     public required TerraformValue<string> TimeFormat
     {
-        get => GetArgument<TerraformValue<string>>("time_format");
+        get => GetRequiredArgument<TerraformValue<string>>("time_format");
         set => SetArgument("time_format", value);
     }
 

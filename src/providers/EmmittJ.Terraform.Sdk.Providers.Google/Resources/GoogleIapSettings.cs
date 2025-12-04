@@ -234,7 +234,7 @@ public class GoogleIapSettingsAccessSettingsBlockReauthSettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAge is required")]
     public required TerraformValue<string> MaxAge
     {
-        get => GetArgument<TerraformValue<string>>("max_age");
+        get => GetRequiredArgument<TerraformValue<string>>("max_age");
         set => SetArgument("max_age", value);
     }
 
@@ -248,7 +248,7 @@ public class GoogleIapSettingsAccessSettingsBlockReauthSettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     public required TerraformValue<string> Method
     {
-        get => GetArgument<TerraformValue<string>>("method");
+        get => GetRequiredArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -264,7 +264,7 @@ public class GoogleIapSettingsAccessSettingsBlockReauthSettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     public required TerraformValue<string> PolicyType
     {
-        get => GetArgument<TerraformValue<string>>("policy_type");
+        get => GetRequiredArgument<TerraformValue<string>>("policy_type");
         set => SetArgument("policy_type", value);
     }
 
@@ -560,9 +560,9 @@ public partial class GoogleIapSettings(string name) : TerraformResource("google_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -583,7 +583,7 @@ public partial class GoogleIapSettings(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

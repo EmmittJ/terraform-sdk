@@ -93,7 +93,7 @@ public class AwsComprehendEntityRecognizerInputDataConfigBlockAnnotationsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => GetArgument<TerraformValue<string>>("s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsComprehendEntityRecognizerInputDataConfigBlockAugmentedManifests
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => GetArgument<TerraformValue<string>>("s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsComprehendEntityRecognizerInputDataConfigBlockDocumentsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => GetArgument<TerraformValue<string>>("s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsComprehendEntityRecognizerInputDataConfigBlockEntityListBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => GetArgument<TerraformValue<string>>("s3_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsComprehendEntityRecognizerInputDataConfigBlockEntityTypesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -323,7 +323,7 @@ public class AwsComprehendEntityRecognizerVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => GetArgument<TerraformSet<string>>("security_group_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -333,7 +333,7 @@ public class AwsComprehendEntityRecognizerVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => GetArgument<TerraformSet<string>>("subnets");
+        get => GetRequiredArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -352,16 +352,16 @@ public partial class AwsComprehendEntityRecognizer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessRoleArn is required")]
     public required TerraformValue<string> DataAccessRoleArn
     {
-        get => GetArgument<TerraformValue<string>>("data_access_role_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("data_access_role_arn");
         set => SetArgument("data_access_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -371,7 +371,7 @@ public partial class AwsComprehendEntityRecognizer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => GetArgument<TerraformValue<string>>("language_code");
+        get => GetRequiredArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -390,16 +390,16 @@ public partial class AwsComprehendEntityRecognizer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -415,27 +415,27 @@ public partial class AwsComprehendEntityRecognizer(string name) : TerraformResou
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
-    public TerraformValue<string>? VersionName
+    public TerraformValue<string> VersionName
     {
-        get => GetArgument<TerraformValue<string>>("version_name");
+        get => GetArgument<TerraformValue<string>>("version_name") ?? AsReference("version_name");
         set => SetArgument("version_name", value);
     }
 
     /// <summary>
     /// The version_name_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? VersionNamePrefix
+    public TerraformValue<string> VersionNamePrefix
     {
-        get => GetArgument<TerraformValue<string>>("version_name_prefix");
+        get => GetArgument<TerraformValue<string>>("version_name_prefix") ?? AsReference("version_name_prefix");
         set => SetArgument("version_name_prefix", value);
     }
 

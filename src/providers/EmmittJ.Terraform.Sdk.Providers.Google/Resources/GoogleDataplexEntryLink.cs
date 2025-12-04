@@ -20,7 +20,7 @@ public class GoogleDataplexEntryLinkEntryReferencesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -90,7 +90,7 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
     public required TerraformValue<string> EntryGroupId
     {
-        get => GetArgument<TerraformValue<string>>("entry_group_id");
+        get => GetRequiredArgument<TerraformValue<string>>("entry_group_id");
         set => SetArgument("entry_group_id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkId is required")]
     public required TerraformValue<string> EntryLinkId
     {
-        get => GetArgument<TerraformValue<string>>("entry_link_id");
+        get => GetRequiredArgument<TerraformValue<string>>("entry_link_id");
         set => SetArgument("entry_link_id", value);
     }
 
@@ -111,16 +111,16 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkType is required")]
     public required TerraformValue<string> EntryLinkType
     {
-        get => GetArgument<TerraformValue<string>>("entry_link_type");
+        get => GetRequiredArgument<TerraformValue<string>>("entry_link_type");
         set => SetArgument("entry_link_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -130,16 +130,16 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

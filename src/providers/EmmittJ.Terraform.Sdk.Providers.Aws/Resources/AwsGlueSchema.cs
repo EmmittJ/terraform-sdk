@@ -14,7 +14,7 @@ public partial class AwsGlueSchema(string name) : TerraformResource("aws_glue_sc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compatibility is required")]
     public required TerraformValue<string> Compatibility
     {
-        get => GetArgument<TerraformValue<string>>("compatibility");
+        get => GetRequiredArgument<TerraformValue<string>>("compatibility");
         set => SetArgument("compatibility", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsGlueSchema(string name) : TerraformResource("aws_glue_sc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFormat is required")]
     public required TerraformValue<string> DataFormat
     {
-        get => GetArgument<TerraformValue<string>>("data_format");
+        get => GetRequiredArgument<TerraformValue<string>>("data_format");
         set => SetArgument("data_format", value);
     }
 
@@ -40,27 +40,27 @@ public partial class AwsGlueSchema(string name) : TerraformResource("aws_glue_sc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The registry_arn attribute.
     /// </summary>
-    public TerraformValue<string>? RegistryArn
+    public TerraformValue<string> RegistryArn
     {
-        get => GetArgument<TerraformValue<string>>("registry_arn");
+        get => GetArgument<TerraformValue<string>>("registry_arn") ?? AsReference("registry_arn");
         set => SetArgument("registry_arn", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsGlueSchema(string name) : TerraformResource("aws_glue_sc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaDefinition is required")]
     public required TerraformValue<string> SchemaDefinition
     {
-        get => GetArgument<TerraformValue<string>>("schema_definition");
+        get => GetRequiredArgument<TerraformValue<string>>("schema_definition");
         set => SetArgument("schema_definition", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsGlueSchema(string name) : TerraformResource("aws_glue_sc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaName is required")]
     public required TerraformValue<string> SchemaName
     {
-        get => GetArgument<TerraformValue<string>>("schema_name");
+        get => GetRequiredArgument<TerraformValue<string>>("schema_name");
         set => SetArgument("schema_name", value);
     }
 
@@ -96,9 +96,9 @@ public partial class AwsGlueSchema(string name) : TerraformResource("aws_glue_sc
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

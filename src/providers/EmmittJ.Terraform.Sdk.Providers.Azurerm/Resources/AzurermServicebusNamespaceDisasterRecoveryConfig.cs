@@ -70,9 +70,9 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfig(string nam
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfig(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfig(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerNamespaceId is required")]
     public required TerraformValue<string> PartnerNamespaceId
     {
-        get => GetArgument<TerraformValue<string>>("partner_namespace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("partner_namespace_id");
         set => SetArgument("partner_namespace_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfig(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryNamespaceId is required")]
     public required TerraformValue<string> PrimaryNamespaceId
     {
-        get => GetArgument<TerraformValue<string>>("primary_namespace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("primary_namespace_id");
         set => SetArgument("primary_namespace_id", value);
     }
 

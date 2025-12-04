@@ -71,7 +71,7 @@ public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerId is required")]
     public required TerraformValue<string> OwnerId
     {
-        get => GetArgument<TerraformValue<string>>("owner_id");
+        get => GetRequiredArgument<TerraformValue<string>>("owner_id");
         set => SetArgument("owner_id", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerId is required")]
     public required TerraformValue<string> OwnerId
     {
-        get => GetArgument<TerraformValue<string>>("owner_id");
+        get => GetRequiredArgument<TerraformValue<string>>("owner_id");
         set => SetArgument("owner_id", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetRequiredArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -195,34 +195,34 @@ public partial class AwsOpensearchOutboundConnection(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionAlias is required")]
     public required TerraformValue<string> ConnectionAlias
     {
-        get => GetArgument<TerraformValue<string>>("connection_alias");
+        get => GetRequiredArgument<TerraformValue<string>>("connection_alias");
         set => SetArgument("connection_alias", value);
     }
 
     /// <summary>
     /// The connection_mode attribute.
     /// </summary>
-    public TerraformValue<string>? ConnectionMode
+    public TerraformValue<string> ConnectionMode
     {
-        get => GetArgument<TerraformValue<string>>("connection_mode");
+        get => GetArgument<TerraformValue<string>>("connection_mode") ?? AsReference("connection_mode");
         set => SetArgument("connection_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 

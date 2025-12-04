@@ -147,7 +147,7 @@ public class GoogleBigqueryDatasetAccessBlockConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => GetArgument<TerraformValue<string>>("expression");
+        get => GetRequiredArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -227,7 +227,7 @@ public class GoogleBigqueryDatasetAccessBlockDatasetBlockDatasetBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -237,7 +237,7 @@ public class GoogleBigqueryDatasetAccessBlockDatasetBlockDatasetBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleBigqueryDatasetAccessBlockRoutineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -270,7 +270,7 @@ public class GoogleBigqueryDatasetAccessBlockRoutineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -282,7 +282,7 @@ public class GoogleBigqueryDatasetAccessBlockRoutineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineId is required")]
     public required TerraformValue<string> RoutineId
     {
-        get => GetArgument<TerraformValue<string>>("routine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("routine_id");
         set => SetArgument("routine_id", value);
     }
 
@@ -305,7 +305,7 @@ public class GoogleBigqueryDatasetAccessBlockViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -315,7 +315,7 @@ public class GoogleBigqueryDatasetAccessBlockViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => GetArgument<TerraformValue<string>>("project_id");
+        get => GetRequiredArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -327,7 +327,7 @@ public class GoogleBigqueryDatasetAccessBlockViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => GetArgument<TerraformValue<string>>("table_id");
+        get => GetRequiredArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -353,7 +353,7 @@ public class GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => GetArgument<TerraformValue<string>>("kms_key_name");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -412,7 +412,7 @@ public class GoogleBigqueryDatasetExternalDatasetReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionAttribute is required")]
     public required TerraformValue<string> ConnectionAttribute
     {
-        get => GetArgument<TerraformValue<string>>("connection");
+        get => GetRequiredArgument<TerraformValue<string>>("connection");
         set => SetArgument("connection", value);
     }
 
@@ -422,7 +422,7 @@ public class GoogleBigqueryDatasetExternalDatasetReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalSource is required")]
     public required TerraformValue<string> ExternalSource
     {
-        get => GetArgument<TerraformValue<string>>("external_source");
+        get => GetRequiredArgument<TerraformValue<string>>("external_source");
         set => SetArgument("external_source", value);
     }
 
@@ -484,7 +484,7 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -500,9 +500,9 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// - &#39;und:ci&#39;: undetermined locale, case insensitive.
     /// - &#39;&#39;: empty string. Default to case-sensitive behavior.
     /// </summary>
-    public TerraformValue<string>? DefaultCollation
+    public TerraformValue<string> DefaultCollation
     {
-        get => GetArgument<TerraformValue<string>>("default_collation");
+        get => GetArgument<TerraformValue<string>>("default_collation") ?? AsReference("default_collation");
         set => SetArgument("default_collation", value);
     }
 
@@ -578,9 +578,9 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -589,9 +589,9 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// By default, this is FALSE, which means the dataset and its table names are
     /// case-sensitive. This field does not affect routine references.
     /// </summary>
-    public TerraformValue<bool>? IsCaseInsensitive
+    public TerraformValue<bool> IsCaseInsensitive
     {
-        get => GetArgument<TerraformValue<bool>>("is_case_insensitive");
+        get => GetArgument<TerraformValue<bool>>("is_case_insensitive") ?? AsReference("is_case_insensitive");
         set => SetArgument("is_case_insensitive", value);
     }
 
@@ -628,18 +628,18 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// <summary>
     /// Defines the time travel window in hours. The value can be from 48 to 168 hours (2 to 7 days).
     /// </summary>
-    public TerraformValue<string>? MaxTimeTravelHours
+    public TerraformValue<string> MaxTimeTravelHours
     {
-        get => GetArgument<TerraformValue<string>>("max_time_travel_hours");
+        get => GetArgument<TerraformValue<string>>("max_time_travel_hours") ?? AsReference("max_time_travel_hours");
         set => SetArgument("max_time_travel_hours", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -663,9 +663,9 @@ public partial class GoogleBigqueryDataset(string name) : TerraformResource("goo
     /// 
     /// LOGICAL is the default if this flag isn&#39;t specified.
     /// </summary>
-    public TerraformValue<string>? StorageBillingModel
+    public TerraformValue<string> StorageBillingModel
     {
-        get => GetArgument<TerraformValue<string>>("storage_billing_model");
+        get => GetArgument<TerraformValue<string>>("storage_billing_model") ?? AsReference("storage_billing_model");
         set => SetArgument("storage_billing_model", value);
     }
 

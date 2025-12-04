@@ -19,7 +19,7 @@ public class AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     public required TerraformValue<string> Container
     {
-        get => GetArgument<TerraformValue<string>>("container");
+        get => GetRequiredArgument<TerraformValue<string>>("container");
         set => SetArgument("container", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermDataFactoryDatasetBinaryCompressionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermDataFactoryDatasetBinaryHttpServerLocationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     public required TerraformValue<string> Filename
     {
-        get => GetArgument<TerraformValue<string>>("filename");
+        get => GetRequiredArgument<TerraformValue<string>>("filename");
         set => SetArgument("filename", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermDataFactoryDatasetBinaryHttpServerLocationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermDataFactoryDatasetBinaryHttpServerLocationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUrl is required")]
     public required TerraformValue<string> RelativeUrl
     {
-        get => GetArgument<TerraformValue<string>>("relative_url");
+        get => GetRequiredArgument<TerraformValue<string>>("relative_url");
         set => SetArgument("relative_url", value);
     }
 
@@ -201,7 +201,7 @@ public class AzurermDataFactoryDatasetBinarySftpServerLocationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     public required TerraformValue<string> Filename
     {
-        get => GetArgument<TerraformValue<string>>("filename");
+        get => GetRequiredArgument<TerraformValue<string>>("filename");
         set => SetArgument("filename", value);
     }
 
@@ -211,7 +211,7 @@ public class AzurermDataFactoryDatasetBinarySftpServerLocationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -298,7 +298,7 @@ public partial class AzurermDataFactoryDatasetBinary(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => GetArgument<TerraformValue<string>>("data_factory_id");
+        get => GetRequiredArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -323,9 +323,9 @@ public partial class AzurermDataFactoryDatasetBinary(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -335,7 +335,7 @@ public partial class AzurermDataFactoryDatasetBinary(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => GetArgument<TerraformValue<string>>("linked_service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -345,7 +345,7 @@ public partial class AzurermDataFactoryDatasetBinary(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

@@ -64,16 +64,16 @@ public partial class AzureadApplicationKnownClients(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => GetArgument<TerraformValue<string>>("application_id");
+        get => GetRequiredArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzureadApplicationKnownClients(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnownClientIds is required")]
     public required TerraformSet<string> KnownClientIds
     {
-        get => GetArgument<TerraformSet<string>>("known_client_ids");
+        get => GetRequiredArgument<TerraformSet<string>>("known_client_ids");
         set => SetArgument("known_client_ids", value);
     }
 

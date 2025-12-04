@@ -2333,7 +2333,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     public required TerraformValue<string> Method
     {
-        get => GetArgument<TerraformValue<string>>("method");
+        get => GetRequiredArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -2343,7 +2343,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -2353,7 +2353,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Targets is required")]
     public required TerraformSet<string> Targets
     {
-        get => GetArgument<TerraformSet<string>>("targets");
+        get => GetRequiredArgument<TerraformSet<string>>("targets");
         set => SetArgument("targets", value);
     }
 
@@ -2418,18 +2418,18 @@ public partial class AwsCeCostCategory(string name) : TerraformResource("aws_ce_
     /// <summary>
     /// The effective_start attribute.
     /// </summary>
-    public TerraformValue<string>? EffectiveStart
+    public TerraformValue<string> EffectiveStart
     {
-        get => GetArgument<TerraformValue<string>>("effective_start");
+        get => GetArgument<TerraformValue<string>>("effective_start") ?? AsReference("effective_start");
         set => SetArgument("effective_start", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -2439,7 +2439,7 @@ public partial class AwsCeCostCategory(string name) : TerraformResource("aws_ce_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2449,7 +2449,7 @@ public partial class AwsCeCostCategory(string name) : TerraformResource("aws_ce_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleVersion is required")]
     public required TerraformValue<string> RuleVersion
     {
-        get => GetArgument<TerraformValue<string>>("rule_version");
+        get => GetRequiredArgument<TerraformValue<string>>("rule_version");
         set => SetArgument("rule_version", value);
     }
 
@@ -2465,9 +2465,9 @@ public partial class AwsCeCostCategory(string name) : TerraformResource("aws_ce_
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

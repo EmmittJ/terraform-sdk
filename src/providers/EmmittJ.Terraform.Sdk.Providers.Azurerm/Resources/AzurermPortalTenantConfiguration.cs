@@ -61,9 +61,9 @@ public partial class AzurermPortalTenantConfiguration(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermPortalTenantConfiguration(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateMarkdownStorageEnforced is required")]
     public required TerraformValue<bool> PrivateMarkdownStorageEnforced
     {
-        get => GetArgument<TerraformValue<bool>>("private_markdown_storage_enforced");
+        get => GetRequiredArgument<TerraformValue<bool>>("private_markdown_storage_enforced");
         set => SetArgument("private_markdown_storage_enforced", value);
     }
 

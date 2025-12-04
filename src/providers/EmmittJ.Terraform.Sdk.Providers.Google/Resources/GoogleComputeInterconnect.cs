@@ -75,7 +75,7 @@ public class GoogleComputeInterconnectMacsecBlockPreSharedKeysBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -176,9 +176,9 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectType is required")]
     public required TerraformValue<string> InterconnectType
     {
-        get => GetArgument<TerraformValue<string>>("interconnect_type");
+        get => GetRequiredArgument<TerraformValue<string>>("interconnect_type");
         set => SetArgument("interconnect_type", value);
     }
 
@@ -219,7 +219,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkType is required")]
     public required TerraformValue<string> LinkType
     {
-        get => GetArgument<TerraformValue<string>>("link_type");
+        get => GetRequiredArgument<TerraformValue<string>>("link_type");
         set => SetArgument("link_type", value);
     }
 
@@ -230,7 +230,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -254,7 +254,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -274,9 +274,9 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -309,7 +309,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestedLinkCount is required")]
     public required TerraformValue<double> RequestedLinkCount
     {
-        get => GetArgument<TerraformValue<double>>("requested_link_count");
+        get => GetRequiredArgument<TerraformValue<double>>("requested_link_count");
         set => SetArgument("requested_link_count", value);
     }
 

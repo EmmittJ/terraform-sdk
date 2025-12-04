@@ -108,9 +108,9 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : TerraformBlock
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example:
     /// &#39;{ &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }&#39;.
     /// </summary>
-    public TerraformMap<string>? UserDefinedContext
+    public TerraformMap<string> UserDefinedContext
     {
-        get => GetArgument<TerraformMap<string>>("user_defined_context");
+        get => GetArgument<TerraformMap<string>>("user_defined_context") ?? AsReference("user_defined_context");
         set => SetArgument("user_defined_context", value);
     }
 
@@ -131,9 +131,9 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// <summary>
     /// Archive files to be extracted into the working directory of each executor. For more information about Apache Spark, see Apache Spark.
     /// </summary>
-    public TerraformList<string>? ArchiveUris
+    public TerraformList<string> ArchiveUris
     {
-        get => GetArgument<TerraformList<string>>("archive_uris");
+        get => GetArgument<TerraformList<string>>("archive_uris") ?? AsReference("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -159,18 +159,18 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// <summary>
     /// Files to be placed in the working directory of each executor. For more information about Apache Spark, see Apache Spark.
     /// </summary>
-    public TerraformList<string>? FileUris
+    public TerraformList<string> FileUris
     {
-        get => GetArgument<TerraformList<string>>("file_uris");
+        get => GetArgument<TerraformList<string>>("file_uris") ?? AsReference("file_uris");
         set => SetArgument("file_uris", value);
     }
 
     /// <summary>
     /// JARs to include on the driver and executor CLASSPATH. For more information about Apache Spark, see Apache Spark.
     /// </summary>
-    public TerraformList<string>? JarUris
+    public TerraformList<string> JarUris
     {
-        get => GetArgument<TerraformList<string>>("jar_uris");
+        get => GetArgument<TerraformList<string>>("jar_uris") ?? AsReference("jar_uris");
         set => SetArgument("jar_uris", value);
     }
 
@@ -200,18 +200,18 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// For more information, see Apache Spark and the procedure option list.
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public TerraformMap<string>? Properties
+    public TerraformMap<string> Properties
     {
-        get => GetArgument<TerraformMap<string>>("properties");
+        get => GetArgument<TerraformMap<string>>("properties") ?? AsReference("properties");
         set => SetArgument("properties", value);
     }
 
     /// <summary>
     /// Python files to be placed on the PYTHONPATH for PySpark application. Supported file types: .py, .egg, and .zip. For more information about Apache Spark, see Apache Spark.
     /// </summary>
-    public TerraformList<string>? PyFileUris
+    public TerraformList<string> PyFileUris
     {
-        get => GetArgument<TerraformList<string>>("py_file_uris");
+        get => GetArgument<TerraformList<string>>("py_file_uris") ?? AsReference("py_file_uris");
         set => SetArgument("py_file_uris", value);
     }
 
@@ -289,7 +289,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => GetArgument<TerraformValue<string>>("dataset_id");
+        get => GetRequiredArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -300,7 +300,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefinitionBody is required")]
     public required TerraformValue<string> DefinitionBody
     {
-        get => GetArgument<TerraformValue<string>>("definition_body");
+        get => GetRequiredArgument<TerraformValue<string>>("definition_body");
         set => SetArgument("definition_body", value);
     }
 
@@ -325,9 +325,9 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -353,9 +353,9 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -395,7 +395,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineId is required")]
     public required TerraformValue<string> RoutineId
     {
-        get => GetArgument<TerraformValue<string>>("routine_id");
+        get => GetRequiredArgument<TerraformValue<string>>("routine_id");
         set => SetArgument("routine_id", value);
     }
 
@@ -405,7 +405,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineType is required")]
     public required TerraformValue<string> RoutineType
     {
-        get => GetArgument<TerraformValue<string>>("routine_type");
+        get => GetRequiredArgument<TerraformValue<string>>("routine_type");
         set => SetArgument("routine_type", value);
     }
 

@@ -37,7 +37,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformValue<double> RuleNumber
     {
-        get => GetArgument<TerraformValue<double>>("rule_number");
+        get => GetRequiredArgument<TerraformValue<double>>("rule_number");
         set => SetArgument("rule_number", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AsnRanges is required")]
     public required TerraformSet<string> AsnRanges
     {
-        get => GetArgument<TerraformSet<string>>("asn_ranges");
+        get => GetRequiredArgument<TerraformSet<string>>("asn_ranges");
         set => SetArgument("asn_ranges", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -316,7 +316,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -326,7 +326,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequireAttachmentAcceptance is required")]
     public required TerraformValue<bool> RequireAttachmentAcceptance
     {
-        get => GetArgument<TerraformValue<bool>>("require_attachment_acceptance");
+        get => GetRequiredArgument<TerraformValue<bool>>("require_attachment_acceptance");
         set => SetArgument("require_attachment_acceptance", value);
     }
 
@@ -350,7 +350,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -396,7 +396,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Segment is required")]
     public required TerraformValue<string> Segment
     {
-        get => GetArgument<TerraformValue<string>>("segment");
+        get => GetRequiredArgument<TerraformValue<string>>("segment");
         set => SetArgument("segment", value);
     }
 
@@ -597,7 +597,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -622,9 +622,9 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource(string
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 

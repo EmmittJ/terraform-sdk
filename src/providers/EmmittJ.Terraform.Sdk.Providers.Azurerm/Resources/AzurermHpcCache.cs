@@ -45,7 +45,7 @@ public class AzurermHpcCacheDefaultAccessPolicyBlockAccessRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
     public required TerraformValue<string> Access
     {
-        get => GetArgument<TerraformValue<string>>("access");
+        get => GetRequiredArgument<TerraformValue<string>>("access");
         set => SetArgument("access", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermHpcCacheDefaultAccessPolicyBlockAccessRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => GetArgument<TerraformValue<string>>("scope");
+        get => GetRequiredArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheNetbiosName is required")]
     public required TerraformValue<string> CacheNetbiosName
     {
-        get => GetArgument<TerraformValue<string>>("cache_netbios_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cache_netbios_name");
         set => SetArgument("cache_netbios_name", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsPrimaryIp is required")]
     public required TerraformValue<string> DnsPrimaryIp
     {
-        get => GetArgument<TerraformValue<string>>("dns_primary_ip");
+        get => GetRequiredArgument<TerraformValue<string>>("dns_primary_ip");
         set => SetArgument("dns_primary_ip", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => GetArgument<TerraformValue<string>>("domain_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNetbiosName is required")]
     public required TerraformValue<string> DomainNetbiosName
     {
-        get => GetArgument<TerraformValue<string>>("domain_netbios_name");
+        get => GetRequiredArgument<TerraformValue<string>>("domain_netbios_name");
         set => SetArgument("domain_netbios_name", value);
     }
 
@@ -182,7 +182,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -192,7 +192,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => GetArgument<TerraformValue<string>>("username");
+        get => GetRequiredArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -216,7 +216,7 @@ public class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupFileUri is required")]
     public required TerraformValue<string> GroupFileUri
     {
-        get => GetArgument<TerraformValue<string>>("group_file_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("group_file_uri");
         set => SetArgument("group_file_uri", value);
     }
 
@@ -226,7 +226,7 @@ public class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordFileUri is required")]
     public required TerraformValue<string> PasswordFileUri
     {
-        get => GetArgument<TerraformValue<string>>("password_file_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("password_file_uri");
         set => SetArgument("password_file_uri", value);
     }
 
@@ -250,7 +250,7 @@ public class AzurermHpcCacheDirectoryLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseDn is required")]
     public required TerraformValue<string> BaseDn
     {
-        get => GetArgument<TerraformValue<string>>("base_dn");
+        get => GetRequiredArgument<TerraformValue<string>>("base_dn");
         set => SetArgument("base_dn", value);
     }
 
@@ -287,7 +287,7 @@ public class AzurermHpcCacheDirectoryLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => GetArgument<TerraformValue<string>>("server");
+        get => GetRequiredArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -320,7 +320,7 @@ public class AzurermHpcCacheDirectoryLdapBlockBindBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dn is required")]
     public required TerraformValue<string> Dn
     {
-        get => GetArgument<TerraformValue<string>>("dn");
+        get => GetRequiredArgument<TerraformValue<string>>("dn");
         set => SetArgument("dn", value);
     }
 
@@ -330,7 +330,7 @@ public class AzurermHpcCacheDirectoryLdapBlockBindBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => GetArgument<TerraformValue<string>>("password");
+        get => GetRequiredArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -408,7 +408,7 @@ public class AzurermHpcCacheIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -487,16 +487,16 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheSizeInGb is required")]
     public required TerraformValue<double> CacheSizeInGb
     {
-        get => GetArgument<TerraformValue<double>>("cache_size_in_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("cache_size_in_gb");
         set => SetArgument("cache_size_in_gb", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -515,7 +515,7 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -534,7 +534,7 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -553,7 +553,7 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -563,7 +563,7 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => GetArgument<TerraformValue<string>>("sku_name");
+        get => GetRequiredArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -573,7 +573,7 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => GetArgument<TerraformValue<string>>("subnet_id");
+        get => GetRequiredArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 

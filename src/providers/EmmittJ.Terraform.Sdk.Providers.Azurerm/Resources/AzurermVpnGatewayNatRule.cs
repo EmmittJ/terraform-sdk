@@ -19,7 +19,7 @@ public class AzurermVpnGatewayNatRuleExternalMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformValue<string> AddressSpace
     {
-        get => GetArgument<TerraformValue<string>>("address_space");
+        get => GetRequiredArgument<TerraformValue<string>>("address_space");
         set => SetArgument("address_space", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermVpnGatewayNatRuleInternalMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformValue<string> AddressSpace
     {
-        get => GetArgument<TerraformValue<string>>("address_space");
+        get => GetRequiredArgument<TerraformValue<string>>("address_space");
         set => SetArgument("address_space", value);
     }
 
@@ -127,9 +127,9 @@ public partial class AzurermVpnGatewayNatRule(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermVpnGatewayNatRule(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermVpnGatewayNatRule(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
     public required TerraformValue<string> VpnGatewayId
     {
-        get => GetArgument<TerraformValue<string>>("vpn_gateway_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpn_gateway_id");
         set => SetArgument("vpn_gateway_id", value);
     }
 

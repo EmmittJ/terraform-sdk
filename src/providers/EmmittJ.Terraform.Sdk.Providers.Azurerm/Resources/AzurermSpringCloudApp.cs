@@ -28,7 +28,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => GetArgument<TerraformValue<string>>("mount_path");
+        get => GetRequiredArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformValue<string> ShareName
     {
-        get => GetArgument<TerraformValue<string>>("share_name");
+        get => GetRequiredArgument<TerraformValue<string>>("share_name");
         set => SetArgument("share_name", value);
     }
 
@@ -57,7 +57,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageName is required")]
     public required TerraformValue<string> StorageName
     {
-        get => GetArgument<TerraformValue<string>>("storage_name");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_name");
         set => SetArgument("storage_name", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermSpringCloudAppPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGb is required")]
     public required TerraformValue<double> SizeInGb
     {
-        get => GetArgument<TerraformValue<double>>("size_in_gb");
+        get => GetRequiredArgument<TerraformValue<double>>("size_in_gb");
         set => SetArgument("size_in_gb", value);
     }
 
@@ -260,9 +260,9 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// <summary>
     /// The addon_json attribute.
     /// </summary>
-    public TerraformValue<string>? AddonJson
+    public TerraformValue<string> AddonJson
     {
-        get => GetArgument<TerraformValue<string>>("addon_json");
+        get => GetArgument<TerraformValue<string>>("addon_json") ?? AsReference("addon_json");
         set => SetArgument("addon_json", value);
     }
 
@@ -278,9 +278,9 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -299,7 +299,7 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -318,7 +318,7 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -328,7 +328,7 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => GetArgument<TerraformValue<string>>("service_name");
+        get => GetRequiredArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 

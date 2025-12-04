@@ -43,9 +43,9 @@ public partial class AwsVpcRouteServerVpcAssociation(string name) : TerraformRes
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsVpcRouteServerVpcAssociation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerId is required")]
     public required TerraformValue<string> RouteServerId
     {
-        get => GetArgument<TerraformValue<string>>("route_server_id");
+        get => GetRequiredArgument<TerraformValue<string>>("route_server_id");
         set => SetArgument("route_server_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsVpcRouteServerVpcAssociation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 

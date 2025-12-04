@@ -199,7 +199,7 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockConfigmanagementBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretType is required")]
     public required TerraformValue<string> SecretType
     {
-        get => GetArgument<TerraformValue<string>>("secret_type");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_type");
         set => SetArgument("secret_type", value);
     }
 
@@ -276,7 +276,7 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockConfigmanagementBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretType is required")]
     public required TerraformValue<string> SecretType
     {
-        get => GetArgument<TerraformValue<string>>("secret_type");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_type");
         set => SetArgument("secret_type", value);
     }
 
@@ -327,7 +327,7 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockMeshBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Management is required")]
     public required TerraformValue<string> Management
     {
-        get => GetArgument<TerraformValue<string>>("management");
+        get => GetRequiredArgument<TerraformValue<string>>("management");
         set => SetArgument("management", value);
     }
 
@@ -347,9 +347,9 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockPolicycontrollerBlo
     /// <summary>
     /// Configures the version of Policy Controller
     /// </summary>
-    public TerraformValue<string>? Version
+    public TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetArgument<TerraformValue<string>>("version") ?? AsReference("version");
         set => SetArgument("version", value);
     }
 
@@ -412,7 +412,7 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockPolicycontrollerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstallSpec is required")]
     public required TerraformValue<string> InstallSpec
     {
-        get => GetArgument<TerraformValue<string>>("install_spec");
+        get => GetRequiredArgument<TerraformValue<string>>("install_spec");
         set => SetArgument("install_spec", value);
     }
 
@@ -491,25 +491,25 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockPolicycontrollerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Component is required")]
     public required TerraformValue<string> Component
     {
-        get => GetArgument<TerraformValue<string>>("component");
+        get => GetRequiredArgument<TerraformValue<string>>("component");
         set => SetArgument("component", value);
     }
 
     /// <summary>
     /// Pod affinity configuration. Possible values: [&amp;quot;AFFINITY_UNSPECIFIED&amp;quot;, &amp;quot;NO_AFFINITY&amp;quot;, &amp;quot;ANTI_AFFINITY&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? PodAffinity
+    public TerraformValue<string> PodAffinity
     {
-        get => GetArgument<TerraformValue<string>>("pod_affinity");
+        get => GetArgument<TerraformValue<string>>("pod_affinity") ?? AsReference("pod_affinity");
         set => SetArgument("pod_affinity", value);
     }
 
     /// <summary>
     /// Pod replica count.
     /// </summary>
-    public TerraformValue<double>? ReplicaCount
+    public TerraformValue<double> ReplicaCount
     {
-        get => GetArgument<TerraformValue<double>>("replica_count");
+        get => GetArgument<TerraformValue<double>>("replica_count") ?? AsReference("replica_count");
         set => SetArgument("replica_count", value);
     }
 
@@ -692,9 +692,9 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockPolicycontrollerBlo
     /// <summary>
     /// Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. Possible values: [&amp;quot;MONITORING_BACKEND_UNSPECIFIED&amp;quot;, &amp;quot;PROMETHEUS&amp;quot;, &amp;quot;CLOUD_MONITORING&amp;quot;]
     /// </summary>
-    public TerraformList<string>? Backends
+    public TerraformList<string> Backends
     {
-        get => GetArgument<TerraformList<string>>("backends");
+        get => GetArgument<TerraformList<string>>("backends") ?? AsReference("backends");
         set => SetArgument("backends", value);
     }
 
@@ -749,7 +749,7 @@ public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlockPolicycontrollerBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bundle is required")]
     public required TerraformValue<string> Bundle
     {
-        get => GetArgument<TerraformValue<string>>("bundle");
+        get => GetRequiredArgument<TerraformValue<string>>("bundle");
         set => SetArgument("bundle", value);
     }
 
@@ -938,7 +938,7 @@ public class GoogleGkeHubFeatureSpecBlockClusterupgradeBlockGkeUpgradeOverridesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Soaking is required")]
     public required TerraformValue<string> Soaking
     {
-        get => GetArgument<TerraformValue<string>>("soaking");
+        get => GetRequiredArgument<TerraformValue<string>>("soaking");
         set => SetArgument("soaking", value);
     }
 
@@ -961,7 +961,7 @@ public class GoogleGkeHubFeatureSpecBlockClusterupgradeBlockGkeUpgradeOverridesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -971,7 +971,7 @@ public class GoogleGkeHubFeatureSpecBlockClusterupgradeBlockGkeUpgradeOverridesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => GetArgument<TerraformValue<string>>("version");
+        get => GetRequiredArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -994,7 +994,7 @@ public class GoogleGkeHubFeatureSpecBlockClusterupgradeBlockPostConditionsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Soaking is required")]
     public required TerraformValue<string> Soaking
     {
-        get => GetArgument<TerraformValue<string>>("soaking");
+        get => GetRequiredArgument<TerraformValue<string>>("soaking");
         set => SetArgument("soaking", value);
     }
 
@@ -1117,7 +1117,7 @@ public class GoogleGkeHubFeatureSpecBlockMulticlusteringressBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigMembership is required")]
     public required TerraformValue<string> ConfigMembership
     {
-        get => GetArgument<TerraformValue<string>>("config_membership");
+        get => GetRequiredArgument<TerraformValue<string>>("config_membership");
         set => SetArgument("config_membership", value);
     }
 
@@ -1196,9 +1196,9 @@ public partial class GoogleGkeHubFeature(string name) : TerraformResource("googl
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -1220,7 +1220,7 @@ public partial class GoogleGkeHubFeature(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1236,9 +1236,9 @@ public partial class GoogleGkeHubFeature(string name) : TerraformResource("googl
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

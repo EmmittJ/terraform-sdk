@@ -19,7 +19,7 @@ public class AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferen
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => GetArgument<TerraformValue<string>>("source");
+        get => GetRequiredArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsComputeoptimizerRecommendationPreferencesScopeBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsComputeoptimizerRecommendationPreferencesScopeBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => GetArgument<TerraformValue<string>>("value");
+        get => GetRequiredArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => GetArgument<TerraformValue<string>>("metric_name");
+        get => GetRequiredArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Headroom is required")]
     public required TerraformValue<string> Headroom
     {
-        get => GetArgument<TerraformValue<string>>("headroom");
+        get => GetRequiredArgument<TerraformValue<string>>("headroom");
         set => SetArgument("headroom", value);
     }
 
@@ -194,18 +194,18 @@ public partial class AwsComputeoptimizerRecommendationPreferences(string name) :
     /// <summary>
     /// The look_back_period attribute.
     /// </summary>
-    public TerraformValue<string>? LookBackPeriod
+    public TerraformValue<string> LookBackPeriod
     {
-        get => GetArgument<TerraformValue<string>>("look_back_period");
+        get => GetArgument<TerraformValue<string>>("look_back_period") ?? AsReference("look_back_period");
         set => SetArgument("look_back_period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AwsComputeoptimizerRecommendationPreferences(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => GetArgument<TerraformValue<string>>("resource_type");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 

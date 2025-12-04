@@ -52,9 +52,9 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEn
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceResourceId is required")]
     public required TerraformValue<string> ServiceResourceId
     {
-        get => GetArgument<TerraformValue<string>>("service_resource_id");
+        get => GetRequiredArgument<TerraformValue<string>>("service_resource_id");
         set => SetArgument("service_resource_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubResourceTarget is required")]
     public required TerraformValue<string> SubResourceTarget
     {
-        get => GetArgument<TerraformValue<string>>("sub_resource_target");
+        get => GetRequiredArgument<TerraformValue<string>>("sub_resource_target");
         set => SetArgument("sub_resource_target", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => GetArgument<TerraformValue<string>>("workspace_id");
+        get => GetRequiredArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

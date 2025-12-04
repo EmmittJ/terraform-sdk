@@ -142,7 +142,7 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     /// <param name="terraformName">The Terraform property name.</param>
     /// <returns>The stored value.</returns>
     /// <exception cref="InvalidOperationException">Thrown when a required property has not been set.</exception>
-    protected TValue GetRequiredArgument<TValue>(string terraformName)
+    public TValue GetRequiredArgument<TValue>(string terraformName)
     {
         return GetArgument<TValue>(terraformName)
             ?? throw new InvalidOperationException(

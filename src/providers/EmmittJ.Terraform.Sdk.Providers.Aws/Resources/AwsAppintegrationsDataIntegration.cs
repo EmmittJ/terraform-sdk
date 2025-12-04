@@ -19,7 +19,7 @@ public class AwsAppintegrationsDataIntegrationScheduleConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstExecutionFrom is required")]
     public required TerraformValue<string> FirstExecutionFrom
     {
-        get => GetArgument<TerraformValue<string>>("first_execution_from");
+        get => GetRequiredArgument<TerraformValue<string>>("first_execution_from");
         set => SetArgument("first_execution_from", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsAppintegrationsDataIntegrationScheduleConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => GetArgument<TerraformValue<string>>("object");
+        get => GetRequiredArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsAppintegrationsDataIntegrationScheduleConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformValue<string> ScheduleExpression
     {
-        get => GetArgument<TerraformValue<string>>("schedule_expression");
+        get => GetRequiredArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
@@ -64,9 +64,9 @@ public partial class AwsAppintegrationsDataIntegration(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsAppintegrationsDataIntegration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformValue<string> KmsKey
     {
-        get => GetArgument<TerraformValue<string>>("kms_key");
+        get => GetRequiredArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -86,16 +86,16 @@ public partial class AwsAppintegrationsDataIntegration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsAppintegrationsDataIntegration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUri is required")]
     public required TerraformValue<string> SourceUri
     {
-        get => GetArgument<TerraformValue<string>>("source_uri");
+        get => GetRequiredArgument<TerraformValue<string>>("source_uri");
         set => SetArgument("source_uri", value);
     }
 
@@ -121,9 +121,9 @@ public partial class AwsAppintegrationsDataIntegration(string name) : TerraformR
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

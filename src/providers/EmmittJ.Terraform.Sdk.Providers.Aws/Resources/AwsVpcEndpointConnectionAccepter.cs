@@ -11,18 +11,18 @@ public partial class AwsVpcEndpointConnectionAccepter(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsVpcEndpointConnectionAccepter(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
     public required TerraformValue<string> VpcEndpointId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_endpoint_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_endpoint_id");
         set => SetArgument("vpc_endpoint_id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsVpcEndpointConnectionAccepter(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointServiceId is required")]
     public required TerraformValue<string> VpcEndpointServiceId
     {
-        get => GetArgument<TerraformValue<string>>("vpc_endpoint_service_id");
+        get => GetRequiredArgument<TerraformValue<string>>("vpc_endpoint_service_id");
         set => SetArgument("vpc_endpoint_service_id", value);
     }
 

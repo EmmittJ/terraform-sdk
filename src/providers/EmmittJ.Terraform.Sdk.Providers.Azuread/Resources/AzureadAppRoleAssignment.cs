@@ -55,16 +55,16 @@ public partial class AzureadAppRoleAssignment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppRoleId is required")]
     public required TerraformValue<string> AppRoleId
     {
-        get => GetArgument<TerraformValue<string>>("app_role_id");
+        get => GetRequiredArgument<TerraformValue<string>>("app_role_id");
         set => SetArgument("app_role_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadAppRoleAssignment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalObjectId is required")]
     public required TerraformValue<string> PrincipalObjectId
     {
-        get => GetArgument<TerraformValue<string>>("principal_object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_object_id");
         set => SetArgument("principal_object_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzureadAppRoleAssignment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceObjectId is required")]
     public required TerraformValue<string> ResourceObjectId
     {
-        get => GetArgument<TerraformValue<string>>("resource_object_id");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_object_id");
         set => SetArgument("resource_object_id", value);
     }
 

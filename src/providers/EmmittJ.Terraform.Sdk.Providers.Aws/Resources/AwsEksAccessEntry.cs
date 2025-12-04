@@ -46,25 +46,25 @@ public partial class AwsEksAccessEntry(string name) : TerraformResource("aws_eks
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => GetArgument<TerraformValue<string>>("cluster_name");
+        get => GetRequiredArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kubernetes_groups attribute.
     /// </summary>
-    public TerraformSet<string>? KubernetesGroups
+    public TerraformSet<string> KubernetesGroups
     {
-        get => GetArgument<TerraformSet<string>>("kubernetes_groups");
+        get => GetArgument<TerraformSet<string>>("kubernetes_groups") ?? AsReference("kubernetes_groups");
         set => SetArgument("kubernetes_groups", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsEksAccessEntry(string name) : TerraformResource("aws_eks
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     public required TerraformValue<string> PrincipalArn
     {
-        get => GetArgument<TerraformValue<string>>("principal_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("principal_arn");
         set => SetArgument("principal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -99,9 +99,9 @@ public partial class AwsEksAccessEntry(string name) : TerraformResource("aws_eks
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -117,9 +117,9 @@ public partial class AwsEksAccessEntry(string name) : TerraformResource("aws_eks
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformValue<string>? UserName
+    public TerraformValue<string> UserName
     {
-        get => GetArgument<TerraformValue<string>>("user_name");
+        get => GetArgument<TerraformValue<string>>("user_name") ?? AsReference("user_name");
         set => SetArgument("user_name", value);
     }
 

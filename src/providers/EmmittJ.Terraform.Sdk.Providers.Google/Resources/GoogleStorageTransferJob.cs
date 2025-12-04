@@ -37,7 +37,7 @@ public class GoogleStorageTransferJobEventStreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
     public required TerraformValue<string> PayloadFormat
     {
-        get => GetArgument<TerraformValue<string>>("payload_format");
+        get => GetRequiredArgument<TerraformValue<string>>("payload_format");
         set => SetArgument("payload_format", value);
     }
 
@@ -121,7 +121,7 @@ public class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformValue<string> PubsubTopic
     {
-        get => GetArgument<TerraformValue<string>>("pubsub_topic");
+        get => GetRequiredArgument<TerraformValue<string>>("pubsub_topic");
         set => SetArgument("pubsub_topic", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockGcsDataSinkBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -230,7 +230,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockGcsDataSourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -538,7 +538,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleEndDateBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => GetArgument<TerraformValue<double>>("day");
+        get => GetRequiredArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -548,7 +548,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleEndDateBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => GetArgument<TerraformValue<double>>("month");
+        get => GetRequiredArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -558,7 +558,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleEndDateBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => GetArgument<TerraformValue<double>>("year");
+        get => GetRequiredArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -581,7 +581,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleStartDateBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => GetArgument<TerraformValue<double>>("day");
+        get => GetRequiredArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -591,7 +591,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleStartDateBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => GetArgument<TerraformValue<double>>("month");
+        get => GetRequiredArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -601,7 +601,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleStartDateBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => GetArgument<TerraformValue<double>>("year");
+        get => GetRequiredArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -624,7 +624,7 @@ public class GoogleStorageTransferJobScheduleBlockStartTimeOfDayBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hours is required")]
     public required TerraformValue<double> Hours
     {
-        get => GetArgument<TerraformValue<double>>("hours");
+        get => GetRequiredArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -634,7 +634,7 @@ public class GoogleStorageTransferJobScheduleBlockStartTimeOfDayBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minutes is required")]
     public required TerraformValue<double> Minutes
     {
-        get => GetArgument<TerraformValue<double>>("minutes");
+        get => GetRequiredArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -644,7 +644,7 @@ public class GoogleStorageTransferJobScheduleBlockStartTimeOfDayBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Nanos is required")]
     public required TerraformValue<double> Nanos
     {
-        get => GetArgument<TerraformValue<double>>("nanos");
+        get => GetRequiredArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -654,7 +654,7 @@ public class GoogleStorageTransferJobScheduleBlockStartTimeOfDayBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<double> Seconds
     {
-        get => GetArgument<TerraformValue<double>>("seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -675,18 +675,18 @@ public class GoogleStorageTransferJobTransferSpecBlock : TerraformBlock
     /// <summary>
     /// Specifies the agent pool name associated with the posix data source. When unspecified, the default name is used.
     /// </summary>
-    public TerraformValue<string>? SinkAgentPoolName
+    public TerraformValue<string> SinkAgentPoolName
     {
-        get => GetArgument<TerraformValue<string>>("sink_agent_pool_name");
+        get => GetArgument<TerraformValue<string>>("sink_agent_pool_name") ?? AsReference("sink_agent_pool_name");
         set => SetArgument("sink_agent_pool_name", value);
     }
 
     /// <summary>
     /// Specifies the agent pool name associated with the posix data source. When unspecified, the default name is used.
     /// </summary>
-    public TerraformValue<string>? SourceAgentPoolName
+    public TerraformValue<string> SourceAgentPoolName
     {
-        get => GetArgument<TerraformValue<string>>("source_agent_pool_name");
+        get => GetArgument<TerraformValue<string>>("source_agent_pool_name") ?? AsReference("source_agent_pool_name");
         set => SetArgument("source_agent_pool_name", value);
     }
 
@@ -829,7 +829,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3CompatibleDataSourceB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -839,7 +839,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3CompatibleDataSourceB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => GetArgument<TerraformValue<string>>("endpoint");
+        get => GetRequiredArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -939,7 +939,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3DataSourceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1017,7 +1017,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3DataSourceBlockAwsAcc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
     public required TerraformValue<string> AccessKeyId
     {
-        get => GetArgument<TerraformValue<string>>("access_key_id");
+        get => GetRequiredArgument<TerraformValue<string>>("access_key_id");
         set => SetArgument("access_key_id", value);
     }
 
@@ -1027,7 +1027,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3DataSourceBlockAwsAcc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretAccessKey is required")]
     public required TerraformValue<string> SecretAccessKey
     {
-        get => GetArgument<TerraformValue<string>>("secret_access_key");
+        get => GetRequiredArgument<TerraformValue<string>>("secret_access_key");
         set => SetArgument("secret_access_key", value);
     }
 
@@ -1050,7 +1050,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     public required TerraformValue<string> Container
     {
-        get => GetArgument<TerraformValue<string>>("container");
+        get => GetRequiredArgument<TerraformValue<string>>("container");
         set => SetArgument("container", value);
     }
 
@@ -1066,9 +1066,9 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     /// <summary>
     /// Root path to transfer objects. Must be an empty string or full path name that ends with a &#39;/&#39;. This field is treated as an object prefix. As such, it should generally not begin with a &#39;/&#39;.
     /// </summary>
-    public TerraformValue<string>? Path
+    public TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetArgument<TerraformValue<string>>("path") ?? AsReference("path");
         set => SetArgument("path", value);
     }
 
@@ -1078,7 +1078,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccount is required")]
     public required TerraformValue<string> StorageAccount
     {
-        get => GetArgument<TerraformValue<string>>("storage_account");
+        get => GetRequiredArgument<TerraformValue<string>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 
@@ -1121,7 +1121,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasToken is required")]
     public required TerraformValue<string> SasToken
     {
-        get => GetArgument<TerraformValue<string>>("sas_token");
+        get => GetRequiredArgument<TerraformValue<string>>("sas_token");
         set => SetArgument("sas_token", value);
     }
 
@@ -1144,7 +1144,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => GetArgument<TerraformValue<string>>("client_id");
+        get => GetRequiredArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1154,7 +1154,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => GetArgument<TerraformValue<string>>("tenant_id");
+        get => GetRequiredArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -1177,7 +1177,7 @@ public class GoogleStorageTransferJobTransferSpecBlockGcsDataSinkBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1209,7 +1209,7 @@ public class GoogleStorageTransferJobTransferSpecBlockGcsDataSourceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => GetArgument<TerraformValue<string>>("bucket_name");
+        get => GetRequiredArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1241,7 +1241,7 @@ public class GoogleStorageTransferJobTransferSpecBlockHdfsDataSourceBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => GetArgument<TerraformValue<string>>("path");
+        get => GetRequiredArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1264,7 +1264,7 @@ public class GoogleStorageTransferJobTransferSpecBlockHttpDataSourceBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListUrl is required")]
     public required TerraformValue<string> ListUrl
     {
-        get => GetArgument<TerraformValue<string>>("list_url");
+        get => GetRequiredArgument<TerraformValue<string>>("list_url");
         set => SetArgument("list_url", value);
     }
 
@@ -1354,7 +1354,7 @@ public class GoogleStorageTransferJobTransferSpecBlockPosixDataSinkBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootDirectory is required")]
     public required TerraformValue<string> RootDirectory
     {
-        get => GetArgument<TerraformValue<string>>("root_directory");
+        get => GetRequiredArgument<TerraformValue<string>>("root_directory");
         set => SetArgument("root_directory", value);
     }
 
@@ -1377,7 +1377,7 @@ public class GoogleStorageTransferJobTransferSpecBlockPosixDataSourceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootDirectory is required")]
     public required TerraformValue<string> RootDirectory
     {
-        get => GetArgument<TerraformValue<string>>("root_directory");
+        get => GetRequiredArgument<TerraformValue<string>>("root_directory");
         set => SetArgument("root_directory", value);
     }
 
@@ -1400,7 +1400,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferManifestBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1572,34 +1572,34 @@ public partial class GoogleStorageTransferJob(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => GetArgument<TerraformValue<string>>("description");
+        get => GetRequiredArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name of the Transfer Job.
     /// </summary>
-    public TerraformValue<string>? Name
+    public TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetArgument<TerraformValue<string>>("name") ?? AsReference("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 

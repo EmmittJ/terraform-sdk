@@ -16,27 +16,27 @@ public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : Terrafo
     /// <summary>
     /// The export_from_time attribute.
     /// </summary>
-    public TerraformValue<string>? ExportFromTime
+    public TerraformValue<string> ExportFromTime
     {
-        get => GetArgument<TerraformValue<string>>("export_from_time");
+        get => GetArgument<TerraformValue<string>>("export_from_time") ?? AsReference("export_from_time");
         set => SetArgument("export_from_time", value);
     }
 
     /// <summary>
     /// The export_to_time attribute.
     /// </summary>
-    public TerraformValue<string>? ExportToTime
+    public TerraformValue<string> ExportToTime
     {
-        get => GetArgument<TerraformValue<string>>("export_to_time");
+        get => GetArgument<TerraformValue<string>>("export_to_time") ?? AsReference("export_to_time");
         set => SetArgument("export_to_time", value);
     }
 
     /// <summary>
     /// The export_view_type attribute.
     /// </summary>
-    public TerraformValue<string>? ExportViewType
+    public TerraformValue<string> ExportViewType
     {
-        get => GetArgument<TerraformValue<string>>("export_view_type");
+        get => GetArgument<TerraformValue<string>>("export_view_type") ?? AsReference("export_view_type");
         set => SetArgument("export_view_type", value);
     }
 
@@ -93,36 +93,36 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// <summary>
     /// The export_time attribute.
     /// </summary>
-    public TerraformValue<string>? ExportTime
+    public TerraformValue<string> ExportTime
     {
-        get => GetArgument<TerraformValue<string>>("export_time");
+        get => GetArgument<TerraformValue<string>>("export_time") ?? AsReference("export_time");
         set => SetArgument("export_time", value);
     }
 
     /// <summary>
     /// The export_type attribute.
     /// </summary>
-    public TerraformValue<string>? ExportType
+    public TerraformValue<string> ExportType
     {
-        get => GetArgument<TerraformValue<string>>("export_type");
+        get => GetArgument<TerraformValue<string>>("export_type") ?? AsReference("export_type");
         set => SetArgument("export_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -132,34 +132,34 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket");
+        get => GetRequiredArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
     /// <summary>
     /// The s3_bucket_owner attribute.
     /// </summary>
-    public TerraformValue<string>? S3BucketOwner
+    public TerraformValue<string> S3BucketOwner
     {
-        get => GetArgument<TerraformValue<string>>("s3_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_owner") ?? AsReference("s3_bucket_owner");
         set => SetArgument("s3_bucket_owner", value);
     }
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public TerraformValue<string>? S3Prefix
+    public TerraformValue<string> S3Prefix
     {
-        get => GetArgument<TerraformValue<string>>("s3_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_prefix") ?? AsReference("s3_prefix");
         set => SetArgument("s3_prefix", value);
     }
 
     /// <summary>
     /// The s3_sse_algorithm attribute.
     /// </summary>
-    public TerraformValue<string>? S3SseAlgorithm
+    public TerraformValue<string> S3SseAlgorithm
     {
-        get => GetArgument<TerraformValue<string>>("s3_sse_algorithm");
+        get => GetArgument<TerraformValue<string>>("s3_sse_algorithm") ?? AsReference("s3_sse_algorithm");
         set => SetArgument("s3_sse_algorithm", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableArn is required")]
     public required TerraformValue<string> TableArn
     {
-        get => GetArgument<TerraformValue<string>>("table_arn");
+        get => GetRequiredArgument<TerraformValue<string>>("table_arn");
         set => SetArgument("table_arn", value);
     }
 

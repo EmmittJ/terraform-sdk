@@ -20,7 +20,7 @@ public class GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptEndpointGroup is required")]
     public required TerraformValue<string> InterceptEndpointGroup
     {
-        get => GetArgument<TerraformValue<string>>("intercept_endpoint_group");
+        get => GetRequiredArgument<TerraformValue<string>>("intercept_endpoint_group");
         set => SetArgument("intercept_endpoint_group", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringEndpointGroup is required")]
     public required TerraformValue<string> MirroringEndpointGroup
     {
-        get => GetArgument<TerraformValue<string>>("mirroring_endpoint_group");
+        get => GetRequiredArgument<TerraformValue<string>>("mirroring_endpoint_group");
         set => SetArgument("mirroring_endpoint_group", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockAnt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockAnt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockSev
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockSev
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformValue<string> Severity
     {
-        get => GetArgument<TerraformValue<string>>("severity");
+        get => GetRequiredArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockThr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => GetArgument<TerraformValue<string>>("action");
+        get => GetRequiredArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockThr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThreatId is required")]
     public required TerraformValue<string> ThreatId
     {
-        get => GetArgument<TerraformValue<string>>("threat_id");
+        get => GetRequiredArgument<TerraformValue<string>>("threat_id");
         set => SetArgument("threat_id", value);
     }
 
@@ -257,9 +257,9 @@ public partial class GoogleNetworkSecuritySecurityProfile(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -292,7 +292,7 @@ public partial class GoogleNetworkSecuritySecurityProfile(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -312,7 +312,7 @@ public partial class GoogleNetworkSecuritySecurityProfile(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

@@ -26,9 +26,9 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
     /// <summary>
     /// The insider_risk_levels attribute.
     /// </summary>
-    public TerraformValue<string>? InsiderRiskLevels
+    public TerraformValue<string> InsiderRiskLevels
     {
-        get => GetArgument<TerraformValue<string>>("insider_risk_levels");
+        get => GetArgument<TerraformValue<string>>("insider_risk_levels") ?? AsReference("insider_risk_levels");
         set => SetArgument("insider_risk_levels", value);
     }
 
@@ -225,7 +225,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockClientApplicationsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -235,7 +235,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockClientApplicationsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformValue<string> Rule
     {
-        get => GetArgument<TerraformValue<string>>("rule");
+        get => GetRequiredArgument<TerraformValue<string>>("rule");
         set => SetArgument("rule", value);
     }
 
@@ -281,7 +281,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockDevicesBlockFilterBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => GetArgument<TerraformValue<string>>("mode");
+        get => GetRequiredArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -291,7 +291,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockDevicesBlockFilterBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformValue<string> Rule
     {
-        get => GetArgument<TerraformValue<string>>("rule");
+        get => GetRequiredArgument<TerraformValue<string>>("rule");
         set => SetArgument("rule", value);
     }
 
@@ -504,7 +504,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlockExcludedGues
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipKind is required")]
     public required TerraformValue<string> MembershipKind
     {
-        get => GetArgument<TerraformValue<string>>("membership_kind");
+        get => GetRequiredArgument<TerraformValue<string>>("membership_kind");
         set => SetArgument("membership_kind", value);
     }
 
@@ -568,7 +568,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlockIncludedGues
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipKind is required")]
     public required TerraformValue<string> MembershipKind
     {
-        get => GetArgument<TerraformValue<string>>("membership_kind");
+        get => GetRequiredArgument<TerraformValue<string>>("membership_kind");
         set => SetArgument("membership_kind", value);
     }
 
@@ -619,7 +619,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => GetArgument<TerraformValue<string>>("operator");
+        get => GetRequiredArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -694,18 +694,18 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// <summary>
     /// The sign_in_frequency_authentication_type attribute.
     /// </summary>
-    public TerraformValue<string>? SignInFrequencyAuthenticationType
+    public TerraformValue<string> SignInFrequencyAuthenticationType
     {
-        get => GetArgument<TerraformValue<string>>("sign_in_frequency_authentication_type");
+        get => GetArgument<TerraformValue<string>>("sign_in_frequency_authentication_type") ?? AsReference("sign_in_frequency_authentication_type");
         set => SetArgument("sign_in_frequency_authentication_type", value);
     }
 
     /// <summary>
     /// The sign_in_frequency_interval attribute.
     /// </summary>
-    public TerraformValue<string>? SignInFrequencyInterval
+    public TerraformValue<string> SignInFrequencyInterval
     {
-        get => GetArgument<TerraformValue<string>>("sign_in_frequency_interval");
+        get => GetArgument<TerraformValue<string>>("sign_in_frequency_interval") ?? AsReference("sign_in_frequency_interval");
         set => SetArgument("sign_in_frequency_interval", value);
     }
 
@@ -783,16 +783,16 @@ public partial class AzureadConditionalAccessPolicy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => GetArgument<TerraformValue<string>>("display_name");
+        get => GetRequiredArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -802,7 +802,7 @@ public partial class AzureadConditionalAccessPolicy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => GetArgument<TerraformValue<string>>("state");
+        get => GetRequiredArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 

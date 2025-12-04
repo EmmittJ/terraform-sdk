@@ -25,9 +25,9 @@ public class AwsKeyspacesTableCapacitySpecificationBlock : TerraformBlock
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
-    public TerraformValue<string>? ThroughputMode
+    public TerraformValue<string> ThroughputMode
     {
-        get => GetArgument<TerraformValue<string>>("throughput_mode");
+        get => GetArgument<TerraformValue<string>>("throughput_mode") ?? AsReference("throughput_mode");
         set => SetArgument("throughput_mode", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsKeyspacesTableClientSideTimestampsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetRequiredArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -81,9 +81,9 @@ public class AwsKeyspacesTableCommentBlock : TerraformBlock
     /// <summary>
     /// The message attribute.
     /// </summary>
-    public TerraformValue<string>? Message
+    public TerraformValue<string> Message
     {
-        get => GetArgument<TerraformValue<string>>("message");
+        get => GetArgument<TerraformValue<string>>("message") ?? AsReference("message");
         set => SetArgument("message", value);
     }
 
@@ -113,9 +113,9 @@ public class AwsKeyspacesTableEncryptionSpecificationBlock : TerraformBlock
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string>? Type
+    public TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetArgument<TerraformValue<string>>("type") ?? AsReference("type");
         set => SetArgument("type", value);
     }
 
@@ -136,9 +136,9 @@ public class AwsKeyspacesTablePointInTimeRecoveryBlock : TerraformBlock
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string>? Status
+    public TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetArgument<TerraformValue<string>>("status") ?? AsReference("status");
         set => SetArgument("status", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsKeyspacesTableSchemaDefinitionBlockClusteringKeyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsKeyspacesTableSchemaDefinitionBlockClusteringKeyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrderBy is required")]
     public required TerraformValue<string> OrderBy
     {
-        get => GetArgument<TerraformValue<string>>("order_by");
+        get => GetRequiredArgument<TerraformValue<string>>("order_by");
         set => SetArgument("order_by", value);
     }
 
@@ -250,7 +250,7 @@ public class AwsKeyspacesTableSchemaDefinitionBlockColumnBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -260,7 +260,7 @@ public class AwsKeyspacesTableSchemaDefinitionBlockColumnBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => GetArgument<TerraformValue<string>>("type");
+        get => GetRequiredArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsKeyspacesTableSchemaDefinitionBlockPartitionKeyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsKeyspacesTableSchemaDefinitionBlockStaticColumnBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -371,7 +371,7 @@ public class AwsKeyspacesTableTtlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => GetArgument<TerraformValue<string>>("status");
+        get => GetRequiredArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -396,9 +396,9 @@ public partial class AwsKeyspacesTable(string name) : TerraformResource("aws_key
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -408,16 +408,16 @@ public partial class AwsKeyspacesTable(string name) : TerraformResource("aws_key
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyspaceName is required")]
     public required TerraformValue<string> KeyspaceName
     {
-        get => GetArgument<TerraformValue<string>>("keyspace_name");
+        get => GetRequiredArgument<TerraformValue<string>>("keyspace_name");
         set => SetArgument("keyspace_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string>? Region
+    public TerraformValue<string> Region
     {
-        get => GetArgument<TerraformValue<string>>("region");
+        get => GetArgument<TerraformValue<string>>("region") ?? AsReference("region");
         set => SetArgument("region", value);
     }
 
@@ -427,7 +427,7 @@ public partial class AwsKeyspacesTable(string name) : TerraformResource("aws_key
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => GetArgument<TerraformValue<string>>("table_name");
+        get => GetRequiredArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -443,9 +443,9 @@ public partial class AwsKeyspacesTable(string name) : TerraformResource("aws_key
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string>? TagsAll
+    public TerraformMap<string> TagsAll
     {
-        get => GetArgument<TerraformMap<string>>("tags_all");
+        get => GetArgument<TerraformMap<string>>("tags_all") ?? AsReference("tags_all");
         set => SetArgument("tags_all", value);
     }
 

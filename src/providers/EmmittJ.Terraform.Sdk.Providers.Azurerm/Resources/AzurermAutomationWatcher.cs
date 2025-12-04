@@ -64,7 +64,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformValue<string> AutomationAccountId
     {
-        get => GetArgument<TerraformValue<string>>("automation_account_id");
+        get => GetRequiredArgument<TerraformValue<string>>("automation_account_id");
         set => SetArgument("automation_account_id", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionFrequencyInSeconds is required")]
     public required TerraformValue<double> ExecutionFrequencyInSeconds
     {
-        get => GetArgument<TerraformValue<double>>("execution_frequency_in_seconds");
+        get => GetRequiredArgument<TerraformValue<double>>("execution_frequency_in_seconds");
         set => SetArgument("execution_frequency_in_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptName is required")]
     public required TerraformValue<string> ScriptName
     {
-        get => GetArgument<TerraformValue<string>>("script_name");
+        get => GetRequiredArgument<TerraformValue<string>>("script_name");
         set => SetArgument("script_name", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptRunOn is required")]
     public required TerraformValue<string> ScriptRunOn
     {
-        get => GetArgument<TerraformValue<string>>("script_run_on");
+        get => GetRequiredArgument<TerraformValue<string>>("script_run_on");
         set => SetArgument("script_run_on", value);
     }
 

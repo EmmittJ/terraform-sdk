@@ -19,7 +19,7 @@ public class GoogleDataprocGdcServiceInstanceGdceClusterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GdceCluster is required")]
     public required TerraformValue<string> GdceCluster
     {
-        get => GetArgument<TerraformValue<string>>("gdce_cluster");
+        get => GetRequiredArgument<TerraformValue<string>>("gdce_cluster");
         set => SetArgument("gdce_cluster", value);
     }
 
@@ -99,9 +99,9 @@ public partial class GoogleDataprocGdcServiceInstance(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -123,16 +123,16 @@ public partial class GoogleDataprocGdcServiceInstance(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => GetArgument<TerraformValue<string>>("location");
+        get => GetRequiredArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
@@ -151,7 +151,7 @@ public partial class GoogleDataprocGdcServiceInstance(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceInstanceId is required")]
     public required TerraformValue<string> ServiceInstanceId
     {
-        get => GetArgument<TerraformValue<string>>("service_instance_id");
+        get => GetRequiredArgument<TerraformValue<string>>("service_instance_id");
         set => SetArgument("service_instance_id", value);
     }
 

@@ -61,9 +61,9 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLink(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLink(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLink(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsZoneName is required")]
     public required TerraformValue<string> PrivateDnsZoneName
     {
-        get => GetArgument<TerraformValue<string>>("private_dns_zone_name");
+        get => GetRequiredArgument<TerraformValue<string>>("private_dns_zone_name");
         set => SetArgument("private_dns_zone_name", value);
     }
 
@@ -99,9 +99,9 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLink(string name) : Terr
     /// <summary>
     /// The resolution_policy attribute.
     /// </summary>
-    public TerraformValue<string>? ResolutionPolicy
+    public TerraformValue<string> ResolutionPolicy
     {
-        get => GetArgument<TerraformValue<string>>("resolution_policy");
+        get => GetArgument<TerraformValue<string>>("resolution_policy") ?? AsReference("resolution_policy");
         set => SetArgument("resolution_policy", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLink(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => GetArgument<TerraformValue<string>>("resource_group_name");
+        get => GetRequiredArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLink(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformValue<string> VirtualNetworkId
     {
-        get => GetArgument<TerraformValue<string>>("virtual_network_id");
+        get => GetRequiredArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 

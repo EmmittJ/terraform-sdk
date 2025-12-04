@@ -37,7 +37,7 @@ public class GoogleComputeFirewallAllowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleComputeFirewallDenyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => GetArgument<TerraformValue<string>>("protocol");
+        get => GetRequiredArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleComputeFirewallLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     public required TerraformValue<string> Metadata
     {
-        get => GetArgument<TerraformValue<string>>("metadata");
+        get => GetRequiredArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -200,9 +200,9 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// traffic that has destination IP address in these ranges. These ranges
     /// must be expressed in CIDR format. IPv4 or IPv6 ranges are supported.
     /// </summary>
-    public TerraformSet<string>? DestinationRanges
+    public TerraformSet<string> DestinationRanges
     {
-        get => GetArgument<TerraformSet<string>>("destination_ranges");
+        get => GetArgument<TerraformSet<string>>("destination_ranges") ?? AsReference("destination_ranges");
         set => SetArgument("destination_ranges", value);
     }
 
@@ -211,9 +211,9 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// INGRESS. Note: For INGRESS traffic, one of &#39;source_ranges&#39;,
     /// &#39;source_tags&#39; or &#39;source_service_accounts&#39; is required. Possible values: [&amp;quot;INGRESS&amp;quot;, &amp;quot;EGRESS&amp;quot;]
     /// </summary>
-    public TerraformValue<string>? Direction
+    public TerraformValue<string> Direction
     {
-        get => GetArgument<TerraformValue<string>>("direction");
+        get => GetArgument<TerraformValue<string>>("direction") ?? AsReference("direction");
         set => SetArgument("direction", value);
     }
 
@@ -233,18 +233,18 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// This field denotes whether to enable logging for a particular firewall rule. If logging is enabled, logs will be exported to Stackdriver.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool>? EnableLogging
+    public TerraformValue<bool> EnableLogging
     {
-        get => GetArgument<TerraformValue<bool>>("enable_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_logging") ?? AsReference("enable_logging");
         set => SetArgument("enable_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string>? Id
+    public TerraformValue<string> Id
     {
-        get => GetArgument<TerraformValue<string>>("id");
+        get => GetArgument<TerraformValue<string>>("id") ?? AsReference("id");
         set => SetArgument("id", value);
     }
 
@@ -260,7 +260,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => GetArgument<TerraformValue<string>>("name");
+        get => GetRequiredArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -270,7 +270,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => GetArgument<TerraformValue<string>>("network");
+        get => GetRequiredArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -291,9 +291,9 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string>? Project
+    public TerraformValue<string> Project
     {
-        get => GetArgument<TerraformValue<string>>("project");
+        get => GetArgument<TerraformValue<string>>("project") ?? AsReference("project");
         set => SetArgument("project", value);
     }
 
