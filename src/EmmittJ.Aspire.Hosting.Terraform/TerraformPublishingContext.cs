@@ -231,6 +231,17 @@ internal sealed class TerraformPublishingContext
             {
                 annotation.Configure(environment.TerraformResource);
             }
+            return environment.TerraformResource.Stack;
+        }
+
+        // Also check if the environment's TerraformResource has customization annotations
+        // This handles cases where customizations are added to the TerraformResource directly
+        if (environment.TerraformResource.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var terraformResourceAnnotations))
+        {
+            foreach (var annotation in terraformResourceAnnotations)
+            {
+                annotation.Configure(environment.TerraformResource);
+            }
 
             return environment.TerraformResource.Stack;
         }

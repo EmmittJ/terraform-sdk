@@ -103,7 +103,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                 var initStep = new PipelineStep
                 {
                     Name = $"terraform-init-{Name}",
-                    Action = ctx => TerraformCommandRunner.RunTerraformCommandAsync(
+                    Action = ctx => TerraformCli.RunCommandAsync(
                         ctx,
                         "init -input=false -no-color",
                         PublishingContextUtils.GetEnvironmentOutputPath(ctx, this)),
@@ -122,8 +122,8 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                         Action = async ctx =>
                         {
                             var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(ctx, this);
-                            var sensitiveEnvVars = await TerraformVariableResolver.ResolveAllVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
-                            await TerraformCommandRunner.RunTerraformCommandAsync(
+                            var sensitiveEnvVars = await TerraformPipelineFactory.ResolveAllVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
+                            await TerraformCli.RunCommandAsync(
                                 ctx,
                                 "plan -out=aspire.tfplan -input=false -no-color",
                                 outputPath,
@@ -145,8 +145,8 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                             Action = async ctx =>
                             {
                                 var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(ctx, this);
-                                var sensitiveEnvVars = await TerraformVariableResolver.ResolveAllVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
-                                await TerraformCommandRunner.RunTerraformCommandAsync(
+                                var sensitiveEnvVars = await TerraformPipelineFactory.ResolveAllVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
+                                await TerraformCli.RunCommandAsync(
                                     ctx,
                                     "apply -auto-approve -input=false -no-color aspire.tfplan",
                                     outputPath,
@@ -190,28 +190,9 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
             {
                 var deploymentTarget = computeResource.GetDeploymentTargetAnnotation(this)?.DeploymentTarget;
 
-                if (deploymentTarget is not null && deploymentTarget.TryGetAnnotationsOfType<PipelineStepAnnotation>(out var annotations))
+                if (deploymentTarget is not null)
                 {
-                    // Resolve the deployment target's PipelineStepAnnotation and expand its steps
-                    // We do this because the deployment target is not in the model
-                    foreach (var annotation in annotations)
-                    {
-                        var childFactoryContext = new PipelineStepFactoryContext
-                        {
-                            PipelineContext = factoryContext.PipelineContext,
-                            Resource = deploymentTarget
-                        };
-
-                        var deploymentTargetSteps = await annotation.CreateStepsAsync(childFactoryContext).ConfigureAwait(false);
-
-                        foreach (var step in deploymentTargetSteps)
-                        {
-                            // Ensure the step is associated with the deployment target resource
-                            step.Resource ??= deploymentTarget;
-                        }
-
-                        steps.AddRange(deploymentTargetSteps);
-                    }
+                    await TerraformPipelineHelpers.ExpandChildStepsAsync(deploymentTarget, factoryContext, steps).ConfigureAwait(false);
                 }
             }
 
@@ -235,18 +216,9 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
             {
                 var deploymentTarget = computeResource.GetDeploymentTargetAnnotation(this)?.DeploymentTarget;
 
-                if (deploymentTarget is null)
+                if (deploymentTarget is not null)
                 {
-                    continue;
-                }
-
-                // Execute the PipelineConfigurationAnnotation callbacks on the deployment target
-                if (deploymentTarget.TryGetAnnotationsOfType<PipelineConfigurationAnnotation>(out var annotations))
-                {
-                    foreach (var annotation in annotations)
-                    {
-                        annotation.Callback(context);
-                    }
+                    TerraformPipelineHelpers.ExpandChildConfiguration(deploymentTarget, context);
                 }
             }
 
@@ -295,7 +267,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
 
         // Create an output reference using the naming convention: {endpoint_name}_endpoint
         // Examples: "http_endpoint", "https_endpoint", "grpc_endpoint"
-        var outputName = $"{endpointName}_endpoint";
+        var outputName = $"{endpointName}{TerraformProvisioningResource.EndpointOutputNameSuffix}";
         var outputRef = new TerraformOutputReference(outputName, resource);
 
         return ReferenceExpression.Create($"{outputRef}");
@@ -320,7 +292,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     private async Task ReadEnvironmentOutputsAsync(PipelineStepContext context)
     {
         var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(context, this);
-        var outputs = await TerraformOutputReader.ReadOutputsAsync(context, outputPath).ConfigureAwait(false);
+        var outputs = await TerraformCli.ReadOutputsAsync(context, outputPath).ConfigureAwait(false);
 
         // Populate the outputs dictionary
         foreach (var (key, value) in outputs)

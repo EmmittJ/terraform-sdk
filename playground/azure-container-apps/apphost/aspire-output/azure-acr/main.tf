@@ -26,21 +26,14 @@ provider "azurerm" {
   }
 }
 
-variable "base_name" {
-  description = "Parameter 'base-name'"
-  sensitive   = false
-  type        = string
-}
-
 variable "location" {
-  description = "Parameter 'location'"
-  sensitive   = false
-  type        = string
+  default = "westus2"
+  type    = string
 }
 
 resource "azurerm_resource_group" "rg" {
   location = var.location
-  name     = "${var.base_name}-registry-rg"
+  name     = "azure-registry-rg"
   tags = {
     Environment = "Development"
     ManagedBy   = "Aspire-Terraform"

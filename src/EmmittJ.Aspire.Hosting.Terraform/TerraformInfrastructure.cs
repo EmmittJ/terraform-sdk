@@ -16,11 +16,11 @@ internal sealed class TerraformInfrastructure(
     ILogger<TerraformInfrastructure> logger,
     DistributedApplicationExecutionContext executionContext) : IDistributedApplicationEventingSubscriber
 {
-    private async Task OnBeforeStartAsync(BeforeStartEvent @event, CancellationToken cancellationToken = default)
+    private Task OnBeforeStartAsync(BeforeStartEvent @event, CancellationToken cancellationToken = default)
     {
         if (executionContext.IsRunMode)
         {
-            return;
+            return Task.CompletedTask;
         }
 
         // Find Terraform environment resources
@@ -29,13 +29,11 @@ internal sealed class TerraformInfrastructure(
         if (terraformEnvironments.Length == 0)
         {
             EnsureNoPublishAsTerraformAnnotations(@event.Model);
-            return;
+            return Task.CompletedTask;
         }
 
         foreach (var environment in terraformEnvironments)
         {
-            var environmentContext = new TerraformEnvironmentContext(environment, logger, executionContext);
-
             // Check for container registry and set deployment target annotation
             if (environment.TryGetLastAnnotation<ContainerRegistryReferenceAnnotation>(out var registryAnnotation))
             {
@@ -66,22 +64,15 @@ internal sealed class TerraformInfrastructure(
                     continue;
                 }
 
+                logger.LogDebug("Creating Terraform resource for {ResourceName} ({ResourceType})",
+                    r.Name,
+                    r.GetType().Name);
+
                 // Create ONE TerraformResource per resource (not per annotation)
                 // Customization annotations will be applied at publish time
                 // Note: The TerraformProvisioningResource is NOT added to the model - instead, the
                 // TerraformEnvironmentResource expands its pipeline steps via PipelineStepAnnotation
-                var terraformResource = await environmentContext.CreateTerraformResourceAsync(r, cancellationToken).ConfigureAwait(false);
-
-                // Add TerraformOutputsAnnotation to store outputs directly on the resource
-                // This enables TerraformOutputReference to access outputs without searching through annotations
-                var outputsAnnotation = new TerraformOutputsAnnotation
-                {
-                    ProvisioningTaskCompletionSource = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously)
-                };
-                r.Annotations.Add(outputsAnnotation);
-
-                // Store the annotation on the TerraformProvisioningResource for easy access during output population
-                terraformResource.OutputsAnnotation = outputsAnnotation;
+                var terraformResource = new TerraformProvisioningResource($"{r.Name}-terraform", environment, r);
 
                 // Add ONE deployment target annotation per resource
                 var deploymentTargetAnnotation = new DeploymentTargetAnnotation(terraformResource)
@@ -98,6 +89,8 @@ internal sealed class TerraformInfrastructure(
                 r.Annotations.Add(deploymentTargetAnnotation);
             }
         }
+
+        return Task.CompletedTask;
     }
 
     private static void EnsureNoPublishAsTerraformAnnotations(DistributedApplicationModel appModel)

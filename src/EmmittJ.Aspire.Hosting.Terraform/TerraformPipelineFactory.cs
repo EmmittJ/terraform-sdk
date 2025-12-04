@@ -11,10 +11,150 @@ using Microsoft.Extensions.Logging;
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
 /// <summary>
-/// Provides methods for resolving Terraform variables and writing them to tfvars files.
+/// Factory for creating Terraform pipeline steps and resolving variables.
 /// </summary>
-internal static class TerraformVariableResolver
+internal static class TerraformPipelineFactory
 {
+    #region Step Creation
+
+    /// <summary>
+    /// Creates the standard set of Terraform pipeline steps for an environment.
+    /// </summary>
+    /// <param name="environment">The Terraform environment resource.</param>
+    /// <param name="stepNamePrefix">The prefix for step names (e.g., "terraform" or "registry").</param>
+    /// <param name="getOutputPath">Function to get the output path from the pipeline context.</param>
+    /// <param name="publishAction">The action to run for the publish step.</param>
+    /// <param name="additionalTags">Additional tags to add to all steps.</param>
+    /// <param name="readOutputsAction">Optional custom action for reading outputs. If null, a default step is created.</param>
+    /// <returns>A list of configured pipeline steps.</returns>
+    public static List<PipelineStep> CreateTerraformSteps(
+        ITerraformEnvironment environment,
+        string stepNamePrefix,
+        Func<PipelineStepContext, string> getOutputPath,
+        Func<PipelineStepContext, Task> publishAction,
+        string[]? additionalTags = null,
+        Func<PipelineStepContext, Task>? readOutputsAction = null)
+    {
+        var steps = new List<PipelineStep>();
+        var tags = additionalTags ?? [];
+
+        // Publish step - generates Terraform files
+        var publishStep = new PipelineStep
+        {
+            Name = $"publish-{stepNamePrefix}-{environment.Name}",
+            Action = publishAction,
+            Tags = [TerraformPipelineTags.PublishTerraform, .. tags],
+            RequiredBySteps = [WellKnownPipelineSteps.Publish, WellKnownPipelineSteps.Deploy]
+        };
+        steps.Add(publishStep);
+
+        if (!environment.AutoInit)
+        {
+            return steps;
+        }
+
+        // Init step
+        var initStep = new PipelineStep
+        {
+            Name = $"terraform-init-{stepNamePrefix}-{environment.Name}",
+            Action = ctx => TerraformCli.RunCommandAsync(
+                ctx,
+                "init -input=false -no-color",
+                getOutputPath(ctx)),
+            Tags = [TerraformPipelineTags.TerraformInit, .. tags],
+            DependsOnSteps = [publishStep.Name],
+            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+        };
+        steps.Add(initStep);
+
+        if (!environment.AutoPlan)
+        {
+            return steps;
+        }
+
+        // Plan step
+        var planStep = new PipelineStep
+        {
+            Name = $"terraform-plan-{stepNamePrefix}-{environment.Name}",
+            Action = async ctx =>
+            {
+                var outputPath = getOutputPath(ctx);
+                var sensitiveEnvVars = await ResolveParameterVariablesAsync(ctx, environment, outputPath).ConfigureAwait(false);
+                await TerraformCli.RunCommandAsync(
+                    ctx,
+                    "plan -out=aspire.tfplan -input=false -no-color",
+                    outputPath,
+                    sensitiveEnvVars,
+                    logOutput: true).ConfigureAwait(false);
+            },
+            Tags = [TerraformPipelineTags.TerraformPlan, .. tags],
+            DependsOnSteps = [initStep.Name, WellKnownPipelineSteps.DeployPrereq],
+            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+        };
+        steps.Add(planStep);
+
+        if (!environment.AutoApply)
+        {
+            return steps;
+        }
+
+        // Apply step
+        var applyStep = new PipelineStep
+        {
+            Name = $"terraform-apply-{stepNamePrefix}-{environment.Name}",
+            Action = async ctx =>
+            {
+                var outputPath = getOutputPath(ctx);
+                var sensitiveEnvVars = await ResolveParameterVariablesAsync(ctx, environment, outputPath).ConfigureAwait(false);
+                await TerraformCli.RunCommandAsync(
+                    ctx,
+                    "apply -auto-approve -input=false -no-color aspire.tfplan",
+                    outputPath,
+                    sensitiveEnvVars,
+                    logOutput: true).ConfigureAwait(false);
+            },
+            Tags = [TerraformPipelineTags.TerraformApply, WellKnownPipelineTags.ProvisionInfrastructure, .. tags],
+            DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
+            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+        };
+        steps.Add(applyStep);
+
+        // Read outputs step
+        var readOutputsStep = new PipelineStep
+        {
+            Name = $"read-outputs-{stepNamePrefix}-{environment.Name}",
+            Action = readOutputsAction ?? (ctx => DefaultReadOutputsAsync(ctx, environment, getOutputPath(ctx))),
+            Tags = [TerraformPipelineTags.TerraformOutputs, .. tags],
+            DependsOnSteps = [applyStep.Name],
+            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+        };
+        steps.Add(readOutputsStep);
+
+        return steps;
+    }
+
+    private static async Task DefaultReadOutputsAsync(
+        PipelineStepContext context,
+        ITerraformEnvironment environment,
+        string outputPath)
+    {
+        var outputs = await TerraformCli.ReadOutputsAsync(context, outputPath).ConfigureAwait(false);
+
+        // Populate the OutputsAnnotation for TerraformOutputReference access
+        var outputsAnnotation = environment.TerraformResource.OutputsAnnotation;
+        foreach (var (key, (value, _)) in outputs)
+        {
+            outputsAnnotation.Outputs[key] = value;
+        }
+
+        // Signal that provisioning is complete
+        outputsAnnotation.ProvisioningTaskCompletionSource?.TrySetResult();
+    }
+
+    #endregion
+
+    #region Variable Resolution
+
     /// <summary>
     /// Resolves parameter values from the environment and writes non-sensitive values to aspire.auto.tfvars.
     /// Returns sensitive values as a dictionary to be passed as TF_VAR_* environment variables.
@@ -270,4 +410,6 @@ internal static class TerraformVariableResolver
 
         logger.LogDebug("Wrote {Count} variables to {Path}", nonSensitiveVars.Count, tfvarsPath);
     }
+
+    #endregion
 }

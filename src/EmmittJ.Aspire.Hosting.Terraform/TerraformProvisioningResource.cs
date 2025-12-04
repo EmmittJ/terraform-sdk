@@ -44,8 +44,20 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// </code>
 /// </example>
 /// </remarks>
-public sealed class TerraformProvisioningResource : Resource
+public class TerraformProvisioningResource : Resource
 {
+    /// <summary>
+    /// The suffix used for endpoint output names.
+    /// Endpoint outputs follow the naming convention <c>{endpoint_name}_endpoint</c>.
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// // An endpoint named "http" will have an output named "http_endpoint"
+    /// var outputName = $"{endpointName}{TerraformProvisioningResource.EndpointOutputNameSuffix}";
+    /// </code>
+    /// </example>
+    public const string EndpointOutputNameSuffix = "_endpoint";
+
     /// <summary>
     /// Gets the target Aspire resource that this Terraform resource represents, if any.
     /// </summary>
@@ -68,10 +80,10 @@ public sealed class TerraformProvisioningResource : Resource
     internal Dictionary<string, object> Inputs { get; } = [];
 
     /// <summary>
-    /// Gets or sets the <see cref="TerraformOutputsAnnotation"/> for the target resource.
+    /// Gets the <see cref="TerraformOutputsAnnotation"/> for the target resource.
     /// This annotation stores outputs directly on the target resource for easy access.
     /// </summary>
-    internal TerraformOutputsAnnotation? OutputsAnnotation { get; set; }
+    public TerraformOutputsAnnotation OutputsAnnotation { get; }
 
     /// <summary>
     /// Gets the dictionary of variables created for this module's inputs.
@@ -199,12 +211,19 @@ public sealed class TerraformProvisioningResource : Resource
     /// <param name="name">The name of the Terraform resource.</param>
     /// <param name="environment">The Terraform environment this resource belongs to.</param>
     /// <param name="targetResource">The target Aspire resource, or <c>null</c> if this is a standalone Terraform resource.</param>
-    internal TerraformProvisioningResource(string name, ITerraformEnvironment environment, IResource? targetResource = null)
+    public TerraformProvisioningResource(string name, ITerraformEnvironment environment, IResource? targetResource = null)
         : base(name)
     {
         Environment = environment ?? throw new ArgumentNullException(nameof(environment));
         TargetResource = targetResource;
         Stack = new TerraformStack();
+
+        // Create the outputs annotation and add it to the target resource for easy access
+        OutputsAnnotation = new TerraformOutputsAnnotation
+        {
+            ProvisioningTaskCompletionSource = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously)
+        };
+        targetResource?.Annotations.Add(OutputsAnnotation);
 
         // Add pipeline step annotation for container image push (if this resource needs it)
         Annotations.Add(new PipelineStepAnnotation(CreatePipelineSteps));
@@ -617,7 +636,7 @@ public sealed class TerraformProvisioningResource : Resource
     public static string GetEndpointOutputName(EndpointReference endpointReference)
     {
         ArgumentNullException.ThrowIfNull(endpointReference);
-        return $"{endpointReference.EndpointName}_endpoint";
+        return $"{endpointReference.EndpointName}{EndpointOutputNameSuffix}";
     }
 
     /// <summary>
@@ -840,5 +859,170 @@ public sealed class TerraformProvisioningResource : Resource
         Stack.Add(variable);
 
         return variable;
+    }
+
+    /// <summary>
+    /// Resolves an <see cref="EndpointReference"/> to a Terraform variable by creating an output reference
+    /// to the endpoint from its source resource.
+    /// </summary>
+    /// <param name="endpointReference">The endpoint reference to resolve.</param>
+    /// <returns>A <see cref="TerraformVariable"/> that will contain the endpoint URL at deployment time.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method creates a variable that imports the endpoint output from the resource that exposes it.
+    /// The source resource must have exported the endpoint using <see cref="AddOutput(EndpointReference, TerraformValue{object}, string?)"/>.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// worker.PublishAsTerraform(infra =>
+    /// {
+    ///     // Import the API's HTTP endpoint as a variable
+    ///     var apiUrl = infra.ResolveEndpointReference(api.GetEndpoint("http"));
+    ///
+    ///     var container = new AzurermContainerAppTemplateBlockContainerBlock
+    ///     {
+    ///         Env = [new() { Name = "API_URL", Value = apiUrl.AsReference() }]
+    ///     };
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformVariable ResolveEndpointReference(EndpointReference endpointReference)
+    {
+        ArgumentNullException.ThrowIfNull(endpointReference);
+
+        var outputRef = new TerraformOutputReference(
+            GetEndpointOutputName(endpointReference),
+            endpointReference.Resource);
+
+        return AddVariable(outputRef);
+    }
+
+    /// <summary>
+    /// Resolves a <see cref="ReferenceExpression"/> to a Terraform value by processing its value providers.
+    /// </summary>
+    /// <param name="expression">The reference expression to resolve.</param>
+    /// <returns>A <see cref="TerraformValue{T}"/> representing the resolved expression.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method handles complex reference expressions that may contain multiple value providers.
+    /// Simple expressions with a single provider are resolved directly, while complex expressions
+    /// are formatted using string interpolation.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// worker.PublishAsTerraform(infra =>
+    /// {
+    ///     var connString = ReferenceExpression.Create($"Server={db.GetEndpoint("tcp")};Database=mydb");
+    ///     var resolved = infra.ResolveReferenceExpression(connString);
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformValue<string> ResolveReferenceExpression(ReferenceExpression expression)
+    {
+        ArgumentNullException.ThrowIfNull(expression);
+
+        // Simple case - single value provider with identity format
+        if (expression.Format == "{0}" && expression.ValueProviders.Count == 1)
+        {
+            return ResolveValueProvider(expression.ValueProviders[0]);
+        }
+
+        // Complex case - format string with multiple providers
+        var parts = new List<object>();
+        foreach (var provider in expression.ValueProviders)
+        {
+            var resolved = ResolveValueProvider(provider);
+            parts.Add(resolved);
+        }
+
+        return string.Format(expression.Format, parts.ToArray());
+    }
+
+    /// <summary>
+    /// Resolves a value provider object to a Terraform value.
+    /// </summary>
+    /// <param name="value">The value provider to resolve. Can be a string, <see cref="EndpointReference"/>,
+    /// <see cref="ParameterResource"/>, <see cref="TerraformOutputReference"/>, <see cref="ReferenceExpression"/>,
+    /// or other object.</param>
+    /// <returns>A <see cref="TerraformValue{T}"/> representing the resolved value.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method provides a single entry point for resolving various Aspire value types to Terraform values.
+    /// It handles:
+    /// </para>
+    /// <list type="bullet">
+    /// <item><see cref="string"/>: Returned as-is</item>
+    /// <item><see cref="EndpointReference"/>: Resolved via <see cref="ResolveEndpointReference"/></item>
+    /// <item><see cref="ParameterResource"/>: Resolved via <see cref="AddVariable(ParameterResource, string?)"/></item>
+    /// <item><see cref="TerraformOutputReference"/>: Resolved via <see cref="AddVariable(TerraformOutputReference, string?)"/></item>
+    /// <item><see cref="ReferenceExpression"/>: Resolved via <see cref="ResolveReferenceExpression"/></item>
+    /// <item>Other objects: Converted to string via <see cref="object.ToString"/></item>
+    /// </list>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     foreach (var (key, value) in context.EnvironmentVariables)
+    ///     {
+    ///         var resolved = infra.ResolveValueProvider(value);
+    ///         container.Env.Add(new() { Name = key, Value = resolved });
+    ///     }
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformValue<string> ResolveValueProvider(object value)
+    {
+        return value switch
+        {
+            string s => s,
+            EndpointReference ep => ResolveEndpointReference(ep).AsReference(),
+            EndpointReferenceExpression epExpr => ResolveEndpointReferenceExpression(epExpr),
+            ParameterResource param => AddVariable(param).AsReference(),
+            TerraformOutputReference outputRef => AddVariable(outputRef).AsReference(),
+            ReferenceExpression expr => ResolveReferenceExpression(expr),
+            _ => value?.ToString() ?? string.Empty
+        };
+    }
+
+    /// <summary>
+    /// Resolves an <see cref="EndpointReferenceExpression"/> to a Terraform value.
+    /// </summary>
+    /// <param name="expression">The endpoint reference expression to resolve.</param>
+    /// <returns>A <see cref="TerraformValue{T}"/> representing the resolved endpoint property.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method resolves endpoint property expressions (like <c>endpoint.Property(EndpointProperty.Host)</c>)
+    /// to their Terraform variable equivalents. For cross-resource references, it creates a variable that
+    /// imports the endpoint output from the source resource.
+    /// </para>
+    /// <para>
+    /// Platform-specific implementations may override endpoint resolution behavior for local endpoints
+    /// (endpoints on the same resource) by handling them before calling the base implementation.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     // The endpoint reference expression might come from environment variables
+    ///     var hostExpr = api.GetEndpoint("http").Property(EndpointProperty.Host);
+    ///     var resolved = infra.ResolveEndpointReferenceExpression(hostExpr);
+    /// });
+    /// </code>
+    /// </example>
+    public virtual TerraformValue<string> ResolveEndpointReferenceExpression(EndpointReferenceExpression expression)
+    {
+        ArgumentNullException.ThrowIfNull(expression);
+
+        // For external endpoints, we fall back to the full URL and let the platform extract what it needs
+        // Platform-specific implementations can override this for more sophisticated handling
+        var outputRef = new TerraformOutputReference(
+            GetEndpointOutputName(expression.Endpoint),
+            expression.Endpoint.Resource);
+
+        return AddVariable(outputRef).AsReference();
     }
 }

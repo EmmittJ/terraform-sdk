@@ -7,7 +7,6 @@ using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
 using Aspire.Hosting.Publishing;
 using EmmittJ.Terraform.Sdk;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
@@ -108,7 +107,7 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
     /// Gets the <see cref="TerraformOutputsAnnotation"/> for this registry.
     /// This annotation stores outputs directly on the resource for easy access via <see cref="TerraformOutputReference"/>.
     /// </summary>
-    internal TerraformOutputsAnnotation OutputsAnnotation { get; }
+    internal TerraformOutputsAnnotation OutputsAnnotation => TerraformResource.OutputsAnnotation;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="TerraformContainerRegistryResource"/> class.
@@ -129,18 +128,12 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         : base(name)
     {
         // Create the TerraformResource for this registry (it references itself as the environment)
+        // The constructor adds the TerraformOutputsAnnotation to this resource's Annotations collection
         TerraformResource = new TerraformProvisioningResource($"{name}-terraform", this, this);
 
         // Create output references for required outputs
         NameOutput = new TerraformOutputReference("name", this);
         EndpointOutput = new TerraformOutputReference("endpoint", this);
-
-        // Add TerraformOutputsAnnotation to store outputs directly on the resource
-        OutputsAnnotation = new TerraformOutputsAnnotation
-        {
-            ProvisioningTaskCompletionSource = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously)
-        };
-        Annotations.Add(OutputsAnnotation);
 
         // Add pipeline step annotation for registry provisioning
         Annotations.Add(new PipelineStepAnnotation(CreatePipelineSteps));
@@ -181,118 +174,38 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
 
     private IEnumerable<PipelineStep> CreatePipelineSteps(PipelineStepFactoryContext context)
     {
-        var steps = new List<PipelineStep>();
+        // Use the factory for standard steps
+        var steps = TerraformPipelineFactory.CreateTerraformSteps(
+            this,
+            $"registry-{Name}",
+            ctx => PublishingContextUtils.GetOutputPath(ctx, this),
+            PublishRegistryAsync,
+            [TerraformPipelineTags.Registry]);
 
-        // Publish step - generates Terraform files for the registry
-        var publishStep = new PipelineStep
+        // Add login step after read-outputs if we have auto-apply enabled
+        if (AutoApply && LoginCallback is not null)
         {
-            Name = $"publish-registry-{Name}",
-            Action = ctx => PublishRegistryAsync(ctx),
-            Tags = [TerraformPipelineTags.PublishTerraform, TerraformPipelineTags.Registry],
-            RequiredBySteps = [WellKnownPipelineSteps.Publish, WellKnownPipelineSteps.Deploy]
-        };
-        steps.Add(publishStep);
-
-        if (!AutoInit)
-        {
-            return steps;
-        }
-
-        // Init step - runs terraform init
-        var initStep = new PipelineStep
-        {
-            Name = $"init-registry-{Name}",
-            Action = ctx => TerraformCommandRunner.RunTerraformCommandAsync(
-                ctx,
-                "init -input=false -no-color",
-                GetRegistryOutputPath(ctx)),
-            Tags = [TerraformPipelineTags.TerraformInit, TerraformPipelineTags.Registry],
-            DependsOnSteps = [publishStep.Name],
-            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-        };
-        steps.Add(initStep);
-
-        if (!AutoPlan)
-        {
-            return steps;
-        }
-
-        // Plan step - runs terraform plan
-        var planStep = new PipelineStep
-        {
-            Name = $"plan-registry-{Name}",
-            Action = async ctx =>
+            var readOutputsStep = steps.LastOrDefault(s => s.Tags.Contains(TerraformPipelineTags.TerraformOutputs));
+            if (readOutputsStep is not null)
             {
-                var outputPath = GetRegistryOutputPath(ctx);
-                var sensitiveEnvVars = await TerraformVariableResolver.ResolveParameterVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
-                await TerraformCommandRunner.RunTerraformCommandAsync(
-                    ctx,
-                    "plan -out=aspire.tfplan -input=false -no-color",
-                    outputPath,
-                    sensitiveEnvVars,
-                    logOutput: true).ConfigureAwait(false);
-            },
-            Tags = [TerraformPipelineTags.TerraformPlan, TerraformPipelineTags.Registry],
-            DependsOnSteps = [initStep.Name, WellKnownPipelineSteps.DeployPrereq],
-            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-        };
-        steps.Add(planStep);
-
-        if (!AutoApply)
-        {
-            return steps;
+                var loginStep = new PipelineStep
+                {
+                    Name = $"login-registry-{Name}",
+                    Action = LoginToRegistryAsync,
+                    Tags = [TerraformPipelineTags.Registry, WellKnownPipelineTags.ProvisionInfrastructure],
+                    DependsOnSteps = [readOutputsStep.Name],
+                    RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+                };
+                steps.Add(loginStep);
+            }
         }
-
-        // Apply step - runs terraform apply
-        var applyStep = new PipelineStep
-        {
-            Name = $"apply-registry-{Name}",
-            Action = async ctx =>
-            {
-                var outputPath = GetRegistryOutputPath(ctx);
-                var sensitiveEnvVars = await TerraformVariableResolver.ResolveParameterVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
-                await TerraformCommandRunner.RunTerraformCommandAsync(
-                    ctx,
-                    "apply -auto-approve -input=false -no-color aspire.tfplan",
-                    outputPath,
-                    sensitiveEnvVars,
-                    logOutput: true).ConfigureAwait(false);
-            },
-            Tags = [TerraformPipelineTags.Registry, TerraformPipelineTags.TerraformApply, WellKnownPipelineTags.ProvisionInfrastructure],
-            DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
-            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-        };
-        steps.Add(applyStep);
-
-        // Read outputs step - reads terraform outputs
-        var readOutputsStep = new PipelineStep
-        {
-            Name = $"read-registry-outputs-{Name}",
-            Action = ctx => ReadRegistryOutputsAsync(ctx),
-            Tags = [TerraformPipelineTags.TerraformOutputs, TerraformPipelineTags.Registry],
-            DependsOnSteps = [applyStep.Name],
-            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-        };
-        steps.Add(readOutputsStep);
-
-        // Login step - authenticates to the registry
-        // Tagged with ProvisionInfrastructure so other code can hook into registry provisioning
-        var loginStep = new PipelineStep
-        {
-            Name = $"login-registry-{Name}",
-            Action = ctx => LoginToRegistryAsync(ctx),
-            Tags = [TerraformPipelineTags.Registry, WellKnownPipelineTags.ProvisionInfrastructure],
-            DependsOnSteps = [readOutputsStep.Name],
-            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-        };
-        steps.Add(loginStep);
 
         return steps;
     }
 
     private Task PublishRegistryAsync(PipelineStepContext context)
     {
-        var outputPath = GetRegistryOutputPath(context);
+        var outputPath = PublishingContextUtils.GetOutputPath(context, this);
 
         // Apply all customization annotations
         if (this.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var annotations))
@@ -333,21 +246,6 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         }
     }
 
-    private async Task ReadRegistryOutputsAsync(PipelineStepContext context)
-    {
-        var outputPath = GetRegistryOutputPath(context);
-        var outputs = await TerraformOutputReader.ReadOutputsAsync(context, outputPath).ConfigureAwait(false);
-
-        // Populate the OutputsAnnotation for TerraformOutputReference access
-        foreach (var (key, (value, _)) in outputs)
-        {
-            OutputsAnnotation.Outputs[key] = value;
-        }
-
-        // Signal that provisioning is complete so TerraformOutputReference.GetValueAsync can return
-        OutputsAnnotation.ProvisioningTaskCompletionSource?.TrySetResult();
-    }
-
     private async Task LoginToRegistryAsync(PipelineStepContext context)
     {
         if (LoginCallback is null)
@@ -357,20 +255,5 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         }
 
         await LoginCallback(context, this).ConfigureAwait(false);
-    }
-
-    private string GetRegistryOutputPath(PipelineStepContext context)
-    {
-        var outputService = context.Services.GetRequiredService<IPipelineOutputService>();
-
-        // Use the registry's own output path if specified, otherwise use the default
-        if (!string.IsNullOrEmpty(OutputPath))
-        {
-            var basePath = outputService.GetOutputDirectory();
-            return Path.Combine(basePath, OutputPath);
-        }
-
-        // Default: put registry in its own directory based on resource name
-        return outputService.GetOutputDirectory(this);
     }
 }

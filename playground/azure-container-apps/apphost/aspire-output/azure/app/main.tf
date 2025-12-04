@@ -15,13 +15,13 @@ variable "app_container_image" {
   type        = string
 }
 
-variable "acr_endpoint" {
+variable "azure_acr_endpoint" {
   type = string
 }
 
 resource "azurerm_container_app" "app" {
   container_app_environment_id = var.azure_container_env_id
-  name                         = "aspire-vite-yarp-app"
+  name                         = "app"
   resource_group_name          = var.azure_resource_group_name
   revision_mode                = "Single"
   tags = {
@@ -34,7 +34,7 @@ resource "azurerm_container_app" "app" {
   }
   ingress {
     external_enabled = true
-    target_port      = 8080
+    target_port      = 5000
     transport        = "auto"
     traffic_weight {
       latest_revision = true
@@ -43,7 +43,7 @@ resource "azurerm_container_app" "app" {
   }
   registry {
     identity = var.azure_managed_identity_id
-    server   = var.acr_endpoint
+    server   = var.azure_acr_endpoint
   }
   template {
     max_replicas = 3
@@ -60,10 +60,6 @@ resource "azurerm_container_app" "app" {
         value = "Production"
       }
       env {
-        name  = "ASPNETCORE_URLS"
-        value = "http://+:8080"
-      }
-      env {
         name  = "YARP_ENABLE_STATIC_FILES"
         value = "true"
       }
@@ -76,5 +72,5 @@ resource "azurerm_container_app" "app" {
 }
 
 output "http_endpoint" {
-  value = "https://${azurerm_container_app.app.ingress[0].fqdn}"
+  value = "${"http"}://${azurerm_container_app.app.ingress[0].fqdn}"
 }

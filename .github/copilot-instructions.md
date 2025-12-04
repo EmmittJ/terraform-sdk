@@ -44,7 +44,7 @@
 - ✅ Always use `is null` or `is not null` instead of `== null` or `!= null`
 - ✅ **Trust the C# null annotations** - don't add redundant null checks when the type system guarantees non-null
 - ❌ **Do NOT disable** nullable reference types
-- ❌ **Do NOT use** the null-forgiving operator (`!`) unless absolutely necessary
+- ❌ **Do NOT use** the null-forgiving operator (`!`) trust the compiler annotations
 
 ### XML Documentation
 

@@ -15,6 +15,27 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 internal static class PublishingContextUtils
 {
     /// <summary>
+    /// Gets the output path for a Terraform environment, respecting the pipeline's output service.
+    /// </summary>
+    /// <param name="context">The pipeline step context.</param>
+    /// <param name="environment">The Terraform environment.</param>
+    /// <returns>The absolute path where Terraform files should be written.</returns>
+    public static string GetOutputPath(PipelineStepContext context, ITerraformEnvironment environment)
+    {
+        var outputService = context.Services.GetRequiredService<IPipelineOutputService>();
+
+        // Use custom output path if specified
+        if (!string.IsNullOrEmpty(environment.OutputPath))
+        {
+            var basePath = outputService.GetOutputDirectory();
+            return Path.Combine(basePath, environment.OutputPath);
+        }
+
+        // Default: use resource-based output directory
+        return outputService.GetOutputDirectory(environment);
+    }
+
+    /// <summary>
     /// Gets the correct output path for the Terraform environment, respecting the pipeline's output service.
     /// </summary>
     /// <param name="context">The pipeline step context.</param>

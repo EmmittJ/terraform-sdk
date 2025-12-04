@@ -26,29 +26,22 @@ provider "azurerm" {
   }
 }
 
-variable "base_name" {
-  description = "Parameter 'base-name'"
-  sensitive   = false
-  type        = string
-}
-
 variable "location" {
-  description = "Parameter 'location'"
-  sensitive   = false
-  type        = string
+  default = "westus2"
+  type    = string
 }
 
-variable "acr_endpoint" {
+variable "azure_acr_endpoint" {
   type = string
 }
 
-variable "acr_name" {
+variable "azure_acr_name" {
   type = string
 }
 
 resource "azurerm_resource_group" "rg" {
   location = var.location
-  name     = "${var.base_name}-aca-rg"
+  name     = "azure-aca-rg"
   tags = {
     Environment = "Development"
     ManagedBy   = "Aspire-Terraform"
@@ -57,7 +50,7 @@ resource "azurerm_resource_group" "rg" {
 
 resource "azurerm_log_analytics_workspace" "law" {
   location            = var.location
-  name                = "${var.base_name}-law"
+  name                = "azure-law"
   resource_group_name = azurerm_resource_group.rg.name
   retention_in_days   = 30
   sku                 = "PerGB2018"
@@ -69,7 +62,7 @@ resource "azurerm_log_analytics_workspace" "law" {
 
 resource "azurerm_user_assigned_identity" "mi" {
   location            = var.location
-  name                = "${var.base_name}-mi"
+  name                = "azure-mi"
   resource_group_name = azurerm_resource_group.rg.name
   tags = {
     Environment = "Development"
@@ -78,8 +71,8 @@ resource "azurerm_user_assigned_identity" "mi" {
 }
 
 data "azurerm_container_registry" "acr" {
-  name                = var.acr_name
-  resource_group_name = "${var.base_name}-registry-rg"
+  name                = var.azure_acr_name
+  resource_group_name = "azure-registry-rg"
 }
 
 resource "azurerm_role_assignment" "acr-pull" {
@@ -93,7 +86,7 @@ resource "azurerm_container_app_environment" "cae" {
   location                   = var.location
   log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
   logs_destination           = "log-analytics"
-  name                       = "${var.base_name}-cae"
+  name                       = "azure-cae"
   resource_group_name        = azurerm_resource_group.rg.name
   tags = {
     Environment = "Development"
@@ -113,13 +106,9 @@ output "resource_group_name" {
   value = azurerm_resource_group.rg.name
 }
 
-output "app_http_endpoint" {
-  value = module.app.http_endpoint
-}
-
 module "app" {
-  acr_endpoint              = var.acr_endpoint
   app_container_image       = var.app_container_image
+  azure_acr_endpoint        = var.azure_acr_endpoint
   azure_container_env_id    = azurerm_container_app_environment.cae.id
   azure_managed_identity_id = azurerm_user_assigned_identity.mi.id
   azure_resource_group_name = azurerm_resource_group.rg.name
