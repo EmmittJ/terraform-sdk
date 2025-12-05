@@ -130,9 +130,16 @@ public class TerraformValue<T> : ITerraformValue
         }
 
         // Allow other ITerraformResolvable types - wrap in lazy to resolve later
+        // If the value has lineage (e.g., a TerraformBlock), copy it to the wrapper
+        // so it resolves to a reference when used as a value
         if (value is ITerraformResolvable resolvable)
         {
-            return TerraformValue<T>.Lazy(resolvable);
+            var lazy = TerraformValue<T>.Lazy(resolvable);
+            if (value is ITerraformValue { Lineage: not null } terraformValue)
+            {
+                lazy.Lineage = terraformValue.Lineage;
+            }
+            return lazy;
         }
 
         return TerraformValue<T>.Lazy(TerraformExpression.Literal(value));

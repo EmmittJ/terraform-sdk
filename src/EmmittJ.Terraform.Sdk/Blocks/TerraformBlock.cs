@@ -116,10 +116,12 @@ public abstract class TerraformBlock : TerraformMap<object>
                 $"Cannot create reference to {GetType().Name}: block type does not support references.");
 
         return lineage.BuildExpression();
-    }    /// <summary>
-         /// Resolves this block to multiple syntax nodes (arguments + nested blocks).
-         /// Nodes are sorted by the context's formatter.
-         /// </summary>
+    }
+
+    /// <summary>
+    /// Resolves this block to multiple syntax nodes (arguments + nested blocks).
+    /// Nodes are sorted by the context's formatter.
+    /// </summary>
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         var nodes = new List<TerraformSyntaxNode>();

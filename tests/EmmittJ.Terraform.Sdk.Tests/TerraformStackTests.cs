@@ -125,7 +125,7 @@ public class TerraformStackTests
         var instance = new TerraformResource("aws_instance", "web")
         {
             ["ami"] = "ami-12345678",
-            ["instance_type"] = instanceType.ToReference(),
+            ["instance_type"] = instanceType,
             ["tags"] = new TerraformMap<object>
             {
                 ["Name"] = "Web Server"
@@ -291,8 +291,8 @@ public class TerraformStackTests
         var provider = new TerraformProvider("aws")
         {
             ["region"] = "us-west-2",
-            ["access_key"] = accessKey.ToReference(),
-            ["secret_key"] = secretKey.ToReference()
+            ["access_key"] = accessKey,
+            ["secret_key"] = secretKey
         };
 
         var instance = new TerraformResource("aws_instance", "web")
@@ -421,6 +421,53 @@ public class TerraformStackTests
     }
 
     [Fact]
+    public Task TerraformStack_WithSharedMapVariable()
+    {
+        // Test what happens when a TerraformMap is created as a variable
+        // and reused across multiple resources. The map should be rendered
+        // inline each time (not as a reference) since it has no lineage.
+        var stack = new TerraformStack { Name = "shared-map" };
+
+        // Create a shared tags map as a C# variable
+        var commonTags = new TerraformMap<object>
+        {
+            ["Environment"] = "production",
+            ["ManagedBy"] = "Terraform",
+            ["Project"] = "MyApp"
+        };
+
+        // Use the same map in multiple resources
+        var vpc = new TerraformResource("aws_vpc", "main")
+        {
+            ["cidr_block"] = "10.0.0.0/16",
+            ["tags"] = commonTags
+        };
+
+        var subnet = new TerraformResource("aws_subnet", "public")
+        {
+            ["vpc_id"] = vpc["id"],
+            ["cidr_block"] = "10.0.1.0/24",
+            ["tags"] = commonTags
+        };
+
+        var instance = new TerraformResource("aws_instance", "web")
+        {
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = "t2.micro",
+            ["subnet_id"] = subnet["id"],
+            ["tags"] = commonTags
+        };
+
+        stack.Add(vpc);
+        stack.Add(subnet);
+        stack.Add(instance);
+
+        var hcl = stack.ToHcl();
+
+        return Verify(hcl);
+    }
+
+    [Fact]
     public Task TerraformStack_WithDataSource()
     {
         var stack = new TerraformStack { Name = "datasource" };
@@ -499,16 +546,16 @@ public class TerraformStackTests
         // Provider
         var provider = new TerraformProvider("aws")
         {
-            ["region"] = region.ToReference()
+            ["region"] = region
         };
 
         // Locals
         var locals = new TerraformLocals()
         {
-            ["name_prefix"] = Tf.Interpolate($"{environment.ToReference()}-myapp"),
+            ["name_prefix"] = Tf.Interpolate($"{environment}-myapp"),
             ["common_tags"] = new TerraformMap<object>
             {
-                ["Environment"] = environment.ToReference(),
+                ["Environment"] = environment,
                 ["ManagedBy"] = "Terraform"
             }
         };

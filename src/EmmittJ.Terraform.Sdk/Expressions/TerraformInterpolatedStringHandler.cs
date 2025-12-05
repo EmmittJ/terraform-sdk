@@ -204,8 +204,12 @@ public ref struct TerraformInterpolatedStringHandler
             throw new ArgumentNullException(nameof(value));
         }
 
+        // For TerraformBlock, store its reference expression instead of the block itself
+        // This ensures blocks resolve to references (e.g., var.region) rather than content
+        object partToStore = value is TerraformBlock block ? block.ToReference() : value;
+
         // Store the value and format separately; TerraformInterpolationExpression will apply format during HCL generation
-        _parts.Add(value);
+        _parts.Add(partToStore);
         _formats.Add(format);
     }
 
